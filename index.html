@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arthavi - Privacy-First Portfolio Analytics & Net Worth Tracker for India</title>
+    <title>Arthavi: Privacy-First Net Worth & Portfolio Tracker India</title>
     <meta name="description"
-        content="Secure, ad-free net worth tracker for Indian investors. Analyze Mutual Funds (CAS) and Stocks with XIRR, goal planning, and privacy-first design. No data selling.">
+        content="India's privacy-first portfolio tracker. Analyze Mutual Funds (CAS) & Stocks with accurate XIRR. Ad-free, secure, and built for serious investors.">
     <meta name="keywords"
         content="Portfolio Analytics India, Net Worth Tracker, Mutual Fund Analysis, CAS Upload, Stock Portfolio Tracker, XIRR Calculator, Privacy First Finance, SIP Tracking">
     <link rel="canonical" href="https://arthavi.com/">
     <link rel="icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -38,7 +39,967 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            /* Colors */
+            --bg-main: #0b0e14;
+            --bg-surface: #151a23;
+            --bg-hover: #1f2937;
+
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-glow: #818cf8;
+
+            --text-head: #f9fafb;
+            --text-body: #a1a1aa;
+            --text-muted: #6b7280;
+
+            /* Typography */
+            --font-heading: "Outfit", sans-serif;
+            --font-body: "Inter", sans-serif;
+
+            /* Spacing */
+            --container-width: 1200px;
+            --header-height: 80px;
+        }
+
+        /* Reset & Base */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            color: var(--text-head);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .glass-panel {
+            background: rgba(21, 26, 35, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.23);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-head);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 14, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            height: var(--header-height);
+        }
+
+        header .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-head);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-body);
+        }
+
+        nav a:hover {
+            color: var(--text-head);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: calc(var(--header-height) + 4rem);
+            padding-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(circle,
+                    rgba(99, 102, 241, 0.15) 0%,
+                    rgba(11, 14, 20, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg,
+                    var(--primary) 0%,
+                    var(--primary-hover) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-body);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Dashboard Preview */
+        .dashboard-preview {
+            margin-top: 4rem;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dashboard-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Button Group */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* App Store Buttons */
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            background-color: var(--bg-surface);
+            color: var(--text-head);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+            font-size: 0.95rem;
+            gap: 0.75rem;
+            min-width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-store:hover {
+            background-color: var(--bg-hover);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-store svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* Feature Lists */
+        .feature-card ul {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .feature-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .feature-card li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Mobile Showcase In Why Section */
+        .mobile-showcase {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-showcase img {
+            max-height: 100%;
+            width: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-head);
+            font-family: var(--font-heading);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Why Arthavi */
+        .why-section {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, var(--bg-main), var(--bg-surface));
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .why-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .why-item strong {
+            display: block;
+            font-size: 1.1rem;
+            font-family: var(--font-heading);
+            color: var(--text-head);
+            margin-bottom: 0.25rem;
+        }
+
+        .check-icon {
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        /* Trust & Privacy */
+        .trust-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 200px;
+        }
+
+        .trust-badge strong {
+            color: var(--text-head);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+        }
+
+        .lock-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--bg-surface);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-head);
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-heading);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-body);
+            display: none;
+            line-height: 1.6;
+        }
+
+        .faq-item.active {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+            /* Simple fade for expanded answer */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+
+        .icon-plus {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Final CTA */
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle,
+                    rgba(99, 102, 241, 0.1) 0%,
+                    rgba(11, 14, 20, 0) 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 4rem 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand strong {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-head);
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .footer-links strong {
+            display: block;
+            color: var(--text-head);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 6rem 0;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(99, 102, 241, 0.05) 0%,
+                    transparent 60%);
+        }
+
+        .comparison-container {
+            max-width: 900px;
+            margin: 3rem auto 4rem;
+            overflow: hidden;
+            /* For rounded corners on the table */
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+            /* Ensure readability on mobile */
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table td {
+            color: var(--text-body);
+            font-size: 1rem;
+        }
+
+        .comparison-table th.highlight,
+        .comparison-table td.highlight {
+            background: rgba(99, 102, 241, 0.08);
+            /* Highlight Arthavi column */
+            border-bottom-color: rgba(99, 102, 241, 0.1);
+            color: var(--text-head);
+            font-weight: 500;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .comp-item strong {
+            display: block;
+            color: var(--text-head);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-family: var(--font-heading);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 0;
+            position: relative;
+            background: linear-gradient(180deg,
+                    var(--bg-body) 0%,
+                    rgba(99, 102, 241, 0.05) 50%,
+                    var(--bg-body) 100%);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-image: linear-gradient(to right,
+                    var(--primary) 50%,
+                    transparent 50%);
+            background-size: 20px 1px;
+            background-repeat: repeat-x;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid::before {
+                display: none;
+            }
+        }
+
+        .step-card {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .step-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-head);
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .step-card strong {
+            display: block;
+            font-size: 1.25rem;
+            font-family: var(--font-heading);
+            color: var(--text-head);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 70px;
+            }
+
+            .hero {
+                padding-top: calc(var(--header-height) + 2rem);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            header .container {
+                padding: 0 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+
+        /* Text Page Layouts (Privacy, Terms, About, etc) */
+        .page-header {
+            padding-top: calc(var(--header-height) + 4rem);
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+
+        .prose {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            color: var(--text-body);
+        }
+
+        .prose h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-head);
+        }
+
+        .prose h2 {
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-head);
+        }
+
+        .prose h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-head);
+        }
+
+        .prose p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .prose ul,
+        .prose ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        .prose li::marker {
+            color: var(--text-muted);
+        }
+
+        .prose a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .prose a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* Contact Page Specifics */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
 
     <!-- JSON-LD -->
     <script type="application/ld+json">
@@ -132,7 +1093,7 @@
     <header>
         <div class="container">
             <a href="index.html" class="logo" aria-label="Arthavi Home">
-                <img src="images/logo.png" alt="Arthavi Logo" width="30" height="auto" style="border-radius: 4px;">
+                <img src="images/logo.webp" alt="Arthavi Logo" width="30" height="26" style="border-radius: 4px;">
                 <span>Arthavi</span>
             </a>
             <nav role="navigation">
@@ -156,8 +1117,9 @@
                 </h1>
                 <p>
                     Arthavi is built for investors who want clarity, not commissions.
-                    Track your complete financial picture — mutual funds and stocks — with analytics that reflect real
-                    cash flows, verified data, and long-term performance. No ads. No noise. Just facts.
+                    Master your <strong>net worth analytics</strong> and track your complete financial picture — mutual
+                    funds and stocks — with a <strong>privacy-first</strong> design that reflects real
+                    cash flows. No ads. No noise. Just facts.
                 </p>
 
                 <div class="btn-group">
@@ -195,9 +1157,14 @@
 
             <div class="container">
                 <figure class="dashboard-preview glass-panel fade-in delay-200">
-                    <img src="images/widgets.png"
-                        alt="Arthavi Analytics Widgets showing net worth, asset allocation and goals" width="1200"
-                        height="675" loading="eager">
+                    <picture>
+                        <source
+                            srcset="images/widgets-480w.webp 480w, images/widgets-800w.webp 800w, images/widgets.webp 1024w"
+                            type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
+                        <img src="images/widgets.webp"
+                            alt="Arthavi Analytics Widgets showing net worth, asset allocation and goals" width="1024"
+                            height="571" loading="eager" fetchpriority="high">
+                    </picture>
                     <figcaption class="sr-only">Net worth dashboard showing consolidated mutual fund and stock
                         performance for Indian investors, including XIRR-based returns and AMC allocation.</figcaption>
                 </figure>
@@ -216,7 +1183,7 @@
                     <!-- Step 1 -->
                     <div class="step-card fade-in delay-100">
                         <div class="step-icon">1</div>
-                        <h3>Upload CAS</h3>
+                        <p class="step-title"><strong>Upload CAS</strong></p>
                         <p>Export your generic CAS PDF from CAMS or KFintech and upload it. We parse it locally to value
                             your mutual funds.</p>
                     </div>
@@ -224,7 +1191,7 @@
                     <!-- Step 2 -->
                     <div class="step-card fade-in delay-200">
                         <div class="step-icon">2</div>
-                        <h3>Add Stocks</h3>
+                        <p class="step-title"><strong>Add Stocks</strong></p>
                         <p>Search and add your equity holdings. We fetch the latest prices from NSE/BSE to keep your
                             portfolio updated.</p>
                     </div>
@@ -232,7 +1199,7 @@
                     <!-- Step 3 -->
                     <div class="step-card fade-in delay-300">
                         <div class="step-icon">3</div>
-                        <h3>See Your Net Worth</h3>
+                        <p class="step-title"><strong>See Your Net Worth</strong></p>
                         <p>Instantly get a unified dashboard with XIRR, asset allocation, and goal tracking. Simple and
                             private.</p>
                     </div>
@@ -258,7 +1225,7 @@
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </div>
-                        <h3>Security & Privacy</h3>
+                        <p class="feature-title"><strong>Security & Privacy</strong></p>
                         <p>Arthavi follows a privacy-first architecture designed to minimize data exposure. We do not
                             profile users, sell insights, or share portfolio data.</p>
                         <ul>
@@ -281,7 +1248,7 @@
                                 <polyline points="10 9 9 9 8 9"></polyline>
                             </svg>
                         </div>
-                        <h3>Mutual Fund Analytics</h3>
+                        <p class="feature-title"><strong>Mutual Fund Analytics</strong></p>
                         <p>Import CAS PDFs from CAMS & KFintech in minutes. Transactions are parsed locally and
                             validated for accuracy.</p>
                         <ul>
@@ -301,7 +1268,7 @@
                                 <polyline points="17 6 23 6 23 12"></polyline>
                             </svg>
                         </div>
-                        <h3>Stock Portfolio</h3>
+                        <p class="feature-title"><strong>Stock Portfolio</strong></p>
                         <p>Manual equity tracking for full control. Add stocks with purchase date, quantity, and price
                             for realistic returns.</p>
                         <ul>
@@ -323,7 +1290,7 @@
                                 <rect x="3" y="14" width="7" height="7"></rect>
                             </svg>
                         </div>
-                        <h3>Unified Dashboard</h3>
+                        <p class="feature-title"><strong>Unified Dashboard</strong></p>
                         <p>A single net worth view bringing all assets together. See total wealth and performance trends
                             instantly.</p>
                         <ul>
@@ -344,7 +1311,7 @@
                                 <circle cx="12" cy="12" r="2"></circle>
                             </svg>
                         </div>
-                        <h3>Goal Planning</h3>
+                        <p class="feature-title"><strong>Goal Planning</strong></p>
                         <p>Tie investments to real life. Measure portfolio progress against specific financial goals,
                             not just market indices.</p>
                         <ul>
@@ -364,7 +1331,7 @@
                                 <polyline points="8 6 2 12 8 18"></polyline>
                             </svg>
                         </div>
-                        <h3>Modern Architecture</h3>
+                        <p class="feature-title"><strong>Modern Architecture</strong></p>
                         <p>Engineered for speed and data integrity. We avoid legacy bloat to ensure fast analytics as
                             your portfolio grows.</p>
                         <ul>
@@ -380,8 +1347,13 @@
                 <div class="fade-in delay-200" style="margin-top: 4rem;">
                     <figure class="glass-panel"
                         style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <img src="images/dashboard.png" alt="Full Arthavi Dashboard View"
-                            style="width: 100%; display: block;" loading="lazy">
+                        <picture>
+                            <source
+                                srcset="images/dashboard-480w.webp 480w, images/dashboard-800w.webp 800w, images/dashboard.webp 1024w"
+                                type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
+                            <img src="images/dashboard.webp" alt="Full Arthavi Dashboard View"
+                                style="width: 100%; display: block;" loading="lazy" width="1024" height="1024">
+                        </picture>
                     </figure>
                 </div>
             </div>
@@ -461,22 +1433,22 @@
 
                 <div class="comparison-grid fade-in delay-200">
                     <div class="comp-item">
-                        <h4>Ad-Free by Design</h4>
+                        <p><strong>Ad-Free by Design</strong></p>
                         <p class="text-sm text-muted">Arthavi does not rely on advertisements or sponsored products.
                             This ensures analytics remain unbiased and focused purely on user data.</p>
                     </div>
                     <div class="comp-item">
-                        <h4>No Data Selling</h4>
+                        <p><strong>No Data Selling</strong></p>
                         <p class="text-sm text-muted">User portfolio data is sensitive. Arthavi does not sell, rent, or
                             share financial data with advertisers or third parties.</p>
                     </div>
                     <div class="comp-item">
-                        <h4>No Broker Lock-In</h4>
+                        <p><strong>No Broker Lock-In</strong></p>
                         <p class="text-sm text-muted">Unlike platforms tied to brokerage accounts, Arthavi allows
                             investors to track portfolios independently, without forced integrations.</p>
                     </div>
                     <div class="comp-item">
-                        <h4>Analytics, Not Advice</h4>
+                        <p><strong>Analytics, Not Advice</strong></p>
                         <p class="text-sm text-muted">Arthavi provides portfolio analytics only. It does not offer
                             investment advice, recommendations, or trade execution.</p>
                     </div>
@@ -517,7 +1489,7 @@
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <div>
-                                <h4>No Broker Integrations</h4>
+                                <p><strong>No Broker Integrations</strong></p>
                                 <p class="text-sm text-muted">We remain neutral and independent by not connecting deeply
                                     with brokers.</p>
                             </div>
@@ -528,7 +1500,7 @@
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <div>
-                                <h4>No Order Execution</h4>
+                                <p><strong>No Order Execution</strong></p>
                                 <p class="text-sm text-muted">A read-only platform ensures zero financial risk to your
                                     actual capital.</p>
                             </div>
@@ -539,7 +1511,7 @@
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <div>
-                                <h4>No Sponsored Rankings</h4>
+                                <p><strong>No Sponsored Rankings</strong></p>
                                 <p class="text-sm text-muted">You won't find "promoted" funds here. Just your data.</p>
                             </div>
                         </div>
@@ -549,7 +1521,7 @@
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <div>
-                                <h4>No Dark Patterns</h4>
+                                <p><strong>No Dark Patterns</strong></p>
                                 <p class="text-sm text-muted">Clean, transparent design without manipulative UI tricks.
                                 </p>
                             </div>
@@ -558,8 +1530,14 @@
                 </div>
                 <!-- Replaced chart with mobile showcase -->
                 <div class="mobile-showcase fade-in">
-                    <img src="images/mobile-screenshots-collage.png"
-                        alt="Arthavi Mobile App Interface showing portfolio tracking on the go">
+                    <picture>
+                        <source
+                            srcset="images/mobile-screenshots-collage-480w.webp 480w, images/mobile-screenshots-collage-800w.webp 800w, images/mobile-screenshots-collage.webp 2048w"
+                            type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
+                        <img src="images/mobile-screenshots-collage.webp"
+                            alt="Arthavi Mobile App Interface showing portfolio tracking on the go" loading="lazy"
+                            width="2048" height="2048">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -582,7 +1560,7 @@
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </div>
-                        <h4>End-to-End Encryption</h4>
+                        <p><strong>End-to-End Encryption</strong></p>
                         <p class="text-sm text-muted">Applied at rest and during transmission.</p>
                     </div>
                     <div class="trust-badge">
@@ -592,7 +1570,7 @@
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                             </svg>
                         </div>
-                        <h4>Read-Only Safety</h4>
+                        <p><strong>Read-Only Safety</strong></p>
                         <p class="text-sm text-muted">Zero risk of accidental trades or transfers.</p>
                     </div>
                     <div class="trust-badge">
@@ -603,7 +1581,7 @@
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
                         </div>
-                        <h4>Biometric Lock</h4>
+                        <p><strong>Biometric Lock</strong></p>
                         <p class="text-sm text-muted">Optional app lock for extra privacy.</p>
                     </div>
                     <div class="trust-badge">
@@ -616,9 +1594,41 @@
                                 </path>
                             </svg>
                         </div>
-                        <h4>Data Reset</h4>
+                        <p><strong>Data Reset</strong></p>
                         <p class="text-sm text-muted">Full data wipe available anytime.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" style="padding: 5rem 0;">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Latest Financial Insights</h2>
+                    <p class="section-sub">Educational guides to help you manage your wealth better.</p>
+                </div>
+
+                <div class="features-grid">
+                    <article class="feature-card glass-panel fade-in delay-100"
+                        style="cursor: pointer; transition: transform 0.3s ease;"
+                        onclick="window.location.href='how-to-track-mutual-fund-portfolio-india.html'">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>How to Track Your Mutual Fund Portfolio (Without Broker
+                                Access)</strong></p>
+                        <p class="text-sm text-muted" style="margin-bottom: 1rem;">Guide • 5 min read</p>
+                        <p>Stop relying on screenshots. Learn the reliable, privacy-first way to track SIPs and total
+                            net
+                            worth using CAS statements.</p>
+                        <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 500;">Read Article &rarr;
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -758,21 +1768,21 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <h3>Arthavi</h3>
+                    <strong>Arthavi</strong>
                     <p>The privacy-first portfolio tracker for the modern Indian investor.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Features</h4>
+                    <strong>Features</strong>
                     <ul>
-                        <li><a href="portfolio-tracker-india.html">Portfolio Tracker</a></li>
-                        <li><a href="mutual-fund-portfolio-tracker-india.html">Mutual Fund Tracker</a></li>
-                        <li><a href="stock-portfolio-tracker-india.html">Stock Tracker</a></li>
-                        <li><a href="net-worth-tracker-india.html">Net Worth Tracker</a></li>
-                        <li><a href="xirr-calculator-mutual-funds.html">XIRR Calculator</a></li>
+                        <li><a href="portfolio-tracker-india.html">Investment Tracker</a></li>
+                        <li><a href="mutual-fund-portfolio-tracker-india.html">Mutual Fund Analytics</a></li>
+                        <li><a href="stock-portfolio-tracker-india.html">Equity Portfolio</a></li>
+                        <li><a href="net-worth-tracker-india.html">Total Wealth Tracker</a></li>
+                        <li><a href="xirr-calculator-mutual-funds.html">SIP Returns Calculator</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Company</h4>
+                    <strong>Company</strong>
                     <ul>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="security.html">Security</a></li>
@@ -780,7 +1790,7 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Legal</h4>
+                    <strong>Legal</strong>
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
@@ -795,7 +1805,7 @@
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
 </body>
 
 </html>

@@ -427,10 +427,12 @@ nav a:hover {
   gap: 2rem;
 }
 
-.feature-card h3 {
+.feature-card .feature-title {
   font-size: 1.25rem;
+  font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--text-head);
+  font-family: var(--font-heading);
 }
 
 .feature-card p {
@@ -475,6 +477,14 @@ nav a:hover {
   align-items: flex-start;
 }
 
+.why-item strong {
+  display: block;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  color: var(--text-head);
+  margin-bottom: 0.25rem;
+}
+
 .check-icon {
   color: var(--primary);
   flex-shrink: 0;
@@ -499,8 +509,14 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   max-width: 200px;
+}
+
+.trust-badge strong {
+  color: var(--text-head);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
 }
 
 .lock-icon {
@@ -635,15 +651,22 @@ footer {
   margin-bottom: 3rem;
 }
 
-.footer-brand h3 {
+.footer-brand strong {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-head);
   margin-bottom: 1rem;
+  font-family: var(--font-heading);
 }
 
-.footer-links h4 {
+.footer-links strong {
+  display: block;
   color: var(--text-head);
   font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
 }
 
 .footer-links ul {
@@ -729,10 +752,12 @@ footer {
   margin: 0 auto;
 }
 
-.comp-item h4 {
+.comp-item strong {
+  display: block;
   color: var(--text-head);
   margin-bottom: 0.75rem;
   font-size: 1.1rem;
+  font-family: var(--font-heading);
 }
 
 /* How It Works */
@@ -927,4 +952,12 @@ footer {
 .contact-card {
   text-align: center;
   padding: 2rem;
+}
+
+.step-card strong {
+  display: block;
+  font-size: 1.25rem;
+  font-family: var(--font-heading);
+  color: var(--text-head);
+  margin-bottom: 1rem;
 }
