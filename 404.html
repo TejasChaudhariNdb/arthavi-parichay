@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Arthavi</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#0B0E14">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error-page {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .error-msg {
+            font-size: 1.5rem;
+            color: var(--text-head);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Arthavi Home">
+                <img src="images/logo.png" alt="Arthavi Logo" width="30" height="auto" style="border-radius: 4px;">
+                <span>Arthavi</span>
+            </a>
+            <a href="https://app.arthavi.com" class="btn btn-primary">Get Started</a>
+        </div>
+    </header>
+
+    <main class="container error-page">
+        <div class="error-code fade-in">404</div>
+        <h1 class="error-msg fade-in delay-100">Oops! The page you're looking for doesn't exist.</h1>
+        <p class="text-muted fade-in delay-100" style="margin-bottom: 3rem;">It looks like the link might be broken or
+            the page has moved.</p>
+        <a href="index.html" class="btn btn-primary fade-in delay-200">Go Back Home</a>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; 2026 Arthavi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
