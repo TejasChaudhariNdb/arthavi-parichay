@@ -470,6 +470,13 @@
             justify-content: center;
         }
 
+        .cta-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
         /* Dashboard Preview */
         .dashboard-preview {
             margin-top: 4rem;
@@ -1165,6 +1172,42 @@
 
 
                 <div class="btn-group">
+                    <!-- Try Demo (Primary) -->
+                    <a href="https://app.arthavi.com/demo" class="btn btn-primary">
+                        Try Demo (No Login)
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Create Account (Secondary) -->
+                    <a href="https://app.arthavi.com/register" class="btn btn-secondary">
+                        Create Free Account
+                    </a>
+                </div>
+                <p class="cta-note">
+                    Free • No demat linking • No credit card
+                </p>
+            </div>
+
+            <div class="container">
+                <figure class="dashboard-preview glass-panel fade-in delay-200">
+                    <picture>
+                        <source
+                            srcset="images/widgets-480w.webp 480w, images/widgets-800w.webp 800w, images/widgets.webp 1024w"
+                            type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
+                        <img src="images/widgets.webp"
+                            alt="Arthavi Analytics Widgets showing net worth, asset allocation and goals" width="1024"
+                            height="571" loading="eager" fetchpriority="high">
+                    </picture>
+                    <figcaption class="sr-only">Net worth dashboard showing consolidated mutual fund and stock
+                        performance for Indian investors, including XIRR-based returns and AMC allocation.</figcaption>
+                </figure>
+
+                <!-- Store Buttons Below Fold -->
+                <div class="btn-group fade-in delay-300" style="margin-top: 3rem;">
                     <!-- Android Button -->
                     <a href="https://app.arthavi.com/register" class="btn-store">
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1186,30 +1229,14 @@
                     </a>
 
                     <!-- Web App Button -->
-                    <a href="https://app.arthavi.com/register" class="btn btn-primary">
-                        Launch Web App
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
+                    <a href="https://app.arthavi.com/register" class="btn-store">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-1.07 3.9-2.6 5.41z" />
                         </svg>
+                        Web App
                     </a>
                 </div>
-            </div>
-
-            <div class="container">
-                <figure class="dashboard-preview glass-panel fade-in delay-200">
-                    <picture>
-                        <source
-                            srcset="images/widgets-480w.webp 480w, images/widgets-800w.webp 800w, images/widgets.webp 1024w"
-                            type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
-                        <img src="images/widgets.webp"
-                            alt="Arthavi Analytics Widgets showing net worth, asset allocation and goals" width="1024"
-                            height="571" loading="eager" fetchpriority="high">
-                    </picture>
-                    <figcaption class="sr-only">Net worth dashboard showing consolidated mutual fund and stock
-                        performance for Indian investors, including XIRR-based returns and AMC allocation.</figcaption>
-                </figure>
             </div>
         </section>
 
@@ -1502,14 +1529,19 @@
                             publicly observable features and common industry practices.</em></p>
                     <h3 class="heading-md" style="margin-bottom: 1.5rem;">See Your Portfolio Clearly — Without Ads or
                         Data Selling</h3>
-                    <a href="https://app.arthavi.com/register" class="btn btn-primary">
-                        Get Started with Arthavi
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+                    <div class="btn-group" style="margin-top: 1.5rem;">
+                        <a href="https://app.arthavi.com/demo" class="btn btn-primary">
+                            Try Demo (No Login)
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="https://app.arthavi.com/register" class="btn btn-secondary">
+                            Create Free Account
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
