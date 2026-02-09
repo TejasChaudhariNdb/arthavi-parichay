@@ -114,7 +114,9 @@ ul {
   -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
   padding: 2rem;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .glass-panel:hover {
@@ -178,7 +180,9 @@ ul {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
 }
 
 .fade-in.visible {
@@ -646,7 +650,7 @@ footer {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 4rem;
   margin-bottom: 3rem;
 }
