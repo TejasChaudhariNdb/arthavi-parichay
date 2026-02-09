@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".faq-item").forEach((e) => {
-    e.querySelector(".faq-question").addEventListener("click", () => {
-      e.classList.toggle("active");
-    });
+    const q = e.querySelector(".faq-question");
+    if (q) {
+      q.addEventListener("click", () => {
+        e.classList.toggle("active");
+      });
+    }
   });
   const e = { root: null, rootMargin: "0px", threshold: 0.1 },
     t = new IntersectionObserver((e, n) => {

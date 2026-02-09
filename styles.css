@@ -140,7 +140,7 @@ ul {
 
 .btn-primary {
   background-color: var(--primary);
-  color: #fff;
+  color: #fff !important;
   box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
 }
 
