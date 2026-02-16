@@ -965,3 +965,63 @@ footer {
   color: var(--text-head);
   margin-bottom: 1rem;
 }
+
+/* Blog Prose Styling */
+.prose {
+    color: var(--text-body);
+    line-height: 1.8;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+    color: var(--text-head);
+    font-family: var(--font-heading);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.prose h1 {
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+.prose p {
+    margin-bottom: 1.5rem;
+}
+
+.prose ul, .prose ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+.prose a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.prose a:hover {
+    border-color: var(--primary);
+}
+
+.prose strong {
+    color: var(--text-head);
+    font-weight: 600;
+}
+
+.prose blockquote {
+    border-left: 4px solid var(--primary);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 2rem 0;
+}
+
+.prose img {
+    border-radius: 8px;
+    margin: 2rem 0;
+}
