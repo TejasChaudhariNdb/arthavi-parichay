@@ -53,13 +53,20 @@
           "@id": "https://arthavi.com/#software",
           "name": "Arthavi",
           "applicationCategory": "FinanceApplication",
-          "operatingSystem": "Web",
+          "operatingSystem": "Web, Android",
           "author": { "@id": "https://arthavi.com/#organization" },
           "featureList": [
             "Manual Mutual Fund Tracking",
+            "CAS PDF Import from CAMS and KFintech",
             "NSE/BSE Stock Portfolio Monitoring",
             "No Demat Link Required",
-            "Privacy-First"
+            "Privacy-First Architecture",
+            "XIRR Calculator based on actual cash flows",
+            "Ask AI Investment Assistant",
+            "Portfolio Overlap Analysis",
+            "Sector Concentration Analysis",
+            "Benchmark Comparison with Nifty 50",
+            "Goal-Based Portfolio Tracking"
           ],
           "screenshot": "https://arthavi.com/images/dashboard.webp",
           "offers": {
@@ -172,6 +179,8 @@
             --primary: #6366f1;
             --primary-hover: #4f46e5;
             --primary-glow: #818cf8;
+            --ai-color: #8b5cf6;
+            --ai-glow: rgba(139, 92, 246, 0.3);
 
             --text-head: #f9fafb;
             --text-body: #a1a1aa;
@@ -401,6 +410,7 @@
         nav ul {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         nav a {
@@ -409,6 +419,66 @@
         }
 
         nav a:hover {
+            color: var(--text-head);
+        }
+
+        .nav-ai-link {
+            color: var(--ai-color) !important;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        /* Mobile Nav */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.25rem;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-head);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            background: rgba(11, 14, 20, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            z-index: 999;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 0.9rem 1rem;
+            color: var(--text-body);
+            font-size: 1.05rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-head);
         }
 
@@ -478,6 +548,268 @@
             font-size: 0.9rem;
             color: var(--text-muted);
             font-weight: 500;
+        }
+
+        /* AI Badge */
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            color: #c4b5fd;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+            animation: pulse-border 3s infinite;
+        }
+
+        @keyframes pulse-border {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.15);
+            }
+
+            50% {
+                box-shadow: 0 0 0 6px rgba(139, 92, 246, 0);
+            }
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            padding: 2rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--text-head);
+            background: linear-gradient(135deg, var(--primary-glow), #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* AI Chat Showcase */
+        .ai-showcase {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-main) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-showcase::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ai-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .ai-chat-window {
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(139, 92, 246, 0.1);
+        }
+
+        .chat-header {
+            background: rgba(139, 92, 246, 0.1);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-header-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .chat-header span {
+            color: #c4b5fd;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+        }
+
+        .chat-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-height: 320px;
+        }
+
+        .chat-msg {
+            max-width: 82%;
+            padding: 0.85rem 1.1rem;
+            border-radius: 14px;
+            font-size: 0.92rem;
+            line-height: 1.55;
+            animation: msg-appear 0.4s ease;
+        }
+
+        @keyframes msg-appear {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-msg.user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            border-radius: 14px 14px 3px 14px;
+        }
+
+        .chat-msg.ai {
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-body);
+            border-radius: 14px 14px 14px 3px;
+        }
+
+        .chat-msg.ai strong {
+            color: var(--text-head);
+        }
+
+        .chat-msg.ai .green {
+            color: #34d399;
+            font-weight: 600;
+        }
+
+        .chat-msg.ai .red {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        .chat-msg.ai .yellow {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .ai-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .ai-tab {
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .ai-tab.active,
+        .ai-tab:hover {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: rgba(139, 92, 246, 0.4);
+            color: #c4b5fd;
+        }
+
+        .ai-capabilities {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .ai-cap {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .ai-cap-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            flex-shrink: 0;
+        }
+
+        .ai-cap strong {
+            display: block;
+            color: var(--text-head);
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .ai-cap p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
         }
 
         /* Dashboard Preview */
@@ -1036,7 +1368,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .why-grid {
@@ -1045,7 +1377,7 @@
             }
 
             .footer-top {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 2rem;
             }
 
@@ -1055,6 +1387,30 @@
 
             nav {
                 display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .ai-split {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-item strong {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-top {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1149,28 +1505,58 @@
             <nav role="navigation">
                 <ul>
                     <li><a href="#features">Features</a></li>
+                    <li><a href="#ask-ai" class="nav-ai-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                            </svg>
+                            Ask AI
+                        </a></li>
                     <li><a href="#why">Why Arthavi</a></li>
-                    <li><a href="#security">Security</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
             </nav>
-            <a href="https://app.arthavi.com/register" class="btn btn-primary">Get Started</a>
+            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="display:none"
+                id="nav-cta-desktop">Get Started</a>
+            <a href="https://app.arthavi.com/register" class="btn btn-primary" id="nav-cta">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <a href="#features" onclick="closeMobileMenu()">Features</a>
+        <a href="#ask-ai" onclick="closeMobileMenu()" style="color: #c4b5fd; font-weight:600;">✦ Ask AI</a>
+        <a href="#why" onclick="closeMobileMenu()">Why Arthavi</a>
+        <a href="#security" onclick="closeMobileMenu()">Security</a>
+        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary"
+            style="margin-top:0.5rem; text-align:center;">Get Started Free</a>
+    </nav>
 
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero text-center">
             <div class="container hero-content fade-in">
+                <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                    <span class="ai-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                        </svg>
+                        Now with Arthavi AI — Chat with your portfolio
+                    </span>
+                </div>
                 <h1 class="heading-xl">
-                    Track Mutual Funds & Stocks with <br><span>Privacy-First Analytics</span>
+                    India's Smartest <br><span>Portfolio Tracker with AI</span>
                 </h1>
                 <p>
-                    Arthavi is built for investors who want clarity, not commissions.
-                    Track <strong>mutual funds and stocks together</strong> to understand your
-                    <strong>true net worth</strong>, using <strong>AI-powered, privacy-first analytics</strong>
-                    based on real cash flows.
-                    No ads. No noise. Just accurate numbers.
+                    Track <strong>Mutual Funds &amp; Stocks</strong> together in one privacy-first dashboard.
+                    Ask AI questions like <em>"Am I over-exposed to banking?"</em> or
+                    <em>"Compare my returns with Nifty 50."</em> No demat linking. No ads. Just clarity.
                 </p>
 
 
@@ -1251,11 +1637,35 @@
             </div>
         </section>
 
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <strong>100%</strong>
+                        <span>Privacy First</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>₹0</strong>
+                        <span>Free to Use</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>0</strong>
+                        <span>Ads or Data Selling</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>AI</strong>
+                        <span>Powered Insights</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- How It Works Section -->
         <section class="how-it-works">
             <div class="container">
                 <div class="section-header text-center fade-in">
-                    <h2 class="heading-lg">Get Started in Minutes</h2>
+                    <h2 class="heading-lg">Get Started in 3 Steps</h2>
                     <p class="section-sub">No complex setup. No bank passwords required.</p>
                 </div>
 
@@ -1263,25 +1673,25 @@
                     <!-- Step 1 -->
                     <div class="step-card fade-in delay-100">
                         <div class="step-icon">1</div>
-                        <p class="step-title"><strong>Upload CAS</strong></p>
-                        <p>Export your generic CAS PDF from CAMS or KFintech and upload it. We parse it locally to value
-                            your mutual funds.</p>
+                        <p class="step-title"><strong>Upload Your CAS</strong></p>
+                        <p>Export your Consolidated Account Statement PDF from CAMS or KFintech and upload it. We parse
+                            it securely to track all your mutual funds.</p>
                     </div>
 
                     <!-- Step 2 -->
                     <div class="step-card fade-in delay-200">
                         <div class="step-icon">2</div>
-                        <p class="step-title"><strong>Add Stocks</strong></p>
-                        <p>Search and add your equity holdings. We fetch the latest prices from NSE/BSE to keep your
-                            portfolio updated.</p>
+                        <p class="step-title"><strong>Add Your Stocks</strong></p>
+                        <p>Search and add your equity holdings from NSE/BSE. Live price updates keep your portfolio
+                            accurate without linking any broker account.</p>
                     </div>
 
                     <!-- Step 3 -->
                     <div class="step-card fade-in delay-300">
                         <div class="step-icon">3</div>
-                        <p class="step-title"><strong>See Your Net Worth</strong></p>
-                        <p>Instantly get a unified dashboard with XIRR, asset allocation, and goal tracking. Simple and
-                            private.</p>
+                        <p class="step-title"><strong>Ask AI Anything</strong></p>
+                        <p>Once your portfolio is set up, just ask Arthavi AI — "What is my XIRR?", "Am I
+                            over-diversified?" — and get instant, data-driven answers.</p>
                     </div>
                 </div>
             </div>
@@ -1442,65 +1852,140 @@
         </section>
 
         <!-- Ask AI Section -->
-        <section id="ask-ai"
-            style="padding: 5rem 0; background: linear-gradient(to bottom, var(--bg-surface), var(--bg-main));">
+        <section id="ask-ai" class="ai-showcase">
             <div class="container">
-                <div class="section-header fade-in">
+                <div class="section-header text-center fade-in">
                     <div
-                        style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(99, 102, 241, 0.1); border-radius: 50%; margin-bottom: 1.5rem; color: var(--primary);">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 50%; margin-bottom: 1.5rem; color: #a78bfa;">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path
                                 d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
                         </svg>
                     </div>
-                    <h2>Ask AI: Your Personal Investment Analyst</h2>
-                    <p class="section-sub">Have questions about your portfolio? Just ask. Our AI analyzes your holdings
-                        to give you instant, data-driven answers.</p>
+                    <h2>Arthavi AI — Your Personal Investment Analyst</h2>
+                    <p class="section-sub">The only portfolio tracker in India with a smart AI that actually knows your
+                        holdings. Ask anything about your mutual funds, stocks, XIRR, or sector allocation.</p>
                 </div>
 
-                <div class="glass-panel fade-in delay-100" style="max-width: 900px; margin: 0 auto; padding: 3rem;">
-                    <div
-                        style="display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: center;">
-                        <div>
-                            <h3 style="color: var(--text-head); margin-bottom: 1rem; font-size: 1.5rem;">Unlock
-                                Portfolio Insights</h3>
-                            <p style="color: var(--text-body); margin-bottom: 1.5rem; font-size: 1.05rem;">
-                                Stop guessing. Ask sophisticated questions about your net worth, asset allocation, and
-                                performance trends. Our AI understands your portfolio data.
-                            </p>
-                            <ul style="display: flex; flex-direction: column; gap: 1rem;">
-                                <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted);">
-                                    <span style="color: var(--primary); font-weight: bold;">✓</span> "What is my XIRR
-                                    for the last 3 years?"
-                                </li>
-                                <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted);">
-                                    <span style="color: var(--primary); font-weight: bold;">✓</span> "Am I over-exposed
-                                    to the banking sector?"
-                                </li>
-                                <li style="display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted);">
-                                    <span style="color: var(--primary); font-weight: bold;">✓</span> "Compare my returns
-                                    with Nifty 50."
-                                </li>
-                            </ul>
-                            <div style="margin-top: 2rem;">
-                                <a href="https://app.arthavi.com/register" class="btn btn-primary">Try Ask AI Free</a>
+                <div class="ai-split fade-in delay-100">
+                    <!-- Left: Chat Window -->
+                    <div class="ai-chat-window">
+                        <div class="chat-header">
+                            <div class="chat-header-dot"></div>
+                            <span>Arthavi AI</span>
+                            <span style="margin-left: auto; font-size: 0.78rem; color: var(--text-muted);">● Live on
+                                your portfolio</span>
+                        </div>
+                        <div class="chat-body" id="ai-chat-demo">
+                            <!-- Conversation 1: Overlap -->
+                            <div class="chat-msg user" data-conv="0">Do I have portfolio overlap in my mutual funds?
                             </div>
+                            <div class="chat-msg ai" data-conv="0">Yes — <strong>3 of your 5 schemes</strong> track
+                                similar indices. <strong class="yellow">Mirae Large Cap</strong> and <strong
+                                    class="yellow">Axis Bluechip</strong> have ~<span class="yellow">72% stock
+                                    overlap</span>, both heavy on Reliance, HDFC Bank, and Infosys. Consider
+                                consolidating to reduce redundancy and improve diversification.</div>
+
+                            <!-- Conversation 2 (hidden by default) -->
+                            <div class="chat-msg user" data-conv="1" style="display:none">Am I over-exposed to the
+                                banking sector?</div>
+                            <div class="chat-msg ai" data-conv="1" style="display:none">Your portfolio has <span
+                                    class="red">38% in Banking &amp; Finance</span> — that's above the recommended
+                                25–30% for a balanced investor. <strong>HDFC Bank, ICICI Bank, and Bajaj
+                                    Finance</strong> are your top 3 holdings by value. You may want to balance with IT
+                                or Healthcare funds.</div>
+
+                            <!-- Conversation 3 (hidden) -->
+                            <div class="chat-msg user" data-conv="2" style="display:none">Compare my returns with Nifty
+                                50 this year.</div>
+                            <div class="chat-msg ai" data-conv="2" style="display:none">Your portfolio XIRR is <strong
+                                    class="green">14.2%</strong> versus Nifty 50's 12.1% — you're <span
+                                    class="green">outperforming by 2.1%</span>. Your best performer is <strong>Parag
+                                    Parikh Flexi Cap</strong> at 18.4% returns. Your stocks have dragged slightly at
+                                9.8%.</div>
                         </div>
                         <div
-                            style="display: flex; align-items: center; justify-content: center; background: rgba(11, 14, 20, 0.5); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255,255,255,0.05);">
-                            <div style="width: 100%; display: flex; flex-direction: column; gap: 1rem;">
-                                <div
-                                    style="align-self: flex-end; background: var(--primary); color: white; padding: 0.75rem 1rem; border-radius: 12px 12px 0 12px; max-width: 85%; font-size: 0.95rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                                    How is my portfolio performing vs Nifty 50?
+                            style="padding: 0.75rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 0.5rem;">
+                            <div
+                                style="flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.88rem; color: var(--text-muted);">
+                                Ask about your portfolio...</div>
+                            <button
+                                style="background: linear-gradient(135deg, #6366f1, #8b5cf6); border: none; border-radius: 8px; padding: 0.75rem 1rem; color: white; cursor: pointer;">→</button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Capabilities -->
+                    <div>
+                        <div class="ai-tabs">
+                            <button class="ai-tab active" onclick="switchConv(0, this)">Overlap Analysis</button>
+                            <button class="ai-tab" onclick="switchConv(1, this)">Sector Risk</button>
+                            <button class="ai-tab" onclick="switchConv(2, this)">Benchmark Compare</button>
+                        </div>
+                        <h3 style="color: var(--text-head); font-size: 1.6rem; margin-bottom: 0.75rem;">AI That
+                            Understands Indian Investing</h3>
+                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                            Arthavi AI isn't a generic chatbot — it reads your actual portfolio data, runs analysis, and
+                            gives you actionable answers in plain English.</p>
+
+                        <div class="ai-capabilities">
+                            <div class="ai-cap">
+                                <div class="ai-cap-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                    </svg>
                                 </div>
-                                <div
-                                    style="align-self: flex-start; background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.1); color: var(--text-body); padding: 1rem; border-radius: 12px 12px 12px 0; max-width: 95%; font-size: 0.95rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                                    Your portfolio is up by <strong style="color: #10b981;">14.2%</strong> this year,
-                                    while Nifty 50 is up 12.1%. You are outperforming the benchmark by
-                                    <strong>2.1%</strong>. Your top gainer is <strong>HDFC Bank</strong>.
+                                <div>
+                                    <strong>Real Portfolio Access</strong>
+                                    <p>AI calls your live portfolio data — not sample data. Answers are based on your
+                                        actual holdings and transactions.</p>
                                 </div>
                             </div>
+                            <div class="ai-cap">
+                                <div class="ai-cap-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                        <polyline points="17 6 23 6 23 12" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Web Search for Current Data</strong>
+                                    <p>AI fetches live stock prices, fund NAVs, and market trends to keep answers
+                                        current.</p>
+                                </div>
+                            </div>
+                            <div class="ai-cap">
+                                <div class="ai-cap-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="12" y1="8" x2="12" y2="12" />
+                                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Scoped to Indian Markets Only</strong>
+                                    <p>Arthavi AI focuses on Mutual Funds and Indian Stocks — no noise from crypto, US
+                                        stocks, or irrelevant markets.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <a href="ask-ai-investment-assistant.html" class="btn btn-primary"
+                                style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.3);">
+                                Explore Ask AI
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" style="margin-left:8px">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <a href="https://app.arthavi.com/register" class="btn btn-secondary"
+                                style="margin-left: 0.75rem;">Start Free</a>
                         </div>
                     </div>
                 </div>
@@ -1973,55 +2458,48 @@
             </div>
         </section>
 
-        <!-- SEO Keywords Section -->
+        <!-- SEO Article Block -->
         <section class="container"
-            style="margin-top: 3rem; padding: 2rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05);">
-            <h4 style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; font-weight: 500;">Popular
-                Search
-                Topics</h4>
-            <p style="color: var(--text-muted); font-size: 0.8rem; line-height: 1.6; opacity: 0.6;">
-                stocks and mutual funds tracking, best apps for tracking stocks and mutual funds, which is best mutual
-                funds
-                or stocks, stocks vs mutual funds, tracking stocks online, tracking stock portfolio, how to track mutual
-                funds in real time, mutual funds tracking nasdaq, mutual funds trackers, stock market tracking funds,
-                mutual
-                funds tracking s&p, mutual funds tracking s&p 500, stocks tracking tool, apps to track mutual funds,
-                best
-                app for mutual funds and stocks, stocks and mutual funds are generally, stocks tracking website,
-                tracking
-                mutual fund investments, how to track mutual fund investment, what are mutual funds stocks, what are
-                mutual
-                funds in the stock market, are stocks and mutual funds the same, a stock fund, a stock mutual fund is an
-                investment that, stock and bond tracker, stocks and mutual funds meaning, are mutual funds in the stock
-                market, best stock and mutual fund tracker, how to see what stocks are in a mutual fund, best stocks and
-                mutual funds to invest in, tracking stock structure, c share mutual funds going away, fund tracking
-                nasdaq
-                composite index, do mutual funds trade on nyse, do mutual funds trade on nasdaq, do mutual funds do
-                stock
-                splits, do mutual funds trade, do mutual funds trade at nav, etf tracking stock market, etfs tracking,
-                stock
-                and etf tracker, how to track mutual fund portfolio, what are f shares in mutual funds, mutual fund
-                holding
-                stock list, funds tracking s&p 500, track stocks with google, how to find which mutual funds hold a
-                stock,
-                how to see all holdings in a mutual fund, high-yielding stocks and mutual funds, mutual fund tracking
-                index,
-                j shares mutual funds, jp morgan mutual funds ticker symbol, tracking fund flows, k mutual funds, mutual
-                fund k shares, mutual funds with long track records, mutual funds look up, mutual funds stock market
-                today,
-                mutual funds stock ticker, mutual funds tracking nasdaq 100, mutual fund p shares, tracking stock
-                performance, mutual funds tracking qqq, track stocks and mutual funds, tracking stock investments, track
-                mutual funds and stocks, understanding stocks and mutual funds, mutual funds v stocks, mutual funds vs.
-                stocks, vanguard mutual fund tracking nasdaq, vtsax tracking error, mutual fund x ray, mutual fund xray
-                tool, how to find mutual funds on yahoo finance, yahoo mutual fund symbol lookup, yahoo finance mutual
-                fund
-                comparison, yahoo stock tracking, z share mutual funds, ztr stock morningstar, zacks mutual funds strong
-                buys, stocks mutual funds or etfs, stock market tracking fund, 2 mutual funds, 2 mutual fund portfolio,
-                3
-                stocks portfolio, 3 mutual fund companies, 4 mutual fund portfolio, 4 mutual funds, 6 mutual fund,
-                mutual
-                fund trackers, 8 mutual funds, 9 mutual funds, 9 an actively managed mutual fund
-            </p>
+            style="margin-top: 3rem; padding: 3rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--text-head);">The Best Way to Track
+                    Mutual Funds and Stocks Together in India</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Most Indian investors hold mutual funds across HDFC, SBI, Mirae, and Parag Parikh — and stocks
+                    across Zerodha, Groww, or Angel One — but don't have a single place to see their true net worth.
+                    Arthavi solves this by letting you import your <strong style="color: var(--text-body);">CAS
+                        (Consolidated Account Statement)</strong> from CAMS or KFintech to get all mutual fund data, and
+                    manually add your equity holdings from any broker.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Unlike apps like Groww or Kuvera that push you to transact through them, Arthavi is a <strong
+                        style="color: var(--text-body);">privacy-first, read-only analytics platform</strong>. You get
+                    accurate <strong style="color: var(--text-body);">XIRR calculations</strong> based on actual cash
+                    flows (SIPs, lumpsum, redemptions), AMC-wise allocation charts, and portfolio overlap analysis — all
+                    without sharing your broker credentials.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Arthavi's <strong style="color: var(--text-body);">Ask AI feature</strong> is purpose-built for
+                    Indian investors. You can ask it: <em>"Do my mutual funds overlap with each other?"</em>, <em>"Is my
+                        portfolio too concentrated in banking stocks?"</em>, or <em>"How has my XIRR compared to Nifty
+                        50 over 3 years?"</em> — and get real, data-backed answers in seconds. This is not a generic AI;
+                    it has read-only access to your actual portfolio data.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
+                    <a href="mutual-fund-portfolio-tracker-india.html"
+                        style="color: var(--primary); font-size: 0.9rem;">→ Mutual Fund Portfolio Tracker India</a>
+                    <a href="stock-portfolio-tracker-india.html" style="color: var(--primary); font-size: 0.9rem;">→
+                        Stock Portfolio Tracker India</a>
+                    <a href="xirr-calculator-mutual-funds.html" style="color: var(--primary); font-size: 0.9rem;">→ XIRR
+                        Calculator for Mutual Funds</a>
+                    <a href="net-worth-tracker-india.html" style="color: var(--primary); font-size: 0.9rem;">→ Net Worth
+                        Tracker India</a>
+                    <a href="ask-ai-investment-assistant.html" style="color: var(--primary); font-size: 0.9rem;">→ AI
+                        Investment Assistant</a>
+                    <a href="blog/track-zerodha-groww-portfolio-together.html"
+                        style="color: var(--primary); font-size: 0.9rem;">→ Track Zerodha &amp; Groww Together</a>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -2093,6 +2571,36 @@
     </footer>
 
     <script src="scripts.js" defer></script>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+        if (hamburger) {
+            hamburger.addEventListener('click', function () {
+                const open = mobileMenu.classList.toggle('open');
+                hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+        }
+
+        // AI tab switcher
+        function switchConv(idx, tabEl) {
+            // Update messages
+            document.querySelectorAll('#ai-chat-demo .chat-msg').forEach(function (el) {
+                el.style.display = parseInt(el.getAttribute('data-conv')) === idx ? '' : 'none';
+            });
+            // Update tabs
+            document.querySelectorAll('.ai-tab').forEach(function (t) { t.classList.remove('active'); });
+            if (tabEl) tabEl.classList.add('active');
+        }
+
+        // Hide duplicate nav CTA (just keep one)
+        document.getElementById('nav-cta-desktop').style.display = '';
+        document.getElementById('nav-cta').style.display = 'none';
+    </script>
 </body>
 
 </html>
