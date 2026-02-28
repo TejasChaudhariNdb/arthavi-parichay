@@ -115,7 +115,7 @@
               "name": "How is CAS data handled?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Your Consolidated Account Statement (CAS) PDF is securely processed to extract transaction details. The file is never reused or shared."
+                "text": "Your Consolidated Account Statement (CAS) PDF, an official document regulated by SEBI and provided by RTAs like CAMS and KFintech, is securely processed to extract transaction details. The file is never reused or shared."
               }
             },
             {
@@ -123,7 +123,7 @@
               "name": "Is it SEBI registered?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Arthavi does not provide investment advice or execute trades and therefore does not require SEBI registration. It functions purely as an analytics and tracking tool."
+                "text": "Arthavi does not provide investment advice or execute trades and therefore does not require a SEBI (Securities and Exchange Board of India) Investment Advisor (RIA) registration. It functions purely as a tracking and analytics technological tool."
               }
             },
             {
@@ -132,6 +132,94 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes. All sensitive data is encrypted both at rest and during transmission."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I know my data is safe? Will I receive random marketing calls?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi does not sell, share, or use user data for marketing or lead generation, period. We do not sell data to third parties or share it with brokers. There is no cold-call monetization model, and we don't even collect phone numbers—it's not mandatory for signup, so there is no risk of marketing calls from our end. Your data is encrypted in transit and at rest, and we only ask for minimal permissions required to show your portfolio insights."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you support fixed or debt instruments like FDs, PPF, and NPS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100% agree—a portfolio tracker isn't complete without debt instruments. They are on our roadmap! Our vision is to track everything in one place, not just equity. Right now, equity and mutual funds are the focus, but support for fixed income instruments like FDs, PPF, and NPS is definitely coming soon."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Ask AI Investment Assistant work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Ask AI feature acts as your personal financial analyst. You can ask it plain-English questions about your portfolio, such as 'Am I over-invested in banking?' or 'What is my XIRR?'. It instantly analyzes your imported CAS and stock data to give you clear, objective insights."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the AI Assistant giving me financial advice?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, the AI Assistant provides data-driven analytics and insights based purely on the portfolio data you upload. It is not designed to give certified financial advice or recommend specific stocks/funds to buy or sell. It simply helps you understand your investments better based on data."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the AI have access to my sensitive login credentials?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not at all. The AI only analyzes the abstract portfolio data (transactions and holdings) that you upload via CAS. We do not link to your demat accounts and we never ask for broker login credentials. The AI's analysis is done in a secure, privacy-first environment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I track family portfolios or multiple CAS files?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can upload multiple CAS files to consolidate and track investments across different family members. Arthavi aggregates this data to give you a unified view of your entire family's net worth and combined portfolio performance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Arthavi better than tracking investments in Excel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. While Excel requires manual data entry, complex formulas, and constant updates for live prices, Arthavi automates this entire process. We calculate your XIRR, analyze sector overlap, and pull live market data automatically."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to link my demat account or broker to use Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No demat linking is required. You can simply upload your CAS (Consolidated Account Statement) securely from official SEBI-registered RTAs like CAMS or KFintech, or manually enter your stock trades. This ensures you maintain full control over your broker accounts while getting top-tier analytics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is the XIRR calculated on Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi calculates your XIRR (Extended Internal Rate of Return) based on your actual cash flows and transaction dates extracted from your CAS or manual entries. It accounts for SIPs, lump-sums, redemptions, and dividend payouts for high accuracy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if I want to delete my account and data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You have complete control over your data. If you choose to leave Arthavi, you can delete your account at any time. We will permanently wipe all your transaction data, CAS files, and personal information from our servers immediately."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to track mutual funds in Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can track mutual funds in Arthavi by: 1. Adding fund names or ISIN codes 2. Setting target alerts 3. Viewing performance charts and XIRR"
               }
             }
           ]
@@ -2395,8 +2483,13 @@
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Your Consolidated Account Statement (CAS) PDF is securely processed (often locally) to
-                            extract transaction details efficiently. The file is never reused, shared, or scanned for
+                            Your <a href="https://www.camsonline.com/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">Consolidated Account
+                                Statement (CAS)</a> PDF, an official document regulated by <a
+                                href="https://www.sebi.gov.in/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">SEBI</a> and provided by
+                            recognized RTAs like CAMS and KFintech, is securely processed (often locally) to extract
+                            transaction details efficiently. The file is never reused, shared, or scanned for
                             advertising purposes. We use industry-standard encryption to ensure this sensitive document
                             remains confidential during processing.
                         </div>
@@ -2413,7 +2506,10 @@
                         </button>
                         <div class="faq-answer">
                             Arthavi is a technology platform for analytics, tracking, and visualization. We represent
-                            ourselves as a financial tool, not a SEBI-registered Investment Advisor (RIA) or broker. We
+                            ourselves as a financial technological tool, not a <a href="https://www.sebi.gov.in/"
+                                target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">SEBI-registered</a>
+                            Investment Advisor (RIA) or broker. We
                             do not provide specific buy/sell recommendations or execution services.
                         </div>
                     </div>
@@ -2431,6 +2527,193 @@
                             Yes. All sensitive user data is encrypted both at rest (in our secure database) and during
                             transmission (using modern TLS protocols), ensuring bank-grade security standards are met to
                             protect your financial information.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I know my data is safe? Will I receive random marketing calls?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi does not sell, share, or use user data for marketing or lead generation, period. We
+                            do not sell data to third parties or share it with brokers. There is no cold-call
+                            monetization model, and we don't even collect phone numbers—it's not mandatory for signup,
+                            so there is no risk of marketing calls from our end. Your data is encrypted in transit and
+                            at rest, and we only ask for minimal permissions required to show your portfolio insights.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Do you support fixed or debt instruments like FDs, PPF, and NPS?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            100% agree—a portfolio tracker isn't complete without debt instruments. They are on our
+                            roadmap! Our vision is to track everything in one place, not just equity. Right now, equity
+                            and mutual funds are the focus, but support for fixed income instruments like FDs, PPF, and
+                            NPS is definitely coming soon.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How does the Ask AI Investment Assistant work?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            The Ask AI feature acts as your personal financial analyst. You can ask it plain-English
+                            questions about your portfolio, such as "Am I over-invested in banking?" or "What is my
+                            XIRR?". It instantly analyzes your imported CAS and stock data to give you clear, objective
+                            insights.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is the AI Assistant giving me financial advice?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No, the AI Assistant provides data-driven analytics and insights based purely on the
+                            portfolio data you upload. It is not designed to give certified financial advice or
+                            recommend specific stocks/funds to buy or sell. It simply helps you understand your
+                            investments better based on data.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Does the AI have access to my sensitive login credentials?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Not at all. The AI only analyzes the abstract portfolio data (transactions and holdings)
+                            that you upload via CAS. We do not link to your demat accounts and we never ask for broker
+                            login credentials. The AI's analysis is done in a secure, privacy-first environment.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Can I track family portfolios or multiple CAS files?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, you can upload multiple CAS files to consolidate and track investments across different
+                            family members. Arthavi aggregates this data to give you a unified view of your entire
+                            family's net worth and combined portfolio performance.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is Arthavi better than tracking investments in Excel?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Absolutely. While Excel requires manual data entry, complex formulas, and constant updates
+                            for live prices, Arthavi automates this entire process. We calculate your XIRR, analyze
+                            sector overlap, and pull live market data automatically, saving you hours of effort.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Do I need to link my demat account or broker to use Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No demat linking is required. You can simply upload your CAS (Consolidated Account
+                            Statement) from official SEBI-registered RTAs like <a href="https://camskra.com/"
+                                target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">CAMS</a> or <a
+                                href="https://mfs.kfintech.com/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">KFintech</a>, or manually
+                            enter your stock trades. This ensures you maintain full control over your broker accounts
+                            while getting top-tier analytics.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How is the XIRR calculated on Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi calculates your XIRR (Extended Internal Rate of Return) based on your actual cash
+                            flows and transaction dates extracted from your CAS or manual entries. It accounts for SIPs,
+                            lump-sums, redemptions, and dividend payouts for high accuracy.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What happens if I want to delete my account and data?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You have complete control over your data. If you choose to leave Arthavi, you can delete
+                            your account at any time. We will permanently wipe all your transaction data, CAS files, and
+                            personal information from our servers immediately.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to track mutual funds in Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You can track mutual funds in Arthavi by:<br>
+                            1. Adding fund names or ISIN codes<br>
+                            2. Setting target alerts<br>
+                            3. Viewing performance charts and XIRR
                         </div>
                     </div>
                 </div>
