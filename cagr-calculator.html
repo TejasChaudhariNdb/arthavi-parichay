@@ -13,20 +13,20 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step Up SIP Calculator with Inflation | Lumpsum & Daily | Arthavi</title>
+    <title>CAGR Calculator Online | Compound Annual Growth Rate India | Arthavi</title>
     <meta name="description"
-        content="Best online SIP calculator. Calculate mutual fund returns with step up, inflation adjustment, and lumpsum options. Plan for 40 years of wealth.">
+        content="Calculate Compound Annual Growth Rate (CAGR) online. Compare absolute returns vs CAGR for your mutual funds and stocks easily.">
     <meta name="keywords"
-        content="step up sip calculator, sip calculator with inflation, sip calculator 40 years, daily sip calculator, lumpsum sip calculator, online sip calculator, how to use sip calculator, sip calculator sbi, sip calculator hdfc, groww sip calculator, how sip calculator works">
-    <link rel="canonical" href="https://arthavi.com/sip-calculator.html">
+        content="cagr calculator, compound annual growth rate calculator, cagr vs xirr, calculate cagr online, absolute return vs cagr, cagr formula">
+    <link rel="canonical" href="https://arthavi.com/cagr-calculator.html">
     <link rel="icon" href="images/favicon.ico">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="SIP Calculator: Estimate Mutual Fund Returns | Arthavi">
+    <meta property="og:title" content="Online CAGR Calculator | Arthavi">
     <meta property="og:description"
-        content="Use our free SIP Calculator to estimate potential returns on your mutual fund investments. Plan your wealth creation journey with Arthavi.">
-    <meta property="og:url" content="https://arthavi.com/sip-calculator.html">
+        content="Use our free CAGR Calculator to measure the average annual growth of your investments over time.">
+    <meta property="og:url" content="https://arthavi.com/cagr-calculator.html">
     <meta property="og:image" content="https://arthavi.com/images/og-image.png">
 
     <meta name="robots" content="index, follow">
@@ -45,31 +45,24 @@
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
-        "name": "What is sip calculator?",
+        "name": "What is CAGR?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A SIP calculator is a financial tool that helps you calculate the future value of your monthly mutual fund investments. It uses the compound interest formula to estimate wealth creation."
+          "text": "Compound Annual Growth Rate (CAGR) measures the smoothed annualized return of an investment over a specified time period, assuming profits were reinvested."
         }
       }, {
         "@type": "Question",
-        "name": "What is step up sip calculator?",
+        "name": "How to calculate CAGR?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A step up SIP calculator accounts for annual increases in your SIP amount (usually corresponding to a salary hike). It shows how bumping your investment by 10% yearly creates massive long-term wealth."
+          "text": "The CAGR formula is: CAGR = [(Ending Value / Beginning Value) ^ (1 / Number of Years)] - 1"
         }
       }, {
         "@type": "Question",
-        "name": "How sip calculator works?",
+        "name": "CAGR vs XIRR: Which is better?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It works by taking your monthly investment amount, expected rate of return, and tenure, and computing the future value using the compound interest formula: FV = P × ({[1 + i]^n - 1} / i) × (1 + i)."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What is inflation rate in sip calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A SIP calculator with inflation adjusts your final maturity amount against the average inflation rate (e.g., 6% in India) to show you the 'real purchasing power' of your money in the future."
+          "text": "CAGR is best for lump sum investments made once. XIRR is better for SIPs (Systematic Investment Plans) where you invest multiple times on different dates."
         }
       }]
     }
@@ -143,7 +136,7 @@
             padding: 0.5rem 1rem;
             border-radius: 6px;
             font-weight: 600;
-            min-width: 80px;
+            min-width: 100px;
             text-align: center;
         }
 
@@ -207,9 +200,9 @@
 
     <main class="container">
         <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem;margin-top: 31px;">
-            <h1>Online SIP Calculator</h1>
+            <h1>CAGR Calculator</h1>
             <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
-                Estimate the future value of your Systematic Investment Plan. Plan for up to 40 years of wealth creation.
+                Calculate the Compound Annual Growth Rate (CAGR) of your investments to understand your true annualized returns.
             </p>
         </div>
 
@@ -217,27 +210,28 @@
             <div class="calc-grid">
                 <div class="inputs-section">
                     <div class="input-group">
-                        <label>Monthly Investment (₹)</label>
+                        <label>Initial Investment Value (₹)</label>
                         <div class="range-container">
-                            <input type="range" id="investment" min="500" max="100000" step="500" value="5000"
-                                oninput="updateSIP()">
-                            <div class="input-value-box" id="investment-val">5000</div>
+                            <input type="range" id="initial" min="10000" max="10000000" step="10000" value="100000"
+                                oninput="updateCAGR()">
+                            <div class="input-value-box" id="initial-val">1,00,000</div>
                         </div>
                     </div>
 
                     <div class="input-group">
-                        <label>Expected Return Rate (p.a %)</label>
+                        <label>Final Investment Value (₹)</label>
                         <div class="range-container">
-                            <input type="range" id="rate" min="1" max="30" step="0.1" value="12" oninput="updateSIP()">
-                            <div class="input-value-box" id="rate-val">12</div>
+                            <input type="range" id="final" min="10000" max="50000000" step="10000" value="250000"
+                                oninput="updateCAGR()">
+                            <div class="input-value-box" id="final-val">2,50,000</div>
                         </div>
                     </div>
 
                     <div class="input-group">
-                        <label>Time Period (Years)</label>
+                        <label>Duration of Investment (Years)</label>
                         <div class="range-container">
-                            <input type="range" id="years" min="1" max="40" step="1" value="10" oninput="updateSIP()">
-                            <div class="input-value-box" id="years-val">10</div>
+                            <input type="range" id="years" min="1" max="40" step="1" value="5" oninput="updateCAGR()">
+                            <div class="input-value-box" id="years-val">5</div>
                         </div>
                     </div>
                 </div>
@@ -245,16 +239,12 @@
                 <div class="result-section">
                     <div class="result-card">
                         <div class="result-item">
-                            <div class="result-label">Invested Amount</div>
-                            <div class="result-value">₹ <span id="total-invested">6,00,000</span></div>
+                            <div class="result-label">Absolute Return</div>
+                            <div class="result-value"><span id="abs-return">150</span>%</div>
                         </div>
                         <div class="result-item">
-                            <div class="result-label">Est. Returns</div>
-                            <div class="result-value">₹ <span id="est-returns">5,61,695</span></div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Total Value</div>
-                            <div class="result-value highlight">₹ <span id="total-value">11,61,695</span></div>
+                            <div class="result-label">CAGR (Annualized Return)</div>
+                            <div class="result-value highlight"><span id="cagr-val">20.11</span>%</div>
                         </div>
                     </div>
                 </div>
@@ -262,27 +252,24 @@
         </div>
 
         <article class="prose fade-in delay-200" style="max-width: 800px; margin: 0 auto 4rem;">
-            <h2>What is an SIP Calculator?</h2>
-            <p>An online SIP Calculator is a simple tool that helps you calculate the returns on your mutual fund investments made through Systematic Investment Plans. Whether you invest via an <strong>SBI sip calculator</strong> format, an <strong>HDFC sip calculator</strong>, or a <strong>Groww sip calculator</strong>, the underlying compound interest math is exactly the same.</p>
+            <h2>What is a CAGR Calculator?</h2>
+            <p>A <strong>CAGR calculator</strong> is a financial tool that calculates the Compound Annual Growth Rate. Unlike absolute returns which only show you the total percentage gained, CAGR smooths out the volatility and shows you exactly what your investment grew by, on average, every single year.</p>
 
-            <h2>How does SIP calculator work?</h2>
-            <p>If you're wondering <strong>how sip calculator works</strong>, it relies on the future value formula. It takes your monthly investment, converts the annual expected return rate to a monthly rate, and compounds it over your tenure. You can even check calculations for up to a <strong>SIP calculator 40 years</strong> horizon.</p>
+            <h2>How to Calculate CAGR</h2>
+            <p>The formula for CAGR is:</p>
+            <div style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-align: center; margin: 1rem 0;">
+                <code>CAGR = [(Ending Value / Beginning Value) ^ (1 / Number of Years)] - 1</code>
+            </div>
+            <p>Doing this manually can be tedious, which is why an online CAGR calculator is necessary for quick projections.</p>
 
-            <h3>What is Step Up SIP Calculator?</h3>
-            <p>A <strong>step up sip calculator</strong> (also known as a top-up SIP) allows you to automatically increase your investment amount every year. As your salary grows, increasing your SIP by just 10% annually can drastically reduce the time it takes to become a crorepati.</p>
-
-            <h3>SIP Calculator with Inflation</h3>
-            <p><strong>What is inflation rate in sip calculator?</strong> Inflation degrades the purchasing power of your money. If you have ₹1 Crore after 20 years, it will have the buying power of roughly ₹31 Lakhs today (assuming 6% inflation). Always use a <strong>SIP calculator with inflation</strong> adjustments to set realistic financial goals.</p>
-
-            <h3>Why Use Arthavi Over Excel?</h3>
-            <p>Many investors search <strong>how to make sip calculator in excel</strong>. While possible, an online auto-syncing portfolio tracker eliminates manual data entry, especially if you have a mix of <strong>daily sip calculator</strong>, <strong>lumpsum sip calculator</strong>, and traditional monthly SIP entries across multiple brokers.</p>
+            <h3>CAGR vs XIRR</h3>
+            <p>Many investors confuse CAGR with XIRR. You should only use a <strong>CAGR calculator</strong> if you made a one-time lump-sum investment (like putting ₹1,00,000 into a fixed deposit or buying a plot of land). If you are doing a monthly Mutual Fund SIP, you must use an <a href="xirr-calculator-mutual-funds.html">XIRR Calculator</a> because the timing of your varied cash flows completely changes the math.</p>
 
             <div style="margin-top: 3rem; text-align: center;">
-                <p class="text-muted">Start tracking your actual portfolio performance today.</p>
-                <a href="https://app.arthavi.com" class="btn btn-primary" style="margin-top: 1rem;">Track Portfolio</a>
+                <p class="text-muted">Track all your returns automatically</p>
+                <a href="https://app.arthavi.com" class="btn btn-primary" style="margin-top: 1rem;">Start Tracking Portfolio</a>
             </div>
         </article>
-
     </main>
 
     <footer>
@@ -303,8 +290,9 @@
                 <div class="footer-links">
                     <h4>Calculators</h4>
                     <ul>
-                        <li><a href="sip-calculator.html" style="color:var(--primary)">SIP Calculator</a></li>
+                        <li><a href="sip-calculator.html">SIP Calculator</a></li>
                         <li><a href="swp-calculator.html">SWP Calculator</a></li>
+                        <li><a href="cagr-calculator.html" style="color:var(--primary)">CAGR Calculator</a></li>
                         <li><a href="mutual-fund-calculator.html">Mutual Fund Calculator</a></li>
                     </ul>
                 </div>
@@ -333,39 +321,31 @@
     </footer>
 
     <script>
-        function updateSIP() {
-            const P = parseFloat(document.getElementById('investment').value);
-            const r = parseFloat(document.getElementById('rate').value);
+        function updateCAGR() {
+            const P = parseFloat(document.getElementById('initial').value);
+            const F = parseFloat(document.getElementById('final').value);
             const n = parseFloat(document.getElementById('years').value);
 
             // Update display values
-            document.getElementById('investment-val').innerText = P.toLocaleString('en-IN');
-            document.getElementById('rate-val').innerText = r;
+            document.getElementById('initial-val').innerText = P.toLocaleString('en-IN');
+            document.getElementById('final-val').innerText = F.toLocaleString('en-IN');
             document.getElementById('years-val').innerText = n;
 
-            // Calculation: FV = P × ({[1 + i]^n - 1} / i) × (1 + i)
-            // where i = monthly rate, n = number of months
-            const i = (r / 100) / 12;
-            const months = n * 12;
-
-            let FV = 0;
-            let invested = P * months;
-
-            if (r === 0) {
-                FV = invested;
-            } else {
-                FV = P * ((Math.pow(1 + i, months) - 1) / i) * (1 + i);
+            // Absolute Return
+            const absReturn = ((F - P) / P) * 100;
+            
+            // CAGR Calculation
+            let cagr = 0;
+            if (P > 0 && n > 0) {
+                cagr = (Math.pow(F / P, 1 / n) - 1) * 100;
             }
 
-            const estReturns = FV - invested;
-
-            document.getElementById('total-invested').innerText = Math.round(invested).toLocaleString('en-IN');
-            document.getElementById('est-returns').innerText = Math.round(estReturns).toLocaleString('en-IN');
-            document.getElementById('total-value').innerText = Math.round(FV).toLocaleString('en-IN');
+            document.getElementById('abs-return').innerText = absReturn.toFixed(2);
+            document.getElementById('cagr-val').innerText = cagr.toFixed(2);
         }
 
         // Initialize on load
-        window.onload = updateSIP;
+        window.onload = updateCAGR;
     </script>
     <script src="scripts.js"></script>
 </body>

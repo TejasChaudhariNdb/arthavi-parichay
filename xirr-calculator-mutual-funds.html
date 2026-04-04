@@ -15,11 +15,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XIRR Calculator Mutual Funds India | Authentic Returns | Arthavi</title>
+    <title>Online XIRR Calculator | How to Calculate XIRR in Excel & SIP | Arthavi</title>
     <meta name="description"
-        content="Calculate the true XIRR of your Mutual Fund SIPs and lump sums. Unlike CAGR, XIRR accounts for cash flow timing. Import CAS to calculate instantly.">
+        content="Calculate true XIRR for mutual funds and SIPs. Learn how to calculate XIRR in Excel manually. The best online XIRR calculator for Indian investors.">
     <meta name="keywords"
-        content="XIRR calculator mutual funds, SIP return calculator, CAGR vs XIRR, mutual fund returns India, true portfolio return">
+        content="online xirr calculator, xirr calculator excel, xirr calculator sip, how to calculate xirr in excel, how is xirr calculated, how to calculate xirr manually, xirr return calculator">
     <link rel="canonical" href="https://arthavi.com/xirr-calculator-mutual-funds.html">
     <link rel="icon" href="images/favicon.ico">
     <meta name="robots" content="index, follow">
@@ -39,6 +39,36 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How to calculate xirr in excel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate XIRR in Excel, list your investment dates in Column A and investment amounts in Column B (as negative numbers for cash outflows, positive for current value). Use the formula =XIRR(B1:B10, A1:A10)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How is XIRR calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "XIRR is calculated by finding the discount rate that makes the net present value (NPV) of all cash flows (investments and the final portfolio value) equal to exactly zero."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How to calculate xirr for sip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Since SIPs involve multiple cash outflows on different dates, you cannot use simple CAGR. You must use an online XIRR calculator or Excel's XIRR formula, inputting every single automated SIP deduction date and its amount."
+        }
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -72,21 +102,30 @@
         </section>
 
         <article class="prose fade-in delay-100">
-            <h2>XIRR vs CAGR: The Difference</h2>
+            <h2>Online XIRR Calculator vs CAGR: The Difference</h2>
             <p><strong>CAGR (Compound Annual Growth Rate)</strong> works well for a fixed deposit where you invest once.
                 But for <strong>Mutual Fund SIPs</strong>, where you invest money every month at different NAVs, CAGR
                 fails.</p>
-            <p><strong>XIRR (Extended Internal Rate of Return)</strong> is the only accurate way to calculate returns
-                for SIPs. It takes into account the timing of every single cash flow.</p>
+            <p>Using an <strong>online xirr calculator</strong> or an <strong>xirr return calculator</strong> is the only accurate way to calculate returns
+                for SIPs. It takes into account the timing of every single cash outflow.</p>
+
+            <h2>How to calculate XIRR in Excel</h2>
+            <p>Many investors wonder <strong>how to calculate xirr manually</strong> or how to build an <strong>xirr calculator excel</strong> sheet. Here are the steps:</p>
+            <ol>
+                <li>In Column A, list every date your SIP was deducted.</li>
+                <li>In Column B, list the SIP amount as a <em>negative</em> number (e.g., -5000), because it's cash leaving your bank.</li>
+                <li>In the final row, put today's date in Column A, and the current total value of your portfolio as a <em>positive</em> number in Column B.</li>
+                <li>Use the formula: <code>=XIRR(B1:B50, A1:A50)</code></li>
+            </ol>
+            <p>If you have questions about <strong>how to calculate xirr for sip</strong> using spreadsheets, note that maintaining 120 SIP entries for a 10-year term is incredibly tedious.</p>
 
             <h2>Why is XIRR Hard to Calculate?</h2>
-            <p>To calculate XIRR manually in Excel, you need the exact date and amount of every SIP installment you ever
-                made. For a 5-year SIP, that's 60+ entries.</p>
+            <p>Because you need the exact date and amount of every SIP installment you ever made. If you missed a month, or paused the SIP, <strong>how is XIRR calculated?</strong> The formula breaks unless every date is flawless.</p>
             <p><strong>Arthavi Automates This:</strong></p>
             <ul>
-                <li>We parse your CAS PDF Statement.</li>
-                <li>We extract every transaction date and amount.</li>
-                <li>We apply standard XIRR financial algorithms to give you your portfolio's true performance instanty.
+                <li>We parse your CAS PDF Statement instantly.</li>
+                <li>We avoid using clunky <strong>xirr calculator excel</strong> templates.</li>
+                <li>We apply standard XIRR financial algorithms to give you your portfolio's true performance instantly.
                 </li>
             </ul>
 
