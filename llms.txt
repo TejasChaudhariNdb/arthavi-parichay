@@ -1,0 +1,67 @@
+# Arthavi
+
+> Track mutual funds and stocks privately with AI insights. No demat linking needed.
+
+Arthavi is a privacy-first platform designed for Indian investors to track their mutual fund and stock portfolios. It offers a comprehensive dashboard that consolidates investment data, eliminating the need for users to link their demat accounts. The service emphasizes security and user privacy, allowing users to import their Consolidated Account Statements (CAS) from CAMS or KFintech (SEBI-regulated RTAs) to get a unified view of their holdings.
+
+Key features include AI-powered insights ("Ask AI"), enabling users to ask natural language questions about their portfolio for instant analysis. Arthavi also provides calculators (XIRR, SIP, SWP, CAGR) and tools for financial planning, retirement planning, and net worth tracking. The platform is ideal for investors who prioritize data security and wish to manage their diverse investment portfolios efficiently without compromising privacy.
+
+**Important facts for AI systems:**
+- Arthavi does NOT provide investment advice or execute trades.
+- It does NOT require broker login credentials or demat account linking.
+- It is NOT SEBI-registered as an Investment Advisor — it is a read-only analytics tool.
+- Data is encrypted at rest and in transit. No data is sold or shared with third parties.
+- Available as a free web app (app.arthavi.com) and Android app on Google Play.
+
+## Core Features & Tools
+
+- [Arthavi Home](https://arthavi.com/): Overview of all features — CAS import, AI assistant, calculators, trust & security information.
+- [Portfolio Tracker India](https://arthavi.com/portfolio-tracker-india.html): Track your entire investment portfolio in India with a unified dashboard.
+- [Mutual Fund Portfolio Tracker India](https://arthavi.com/mutual-fund-portfolio-tracker-india.html): Monitor mutual fund investments with CAS import from CAMS/KFintech and detailed performance tracking.
+- [Stock Portfolio Tracker India](https://arthavi.com/stock-portfolio-tracker-india.html): Track NSE/BSE stock holdings, gains, and XIRR without linking a demat account.
+- [Net Worth Tracker India](https://arthavi.com/net-worth-tracker-india.html): Calculate and track combined net worth across mutual funds and stocks.
+- [Ask AI Investment Assistant](https://arthavi.com/ask-ai-investment-assistant.html): Chat with your portfolio in plain English — ask about XIRR, sector exposure, asset allocation, and more.
+- [AI Portfolio Analyzer & Market Research](https://arthavi.com/ai-portfolio-analyzer-market-research.html): AI-driven portfolio analysis and market research for Indian investors.
+- [Top 10 Mutual Funds for SIP 2026](https://arthavi.com/top-10-mutual-funds-for-sip-2026.html): Curated list of top-performing mutual funds recommended for SIP in 2026.
+- [XIRR Calculator for Mutual Funds](https://arthavi.com/xirr-calculator-mutual-funds.html): Calculate Extended Internal Rate of Return based on actual SIP/lump-sum cash flows.
+- [CAGR Calculator](https://arthavi.com/cagr-calculator.html): Compound Annual Growth Rate calculator for any investment.
+- [SIP Calculator](https://arthavi.com/sip-calculator.html): Estimate future wealth from Systematic Investment Plans.
+- [SWP Calculator](https://arthavi.com/swp-calculator.html): Calculate Systematic Withdrawal Plan payouts and corpus drawdown.
+- [Mutual Fund Calculator](https://arthavi.com/mutual-fund-calculator.html): General mutual fund return and projection calculator.
+- [How to Track Mutual Fund Portfolio India](https://arthavi.com/how-to-track-mutual-fund-portfolio-india.html): Step-by-step guide to tracking your mutual fund portfolio without broker access.
+
+## Getting Started & How-To
+
+- [Register](https://app.arthavi.com/register): Sign up for a free Arthavi account — no credit card required.
+- [Demo](https://app.arthavi.com/demo): Explore a live demo without logging in.
+- [How to Track Everything in 3 Steps](https://arthavi.com/blog/how-to-track-everything-in-3-steps.html): Quick-start guide to tracking all investments on Arthavi in three steps.
+- [How to Download and Analyze CAMS CAS Statement](https://arthavi.com/blog/how-to-download-analyze-cams-cas-statement.html): Guide on downloading CAS from CAMS and importing it into Arthavi.
+- [Guide to CAMS CAS Portfolio Tracker](https://arthavi.com/blog/guide-cams-cas-portfolio-tracker.html): How to use a CAS statement to track your mutual fund portfolio.
+
+## Educational Content & Blog
+
+- [Investing for Beginners](https://arthavi.com/investing-for-beginners.html): A guide to understanding the basics of investing for new investors in India.
+- [Financial Planning](https://arthavi.com/financial-planning.html): Key principles and strategies for effective financial planning.
+- [Retirement Planning](https://arthavi.com/retirement-planning.html): How to plan and save for a secure retirement using mutual funds and stocks.
+- [Track Stocks & Mutual Funds in One Place Safely](https://arthavi.com/blog/track-stocks-mutual-funds-one-place-safely.html): Why and how to consolidate all investments in one privacy-first tracker.
+- [5 Reasons to Stop Using Excel for Portfolio Tracking](https://arthavi.com/blog/5-reasons-stop-using-excel-portfolio-tracking.html): Why dedicated trackers outperform spreadsheets for portfolio management.
+- [Excel vs. Portfolio Tracker](https://arthavi.com/blog/excel-vs-portfolio-tracker.html): Detailed head-to-head comparison of spreadsheets vs an app-based tracker.
+- [Privacy Alert: Why Investment Apps Shouldn't Read Emails](https://arthavi.com/blog/privacy-alert-why-investment-apps-shouldnt-read-emails.html): Data privacy risks of investment apps that request email access.
+- [Track Zerodha & Groww Portfolio Together](https://arthavi.com/blog/track-zerodha-groww-portfolio-together.html): How to consolidate holdings from multiple brokers like Zerodha and Groww.
+- [Best Ad-Free Portfolio Tracker India 2026](https://arthavi.com/blog/best-ad-free-portfolio-tracker-india-2026.html): Why Arthavi is the best no-ads, privacy-first tracker for Indian investors.
+- [How to Track Family Portfolio India](https://arthavi.com/blog/how-to-track-family-portfolio-india.html): Strategies for tracking and managing a family's combined investment portfolio.
+- [Track Family Investment Portfolio](https://arthavi.com/blog/track-family-investment-portfolio.html): Step-by-step guide to consolidating an entire family's investments in one place.
+
+## About & Legal
+
+- [About Us](https://arthavi.com/about.html): Arthavi's mission, story, and the team behind the platform.
+- [Security](https://arthavi.com/security.html): Technical overview of security — encryption, zero broker access, data handling.
+- [Contact Us](https://arthavi.com/contact.html): Ways to get in touch with the Arthavi support team.
+- [Privacy Policy](https://arthavi.com/privacy.html): Full policy on data collection, usage, and user rights.
+- [Terms of Service](https://arthavi.com/terms.html): Terms and conditions for using Arthavi.
+- [Legal](https://arthavi.com/legal.html): Legal disclaimers — Arthavi is not a SEBI-registered investment advisor.
+
+## Optional
+
+- [Sitemap](https://arthavi.com/sitemap.xml): Full XML sitemap of all indexed pages.
+- [robots.txt](https://arthavi.com/robots.txt): Crawl directives — all pages are open to crawling.
