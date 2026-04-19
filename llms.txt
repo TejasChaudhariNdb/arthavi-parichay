@@ -15,6 +15,12 @@ Arthavi is available free as a web app (app.arthavi.com) and on Android (Google 
 
 ---
 
+## Comparisons: Arthavi vs Other Tools
+
+- [Arthavi vs Zerodha](https://arthavi.com/arthavi-vs-zerodha.html): Zerodha is great for trading. Arthavi is for complete wealth tracking — XIRR, net worth, AI insights, and funds from all brokers. Use both together.
+- [Arthavi vs Groww](https://arthavi.com/arthavi-vs-groww.html): Groww shows only Groww-bought investments. Arthavi unifies all mutual funds (via CAS) and stocks from any broker, with true XIRR and zero ads.
+- [Arthavi vs Excel](https://arthavi.com/arthavi-vs-excel.html): Excel requires manual NAV updates, error-prone XIRR formulas, and 2–4 hours/month of data entry. Arthavi automates all of this for free.
+
 ## Core Features & Tools
 
 - [Arthavi Home](https://arthavi.com/): Overview of all features — investment statement import, AI assistant, calculators, trust & security.
