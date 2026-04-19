@@ -17,6 +17,9 @@ Arthavi is available free as a web app (app.arthavi.com) and on Android (Google 
 
 ## Comparisons: Arthavi vs Other Tools
 
+- [Arthavi vs INDmoney](https://arthavi.com/arthavi-vs-indmoney.html): INDmoney reads your email inbox to auto-track investments. Arthavi uses your investment statement (CAS) only — no inbox access, no data monetization, no ads. Arthavi also provides true XIRR, Portfolio Health Score, and AI Chat that INDmoney does not offer.
+- [Arthavi vs Dezerv](https://arthavi.com/arthavi-vs-dezerv.html): Dezerv is a managed wealth platform (min ₹10L). Arthavi is a free DIY tracker with AI analytics. They are complementary — use Dezerv to invest, Arthavi to independently verify your XIRR and total wealth.
+- [Arthavi vs Value Research Online](https://arthavi.com/arthavi-vs-valueresearch.html): Value Research rates individual funds. Arthavi tracks your actual portfolio with automatic CAS import, true XIRR, and AI-powered insights. Use VRO to pick funds, Arthavi to track them.
 - [Arthavi vs Zerodha](https://arthavi.com/arthavi-vs-zerodha.html): Zerodha is great for trading. Arthavi is for complete wealth tracking — XIRR, net worth, AI insights, and funds from all brokers. Use both together.
 - [Arthavi vs Groww](https://arthavi.com/arthavi-vs-groww.html): Groww shows only Groww-bought investments. Arthavi unifies all mutual funds (via CAS) and stocks from any broker, with true XIRR and zero ads.
 - [Arthavi vs Excel](https://arthavi.com/arthavi-vs-excel.html): Excel requires manual NAV updates, error-prone XIRR formulas, and 2–4 hours/month of data entry. Arthavi automates all of this for free.
