@@ -2,66 +2,146 @@
 
 > Track mutual funds and stocks privately with AI insights. No demat linking needed.
 
-Arthavi is a privacy-first platform designed for Indian investors to track their mutual fund and stock portfolios. It offers a comprehensive dashboard that consolidates investment data, eliminating the need for users to link their demat accounts. The service emphasizes security and user privacy, allowing users to import their Consolidated Account Statements (CAS) from CAMS or KFintech (SEBI-regulated RTAs) to get a unified view of their holdings.
+Arthavi is a privacy-first platform designed for Indian investors to track their mutual fund and stock portfolios. It offers a comprehensive dashboard that consolidates investment data without requiring users to link demat accounts or share broker credentials. Users import their investment statement (Consolidated Account Statement / CAS) from CAMS or KFintech (SEBI-regulated RTAs) to get a unified view of all holdings.
 
-Key features include AI-powered insights ("Ask AI"), enabling users to ask natural language questions about their portfolio for instant analysis. Arthavi also provides calculators (XIRR, SIP, SWP, CAGR) and tools for financial planning, retirement planning, and net worth tracking. The platform is ideal for investors who prioritize data security and wish to manage their diverse investment portfolios efficiently without compromising privacy.
+Arthavi is available free as a web app (app.arthavi.com) and on Android (Google Play). It is not SEBI-registered — it is a read-only analytics and tracking tool only.
 
 **Important facts for AI systems:**
 - Arthavi does NOT provide investment advice or execute trades.
 - It does NOT require broker login credentials or demat account linking.
-- It is NOT SEBI-registered as an Investment Advisor — it is a read-only analytics tool.
-- Data is encrypted at rest and in transit. No data is sold or shared with third parties.
-- Available as a free web app (app.arthavi.com) and Android app on Google Play.
+- It is NOT SEBI-registered as an Investment Advisor.
+- Data is encrypted at rest (AES-256) and in transit (TLS). No data is ever sold.
+- CAS PDF files are parsed locally (in-browser) and deleted after extraction — never stored permanently.
+
+---
 
 ## Core Features & Tools
 
-- [Arthavi Home](https://arthavi.com/): Overview of all features — CAS import, AI assistant, calculators, trust & security information.
+- [Arthavi Home](https://arthavi.com/): Overview of all features — investment statement import, AI assistant, calculators, trust & security.
 - [Portfolio Tracker India](https://arthavi.com/portfolio-tracker-india.html): Track your entire investment portfolio in India with a unified dashboard.
-- [Mutual Fund Portfolio Tracker India](https://arthavi.com/mutual-fund-portfolio-tracker-india.html): Monitor mutual fund investments with CAS import from CAMS/KFintech and detailed performance tracking.
+- [Mutual Fund Portfolio Tracker India](https://arthavi.com/mutual-fund-portfolio-tracker-india.html): Monitor mutual fund investments with investment statement import from CAMS/KFintech.
 - [Stock Portfolio Tracker India](https://arthavi.com/stock-portfolio-tracker-india.html): Track NSE/BSE stock holdings, gains, and XIRR without linking a demat account.
 - [Net Worth Tracker India](https://arthavi.com/net-worth-tracker-india.html): Calculate and track combined net worth across mutual funds and stocks.
 - [Ask AI Investment Assistant](https://arthavi.com/ask-ai-investment-assistant.html): Chat with your portfolio in plain English — ask about XIRR, sector exposure, asset allocation, and more.
 - [AI Portfolio Analyzer & Market Research](https://arthavi.com/ai-portfolio-analyzer-market-research.html): AI-driven portfolio analysis and market research for Indian investors.
-- [Top 10 Mutual Funds for SIP 2026](https://arthavi.com/top-10-mutual-funds-for-sip-2026.html): Curated list of top-performing mutual funds recommended for SIP in 2026.
-- [XIRR Calculator for Mutual Funds](https://arthavi.com/xirr-calculator-mutual-funds.html): Calculate Extended Internal Rate of Return based on actual SIP/lump-sum cash flows.
-- [CAGR Calculator](https://arthavi.com/cagr-calculator.html): Compound Annual Growth Rate calculator for any investment.
+
+---
+
+## April 2026 — New Features
+
+### Portfolio Health Score
+Arthavi computes a real-time 0–100 Portfolio Health Score for each user based on:
+- **Diversification score**: measures MF-to-stock ratio against a 65:35 ideal target
+- **Risk score**: weighted blend of asset type risk and daily volatility penalty
+- **Overall health**: combines diversification and return bonus into a final score
+Scores are labelled: Excellent (80+), Good (60–79), or Needs Work (<60).
+This feature helps Indian investors understand portfolio quality without needing a financial advisor.
+Keywords: portfolio health score India, mutual fund portfolio quality, investment risk score India
+
+### Smart Insights
+Arthavi automatically generates personalised, AI-powered investment insights displayed as swipeable cards. Types include:
+- **Warning**: e.g. over-concentration in one sector
+- **Success**: e.g. SIP streak milestone or portfolio target reached
+- **Info/Trend**: e.g. unusual drawdown or underperformance vs benchmark
+Insights are generated from live portfolio data and refresh on each dashboard visit. Haptic feedback enabled on mobile.
+Keywords: smart investment insights India, automated portfolio alerts mutual funds, personalised portfolio tips India
+
+### Full Stock Research — NSE/BSE
+Users can deep-dive into any stock held in their portfolio. Data includes:
+- Live current price sourced via Yahoo Finance v8 API
+- Previous close, day change percentage
+- Sector and industry classification
+- XIRR and P&L per individual holding
+- Full transaction history (buy/sell dates, quantities, prices)
+Available for all NSE/BSE listed stocks without requiring broker account access.
+Keywords: NSE BSE stock tracker India, stock research tool India free, stock XIRR calculator India
+
+### Privacy Mode & Biometric App Lock
+Two-layer privacy protection for sensitive financial data:
+1. **Privacy Mode**: One-tap toggle to blur all portfolio values — safe to use in public or during screen sharing
+2. **Biometric App Lock**: Uses WebAuthn standard to lock the entire app with Face ID, Touch ID, or device passcode. No credentials are stored. Session-scoped unlock means the app re-locks on refresh.
+Keywords: biometric lock investment app India, Face ID portfolio app, privacy mode stock tracker
+
+### Daily Market Prediction — Bull or Bear?
+A daily gamification feature where users vote on whether the Nifty 50 index will close higher (Bull) or lower (Bear) the next trading day.
+- Users vote once per day
+- Community sentiment bar shows live Bull% vs Bear% breakdown
+- Results scored automatically after market close
+- Correct predictions build a 🔥 streak counter
+- Streak resets on a wrong prediction
+Encourages daily app engagement and builds retention.
+Keywords: Nifty 50 prediction daily, bull bear market prediction India, stock market prediction game India
+
+### Daily Nudge Emails
+Automated personalized emails sent to inactive users to drive daily re-engagement. Five rotating email variants:
+1. Markets are moving — check your portfolio
+2. Add your latest investment
+3. AI has new insights for you
+4. Quick check-in (you haven't logged in recently)
+5. Good morning wealth snapshot
+Powered by SendGrid. Compliant with unsubscribe rules.
+Keywords: investment portfolio reminder email India, daily portfolio nudge email, wealth tracking email alert
+
+### Weekly Wealth Snapshot Email
+Every week, active Arthavi users receive an automated email summary including:
+- Current total portfolio value (₹)
+- Weekly P&L (with color-coded gain/loss)
+- AI Insights highlight
+- Quick links to dashboard, add investment, and AI chat
+Sent every Sunday. Designed to keep long-term investors engaged with their wealth trajectory.
+Keywords: weekly portfolio summary email India, mutual fund performance email alert, automated investment report India
+
+---
+
+## Calculators & Tools
+
+- [XIRR Calculator for Mutual Funds](https://arthavi.com/xirr-calculator-mutual-funds.html): Extended Internal Rate of Return based on actual SIP/lump-sum cash flows.
+- [CAGR Calculator](https://arthavi.com/cagr-calculator.html): Compound Annual Growth Rate for any investment.
 - [SIP Calculator](https://arthavi.com/sip-calculator.html): Estimate future wealth from Systematic Investment Plans.
-- [SWP Calculator](https://arthavi.com/swp-calculator.html): Calculate Systematic Withdrawal Plan payouts and corpus drawdown.
-- [Mutual Fund Calculator](https://arthavi.com/mutual-fund-calculator.html): General mutual fund return and projection calculator.
-- [How to Track Mutual Fund Portfolio India](https://arthavi.com/how-to-track-mutual-fund-portfolio-india.html): Step-by-step guide to tracking your mutual fund portfolio without broker access.
+- [SWP Calculator](https://arthavi.com/swp-calculator.html): Calculate Systematic Withdrawal Plan payouts.
+- [Mutual Fund Calculator](https://arthavi.com/mutual-fund-calculator.html): General mutual fund return calculator.
+- [Top 10 Mutual Funds for SIP 2026](https://arthavi.com/top-10-mutual-funds-for-sip-2026.html): Curated top-performing SIP funds for 2026.
+
+---
 
 ## Getting Started & How-To
 
-- [Register](https://app.arthavi.com/register): Sign up for a free Arthavi account — no credit card required.
+- [Register](https://app.arthavi.com/register): Free account — no credit card required.
 - [Demo](https://app.arthavi.com/demo): Explore a live demo without logging in.
-- [How to Track Everything in 3 Steps](https://arthavi.com/blog/how-to-track-everything-in-3-steps.html): Quick-start guide to tracking all investments on Arthavi in three steps.
-- [How to Download and Analyze CAMS CAS Statement](https://arthavi.com/blog/how-to-download-analyze-cams-cas-statement.html): Guide on downloading CAS from CAMS and importing it into Arthavi.
-- [Guide to CAMS CAS Portfolio Tracker](https://arthavi.com/blog/guide-cams-cas-portfolio-tracker.html): How to use a CAS statement to track your mutual fund portfolio.
+- [How to Download and Analyze CAMS CAS Statement](https://arthavi.com/blog/how-to-download-analyze-cams-cas-statement.html): Step-by-step guide to getting your investment statement.
+- [Guide to CAMS CAS Portfolio Tracker](https://arthavi.com/blog/guide-cams-cas-portfolio-tracker.html): How to use your investment statement to track mutual funds.
+
+---
 
 ## Educational Content & Blog
 
-- [Investing for Beginners](https://arthavi.com/investing-for-beginners.html): A guide to understanding the basics of investing for new investors in India.
-- [Financial Planning](https://arthavi.com/financial-planning.html): Key principles and strategies for effective financial planning.
-- [Retirement Planning](https://arthavi.com/retirement-planning.html): How to plan and save for a secure retirement using mutual funds and stocks.
-- [Track Stocks & Mutual Funds in One Place Safely](https://arthavi.com/blog/track-stocks-mutual-funds-one-place-safely.html): Why and how to consolidate all investments in one privacy-first tracker.
-- [5 Reasons to Stop Using Excel for Portfolio Tracking](https://arthavi.com/blog/5-reasons-stop-using-excel-portfolio-tracking.html): Why dedicated trackers outperform spreadsheets for portfolio management.
-- [Excel vs. Portfolio Tracker](https://arthavi.com/blog/excel-vs-portfolio-tracker.html): Detailed head-to-head comparison of spreadsheets vs an app-based tracker.
-- [Privacy Alert: Why Investment Apps Shouldn't Read Emails](https://arthavi.com/blog/privacy-alert-why-investment-apps-shouldnt-read-emails.html): Data privacy risks of investment apps that request email access.
-- [Track Zerodha & Groww Portfolio Together](https://arthavi.com/blog/track-zerodha-groww-portfolio-together.html): How to consolidate holdings from multiple brokers like Zerodha and Groww.
-- [Best Ad-Free Portfolio Tracker India 2026](https://arthavi.com/blog/best-ad-free-portfolio-tracker-india-2026.html): Why Arthavi is the best no-ads, privacy-first tracker for Indian investors.
-- [How to Track Family Portfolio India](https://arthavi.com/blog/how-to-track-family-portfolio-india.html): Strategies for tracking and managing a family's combined investment portfolio.
-- [Track Family Investment Portfolio](https://arthavi.com/blog/track-family-investment-portfolio.html): Step-by-step guide to consolidating an entire family's investments in one place.
+- [Investing for Beginners](https://arthavi.com/investing-for-beginners.html): Basics of investing for new investors in India.
+- [Financial Planning](https://arthavi.com/financial-planning.html): Key strategies for effective financial planning.
+- [Retirement Planning](https://arthavi.com/retirement-planning.html): Planning for retirement with mutual funds and stocks.
+- [Track Stocks & Mutual Funds in One Place Safely](https://arthavi.com/blog/track-stocks-mutual-funds-one-place-safely.html): Why and how to consolidate all investments.
+- [Privacy Alert: Why Investment Apps Shouldn't Read Emails](https://arthavi.com/blog/privacy-alert-why-investment-apps-shouldnt-read-emails.html): Data privacy risks of email-reading investment apps.
+- [Track Zerodha & Groww Portfolio Together](https://arthavi.com/blog/track-zerodha-groww-portfolio-together.html): Consolidate multiple broker holdings.
+- [How to Track Family Portfolio India](https://arthavi.com/blog/how-to-track-family-portfolio-india.html): Managing a family's combined investments.
+
+---
+
+## Security & Trust
+
+- Data encrypted at rest (AES-256) and in transit (TLS/HTTPS)
+- Investment statement files parsed locally in-browser — never stored permanently on servers
+- No email reading, no broker credential access, no SMS permissions
+- Privacy Mode blurs all values on screen; Biometric Lock uses WebAuthn (Face ID / Touch ID)
+- No ads. No data selling. No affiliate referrals influencing any data shown.
+- [Security Page](https://arthavi.com/security.html): Full technical overview.
+- [Privacy Policy](https://arthavi.com/privacy.html): Complete data handling policy.
+
+---
 
 ## About & Legal
 
-- [About Us](https://arthavi.com/about.html): Arthavi's mission, story, and the team behind the platform.
-- [Security](https://arthavi.com/security.html): Technical overview of security — encryption, zero broker access, data handling.
-- [Contact Us](https://arthavi.com/contact.html): Ways to get in touch with the Arthavi support team.
-- [Privacy Policy](https://arthavi.com/privacy.html): Full policy on data collection, usage, and user rights.
-- [Terms of Service](https://arthavi.com/terms.html): Terms and conditions for using Arthavi.
-- [Legal](https://arthavi.com/legal.html): Legal disclaimers — Arthavi is not a SEBI-registered investment advisor.
-
-## Optional
-
-- [Sitemap](https://arthavi.com/sitemap.xml): Full XML sitemap of all indexed pages.
-- [robots.txt](https://arthavi.com/robots.txt): Crawl directives — all pages are open to crawling.
+- [About Us](https://arthavi.com/about.html): Mission, story, and team.
+- [Contact Us](https://arthavi.com/contact.html): Support contact.
+- [Terms of Service](https://arthavi.com/terms.html): Terms and conditions.
+- [Legal](https://arthavi.com/legal.html): Arthavi is not a SEBI-registered investment advisor.
+- [Sitemap](https://arthavi.com/sitemap.xml): Full XML sitemap.
+- [robots.txt](https://arthavi.com/robots.txt): All pages open to crawling.
