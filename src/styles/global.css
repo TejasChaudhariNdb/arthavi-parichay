@@ -1186,6 +1186,80 @@
             margin-bottom: 1rem;
         }
 
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        @media (max-width: 900px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem !important;
+            }
+
+            .social-proof-section ~ section[style*="background: var(--bg-surface)"] {
+                padding: 3rem 0;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Demo/Portfolio Section Grid */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Calculator stat grid */
+        .calc-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .calc-stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calc-stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             :root {
@@ -1235,11 +1309,140 @@
             .stat-item strong {
                 font-size: 1.6rem;
             }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-showcase {
+                padding: 3rem 0;
+            }
+
+            .social-proof-section {
+                padding: 2rem 0;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .prose h1 {
+                font-size: 1.8rem;
+            }
+            .prose h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .step-card:hover {
+                transform: none;
+            }
+
+            .calc-result-hero {
+                padding: 2rem 1rem !important;
+            }
+
+            .calc-result-hero p:first-of-type {
+                font-size: 0.75rem !important;
+            }
+
+            .calc-result-hero #total-value,
+            .calc-result-hero #cagr-result,
+            .calc-result-hero #final-value,
+            .calc-result-hero #xirr-result {
+                font-size: 2.5rem !important;
+                line-height: 1.1 !important;
+            }
+
+            .calc-inputs-panel {
+                padding: 1.5rem !important;
+            }
+
+            .calc-inputs-panel label {
+                font-size: 0.9rem !important;
+            }
+
+            .calc-inputs-panel input[type="number"],
+            .calc-inputs-panel input[type="range"] {
+                width: 100%;
+            }
+
+            .calc-stats-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            .calc-chart-panel {
+                padding: 1.5rem !important;
+            }
+
+            .xirr-calc-layout {
+                grid-template-columns: 1fr !important;
+            }
+
+            .xirr-calc-left,
+            .xirr-calc-right {
+                padding: 1.25rem !important;
+            }
+
+            .cash-flow-row {
+                grid-template-columns: 1fr 1fr 32px !important;
+                gap: 0.5rem !important;
+            }
+
+            .cash-flow-row input {
+                font-size: 0.85rem !important;
+                padding: 0.4rem !important;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem !important;
+            }
+            .page-header p {
+                font-size: 1rem !important;
+            }
+
+            .prose h1 {
+                font-size: 1.8rem;
+            }
+            .prose h2 {
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 480px) {
             .footer-top {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-item strong {
+                font-size: 1.4rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .calc-result-hero #total-value,
+            .calc-result-hero #cagr-result,
+            .calc-result-hero #final-value {
+                font-size: 2rem !important;
+            }
+
+            .calc-stats-grid {
+                grid-template-columns: 1fr 1fr !important;
             }
         }
 

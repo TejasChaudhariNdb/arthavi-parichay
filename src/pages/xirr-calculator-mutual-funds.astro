@@ -64,17 +64,86 @@ const seo = {
     
 
     <main class="container">
-        <section class="page-header fade-in">
+        <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem; margin-top: 31px;">
             <h1>XIRR Calculator for Mutual Funds (India)</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">
+            <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
                 SIPs have irregular cash flows. Simple returns are wrong. You need XIRR.
             </p>
-            <div style="margin-top: 2rem;">
-                <a href="https://app.arthavi.com" class="btn btn-primary">Calculate My XIRR</a>
-            </div>
         </section>
 
-        <article class="prose fade-in delay-100">
+        <div class="calculator-container fade-in delay-100">
+            <div class="calc-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                <!-- Left: Cash Flow Input -->
+                <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Add Your Cash Flows</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">Enter each SIP date and amount. Last row = current portfolio value (positive).</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 40px; gap: 0.5rem; margin-bottom: 0.75rem; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Date</span>
+                        <span>Amount (₹)</span>
+                        <span></span>
+                    </div>
+
+                    <div id="cash-flow-list" style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 300px; overflow-y: auto; margin-bottom: 1rem;"></div>
+
+                    <button id="add-row-btn" onclick="addCashFlowRow()" style="width: 100%; padding: 0.6rem; background: rgba(99,102,241,0.1); border: 1px dashed rgba(99,102,241,0.4); border-radius: 8px; color: var(--primary-glow); font-size: 0.85rem; cursor: pointer; margin-bottom: 1rem;">+ Add Cash Flow</button>
+
+                    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">
+                            <span>Total Invested</span>
+                            <span id="xirr-total-invested">₹ 0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
+                            <span>Cash Flows</span>
+                            <span id="xirr-flow-count">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: XIRR Result -->
+                <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Your XIRR Result</h3>
+
+                    <div style="text-align: center; padding: 2rem 0; margin-bottom: 1.5rem;">
+                        <p style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Annualized Return</p>
+                        <p id="xirr-result" style="font-size: 3.5rem; font-weight: 700; font-family: var(--font-heading); background: linear-gradient(135deg, var(--primary-glow), #c084fc); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0;">—</p>
+                        <p id="xirr-status" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;"></p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
+                        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.75rem; text-align: center;">
+                            <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.25rem;">INVESTED</p>
+                            <p id="xirr-invested" style="font-size: 1rem; font-weight: 700; color: var(--text-head); margin: 0;">₹0</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.75rem; text-align: center;">
+                            <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.25rem;">CURRENT VALUE</p>
+                            <p id="xirr-current" style="font-size: 1rem; font-weight: 700; color: #34d399; margin: 0;">₹0</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.75rem; text-align: center;">
+                            <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.25rem;">ABSOLUTE GAIN</p>
+                            <p id="xirr-gain" style="font-size: 1rem; font-weight: 700; color: #818cf8; margin: 0;">₹0</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.75rem; text-align: center;">
+                            <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.25rem;">HOLDING PERIOD</p>
+                            <p id="xirr-years" style="font-size: 1rem; font-weight: 700; color: var(--text-head); margin: 0;">—</p>
+                        </div>
+                    </div>
+
+                    <button id="calculate-xirr-btn" onclick="calculateXIRR()" style="width: 100%; padding: 0.8rem; background: linear-gradient(135deg, var(--primary), var(--ai-color)); border: none; border-radius: 8px; color: white; font-weight: 600; font-size: 0.95rem; cursor: pointer;">Calculate XIRR</button>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">Or <a href="https://app.arthavi.com" style="color: var(--primary-glow);">import your CAS automatically</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Example -->
+        <div style="max-width: 1000px; margin: 2rem auto;" class="fade-in">
+            <div style="display: flex; justify-content: center; gap: 1rem;">
+                <button onclick="loadSample()" style="padding: 0.5rem 1rem; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 6px; color: var(--primary-glow); font-size: 0.85rem; cursor: pointer;">Load Sample (3 Years SIP)</button>
+                <button onclick="clearAll()" style="padding: 0.5rem 1rem; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 6px; color: #f87171; font-size: 0.85rem; cursor: pointer;">Clear All</button>
+            </div>
+        </div>
+
+        <article class="prose fade-in delay-200">
             <h2>Online XIRR Calculator vs CAGR: The Difference</h2>
             <p><strong>CAGR (Compound Annual Growth Rate)</strong> works well for a fixed deposit where you invest once.
                 But for <strong>Mutual Fund SIPs</strong>, where you invest money every month at different NAVs, CAGR
@@ -108,6 +177,214 @@ const seo = {
             </div>
         </article>
     </main>
+
+    <script>
+        let rowCount = 0;
+        const today = new Date();
+        const sampleDates = [
+            new Date(today.getFullYear() - 3, today.getMonth(), 1),
+            new Date(today.getFullYear() - 2, today.getMonth(), 1),
+            new Date(today.getFullYear() - 1, today.getMonth(), 1),
+            new Date(today.getFullYear(), today.getMonth(), 1),
+        ];
+
+        function formatDate(d) {
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const y = d.getFullYear();
+            return `${y}-${m}`;
+        }
+
+        function parseDate(str) {
+            const [y, m] = str.split('-').map(Number);
+            return new Date(y, m - 1, 15);
+        }
+
+        function addCashFlowRow(dateVal = '', amountVal = '', isPositive = false) {
+            const container = document.getElementById('cash-flow-list');
+            const row = document.createElement('div');
+            row.style.display = 'grid';
+            row.style.gridTemplateColumns = '1fr 1fr 40px';
+            row.style.gap = '0.5rem';
+            row.style.alignItems = 'center';
+            row.dataset.isPositive = isPositive;
+
+            const dateInput = document.createElement('input');
+            dateInput.type = 'month';
+            dateInput.value = dateVal || formatDate(today);
+            dateInput.style.cssText = 'background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 0.5rem; color: var(--text-body); font-size: 0.85rem; width: 100%;';
+            dateInput.oninput = updateTotals;
+
+            const amountInput = document.createElement('input');
+            amountInput.type = 'number';
+            amountInput.placeholder = isPositive ? 'Current value' : 'SIP amount';
+            amountInput.value = amountVal;
+            amountInput.min = '0';
+            amountInput.step = '100';
+            amountInput.style.cssText = `background: rgba(255,255,255,0.04); border: 1px solid ${isPositive ? 'rgba(52,211,153,0.4)' : 'rgba(255,255,255,0.1)'}; border-radius: 6px; padding: 0.5rem; color: ${isPositive ? '#34d399' : 'var(--text-body)'}; font-size: 0.85rem; width: 100%;`;
+            amountInput.oninput = updateTotals;
+            if (isPositive) amountInput.style.color = '#34d399';
+
+            const delBtn = document.createElement('button');
+            delBtn.innerHTML = '×';
+            delBtn.style.cssText = 'background: none; border: none; color: #f87171; font-size: 1.2rem; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;';
+            delBtn.onclick = () => { row.remove(); updateTotals(); };
+            delBtn.title = 'Remove';
+
+            row.appendChild(dateInput);
+            row.appendChild(amountInput);
+            row.appendChild(delBtn);
+            container.appendChild(row);
+            rowCount++;
+        }
+
+        function updateTotals() {
+            const rows = document.querySelectorAll('#cash-flow-list > div');
+            let totalInvested = 0;
+            let currentValue = 0;
+            rows.forEach(row => {
+                const amount = parseFloat(row.children[1].value) || 0;
+                if (row.dataset.isPositive === 'true') {
+                    currentValue += amount;
+                } else {
+                    totalInvested += amount;
+                }
+            });
+            document.getElementById('xirr-total-invested').innerText = '₹ ' + Math.round(totalInvested).toLocaleString('en-IN');
+            document.getElementById('xirr-flow-count').innerText = rows.length;
+            document.getElementById('xirr-invested').innerText = '₹ ' + Math.round(totalInvested).toLocaleString('en-IN');
+            document.getElementById('xirr-current').innerText = '₹ ' + Math.round(currentValue).toLocaleString('en-IN');
+            document.getElementById('xirr-gain').innerText = '₹ ' + Math.round(currentValue - totalInvested).toLocaleString('en-IN');
+        }
+
+        function calculateXIRR() {
+            const rows = document.querySelectorAll('#cash-flow-list > div');
+            const dates = [];
+            const amounts = [];
+
+            rows.forEach(row => {
+                const dateVal = row.children[0].value;
+                const amountVal = parseFloat(row.children[1].value);
+                if (dateVal && amountVal && amountVal > 0) {
+                    dates.push(parseDate(dateVal));
+                    amounts.push(amountVal);
+                }
+            });
+
+            if (dates.length < 2) {
+                document.getElementById('xirr-result').innerText = 'Add more';
+                return;
+            }
+
+            // Newton-Raphson XIRR
+            let guess = 0.1;
+            const maxIter = 1000;
+            const tolerance = 1e-7;
+
+            for (let iter = 0; iter < maxIter; iter++) {
+                let npv = 0;
+                let dnpv = 0;
+                const t0 = dates[0].getTime();
+
+                for (let j = 0; j < dates.length; j++) {
+                    const t = (dates[j].getTime() - t0) / (365.25 * 24 * 60 * 60 * 1000);
+                    const disc = Math.pow(1 + guess, -t);
+                    npv += amounts[j] * disc;
+                    if (j > 0) {
+                        const dt = (dates[j].getTime() - dates[j-1].getTime()) / (365.25 * 24 * 60 * 60 * 1000);
+                        dnpv -= t * amounts[j] * Math.pow(1 + guess, -t - 1);
+                    }
+                }
+
+                const delta = npv / dnpv;
+                guess -= delta;
+
+                if (Math.abs(delta) < tolerance) break;
+            }
+
+            const xirrPct = guess * 100;
+            const el = document.getElementById('xirr-result');
+            const status = document.getElementById('xirr-status');
+            const yearsEl = document.getElementById('xirr-years');
+
+            if (!isNaN(xirrPct) && isFinite(xirrPct) && Math.abs(xirrPct) < 100) {
+                el.innerText = xirrPct.toFixed(2) + '%';
+                el.style.webkitTextFillColor = 'transparent';
+
+                // Color code
+                if (xirrPct < 0) {
+                    el.style.background = 'linear-gradient(135deg, #f87171, #ef4444)';
+                    el.style.webkitBackgroundClip = 'text';
+                    el.style.backgroundClip = 'text';
+                    status.innerText = '⚠ Negative returns';
+                    status.style.color = '#f87171';
+                } else if (xirrPct < 8) {
+                    el.style.background = 'linear-gradient(135deg, #fbbf24, #f59e0b)';
+                    el.style.webkitBackgroundClip = 'text';
+                    el.style.backgroundClip = 'text';
+                    status.innerText = 'Below FD rates — consider reviewing';
+                    status.style.color = '#fbbf24';
+                } else if (xirrPct < 12) {
+                    el.style.background = 'linear-gradient(135deg, var(--primary-glow), #c084fc)';
+                    el.style.webkitBackgroundClip = 'text';
+                    el.style.backgroundClip = 'text';
+                    status.innerText = 'Good — beating inflation';
+                    status.style.color = '#818cf8';
+                } else {
+                    el.style.background = 'linear-gradient(135deg, #34d399, #10b981)';
+                    el.style.webkitBackgroundClip = 'text';
+                    el.style.backgroundClip = 'text';
+                    status.innerText = 'Excellent — beating most benchmarks';
+                    status.style.color = '#34d399';
+                }
+
+                if (dates.length >= 2) {
+                    const firstDate = dates[0];
+                    const lastDate = dates[dates.length - 1];
+                    const years = (lastDate.getTime() - firstDate.getTime()) / (365.25 * 24 * 60 * 60 * 1000);
+                    yearsEl.innerText = years.toFixed(1) + ' Yrs';
+                }
+            } else {
+                el.innerText = 'Check data';
+                el.style.background = 'linear-gradient(135deg, var(--text-muted), var(--text-body))';
+                el.style.webkitBackgroundClip = 'text';
+                el.style.backgroundClip = 'text';
+                status.innerText = 'Need more cash flows or check values';
+                status.style.color = 'var(--text-muted)';
+            }
+        }
+
+        function loadSample() {
+            clearAll();
+            const today2 = new Date();
+            const sipAmt = 5000;
+            const samples = [];
+            for (let i = 36; i >= 0; i--) {
+                const d = new Date(today2.getFullYear(), today2.getMonth() - i, 1);
+                samples.push({ date: formatDate(d), amount: sipAmt, pos: false });
+            }
+            const currentVal = 260000;
+            samples.push({ date: formatDate(today2), amount: currentVal, pos: true });
+
+            samples.forEach(s => addCashFlowRow(s.date, s.amount, s.pos));
+            updateTotals();
+        }
+
+        function clearAll() {
+            document.getElementById('cash-flow-list').innerHTML = '';
+            document.getElementById('xirr-result').innerText = '—';
+            document.getElementById('xirr-status').innerText = '';
+            document.getElementById('xirr-years').innerText = '—';
+            updateTotals();
+        }
+
+        // Preload 3 empty rows
+        window.onload = function() {
+            addCashFlowRow();
+            addCashFlowRow();
+            addCashFlowRow();
+            updateTotals();
+        };
+    </script>
 
     
     

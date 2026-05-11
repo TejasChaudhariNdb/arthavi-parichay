@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arthavi.com/sitemap.xml
+Sitemap: https://arthavi.com/sitemap-index.xml

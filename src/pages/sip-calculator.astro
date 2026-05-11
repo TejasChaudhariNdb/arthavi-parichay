@@ -6,10 +6,11 @@ const seo = {
   description: "Best online SIP calculator. Calculate mutual fund returns with step up, inflation adjustment, and lumpsum options. Plan for 40 years of wealth.",
 };
 ---
+
 <Layout
   title={seo.title}
   description={seo.description}
-  keywords="step up sip calculator, sip calculator with inflation, sip calculator 40 years, daily sip calculator, lumpsum sip calculator, online sip calculator, how to use sip calculator, sip calculator sbi, sip calculator hdfc, groww sip calculator, how sip calculator works"
+  keywords="step up sip calculator, sip calculator with inflation, sip calculator 40 years, daily sip calculator, lumpsum sip calculator, online sip calculator"
   schema={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [{
@@ -19,15 +20,15 @@ const seo = {
       "step": [{
         "@type": "HowToStep",
         "name": "Enter your monthly investment amount",
-        "text": "Input how much you invest each month in your SIP. Even small amounts like 500/month can grow substantially over time."
+        "text": "Input how much you invest each month in your SIP."
       }, {
         "@type": "HowToStep",
         "name": "Set expected return rate",
-        "text": "Enter your expected annual return rate. Historical equity mutual fund returns have been around 12-15% p.a."
+        "text": "Enter your expected annual return rate."
       }, {
         "@type": "HowToStep",
         "name": "Select your investment tenure",
-        "text": "Choose how long you want to stay invested. Longer tenures like 10-20 years benefit the most from compounding."
+        "text": "Choose how long you want to stay invested."
       }, {
         "@type": "HowToStep",
         "name": "Review your projected wealth",
@@ -55,129 +56,531 @@ const seo = {
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },
-      { name: "Calculators", url: "https://arthavi.com/sip-calculator" }
+      { name: "SIP Calculator", url: "https://arthavi.com/sip-calculator" }
     ]
   }}
 >
-    
 
-    <main class="container">
-        <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem;margin-top: 31px;">
-            <h1>Online SIP Calculator</h1>
-            <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
-                Estimate the future value of your Systematic Investment Plan. Plan for up to 40 years of wealth creation.
-            </p>
+  <main class="container">
+    <div class="page-header fade-in">
+      <h1>SIP Calculator</h1>
+      <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+        See how your monthly investments grow into crores over time.
+      </p>
+    </div>
+
+    <div class="calc-page-wrapper">
+
+      <!-- Big Result Hero -->
+      <div class="glass-panel calc-result-hero fade-in">
+        <p>Total Wealth After <span id="result-years-display">10</span> Years</p>
+        <p id="total-value">₹11,61,695</p>
+        <p>+ <span id="est-returns">₹5,61,695</span> returns on <span id="result-invested">₹6,00,000</span> invested</p>
+        <p id="crore-result">That's <strong style="color: #818cf8;">1.9x</strong> of your money</p>
+      </div>
+
+      <!-- Inputs Panel -->
+      <div class="glass-panel calc-inputs-panel fade-in delay-100">
+
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Monthly Investment</label>
+            <div class="calc-field-value">
+              <span>₹</span>
+              <input type="number" id="investment" value="5000" min="500" max="500000" step="500">
+            </div>
+          </div>
+          <input type="range" id="investment-slider" min="500" max="500000" step="500" value="5000">
         </div>
 
-        <div class="calculator-container fade-in delay-100">
-            <div class="calc-grid">
-                <div class="inputs-section">
-                    <div class="input-group">
-                        <label>Monthly Investment (₹)</label>
-                        <div class="range-container">
-                            <input type="range" id="investment" min="500" max="100000" step="500" value="5000"
-                                oninput="updateSIP()">
-                            <div class="input-value-box" id="investment-val">5000</div>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Expected Return Rate (p.a %)</label>
-                        <div class="range-container">
-                            <input type="range" id="rate" min="1" max="30" step="0.1" value="12" oninput="updateSIP()">
-                            <div class="input-value-box" id="rate-val">12</div>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Time Period (Years)</label>
-                        <div class="range-container">
-                            <input type="range" id="years" min="1" max="40" step="1" value="10" oninput="updateSIP()">
-                            <div class="input-value-box" id="years-val">10</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result-section">
-                    <div class="result-card">
-                        <div class="result-item">
-                            <div class="result-label">Invested Amount</div>
-                            <div class="result-value">₹ <span id="total-invested">6,00,000</span></div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Est. Returns</div>
-                            <div class="result-value">₹ <span id="est-returns">5,61,695</span></div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Total Value</div>
-                            <div class="result-value highlight">₹ <span id="total-value">11,61,695</span></div>
-                        </div>
-                    </div>
-                </div>
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Expected Return (p.a.)</label>
+            <div class="calc-field-value">
+              <input type="number" id="rate" value="12" min="1" max="30" step="0.5">
+              <span>%</span>
             </div>
+          </div>
+          <input type="range" id="rate-slider" min="1" max="30" step="0.5" value="12">
         </div>
 
-        <article class="prose fade-in delay-200" style="max-width: 800px; margin: 0 auto 4rem;">
-            <h2>What is an SIP Calculator?</h2>
-            <p>An online SIP Calculator is a simple tool that helps you calculate the returns on your mutual fund investments made through Systematic Investment Plans. Whether you invest via an <strong>SBI sip calculator</strong> format, an <strong>HDFC sip calculator</strong>, or a <strong>Groww sip calculator</strong>, the underlying compound interest math is exactly the same.</p>
-
-            <h2>How does SIP calculator work?</h2>
-            <p>If you're wondering <strong>how sip calculator works</strong>, it relies on the future value formula. It takes your monthly investment, converts the annual expected return rate to a monthly rate, and compounds it over your tenure. You can even check calculations for up to a <strong>SIP calculator 40 years</strong> horizon.</p>
-
-            <h3>What is Step Up SIP Calculator?</h3>
-            <p>A <strong>step up sip calculator</strong> (also known as a top-up SIP) allows you to automatically increase your investment amount every year. As your salary grows, increasing your SIP by just 10% annually can drastically reduce the time it takes to become a crorepati.</p>
-
-            <h3>SIP Calculator with Inflation</h3>
-            <p><strong>What is inflation rate in sip calculator?</strong> Inflation degrades the purchasing power of your money. If you have ₹1 Crore after 20 years, it will have the buying power of roughly ₹31 Lakhs today (assuming 6% inflation). Always use a <strong>SIP calculator with inflation</strong> adjustments to set realistic financial goals.</p>
-
-            <h3>Why Use Arthavi Over Excel?</h3>
-            <p>Many investors search <strong>how to make sip calculator in excel</strong>. While possible, an online auto-syncing portfolio tracker eliminates manual data entry, especially if you have a mix of <strong>daily sip calculator</strong>, <strong>lumpsum sip calculator</strong>, and traditional monthly SIP entries across multiple brokers.</p>
-
-            <div style="margin-top: 3rem; text-align: center;">
-                <p class="text-muted">Start tracking your actual portfolio performance today.</p>
-                <a href="https://app.arthavi.com" class="btn btn-primary" style="margin-top: 1rem;">Track Portfolio</a>
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Time Period</label>
+            <div class="calc-field-value">
+              <input type="number" id="years" value="10" min="1" max="40" step="1">
+              <span>Years</span>
             </div>
-        </article>
+          </div>
+          <input type="range" id="years-slider" min="1" max="40" step="1" value="10">
+        </div>
 
-    </main>
+        <div class="calc-field calc-field-select">
+          <label>Step Up SIP</label>
+          <select id="stepup">
+            <option value="0">None</option>
+            <option value="5">5% / yr</option>
+            <option value="10" selected>10% / yr</option>
+            <option value="15">15% / yr</option>
+            <option value="20">20% / yr</option>
+          </select>
+        </div>
+      </div>
 
-    
+      <!-- Chart -->
+      <div class="glass-panel calc-chart-panel fade-in delay-200">
+        <p>Wealth Growth Over Time</p>
+        <svg id="sip-chart" viewBox="0 0 640 200"></svg>
+        <div class="calc-chart-legend">
+          <span><span></span> You Invest</span>
+          <span><span></span> Returns</span>
+          <span><span></span> Total Value</span>
+        </div>
+      </div>
 
-    <script>
-        function updateSIP() {
-            const P = parseFloat(document.getElementById('investment').value);
-            const r = parseFloat(document.getElementById('rate').value);
-            const n = parseFloat(document.getElementById('years').value);
+      <!-- Stats Row -->
+      <div class="calc-stats-grid fade-in delay-300">
+        <div class="glass-panel">
+          <p>Invested</p>
+          <p id="stat-invested">₹6,00,000</p>
+        </div>
+        <div class="glass-panel">
+          <p>Returns</p>
+          <p id="stat-returns">₹5,61,695</p>
+        </div>
+        <div class="glass-panel">
+          <p>Growth</p>
+          <p id="stat-multiple">1.9x</p>
+        </div>
+      </div>
 
-            // Update display values
-            document.getElementById('investment-val').innerText = P.toLocaleString('en-IN');
-            document.getElementById('rate-val').innerText = r;
-            document.getElementById('years-val').innerText = n;
+      <div class="calc-cta">
+        <a href="https://app.arthavi.com" class="btn btn-primary">Track Real Portfolio</a>
+        <p>Import your CAS to see your actual XIRR, not just estimates.</p>
+      </div>
+    </div>
 
-            // Calculation: FV = P × ({[1 + i]^n - 1} / i) × (1 + i)
-            // where i = monthly rate, n = number of months
-            const i = (r / 100) / 12;
-            const months = n * 12;
+    <article class="prose fade-in">
+      <h2>What is a SIP Calculator?</h2>
+      <p>An online SIP Calculator helps you calculate the future value of your mutual fund investments made through Systematic Investment Plans.</p>
+      <h2>How does SIP calculator work?</h2>
+      <p>It uses the future value formula for compound interest. It takes your monthly investment, converts the annual expected return rate to a monthly rate, and compounds it over your tenure.</p>
+      <h3>What is Step Up SIP Calculator?</h3>
+      <p>A <strong>step up sip calculator</strong> allows you to automatically increase your investment amount every year.</p>
+    </article>
+  </main>
 
-            let FV = 0;
-            let invested = P * months;
+  <style>
+    .calc-page-wrapper {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+    }
 
-            if (r === 0) {
-                FV = invested;
-            } else {
-                FV = P * ((Math.pow(1 + i, months) - 1) / i) * (1 + i);
-            }
+    .calc-result-hero {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, rgba(52,211,153,0.06) 0%, rgba(16,185,129,0.02) 100%);
+    }
 
-            const estReturns = FV - invested;
+    .calc-result-hero p:first-of-type {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
 
-            document.getElementById('total-invested').innerText = Math.round(invested).toLocaleString('en-IN');
-            document.getElementById('est-returns').innerText = Math.round(estReturns).toLocaleString('en-IN');
-            document.getElementById('total-value').innerText = Math.round(FV).toLocaleString('en-IN');
+    .calc-result-hero #total-value {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+
+    .calc-result-hero p:nth-of-type(3) {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .calc-result-hero p:nth-of-type(3) #est-returns {
+      color: #818cf8;
+    }
+
+    .calc-result-hero #crore-result {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .calc-inputs-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-inputs-panel > p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .calc-field {
+      margin-bottom: 2.5rem;
+    }
+
+    .calc-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .calc-field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-field-header label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-head);
+    }
+
+    .calc-field-value {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .calc-field-value input[type="number"] {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 120px;
+      text-align: right;
+    }
+
+    .calc-field-value input[type="number"]:first-child {
+      width: 80px;
+    }
+
+    .calc-field input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      height: 6px;
+    }
+
+    .calc-field-select {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 0.5rem;
+    }
+
+    .calc-field-select label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-head);
+    }
+
+    .calc-field-select select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      color: var(--text-head);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .calc-chart-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .calc-chart-panel > p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    #sip-chart {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .calc-chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .calc-chart-legend span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .calc-chart-legend span span {
+      width: 16px;
+      height: 3px;
+      border-radius: 2px;
+      display: inline-block;
+      background: var(--primary);
+    }
+
+    .calc-chart-legend span:nth-child(2) span {
+      background: #34d399;
+    }
+
+    .calc-chart-legend span:nth-child(3) span {
+      background: #818cf8;
+    }
+
+    .calc-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .calc-stats-grid .glass-panel {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:first-child {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:last-child {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-head);
+      margin: 0;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(2) p:last-child {
+      color: #818cf8;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(3) {
+      border-color: rgba(52,211,153,0.2);
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(3) p:last-child {
+      color: #34d399;
+    }
+
+    .calc-cta {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .calc-cta .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .calc-cta p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .calc-page-wrapper {
+        padding: 0;
+      }
+
+      .calc-result-hero {
+        padding: 2rem 1rem;
+      }
+
+      .calc-result-hero #total-value {
+        font-size: 2.5rem;
+      }
+
+      .calc-inputs-panel {
+        padding: 1.5rem;
+      }
+
+      .calc-field-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .calc-field-value {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .calc-field-value input[type="number"] {
+        flex: 1;
+        max-width: 140px;
+      }
+
+      .calc-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .calc-stats-grid .glass-panel:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+
+  <script>
+    function calcSIP() {
+      const P = parseFloat(document.getElementById('investment').value) || 0;
+      const r = parseFloat(document.getElementById('rate').value) || 0;
+      const n = parseFloat(document.getElementById('years').value) || 1;
+      const stepUp = parseFloat(document.getElementById('stepup').value) / 100;
+      const i = r / 100 / 12;
+      const months = n * 12;
+
+      let FV = 0, invested = 0;
+
+      if (stepUp === 0) {
+        invested = P * months;
+        FV = r === 0 ? invested : P * ((Math.pow(1 + i, months) - 1) / i) * (1 + i);
+      } else {
+        let total = 0;
+        for (let m = 0; m < months; m++) {
+          const yr = Math.floor(m / 12);
+          const amt = P * Math.pow(1 + stepUp, yr);
+          invested += amt;
+          total += amt * Math.pow(1 + i, months - m);
         }
+        FV = total;
+      }
 
-        // Initialize on load
-        window.onload = updateSIP;
-    </script>
-    
+      const returns = FV - invested;
+      const multiple = invested > 0 ? FV / invested : 0;
+      const fvFmt = Math.round(FV).toLocaleString('en-IN');
+      const invFmt = Math.round(invested).toLocaleString('en-IN');
+      const retFmt = Math.round(returns).toLocaleString('en-IN');
+
+      document.getElementById('total-value').textContent = '₹' + fvFmt;
+      document.getElementById('est-returns').textContent = '₹' + retFmt;
+      document.getElementById('result-invested').textContent = '₹' + invFmt;
+      document.getElementById('result-years-display').textContent = n;
+      document.getElementById('crore-result').innerHTML = FV >= 10000000
+        ? `That's <strong style="color:#818cf8;">₹${(FV/10000000).toFixed(2)}Cr</strong> — <strong style="color:#818cf8;">${multiple.toFixed(1)}x</strong> of your money`
+        : `That's <strong style="color:#818cf8;">₹${(FV/100000).toFixed(1)}L</strong> — <strong style="color:#818cf8;">${multiple.toFixed(1)}x</strong> of your money`;
+      document.getElementById('stat-invested').textContent = '₹' + invFmt;
+      document.getElementById('stat-returns').textContent = '₹' + retFmt;
+      document.getElementById('stat-multiple').textContent = multiple.toFixed(1) + 'x';
+
+      drawChart(FV, invested, n);
+    }
+
+    function drawChart(FV, invested, years) {
+      const svg = document.getElementById('sip-chart');
+      const W = 640, H = 200, PAD = 30;
+      const maxVal = Math.max(FV, invested * 1.5);
+      const pts = [];
+
+      for (let y = 0; y <= years; y++) {
+        const m = y * 12;
+        const stepUp = parseFloat(document.getElementById('stepup').value) / 100;
+        const r = parseFloat(document.getElementById('rate').value) / 100 / 12;
+        let fv = 0, inv = 0;
+        if (stepUp === 0) {
+          inv = parseFloat(document.getElementById('investment').value) * m;
+          fv = r === 0 ? inv : parseFloat(document.getElementById('investment').value) * ((Math.pow(1 + r, m) - 1) / r) * (1 + r);
+        } else {
+          for (let mm = 0; mm < m; mm++) {
+            const yr = Math.floor(mm / 12);
+            const amt = parseFloat(document.getElementById('investment').value) * Math.pow(1 + stepUp, yr);
+            inv += amt;
+            fv += amt * Math.pow(1 + r, m - mm);
+          }
+        }
+        pts.push({ y, inv, fv });
+      }
+
+      const invPts = pts.map(p => ({
+        x: PAD + (p.y / years) * (W - 2 * PAD),
+        y: H - PAD - ((p.inv / maxVal) * (H - 2 * PAD))
+      }));
+      const fvPts = pts.map(p => ({
+        x: PAD + (p.y / years) * (W - 2 * PAD),
+        y: H - PAD - ((p.fv / maxVal) * (H - 2 * PAD))
+      }));
+
+      const toPath = (arr) => arr.map((p, i) => i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`).join(' ');
+      const toFill = (arr) => `M ${arr[0].x} ${H - PAD} ` + arr.map(p => `L ${p.x} ${p.y}`).join(' ') + ` L ${arr[arr.length-1].x} ${H - PAD} Z`;
+
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="gTotal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.02"/>
+          </linearGradient>
+          <linearGradient id="gRet" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#34d399" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#34d399" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
+        <line x1="${PAD}" y1="${H-PAD}" x2="${W-PAD}" y2="${H-PAD}" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="${PAD}" y1="${PAD}" x2="${PAD}" y2="${H-PAD}" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="${PAD-4}" y="${PAD+4}" text-anchor="end" fill="#6b7280" font-size="10">₹${(maxVal/100000).toFixed(0)}L</text>
+        <text x="${PAD-4}" y="${H-PAD+4}" text-anchor="end" fill="#6b7280" font-size="10">₹0</text>
+        <path d="${toFill(invPts)}" fill="url(#gRet)"/>
+        <path d="${toFill(fvPts)}" fill="url(#gTotal)"/>
+        <path d="${toPath(invPts)}" fill="none" stroke="#6366f1" stroke-width="2.5"/>
+        <path d="${toPath(fvPts)}" fill="none" stroke="#818cf8" stroke-width="2.5"/>
+        <circle cx="${fvPts[fvPts.length-1].x}" cy="${fvPts[fvPts.length-1].y}" r="5" fill="#818cf8"/>
+        <circle cx="${invPts[invPts.length-1].x}" cy="${invPts[invPts.length-1].y}" r="5" fill="#6366f1"/>
+        <text x="${fvPts[fvPts.length-1].x-6}" y="${fvPts[fvPts.length-1].y-10}" text-anchor="end" fill="#818cf8" font-size="11" font-weight="600">₹${Math.round(FV).toLocaleString('en-IN')}</text>
+        <text x="${invPts[invPts.length-1].x-6}" y="${invPts[invPts.length-1].y+16}" text-anchor="end" fill="#6366f1" font-size="11" font-weight="600">₹${Math.round(invested).toLocaleString('en-IN')}</text>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ['investment', 'rate', 'years'].forEach(function(id) {
+        const inp = document.getElementById(id);
+        const slider = document.getElementById(id + '-slider');
+        inp.addEventListener('input', function() { slider.value = inp.value; calcSIP(); });
+        slider.addEventListener('input', function() { inp.value = slider.value; calcSIP(); });
+      });
+      document.getElementById('stepup').addEventListener('change', calcSIP);
+      calcSIP();
+    });
+  </script>
 
 </Layout>

@@ -6,10 +6,11 @@ const seo = {
   description: "Calculate Compound Annual Growth Rate (CAGR) online. Compare absolute returns vs CAGR for your mutual funds and stocks easily.",
 };
 ---
+
 <Layout
   title={seo.title}
   description={seo.description}
-  keywords="cagr calculator, compound annual growth rate calculator, cagr vs xirr, calculate cagr online, absolute return vs cagr, cagr formula"
+  keywords="cagr calculator, compound annual growth rate calculator, cagr vs xirr, calculate cagr online, absolute return vs cagr"
   schema={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -36,116 +37,180 @@ const seo = {
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },
-      { name: "Calculators", url: "https://arthavi.com/cagr-calculator" }
+      { name: "CAGR Calculator", url: "https://arthavi.com/cagr-calculator" }
     ]
   }}
 >
 
-    
+  <main class="container">
+    <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem; margin-top: 31px;">
+      <h1>CAGR Calculator</h1>
+      <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+        Find your true annualized return — not just total percentage.
+      </p>
+    </div>
 
-    <main class="container">
-        <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem;margin-top: 31px;">
-            <h1>CAGR Calculator</h1>
-            <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
-                Calculate the Compound Annual Growth Rate (CAGR) of your investments to understand your true annualized returns.
-            </p>
+    <div style="max-width: 680px; margin: 0 auto 2rem;">
+
+      <!-- Big Result Hero -->
+      <div class="glass-panel fade-in" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 3rem 2rem; text-align: center; margin-bottom: 2rem; background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.02) 100%);">
+        <p style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Your Annualized Return (CAGR)</p>
+        <p id="cagr-result" style="font-size: 4.5rem; font-weight: 700; font-family: var(--font-heading); background: linear-gradient(135deg, var(--primary-glow), #c084fc); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 0.5rem; line-height: 1.1;">20.11%</p>
+        <p style="font-size: 1rem; color: var(--text-muted); margin: 0;">
+          <span style="color: #34d399; font-weight: 600;">+150%</span> absolute return over <span id="cagr-years">5</span> years
+        </p>
+      </div>
+
+      <!-- Inputs -->
+      <div class="glass-panel fade-in delay-100" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">Enter Your Investment Details</p>
+
+        <div style="margin-bottom: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Initial Investment (₹)</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--text-muted);">₹</span>
+              <input type="number" id="initial" value="100000" min="1000" max="100000000" step="1000" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 140px; text-align: right;">
+            </div>
+          </div>
+          <input type="range" id="initial-slider" min="1000" max="100000000" step="1000" value="100000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
         </div>
 
-        <div class="calculator-container fade-in delay-100">
-            <div class="calc-grid">
-                <div class="inputs-section">
-                    <div class="input-group">
-                        <label>Initial Investment Value (₹)</label>
-                        <div class="range-container">
-                            <input type="range" id="initial" min="10000" max="10000000" step="10000" value="100000"
-                                oninput="updateCAGR()">
-                            <div class="input-value-box" id="initial-val">1,00,000</div>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Final Investment Value (₹)</label>
-                        <div class="range-container">
-                            <input type="range" id="final" min="10000" max="50000000" step="10000" value="250000"
-                                oninput="updateCAGR()">
-                            <div class="input-value-box" id="final-val">2,50,000</div>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Duration of Investment (Years)</label>
-                        <div class="range-container">
-                            <input type="range" id="years" min="1" max="40" step="1" value="5" oninput="updateCAGR()">
-                            <div class="input-value-box" id="years-val">5</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result-section">
-                    <div class="result-card">
-                        <div class="result-item">
-                            <div class="result-label">Absolute Return</div>
-                            <div class="result-value"><span id="abs-return">150</span>%</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">CAGR (Annualized Return)</div>
-                            <div class="result-value highlight"><span id="cagr-val">20.11</span>%</div>
-                        </div>
-                    </div>
-                </div>
+        <div style="margin-bottom: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Current Value (₹)</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--text-muted);">₹</span>
+              <input type="number" id="final" value="250000" min="1000" max="1000000000" step="1000" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: #34d399; font-size: 1.1rem; font-weight: 700; width: 140px; text-align: right;">
             </div>
+          </div>
+          <input type="range" id="final-slider" min="1000" max="1000000000" step="1000" value="250000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
         </div>
 
-        <article class="prose fade-in delay-200" style="max-width: 800px; margin: 0 auto 4rem;">
-            <h2>What is a CAGR Calculator?</h2>
-            <p>A <strong>CAGR calculator</strong> is a financial tool that calculates the Compound Annual Growth Rate. Unlike absolute returns which only show you the total percentage gained, CAGR smooths out the volatility and shows you exactly what your investment grew by, on average, every single year.</p>
-
-            <h2>How to Calculate CAGR</h2>
-            <p>The formula for CAGR is:</p>
-            <div style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 8px; text-align: center; margin: 1rem 0;">
-                <code>CAGR = [(Ending Value / Beginning Value) ^ (1 / Number of Years)] - 1</code>
+        <div style="margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Duration (Years)</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <input type="number" id="years" value="5" min="1" max="40" step="1" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
+              <span style="color: var(--text-muted);">Years</span>
             </div>
-            <p>Doing this manually can be tedious, which is why an online CAGR calculator is necessary for quick projections.</p>
+          </div>
+          <input type="range" id="years-slider" min="1" max="40" step="1" value="5" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+        </div>
+      </div>
 
-            <h3>CAGR vs XIRR</h3>
-            <p>Many investors confuse CAGR with XIRR. You should only use a <strong>CAGR calculator</strong> if you made a one-time lump-sum investment (like putting ₹1,00,000 into a fixed deposit or buying a plot of land). If you are doing a monthly Mutual Fund SIP, you must use an <a href="/xirr-calculator-mutual-funds">XIRR Calculator</a> because the timing of your varied cash flows completely changes the math.</p>
+      <!-- Chart -->
+      <div class="glass-panel fade-in delay-200" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; text-align: center;">Growth Comparison</p>
+        <svg id="cagr-chart" viewBox="0 0 640 200" style="width: 100%; height: auto; display: block;"></svg>
+        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; font-size: 0.85rem;">
+          <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);"><span style="width: 16px; height: 3px; background: #6366f1; border-radius: 2px; display: inline-block;"></span> Initial</span>
+          <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);"><span style="width: 16px; height: 3px; background: #34d399; border-radius: 2px; display: inline-block;"></span> Current Value</span>
+        </div>
+      </div>
 
-            <div style="margin-top: 3rem; text-align: center;">
-                <p class="text-muted">Track all your returns automatically</p>
-                <a href="https://app.arthavi.com" class="btn btn-primary" style="margin-top: 1rem;">Start Tracking Portfolio</a>
-            </div>
-        </article>
-    </main>
+      <!-- Stats -->
+      <div class="fade-in delay-300" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem;">
+        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
+          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Initial</p>
+          <p id="stat-initial" style="font-size: 1.2rem; font-weight: 700; color: var(--text-head); margin: 0;">₹1,00,000</p>
+        </div>
+        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
+          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Absolute Return</p>
+          <p id="stat-abs" style="font-size: 1.2rem; font-weight: 700; color: #34d399; margin: 0;">+150%</p>
+        </div>
+        <div class="glass-panel" style="border: 1px solid rgba(99,102,241,0.2); border-radius: 12px; padding: 1.5rem; text-align: center;">
+          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">CAGR</p>
+          <p id="stat-cagr" style="font-size: 1.2rem; font-weight: 700; color: #818cf8; margin: 0;">20.11%</p>
+        </div>
+      </div>
 
-    
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <a href="https://app.arthavi.com" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Track Real Portfolio</a>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.75rem;">Use Arthavi to calculate XIRR for your SIPs — not just lump-sum CAGR.</p>
+      </div>
+    </div>
 
-    <script>
-        function updateCAGR() {
-            const P = parseFloat(document.getElementById('initial').value);
-            const F = parseFloat(document.getElementById('final').value);
-            const n = parseFloat(document.getElementById('years').value);
+    <article class="prose fade-in" style="max-width: 800px; margin: 0 auto 4rem;">
+      <h2>What is a CAGR Calculator?</h2>
+      <p>A <strong>CAGR calculator</strong> calculates the Compound Annual Growth Rate. Unlike absolute returns which only show total percentage gained, CAGR smooths out volatility and shows exactly what your investment grew by, on average, every single year.</p>
 
-            // Update display values
-            document.getElementById('initial-val').innerText = P.toLocaleString('en-IN');
-            document.getElementById('final-val').innerText = F.toLocaleString('en-IN');
-            document.getElementById('years-val').innerText = n;
+      <h2>CAGR vs XIRR</h2>
+      <p>Only use a <strong>CAGR calculator</strong> if you made a one-time lump-sum investment (like a fixed deposit or buying a plot of land). If you are doing a monthly Mutual Fund SIP, you must use an <a href="/xirr-calculator-mutual-funds">XIRR Calculator</a> because the timing of your varied cash flows completely changes the math.</p>
 
-            // Absolute Return
-            const absReturn = ((F - P) / P) * 100;
-            
-            // CAGR Calculation
-            let cagr = 0;
-            if (P > 0 && n > 0) {
-                cagr = (Math.pow(F / P, 1 / n) - 1) * 100;
-            }
+      <div style="margin-top: 3rem; text-align: center;">
+        <a href="https://app.arthavi.com" class="btn btn-primary">Start Tracking Portfolio</a>
+      </div>
+    </article>
+  </main>
 
-            document.getElementById('abs-return').innerText = absReturn.toFixed(2);
-            document.getElementById('cagr-val').innerText = cagr.toFixed(2);
-        }
+  <script>
+    function calcCAGR() {
+      const P = parseFloat(document.getElementById('initial').value) || 0;
+      const F = parseFloat(document.getElementById('final').value) || 0;
+      const n = parseFloat(document.getElementById('years').value) || 1;
 
-        // Initialize on load
-        window.onload = updateCAGR;
-    </script>
-    
+      const absReturn = P > 0 ? ((F - P) / P) * 100 : 0;
+      const cagr = P > 0 && n > 0 ? (Math.pow(F / P, 1 / n) - 1) * 100 : 0;
+
+      document.getElementById('cagr-result').textContent = cagr.toFixed(2) + '%';
+      document.getElementById('cagr-years').textContent = n;
+      document.getElementById('stat-initial').textContent = '₹' + P.toLocaleString('en-IN');
+      document.getElementById('stat-abs').textContent = (absReturn >= 0 ? '+' : '') + absReturn.toFixed(1) + '%';
+      document.getElementById('stat-cagr').textContent = cagr.toFixed(2) + '%';
+
+      drawCAGRChart(P, F, n);
+    }
+
+    function drawCAGRChart(P, F, years) {
+      const svg = document.getElementById('cagr-chart');
+      const W = 640, H = 200, PAD = 30;
+      const maxVal = Math.max(F, P * 2);
+      const pts = [];
+      for (let y = 0; y <= years; y++) {
+        const val = P * Math.pow(F / P, y / years);
+        pts.push({
+          x: PAD + (y / years) * (W - 2 * PAD),
+          y: H - PAD - ((val / maxVal) * (H - 2 * PAD))
+        });
+      }
+      const toPath = (arr) => arr.map((p, i) => i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`).join(' ');
+      const toFill = (arr) => `M ${arr[0].x} ${H - PAD} ` + arr.map(p => `L ${p.x} ${p.y}`).join(' ') + ` L ${arr[arr.length-1].x} ${H - PAD} Z`;
+
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="gCAGR" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
+        <line x1="${PAD}" y1="${H-PAD}" x2="${W-PAD}" y2="${H-PAD}" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="${PAD}" y1="${PAD}" x2="${PAD}" y2="${H-PAD}" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="${PAD-4}" y="${PAD+4}" text-anchor="end" fill="#6b7280" font-size="10">₹${(maxVal/100000).toFixed(0)}L</text>
+        <text x="${PAD-4}" y="${H-PAD+4}" text-anchor="end" fill="#6b7280" font-size="10">₹0</text>
+        <path d="${toFill(pts)}" fill="url(#gCAGR)"/>
+        <path d="${toPath(pts)}" fill="none" stroke="#818cf8" stroke-width="2.5"/>
+        <circle cx="${pts[pts.length-1].x}" cy="${pts[pts.length-1].y}" r="5" fill="#818cf8"/>
+        <text x="${pts[pts.length-1].x-6}" y="${pts[pts.length-1].y-10}" text-anchor="end" fill="#818cf8" font-size="11" font-weight="600">₹${Math.round(F).toLocaleString('en-IN')}</text>
+        <text x="${pts[0].x-6}" y="${pts[0].y+16}" text-anchor="end" fill="#6366f1" font-size="11" font-weight="600">₹${Math.round(P).toLocaleString('en-IN')}</text>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ['initial', 'final', 'years'].forEach(function(id) {
+        const inp = document.getElementById(id);
+        const slider = document.getElementById(id + '-slider');
+        inp.addEventListener('input', function() {
+          slider.value = inp.value;
+          calcCAGR();
+        });
+        slider.addEventListener('input', function() {
+          inp.value = slider.value;
+          calcCAGR();
+        });
+      });
+      calcCAGR();
+    });
+  </script>
 
 </Layout>

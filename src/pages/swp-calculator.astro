@@ -2,187 +2,237 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-  title: "SWP Return Calculator | Mutual Fund Withdrawal Plan India",
-  description: "Calculate your Systematic Withdrawal Plan (SWP) returns. Visually see how long your mutual fund corpus will last with our reliable SWP return calculator.",
+  title: "SWP Return Calculator | Mutual Fund Withdrawal Plan India | Arthavi",
+  description: "Calculate your Systematic Withdrawal Plan (SWP) returns. See how long your mutual fund corpus will last with our SWP calculator.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="swp return calculator, SWP Calculator, Systematic Withdrawal Plan, Mutual Fund Withdrawal, Monthly Income Plan, sbi swp calculator, hdfc swp calculator, Investment Income, Arthavi" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [{
-        "@type": "HowTo",
-        "name": "How to Plan SWP Withdrawals",
-        "description": "Learn how to use a Systematic Withdrawal Plan (SWP) calculator to determine safe withdrawal rates and corpus longevity.",
-        "step": [{
-          "@type": "HowToStep",
-          "name": "Enter your total investment corpus",
-          "text": "Input your total mutual fund investment amount. This is the starting balance from which you will make monthly withdrawals."
-        }, {
-          "@type": "HowToStep",
-          "name": "Set your monthly withdrawal amount",
-          "text": "Determine how much you want to withdraw each month. Make sure this is sustainable based on your corpus size."
-        }, {
-          "@type": "HowToStep",
-          "name": "Enter expected return rate",
-          "text": "Input your expected annual return rate. Long-term equity funds have historically returned 10-12% p.a."
-        }, {
-          "@type": "HowToStep",
-          "name": "Review corpus longevity",
-          "text": "The SWP calculator shows if your corpus will last the selected period or deplete."
-        }]
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="swp return calculator, SWP Calculator, Systematic Withdrawal Plan, Mutual Fund Withdrawal, Monthly Income Plan"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [{
+      "@type": "HowTo",
+      "name": "How to Plan SWP Withdrawals",
+      "description": "Learn how to use a Systematic Withdrawal Plan (SWP) calculator to determine safe withdrawal rates and corpus longevity.",
+      "step": [{
+        "@type": "HowToStep",
+        "name": "Enter your total investment corpus",
+        "text": "Input your total mutual fund investment amount."
       }, {
-        "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "What is a safe SWP withdrawal rate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Financial advisors recommend a Safe Withdrawal Rate of 4% to 6% annually. Withdrawing 6% ensures your corpus continues to grow."
-          }
-        }]
+        "@type": "HowToStep",
+        "name": "Set your monthly withdrawal amount",
+        "text": "Determine how much you want to withdraw each month."
+      }, {
+        "@type": "HowToStep",
+        "name": "Enter expected return rate",
+        "text": "Input your expected annual return rate."
+      }, {
+        "@type": "HowToStep",
+        "name": "Review corpus longevity",
+        "text": "The SWP calculator shows if your corpus will last or deplete."
       }]
-    })}
+    }, {
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is a safe SWP withdrawal rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Financial advisors recommend a Safe Withdrawal Rate of 4% to 6% annually."
+        }
+      }]
+    }]
+  })}
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },
-      { name: "Calculators", url: "https://arthavi.com/swp-calculator" }
+      { name: "SWP Calculator", url: "https://arthavi.com/swp-calculator" }
     ]
   }}
 >
-    <main class="container">
-        <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem;margin-top: 31px;">
-            <h1>SWP Return Calculator</h1>
-            <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
-                Plan your monthly withdrawals safely. Check if your remaining returns will prevent your corpus from depleting.
-            </p>
+
+  <main class="container">
+    <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem; margin-top: 31px;">
+      <h1>SWP Calculator</h1>
+      <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+        Plan your monthly withdrawals. See if your corpus will outlast your retirement.
+      </p>
+    </div>
+
+    <div style="max-width: 680px; margin: 0 auto 2rem;">
+
+      <!-- Big Result Hero -->
+      <div id="result-hero" class="glass-panel fade-in" style="border: 1px solid rgba(52,211,153,0.25); border-radius: 16px; padding: 3rem 2rem; text-align: center; margin-bottom: 2rem; background: linear-gradient(135deg, rgba(52,211,153,0.08) 0%, rgba(16,185,129,0.02) 100%);">
+        <p id="status-label" style="font-size: 0.85rem; color: #34d399; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Corpus Sustainable</p>
+        <p id="final-value" style="font-size: 4rem; font-weight: 700; font-family: var(--font-heading); background: linear-gradient(135deg, #34d399, #10b981); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 0.5rem; line-height: 1.1;">₹8,90,560</p>
+        <p style="font-size: 1rem; color: var(--text-muted); margin: 0;">remaining after <span id="display-years">10</span> years</p>
+        <div id="longevity-bar" style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin-top: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+          <div id="longevity-fill" style="height: 100%; width: 85%; background: linear-gradient(90deg, #34d399, #10b981); border-radius: 4px; transition: all 0.3s ease;"></div>
+        </div>
+      </div>
+
+      <!-- Inputs -->
+      <div class="glass-panel fade-in delay-100" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">Plan Your Withdrawal</p>
+
+        <div style="margin-bottom: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Total Investment (₹)</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--text-muted);">₹</span>
+              <input type="number" id="investment" value="1000000" min="100000" max="100000000" step="50000" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 140px; text-align: right;">
+            </div>
+          </div>
+          <input type="range" id="investment-slider" min="100000" max="100000000" step="50000" value="1000000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
         </div>
 
-        <div class="calculator-container fade-in delay-100">
-            <div class="calc-grid">
-                <div class="inputs-section">
-                    <div class="input-group">
-                        <label>Total Investment (₹)</label>
-                        <div class="range-container">
-                            <input type="range" id="investment" min="100000" max="10000000" step="10000" value="1000000"
-                                oninput="updateSWP()">
-                            <div class="input-value-box" id="investment-val">10,00,000</div>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Withdrawal Per Month (₹)</label>
-                        <div class="range-container">
-                            <input type="range" id="withdrawal" min="500" max="100000" step="500" value="5000"
-                                oninput="updateSWP()">
-                            <div class="input-value-box" id="withdrawal-val">5,000</div>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Expected Return Rate (p.a %)</label>
-                        <div class="range-container">
-                            <input type="range" id="rate" min="1" max="30" step="0.1" value="8" oninput="updateSWP()">
-                            <div class="input-value-box" id="rate-val">8</div>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Time Period (Years)</label>
-                        <div class="range-container">
-                            <input type="range" id="years" min="1" max="30" step="1" value="10" oninput="updateSWP()">
-                            <div class="input-value-box" id="years-val">10</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result-section">
-                    <div class="result-card">
-                        <div class="result-item">
-                            <div class="result-label">Total Investment</div>
-                            <div class="result-value">₹ <span id="total-investment">10,00,000</span></div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Total Withdrawn</div>
-                            <div class="result-value">₹ <span id="total-withdrawn">6,00,000</span></div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Final Value</div>
-                            <div class="result-value highlight">₹ <span id="final-value">8,90,560</span></div>
-                        </div>
-                    </div>
-                </div>
+        <div style="margin-bottom: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Monthly Withdrawal (₹)</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="color: var(--text-muted);">₹</span>
+              <input type="number" id="withdrawal" value="5000" min="1000" max="1000000" step="500" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 120px; text-align: right;">
             </div>
+          </div>
+          <input type="range" id="withdrawal-slider" min="1000" max="1000000" step="500" value="5000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
         </div>
 
-        <article class="prose fade-in delay-200" style="max-width: 800px; margin: 0 auto 4rem;">
-            <h2>What is an SWP Return Calculator?</h2>
-            <p>A Systematic Withdrawal Plan (SWP) allows you to withdraw a fixed amount from your mutual fund investments at regular intervals. It is an excellent tool for retirees or anyone seeking a steady source of passive income. An <strong>SWP return calculator</strong> specifically helps you visualize a critical tension: As you pull money *out*, the remaining money continues to generate returns *in* the market. Will your money run out, or will it grow forever?</p>
-
-            <h2>Understanding SWP Intent: Will Your Corpus Deplete?</h2>
-            <p>The core intent behind an <strong>online swp calculator</strong> is determining longevity. The secret to a never-ending SWP is ensuring your withdrawal rate is lower than your expected return rate.</p>
-            <ul>
-                <li><strong>Scenario 1 (Depletion):</strong> You have ₹50 Lakhs. You withdraw ₹50,000/month (which is ₹6L/year or 12%). If the market only returns 8%, your corpus is shrinking every month. Eventually, it will hit zero.</li>
-                <li><strong>Scenario 2 (Infinite Growth):</strong> You have ₹50 Lakhs. You withdraw ₹25,000/month (₹3L/year or 6%). If your fund returns 10%, your returns outpace your withdrawals. Your final corpus after 10 years will actually be *higher* than ₹50 Lakhs!</li>
-            </ul>
-            <p>Whether you're looking for an <strong>sbi swp calculator</strong> or an <strong>hdfc swp calculator</strong>, use the tool above to balance these two levers.</p>
-
-            <h3>Why use SWP instead of FD?</h3>
-            <ul>
-                <li><strong>Regular Income with Growth:</strong> Unlike Fixed Deposits where your principal stagnates, a mutual fund SWP allows your underlying principal to beat inflation.</li>
-                <li><strong>Tax Efficiency:</strong> When you execute an SWP, you are redeeming mutual fund units. Only the *gains* on those specific units are taxed (as Capital Gains), not the principal. FD interest is taxed aggressively at your slab rate.</li>
-                <li><strong>Rupee Cost Averaging (Reverse):</strong> You redeem fewer units when the market NAV is high, and more units when the NAV is low, automatically optimizing your exits.</li>
-            </ul>
-
-            <div style="margin-top: 3rem; text-align: center;">
-                <p class="text-muted">Track all your withdrawals and portfolio value in one place.</p>
-                <a href="https://app.arthavi.com" class="btn btn-primary" style="margin-top: 1rem;">Track Portfolio</a>
+        <div style="margin-bottom: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Expected Return (p.a.)</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <input type="number" id="rate" value="8" min="1" max="30" step="0.5" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
+              <span style="color: var(--text-muted);">%</span>
             </div>
-        </article>
-    </main>
+          </div>
+          <input type="range" id="rate-slider" min="1" max="30" step="0.5" value="8" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+        </div>
 
-    
+        <div style="margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Time Period</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <input type="number" id="years" value="10" min="1" max="40" step="1" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
+              <span style="color: var(--text-muted);">Years</span>
+            </div>
+          </div>
+          <input type="range" id="years-slider" min="1" max="40" step="1" value="10" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+        </div>
+      </div>
 
-    <script>
-        function updateSWP() {
-            const P = parseFloat(document.getElementById('investment').value);
-            const W = parseFloat(document.getElementById('withdrawal').value);
-            const r = parseFloat(document.getElementById('rate').value);
-            const n = parseFloat(document.getElementById('years').value);
+      <!-- Stats -->
+      <div class="fade-in delay-200" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem;">
+        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
+          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Total Withdrawn</p>
+          <p id="stat-withdrawn" style="font-size: 1.3rem; font-weight: 700; color: #f87171; margin: 0;">₹6,00,000</p>
+        </div>
+        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
+          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Withdrawal Rate</p>
+          <p id="stat-rate" style="font-size: 1.3rem; font-weight: 700; color: #fbbf24; margin: 0;">6.0%</p>
+        </div>
+        <div class="glass-panel" style="border: 1px solid rgba(52,211,153,0.2); border-radius: 12px; padding: 1.5rem; text-align: center;">
+          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Final Value</p>
+          <p id="stat-final" style="font-size: 1.3rem; font-weight: 700; color: #34d399; margin: 0;">₹8,90,560</p>
+        </div>
+      </div>
 
-            // Update display values
-            document.getElementById('investment-val').innerText = P.toLocaleString('en-IN');
-            document.getElementById('withdrawal-val').innerText = W.toLocaleString('en-IN');
-            document.getElementById('rate-val').innerText = r;
-            document.getElementById('years-val').innerText = n;
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <a href="https://app.arthavi.com" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Track Real Portfolio</a>
+      </div>
+    </div>
 
-            document.getElementById('total-investment').innerText = P.toLocaleString('en-IN');
+    <article class="prose fade-in" style="max-width: 800px; margin: 0 auto 4rem;">
+      <h2>What is an SWP Return Calculator?</h2>
+      <p>A Systematic Withdrawal Plan (SWP) allows you to withdraw a fixed amount from your mutual fund investments at regular intervals. An <strong>SWP return calculator</strong> helps determine if your withdrawal rate is sustainable.</p>
 
-            // Calculation
-            // FV = P * (1+i)^n - W * ((1+i)^n - 1)/i
-            // i = monthly rate, n = total months
+      <h2>Why use SWP instead of FD?</h2>
+      <ul>
+        <li><strong>Regular Income with Growth:</strong> Unlike Fixed Deposits where your principal stagnates, SWP allows your principal to beat inflation.</li>
+        <li><strong>Tax Efficiency:</strong> When you execute an SWP, only the gains on specific units are taxed as Capital Gains, not the principal.</li>
+        <li><strong>Rupee Cost Averaging (Reverse):</strong> You redeem fewer units when market NAV is high, and more units when low.</li>
+      </ul>
 
-            const i = (r / 100) / 12;
-            const months = n * 12;
+      <div style="margin-top: 3rem; text-align: center;">
+        <a href="https://app.arthavi.com" class="btn btn-primary">Track Portfolio</a>
+      </div>
+    </article>
+  </main>
 
-            let FV = 0;
-            let totalWithdrawn = W * months;
+  <script>
+    function calcSWP() {
+      const P = parseFloat(document.getElementById('investment').value) || 0;
+      const W = parseFloat(document.getElementById('withdrawal').value) || 0;
+      const r = parseFloat(document.getElementById('rate').value) || 0;
+      const n = parseFloat(document.getElementById('years').value) || 1;
+      const i = r / 100 / 12;
+      const months = n * 12;
+      let FV = 0;
+      const totalWithdrawn = W * months;
 
-            if (i === 0) {
-                FV = P - totalWithdrawn;
-            } else {
-                const part1 = P * Math.pow(1 + i, months);
-                const part2 = W * ((Math.pow(1 + i, months) - 1) / i);
-                FV = part1 - part2;
-            }
+      if (i === 0) {
+        FV = P - totalWithdrawn;
+      } else {
+        FV = P * Math.pow(1 + i, months) - W * ((Math.pow(1 + i, months) - 1) / i);
+      }
+      if (FV < 0) FV = 0;
 
-            if (FV < 0) FV = 0;
+      const withdrawalRate = P > 0 ? (W * 12 / P * 100) : 0;
+      const bar = document.getElementById('longevity-fill');
+      const label = document.getElementById('status-label');
+      const hero = document.getElementById('result-hero');
+      const resultVal = document.getElementById('final-value');
+      const displayYears = document.getElementById('display-years');
 
-            document.getElementById('total-withdrawn').innerText = totalWithdrawn.toLocaleString('en-IN');
-            document.getElementById('final-value').innerText = Math.round(FV).toLocaleString('en-IN');
-        }
+      displayYears.textContent = n;
+      document.getElementById('stat-withdrawn').textContent = '₹' + Math.round(totalWithdrawn).toLocaleString('en-IN');
+      document.getElementById('stat-rate').textContent = withdrawalRate.toFixed(1) + '%';
+      document.getElementById('stat-final').textContent = '₹' + Math.round(FV).toLocaleString('en-IN');
+      resultVal.textContent = '₹' + Math.round(FV).toLocaleString('en-IN');
 
-        // Initialize on load
-        window.onload = updateSWP;
-    </script>
-    
+      if (FV > P) {
+        bar.style.width = '100%';
+        bar.style.background = 'linear-gradient(90deg, #34d399, #10b981)';
+        label.textContent = 'Corpus Growing';
+        label.style.color = '#34d399';
+        hero.style.background = 'linear-gradient(135deg, rgba(52,211,153,0.08) 0%, rgba(16,185,129,0.02) 100%)';
+        hero.style.borderColor = 'rgba(52,211,153,0.25)';
+        resultVal.style.background = 'linear-gradient(135deg, #34d399, #10b981)';
+      } else if (FV > 0) {
+        const pct = Math.max(10, (FV / P) * 100);
+        bar.style.width = pct + '%';
+        bar.style.background = 'linear-gradient(90deg, #fbbf24, #f59e0b)';
+        label.textContent = 'Corpus Depleting';
+        label.style.color = '#fbbf24';
+        hero.style.background = 'linear-gradient(135deg, rgba(251,191,36,0.08) 0%, rgba(245,158,11,0.02) 100%)';
+        hero.style.borderColor = 'rgba(251,191,36,0.25)';
+        resultVal.style.background = 'linear-gradient(135deg, #fbbf24, #f59e0b)';
+      } else {
+        bar.style.width = '5%';
+        bar.style.background = 'linear-gradient(90deg, #f87171, #ef4444)';
+        label.textContent = 'Corpus Depleted';
+        label.style.color = '#f87171';
+        hero.style.background = 'linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.02) 100%)';
+        hero.style.borderColor = 'rgba(239,68,68,0.25)';
+        resultVal.style.background = 'linear-gradient(135deg, #f87171, #ef4444)';
+      }
+      resultVal.style.webkitBackgroundClip = 'text';
+      resultVal.style.backgroundClip = 'text';
+      resultVal.style.webkitTextFillColor = 'transparent';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      [['investment', 'investment-slider'], ['withdrawal', 'withdrawal-slider'], ['rate', 'rate-slider'], ['years', 'years-slider']].forEach(function(pair) {
+        const [id, sliderId] = pair;
+        const inp = document.getElementById(id);
+        const slider = document.getElementById(sliderId);
+        inp.addEventListener('input', function() { slider.value = inp.value; calcSWP(); });
+        slider.addEventListener('input', function() { inp.value = slider.value; calcSWP(); });
+      });
+      calcSWP();
+    });
+  </script>
 
 </Layout>
