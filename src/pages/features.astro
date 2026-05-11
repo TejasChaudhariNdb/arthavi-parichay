@@ -1,0 +1,413 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Complete Feature List | Arthavi Portfolio Tracker",
+  description: "Explore all 42+ powerful features of Arthavi. From Mutual Fund tracking and direct Stock insights, to AI chatbots, goal setting, and privacy modes.",
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords="arthavi features, portfolio tracker features, mutual fund features, stock tracking features, ai investment tracker, complete feature list" schema={JSON.stringify({"@context": "https://schema.org", "@graph": [{"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many features does Arthavi have?", "acceptedAnswer": {"@type": "Answer", "text": "Arthavi currently has 42+ powerful features organized into 7 categories including Dashboard, Mutual Funds, Stocks, Transactions, Goals, AI Chat, and Settings."}}, {"@type": "Question", "name": "Does Arthavi track both Mutual Funds and Stocks?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Arthavi provides comprehensive tracking for both Mutual Funds and NSE/BSE stocks in a unified dashboard."}}, {"@type": "Question", "name": "How does the AI Investment Assistant work?", "acceptedAnswer": {"@type": "Answer", "text": "Arthavi's Ask AI feature analyzes your unique portfolio and answers your personal finance questions. It provides smart nudges and insights without needing any human advisor."}}]}]})}>
+    <main style="padding-top: 8rem; padding-bottom: 4rem;">
+        <section id="complete-features" class="features" style="padding-top: 2rem; position: relative; z-index: 2;">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;">Everything Inside</span>
+                    <h2>Complete Feature List</h2>
+                    <p>Everything you need to track, manage, and grow your wealth in one powerful app.</p>
+                </div>
+                
+                <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-top: 3.5rem; gap: 2rem;">
+                    
+                    <!-- Dashboard Features -->
+                    <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 100%); border: 1px solid rgba(99,102,241,0.2); display: flex; align-items: center; justify-content: center; color: var(--primary-glow); box-shadow: 0 4px 12px rgba(99,102,241,0.1);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            </div>
+                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Dashboard Features</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Net Worth Tracking</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Shows total portfolio value (MF + Stocks)</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Portfolio Summary</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Invested amount, current value, profit/loss, return %, XIRR</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Performance Chart</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Historical portfolio value over time</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Market Prediction Card</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Daily market predictions</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Portfolio Health Score</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Health assessment of portfolio</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Smart Insights</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">AI-powered nudges and recommendations</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Benchmark Comparison</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Compare returns vs benchmarks (NIFTY 50)</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Financial Goals</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">View and track financial goals</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Refer & Earn</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Referral program for unlocking AI</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Holdings - Mutual Funds -->
+                    <article class="feature-card glass-panel fade-in delay-200" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.05) 100%); border: 1px solid rgba(16,185,129,0.2); display: flex; align-items: center; justify-content: center; color: #34d399; box-shadow: 0 4px 12px rgba(16,185,129,0.1);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                            </div>
+                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Holdings - Mutual Funds</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Scheme List</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">List of all mutual fund schemes</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">AMC Allocation</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Allocation by Asset Management Company</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Scheme Allocation</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Allocation by specific schemes</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Investment History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Investment history over time</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Add Transaction</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Add buy/sell/SIP transactions</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">CAS Upload</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Import via Consolidated Account Statement</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Share Holdings</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Share portfolio summary</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Search & Sort</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Search and sort schemes</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Holdings - Stocks -->
+                    <article class="feature-card glass-panel fade-in delay-300" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(236,72,153,0.2) 0%, rgba(236,72,153,0.05) 100%); border: 1px solid rgba(236,72,153,0.2); display: flex; align-items: center; justify-content: center; color: #f472b6; box-shadow: 0 4px 12px rgba(236,72,153,0.1);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                            </div>
+                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Holdings - Stocks</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Stock Holdings List</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">All stock holdings</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Stock Performance</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Individual stock performance</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Add Stock Transaction</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Add buy/sell transactions</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Stock Search</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Search stocks by symbol</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Investment History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Investment history over time</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Activity / Transactions -->
+                    <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0.05) 100%); border: 1px solid rgba(245,158,11,0.2); display: flex; align-items: center; justify-content: center; color: #fbbf24; box-shadow: 0 4px 12px rgba(245,158,11,0.1);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                            </div>
+                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Activity / Transactions</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Transaction History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Complete transaction log</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Search & Filter</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Search by name, filter by type (BUY/SELL/SIP/TAX)</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Add Transactions</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Manual entry for both MFs and stocks</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Export CSV</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Download transaction data</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Edit/Delete Transactions</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Modify or remove entries</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Goals -->
+                    <article class="feature-card glass-panel fade-in delay-200" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(14,165,233,0.2) 0%, rgba(14,165,233,0.05) 100%); border: 1px solid rgba(14,165,233,0.2); display: flex; align-items: center; justify-content: center; color: #38bdf8; box-shadow: 0 4px 12px rgba(14,165,233,0.1);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                            </div>
+                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Goals</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Create Goals</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Set financial goals with target amount and date</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Goal Tracking</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Track progress toward goals</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Edit/Delete Goals</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Manage existing goals</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Link Investments</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Associate investments with goals</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- AI Chat -->
+                    <article class="feature-card glass-panel fade-in delay-300" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(167,139,250,0.2) 0%, rgba(167,139,250,0.05) 100%); border: 1px solid rgba(167,139,250,0.2); display: flex; align-items: center; justify-content: center; color: #a855f7; box-shadow: 0 4px 12px rgba(167,139,250,0.1);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">AI Chat</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #a855f7;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Portfolio Q&A</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Ask questions about portfolio</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #a855f7;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Session History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">View past conversations</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #a855f7;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Current Limitations</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">8 free chats before requiring upgrade</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Profile & Settings -->
+                    <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(251,113,133,0.2) 0%, rgba(251,113,133,0.05) 100%); border: 1px solid rgba(251,113,133,0.2); display: flex; align-items: center; justify-content: center; color: #fb7185; box-shadow: 0 4px 12px rgba(251,113,133,0.1);">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            </div>
+                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Profile & Settings</h3>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Profile Management</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Update personal details, PAN, phone</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Privacy Mode</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Toggle to hide portfolio values</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Biometric Lock</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Enable app lock with biometrics</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Notifications</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Push notification settings</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Theme</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Light/Dark mode</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">PWA Install</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Install as app</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Referral Code</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Apply referral codes</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Reset Portfolio</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Delete all data</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Contact Support</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Get help</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2>Features FAQ</h2>
+                    <p>Common questions about Arthavi's capabilities.</p>
+                </div>
+                <div class="faq-grid fade-in" style="max-width: 800px; margin: 2rem auto;">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to track all my mutual funds in one place?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You can import your Consolidated Account Statement (CAS) directly into Arthavi to instantly sync and track all your mutual funds across any broker or platform.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to track stocks and mutual funds together?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi provides a unified dashboard that consolidates your CAS mutual fund data alongside your NSE/BSE stock holdings, giving you a complete view of your net worth in a single app.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to calculate SIP returns and XIRR?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi automatically computes your true XIRR based on the actual cash flows of your SIPs and lump-sum investments. No manual Excel formulas needed.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to import CAS statement in Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Simply generate your CAS PDF from CAMS or KFintech and upload it securely to Arthavi. The file is processed locally to extract your transactions and is never stored permanently.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How does Arthavi AI analyze my portfolio?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            The Ask AI feature reviews your holdings, asset allocation, and sector exposure. It provides real-time, smart nudges regarding over-concentration, drawdowns, and answers your specific finance questions.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to check portfolio health score?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Your Portfolio Health Score (0-100) is visible on your main dashboard. It is calculated by evaluating your diversification (MF to stock ratio) and risk profile.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to compare my portfolio with NIFTY 50?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            The Benchmark Comparison card on the dashboard maps your portfolio's historical performance directly against the NIFTY 50 index to see if you are outperforming the market.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to safely track investments without sharing broker passwords?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi uses CAS parsing and manual stock entry, which means you never have to link your demat account, share passwords, or grant read access to your email inbox.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to set and track financial goals in Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Use the Goal Planning feature to create custom goals, set target amounts and dates, and link specific investments to track your progress over time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="text-align: center; margin-top: 5rem;">
+            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Get Started Free</a>
+        </div>
+    </main>
+</Layout>

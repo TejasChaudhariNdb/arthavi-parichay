@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Track Everything in 3 Steps using Arthavi | Arthavi",
+  description: "Track your Stocks, Mutual Funds, and Net Worth in just 3 simple steps. No email passwords required. The ultimate guide to setting up your Arthavi dashboard.",
+};
+---
+<Layout title={seo.title} description={seo.description} keywords="how to use arthavi, track mutual funds via cas, add stocks to arthavi, portfolio tracker setup guide, wealth tracker onboarding" schema={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Track Everything in 3 Steps using Arthavi",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Upload Your CAS",
+          "text": "Upload your CAMS/KFintech CAS PDF file to import mutual fund history securely."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Add Your Stocks",
+          "text": "Import your stock holdings via CSV or add them manually to track real-time value."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Get Insights with AI",
+          "text": "Use the Ask AI feature to query your portfolio and get actionable insights."
+        }
+      ]
+    })}>
+
+    
+
+    <main class="container" style="padding-top: calc(var(--header-height) + 2rem);">
+        <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">How to Track Everything in 3 Steps using Arthavi</h1>
+
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">
+                Setting up a comprehensive portfolio tracker used to be hard work. You either spent hours entering data
+                into Excel or risked your privacy by giving apps your email password.
+            </p>
+
+            <p><strong>Arthavi changes that.</strong> We have designed a setup process that is fast, secure, and
+                automated—without ever asking for your banking credentials.</p>
+
+            <p>Here is how you can get a complete view of your wealth in under 5 minutes.</p>
+
+            <div
+                style="margin: 3rem 0; padding: 2rem; background: var(--bg-surface); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <span
+                    style="background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Step
+                    1</span>
+                <h2 style="margin-top: 1rem;">Upload Your CAS</h2>
+                <p>Instead of asking for your email password, Arthavi asks for your <strong>CAMS/KFintech CAS
+                        file</strong>.</p>
+                <p>Why this is better:</p>
+                <ul>
+                    <li><strong>Privacy:</strong> You control the file. We don't touch your email.</li>
+                    <li><strong>Accuracy:</strong> The CAS contains every transaction since you started investing.</li>
+                    <li><strong>Completeness:</strong> It includes funds from all brokers (Zerodha, Groww, Coin, etc.).
+                    </li>
+                </ul>
+                <p><strong>Micro-Step:</strong> Just download the PDF from CAMS, drag and drop it into Arthavi, and
+                    enter the password. Our engine parses it legally and securely in your browser.</p>
+            </div>
+
+            <div
+                style="margin: 3rem 0; padding: 2rem; background: var(--bg-surface); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <span
+                    style="background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Step
+                    2</span>
+                <h2 style="margin-top: 1rem;">Add Your Stocks</h2>
+                <p>For your direct equity holdings, you don't need to link your broker account directly.</p>
+                <p>You have two easy options:</p>
+                <ol>
+                    <li><strong>Bulk Import:</strong> Upload a CSV file from Zerodha, Upstox, or Angel One.</li>
+                    <li><strong>Manual Add:</strong> Just search for "Reliance" or "TCS", enter the quantity and average
+                        price.</li>
+                </ol>
+                <p>Once added, Arthavi fetches <strong>real-time prices</strong> from NSE/BSE, so your portfolio value
+                    is always current.</p>
+            </div>
+
+            <div
+                style="margin: 3rem 0; padding: 2rem; background: var(--bg-surface); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <span
+                    style="background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">Step
+                    3</span>
+                <h2 style="margin-top: 1rem;">Get Insights with "Ask AI"</h2>
+                <p>Now that your data is in, the magic happens. Arthavi doesn't just show you a table of numbers. It
+                    lets you <strong>talk to your data</strong>.</p>
+
+                <p>Try asking the AI Assistant:</p>
+                <ul style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px;">
+                    <li><em>"What is my exposure to banking stocks?"</em></li>
+                    <li><em>"What is the XIRR of my SIPs started in 2024?"</em></li>
+                    <li><em>"How much dividend did I earn last year?"</em></li>
+                </ul>
+                <p>This transforms your static data into actionable investment intelligence.</p>
+            </div>
+
+            <div class="glass-panel"
+                style="margin: 3rem 0; padding: 2.5rem; border: 1px solid var(--primary-glow); text-align: center;">
+                <h2 style="margin-top: 0; color: var(--primary-glow);">Ready to Start?</h2>
+                <p style="margin-bottom: 2rem;">It takes less time to set up Arthavi than it does to make a cup of chai.
+                </p>
+                <a href="https://app.arthavi.com" class="btn btn-primary"
+                    style="padding: 0.75rem 2rem; font-size: 1.1rem;">Start Tracking Now</a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer style="margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 3rem;">
+        <div class="container">
+            <div class="footer-top"
+                style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin-bottom: 3rem;">
+                <div class="footer-brand" style="max-width: 300px;">
+                    <h3>Arthavi</h3>
+                    <p>The privacy-first portfolio tracker for the modern Indian investor.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/security">Security</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Calculators</h4>
+                    <ul>
+                        <li><a href="/sip-calculator">SIP Calculator</a></li>
+                        <li><a href="/swp-calculator">SWP Calculator</a></li>
+                        <li><a href="/mutual-fund-calculator">Mutual Fund Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/investing-for-beginners">Investing Basics</a></li>
+                        <li><a href="/financial-planning">Financial Planning</a></li>
+                        <li><a href="/retirement-planning">Retirement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/legal">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"
+                style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-bottom: 2rem;">
+                <p>Built in India for Indian investors.</p>
+                <p style="margin-top:0.5rem; opacity:0.6">&copy; 2026 Arthavi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+</Layout>

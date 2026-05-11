@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "AI Portfolio Analyzer & Market Research Assistant | Arthavi",
+  description: "Analyze your investment portfolio, ask financial doubts, and conduct real-time market research using Arthavi AI. The smart assistant for modern Indian investors.",
+};
+---
+<Layout title={seo.title} description={seo.description}  schema={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI Portfolio Analyzer: How Arthavi Helps You Research Markets and Solve Doubts",
+      "description": "Arthavi's AI Portfolio Analyzer allows Indian investors to dive deep into their investments, ask specific questions, and perform real-time market research without leaving their dashboard.",
+      "author": { "@type": "Organization", "name": "Arthavi", "url": "https://arthavi.com" },
+      "publisher": { "@type": "Organization", "name": "Arthavi", "logo": { "@type": "ImageObject", "url": "https://arthavi.com/logo.png" } },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://arthavi.com/ai-portfolio-analyzer-market-research.html" }
+    })}>
+
+    
+    
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="ai-hero container">
+            <div style="position: relative; z-index: 1;">
+                <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                    <span class="ai-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        Portfolio Insights & Market Research
+                    </span>
+                </div>
+                <h1>Analyze Portfolio & Clear Doubts<br><span>Powered by Context-Aware AI</span></h1>
+                <p>Don't guess your next investment move. Use Arthavi AI to run deep portfolio diagnostics, ask specific financial questions, and conduct real-time market research — all customized around your actual holdings.</p>
+
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary"
+                        style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.35);">
+                        Analyze Portfolio Free
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="margin-left:8px">
+                            <path d="M5 12h14" />
+                            <path d="M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="https://app.arthavi.com/demo" class="btn btn-secondary">Try Live Demo</a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.88rem; color: var(--text-muted);">Free • No demat linking • Secure</p>
+            </div>
+
+            <!-- Live Demo Chat -->
+            <div class="example-chat fade-in delay-200">
+                <div class="chat-header">
+                    <div class="chat-dot"></div>
+                    <span class="chat-header-title">Arthavi Market AI</span>
+                    <span style="margin-left: auto; font-size: 0.78rem; color: var(--text-muted);">Analyzing holdings & fetching news...</span>
+                </div>
+                <div class="chat-messages">
+                    <div class="msg user">Based on my mutual fund portfolio, how vulnerable am I to a tech sector downturn?</div>
+                    <div class="msg ai-reply">
+                        You currently have a <strong class="lo">28% exposure to IT stocks</strong> across your mutual funds (Mirae Asset Emerging Bluechip and Parag Parikh Flexi Cap) and your direct equity holdings (Infosys, TCS).<br><br>
+                        A 10% drop in the IT index could impact your overall portfolio by roughly <span class="wa">2.5% to 3%</span>. Since this concentration is higher than the category average, you may want to balance it by exploring sectoral diversification, perhaps via index funds or broader thematic funds.
+                    </div>
+                    <div class="msg user">Can you do some quick market research on why Banking stocks are falling this week? I hold HDFC Bank.</div>
+                    <div class="msg ai-reply">
+                        Yes, I've just searched the latest market updates. The <strong>Nifty Bank</strong> index has faced a recent drop due to shrinking Net Interest Margins (NIMs) reported by major private banks, including <strong class="hi">HDFC Bank</strong>.<br><br>
+                        Additionally, tightened liquidity norms announced by the RBI recently have led investors to book profits. Despite the short-term dip, institutional analysts maintain a positive long-term view on top-tier private banks due to strong credit growth. Since your holding period is generally long-term, short volatility in <strong>HDFC Bank</strong> is historically normal.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities -->
+        <section class="capabilities-section" id="capabilities">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2>Your Complete AI Financial Assistant</h2>
+                    <p class="section-sub">Arthavi AI combines portfolio analytics with live internet access to give you accurate insights about investments, market context, and basic taxation.</p>
+                </div>
+
+                <div class="cap-grid">
+                    <div class="cap-card fade-in delay-100">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                                <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Deep Portfolio Diagnostics</h3>
+                        <p>Analyze your asset allocation, identify over-concentration in specific stocks or sectors, and find hidden overlaps across your mutual funds.</p>
+                        <div class="cap-example">"Show me my exact exposure to Reliance Industries across all funds."</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-200">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <h3>Real-Time Market Research</h3>
+                        <p>Ask Arthavi AI to fetch the latest market news, scan for recent earnings reports, or explain stock movements without leaving the app.</p>
+                        <div class="cap-example">"Why did Small Cap indices correct by 3% yesterday?"</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-300">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h3>Clear Financial Doubts</h3>
+                        <p>Stop relying on random internet forums. Ask specific, localized questions regarding Indian stock markets, mutual funds, taxation, and terminologies.</p>
+                        <div class="cap-example">"What's the difference between Value and Growth style investing?"</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-100">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v16z"></path>
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                <path d="M8 18h1"></path>
+                                <path d="M8 14h1"></path>
+                                <path d="M8 10h1"></path>
+                            </svg>
+                        </div>
+                        <h3>Tax & Regulation Help</h3>
+                        <p>Get clarity on capital gains (LTCG/STCG) rules, mutual fund exit loads, and tax-saving (ELSS) lock-in periods based on your holding duration.</p>
+                        <div class="cap-example">"If I sell my Axis Bluechip today, will I pay STCG or LTCG?"</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Article -->
+        <section class="seo-article">
+            <div class="container">
+                <div class="article-content fade-in">
+                    <h2>Why You Need an AI Portfolio Analyzer</h2>
+                    <p>Building a stock and mutual fund portfolio is only half the battle; maintaining it is where most investors struggle. Standard tracker apps show you the current value and plain returns (XIRR), but they do not provide <strong>context</strong>. Without context, an investor may hold 10 different mutual funds, thinking they are diversified, while internally, 70% of those funds are heavily invested in the same Top 10 large-cap stocks.</p>
+                    <p>The <strong>Arthavi AI Portfolio Analyzer</strong> scans your entire portfolio — combining your mutual fund statements and your direct stocks — and presents a unified risk profile. By continuously checking exposure and overlaps, it acts like a vigilant co-pilot that flags risks before market downturns expose them.</p>
+
+                    <h2>Stop Googling Financial Doubts. Ask Your Own Portfolio.</h2>
+                    <p>Have you ever read a headline like <em>"Auto Sector Set for a Mega Rally"</em> and wondered, <strong>"Do I even own any auto stocks?"</strong></p>
+                    <p>Normally, you would have to open your broker app, dig into your direct holdings, and manually check the sectoral breakdown of every mutual fund you own via fact sheets. With Arthavi AI, you just ask the chatbot: <em>"How much exposure do I have to the Auto sector?"</em> Within seconds, the AI calculates your exact percentage across all instruments. By contextualizing answers to <strong>your precise portfolio</strong>, financial questions become vastly more useful.</p>
+
+                    <h2>AI-Powered Market Research for Retail Investors</h2>
+                    <p>Institutional investors have teams of analysts performing market research, studying balance sheets, and tracking macro-economic trends. For retail investors in India, doing thorough market research is often intimidating and time-consuming.</p>
+                    <p>Arthavi AI breaks down this barrier. Whether you need to quickly summarize a company's recent quarterly earnings, compare the expense ratios of competing index funds, or understand why a specific benchmark (like Nifty Midcap 150) is underperforming, Arthavi AI handles the heavy lifting. Our market research AI is fine-tuned to pull accurate, up-to-date financial data from the web, filtering out the noise to give you direct, actionable summaries.</p>
+
+                    <h2>How Arthavi Differs from General Chatbots (ChatGPT, Gemini)</h2>
+                    <p>While generic AI models are incredibly smart, they lack two essential things for an investor: <strong>privacy</strong> and <strong>portfolio context</strong>. Feeding your exact financial holdings into a public chatbot violates your privacy and data security. Arthavi processes your questions within a secure infrastructure where the AI is granted strict, read-only context just for the session. Your data is never used to train global models. It is a strictly <strong>secure, customized, and private</strong> experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="cta-section">
+            <div class="container cta-content fade-in">
+                <h2>Ready to Research & Analyze?</h2>
+                <div style="margin: 1.5rem 0 2.5rem;">
+                    <p class="text-muted" style="margin-bottom: 0.5rem;">Upload your CAS, connect your holdings, and ask your first question today.</p>
+                    <p style="color: var(--text-head);">A powerful AI assistant made specifically for Indian investors.</p>
+                </div>
+                <a href="https://app.arthavi.com/register" class="btn btn-primary"
+                    style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.35);">
+                    Create Free Account
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    
+
+    
+
+</Layout>

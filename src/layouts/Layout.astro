@@ -1,0 +1,81 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  schema?: string;
+  canonical?: string;
+}
+
+const { title, description, keywords, schema, canonical = "https://arthavi.com" + Astro.url.pathname } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    {keywords && <meta name="keywords" content={keywords}>}
+    
+    <link rel="canonical" href={canonical}>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonical}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content="https://arthavi.com/images/og-image.png">
+    <meta property="og:site_name" content="Arthavi">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonical}>
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content="https://arthavi.com/images/og-image.png">
+    <meta name="twitter:creator" content="@arthavi_app">
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0B0E14">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- HTTPS redirect -->
+    <script is:inline>
+        if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https:' + location.href.substring(location.protocol.length));
+        }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-RQMEP6S2H9"></script>
+    <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-RQMEP6S2H9');
+    </script>
+
+    {schema && <script type="application/ld+json" set:html={schema}></script>}
+</head>
+<body>
+    <Header />
+    <slot />
+    <Footer />
+    
+    <script is:inline src="/scripts.js" defer></script>
+</body>
+</html>

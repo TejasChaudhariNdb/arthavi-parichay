@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Privacy Policy | Secure Investment Data Handling",
+  description: "Arthavi's Privacy Policy regarding investment statement data, portfolio parsing, and our strict no-selling rule. We protect Indian investor data.",
+};
+---
+<Layout title={seo.title} description={seo.description}  >
+
+    
+
+    <main class="container">
+        <div class="page-header fade-in">
+            <h1>Privacy Policy</h1>
+            <p class="text-muted">Effective Date: January 15, 2026</p>
+        </div>
+
+        <article class="prose fade-in delay-100">
+            <p>At Arthavi, privacy is not an afterthought—it is our core product feature. We believe that your financial
+                life explicitly belongs to you. This policy outlines exactly what data we collect and, more importantly,
+                what we do <strong>not</strong> do with it.</p>
+
+            <h2>1. Data We Collect</h2>
+            <p>We collect only the information necessary to provide our <strong>portfolio tracking service</strong>:</p>
+            <ul>
+                <li><strong>Account Information:</strong> Email address and basic profile photos (from Google Auth)
+                    required for login.</li>
+                <li><strong>Portfolio Data:</strong> Mutual fund transaction histories, stock investment values, and
+                    asset details that you explicitly upload (via CAS PDFs) or manually enter.</li>
+                <li><strong>Usage Data:</strong> Anonymous, aggregated metrics on how the application is used (e.g.,
+                    "Page Load Time") to improve performance.</li>
+            </ul>
+
+            <h2>2. How We Handle Your Investment Statement</h2>
+            <p>When you upload your <strong>investment statement (CAS — Consolidated Account Statement)</strong> from CAMS or KFintech:</p>
+            <ul>
+                <li>The file is processed securely to extract transaction data (Schema, Date, Amount, Units).</li>
+                <li>The original PDF file is discarded after extraction; we do not permanently store your raw statement
+                    files.</li>
+                <li>We do not share your investment data with any Asset Management Company (AMC) or broker.</li>
+            </ul>
+
+            <h2>3. NO Data Selling (Strict Policy)</h2>
+            <p>We wish to be explicitly clear on this point: <strong>Arthavi does not sell, rent, trade, or lease your
+                    personal financial data to third parties.</strong></p>
+            <ul>
+                <li>We do not monetize your data via ads.</li>
+                <li>We do not share your portfolio size ("Net Worth") with lenders, credit agencies, or insurers.</li>
+                <li>We do not allow third-party trackers to profile your investment behavior for targeting.</li>
+            </ul>
+
+            <h2>4. Data Storage & Encryption</h2>
+            <p>All user data is stored in secure data centers compliant with global standards. We use <strong>AES-256
+                    encryption</strong> for data at rest and <strong>TLS</strong> for data in transit. Access to
+                production databases is strictly restricted and logged for audit purposes.</p>
+
+            <h2>5. Your Rights</h2>
+            <p>As an Arthavi user, you have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> View all personal data we hold about you via the app dashboard.</li>
+                <li><strong>Rectify:</strong> Correct any inaccuracies in your investment data.</li>
+                <li><strong>Delete:</strong> Request the permanent deletion of your account and all associated data. We
+                    honor these requests immediately and irreversibly.</li>
+            </ul>
+
+            <h2>6. Third-Party Services</h2>
+            <p>We may use trusted third-party services for specific infrastructure needs (e.g., Google OAuth for login,
+                Cloud hosting, Transactional Email). These providers are contractually obligated to protect your data
+                and are not permitted to use it for their own purposes.</p>
+
+            <h2>7. Contact Us</h2>
+            Protection Officer at <a href="mailto:arthaviapp@gmail.com">arthaviapp@gmail.com</a>.</p>
+        </article>
+    </main>
+
+    
+    
+
+</Layout>

@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Stock Portfolio Tracker India | Best Alternative to Excel",
+  description: "The best free stock portfolio tracker for Indian investors. Ditch your portfolio tracker excel sheet and track NSE/BSE stocks with real-time prices safely.",
+};
+---
+<Layout title={seo.title} description={seo.description} keywords="stock portfolio tracker, portfolio tracker excel, google finance portfolio tracker, best apps for tracking stocks and mutual funds, NSE stock tracker, BSE portfolio manager" schema={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is a stock portfolio tracker better than Excel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, while a portfolio tracker excel sheet offers high customization, a dedicated app automatically fetches real-time prices, calculates complex taxes, adjusts for splits/bonuses, and requires zero manual formula maintenance."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I use this instead of a Google Finance portfolio tracker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Google Finance is great for basic tracking, but Arthavi is built specifically for Indian investors, handling NSE and BSE specifics, XIRR calculations, and integrated mutual fund tracking flawlessly."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What are the best apps for tracking stocks and mutual funds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best apps combine both assets. Arthavi allows you to upload mutual fund CAS PDFs and manually log stock positions, creating a single holistic dashboard for your entire net worth."
+        }
+      }]
+    })}>
+
+    
+
+    <main class="container">
+        <section class="page-header fade-in">
+            <h1>Stock Portfolio Tracker for Indian Investors</h1>
+            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">
+                Track your NSE and BSE holdings without giving anyone access to your Demat account.
+            </p>
+            <div style="margin-top: 2rem;">
+                <a href="https://app.arthavi.com" class="btn btn-primary">Add Your Stocks</a>
+            </div>
+        </section>
+
+        <article class="prose fade-in delay-100">
+            <h2>Manual Tracking vs Broker Lock-in</h2>
+            <p>Most stock trackers require you to login with your broker credentials. This creates security risks and
+                locks you into their ecosystem. Arthavi offers a secure, <strong>stock portfolio tracker</strong> for
+                India where you are in full control.</p>
+            <ul>
+                <li><strong>Control:</strong> You enter the quantity and average price.</li>
+                <li><strong>Privacy:</strong> We don't know your broker ID or password.</li>
+                <li><strong>Flexibility:</strong> Track stocks held across multiple family accounts in one view.</li>
+            </ul>
+
+            <h2>Retire Your Portfolio Tracker Excel Sheet</h2>
+            <p>Building a <strong>portfolio tracker excel</strong> document is a rite of passage for every investor. You likely spent hours connecting a <strong>google finance portfolio tracker</strong> API to pull stock prices into cells. But as your portfolio grows, Excel breaks.</p>
+            <p>Spreadsheets struggle heavily with stock splits, bonus issues, dividend reinvestments, and XIRR math over hundreds of transaction dates. Arthavi handles all of these corporate actions and real-time math natively, making it one of the <strong>best apps for tracking stocks and mutual funds</strong> together.</p>
+
+            <h2>Real-Time Price Updates</h2>
+            <p>We fetch end-of-day and live prices for thousands of stocks listed on the National Stock Exchange (NSE)
+                and Bombay Stock Exchange (BSE). Your portfolio value updates automatically, giving you a clear picture
+                of your daily P/L without refreshing formulas.</p>
+
+            <h2>Read-Only Safety</h2>
+            <p>Since Arthavi is not connected to your broker, it is physically impossible for trades to be executed
+                through our platform. This <strong>read-only architecture</strong> is the safest way to track wealth.
+            </p>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3>Track your equity journey safely</h3>
+                <a href="https://app.arthavi.com" class="btn btn-primary">Start Now</a>
+            </div>
+        </article>
+    </main>
+
+    
+    
+
+</Layout>

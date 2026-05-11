@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "About Arthavi | Best Portfolio Tracker for Indian Investors",
+  description: "Discover Arthavi, the privacy-first portfolio tracker for Indian investors to track Mutual Funds and Stocks. Ad-free, secure, and built for accurate Net Worth & XIRR analytics.",
+};
+---
+<Layout title={seo.title} description={seo.description} keywords="portfolio tracker India, best mutual fund tracker, Indian investor tools, privacy focused investment app, ad-free portfolio analytics" schema={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Arthavi",
+      "url": "https://arthavi.com",
+      "logo": "https://arthavi.com/images/logo.png",
+      "foundingDate": "2024",
+      "description": "Privacy-focused portfolio analytics platform for Indian investors.",
+      "sameAs": ["https://twitter.com/arthavi"]
+    })}>
+
+    
+
+    <main class="container">
+        <div class="page-header fade-in">
+            <h1>Our Mission: Clarity for Indian Investors</h1>
+            <p class="text-muted" style="font-size: 1.2rem;">Building the gold standard for unbiased, ad-free portfolio
+                tracking in India.</p>
+        </div>
+
+        <article class="prose fade-in delay-100">
+            <h2>The Problem</h2>
+            <p>I was tired of juggling different apps to see my total investment returns. I was juggling multiple apps
+                and wanted a better, privacy-first way to track my portfolio without linking demat accounts.</p>
+
+            <h2>The Journey</h2>
+            <p>I planned and built this entire app in 1 month to solve my own problem.</p>
+
+            <h2>The Solution</h2>
+            <p>A unified dashboard for Indian Mutual Funds and NSE/BSE stocks that focuses on privacy and manual
+                tracking.</p>
+
+            <h2>Who We Are</h2>
+            <p>Arthavi was founded on a simple yet powerful premise: <strong>Indian retail investors deserve better
+                    data.</strong> In a financial landscape dominated by broker-owned platforms and ad-heavy free tools,
+                clarity is often the first casualty. We set out to build the best portfolio analytics app for Indian
+                investors—one that serves the user, not the intermediary.</p>
+            <p>We are a team of engineers and finance enthusiasts who believe that net worth tracking should be private,
+                accurate, and completely devoid of conflicts of interest.</p>
+
+            <h2>Why We Built Arthavi</h2>
+            <p>Most "free" portfolio trackers in India are actually lead-generation engines. They sell your data to
+                lenders, push "recommended" regular mutual funds that pay commissions, or clutter your screen with ads.
+                We rejected that model entirely.</p>
+            <ul>
+                <li><strong>No Commissions:</strong> We made a conscious choice not to sell mutual funds or stocks. This
+                    ensures our <a href="/#features">portfolio analytics</a> remain 100% unbiased.</li>
+                <li><strong>Privacy First:</strong> Your financial data is sensitive. We architected Arthavi to ensure
+                    no third-party ever gets access to your portfolio.</li>
+                <li><strong>Indian Context:</strong> We built specific features for the Indian market, like <strong>CAS
+                        PDF parsing</strong> (for CAMS/KFintech), <strong>XIRR Validation</strong>, and support for
+                    NSE/BSE stocks.</li>
+            </ul>
+
+            <h2>What Arthavi Is & Is Not</h2>
+            <p>To maintain complete transparency with our users, clarifying our role is essential:</p>
+            <ul>
+                <li><strong>We are NOT a Broker:</strong> We do not execute trades, open demat accounts, or hold your
+                    money. We are a pure <em>portfolio tracker/analytics tool</em>.</li>
+                <li><strong>We are NOT an Investment Advisor:</strong> We provide data visualization and performance
+                    metrics (like XIRR and allocation), not buy/sell recommendations.</li>
+            </ul>
+
+            <h2>Our Commitment to Privacy</h2>
+            <p>We are committed to maintaining a clean, ad-free environment forever. Our business model relies on
+                premium analytics features, not on selling your attention or your data to the highest bidder. Learn more
+                about our data practices on our <a href="/security">Security page</a> and <a
+                    href="/privacy">Privacy Policy</a>.</p>
+        </article>
+    </main>
+
+    
+    
+
+</Layout>

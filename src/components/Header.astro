@@ -1,0 +1,60 @@
+---
+---
+<header>
+        <div class="container">
+            <a href="/" class="logo" aria-label="Arthavi Home">
+                <img src="/images/logo.webp" alt="Arthavi Logo" width="30" height="26" style="border-radius: 4px;">
+                <span>Arthavi</span>
+            </a>
+            <nav role="navigation">
+                <ul>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#ask-ai" class="nav-ai-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                            </svg>
+                            Ask AI
+                        </a></li>
+                    <li><a href="/#why">Why Arthavi</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="display:none"
+                id="nav-cta-desktop">Get Started</a>
+            <a href="https://app.arthavi.com/register" class="btn btn-primary" id="nav-cta">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+<nav class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <a href="/#features" onclick="closeMobileMenu()">Features</a>
+        <a href="/#ask-ai" onclick="closeMobileMenu()" style="color: #c4b5fd; font-weight:600;">✦ Ask AI</a>
+        <a href="/#why" onclick="closeMobileMenu()">Why Arthavi</a>
+        <a href="/security" onclick="closeMobileMenu()">Security</a>
+        <a href="/#faq" onclick="closeMobileMenu()">FAQ</a>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary"
+            style="margin-top:0.5rem; text-align:center;">Get Started Free</a>
+    </nav>
+
+<script>
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+}
+if (hamburger) {
+    hamburger.addEventListener('click', function () {
+        const open = mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+}
+// Make links close menu
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+});
+</script>

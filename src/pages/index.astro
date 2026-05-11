@@ -1,0 +1,1607 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Arthavi: Best Portfolio Tracker India - Stocks, Mutual Funds & AI-Powered",
+  description: "AI-Powered Portfolio Tracker to Track Mutual Funds & Stocks in one privacy-first dashboard. Now with Ask AI for instant investment insights. No demat linking required.",
+};
+---
+<Layout title={seo.title} description={seo.description} keywords="Portfolio Analytics India, Net Worth Tracker, Mutual Fund Analysis, Value Research ,INDmoney ,Kuvera,portfolio tracker india without demat, Stock Portfolio Tracker, XIRR Calculator, Privacy First Finance, SIP Tracking, AI Investment Assistant, Ask AI Finance, stocks and mutual funds tracking, best apps for tracking stocks and mutual funds, which is best mutual funds or stocks, stocks vs mutual funds, tracking stocks online, tracking stock portfolio, how to track mutual funds in real time, mutual funds tracking nasdaq, mutual funds trackers, stock market tracking funds, mutual funds tracking s&p, mutual funds tracking s&p 500, stocks tracking tool, apps to track mutual funds, best app for mutual funds and stocks, stocks and mutual funds are generally, stocks tracking website, tracking mutual fund investments, how to track mutual fund investment, what are mutual funds stocks, what are mutual funds in the stock market, are stocks and mutual funds the same, a stock fund, a stock mutual fund is an investment that, stock and bond tracker, stocks and mutual funds meaning, are mutual funds in the stock market, best stock and mutual fund tracker, how to see what stocks are in a mutual fund, best stocks and mutual funds to invest in, tracking stock structure, c share mutual funds going away, fund tracking nasdaq composite index, do mutual funds trade on nyse, do mutual funds trade on nasdaq, do mutual funds do stock splits, do mutual funds trade, do mutual funds trade at nav, etf tracking stock market, etfs tracking, stock and etf tracker, how to track mutual fund portfolio, what are f shares in mutual funds, mutual fund holding stock list, funds tracking s&p 500, track stocks with google, how to find which mutual funds hold a stock, how to see all holdings in a mutual fund, high-yielding stocks and mutual funds, mutual fund tracking index, j shares mutual funds, jp morgan mutual funds ticker symbol, tracking fund flows, k mutual funds, mutual fund k shares, mutual funds with long track records, mutual funds look up, mutual funds stock market today, mutual funds stock ticker, mutual funds tracking nasdaq 100, mutual fund p shares, tracking stock performance, mutual funds tracking qqq, track stocks and mutual funds, tracking stock investments, track mutual funds and stocks, understanding stocks and mutual funds, mutual funds v stocks, mutual funds vs. stocks, vanguard mutual fund tracking nasdaq, vtsax tracking error, mutual fund x ray, mutual fund xray tool, how to find mutual funds on yahoo finance, yahoo mutual fund symbol lookup, yahoo finance mutual fund comparison, yahoo stock tracking, z share mutual funds, ztr stock morningstar, zacks mutual funds strong buys, stocks mutual funds or etfs, stock market tracking fund, 2 mutual funds, 2 mutual fund portfolio, 3 stocks portfolio, 3 mutual fund companies, 4 mutual fund portfolio, 4 mutual funds, 6 mutual fund, mutual fund trackers, 8 mutual funds, 9 mutual funds, 9 an actively managed mutual fund" schema={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://arthavi.com/#organization",
+          "name": "Arthavi",
+          "url": "https://arthavi.com",
+          "logo": "https://arthavi.com/logo.png",
+          "sameAs": [
+            "https://www.instagram.com/arthavi.app",
+            "https://www.youtube.com/@tejascodingzone"
+          ],
+          "description": "Arthavi is a privacy-first fintech platform for Indian investors to track Mutual Funds and Stocks."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://arthavi.com/#website",
+          "url": "https://arthavi.com",
+          "name": "Arthavi Portfolio Tracker",
+          "publisher": { "@id": "https://arthavi.com/#organization" },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://arthavi.com/#software",
+          "name": "Arthavi",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web, Android",
+          "author": { "@id": "https://arthavi.com/#organization" },
+          "featureList": [
+            "Manual Mutual Fund Tracking",
+            "CAS PDF Import from CAMS and KFintech",
+            "NSE/BSE Stock Portfolio Monitoring",
+            "No Demat Link Required",
+            "Privacy-First Architecture",
+            "XIRR Calculator based on actual cash flows",
+            "Ask AI Investment Assistant",
+            "Portfolio Overlap Analysis",
+            "Sector Concentration Analysis",
+            "Benchmark Comparison with Nifty 50",
+            "Goal-Based Portfolio Tracking"
+          ],
+          "screenshot": "https://arthavi.com/images/dashboard.webp",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi is a premium, privacy-focused fintech application for Indian investors. It serves as a comprehensive dashboard that aggregates Mutual Funds (via CAS imports) and Stocks to show your true net worth and XIRR without requiring you to link your demat accounts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Arthavi free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, it is free for now. Arthavi offers core portfolio tracking features free of cost because we believe in accessible financial clarity for all Indian investors."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my data shared?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely not. Arthavi follows a strict privacy-first policy. We do not sell, share, or monetize your financial data to third parties, brokers, or advertisers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Arthavi execute trades?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Arthavi is a read-only analytics platform. We do not place orders, hold your funds, or have write-access to your broker accounts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is CAS data handled?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your Consolidated Account Statement (CAS) PDF, an official document regulated by SEBI and provided by RTAs like CAMS and KFintech, is securely processed to extract transaction details. The file is never reused or shared."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is it SEBI registered?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi does not provide investment advice or execute trades and therefore does not require a SEBI (Securities and Exchange Board of India) Investment Advisor (RIA) registration. It functions purely as a tracking and analytics technological tool."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my data encrypted?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. All sensitive data is encrypted both at rest and during transmission."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I know my data is safe? Will I receive random marketing calls?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi does not sell, share, or use user data for marketing or lead generation, period. We do not sell data to third parties or share it with brokers. There is no cold-call monetization model, and we don't even collect phone numbers—it's not mandatory for signup, so there is no risk of marketing calls from our end. Your data is encrypted in transit and at rest, and we only ask for minimal permissions required to show your portfolio insights."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you support fixed or debt instruments like FDs, PPF, and NPS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100% agree—a portfolio tracker isn't complete without debt instruments. They are on our roadmap! Our vision is to track everything in one place, not just equity. Right now, equity and mutual funds are the focus, but support for fixed income instruments like FDs, PPF, and NPS is definitely coming soon."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Ask AI Investment Assistant work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Ask AI feature acts as your personal financial analyst. You can ask it plain-English questions about your portfolio, such as 'Am I over-invested in banking?' or 'What is my XIRR?'. It instantly analyzes your imported CAS and stock data to give you clear, objective insights."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the AI Assistant giving me financial advice?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, the AI Assistant provides data-driven analytics and insights based purely on the portfolio data you upload. It is not designed to give certified financial advice or recommend specific stocks/funds to buy or sell. It simply helps you understand your investments better based on data."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the AI have access to my sensitive login credentials?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not at all. The AI only analyzes the abstract portfolio data (transactions and holdings) that you upload via CAS. We do not link to your demat accounts and we never ask for broker login credentials. The AI's analysis is done in a secure, privacy-first environment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I track family portfolios or multiple CAS files?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can upload multiple CAS files to consolidate and track investments across different family members. Arthavi aggregates this data to give you a unified view of your entire family's net worth and combined portfolio performance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Arthavi better than tracking investments in Excel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. While Excel requires manual data entry, complex formulas, and constant updates for live prices, Arthavi automates this entire process. We calculate your XIRR, analyze sector overlap, and pull live market data automatically."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to link my demat account or broker to use Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No demat linking is required. You can simply upload your CAS (Consolidated Account Statement) securely from official SEBI-registered RTAs like CAMS or KFintech, or manually enter your stock trades. This ensures you maintain full control over your broker accounts while getting top-tier analytics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is the XIRR calculated on Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi calculates your XIRR (Extended Internal Rate of Return) based on your actual cash flows and transaction dates extracted from your CAS or manual entries. It accounts for SIPs, lump-sums, redemptions, and dividend payouts for high accuracy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if I want to delete my account and data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You have complete control over your data. If you choose to leave Arthavi, you can delete your account at any time. We will permanently wipe all your transaction data, CAS files, and personal information from our servers immediately."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to track mutual funds in Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can track mutual funds in Arthavi by: 1. Adding fund names or ISIN codes 2. Setting target alerts 3. Viewing performance charts and XIRR"
+              }
+            }
+          ]
+        }
+      ]
+    })}>
+
+    
+    
+    <!-- Mobile Menu -->
+    
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero text-center">
+            <div class="container hero-content fade-in">
+                <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                    <span class="ai-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                        </svg>
+                        Now with Arthavi AI — Chat with your portfolio
+                    </span>
+                </div>
+
+                <h1 class="heading-xl">
+                    India's Smartest <br><span>AI Portfolio Tracker</span>
+                </h1>
+                <h2 style="font-size: 2.2rem;">
+                    for Indian Stocks & Mutual Funds
+                </h2>
+                <p>
+                    Track your <strong>Mutual Fund &amp; Stock portfolio</strong> in one privacy-first dashboard—built
+                    for Indian investors.
+                </p>
+                <p>
+                    Simply upload your investment statement (CAS) — a file you can download from your mutual fund provider — to ask AI questions like
+                    <em>"Is my portfolio over-exposed to banking?"</em> or
+                    <em>"Benchmark my returns against the Nifty 50."</em>
+
+                </p>
+
+                <div class="btn-group">
+                    <!-- Try Demo (Primary) -->
+                    <a href="https://app.arthavi.com/demo" class="btn btn-primary">
+                        Try Demo (No Login)
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Create Account (Secondary) -->
+                    <a href="https://app.arthavi.com/register" class="btn btn-secondary">
+                        Create Free Account
+                    </a>
+                </div>
+                <p class="cta-note">
+                    Free • No demat linking • No Ads. Total privacy.
+                </p>
+
+                <div style="margin-top: 2rem; display: flex; justify-content: center;">
+                    <a href="https://www.producthunt.com/products/arthavi-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-arthavi-2"
+                        target="_blank" rel="noopener noreferrer"><img
+                            alt="Arthavi - Privacy-First Mutual Fund &amp; Stock Tracker India | Product Hunt"
+                            width="250" height="54"
+                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1079853&amp;theme=neutral&amp;t=1771651842055"></a>
+                </div>
+            </div>
+
+            <div class="container">
+                <figure class="dashboard-preview glass-panel fade-in delay-200">
+                    <picture>
+                        <source
+                            srcset="images/widgets-480w.webp 480w, images/widgets-800w.webp 800w, images/widgets.webp 1024w"
+                            type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
+                        <img src="images/widgets.webp"
+                            alt="Arthavi Analytics Widgets showing net worth, asset allocation and goals" width="1024"
+                            height="571" loading="eager" fetchpriority="high">
+                    </picture>
+                    <figcaption class="sr-only">Net worth dashboard showing consolidated mutual fund and stock
+                        performance for Indian investors, including XIRR-based returns and AMC allocation.</figcaption>
+                </figure>
+
+                <!-- Store Buttons Below Fold -->
+                <div class="btn-group fade-in delay-300" style="margin-top: 3rem;">
+                    <!-- Android Button -->
+                    <a href="https://play.google.com/store/apps/details?id=com.arthavi.app.twa" class="btn-store">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3.609 1.814L13.792 12 3.61 22.186a1.006 1.006 0 0 1-.508-.124A.984.984 0 0 1 2.5 21.216V2.784c0-.356.19-.685.5-.86a1.004 1.004 0 0 1 .609-.11zM14.5 12.708l3.196 3.196-1.558 1.557c-.156.156-.375.22-.588.196-.214-.024-.403-.153-.52-.352L14.5 12.708zm.707-.709l-3.195-3.195 4.37-2.62c.26-.157.59-.112.8.113.208.225.21.564.004.792l-1.98 1.98c-1.155 1.155.001 2.93-.001 2.93zM5.5 2.5l11.5 6.9c.733.44.733 1.76 0 2.2L5.5 18.5V2.5z" />
+                            <path
+                                d="M15.045 13.253l-3.327-3.328L2.736 18.907l.006.002.348.191c1.238.683 2.768.257 3.45-1.006l8.505-4.841zM14.896 10.59L6.536 5.86c-.663-1.293-2.185-1.748-3.417-1.07l-.369.2L11.716 13.77l3.18-3.18zM17.155 11.83l-1.39-1.39-1.577 1.576 1.577 1.577 1.39-1.389c.772-.772.772-2.002 0-2.374zM1.464 2.809C.578 3.558 0 4.708 0 6.009v11.982c0 1.301.578 2.451 1.464 3.2l11.23-11.23L1.464 2.809z" />
+                        </svg>
+                        Google Play
+                    </a>
+
+                    <!-- iOS Button -->
+                    <a href="https://app.arthavi.com/register" class="btn-store">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.21-1.98 1.08-3.11-1.06.05-2.31.71-3.06 1.48-.68.7-1.24 1.99-1.06 3.09 1.15.09 2.34-.64 3.04-1.46z" />
+                        </svg>
+                        App Store
+                    </a>
+
+                    <!-- Web App Button -->
+                    <a href="https://app.arthavi.com/register" class="btn-store">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-1.07 3.9-2.6 5.41z" />
+                        </svg>
+                        Web App
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <strong>100%</strong>
+                        <span>Privacy First</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>₹0</strong>
+                        <span>Free to Use</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>0</strong>
+                        <span>Ads or Data Selling</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>AI</strong>
+                        <span>Powered Insights</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2 class="heading-lg">Get Started in 3 Steps</h2>
+                    <p class="section-sub">No complex setup. No bank passwords required.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <!-- Step 1 -->
+                    <div class="step-card fade-in delay-100">
+                        <div class="step-icon">1</div>
+                        <p class="step-title"><strong>Import Your Investments</strong></p>
+                        <p>Export your investment statement from CAMS or KFintech and upload it. We parse
+                            it securely to track all your mutual funds.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card fade-in delay-200">
+                        <div class="step-icon">2</div>
+                        <p class="step-title"><strong>Add Your Stocks</strong></p>
+                        <p>Search and add your equity holdings from NSE/BSE. Live price updates keep your portfolio
+                            accurate without linking any broker account.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card fade-in delay-300">
+                        <div class="step-icon">3</div>
+                        <p class="step-title"><strong>Ask AI Anything</strong></p>
+                        <p>Once your portfolio is set up, just ask Arthavi AI — "What is my XIRR?", "Am I
+                            over-diversified?" — and get instant, data-driven answers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Breakdown -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Everything You Need to Track Wealth</h2>
+                    <p>Built for the serious Indian retail investor who values data over noise.</p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Security & Privacy -->
+                    <article class="feature-card glass-panel fade-in delay-100">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Security & Privacy</strong></p>
+                        <p>Arthavi follows a privacy-first architecture designed to minimize data exposure. We do not
+                            profile users, sell insights, or share portfolio data.</p>
+                        <ul>
+                            <li>Data encrypted at rest & transmission</li>
+                            <li>Secure authentication (OAuth, WebAuthn)</li>
+                            <li>Sensitive values hidden via Privacy Mode</li>
+                            <li>Permanently delete data anytime</li>
+                        </ul>
+                    </article>
+
+                    <!-- MF Analytics -->
+                    <article class="feature-card glass-panel fade-in delay-200">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Mutual Fund Analytics</strong></p>
+                        <p>Import your investment statement from CAMS & KFintech in minutes. Transactions are parsed locally and
+                            validated for accuracy.</p>
+                        <ul>
+                            <li>Accurate XIRR based on cash flows</li>
+                            <li>AMC-wise allocation checks</li>
+                            <li>Scheme-level transaction history</li>
+                            <li>Support for SIPs & redemptions</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stock Tracking -->
+                    <article class="feature-card glass-panel fade-in delay-300">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Stock Portfolio</strong></p>
+                        <p>Manual equity tracking for full control. Add stocks with purchase date, quantity, and price
+                            for realistic returns.</p>
+                        <ul>
+                            <li>Live stock search via trusted sources</li>
+                            <li>Auto-background price updates</li>
+                            <li>Combined P/L & allocation visibility</li>
+                            <li>Edit/Remove holdings anytime</li>
+                        </ul>
+                    </article>
+
+                    <!-- Dashboard -->
+                    <article class="feature-card glass-panel fade-in delay-100">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Unified Dashboard</strong></p>
+                        <p>A single net worth view bringing all assets together. See total wealth and performance trends
+                            instantly.</p>
+                        <ul>
+                            <li>Net worth tracking over time</li>
+                            <li>Daily & cumulative performance</li>
+                            <li>Asset allocation insights</li>
+                            <li>Dark mode & mobile-optimized</li>
+                        </ul>
+                    </article>
+
+                    <!-- Goals -->
+                    <article class="feature-card glass-panel fade-in delay-200">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Goal Planning</strong></p>
+                        <p>Tie investments to real life. Measure portfolio progress against specific financial goals,
+                            not just market indices.</p>
+                        <ul>
+                            <li>Create goals (Retirement, Home, etc.)</li>
+                            <li>Assign investments to goals</li>
+                            <li>Visual progress indicators</li>
+                            <li>Modify goals as life changes</li>
+                        </ul>
+                    </article>
+
+                    <!-- Tech Architecture -->
+                    <article class="feature-card glass-panel fade-in delay-300">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Modern Architecture</strong></p>
+                        <p>Engineered for speed and data integrity. We avoid legacy bloat to ensure fast analytics as
+                            your portfolio grows.</p>
+                        <ul>
+                            <li>Fast API responses</li>
+                            <li>Scalable backend design</li>
+                            <li>Clean data & UI separation</li>
+                            <li>Reliable uptime architecture</li>
+                        </ul>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);" class="fade-in">
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.8rem;">Want to see everything?</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We have packed 42+ powerful features into Arthavi.</p>
+                    <a href="/features" class="btn btn-secondary" style="padding: 0.8rem 1.8rem; font-size: 1rem; border: 1px solid rgba(255,255,255,0.2);">Explore 42+ Features</a>
+                </div>
+
+                <!-- Dashboard Preview moved from Hero -->
+                <div class="fade-in delay-200" style="margin-top: 4rem;">
+                    <figure class="glass-panel"
+                        style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); max-width: 950px; margin: 0 auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                        <picture>
+                            <source
+                                srcset="images/dashboard-480w.webp 480w, images/dashboard-800w.webp 800w, images/dashboard.webp 1024w"
+                                type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
+                            <img src="images/dashboard.webp" alt="Full Arthavi Dashboard View"
+                                style="width: 100%; display: block;" loading="lazy" width="1024" height="1024">
+                        </picture>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Features Showcase -->
+        <section id="new-features" class="features" style="padding-top: 2rem;">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;">April 2026 · New</span>
+                    <h2>More Than Just a Tracker</h2>
+                    <p>Arthavi now goes beyond portfolio numbers — with intelligence, alerts, and privacy features built for serious Indian investors.</p>
+                </div>
+
+                <div class="features-grid" style="margin-top: 3rem;">
+
+                    <!-- Portfolio Health Score -->
+                    <article class="feature-card glass-panel fade-in delay-100" id="portfolio-health-score">
+                        <div class="feature-icon" style="background: rgba(16,185,129,0.12); color: #34d399;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Portfolio Health Score</strong></p>
+                        <p>Get an instant 0–100 score on your portfolio's overall quality — calculated from your diversification ratio, asset mix, and volatility exposure. Scored as <em>Excellent</em>, <em>Good</em>, or <em>Needs Work</em>.</p>
+                        <ul>
+                            <li>Overall health score out of 100</li>
+                            <li>Diversification score (MF vs stock ratio)</li>
+                            <li>Risk score based on volatility</li>
+                            <li>Live updates as your portfolio changes</li>
+                        </ul>
+                    </article>
+
+                    <!-- Smart Insights -->
+                    <article class="feature-card glass-panel fade-in delay-200" id="smart-insights">
+                        <div class="feature-icon" style="background: rgba(251,191,36,0.12); color: #fbbf24;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Smart Insights</strong></p>
+                        <p>Arthavi automatically surfaces personalised, AI-generated tips about your portfolio — without you having to ask. Warnings, wins, and actionable nudges, all in one swipeable card.</p>
+                        <ul>
+                            <li>Warning: over-concentration detected</li>
+                            <li>Success: SIP streak milestone reached</li>
+                            <li>Trend: unusual drawdown alert</li>
+                            <li>Haptic-enabled on mobile</li>
+                        </ul>
+                    </article>
+
+                    <!-- Stock Research -->
+                    <article class="feature-card glass-panel fade-in delay-300" id="stock-research-india">
+                        <div class="feature-icon" style="background: rgba(99,102,241,0.12); color: #818cf8;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Full Stock Research</strong></p>
+                        <p>Deep-dive into any NSE/BSE stock directly inside Arthavi. Get sector, industry, live price, day change, and historical performance — all without leaving your dashboard.</p>
+                        <ul>
+                            <li>Live NSE/BSE price via Yahoo Finance</li>
+                            <li>Sector & industry classification</li>
+                            <li>P&L and XIRR per holding</li>
+                            <li>Transaction-level history</li>
+                        </ul>
+                    </article>
+
+                    <!-- Privacy Mode + Biometric Lock -->
+                    <article class="feature-card glass-panel fade-in delay-100" id="privacy-mode-biometric-lock">
+                        <div class="feature-icon" style="background: rgba(139,92,246,0.12); color: #a78bfa;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Privacy Mode &amp; Biometric Lock</strong></p>
+                        <p>Blur all sensitive numbers instantly with Privacy Mode — perfect for checking your portfolio in public. Lock the entire app with Face ID, Touch ID, or your device passcode using <strong>WebAuthn</strong>.</p>
+                        <ul>
+                            <li>One-tap blur for all portfolio values</li>
+                            <li>Face ID / Touch ID / Passcode unlock</li>
+                            <li>No credentials stored — WebAuthn standard</li>
+                            <li>Session-scoped unlock for security</li>
+                        </ul>
+                    </article>
+
+                    <!-- Daily Market Prediction -->
+                    <article class="feature-card glass-panel fade-in delay-200" id="daily-market-prediction-india">
+                        <div class="feature-icon" style="background: rgba(239,68,68,0.10); color: #f87171;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Daily Market Prediction — Bull or Bear?</strong></p>
+                        <p>Every day, predict whether Nifty 50 will close higher or lower. See what the community thinks, build your streak, and get scored after market close. A fun, engaging daily habit for investors.</p>
+                        <ul>
+                            <li>Daily Bull / Bear vote on Nifty 50</li>
+                            <li>🔥 Streak counter for correct predictions</li>
+                            <li>Live community sentiment bar</li>
+                            <li>Results auto-updated after market close</li>
+                        </ul>
+                    </article>
+
+                    <!-- Email Alerts -->
+                    <article class="feature-card glass-panel fade-in delay-300" id="portfolio-email-alerts-india">
+                        <div class="feature-icon" style="background: rgba(16,185,129,0.10); color: #34d399;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Daily Nudges &amp; Weekly Wealth Emails</strong></p>
+                        <p>Stay connected to your wealth without effort. Arthavi sends you a smart daily nudge when your portfolio needs attention, and a detailed weekly snapshot of your total value, P&L, and AI highlights.</p>
+                        <ul>
+                            <li>Daily engagement nudge (5 rotating angles)</li>
+                            <li>Weekly P&L snapshot email every Sunday</li>
+                            <li>AI Insights summary in your inbox</li>
+                            <li>One-click unsubscribe, always</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Ask AI Section -->
+
+        <section id="ask-ai" class="ai-showcase">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <div
+                        style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 50%; margin-bottom: 1.5rem; color: #a78bfa;">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                        </svg>
+                    </div>
+                    <h2>Arthavi AI — Your Personal Investment Analyst</h2>
+                    <p class="section-sub">The only portfolio tracker in India with a smart AI that actually knows your
+                        holdings. Ask anything about your mutual funds, stocks, XIRR, or sector allocation.</p>
+                </div>
+
+                <div class="ai-split fade-in delay-100">
+                    <!-- Left: Chat Window -->
+                    <div class="ai-chat-window">
+                        <div class="chat-header">
+                            <div class="chat-header-dot"></div>
+                            <span>Arthavi AI</span>
+                            <span style="margin-left: auto; font-size: 0.78rem; color: var(--text-muted);">● Live on
+                                your portfolio</span>
+                        </div>
+                        <div class="chat-body" id="ai-chat-demo">
+                            <!-- Conversation 1: Overlap -->
+                            <div class="chat-msg user" data-conv="0">Do I have portfolio overlap in my mutual funds?
+                            </div>
+                            <div class="chat-msg ai" data-conv="0">Yes — <strong>3 of your 5 schemes</strong> track
+                                similar indices. <strong class="yellow">Mirae Large Cap</strong> and <strong
+                                    class="yellow">Axis Bluechip</strong> have ~<span class="yellow">72% stock
+                                    overlap</span>, both heavy on Reliance, HDFC Bank, and Infosys. Consider
+                                consolidating to reduce redundancy and improve diversification.</div>
+
+                            <!-- Conversation 2 (hidden by default) -->
+                            <div class="chat-msg user" data-conv="1" style="display:none">Am I over-exposed to the
+                                banking sector?</div>
+                            <div class="chat-msg ai" data-conv="1" style="display:none">Your portfolio has <span
+                                    class="red">38% in Banking &amp; Finance</span> — that's above the recommended
+                                25–30% for a balanced investor. <strong>HDFC Bank, ICICI Bank, and Bajaj
+                                    Finance</strong> are your top 3 holdings by value. You may want to balance with IT
+                                or Healthcare funds.</div>
+
+                            <!-- Conversation 3 (hidden) -->
+                            <div class="chat-msg user" data-conv="2" style="display:none">Compare my returns with Nifty
+                                50 this year.</div>
+                            <div class="chat-msg ai" data-conv="2" style="display:none">Your portfolio XIRR is <strong
+                                    class="green">14.2%</strong> versus Nifty 50's 12.1% — you're <span
+                                    class="green">outperforming by 2.1%</span>. Your best performer is <strong>Parag
+                                    Parikh Flexi Cap</strong> at 18.4% returns. Your stocks have dragged slightly at
+                                9.8%.</div>
+                        </div>
+                        <div
+                            style="padding: 0.75rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 0.5rem;">
+                            <div
+                                style="flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.88rem; color: var(--text-muted);">
+                                Ask about your portfolio...</div>
+                            <button
+                                style="background: linear-gradient(135deg, #6366f1, #8b5cf6); border: none; border-radius: 8px; padding: 0.75rem 1rem; color: white; cursor: pointer;">→</button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Capabilities -->
+                    <div>
+                        <div class="ai-tabs">
+                            <button class="ai-tab active" onclick="switchConv(0, this)">Overlap Analysis</button>
+                            <button class="ai-tab" onclick="switchConv(1, this)">Sector Risk</button>
+                            <button class="ai-tab" onclick="switchConv(2, this)">Benchmark Compare</button>
+                        </div>
+                        <h3 style="color: var(--text-head); font-size: 1.6rem; margin-bottom: 0.75rem;">AI That
+                            Understands Indian Investing</h3>
+                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                            Arthavi AI isn't a generic chatbot — it reads your actual portfolio data, runs analysis, and
+                            gives you actionable answers in plain English.</p>
+
+                        <div class="ai-capabilities">
+                            <div class="ai-cap">
+                                <div class="ai-cap-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                        <polyline points="14 2 14 8 20 8" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Real Portfolio Access</strong>
+                                    <p>AI calls your live portfolio data — not sample data. Answers are based on your
+                                        actual holdings and transactions.</p>
+                                </div>
+                            </div>
+                            <div class="ai-cap">
+                                <div class="ai-cap-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                        <polyline points="17 6 23 6 23 12" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Web Search for Current Data</strong>
+                                    <p>AI fetches live stock prices, fund NAVs, and market trends to keep answers
+                                        current.</p>
+                                </div>
+                            </div>
+                            <div class="ai-cap">
+                                <div class="ai-cap-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="12" y1="8" x2="12" y2="12" />
+                                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Scoped to Indian Markets Only</strong>
+                                    <p>Arthavi AI focuses on Mutual Funds and Indian Stocks — no noise from crypto, US
+                                        stocks, or irrelevant markets.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <a href="/ask-ai-investment-assistant" class="btn btn-primary"
+                                style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.3);">
+                                Explore Ask AI
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" style="margin-left:8px">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                            <a href="https://app.arthavi.com/register" class="btn btn-secondary"
+                                style="margin-left: 0.75rem;">Start Free</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison-section">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2 class="heading-lg">How Arthavi Compares</h2>
+                    <p class="section-sub">Most portfolio tracking apps are built to sell products or show ads. Arthavi
+                        is built for investors who want clarity, accuracy, and privacy — without hidden incentives.</p>
+                </div>
+
+                <div class="comparison-container glass-panel fade-in delay-100">
+                    <div class="table-responsive">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th class="highlight">Arthavi</th>
+                                    <th>Typical Apps</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ads</td>
+                                    <td class="highlight"><span class="icon-check">❌</span> No ads</td>
+                                    <td><span class="icon-cross">✅</span> Ads & promotions</td>
+                                </tr>
+                                <tr>
+                                    <td>Data Monetization</td>
+                                    <td class="highlight"><span class="icon-check">❌</span> Never</td>
+                                    <td>Often unclear</td>
+                                </tr>
+                                <tr>
+                                    <td>Broker Dependency</td>
+                                    <td class="highlight"><span class="icon-check">❌</span> None</td>
+                                    <td>Usually required</td>
+                                </tr>
+                                <tr>
+                                    <td>Trade Execution</td>
+                                    <td class="highlight"><span class="icon-check">❌</span> No</td>
+                                    <td>Often yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Analytics Focus</td>
+                                    <td class="highlight"><span class="icon-check">✅</span> Core focus</td>
+                                    <td>Secondary</td>
+                                </tr>
+                                <tr>
+                                    <td>CAS PDF Support</td>
+                                    <td class="highlight"><span class="icon-check">✅</span> Yes</td>
+                                    <td>Limited / mixed</td>
+                                </tr>
+                                <tr>
+                                    <td>XIRR Accuracy</td>
+                                    <td class="highlight"><span class="icon-check">✅</span> Cash-flow based</td>
+                                    <td>Often simplified</td>
+                                </tr>
+                                <tr>
+                                    <td>Privacy Mode</td>
+                                    <td class="highlight"><span class="icon-check">✅</span> Yes</td>
+                                    <td>Rare</td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                    <td>Read-Only Safety</td>
+                                    <td class="highlight"><span class="icon-check">✅</span> Guaranteed</td>
+                                    <td>Not always</td>
+                                </tr>
+                                <tr>
+                                    <td>Ask AI Assistant</td>
+                                    <td class="highlight"><span class="icon-check">✅</span> Included</td>
+                                    <td>❌ Rare / Premium</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="comparison-grid fade-in delay-200">
+                    <div class="comp-item">
+                        <p><strong>Ad-Free by Design</strong></p>
+                        <p class="text-sm text-muted">Arthavi does not rely on advertisements or sponsored products.
+                            This ensures analytics remain unbiased and focused purely on user data.</p>
+                    </div>
+                    <div class="comp-item">
+                        <p><strong>No Data Selling</strong></p>
+                        <p class="text-sm text-muted">User portfolio data is sensitive. Arthavi does not sell, rent, or
+                            share financial data with advertisers or third parties.</p>
+                    </div>
+                    <div class="comp-item">
+                        <p><strong>No Broker Lock-In</strong></p>
+                        <p class="text-sm text-muted">Unlike platforms tied to brokerage accounts, Arthavi allows
+                            investors to track portfolios independently, without forced integrations.</p>
+                    </div>
+                    <div class="comp-item">
+                        <p><strong>Analytics, Not Advice</strong></p>
+                        <p class="text-sm text-muted">Arthavi provides portfolio analytics only. It does not offer
+                            investment advice, recommendations, or trade execution.</p>
+                    </div>
+                    <div class="comp-item">
+                        <p><strong>Ask AI Assistant</strong></p>
+                        <p class="text-sm text-muted">Chat with your data. Get instant answers about your XIRR,
+                            performance, and allocation without complex reports.</p>
+                    </div>
+                </div>
+
+                <div class="text-center fade-in delay-300" style="margin-top: 4rem;">
+                    <p class="text-muted text-sm" style="margin-bottom: 2rem;"><em>Disclaimer: Arthavi is an analytics
+                            platform and does not provide investment advice or execute trades. Comparisons are based on
+                            publicly observable features and common industry practices.</em></p>
+                    <h3 class="heading-md" style="margin-bottom: 1.5rem;">See Your Portfolio Clearly — Without Ads or
+                        Data Selling</h3>
+                    <div class="btn-group" style="margin-top: 1.5rem;">
+                        <a href="https://app.arthavi.com/demo" class="btn btn-primary">
+                            Try Demo (No Login)
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="https://app.arthavi.com/register" class="btn btn-secondary">
+                            Create Free Account
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Arthavi -->
+        <section id="why" class="why-section">
+            <div class="container why-grid">
+                <div class="why-content fade-in">
+                    <h2 class="heading-lg">Why Choose Arthavi?</h2>
+                    <p class="text-muted" style="margin-bottom: 2rem;">
+                        Arthavi is intentionally built without conflicts of interest. We do not earn from commissions,
+                        referrals, or sponsored products — which means insights remain unbiased and user-centric.
+                    </p>
+
+                    <div class="why-list">
+                        <div class="why-item">
+                            <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <div>
+                                <p><strong>No Broker Integrations</strong></p>
+                                <p class="text-sm text-muted">We remain neutral and independent by not connecting deeply
+                                    with brokers.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <div>
+                                <p><strong>No Order Execution</strong></p>
+                                <p class="text-sm text-muted">A read-only platform ensures zero financial risk to your
+                                    actual capital.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <div>
+                                <p><strong>No Sponsored Rankings</strong></p>
+                                <p class="text-sm text-muted">You won't find "promoted" funds here. Just your data.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <svg class="check-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <div>
+                                <p><strong>No Dark Patterns</strong></p>
+                                <p class="text-sm text-muted">Clean, transparent design without manipulative UI tricks.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Replaced chart with mobile showcase -->
+                <div class="mobile-showcase fade-in">
+                    <picture>
+                        <source
+                            srcset="images/mobile-screenshots-collage-480w.webp 480w, images/mobile-screenshots-collage-800w.webp 800w, images/mobile-screenshots-collage.webp 2048w"
+                            type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
+                        <img src="images/mobile-screenshots-collage.webp"
+                            alt="Arthavi Mobile App Interface showing portfolio tracking on the go" loading="lazy"
+                            width="2048" height="2048">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust & Privacy -->
+        <section id="security" class="trust-section">
+            <div class="container fade-in">
+                <h2>Uncompromised Security</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+                    Arthavi operates strictly as a read-only analytics platform. It cannot place trades, move funds, or
+                    interact with external broker systems.
+                </p>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <div class="lock-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <p><strong>End-to-End Encryption</strong></p>
+                        <p class="text-sm text-muted">Applied at rest and during transmission.</p>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="lock-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <p><strong>Read-Only Safety</strong></p>
+                        <p class="text-sm text-muted">Zero risk of accidental trades or transfers.</p>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="lock-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                        <p><strong>Biometric Lock</strong></p>
+                        <p class="text-sm text-muted">Optional app lock for extra privacy.</p>
+                    </div>
+                    <div class="trust-badge">
+                        <div class="lock-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                </path>
+                            </svg>
+                        </div>
+                        <p><strong>Data Reset</strong></p>
+                        <p class="text-sm text-muted">Full data wipe available anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" style="padding: 5rem 0;">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Latest Financial Insights</h2>
+                    <p class="section-sub">Educational guides to help you manage your wealth better.</p>
+                </div>
+
+                <div class="features-grid">
+                    <article class="feature-card glass-panel fade-in delay-100"
+                        style="cursor: pointer; transition: transform 0.3s ease;"
+                        onclick="window.location.href='how-to-track-mutual-fund-portfolio-india.html'">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>How to Track Your Mutual Fund Portfolio (Without Broker
+                                Access)</strong></p>
+                        <p class="text-sm text-muted" style="margin-bottom: 1rem;">Guide • 5 min read</p>
+                        <p>Stop relying on screenshots. Learn the reliable, privacy-first way to track SIPs and total
+                            net
+                            worth using CAS statements.</p>
+                        <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 500;">Read CAS Tracking
+                            Guide &rarr;
+                        </div>
+                    </article>
+
+                    <!-- Ask AI Article -->
+                    <article class="feature-card glass-panel fade-in delay-200"
+                        style="cursor: pointer; transition: transform 0.3s ease;"
+                        onclick="window.location.href='ask-ai-investment-assistant.html'">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                            </svg>
+                        </div>
+                        <p class="feature-title"><strong>Ask AI: Your Personal Investment Assistant</strong></p>
+                        <p class="text-sm text-muted" style="margin-bottom: 1rem;">Feature Spotlight • 3 min read</p>
+                        <p>Chat with your portfolio. Get instant answers on XIRR, asset allocation, and performance
+                            without complex reports.</p>
+                        <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 500;">Explore Ask AI Feature
+                            &rarr;
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission SEO Block -->
+        <section class="container" style="padding: 4rem 1.5rem; text-align: center;">
+            <div class="glass-panel fade-in">
+                <h2 style="margin-bottom: 1rem;">Why We Built Arthavi</h2>
+                <p style="max-width: 600px; margin: 0 auto 1.5rem; color: var(--text-muted); font-size: 1.1rem;">
+                    We believe Indian investors deserve a privacy-first way to track their wealth.
+                    No ads, no hidden commissions—just clear analytics for your mutual funds and stocks.
+                </p>
+                <a href="/about" style="color: var(--primary); font-weight: 500; font-size: 1.1rem;">Read Our Story
+                    &rarr;</a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        
+                        
+
+
+<section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+
+                <div class="faq-grid fade-in">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What is Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Think of Arthavi as a central dashboard for your wealth. Instead of opening five different
+                            apps to check your Mutual Funds and Stocks, Arthavi tracks them all in one secure place. It
+                            gives you a clear, combined view of your total growth instantly.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is Arthavi free?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, it is free for now. Arthavi offers core portfolio tracking features free of cost
+                            because we believe in accessible financial clarity for all Indian investors. Advanced
+                            analytics and future premium features may be introduced later, but strict privacy and data
+                            protection will essentially remain unchanged for all tiers.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is my data shared?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Absolutely not. Arthavi follows a strict privacy-first policy. We do not sell, share, or
+                            monetize your financial data to third parties, brokers, or advertisers. Your data is used
+                            solely for generating your personal portfolio analytics.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Does Arthavi execute trades?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No. Arthavi is a read-only analytics platform. We do not place orders, hold your funds, or
+                            have write-access to your broker accounts. You remain in full control of your actual
+                            investments via your existing apps; we simply provide the intelligence layer.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How is CAS data handled?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Your <a href="https://www.camsonline.com/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">Consolidated Account
+                                Statement (CAS)</a> PDF, an official document regulated by <a
+                                href="https://www.sebi.gov.in/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">SEBI</a> and provided by
+                            recognized RTAs like CAMS and KFintech, is securely processed (often locally) to extract
+                            transaction details efficiently. The file is never reused, shared, or scanned for
+                            advertising purposes. We use industry-standard encryption to ensure this sensitive document
+                            remains confidential during processing.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is it SEBI registered?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi is a technology platform for analytics, tracking, and visualization. We represent
+                            ourselves as a financial technological tool, not a <a href="https://www.sebi.gov.in/"
+                                target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">SEBI-registered</a>
+                            Investment Advisor (RIA) or broker. We
+                            do not provide specific buy/sell recommendations or execution services.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is my data encrypted?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes. All sensitive user data is encrypted both at rest (in our secure database) and during
+                            transmission (using modern TLS protocols), ensuring bank-grade security standards are met to
+                            protect your financial information.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I know my data is safe? Will I receive random marketing calls?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi does not sell, share, or use user data for marketing or lead generation, period. We
+                            do not sell data to third parties or share it with brokers. There is no cold-call
+                            monetization model, and we don't even collect phone numbers—it's not mandatory for signup,
+                            so there is no risk of marketing calls from our end. Your data is encrypted in transit and
+                            at rest, and we only ask for minimal permissions required to show your portfolio insights.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Do you support fixed or debt instruments like FDs, PPF, and NPS?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            100% agree—a portfolio tracker isn't complete without debt instruments. They are on our
+                            roadmap! Our vision is to track everything in one place, not just equity. Right now, equity
+                            and mutual funds are the focus, but support for fixed income instruments like FDs, PPF, and
+                            NPS is definitely coming soon.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How does the Ask AI Investment Assistant work?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            The Ask AI feature acts as your personal financial analyst. You can ask it plain-English
+                            questions about your portfolio, such as "Am I over-invested in banking?" or "What is my
+                            XIRR?". It instantly analyzes your imported CAS and stock data to give you clear, objective
+                            insights.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is the AI Assistant giving me financial advice?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No, the AI Assistant provides data-driven analytics and insights based purely on the
+                            portfolio data you upload. It is not designed to give certified financial advice or
+                            recommend specific stocks/funds to buy or sell. It simply helps you understand your
+                            investments better based on data.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Does the AI have access to my sensitive login credentials?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Not at all. The AI only analyzes the abstract portfolio data (transactions and holdings)
+                            that you upload via CAS. We do not link to your demat accounts and we never ask for broker
+                            login credentials. The AI's analysis is done in a secure, privacy-first environment.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Can I track family portfolios or multiple CAS files?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, you can upload multiple CAS files to consolidate and track investments across different
+                            family members. Arthavi aggregates this data to give you a unified view of your entire
+                            family's net worth and combined portfolio performance.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is Arthavi better than tracking investments in Excel?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Absolutely. While Excel requires manual data entry, complex formulas, and constant updates
+                            for live prices, Arthavi automates this entire process. We calculate your XIRR, analyze
+                            sector overlap, and pull live market data automatically, saving you hours of effort.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Do I need to link my demat account or broker to use Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No demat linking is required. You can simply upload your CAS (Consolidated Account
+                            Statement) from official SEBI-registered RTAs like <a href="https://camskra.com/"
+                                target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">CAMS</a> or <a
+                                href="https://mfs.kfintech.com/" target="_blank" rel="noopener noreferrer"
+                                style="color: var(--primary); text-decoration: underline;">KFintech</a>, or manually
+                            enter your stock trades. This ensures you maintain full control over your broker accounts
+                            while getting top-tier analytics.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How is the XIRR calculated on Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi calculates your XIRR (Extended Internal Rate of Return) based on your actual cash
+                            flows and transaction dates extracted from your CAS or manual entries. It accounts for SIPs,
+                            lump-sums, redemptions, and dividend payouts for high accuracy.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What happens if I want to delete my account and data?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You have complete control over your data. If you choose to leave Arthavi, you can delete
+                            your account at any time. We will permanently wipe all your transaction data, CAS files, and
+                            personal information from our servers immediately.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How to track mutual funds in Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You can track mutual funds in Arthavi by:<br>
+                            1. Adding fund names or ISIN codes<br>
+                            2. Setting target alerts<br>
+                            3. Viewing performance charts and XIRR
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="cta-section">
+            <div class="container cta-content fade-in">
+                <h2>Ready to Take Control?</h2>
+                <div style="margin: 1.5rem 0 2.5rem;">
+                    <p class="text-muted" style="margin-bottom:0.5rem">Take control of your investments with a platform
+                        designed for clarity, accuracy, and privacy.</p>
+                    <p class="text-head">No ads. No data selling. Just better decisions.</p>
+                </div>
+
+                <a href="https://app.arthavi.com/register" class="btn btn-primary">
+                    Start Tracking Now
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- SEO Article Block -->
+        <section class="container"
+            style="margin-top: 3rem; padding: 3rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--text-head);">The Best Way to Track
+                    Mutual Funds and Stocks Together in India</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Most Indian investors hold mutual funds across HDFC, SBI, Mirae, and Parag Parikh — and stocks
+                    across Zerodha, Groww, or Angel One — but don't have a single place to see their true net worth.
+                    Arthavi solves this by letting you import your <strong style="color: var(--text-body);">CAS
+                        (Consolidated Account Statement)</strong> from official RTAs like <a href="https://camskra.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        style="color: var(--primary); text-decoration: underline;">CAMS</a> or <a
+                        href="https://mfs.kfintech.com/" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--primary); text-decoration: underline;">KFintech</a> to get all mutual fund
+                    data, and
+                    manually add your equity holdings from any broker securely.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Unlike apps like Groww or Kuvera that push you to transact through them, Arthavi is a <strong
+                        style="color: var(--text-body);">privacy-first, read-only analytics platform</strong>. You get
+                    accurate <strong style="color: var(--text-body);">XIRR calculations</strong> based on actual cash
+                    flows (SIPs, lumpsum, redemptions) following standard compounding formulas, AMC-wise allocation
+                    charts, and portfolio overlap analysis — all
+                    without sharing your sensitive broker credentials. Your data protection aligns with our core mission
+                    of providing secure, uncompromised financial tracking.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Arthavi's <strong style="color: var(--text-body);">Ask AI feature</strong> is purpose-built for
+                    Indian investors. You can ask it: <em>"Do my mutual funds overlap with each other?"</em>, <em>"Is my
+                        portfolio too concentrated in banking stocks?"</em>, or <em>"How has my XIRR compared to <a
+                            href="https://www.niftyindices.com/indices/equity/broad-based-indices/nifty-50"
+                            target="_blank" rel="noopener noreferrer"
+                            style="color: var(--primary); text-decoration: underline;">Nifty 50</a> over 3 years?"</em>
+                    — and get real, data-backed answers in seconds. This is not a generic language model;
+                    it operates with read-only access exclusively on the portfolio data you securely provide.
+                </p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+                    Our platform tracks live equity data conforming strictly to authorized streams sourced from the <a
+                        href="https://www.nseindia.com/" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--primary); text-decoration: underline;">National Stock Exchange (NSE)</a> and
+                    <a href="https://www.bseindia.com/" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--primary); text-decoration: underline;">Bombay Stock Exchange (BSE)</a>
+                    indexes, ensuring precision and reliability for every tracked asset. We maintain strict dedication
+                    to factual, real-time analytics for your wealth management.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
+                    <a href="/mutual-fund-portfolio-tracker-india"
+                        style="color: var(--primary); font-size: 0.9rem;">→ Mutual Fund Portfolio Tracker India</a>
+                    <a href="/stock-portfolio-tracker-india" style="color: var(--primary); font-size: 0.9rem;">→
+                        Stock Portfolio Tracker India</a>
+                    <a href="/xirr-calculator-mutual-funds" style="color: var(--primary); font-size: 0.9rem;">→ XIRR
+                        Calculator for Mutual Funds</a>
+                    <a href="/net-worth-tracker-india" style="color: var(--primary); font-size: 0.9rem;">→ Net Worth
+                        Tracker India</a>
+                    <a href="/ask-ai-investment-assistant" style="color: var(--primary); font-size: 0.9rem;">→ AI
+                        Investment Assistant</a>
+                    <a href="/blog/track-zerodha-groww-portfolio-together"
+                        style="color: var(--primary); font-size: 0.9rem;">→ Track Zerodha &amp; Groww Together</a>
+                    <a href="/top-10-mutual-funds-for-sip-2026" style="color: var(--primary); font-size: 0.9rem;">→
+                        Best Mutual Funds for SIP</a>
+                    <a href="/portfolio-tracker-india"
+                        style="color: var(--primary); font-size: 0.9rem; font-weight: bold;">→ Best Portfolio Tracker
+                        India</a>
+                    <a href="/cagr-calculator" style="color: var(--primary); font-size: 0.9rem;">→ CAGR
+                        Calculator</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- Compare Arthavi Section (internal links → all comparison pages) -->
+        <section id="compare" style="padding: 4rem 0 2rem; background: rgba(255,255,255,0.01);">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2 style="font-size:1.6rem;">How Does Arthavi Compare?</h2>
+                    <p style="max-width:580px; margin:0.5rem auto 2.5rem; color:var(--text-muted);">Honest, detailed comparisons against every major alternative used by Indian investors.</p>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1rem; max-width:1000px; margin:0 auto;">
+                    <a href="/arthavi-vs-indmoney" class="glass-panel" style="padding:1.25rem 1.5rem; text-decoration:none; border-radius:12px; border:1px solid rgba(255,255,255,0.07); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+                        <p style="font-size:0.75rem; color:#a78bfa; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.4rem;">Comparison</p>
+                        <h3 style="font-size:1rem; color:var(--text-head); margin:0 0 0.4rem;">Arthavi vs INDmoney</h3>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Privacy-first vs email-reading tracker</p>
+                    </a>
+                    <a href="/arthavi-vs-dezerv" class="glass-panel" style="padding:1.25rem 1.5rem; text-decoration:none; border-radius:12px; border:1px solid rgba(255,255,255,0.07); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+                        <p style="font-size:0.75rem; color:#a78bfa; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.4rem;">Comparison</p>
+                        <h3 style="font-size:1rem; color:var(--text-head); margin:0 0 0.4rem;">Arthavi vs Dezerv</h3>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">DIY tracking vs managed wealth</p>
+                    </a>
+                    <a href="/arthavi-vs-valueresearch" class="glass-panel" style="padding:1.25rem 1.5rem; text-decoration:none; border-radius:12px; border:1px solid rgba(255,255,255,0.07); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+                        <p style="font-size:0.75rem; color:#a78bfa; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.4rem;">Comparison</p>
+                        <h3 style="font-size:1rem; color:var(--text-head); margin:0 0 0.4rem;">Arthavi vs Value Research</h3>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Portfolio tracking vs fund research</p>
+                    </a>
+                    <a href="/arthavi-vs-zerodha" class="glass-panel" style="padding:1.25rem 1.5rem; text-decoration:none; border-radius:12px; border:1px solid rgba(255,255,255,0.07); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+                        <p style="font-size:0.75rem; color:#a78bfa; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.4rem;">Comparison</p>
+                        <h3 style="font-size:1rem; color:var(--text-head); margin:0 0 0.4rem;">Arthavi vs Zerodha</h3>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Full analytics vs broker-only view</p>
+                    </a>
+                    <a href="/arthavi-vs-groww" class="glass-panel" style="padding:1.25rem 1.5rem; text-decoration:none; border-radius:12px; border:1px solid rgba(255,255,255,0.07); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+                        <p style="font-size:0.75rem; color:#a78bfa; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.4rem;">Comparison</p>
+                        <h3 style="font-size:1rem; color:var(--text-head); margin:0 0 0.4rem;">Arthavi vs Groww</h3>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Unified XIRR vs platform-locked view</p>
+                    </a>
+                    <a href="/arthavi-vs-excel" class="glass-panel" style="padding:1.25rem 1.5rem; text-decoration:none; border-radius:12px; border:1px solid rgba(255,255,255,0.07); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(99,102,241,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+                        <p style="font-size:0.75rem; color:#a78bfa; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.4rem;">Comparison</p>
+                        <h3 style="font-size:1rem; color:var(--text-head); margin:0 0 0.4rem;">Arthavi vs Excel</h3>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">Automated intelligence vs spreadsheets</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    
+
+    
+    <script>
+        
+
+        // AI tab switcher
+        function switchConv(idx, tabEl) {
+            // Update messages
+            document.querySelectorAll('#ai-chat-demo .chat-msg').forEach(function (el) {
+                el.style.display = parseInt(el.getAttribute('data-conv')) === idx ? '' : 'none';
+            });
+            // Update tabs
+            document.querySelectorAll('.ai-tab').forEach(function (t) { t.classList.remove('active'); });
+            if (tabEl) tabEl.classList.add('active');
+        }
+
+        // Hide duplicate nav CTA (just keep one)
+        document.getElementById('nav-cta-desktop').style.display = '';
+        document.getElementById('nav-cta').style.display = 'none';
+    </script>
+
+</Layout>

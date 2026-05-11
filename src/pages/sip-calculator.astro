@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Step Up SIP Calculator with Inflation | Lumpsum & Daily | Arthavi",
+  description: "Best online SIP calculator. Calculate mutual fund returns with step up, inflation adjustment, and lumpsum options. Plan for 40 years of wealth.",
+};
+---
+<Layout title={seo.title} description={seo.description} keywords="step up sip calculator, sip calculator with inflation, sip calculator 40 years, daily sip calculator, lumpsum sip calculator, online sip calculator, how to use sip calculator, sip calculator sbi, sip calculator hdfc, groww sip calculator, how sip calculator works" schema={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is sip calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A SIP calculator is a financial tool that helps you calculate the future value of your monthly mutual fund investments. It uses the compound interest formula to estimate wealth creation."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is step up sip calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A step up SIP calculator accounts for annual increases in your SIP amount (usually corresponding to a salary hike). It shows how bumping your investment by 10% yearly creates massive long-term wealth."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How sip calculator works?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It works by taking your monthly investment amount, expected rate of return, and tenure, and computing the future value using the compound interest formula: FV = P × ({[1 + i]^n - 1} / i) × (1 + i)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is inflation rate in sip calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A SIP calculator with inflation adjusts your final maturity amount against the average inflation rate (e.g., 6% in India) to show you the 'real purchasing power' of your money in the future."
+        }
+      }]
+    })}>
+
+    
+
+    <main class="container">
+        <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem;margin-top: 31px;">
+            <h1>Online SIP Calculator</h1>
+            <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                Estimate the future value of your Systematic Investment Plan. Plan for up to 40 years of wealth creation.
+            </p>
+        </div>
+
+        <div class="calculator-container fade-in delay-100">
+            <div class="calc-grid">
+                <div class="inputs-section">
+                    <div class="input-group">
+                        <label>Monthly Investment (₹)</label>
+                        <div class="range-container">
+                            <input type="range" id="investment" min="500" max="100000" step="500" value="5000"
+                                oninput="updateSIP()">
+                            <div class="input-value-box" id="investment-val">5000</div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Expected Return Rate (p.a %)</label>
+                        <div class="range-container">
+                            <input type="range" id="rate" min="1" max="30" step="0.1" value="12" oninput="updateSIP()">
+                            <div class="input-value-box" id="rate-val">12</div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Time Period (Years)</label>
+                        <div class="range-container">
+                            <input type="range" id="years" min="1" max="40" step="1" value="10" oninput="updateSIP()">
+                            <div class="input-value-box" id="years-val">10</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <div class="result-card">
+                        <div class="result-item">
+                            <div class="result-label">Invested Amount</div>
+                            <div class="result-value">₹ <span id="total-invested">6,00,000</span></div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Est. Returns</div>
+                            <div class="result-value">₹ <span id="est-returns">5,61,695</span></div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Total Value</div>
+                            <div class="result-value highlight">₹ <span id="total-value">11,61,695</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <article class="prose fade-in delay-200" style="max-width: 800px; margin: 0 auto 4rem;">
+            <h2>What is an SIP Calculator?</h2>
+            <p>An online SIP Calculator is a simple tool that helps you calculate the returns on your mutual fund investments made through Systematic Investment Plans. Whether you invest via an <strong>SBI sip calculator</strong> format, an <strong>HDFC sip calculator</strong>, or a <strong>Groww sip calculator</strong>, the underlying compound interest math is exactly the same.</p>
+
+            <h2>How does SIP calculator work?</h2>
+            <p>If you're wondering <strong>how sip calculator works</strong>, it relies on the future value formula. It takes your monthly investment, converts the annual expected return rate to a monthly rate, and compounds it over your tenure. You can even check calculations for up to a <strong>SIP calculator 40 years</strong> horizon.</p>
+
+            <h3>What is Step Up SIP Calculator?</h3>
+            <p>A <strong>step up sip calculator</strong> (also known as a top-up SIP) allows you to automatically increase your investment amount every year. As your salary grows, increasing your SIP by just 10% annually can drastically reduce the time it takes to become a crorepati.</p>
+
+            <h3>SIP Calculator with Inflation</h3>
+            <p><strong>What is inflation rate in sip calculator?</strong> Inflation degrades the purchasing power of your money. If you have ₹1 Crore after 20 years, it will have the buying power of roughly ₹31 Lakhs today (assuming 6% inflation). Always use a <strong>SIP calculator with inflation</strong> adjustments to set realistic financial goals.</p>
+
+            <h3>Why Use Arthavi Over Excel?</h3>
+            <p>Many investors search <strong>how to make sip calculator in excel</strong>. While possible, an online auto-syncing portfolio tracker eliminates manual data entry, especially if you have a mix of <strong>daily sip calculator</strong>, <strong>lumpsum sip calculator</strong>, and traditional monthly SIP entries across multiple brokers.</p>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <p class="text-muted">Start tracking your actual portfolio performance today.</p>
+                <a href="https://app.arthavi.com" class="btn btn-primary" style="margin-top: 1rem;">Track Portfolio</a>
+            </div>
+        </article>
+
+    </main>
+
+    
+
+    <script>
+        function updateSIP() {
+            const P = parseFloat(document.getElementById('investment').value);
+            const r = parseFloat(document.getElementById('rate').value);
+            const n = parseFloat(document.getElementById('years').value);
+
+            // Update display values
+            document.getElementById('investment-val').innerText = P.toLocaleString('en-IN');
+            document.getElementById('rate-val').innerText = r;
+            document.getElementById('years-val').innerText = n;
+
+            // Calculation: FV = P × ({[1 + i]^n - 1} / i) × (1 + i)
+            // where i = monthly rate, n = number of months
+            const i = (r / 100) / 12;
+            const months = n * 12;
+
+            let FV = 0;
+            let invested = P * months;
+
+            if (r === 0) {
+                FV = invested;
+            } else {
+                FV = P * ((Math.pow(1 + i, months) - 1) / i) * (1 + i);
+            }
+
+            const estReturns = FV - invested;
+
+            document.getElementById('total-invested').innerText = Math.round(invested).toLocaleString('en-IN');
+            document.getElementById('est-returns').innerText = Math.round(estReturns).toLocaleString('en-IN');
+            document.getElementById('total-value').innerText = Math.round(FV).toLocaleString('en-IN');
+        }
+
+        // Initialize on load
+        window.onload = updateSIP;
+    </script>
+    
+
+</Layout>

@@ -1,0 +1,382 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Arthavi AI — Ask Anything About Your Indian Portfolio | Mutual Fund & Stock Analysis",
+  description: "Arthavi AI is India's first portfolio-aware investment assistant. Ask about XIRR, portfolio overlap, sector concentration, or benchmark comparisons. Get instant, data-driven answers about your real mutual funds and stocks.",
+};
+---
+<Layout title={seo.title} description={seo.description}  schema={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Arthavi AI: India's First Portfolio-Aware Investment Assistant",
+      "description": "Arthavi AI is a smart investment assistant embedded in the Arthavi portfolio tracker. It reads your actual mutual fund and stock data to answer questions about XIRR, portfolio overlap, sector risk, and benchmark comparisons.",
+      "author": { "@type": "Organization", "name": "Arthavi", "url": "https://arthavi.com" },
+      "publisher": { "@type": "Organization", "name": "Arthavi", "logo": { "@type": "ImageObject", "url": "https://arthavi.com/logo.png" } },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://arthavi.com/ask-ai-investment-assistant.html" }
+    })}>
+
+    
+    
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="ai-hero container">
+            <div style="position: relative; z-index: 1;">
+                <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                    <span class="ai-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                        </svg>
+                        Arthavi AI — Now Live
+                    </span>
+                </div>
+                <h1>Chat with Your Portfolio.<br><span>Get Instant Investment Insights.</span></h1>
+                <p>Arthavi AI is India's first portfolio-aware investment assistant. It reads your actual mutual fund
+                    and stock holdings to give you real, data-driven answers — not generic advice.</p>
+
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary"
+                        style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.35);">
+                        Try Ask AI Free
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="margin-left:8px">
+                            <path d="M5 12h14" />
+                            <path d="M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="https://app.arthavi.com/demo" class="btn btn-secondary">Try Demo (No Login)</a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.88rem; color: var(--text-muted);">Free • No demat linking • No
+                    broker credentials</p>
+            </div>
+
+            <!-- Live Demo Chat -->
+            <div class="example-chat fade-in delay-200">
+                <div class="chat-header">
+                    <div class="chat-dot"></div>
+                    <span class="chat-header-title">Arthavi AI</span>
+                    <span style="margin-left: auto; font-size: 0.78rem; color: var(--text-muted);">Reading your
+                        portfolio...</span>
+                </div>
+                <div class="chat-messages">
+                    <div class="msg user">My portfolio has 5 mutual funds. Do any of them overlap?</div>
+                    <div class="msg ai-reply">
+                        Yes — I found significant overlap. <strong>Mirae Asset Large Cap</strong> and <strong>Axis
+                            Bluechip Fund</strong> have a <span class="wa">~72% stock overlap</span> because both track
+                        Nifty 100 constituents. Their top common holdings are <strong>Reliance, HDFC Bank, and
+                            Infosys</strong>.<br><br>
+                        <strong>Parag Parikh Flexi Cap</strong> has minimal overlap with these two (only ~18%), which is
+                        good for diversification. I'd suggest <strong>consolidating Axis Bluechip into Mirae</strong> or
+                        replacing one with a mid/small-cap scheme.
+                        <br><br>
+                        <em style="font-size: 0.85rem; color: var(--text-muted);">Note: This is not SEBI-registered
+                            financial advice. Please consult a financial advisor before making major investment
+                            decisions.</em>
+                    </div>
+                    <div class="msg user">Which of my stocks is dragging returns the most?</div>
+                    <div class="msg ai-reply">
+                        Based on your holdings, <strong class="lo">Zomato (−22% return)</strong> and <strong
+                            class="lo">Paytm (−38% return)</strong> are your biggest underperformers. Together they
+                        account for roughly <span class="wa">8% of your equity portfolio</span> but are dragging your
+                        overall stock XIRR from ~14% down to ~9.8%.<br><br>
+                        Your best performers are <strong class="hi">Tata Consultancy Services (+31%)</strong> and
+                        <strong class="hi">Titan Company (+27%)</strong>. Want me to suggest any rebalancing strategy?
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities -->
+        <section class="capabilities-section" id="capabilities">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2>What You Can Ask Arthavi AI</h2>
+                    <p class="section-sub">Arthavi AI is scoped specifically to Indian mutual funds and stocks. It has
+                        read-only access to your portfolio data and can search the web for current market information.
+                    </p>
+                </div>
+
+                <div class="cap-grid">
+                    <div class="cap-card fade-in delay-100">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                            </svg>
+                        </div>
+                        <h3>Portfolio Overlap Analysis</h3>
+                        <p>Find out if multiple mutual fund schemes you hold are investing in the same stocks, defeating
+                            the purpose of diversification.</p>
+                        <div class="cap-example">"Do my 5 mutual funds overlap with each other?"</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-200">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                <polyline points="17 6 23 6 23 12" />
+                            </svg>
+                        </div>
+                        <h3>XIRR & Returns Analysis</h3>
+                        <p>Get accurate XIRR calculations based on your actual SIPs, lumpsum investments, and
+                            redemptions — not simplified averages.</p>
+                        <div class="cap-example">"What is my XIRR for the last 3 years?"</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-300">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M3 3v18h18" />
+                                <path d="M18 9l-6-6-4 4-3 3" />
+                            </svg>
+                        </div>
+                        <h3>Benchmark Comparison</h3>
+                        <p>Compare your actual portfolio XIRR against Nifty 50, Nifty Midcap 150, or any index to
+                            understand if you're beating the market.</p>
+                        <div class="cap-example">"Am I beating Nifty 50 over 5 years?"</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-100">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 8v4l3 3" />
+                            </svg>
+                        </div>
+                        <h3>Sector Concentration Check</h3>
+                        <p>Detect if you're overweight on any sector — Banking, IT, Pharma, Energy — across both your
+                            mutual funds and direct stocks.</p>
+                        <div class="cap-example">"Am I over-exposed to Banking & Finance?"</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-200">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <h3>AMC Concentration Analysis</h3>
+                        <p>Find out if you have too much exposure to a single AMC (like HDFC or SBI) and what
+                            redistribution would look like.</p>
+                        <div class="cap-example">"How much of my portfolio is with HDFC AMC?"</div>
+                    </div>
+
+                    <div class="cap-card fade-in delay-300">
+                        <div class="cap-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3>Improvement Suggestions</h3>
+                        <p>The AI suggests which fund categories might be missing from your portfolio — mid/small-cap,
+                            debt, international — for better balance.</p>
+                        <div class="cap-example">"How can I improve my portfolio diversification?"</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sample Questions -->
+        <section class="questions-section">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2>Questions You Can Ask Right Now</h2>
+                    <p class="section-sub">These are real capabilities of Arthavi AI — not sample prompts for a generic
+                        AI.</p>
+                </div>
+                <div class="questions-grid fade-in delay-100">
+                    <div class="q-chip"><span class="q-icon">✦</span>"What is my current net worth in mutual funds and
+                        stocks?"</div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"Show me my top 5 performing mutual funds by XIRR."
+                    </div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"Which mutual funds are tracking similar indices?"
+                    </div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"What percentage of my portfolio is in small-cap?"
+                    </div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"How is HDFC Flexi Cap Fund performing vs category
+                        average?"</div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"Which stocks should I consider for long-term
+                        investing?"</div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"Am I overweight on IT sector stocks?"</div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"Compare Nifty 50 vs my portfolio returns last 3
+                        years."</div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"What is the debt to equity ratio in my portfolio?"
+                    </div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"Which of my SIPs has the best return per rupee
+                        invested?"</div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"How diversified is my portfolio across AMCs?"
+                    </div>
+                    <div class="q-chip"><span class="q-icon">✦</span>"Give me a summary of my portfolio health."</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy in AI -->
+        <section class="privacy-ai-section" id="ai-privacy">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2>Privacy-First AI — Your Data Stays Yours</h2>
+                    <p class="section-sub">We know the concern: "Is my financial data being sent to ChatGPT?" The answer
+                        is no.</p>
+                </div>
+
+                <div class="privacy-split">
+                    <div class="privacy-list fade-in">
+                        <div class="privacy-item">
+                            <div class="privacy-check">✓</div>
+                            <div>
+                                <strong>Read-Only Access</strong>
+                                <p>Arthavi AI has read-only access to your portfolio. It cannot execute trades, redeem
+                                    funds, or change settings.</p>
+                            </div>
+                        </div>
+                        <div class="privacy-item">
+                            <div class="privacy-check">✓</div>
+                            <div>
+                                <strong>No Training on Your Data</strong>
+                                <p>Your portfolio data is never used to train AI models. Each query is processed in
+                                    isolation for your session only.</p>
+                            </div>
+                        </div>
+                        <div class="privacy-item">
+                            <div class="privacy-check">✓</div>
+                            <div>
+                                <strong>Encrypted Transmission</strong>
+                                <p>All data sent to the AI layer is encrypted with TLS. It follows the same
+                                    privacy-first architecture as the rest of Arthavi.</p>
+                            </div>
+                        </div>
+                        <div class="privacy-item">
+                            <div class="privacy-check">✓</div>
+                            <div>
+                                <strong>You Control It</strong>
+                                <p>AI features can be enabled or disabled at any time from your settings. No lock-in.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scope-box fade-in delay-100">
+                        <h3>What Arthavi AI Covers</h3>
+                        <div class="scope-row">
+                            <span class="scope-yes">✓</span>
+                            <span>Indian Mutual Funds (all AMCs)</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-yes">✓</span>
+                            <span>NSE / BSE Listed Stocks</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-yes">✓</span>
+                            <span>Portfolio Overlap Analysis</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-yes">✓</span>
+                            <span>XIRR, Returns, Asset Allocation</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-yes">✓</span>
+                            <span>Market Trends via Web Search</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-no">✗</span>
+                            <span style="color: var(--text-muted);">Cryptocurrency</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-no">✗</span>
+                            <span style="color: var(--text-muted);">US Stocks / International Equities</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-no">✗</span>
+                            <span style="color: var(--text-muted);">Real Estate / Gold / PPF</span>
+                        </div>
+                        <div class="scope-row">
+                            <span class="scope-no">✗</span>
+                            <span style="color: var(--text-muted);">Trade Execution (ever)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Article -->
+        <section class="seo-article">
+            <div class="container">
+                <div class="article-content fade-in">
+                    <h2>Why Indian Investors Need a Portfolio-Aware AI</h2>
+                    <p>Most Indian investors manage their money across multiple platforms — SIPs on Groww, direct equity
+                        on Zerodha, and NPS through their employer. When it comes to understanding the full picture,
+                        they're left manually calculating XIRR in Excel or guessing if they're over-diversified.</p>
+                    <p><strong>Arthavi AI changes that.</strong> Unlike generic AI chatbots (ChatGPT, Gemini) that know
+                        nothing about your portfolio, Arthavi AI has real-time access to your actual holdings through
+                        secure, read-only API calls. When you ask "What is my XIRR for the last 5 years?", it doesn't
+                        guess — it calculates using your transaction data.</p>
+
+                    <h2>Portfolio Overlap: A Problem Most Investors Don't Know They Have</h2>
+                    <p>A very common mistake among SIP investors in India is holding multiple large-cap mutual funds
+                        that track the same Nifty 100 constituents. For example, <strong>Mirae Asset Large Cap</strong>
+                        and <strong>Axis Bluechip Fund</strong> might have 70%+ stock overlap, meaning you're
+                        effectively paying two expense ratios for the same exposure.</p>
+                    <p>Arthavi AI can detect this automatically. You just need to ask: <em>"Do my mutual funds
+                            overlap?"</em> and it analyzes the schemes' category, AMC, and known index tracking to flag
+                        redundancy.</p>
+
+                    <h2>Sector Concentration: The Hidden Portfolio Risk</h2>
+                    <p>Many Indian investors are unknowingly overweight in <strong>Banking & Finance</strong> — both
+                        through direct stocks (HDFC Bank, ICICI Bank) and through their mutual funds (which themselves
+                        allocate heavily to financials). Arthavi AI can compute your total sector exposure across both
+                        asset classes and flag if you're concentrated beyond healthy levels.</p>
+
+                    <h2>Benchmark Comparison: Are You Actually Beating the Market?</h2>
+                    <p>XIRR alone doesn't tell the full story. If your portfolio returned 12% XIRR but Nifty 50 returned
+                        15% in the same period, you're actually underperforming. Arthavi AI fetches live benchmark data
+                        and compares it with your calculated XIRR — so you know exactly where you stand.</p>
+
+                    <h2>The Responsibility of AI in Finance</h2>
+                    <p>Arthavi AI provides analytics, not advice. All AI-generated responses carry a brief disclaimer
+                        reminding users that AI insights are informational and not a substitute for SEBI-registered
+                        financial advice. We believe in empowering investors with data — not replacing professional
+                        judgment with algorithms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="cta-section">
+            <div class="container cta-content fade-in">
+                <h2>Start Chatting With Your Portfolio</h2>
+                <div style="margin: 1.5rem 0 2.5rem;">
+                    <p class="text-muted" style="margin-bottom: 0.5rem;">Import your investments and add your stocks — then ask
+                        Arthavi AI anything.</p>
+                    <p style="color: var(--text-head);">No demat linking. No credit card. Completely free.</p>
+                </div>
+                <a href="https://app.arthavi.com/register" class="btn btn-primary"
+                    style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.35);">
+                    Try Ask AI Now
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    
+
+    
+
+</Layout>

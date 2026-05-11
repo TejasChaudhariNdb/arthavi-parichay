@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "7 Reasons why Excel is bad for tracking stocks (and what to use instead) | Arthavi",
+  description: "Still using Google Sheets or Excel to track your stocks and mutual funds? Discover the hidden dangers and why a dedicated tracker is better.",
+};
+---
+<Layout title={seo.title} description={seo.description} keywords="excel portfolio tracker alternative, why excel is bad for tracking stocks, google sheets investment tracker vs app" >
+
+    
+
+    <main class="container">
+        <article class="prose fade-in" style="padding-top: 6rem;">
+            <h1>7 Reasons why Excel is bad for tracking stocks (and what to use instead)</h1>
+            <p>Every investor has that one complex Google Sheet or Excel file. You spend your weekends updating formulas, scraping stock prices, and manually entering SIP dates. But if your portfolio is growing, Excel is secretly holding you back.</p>
+
+            <h2>Why Excel Fails as a Tracker</h2>
+            <ol>
+                <li><strong>Manual Data Entry Errors:</strong> Typing in transaction dates and amounts manually is prone to human error. A single typo can throw off your entire XIRR.</li>
+                <li><strong>Broken API Integrations:</strong> If you use `GOOGLEFINANCE()` or external APIs in Excel, you know how often they break or give delayed data, leaving you with useless "N/A" errors.</li>
+                <li><strong>Corporate Actions are a Nightmare:</strong> Did a company announce a split or bonus? Excel won't know. You have to manually adjust your average buy price and quantities every single time.</li>
+                <li><strong>Dividends Get Ignored:</strong> It's incredibly difficult to track reinvested dividends or track the cash impact of dividends on your total yield.</li>
+                <li><strong>No Mobile Experience:</strong> Have you ever tried zooming into a massive spreadsheet with 50 columns on your phone? It's impossible.</li>
+                <li><strong>Complex XIRR Calculations:</strong> To get true XIRR for multiple SIPs across several funds, your sheet becomes incredibly heavy.</li>
+                <li><strong>No Actionable Insights:</strong> Excel is static. It won’t summarize your asset allocation intuitively or offer AI-driven insights unless you spend hours building dashboards.</li>
+            </ol>
+
+            <h2>What to Use Instead</h2>
+            <p>We recommend using a dedicated <a href="/portfolio-tracker-india">portfolio tracker</a> designed specifically for the complexities of the Indian market. Tools like Arthavi handle stock splits, live price updates, and accurate XIRR automatically.</p>
+            <h2>The Hidden Cost of Google Sheets Portfolio Trackers</h2>
+            <p>You might think moving from Excel to Google Sheets solves the problem because it's in the cloud. While `GOOGLEFINANCE()` formulas are great for basic tracking, they break frequently during market hours or fail to accurately pull historical data for obscure Indian mutual funds.</p>
+            <p>More importantly, Google Sheets creates a massive maintenance burden. Every time you buy a new stock, you have to drag down formulas, ensure the weighted average cost is correct, and manually input any new SIPs. Over 5 years, this "free" sheet costs you dozens of hours of weekend time.</p>
+
+            <h2>Why Visual Analytics Matter</h2>
+            <p>Spreadsheets are grids of data, not dashboards. A modern tracker will instantly visualize your asset allocation in pie charts, graph your net worth over time, and clearly contrast your portfolio against a benchmark like the Nifty 50. This visualization prevents panic selling and promotes better long-term decision-making.</p>
+
+            <p>Switch over from your messy spreadsheets and gain complete peace of mind. Check out the <a href="/portfolio-tracker-india">best portfolio tracker in India</a> to see the difference.</p>
+        </article>
+    </main>
+
+    
+    
+
+</Layout>
