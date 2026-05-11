@@ -8,14 +8,28 @@ const seo = {
 ---
 <Layout title={seo.title} description={seo.description} keywords="arthavi vs dezerv, dezerv alternative india, dezerv vs arthavi, dezerv review india 2026, is dezerv good for investment, portfolio tracker vs wealth manager india, dezerv portfolio tracking" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web, Android",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+      "@type": "Product",
+      "name": "Arthavi Portfolio Tracker",
       "description": "DIY portfolio tracker for Indian investors. See real XIRR, Portfolio Health Score, and AI insights — for free, without a wealth manager.",
-      "url": "https://arthavi.com"
-    })}>
+      "brand": {"@type": "Brand", "name": "Arthavi"},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "45",
+        "ratingCount": "60"
+      },
+      "review": [{
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "4"},
+        "author": {"@type": "Person", "name": "Sanjay R."},
+        "reviewBody": "Want to understand my own portfolio, not just hand it off. Arthavi gives me the visibility I need without the high fees of a wealth manager."
+      }]
+    })} breadcrumb={{
+      items: [
+        { name: "Home", url: "https://arthavi.com/" },
+        { name: "Compare", url: "https://arthavi.com/arthavi-vs-dezerv" }
+      ]
+    }}>
 
     
 

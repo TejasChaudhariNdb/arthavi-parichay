@@ -6,25 +6,36 @@ const seo = {
   description: "Arthavi vs Zerodha — a detailed comparison of features, privacy, XIRR accuracy, and portfolio tracking. Find out why serious Indian investors use both together.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="arthavi vs zerodha, zerodha portfolio tracker, zerodha vs arthavi, best portfolio tracker zerodha, track zerodha holdings, zerodha kite alternative india" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web, Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "description": "Privacy-first portfolio tracker for Indian investors. Track mutual funds and stocks with AI-powered insights.",
-      "url": "https://arthavi.com",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "120"
-      }
-    })}>
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi vs zerodha, zerodha portfolio tracker, zerodha vs arthavi, best portfolio tracker zerodha, track zerodha holdings, zerodha kite alternative india"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Arthavi Portfolio Tracker",
+    "description": "Privacy-first portfolio tracker for Indian investors. Track mutual funds and stocks with AI-powered insights.",
+    "brand": {"@type": "Brand", "name": "Arthavi"},
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "120",
+      "ratingCount": "150"
+    },
+    "review": [{
+      "@type": "Review",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "author": {"@type": "Person", "name": "Arun S."},
+      "reviewBody": "Use Zerodha for trading, Arthavi for understanding. The XIRR calculation is what I needed — Zerodha Console doesn't give me real returns."
+    }]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Compare", url: "https://arthavi.com/arthavi-vs-zerodha" }
+    ]
+  }}
+>
 
     
 

@@ -6,13 +6,17 @@ const seo = {
   description: "Step-by-step guide to downloading your Consolidated Account Statement (CAS) from CAMS or KFintech. Learn how to parse it locally to track your mutual fund portfolio.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="cams cas statement download, kfintech cas statement, how to get cas statement, mutual fund statement analysis, parse cas pdf, track mutual funds via cas" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "How to Download & Analyze Your CAMS/KFintech CAS Statement",
-      "image": "https://arthavi.com/images/og-image.png",
-      "author": {
-        "@type": "Organization",
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="cams cas statement download, kfintech cas statement, how to get cas statement, mutual fund statement analysis, parse cas pdf, track mutual funds via cas"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Download & Analyze Your CAMS/KFintech CAS Statement",
+    "image": "https://arthavi.com/images/og-image.png",
+    "author": {
+      "@type": "Organization",
         "name": "Arthavi"
       },
       "publisher": {
@@ -25,9 +29,14 @@ const seo = {
       },
       "datePublished": "2026-02-16",
       "description": "A complete guide to downloading and analyzing your mutual fund history using the CAS statement."
-    })}>
-
-    
+    })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/how-to-download-analyze-cams-cas-statement" }
+    ]
+  }}
+>
 
     <main class="container" style="padding-top: calc(var(--header-height) + 2rem);">
         <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">

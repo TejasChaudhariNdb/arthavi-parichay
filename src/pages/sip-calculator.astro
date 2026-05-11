@@ -6,40 +6,59 @@ const seo = {
   description: "Best online SIP calculator. Calculate mutual fund returns with step up, inflation adjustment, and lumpsum options. Plan for 40 years of wealth.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="step up sip calculator, sip calculator with inflation, sip calculator 40 years, daily sip calculator, lumpsum sip calculator, online sip calculator, how to use sip calculator, sip calculator sbi, sip calculator hdfc, groww sip calculator, how sip calculator works" schema={JSON.stringify({
-      "@context": "https://schema.org",
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="step up sip calculator, sip calculator with inflation, sip calculator 40 years, daily sip calculator, lumpsum sip calculator, online sip calculator, how to use sip calculator, sip calculator sbi, sip calculator hdfc, groww sip calculator, how sip calculator works"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [{
+      "@type": "HowTo",
+      "name": "How to Calculate SIP Returns",
+      "description": "Learn how to estimate future wealth creation from your Systematic Investment Plan using compound interest calculations.",
+      "step": [{
+        "@type": "HowToStep",
+        "name": "Enter your monthly investment amount",
+        "text": "Input how much you invest each month in your SIP. Even small amounts like 500/month can grow substantially over time."
+      }, {
+        "@type": "HowToStep",
+        "name": "Set expected return rate",
+        "text": "Enter your expected annual return rate. Historical equity mutual fund returns have been around 12-15% p.a."
+      }, {
+        "@type": "HowToStep",
+        "name": "Select your investment tenure",
+        "text": "Choose how long you want to stay invested. Longer tenures like 10-20 years benefit the most from compounding."
+      }, {
+        "@type": "HowToStep",
+        "name": "Review your projected wealth",
+        "text": "The SIP calculator shows your total invested amount, estimated returns, and final corpus value."
+      }]
+    }, {
       "@type": "FAQPage",
       "mainEntity": [{
         "@type": "Question",
-        "name": "What is sip calculator?",
+        "name": "What is a SIP calculator?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A SIP calculator is a financial tool that helps you calculate the future value of your monthly mutual fund investments. It uses the compound interest formula to estimate wealth creation."
+          "text": "A SIP calculator is a financial tool that helps you calculate the future value of your monthly mutual fund investments using compound interest."
         }
       }, {
         "@type": "Question",
-        "name": "What is step up sip calculator?",
+        "name": "What is step up SIP calculator?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A step up SIP calculator accounts for annual increases in your SIP amount (usually corresponding to a salary hike). It shows how bumping your investment by 10% yearly creates massive long-term wealth."
-        }
-      }, {
-        "@type": "Question",
-        "name": "How sip calculator works?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It works by taking your monthly investment amount, expected rate of return, and tenure, and computing the future value using the compound interest formula: FV = P × ({[1 + i]^n - 1} / i) × (1 + i)."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What is inflation rate in sip calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A SIP calculator with inflation adjusts your final maturity amount against the average inflation rate (e.g., 6% in India) to show you the 'real purchasing power' of your money in the future."
+          "text": "A step up SIP calculator accounts for annual increases in your SIP amount. Increasing your SIP by 10% yearly creates massive long-term wealth."
         }
       }]
-    })}>
-
+    }]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Calculators", url: "https://arthavi.com/sip-calculator" }
+    ]
+  }}
+>
     
 
     <main class="container">

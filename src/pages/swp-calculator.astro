@@ -8,33 +8,46 @@ const seo = {
 ---
 <Layout title={seo.title} description={seo.description} keywords="swp return calculator, SWP Calculator, Systematic Withdrawal Plan, Mutual Fund Withdrawal, Monthly Income Plan, sbi swp calculator, hdfc swp calculator, Investment Income, Arthavi" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "How to calculate SWP return?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An SWP return calculator works by taking your initial mutual fund aggregate corpus, subtracting your monthly withdrawal, and compounding the remaining balance by your expected return rate."
-        }
+      "@graph": [{
+        "@type": "HowTo",
+        "name": "How to Plan SWP Withdrawals",
+        "description": "Learn how to use a Systematic Withdrawal Plan (SWP) calculator to determine safe withdrawal rates and corpus longevity.",
+        "step": [{
+          "@type": "HowToStep",
+          "name": "Enter your total investment corpus",
+          "text": "Input your total mutual fund investment amount. This is the starting balance from which you will make monthly withdrawals."
+        }, {
+          "@type": "HowToStep",
+          "name": "Set your monthly withdrawal amount",
+          "text": "Determine how much you want to withdraw each month. Make sure this is sustainable based on your corpus size."
+        }, {
+          "@type": "HowToStep",
+          "name": "Enter expected return rate",
+          "text": "Input your expected annual return rate. Long-term equity funds have historically returned 10-12% p.a."
+        }, {
+          "@type": "HowToStep",
+          "name": "Review corpus longevity",
+          "text": "The SWP calculator shows if your corpus will last the selected period or deplete."
+        }]
       }, {
-        "@type": "Question",
-        "name": "Is SWP better than Fixed Deposit (FD)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, SWP from mutual funds is generally more tax-efficient than FDs. While FD interest is fully taxable according to your income slab, SWP withdrawals are treated as capital gains, significantly lowering the tax burden, especially after 1 year (LTCG)."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What is a safe SWP withdrawal rate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Financial advisors generally recommend a 'Safe Withdrawal Rate' (SWR) of 4% to 6% annually. If your mutual fund generates 10-12% average returns over the long term, withdrawing 6% ensures your core corpus continues to grow without depleting."
-        }
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "What is a safe SWP withdrawal rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Financial advisors recommend a Safe Withdrawal Rate of 4% to 6% annually. Withdrawing 6% ensures your corpus continues to grow."
+          }
+        }]
       }]
-    })}>
-
-    
-
+    })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Calculators", url: "https://arthavi.com/swp-calculator" }
+    ]
+  }}
+>
     <main class="container">
         <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem;margin-top: 31px;">
             <h1>SWP Return Calculator</h1>

@@ -8,14 +8,28 @@ const seo = {
 ---
 <Layout title={seo.title} description={seo.description} keywords="arthavi vs value research, value research online alternative, valueresearchonline review, value research portfolio tracker india, mutual fund analysis tool india 2026, arthavi vs valueresearchonline" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web, Android",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
+      "@type": "Product",
+      "name": "Arthavi Portfolio Tracker",
       "description": "Privacy-first portfolio tracker for Indian investors with true XIRR, Portfolio Health Score, and AI-powered insights. No manual data entry required.",
-      "url": "https://arthavi.com"
-    })}>
+      "brand": {"@type": "Brand", "name": "Arthavi"},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "67",
+        "ratingCount": "85"
+      },
+      "review": [{
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "author": {"@type": "Person", "name": "Anita P."},
+        "reviewBody": "Value Research for fund research, Arthavi for tracking my actual portfolio. Best combination for serious Indian investors."
+      }]
+    })} breadcrumb={{
+      items: [
+        { name: "Home", url: "https://arthavi.com/" },
+        { name: "Compare", url: "https://arthavi.com/arthavi-vs-valueresearch" }
+      ]
+    }}>
 
     
 

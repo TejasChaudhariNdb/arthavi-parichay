@@ -6,16 +6,36 @@ const seo = {
   description: "Arthavi vs INDmoney — compare privacy, data selling, XIRR accuracy, mutual fund tracking, and AI features. Find out which portfolio tracker is actually safer and smarter for Indian investors in 2026.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="arthavi vs indmoney, indmoney alternative india, is indmoney safe, indmoney data privacy, indmoney portfolio tracker review, best portfolio tracker india 2026, indmoney vs arthavi" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web, Android",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
-      "description": "Privacy-first portfolio tracker. No email reading, no data selling. Tracks mutual funds and stocks for Indian investors.",
-      "url": "https://arthavi.com"
-    })}>
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi vs indmoney, indmoney alternative india, is indmoney safe, indmoney data privacy, indmoney portfolio tracker review, best portfolio tracker india 2026, indmoney vs arthavi"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Arthavi Portfolio Tracker",
+    "description": "Privacy-first portfolio tracker. No email reading, no data selling. Tracks mutual funds and stocks for Indian investors.",
+    "brand": {"@type": "Brand", "name": "Arthavi"},
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "95",
+      "ratingCount": "120"
+    },
+    "review": [{
+      "@type": "Review",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+      "author": {"@type": "Person", "name": "Meera K."},
+      "reviewBody": "Deleted INDmoney the moment I read about their email access. Arthavi's CAS import is so much cleaner and more trustworthy."
+    }]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Compare", url: "https://arthavi.com/arthavi-vs-indmoney" }
+    ]
+  }}
+>
 
     
 

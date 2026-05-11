@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "geo-content-optimizer": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "build/geo-content-optimizer/SKILL.md",
+      "computedHash": "5d53a11e53d76174fc75c83452b69e2b9dc05011fde14bb7147310b58e0d1cb9"
+    },
+    "internal-linking-optimizer": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "optimize/internal-linking-optimizer/SKILL.md",
+      "computedHash": "fd3f558a5ec1410be74b81da36c51cdcf162322880d2725cad47bc1534969d59"
+    },
+    "keyword-research": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "research/keyword-research/SKILL.md",
+      "computedHash": "2588fb61983e101ee407c02f3a18a421d586bbed31aebac017a341dc37b8a633"
+    },
+    "meta-tags-optimizer": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "build/meta-tags-optimizer/SKILL.md",
+      "computedHash": "0256cf9b4ffa36495e5f09d2f27dd36fff54d4b76008c374f66853dfb636318d"
+    },
+    "on-page-seo-auditor": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "optimize/on-page-seo-auditor/SKILL.md",
+      "computedHash": "23416c87a95f4c7ff2ffaf63107d4f66ee33793c6dcfd144c8b8e9d7ae63f832"
+    },
+    "schema-markup-generator": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "build/schema-markup-generator/SKILL.md",
+      "computedHash": "65c20e2a8f755a56e8a802db5a72119e37f36e149bf1405f47240c29e05cb7e8"
+    },
+    "seo-content-writer": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "skillPath": "build/seo-content-writer/SKILL.md",
+      "computedHash": "9e39567caa9ee0fb4afd18b8e61fbe666eebbe6111d740ab3b6e024df590e94d"
+    }
+  }
+}

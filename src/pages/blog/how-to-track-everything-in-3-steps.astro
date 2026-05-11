@@ -6,28 +6,39 @@ const seo = {
   description: "Track your Stocks, Mutual Funds, and Net Worth in just 3 simple steps. No email passwords required. The ultimate guide to setting up your Arthavi dashboard.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="how to use arthavi, track mutual funds via cas, add stocks to arthavi, portfolio tracker setup guide, wealth tracker onboarding" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HowTo",
-      "name": "How to Track Everything in 3 Steps using Arthavi",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "name": "Upload Your CAS",
-          "text": "Upload your CAMS/KFintech CAS PDF file to import mutual fund history securely."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Add Your Stocks",
-          "text": "Import your stock holdings via CSV or add them manually to track real-time value."
-        },
-        {
-          "@type": "HowToStep",
-          "name": "Get Insights with AI",
-          "text": "Use the Ask AI feature to query your portfolio and get actionable insights."
-        }
-      ]
-    })}>
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="how to use arthavi, track mutual funds via cas, add stocks to arthavi, portfolio tracker setup guide, wealth tracker onboarding"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Track Everything in 3 Steps using Arthavi",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Upload Your CAS",
+        "text": "Upload your CAMS/KFintech CAS PDF file to import mutual fund history securely."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Add Your Stocks",
+        "text": "Import your stock holdings via CSV or add them manually to track real-time value."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Get Insights with AI",
+        "text": "Use the Ask AI feature to query your portfolio and get actionable insights."
+      }
+    ]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/how-to-track-everything-in-3-steps" }
+    ]
+  }}
+>
 
     
 

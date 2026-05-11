@@ -6,7 +6,33 @@ const seo = {
   description: "Still using Google Sheets or Excel to track your stocks and mutual funds? Discover the hidden dangers and why a dedicated tracker is better.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="excel portfolio tracker alternative, why excel is bad for tracking stocks, google sheets investment tracker vs app" >
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="excel portfolio tracker alternative, why excel is bad for tracking stocks, google sheets investment tracker vs app"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "7 Reasons why Excel is bad for tracking stocks (and what to use instead)",
+    "image": "https://arthavi.com/images/og-image.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Arthavi"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arthavi",
+      "logo": "https://arthavi.com/images/logo.png"
+    },
+    "datePublished": "2026-02-16"
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/excel-vs-portfolio-tracker" }
+    ]
+  }}
+>
 
     
 

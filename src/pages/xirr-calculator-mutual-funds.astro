@@ -9,7 +9,28 @@ const seo = {
 <Layout title={seo.title} description={seo.description} keywords="online xirr calculator, xirr calculator excel, xirr calculator sip, how to calculate xirr in excel, how is xirr calculated, how to calculate xirr manually, xirr return calculator" schema={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{
+      "mainEntity": [      {
+        "@type": "HowTo",
+        "name": "How to Calculate XIRR for Mutual Fund SIPs",
+        "description": "Learn how to accurately calculate XIRR for your mutual fund SIP investments using cash flows and dates.",
+        "step": [{
+          "@type": "HowToStep",
+          "name": "List all SIP dates",
+          "text": "In Column A, list every date your SIP was deducted from your bank account."
+        }, {
+          "@type": "HowToStep",
+          "name": "Enter SIP amounts as negative",
+          "text": "In Column B, enter each SIP amount as a negative number (e.g., -5000), because it's cash leaving your account."
+        }, {
+          "@type": "HowToStep",
+          "name": "Add current portfolio value",
+          "text": "In the final row, put today's date in Column A, and your current total portfolio value as a positive number in Column B."
+        }, {
+          "@type": "HowToStep",
+          "name": "Calculate XIRR",
+          "text": "Use the formula =XIRR(B1:B50, A1:A50) to get your true annualized return based on actual cash flow dates."
+        }]
+      }, {
         "@type": "Question",
         "name": "How to calculate xirr in excel?",
         "acceptedAnswer": {
@@ -31,7 +52,14 @@ const seo = {
           "text": "Since SIPs involve multiple cash outflows on different dates, you cannot use simple CAGR. You must use an online XIRR calculator or Excel's XIRR formula, inputting every single automated SIP deduction date and its amount."
         }
       }]
-    })}>
+    })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Calculators", url: "https://arthavi.com/xirr-calculator-mutual-funds" }
+    ]
+  }}
+>
 
     
 

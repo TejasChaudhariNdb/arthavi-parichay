@@ -9,9 +9,23 @@ interface Props {
   keywords?: string;
   schema?: string;
   canonical?: string;
+  breadcrumb?: {
+    items: Array<{ name: string; url: string }>;
+  };
 }
 
-const { title, description, keywords, schema, canonical = "https://arthavi.com" + Astro.url.pathname } = Astro.props;
+const { title, description, keywords, schema, canonical = "https://arthavi.com" + Astro.url.pathname, breadcrumb } = Astro.props;
+
+const breadcrumbSchema = breadcrumb ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumb.items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+}) : null;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -70,6 +84,7 @@ const { title, description, keywords, schema, canonical = "https://arthavi.com" 
     </script>
 
     {schema && <script type="application/ld+json" set:html={schema}></script>}
+    {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema}></script>}
 </head>
 <body>
     <Header />

@@ -6,13 +6,17 @@ const seo = {
   description: "Learn how to view your Zerodha stocks and Groww mutual funds in a single dashboard. A secure, privacy-first guide for Indian investors using Arthavi.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="track zerodha and groww together, zerodha groww portfolio consolidation, best app to track stocks and mutual funds india, portfolio tracker for multiple brokers, arthavi vs indmoney" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Track Zerodha and Groww Portfolio Together (Without Sharing Passwords)",
-      "image": "https://arthavi.com/images/og-image.png",
-      "author": {
-        "@type": "Organization",
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="track zerodha and groww together, zerodha groww portfolio consolidation, best app to track stocks and mutual funds india, portfolio tracker for multiple brokers, arthavi vs indmoney"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Track Zerodha and Groww Portfolio Together (Without Sharing Passwords)",
+    "image": "https://arthavi.com/images/og-image.png",
+    "author": {
+      "@type": "Organization",
         "name": "Arthavi"
       },
       "publisher": {
@@ -25,7 +29,14 @@ const seo = {
       },
       "datePublished": "2026-02-16",
       "description": "A guide on consolidating Zerodha and Groww portfolios into one dashboard securely."
-    })}>
+    })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/track-zerodha-groww-portfolio-together" }
+    ]
+  }}
+>
 
     
 

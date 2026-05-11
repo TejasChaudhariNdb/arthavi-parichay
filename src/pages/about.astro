@@ -6,18 +6,40 @@ const seo = {
   description: "Discover Arthavi, the privacy-first portfolio tracker for Indian investors to track Mutual Funds and Stocks. Ad-free, secure, and built for accurate Net Worth & XIRR analytics.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="portfolio tracker India, best mutual fund tracker, Indian investor tools, privacy focused investment app, ad-free portfolio analytics" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Arthavi",
-      "url": "https://arthavi.com",
-      "logo": "https://arthavi.com/images/logo.png",
-      "foundingDate": "2024",
-      "description": "Privacy-focused portfolio analytics platform for Indian investors.",
-      "sameAs": ["https://twitter.com/arthavi"]
-    })}>
-
-    
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="portfolio tracker India, best mutual fund tracker, Indian investor tools, privacy focused investment app, ad-free portfolio analytics"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Arthavi",
+    "url": "https://arthavi.com",
+    "logo": "https://arthavi.com/images/logo.png",
+    "foundingDate": "2024",
+    "description": "Privacy-focused portfolio analytics platform for Indian investors to track Mutual Funds and Stocks with AI-powered insights.",
+    "founder": {
+      "@type": "Person",
+      "name": "Tejas Chaudhari",
+      "url": "https://tejaschaudhari.com",
+      "jobTitle": "Founder & Lead Developer",
+      "knowsAbout": ["JavaScript", "TypeScript", "React", "Node.js", "Portfolio Analytics", "XIRR Calculations"],
+      "description": "Full Stack Developer with 7+ years of experience building production-grade web applications. Started coding at age 10 in 2011."
+    },
+    "sameAs": [
+        "https://twitter.com/arthavi_app",
+        "https://www.instagram.com/arthavi.app",
+        "https://github.com/tejaschaudhari",
+        "https://linkedin.com/in/tejaschaudhari"
+      ]
+    })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "About", url: "https://arthavi.com/about" }
+    ]
+  }}
+>
 
     <main class="container">
         <div class="page-header fade-in">
@@ -45,6 +67,25 @@ const seo = {
                 investors—one that serves the user, not the intermediary.</p>
             <p>We are a team of engineers and finance enthusiasts who believe that net worth tracking should be private,
                 accurate, and completely devoid of conflicts of interest.</p>
+
+            <h2>The Founder</h2>
+            <div class="founder-card glass-panel" style="padding: 2rem; margin: 1.5rem 0; border-radius: 12px; display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <span style="font-size: 2rem; font-weight: 700; color: white;">T</span>
+                </div>
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="margin-bottom: 0.25rem;">Tejas Chaudhari</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.75rem;">Founder & Lead Developer</p>
+                    <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 1rem;">Full Stack Developer with 7+ years of experience building production-grade web applications. Started coding at age 10 in 2011 with Visual Basic, now specializing in React, Vue, Next.js and Node.js. Built Arthavi to solve personal portfolio tracking challenges with a privacy-first approach.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://tejaschaudhari.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                            Portfolio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/tejaschaudhari" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-size: 0.9rem; text-decoration: none;">LinkedIn</a>
+                        <a href="https://github.com/tejaschaudhari" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-size: 0.9rem; text-decoration: none;">GitHub</a>
+                    </div>
+                </div>
+            </div>
 
             <h2>Why We Built Arthavi</h2>
             <p>Most "free" portfolio trackers in India are actually lead-generation engines. They sell your data to

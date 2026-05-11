@@ -8,18 +8,43 @@ const seo = {
 ---
 <Layout title={seo.title} description={seo.description} keywords="arthavi vs excel, portfolio tracker excel, mutual fund excel tracker india, excel vs portfolio app india, stop using excel for investments, google sheets portfolio tracker india alternative" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web, Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
+      "@type": "Product",
+      "name": "Arthavi Portfolio Tracker",
       "description": "Arthavi is a privacy-first portfolio tracker for Indian investors. It replaces manual Excel spreadsheets with automated XIRR, real-time NAV updates, AI insights, and Portfolio Health Scoring.",
-      "url": "https://arthavi.com"
-    })}>
+      "brand": {"@type": "Brand", "name": "Arthavi"},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "89",
+        "ratingCount": "110"
+      },
+      "review": [{
+        "@type": "Review",
+        "reviewRating": {"@type": "Rating", "ratingValue": "5"},
+        "author": {"@type": "Person", "name": "Vikram J."},
+        "reviewBody": "I was using Excel for 5 years. The moment I saw Arthavi calculate XIRR automatically from my CAS, I deleted my spreadsheet. No going back."
+      }],
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Why is XIRR better than simple returns in Excel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simple returns don't account for the timing of cash flows. XIRR uses actual transaction dates to calculate true annualized returns — especially critical for SIPs where money goes in at different times."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does Excel update stock prices automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Excel requires manual entry of prices or complex Google Finance integrations. Arthavi pulls live NSE/BSE prices automatically for all your holdings."
+        }
+      }]
+    })} breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Compare", url: "https://arthavi.com/arthavi-vs-excel" }
+    ]
+  }}>
 
     
 

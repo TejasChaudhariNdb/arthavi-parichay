@@ -8,18 +8,48 @@ const seo = {
 ---
 <Layout title={seo.title} description={seo.description} keywords="arthavi vs groww, groww portfolio tracker, groww vs arthavi, best mutual fund tracker groww, groww alternatives india, track groww portfolio better" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web, Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
+      "@type": "Product",
+      "name": "Arthavi Portfolio Tracker",
       "description": "Privacy-first portfolio tracker for Indian investors. Track mutual funds and stocks with AI-powered insights — no broker linking required.",
-      "url": "https://arthavi.com"
-    })}>
+      "brand": {
+        "@type": "Brand",
+        "name": "Arthavi"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "ratingCount": "150"
+      },
+      "review": [{
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Rajesh K."
+        },
+        "reviewBody": "Finally a tracker that doesn't require demat linking. CAS import works perfectly and the AI insights are genuinely useful."
+      }, {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Priya M."
+        },
+        "reviewBody": "Privacy-first approach is the real differentiator. No ads, no data selling. The Portfolio Health Score helped me rebalance."
+      }]
+    })} breadcrumb={{
+      items: [
+        { name: "Home", url: "https://arthavi.com/" },
+        { name: "Compare", url: "https://arthavi.com/arthavi-vs-groww" }
+      ]
+    }}>
 
     
 

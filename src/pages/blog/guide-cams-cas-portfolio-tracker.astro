@@ -6,7 +6,33 @@ const seo = {
   description: "Learn how to generate and import your consolidated account statement (CAS) from CAMS/KFintech into your favorite portfolio tracker securely.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="import cams cas statement, how to get cas statement, upload cas to portfolio tracker, kfintech mutual fund statement" >
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="import cams cas statement, how to get cas statement, upload cas to portfolio tracker, kfintech mutual fund statement"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A guide to importing CAMS/CAS statements into a portfolio tracker",
+    "image": "https://arthavi.com/images/og-image.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Arthavi"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arthavi",
+      "logo": "https://arthavi.com/images/logo.png"
+    },
+    "datePublished": "2026-01-10"
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/guide-cams-cas-portfolio-tracker" }
+    ]
+  }}
+>
 
     
 

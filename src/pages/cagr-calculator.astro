@@ -6,32 +6,40 @@ const seo = {
   description: "Calculate Compound Annual Growth Rate (CAGR) online. Compare absolute returns vs CAGR for your mutual funds and stocks easily.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="cagr calculator, compound annual growth rate calculator, cagr vs xirr, calculate cagr online, absolute return vs cagr, cagr formula" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "What is CAGR?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Compound Annual Growth Rate (CAGR) measures the smoothed annualized return of an investment over a specified time period, assuming profits were reinvested."
-        }
-      }, {
-        "@type": "Question",
-        "name": "How to calculate CAGR?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The CAGR formula is: CAGR = [(Ending Value / Beginning Value) ^ (1 / Number of Years)] - 1"
-        }
-      }, {
-        "@type": "Question",
-        "name": "CAGR vs XIRR: Which is better?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "CAGR is best for lump sum investments made once. XIRR is better for SIPs (Systematic Investment Plans) where you invest multiple times on different dates."
-        }
-      }]
-    })}>
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="cagr calculator, compound annual growth rate calculator, cagr vs xirr, calculate cagr online, absolute return vs cagr, cagr formula"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate CAGR",
+    "description": "Learn how to calculate Compound Annual Growth Rate (CAGR) for your investments.",
+    "step": [{
+      "@type": "HowToStep",
+      "name": "Enter initial investment",
+      "text": "Input the amount you initially invested."
+    }, {
+      "@type": "HowToStep",
+      "name": "Enter current value",
+      "text": "Input the current value of your investment."
+    }, {
+      "@type": "HowToStep",
+      "name": "Enter holding period",
+      "text": "Input the number of years you have held the investment."
+    }, {
+      "@type": "HowToStep",
+      "name": "Calculate CAGR",
+      "text": "The formula is CAGR = [(Ending Value / Beginning Value) ^ (1 / Years)] - 1"
+    }]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Calculators", url: "https://arthavi.com/cagr-calculator" }
+    ]
+  }}
+>
 
     
 

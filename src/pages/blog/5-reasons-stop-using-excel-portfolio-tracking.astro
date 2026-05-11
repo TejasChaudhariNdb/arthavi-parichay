@@ -6,13 +6,17 @@ const seo = {
   description: "Is your portfolio tracking spreadsheet becoming a nightmare? Here are 5 reasons why modern investors in India are switching from Excel to automated privacy-first trackers like Arthavi.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="portfolio tracker excel alternative, excel vs dedicated portfolio tracker, manual portfolio tracking problems, automated wealth tracker india, best portfolio tracker app india" schema={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "5 Reasons You Should Stop Using Excel for Your Portfolio (2026)",
-      "image": "https://arthavi.com/images/og-image.png",
-      "author": {
-        "@type": "Organization",
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="portfolio tracker excel alternative, excel vs dedicated portfolio tracker, manual portfolio tracking problems, automated wealth tracker india, best portfolio tracker app india"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "5 Reasons You Should Stop Using Excel for Your Portfolio (2026)",
+    "image": "https://arthavi.com/images/og-image.png",
+    "author": {
+      "@type": "Organization",
         "name": "Arthavi"
       },
       "publisher": {
@@ -25,8 +29,14 @@ const seo = {
       },
       "datePublished": "2026-02-16",
       "description": "Here are 5 reasons why modern investors in India are switching from Excel to automated privacy-first trackers."
-    })}>
-
+    })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/5-reasons-stop-using-excel-portfolio-tracking" }
+    ]
+  }}
+>
     
 
     <main class="container" style="padding-top: calc(var(--header-height) + 2rem);">

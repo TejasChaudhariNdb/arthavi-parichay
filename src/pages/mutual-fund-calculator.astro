@@ -6,7 +6,40 @@ const seo = {
   description: "Calculate returns on your one-time (lumpsum) mutual fund investments with Arthavi's Mutual Fund Calculator. Plan your financial goals today.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="Mutual Fund Calculator, Lumpsum Calculator, Investment Growth, One-time Investment, Mutual Fund Returns, Arthavi" >
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="Mutual Fund Calculator, Lumpsum Calculator, Investment Growth, One-time Investment, Mutual Fund Returns, Arthavi"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Lumpsum Mutual Fund Returns",
+    "description": "Learn how to calculate returns on one-time mutual fund investments using compound interest formula.",
+    "step": [{
+      "@type": "HowToStep",
+      "name": "Enter your total investment",
+      "text": "Input the one-time lump sum amount you invested in the mutual fund."
+    }, {
+      "@type": "HowToStep",
+      "name": "Set expected return rate",
+      "text": "Enter your expected annual return rate. Equity funds historically return 12-15% p.a."
+    }, {
+      "@type": "HowToStep",
+      "name": "Select investment period",
+      "text": "Choose how many years you plan to stay invested."
+    }, {
+      "@type": "HowToStep",
+      "name": "View your projected returns",
+      "text": "The calculator shows your invested amount, estimated gains, and total future value."
+    }]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Calculators", url: "https://arthavi.com/mutual-fund-calculator" }
+    ]
+  }}
+>
 
     
 

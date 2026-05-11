@@ -6,7 +6,33 @@ const seo = {
   description: "Learn how to seamlessly track your entire family's investment portfolios, including mutual funds and stocks, in one centralized app in India.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="track family investment portfolio india, multi account portfolio tracker, track family net worth india, joint investment tracker" >
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="track family investment portfolio india, multi account portfolio tracker, track family net worth india, joint investment tracker"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to track family investment portfolios in one account (India)",
+    "image": "https://arthavi.com/images/og-image.png",
+    "author": {
+      "@type": "Organization",
+      "name": "Arthavi"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arthavi",
+      "logo": "https://arthavi.com/images/logo.png"
+    },
+    "datePublished": "2026-02-16"
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/track-family-investment-portfolio" }
+    ]
+  }}
+>
 
     
 
