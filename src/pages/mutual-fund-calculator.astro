@@ -3,14 +3,14 @@ import Layout from '../layouts/Layout.astro';
 
 const seo = {
   title: "Mutual Fund Calculator: Lumpsum Returns & Growth | Arthavi",
-  description: "Calculate returns on your one-time (lumpsum) mutual fund investments with Arthavi's Mutual Fund Calculator. Plan your financial goals today.",
+  description: "Calculate returns on your one-time (lumpsum) mutual fund investments. Plan your financial goals today.",
 };
 ---
 
 <Layout
   title={seo.title}
   description={seo.description}
-  keywords="Mutual Fund Calculator, Lumpsum Calculator, Investment Growth, One-time Investment, Mutual Fund Returns, Arthavi"
+  keywords="Mutual Fund Calculator, Lumpsum Calculator, Investment Growth, One-time Investment"
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },
@@ -25,11 +25,11 @@ const seo = {
     "step": [{
       "@type": "HowToStep",
       "name": "Enter your total investment",
-      "text": "Input the one-time lump sum amount you invested in the mutual fund."
+      "text": "Input the one-time lump sum amount."
     }, {
       "@type": "HowToStep",
       "name": "Set expected return rate",
-      "text": "Enter your expected annual return rate. Equity funds historically return 12-15% p.a."
+      "text": "Enter your expected annual return rate."
     }, {
       "@type": "HowToStep",
       "name": "Select investment period",
@@ -37,13 +37,13 @@ const seo = {
     }, {
       "@type": "HowToStep",
       "name": "View your projected returns",
-      "text": "The calculator shows your invested amount, estimated gains, and total future value."
+      "text": "The calculator shows your invested amount and total future value."
     }]
   })}
 >
 
   <main class="container">
-    <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem; margin-top: 31px;">
+    <div class="page-header fade-in">
       <h1>Lumpsum Calculator</h1>
       <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
         See how a one-time investment grows over time.
@@ -53,97 +53,326 @@ const seo = {
       </div>
     </div>
 
-    <div style="max-width: 680px; margin: 0 auto 2rem;">
+    <div class="calc-page-wrapper">
 
-      <!-- Big Result -->
-      <div class="glass-panel fade-in" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 3rem 2rem; text-align: center; margin-bottom: 2rem; background: linear-gradient(135deg, rgba(52,211,153,0.06) 0%, rgba(16,185,129,0.02) 100%);">
-        <p style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Total Value After <span id="result-years">5</span> Years</p>
-        <p id="total-value" style="font-size: 4rem; font-weight: 700; font-family: var(--font-heading); background: linear-gradient(135deg, #34d399, #10b981); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 0.5rem; line-height: 1.1;">₹1,76,234</p>
-        <p style="font-size: 1rem; color: #818cf8; font-weight: 600; margin: 0;">+ <span id="est-returns">₹76,234</span> returns on <span id="result-invested">₹1,00,000</span> invested</p>
+      <div class="glass-panel calc-result-hero fade-in">
+        <p>Total Value After <span id="result-years">5</span> Years</p>
+        <p id="total-value">₹1,76,234</p>
+        <p>+ <span id="est-returns">₹76,234</span> returns on <span id="result-invested">₹1,00,000</span> invested</p>
       </div>
 
-      <!-- Inputs -->
-      <div class="glass-panel fade-in delay-100" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">Enter Investment Details</p>
+      <div class="glass-panel calc-inputs-panel fade-in delay-100">
 
-        <div style="margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Total Investment (₹)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--text-muted);">₹</span>
-              <input type="number" id="investment" value="100000" min="5000" max="100000000" step="5000" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 140px; text-align: right;">
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Total Investment (₹)</label>
+            <div class="calc-field-value">
+              <span>₹</span>
+              <input type="number" id="investment" value="100000" min="5000" max="100000000" step="5000">
             </div>
           </div>
-          <input type="range" id="investment-slider" min="5000" max="100000000" step="5000" value="100000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="investment-slider" min="5000" max="100000000" step="5000" value="100000">
         </div>
 
-        <div style="margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Expected Return (p.a.)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <input type="number" id="rate" value="12" min="1" max="30" step="0.5" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
-              <span style="color: var(--text-muted);">%</span>
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Expected Return (p.a.)</label>
+            <div class="calc-field-value">
+              <input type="number" id="rate" value="12" min="1" max="30" step="0.5">
+              <span>%</span>
             </div>
           </div>
-          <input type="range" id="rate-slider" min="1" max="30" step="0.5" value="12" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="rate-slider" min="1" max="30" step="0.5" value="12">
         </div>
 
-        <div style="margin-bottom: 0;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Investment Period</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <input type="number" id="years" value="5" min="1" max="30" step="1" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
-              <span style="color: var(--text-muted);">Years</span>
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Investment Period</label>
+            <div class="calc-field-value">
+              <input type="number" id="years" value="5" min="1" max="30" step="1">
+              <span>Years</span>
             </div>
           </div>
-          <input type="range" id="years-slider" min="1" max="30" step="1" value="5" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="years-slider" min="1" max="30" step="1" value="5">
         </div>
       </div>
 
-      <!-- Chart -->
-      <div class="glass-panel fade-in delay-200" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; text-align: center;">Wealth Growth Over Time</p>
-        <svg id="mf-chart" viewBox="0 0 640 200" style="width: 100%; height: auto; display: block;"></svg>
-        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; font-size: 0.85rem;">
-          <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);"><span style="width: 16px; height: 3px; background: #6366f1; border-radius: 2px; display: inline-block;"></span> Initial</span>
-          <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);"><span style="width: 16px; height: 3px; background: #34d399; border-radius: 2px; display: inline-block;"></span> Returns</span>
-          <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);"><span style="width: 16px; height: 3px; background: #818cf8; border-radius: 2px; display: inline-block;"></span> Total Value</span>
+      <div class="glass-panel calc-chart-panel fade-in delay-200">
+        <p>Wealth Growth Over Time</p>
+        <svg id="mf-chart" viewBox="0 0 640 200"></svg>
+        <div class="calc-chart-legend">
+          <span><span></span> Initial</span>
+          <span><span></span> Returns</span>
+          <span><span></span> Total Value</span>
         </div>
       </div>
 
-      <!-- Stats -->
-      <div class="fade-in delay-300" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem;">
-        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Invested</p>
-          <p id="stat-invested" style="font-size: 1.3rem; font-weight: 700; color: var(--text-head); margin: 0;">₹1,00,000</p>
+      <div class="calc-stats-grid fade-in delay-300">
+        <div class="glass-panel">
+          <p>Invested</p>
+          <p id="stat-invested">₹1,00,000</p>
         </div>
-        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Returns</p>
-          <p id="stat-returns" style="font-size: 1.3rem; font-weight: 700; color: #818cf8; margin: 0;">₹76,234</p>
+        <div class="glass-panel">
+          <p>Returns</p>
+          <p id="stat-returns">₹76,234</p>
         </div>
-        <div class="glass-panel" style="border: 1px solid rgba(52,211,153,0.2); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Growth</p>
-          <p id="stat-multiple" style="font-size: 1.3rem; font-weight: 700; color: #34d399; margin: 0;">1.8x</p>
+        <div class="glass-panel">
+          <p>Growth</p>
+          <p id="stat-multiple">1.8x</p>
         </div>
       </div>
 
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <a href="https://app.arthavi.com" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Track Real Portfolio</a>
+      <div class="calc-cta">
+        <a href="https://app.arthavi.com" class="btn btn-primary">Track Real Portfolio</a>
       </div>
     </div>
 
-    <article class="prose fade-in" style="max-width: 800px; margin: 0 auto 4rem;">
+    <article class="prose fade-in">
       <h2>What is a Mutual Fund Calculator?</h2>
-      <p>This Mutual Fund Calculator helps you estimate the potential returns on a lumpsum investment. If you have a one-time surplus amount to invest, this tool shows you how compounding can grow your wealth over time.</p>
-
+      <p>This calculator helps you estimate the potential returns on a lumpsum investment. If you have a one-time surplus amount to invest, this tool shows you how compounding can grow your wealth over time.</p>
       <h3>Lumpsum vs SIP</h3>
-      <p>While SIP is about investing small amounts regularly, Lumpsum investing is about investing a large chunk of money at once. Lumpsum investments are ideal when you have a surplus (like a bonus or windfall) and want to lock it into the market for long-term growth.</p>
-
-      <div style="margin-top: 3rem; text-align: center;">
-        <a href="https://app.arthavi.com" class="btn btn-primary">Track Portfolio</a>
-      </div>
+      <p>Lumpsum investing is about investing a large chunk of money at once. Ideal when you have a surplus (like a bonus or windfall) and want to lock it into the market for long-term growth.</p>
     </article>
   </main>
+
+  <style>
+    .calc-page-wrapper {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+    }
+
+    .calc-result-hero {
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, rgba(52,211,153,0.06) 0%, rgba(16,185,129,0.02) 100%);
+    }
+
+    .calc-result-hero > p:first-child {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-result-hero #total-value {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+
+    .calc-result-hero > p:nth-of-type(2) {
+      font-size: 1rem;
+      color: #818cf8;
+    }
+
+    .calc-inputs-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-field {
+      margin-bottom: 2.5rem;
+    }
+
+    .calc-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .calc-field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-field-header label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-head);
+    }
+
+    .calc-field-value {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .calc-field-value input[type="number"] {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 140px;
+      text-align: right;
+    }
+
+    .calc-field-value input[type="number"]:first-child {
+      width: 80px;
+    }
+
+    .calc-field input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      height: 6px;
+    }
+
+    .calc-chart-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .calc-chart-panel > p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    #mf-chart {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .calc-chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .calc-chart-legend span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .calc-chart-legend span span {
+      width: 16px;
+      height: 3px;
+      border-radius: 2px;
+      display: inline-block;
+      background: #6366f1;
+    }
+
+    .calc-chart-legend span:nth-child(2) span {
+      background: #34d399;
+    }
+
+    .calc-chart-legend span:nth-child(3) span {
+      background: #818cf8;
+    }
+
+    .calc-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .calc-stats-grid .glass-panel {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:first-child {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:last-child {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-head);
+      margin: 0;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(2) p:last-child {
+      color: #818cf8;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(3) {
+      border-color: rgba(52,211,153,0.2);
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(3) p:last-child {
+      color: #34d399;
+    }
+
+    .calc-cta {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .calc-cta .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .calc-result-hero {
+        padding: 2rem 1rem;
+      }
+
+      .calc-result-hero #total-value {
+        font-size: 2.5rem;
+      }
+
+      .calc-inputs-panel {
+        padding: 1.5rem;
+      }
+
+      .calc-field-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .calc-field-value {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .calc-field-value input[type="number"] {
+        flex: 1;
+        max-width: 160px;
+      }
+
+      .calc-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .calc-stats-grid .glass-panel:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
 
   <script>
     function calcMF() {
@@ -162,23 +391,23 @@ const seo = {
       document.getElementById('stat-returns').textContent = '₹' + Math.round(returns).toLocaleString('en-IN');
       document.getElementById('stat-multiple').textContent = multiple.toFixed(1) + 'x';
 
-      drawMFChart(P, FV, n);
+      drawMFChart(P, FV, n, r);
     }
 
-    function drawMFChart(P, FV, years) {
+    function drawMFChart(P, FV, years, r) {
       const svg = document.getElementById('mf-chart');
       const W = 640, H = 200, PAD = 30;
       const maxVal = Math.max(FV, P * 2);
       const pts = [];
 
       for (let y = 0; y <= years; y++) {
-        const val = P * Math.pow(1 + parseFloat(document.getElementById('rate').value) / 100, y);
+        const val = P * Math.pow(1 + r / 100, y);
         pts.push({
           x: PAD + (y / years) * (W - 2 * PAD),
           y: H - PAD - ((val / maxVal) * (H - 2 * PAD))
         });
       }
-      const invPts = pts.map(p => ({ x: p.x, y: H - PAD - ((P / maxVal) * (H - 2 * PAD)) }));
+      const invPts = pts.map(() => ({ x: pts[0].x, y: H - PAD - ((P / maxVal) * (H - 2 * PAD)) }));
       const toPath = (arr) => arr.map((p, i) => i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`).join(' ');
       const toFill = (arr) => `M ${arr[0].x} ${H - PAD} ` + arr.map(p => `L ${p.x} ${p.y}`).join(' ') + ` L ${arr[arr.length-1].x} ${H - PAD} Z`;
 
@@ -187,10 +416,6 @@ const seo = {
           <linearGradient id="gMF" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#818cf8" stop-opacity="0.2"/>
             <stop offset="100%" stop-color="#818cf8" stop-opacity="0.02"/>
-          </linearGradient>
-          <linearGradient id="gRetMF" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#34d399" stop-opacity="0.15"/>
-            <stop offset="100%" stop-color="#34d399" stop-opacity="0.02"/>
           </linearGradient>
         </defs>
         <line x1="${PAD}" y1="${H-PAD}" x2="${W-PAD}" y2="${H-PAD}" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
@@ -207,10 +432,9 @@ const seo = {
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      [['investment', 'investment-slider'], ['rate', 'rate-slider'], ['years', 'years-slider']].forEach(function(pair) {
-        const [id, sliderId] = pair;
+      ['investment', 'rate', 'years'].forEach(function(id) {
         const inp = document.getElementById(id);
-        const slider = document.getElementById(sliderId);
+        const slider = document.getElementById(id + '-slider');
         inp.addEventListener('input', function() { slider.value = inp.value; calcMF(); });
         slider.addEventListener('input', function() { inp.value = slider.value; calcMF(); });
       });

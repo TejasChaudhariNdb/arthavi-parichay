@@ -3,14 +3,14 @@ import Layout from '../layouts/Layout.astro';
 
 const seo = {
   title: "SWP Return Calculator | Mutual Fund Withdrawal Plan India | Arthavi",
-  description: "Calculate your Systematic Withdrawal Plan (SWP) returns. See how long your mutual fund corpus will last with our SWP calculator.",
+  description: "Calculate your Systematic Withdrawal Plan (SWP) returns. See how long your mutual fund corpus will last.",
 };
 ---
 
 <Layout
   title={seo.title}
   description={seo.description}
-  keywords="swp return calculator, SWP Calculator, Systematic Withdrawal Plan, Mutual Fund Withdrawal, Monthly Income Plan"
+  keywords="swp return calculator, SWP Calculator, Systematic Withdrawal Plan, Mutual Fund Withdrawal"
   schema={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [{
@@ -55,111 +55,306 @@ const seo = {
 >
 
   <main class="container">
-    <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem; margin-top: 31px;">
+    <div class="page-header fade-in">
       <h1>SWP Calculator</h1>
       <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
         Plan your monthly withdrawals. See if your corpus will outlast your retirement.
       </p>
     </div>
 
-    <div style="max-width: 680px; margin: 0 auto 2rem;">
+    <div class="calc-page-wrapper">
 
-      <!-- Big Result Hero -->
-      <div id="result-hero" class="glass-panel fade-in" style="border: 1px solid rgba(52,211,153,0.25); border-radius: 16px; padding: 3rem 2rem; text-align: center; margin-bottom: 2rem; background: linear-gradient(135deg, rgba(52,211,153,0.08) 0%, rgba(16,185,129,0.02) 100%);">
-        <p id="status-label" style="font-size: 0.85rem; color: #34d399; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Corpus Sustainable</p>
-        <p id="final-value" style="font-size: 4rem; font-weight: 700; font-family: var(--font-heading); background: linear-gradient(135deg, #34d399, #10b981); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 0.5rem; line-height: 1.1;">₹8,90,560</p>
-        <p style="font-size: 1rem; color: var(--text-muted); margin: 0;">remaining after <span id="display-years">10</span> years</p>
-        <div id="longevity-bar" style="height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin-top: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">
-          <div id="longevity-fill" style="height: 100%; width: 85%; background: linear-gradient(90deg, #34d399, #10b981); border-radius: 4px; transition: all 0.3s ease;"></div>
+      <div id="result-hero" class="glass-panel calc-result-hero fade-in">
+        <p id="status-label">Corpus Sustainable</p>
+        <p id="final-value">₹8,90,560</p>
+        <p>remaining after <span id="display-years">10</span> years</p>
+        <div class="longevity-bar">
+          <div id="longevity-fill"></div>
         </div>
       </div>
 
-      <!-- Inputs -->
-      <div class="glass-panel fade-in delay-100" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">Plan Your Withdrawal</p>
+      <div class="glass-panel calc-inputs-panel fade-in delay-100">
 
-        <div style="margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Total Investment (₹)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--text-muted);">₹</span>
-              <input type="number" id="investment" value="1000000" min="100000" max="100000000" step="50000" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 140px; text-align: right;">
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Total Investment (₹)</label>
+            <div class="calc-field-value">
+              <span>₹</span>
+              <input type="number" id="investment" value="1000000" min="100000" max="100000000" step="50000">
             </div>
           </div>
-          <input type="range" id="investment-slider" min="100000" max="100000000" step="50000" value="1000000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="investment-slider" min="100000" max="100000000" step="50000" value="1000000">
         </div>
 
-        <div style="margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Monthly Withdrawal (₹)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--text-muted);">₹</span>
-              <input type="number" id="withdrawal" value="5000" min="1000" max="1000000" step="500" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 120px; text-align: right;">
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Monthly Withdrawal (₹)</label>
+            <div class="calc-field-value">
+              <span>₹</span>
+              <input type="number" id="withdrawal" value="5000" min="1000" max="1000000" step="500">
             </div>
           </div>
-          <input type="range" id="withdrawal-slider" min="1000" max="1000000" step="500" value="5000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="withdrawal-slider" min="1000" max="1000000" step="500" value="5000">
         </div>
 
-        <div style="margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Expected Return (p.a.)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <input type="number" id="rate" value="8" min="1" max="30" step="0.5" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
-              <span style="color: var(--text-muted);">%</span>
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Expected Return (p.a.)</label>
+            <div class="calc-field-value">
+              <input type="number" id="rate" value="8" min="1" max="30" step="0.5">
+              <span>%</span>
             </div>
           </div>
-          <input type="range" id="rate-slider" min="1" max="30" step="0.5" value="8" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="rate-slider" min="1" max="30" step="0.5" value="8">
         </div>
 
-        <div style="margin-bottom: 0;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Time Period</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <input type="number" id="years" value="10" min="1" max="40" step="1" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
-              <span style="color: var(--text-muted);">Years</span>
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Time Period</label>
+            <div class="calc-field-value">
+              <input type="number" id="years" value="10" min="1" max="40" step="1">
+              <span>Years</span>
             </div>
           </div>
-          <input type="range" id="years-slider" min="1" max="40" step="1" value="10" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="years-slider" min="1" max="40" step="1" value="10">
         </div>
       </div>
 
-      <!-- Stats -->
-      <div class="fade-in delay-200" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem;">
-        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Total Withdrawn</p>
-          <p id="stat-withdrawn" style="font-size: 1.3rem; font-weight: 700; color: #f87171; margin: 0;">₹6,00,000</p>
+      <div class="calc-stats-grid fade-in delay-200">
+        <div class="glass-panel">
+          <p>Total Withdrawn</p>
+          <p id="stat-withdrawn">₹6,00,000</p>
         </div>
-        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Withdrawal Rate</p>
-          <p id="stat-rate" style="font-size: 1.3rem; font-weight: 700; color: #fbbf24; margin: 0;">6.0%</p>
+        <div class="glass-panel">
+          <p>Withdrawal Rate</p>
+          <p id="stat-rate">6.0%</p>
         </div>
-        <div class="glass-panel" style="border: 1px solid rgba(52,211,153,0.2); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Final Value</p>
-          <p id="stat-final" style="font-size: 1.3rem; font-weight: 700; color: #34d399; margin: 0;">₹8,90,560</p>
+        <div class="glass-panel">
+          <p>Final Value</p>
+          <p id="stat-final">₹8,90,560</p>
         </div>
       </div>
 
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <a href="https://app.arthavi.com" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Track Real Portfolio</a>
+      <div class="calc-cta">
+        <a href="https://app.arthavi.com" class="btn btn-primary">Track Real Portfolio</a>
       </div>
     </div>
 
-    <article class="prose fade-in" style="max-width: 800px; margin: 0 auto 4rem;">
+    <article class="prose fade-in">
       <h2>What is an SWP Return Calculator?</h2>
-      <p>A Systematic Withdrawal Plan (SWP) allows you to withdraw a fixed amount from your mutual fund investments at regular intervals. An <strong>SWP return calculator</strong> helps determine if your withdrawal rate is sustainable.</p>
-
+      <p>A Systematic Withdrawal Plan (SWP) allows you to withdraw a fixed amount from your mutual fund investments at regular intervals.</p>
       <h2>Why use SWP instead of FD?</h2>
       <ul>
         <li><strong>Regular Income with Growth:</strong> Unlike Fixed Deposits where your principal stagnates, SWP allows your principal to beat inflation.</li>
-        <li><strong>Tax Efficiency:</strong> When you execute an SWP, only the gains on specific units are taxed as Capital Gains, not the principal.</li>
-        <li><strong>Rupee Cost Averaging (Reverse):</strong> You redeem fewer units when market NAV is high, and more units when low.</li>
+        <li><strong>Tax Efficiency:</strong> Only the gains on specific units are taxed as Capital Gains, not the principal.</li>
       </ul>
-
-      <div style="margin-top: 3rem; text-align: center;">
-        <a href="https://app.arthavi.com" class="btn btn-primary">Track Portfolio</a>
-      </div>
     </article>
   </main>
+
+  <style>
+    .calc-page-wrapper {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+    }
+
+    .calc-result-hero {
+      border: 1px solid rgba(52,211,153,0.25);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, rgba(52,211,153,0.08) 0%, rgba(16,185,129,0.02) 100%);
+    }
+
+    .calc-result-hero > p:first-child {
+      font-size: 0.85rem;
+      color: #34d399;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-result-hero #final-value {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+
+    .calc-result-hero > p:nth-of-type(2) {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .longevity-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 1.5rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #longevity-fill {
+      height: 100%;
+      width: 85%;
+      background: linear-gradient(90deg, #34d399, #10b981);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .calc-inputs-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-field {
+      margin-bottom: 2.5rem;
+    }
+
+    .calc-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .calc-field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-field-header label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-head);
+    }
+
+    .calc-field-value {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .calc-field-value input[type="number"] {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 140px;
+      text-align: right;
+    }
+
+    .calc-field-value input[type="number"]:first-child {
+      width: 80px;
+    }
+
+    .calc-field input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      height: 6px;
+    }
+
+    .calc-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .calc-stats-grid .glass-panel {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:first-child {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:last-child {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-head);
+      margin: 0;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(1) p:last-child {
+      color: #f87171;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(2) p:last-child {
+      color: #fbbf24;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(3) p:last-child {
+      color: #34d399;
+    }
+
+    .calc-cta {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .calc-cta .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .calc-result-hero {
+        padding: 2rem 1rem;
+      }
+
+      .calc-result-hero #final-value {
+        font-size: 2.5rem;
+      }
+
+      .calc-inputs-panel {
+        padding: 1.5rem;
+      }
+
+      .calc-field-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .calc-field-value {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .calc-field-value input[type="number"] {
+        flex: 1;
+        max-width: 160px;
+      }
+
+      .calc-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .calc-stats-grid .glass-panel:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
 
   <script>
     function calcSWP() {
@@ -184,9 +379,8 @@ const seo = {
       const label = document.getElementById('status-label');
       const hero = document.getElementById('result-hero');
       const resultVal = document.getElementById('final-value');
-      const displayYears = document.getElementById('display-years');
 
-      displayYears.textContent = n;
+      document.getElementById('display-years').textContent = n;
       document.getElementById('stat-withdrawn').textContent = '₹' + Math.round(totalWithdrawn).toLocaleString('en-IN');
       document.getElementById('stat-rate').textContent = withdrawalRate.toFixed(1) + '%';
       document.getElementById('stat-final').textContent = '₹' + Math.round(FV).toLocaleString('en-IN');

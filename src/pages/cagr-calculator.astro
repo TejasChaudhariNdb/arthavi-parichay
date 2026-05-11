@@ -43,106 +43,343 @@ const seo = {
 >
 
   <main class="container">
-    <div class="page-header fade-in" style="text-align: center; padding: 4rem 0 2rem; margin-top: 31px;">
+    <div class="page-header fade-in">
       <h1>CAGR Calculator</h1>
       <p class="text-muted" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
         Find your true annualized return — not just total percentage.
       </p>
     </div>
 
-    <div style="max-width: 680px; margin: 0 auto 2rem;">
+    <div class="calc-page-wrapper">
 
-      <!-- Big Result Hero -->
-      <div class="glass-panel fade-in" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 3rem 2rem; text-align: center; margin-bottom: 2rem; background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.02) 100%);">
-        <p style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Your Annualized Return (CAGR)</p>
-        <p id="cagr-result" style="font-size: 4.5rem; font-weight: 700; font-family: var(--font-heading); background: linear-gradient(135deg, var(--primary-glow), #c084fc); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 0.5rem; line-height: 1.1;">20.11%</p>
-        <p style="font-size: 1rem; color: var(--text-muted); margin: 0;">
-          <span style="color: #34d399; font-weight: 600;">+150%</span> absolute return over <span id="cagr-years">5</span> years
-        </p>
+      <div class="glass-panel calc-result-hero fade-in">
+        <p>Your Annualized Return (CAGR)</p>
+        <p id="cagr-result">20.11%</p>
+        <p><span style="color: #34d399; font-weight: 600;">+150%</span> absolute return over <span id="cagr-years">5</span> years</p>
       </div>
 
-      <!-- Inputs -->
-      <div class="glass-panel fade-in delay-100" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">Enter Your Investment Details</p>
+      <div class="glass-panel calc-inputs-panel fade-in delay-100">
 
-        <div style="margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Initial Investment (₹)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--text-muted);">₹</span>
-              <input type="number" id="initial" value="100000" min="1000" max="100000000" step="1000" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 140px; text-align: right;">
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Initial Investment (₹)</label>
+            <div class="calc-field-value">
+              <span>₹</span>
+              <input type="number" id="initial" value="100000" min="1000" max="100000000" step="1000">
             </div>
           </div>
-          <input type="range" id="initial-slider" min="1000" max="100000000" step="1000" value="100000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="initial-slider" min="1000" max="100000000" step="1000" value="100000">
         </div>
 
-        <div style="margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Current Value (₹)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="color: var(--text-muted);">₹</span>
-              <input type="number" id="final" value="250000" min="1000" max="1000000000" step="1000" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: #34d399; font-size: 1.1rem; font-weight: 700; width: 140px; text-align: right;">
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Current Value (₹)</label>
+            <div class="calc-field-value">
+              <span>₹</span>
+              <input type="number" id="final" value="250000" min="1000" max="1000000000" step="1000">
             </div>
           </div>
-          <input type="range" id="final-slider" min="1000" max="1000000000" step="1000" value="250000" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="final-slider" min="1000" max="1000000000" step="1000" value="250000">
         </div>
 
-        <div style="margin-bottom: 0;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-            <label style="font-size: 1rem; font-weight: 600; color: var(--text-head);">Duration (Years)</label>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <input type="number" id="years" value="5" min="1" max="40" step="1" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.5rem 0.75rem; color: var(--text-head); font-size: 1.1rem; font-weight: 700; width: 80px; text-align: right;">
-              <span style="color: var(--text-muted);">Years</span>
+        <div class="calc-field">
+          <div class="calc-field-header">
+            <label>Duration (Years)</label>
+            <div class="calc-field-value">
+              <input type="number" id="years" value="5" min="1" max="40" step="1">
+              <span>Years</span>
             </div>
           </div>
-          <input type="range" id="years-slider" min="1" max="40" step="1" value="5" style="width: 100%; accent-color: var(--primary); cursor: pointer; height: 6px;">
+          <input type="range" id="years-slider" min="1" max="40" step="1" value="5">
         </div>
       </div>
 
-      <!-- Chart -->
-      <div class="glass-panel fade-in delay-200" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; text-align: center;">Growth Comparison</p>
-        <svg id="cagr-chart" viewBox="0 0 640 200" style="width: 100%; height: auto; display: block;"></svg>
-        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; font-size: 0.85rem;">
-          <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);"><span style="width: 16px; height: 3px; background: #6366f1; border-radius: 2px; display: inline-block;"></span> Initial</span>
-          <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);"><span style="width: 16px; height: 3px; background: #34d399; border-radius: 2px; display: inline-block;"></span> Current Value</span>
+      <div class="glass-panel calc-chart-panel fade-in delay-200">
+        <p>Growth Comparison</p>
+        <svg id="cagr-chart" viewBox="0 0 640 200"></svg>
+        <div class="calc-chart-legend">
+          <span><span></span> Initial</span>
+          <span><span></span> Current Value</span>
         </div>
       </div>
 
-      <!-- Stats -->
-      <div class="fade-in delay-300" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem;">
-        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Initial</p>
-          <p id="stat-initial" style="font-size: 1.2rem; font-weight: 700; color: var(--text-head); margin: 0;">₹1,00,000</p>
+      <div class="calc-stats-grid fade-in delay-300">
+        <div class="glass-panel">
+          <p>Initial</p>
+          <p id="stat-initial">₹1,00,000</p>
         </div>
-        <div class="glass-panel" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Absolute Return</p>
-          <p id="stat-abs" style="font-size: 1.2rem; font-weight: 700; color: #34d399; margin: 0;">+150%</p>
+        <div class="glass-panel">
+          <p>Absolute Return</p>
+          <p id="stat-abs">+150%</p>
         </div>
-        <div class="glass-panel" style="border: 1px solid rgba(99,102,241,0.2); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <p style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">CAGR</p>
-          <p id="stat-cagr" style="font-size: 1.2rem; font-weight: 700; color: #818cf8; margin: 0;">20.11%</p>
+        <div class="glass-panel">
+          <p>CAGR</p>
+          <p id="stat-cagr">20.11%</p>
         </div>
       </div>
 
-      <div style="text-align: center; margin-bottom: 4rem;">
-        <a href="https://app.arthavi.com" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Track Real Portfolio</a>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.75rem;">Use Arthavi to calculate XIRR for your SIPs — not just lump-sum CAGR.</p>
+      <div class="calc-cta">
+        <a href="https://app.arthavi.com" class="btn btn-primary">Track Real Portfolio</a>
+        <p>Use Arthavi to calculate XIRR for your SIPs — not just lump-sum CAGR.</p>
       </div>
     </div>
 
-    <article class="prose fade-in" style="max-width: 800px; margin: 0 auto 4rem;">
+    <article class="prose fade-in">
       <h2>What is a CAGR Calculator?</h2>
       <p>A <strong>CAGR calculator</strong> calculates the Compound Annual Growth Rate. Unlike absolute returns which only show total percentage gained, CAGR smooths out volatility and shows exactly what your investment grew by, on average, every single year.</p>
-
       <h2>CAGR vs XIRR</h2>
-      <p>Only use a <strong>CAGR calculator</strong> if you made a one-time lump-sum investment (like a fixed deposit or buying a plot of land). If you are doing a monthly Mutual Fund SIP, you must use an <a href="/xirr-calculator-mutual-funds">XIRR Calculator</a> because the timing of your varied cash flows completely changes the math.</p>
-
-      <div style="margin-top: 3rem; text-align: center;">
-        <a href="https://app.arthavi.com" class="btn btn-primary">Start Tracking Portfolio</a>
-      </div>
+      <p>Only use a <strong>CAGR calculator</strong> if you made a one-time lump-sum investment. If you are doing a monthly Mutual Fund SIP, you must use an <a href="/xirr-calculator-mutual-funds">XIRR Calculator</a> because the timing of your varied cash flows completely changes the math.</p>
     </article>
   </main>
+
+  <style>
+    .calc-page-wrapper {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+    }
+
+    .calc-result-hero {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.02) 100%);
+    }
+
+    .calc-result-hero > p:first-child {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-result-hero #cagr-result {
+      font-size: 4.5rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      background: linear-gradient(135deg, var(--primary-glow), #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 0.5rem;
+      line-height: 1.1;
+    }
+
+    .calc-result-hero > p:nth-of-type(2) {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .calc-inputs-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .calc-inputs-panel > p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .calc-field {
+      margin-bottom: 2.5rem;
+    }
+
+    .calc-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .calc-field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .calc-field-header label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-head);
+    }
+
+    .calc-field-value {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .calc-field-value input[type="number"] {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      width: 140px;
+      text-align: right;
+    }
+
+    .calc-field-value input[type="number"]:first-child {
+      width: 80px;
+    }
+
+    .calc-field input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      height: 6px;
+    }
+
+    .calc-chart-panel {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .calc-chart-panel > p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    #cagr-chart {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .calc-chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .calc-chart-legend span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .calc-chart-legend span span {
+      width: 16px;
+      height: 3px;
+      border-radius: 2px;
+      display: inline-block;
+      background: #6366f1;
+    }
+
+    .calc-chart-legend span:nth-child(2) span {
+      background: #34d399;
+    }
+
+    .calc-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .calc-stats-grid .glass-panel {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:first-child {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-stats-grid .glass-panel p:last-child {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-head);
+      margin: 0;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(2) p:last-child {
+      color: #34d399;
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(3) {
+      border-color: rgba(99,102,241,0.2);
+    }
+
+    .calc-stats-grid .glass-panel:nth-child(3) p:last-child {
+      color: #818cf8;
+    }
+
+    .calc-cta {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .calc-cta .btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .calc-cta p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .calc-result-hero {
+        padding: 2rem 1rem;
+      }
+
+      .calc-result-hero #cagr-result {
+        font-size: 2.5rem;
+      }
+
+      .calc-inputs-panel {
+        padding: 1.5rem;
+      }
+
+      .calc-field-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .calc-field-value {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .calc-field-value input[type="number"] {
+        flex: 1;
+        max-width: 160px;
+      }
+
+      .calc-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .calc-stats-grid .glass-panel:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
 
   <script>
     function calcCAGR() {
@@ -200,14 +437,8 @@ const seo = {
       ['initial', 'final', 'years'].forEach(function(id) {
         const inp = document.getElementById(id);
         const slider = document.getElementById(id + '-slider');
-        inp.addEventListener('input', function() {
-          slider.value = inp.value;
-          calcCAGR();
-        });
-        slider.addEventListener('input', function() {
-          inp.value = slider.value;
-          calcCAGR();
-        });
+        inp.addEventListener('input', function() { slider.value = inp.value; calcCAGR(); });
+        slider.addEventListener('input', function() { inp.value = slider.value; calcCAGR(); });
       });
       calcCAGR();
     });

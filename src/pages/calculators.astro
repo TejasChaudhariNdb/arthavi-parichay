@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Free Investment Calculators | SIP, SWP, CAGR, XIRR & Lumpsum",
+  description: "Calculate your investment returns with Arthavi's free calculators. SIP, SWP, CAGR, XIRR, and Lumpsum calculators — built for Indian investors. Fast, accurate, no sign-up required.",
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords="SIP calculator, SWP calculator, CAGR calculator, XIRR calculator, lumpsum calculator, mutual fund calculator, investment return calculator, India" breadcrumb={{items:[{name:"Home",url:"https://arthavi.com/"},{name:"Calculators",url:"https://arthavi.com/calculators"}]}} schema={JSON.stringify({"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://arthavi.com/calculators","url":"https://arthavi.com/calculators","name":"Free Investment Calculators | SIP, SWP, CAGR, XIRR & Lumpsum","description":"Calculate your investment returns with Arthavi's free calculators. SIP, SWP, CAGR, XIRR, and Lumpsum calculators for Indian investors.","isPartOf":{"@id":"https://arthavi.com/#website"},"inLanguage":"en-IN"},{"@type":"ItemList","name":"Investment Calculators","url":"https://arthavi.com/calculators","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"name":"SIP Calculator","url":"https://arthavi.com/sip-calculator"},{"@type":"ListItem","position":2,"name":"SWP Calculator","url":"https://arthavi.com/swp-calculator"},{"@type":"ListItem","position":3,"name":"CAGR Calculator","url":"https://arthavi.com/cagr-calculator"},{"@type":"ListItem","position":4,"name":"XIRR Calculator","url":"https://arthavi.com/xirr-calculator-mutual-funds"},{"@type":"ListItem","position":5,"name":"Lumpsum Calculator","url":"https://arthavi.com/lumpsum-calculator"}]}]})}>
+  <main style="padding-top: 6rem;">
+    <section style="padding: 4rem 0 2rem; position: relative; z-index: 2;">
+      <div class="container">
+        <div class="section-header text-center fade-in">
+          <span style="display:inline-block; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;">Free Tools</span>
+          <h1>Investment Calculators</h1>
+          <p class="section-sub">Plan your wealth with precision. All calculators are free, fast, and require no sign-up.</p>
+        </div>
+
+        <div class="calc-hub-grid" style="margin-top: 3rem;">
+          <a href="/sip-calculator" class="calc-card glass-panel fade-in delay-100" style="text-decoration: none;">
+            <div class="calc-card-icon" style="background: rgba(99,102,241,0.12);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3>SIP Calculator</h3>
+            <p>Calculate how much your monthly SIP investments will grow over time. See projected returns, total invested, and wealth gained instantly.</p>
+            <div class="calc-card-tags">
+              <span>Monthly Investment</span>
+              <span>Expected Return</span>
+              <span>Time Horizon</span>
+            </div>
+            <div class="calc-card-arrow">Try Calculator →</div>
+          </a>
+
+          <a href="/swp-calculator" class="calc-card glass-panel fade-in delay-200" style="text-decoration: none;">
+            <div class="calc-card-icon" style="background: rgba(16,185,129,0.12);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+              </svg>
+            </div>
+            <h3>SWP Calculator</h3>
+            <p>Plan your systematic withdrawal plan. See how long your corpus lasts and how much you can withdraw monthly from your investments.</p>
+            <div class="calc-card-tags">
+              <span>Corpus Amount</span>
+              <span>Monthly Withdrawal</span>
+              <span>Withdrawal Period</span>
+            </div>
+            <div class="calc-card-arrow">Try Calculator →</div>
+          </a>
+
+          <a href="/cagr-calculator" class="calc-card glass-panel fade-in delay-300" style="text-decoration: none;">
+            <div class="calc-card-icon" style="background: rgba(245,158,11,0.12);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <h3>CAGR Calculator</h3>
+            <p>Calculate the Compound Annual Growth Rate of your investments. Measure how fast your money has grown year over year.</p>
+            <div class="calc-card-tags">
+              <span>Initial Investment</span>
+              <span>Final Value</span>
+              <span>Investment Period</span>
+            </div>
+            <div class="calc-card-arrow">Try Calculator →</div>
+          </a>
+
+          <a href="/xirr-calculator-mutual-funds" class="calc-card glass-panel fade-in delay-100" style="text-decoration: none;">
+            <div class="calc-card-icon" style="background: rgba(139,92,246,0.12);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <h3>XIRR Calculator</h3>
+            <p>Calculate the true internal rate of return for irregular cash flows. Accounts for SIPs, lump-sums, redemptions, and dividend payouts.</p>
+            <div class="calc-card-tags">
+              <span>Cash Flows</span>
+              <span>Transaction Dates</span>
+              <span>Actual Returns</span>
+            </div>
+            <div class="calc-card-arrow">Try Calculator →</div>
+          </a>
+
+          <a href="/lumpsum-calculator" class="calc-card glass-panel fade-in delay-200" style="text-decoration: none;">
+            <div class="calc-card-icon" style="background: rgba(236,72,153,0.12);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3>Lumpsum Calculator</h3>
+            <p>See how a one-time lump sum investment grows over time. Perfect for calculating returns on initial investments or windfall allocations.</p>
+            <div class="calc-card-tags">
+              <span>One-Time Investment</span>
+              <span>Growth Period</span>
+              <span>Expected Return</span>
+            </div>
+            <div class="calc-card-arrow">Try Calculator →</div>
+          </a>
+        </div>
+
+        <div class="glass-panel fade-in" style="margin-top: 3rem; padding: 2rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+          <h3 style="margin-bottom: 0.75rem;">Need a Complete Portfolio View?</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem;">Upload your CAS statement to Arthavi and let AI calculate your actual XIRR, sector overlap, and benchmark comparison — all in one privacy-first dashboard.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Free</a>
+            <a href="https://app.arthavi.com/demo" class="btn btn-secondary">Try Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .calc-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .calc-card {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .calc-card:hover {
+      border-color: rgba(99,102,241,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(99,102,241,0.1);
+    }
+    .calc-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .calc-card h3 {
+      font-size: 1.3rem;
+      color: var(--text-head);
+      margin-bottom: 0.75rem;
+    }
+    .calc-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      flex-grow: 1;
+      margin-bottom: 1.25rem;
+    }
+    .calc-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .calc-card-tags span {
+      font-size: 0.75rem;
+      color: var(--primary-glow);
+      background: rgba(99,102,241,0.08);
+      border: 1px solid rgba(99,102,241,0.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+    .calc-card-arrow {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    @media (max-width: 600px) {
+      .calc-hub-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
