@@ -6,7 +6,6 @@ const today = new Date().toISOString().split('T')[0];
 export default defineConfig({
   site: 'https://arthavi.com',
   redirects: {
-    '/index.html': '/',
     '/about.html': '/about',
     '/ai-portfolio-analyzer-market-research.html': '/ai-portfolio-analyzer-market-research',
     '/arthavi-vs-dezerv.html': '/arthavi-vs-dezerv',
