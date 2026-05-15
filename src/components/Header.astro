@@ -1,12 +1,14 @@
 ---
 ---
 <header>
-        <div class="container">
+        <div class="container header-inner">
             <a href="/" class="logo" aria-label="Arthavi Home">
-                <img src="/images/logo.webp" alt="Arthavi Logo" width="30" height="26" style="border-radius: 4px;">
-                <span>Arthavi</span>
+                <span class="logo-mark">
+                    <img src="/images/logo.webp" alt="Arthavi Logo" width="30" height="26" style="border-radius: 4px;">
+                </span>
+                <span class="logo-text">Arthavi</span>
             </a>
-            <nav role="navigation">
+            <nav class="desktop-nav" role="navigation" aria-label="Primary navigation">
                 <ul>
                     <li><a href="/#features">Features</a></li>
                     <li><a href="/features">All Features</a></li>
@@ -22,15 +24,19 @@
                     <li><a href="/#faq">FAQ</a></li>
                 </ul>
             </nav>
-            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="display:none"
-                id="nav-cta-desktop">Get Started</a>
-            <a href="https://app.arthavi.com/register" class="btn btn-primary" id="nav-cta">Get Started</a>
-            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <div class="nav-actions">
+                <a href="https://app.arthavi.com/register" class="btn btn-primary nav-cta" id="nav-cta">Create Free Account</a>
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                 <span></span><span></span><span></span>
             </button>
+            </div>
         </div>
     </header>
     <nav class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-menu-header">
+            <p class="mobile-menu-kicker">Privacy-first portfolio tracking</p>
+            <p class="mobile-menu-copy">Track stocks and mutual funds in one place without broker logins or data selling.</p>
+        </div>
         <a href="/#features" onclick="closeMobileMenu()">Features</a>
         <a href="/features" onclick="closeMobileMenu()">All 42+ Features</a>
         <a href="/#ask-ai" onclick="closeMobileMenu()" style="color: #c4b5fd; font-weight:600;">✦ Ask AI</a>
@@ -38,8 +44,10 @@
         <a href="/#faq" onclick="closeMobileMenu()">FAQ</a>
         <a href="/about" onclick="closeMobileMenu()">About</a>
         <a href="/security" onclick="closeMobileMenu()">Security</a>
-        <a href="https://app.arthavi.com/register" class="btn btn-primary"
-            style="margin-top:0.5rem; text-align:center;">Get Started Free</a>
+        <div class="mobile-menu-actions">
+            <a href="https://app.arthavi.com/demo" class="btn btn-secondary">Try Demo Portfolio</a>
+            <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+        </div>
     </nav>
 
 <script>
