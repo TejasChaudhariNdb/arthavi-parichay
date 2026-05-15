@@ -55,8 +55,9 @@
         h6 {
             font-family: var(--font-heading);
             color: var(--text-head);
-            line-height: 1.2;
+            line-height: 1.12;
             margin-bottom: 1rem;
+            letter-spacing: -0.03em;
         }
 
         a {
@@ -150,6 +151,35 @@
             background-color: var(--primary-hover);
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.23);
             transform: translateY(-1px);
+        }
+
+        .btn-demo {
+            background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.34);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .btn-demo:hover {
+            background: linear-gradient(135deg, #5b5ff0 0%, #6d28d9 100%);
+            box-shadow: 0 18px 40px rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .btn-demo::after {
+            content: "Most Popular";
+            position: absolute;
+            top: -0.75rem;
+            right: 1rem;
+            padding: 0.22rem 0.55rem;
+            border-radius: 999px;
+            background: #fbbf24;
+            color: #1f2937;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.22);
         }
 
         .btn-secondary {
@@ -300,6 +330,11 @@
         .nav-cta {
             min-width: 190px;
             box-shadow: 0 8px 24px rgba(99, 102, 241, 0.28);
+        }
+
+        .cta-actions {
+            justify-content: center;
+            align-items: center;
         }
 
         /* Mobile Nav */
@@ -538,7 +573,7 @@
 
         /* Stats bar */
         .stats-bar {
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             background: rgba(255, 255, 255, 0.02);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -899,29 +934,33 @@
 
         /* Features Section */
         .features {
-            padding: 5rem 0;
+            padding: 6.5rem 0;
         }
 
         .section-header {
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto 4rem;
+            max-width: 720px;
+            margin: 0 auto 4.5rem;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 4vw, 3.1rem);
             margin-bottom: 1rem;
+            line-height: 1.08;
         }
 
         .section-header p {
-            font-size: 1.125rem;
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
             color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 640px;
+            margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.25rem;
         }
 
         .feature-card .feature-title {
@@ -951,7 +990,7 @@
 
         /* Why Arthavi */
         .why-section {
-            padding: 5rem 0;
+            padding: 6.5rem 0;
             background: linear-gradient(to bottom, var(--bg-main), var(--bg-surface));
         }
 
@@ -990,7 +1029,7 @@
 
         /* Trust & Privacy */
         .trust-section {
-            padding: 5rem 0;
+            padding: 6rem 0;
             text-align: center;
         }
 
@@ -1023,7 +1062,7 @@
 
         /* FAQ */
         .faq-section {
-            padding: 5rem 0;
+            padding: 6.5rem 0;
             background: var(--bg-surface);
         }
 
@@ -1304,8 +1343,8 @@
             text-align: center;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 12px;
+            padding: 2.25rem;
+            border-radius: 16px;
             transition: transform 0.3s ease;
         }
 
@@ -1352,7 +1391,7 @@
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 2.25rem;
         }
 
         .testimonial-card {
@@ -1485,6 +1524,12 @@
                 display: none;
             }
 
+            .btn-demo::after {
+                font-size: 0.62rem;
+                top: -0.65rem;
+                right: 0.8rem;
+            }
+
             .ai-split {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1504,7 +1549,15 @@
             }
 
             .section-header h2 {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .section-header p {
+                line-height: 1.7;
             }
 
             .steps-grid {
@@ -1622,6 +1675,13 @@
 
             .hero h1 {
                 font-size: 1.8rem;
+            }
+
+            .btn-demo::after {
+                position: static;
+                margin-left: 0.5rem;
+                display: inline-flex;
+                vertical-align: middle;
             }
 
             .hero-shell {
