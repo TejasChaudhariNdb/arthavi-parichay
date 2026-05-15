@@ -216,8 +216,8 @@ const seo = {
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero text-center">
-            <div class="container hero-content fade-in">
-                <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+            <div class="container hero-content hero-shell fade-in">
+                <div class="hero-badge-wrap">
                     <span class="ai-badge">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -229,34 +229,29 @@ const seo = {
                 </div>
 
                 <h1 class="heading-xl">
-                    India's Smartest <br><span>AI Portfolio Tracker</span>
+                    Track Stocks & Mutual Funds <br><span>in One Place</span>
                 </h1>
-                <h2 style="font-size: 2.2rem;">
-                    for Indian Stocks & Mutual Funds
+                <h2 class="hero-subheadline">
+                    Import your mutual funds and stocks into one dashboard with AI-powered insights, real XIRR tracking, and complete privacy.
                 </h2>
 
-                <!-- GEO: Clear definition first -->
-                <p>
-                    <strong>Arthavi</strong> is a privacy-first investment tracking platform that consolidates your Mutual Funds (via CAS import) and NSE/BSE stocks into a single dashboard. Unlike broker apps that require demat linking, Arthavi lets you upload your official Consolidated Account Statement — a SEBI-regulated document from CAMS or KFintech — to instantly calculate your XIRR, net worth, and sector allocation without sharing sensitive credentials.
-                </p>
-                <!-- GEO: Supporting detail + Q&A format -->
-                <p>
-                    Simply upload your investment statement (CAS) — a file you can download from your mutual fund provider — to ask AI questions like
-                    <em>"Is my portfolio over-exposed to banking?"</em> or
-                    <em>"Benchmark my returns against the Nifty 50."</em>
-                </p>
+                <div class="hero-trust-row">
+                    <span class="hero-trust-pill">No broker login</span>
+                    <span class="hero-trust-pill">Privacy-first & read-only</span>
+                    <span class="hero-trust-pill">Built for Indian investors</span>
+                </div>
 
                 <!-- GEO: Key stats as quotable facts with dates -->
                 <div style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">By the numbers (as of May 2026)</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Trusted by Indian investors</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center;">
                         <div>
                             <p style="font-size: 1.4rem; font-weight: 700; color: #34d399; margin: 0;">1,000+</p>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Active Investors</p>
+                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Investors</p>
                         </div>
                         <div>
                             <p style="font-size: 1.4rem; font-weight: 700; color: #818cf8; margin: 0;">&#x20B9;400+ Cr</p>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Portfolio Tracked</p>
+                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Tracked</p>
                         </div>
                         <div>
                             <p style="font-size: 1.4rem; font-weight: 700; color: #fbbf24; margin: 0;">4.8/5</p>
@@ -268,7 +263,7 @@ const seo = {
                 <div class="btn-group">
                     <!-- Try Demo (Primary) -->
                     <a href="https://app.arthavi.com/demo" class="btn btn-primary">
-                        Try Demo (No Login)
+                        Try Demo Portfolio
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
                             <path d="M5 12h14"></path>
@@ -282,7 +277,7 @@ const seo = {
                     </a>
                 </div>
                 <p class="cta-note">
-                    Free • No demat linking • No Ads. Total privacy.
+                    No demat linking • No ads or data selling • Free to get started
                 </p>
 
                 <div style="margin-top: 2rem; display: flex; justify-content: center;">
@@ -341,6 +336,7 @@ const seo = {
                 </div>
             </div>
         </section>
+
 
 
 
