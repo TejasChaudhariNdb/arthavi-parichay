@@ -41,6 +41,9 @@ const breadcrumbSchema = breadcrumb ? JSON.stringify({
     <link rel="icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
+    {schema && <script type="application/ld+json" set:html={schema} />}
+    {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content={canonical}>
