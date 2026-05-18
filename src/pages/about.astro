@@ -12,25 +12,47 @@ const seo = {
   keywords="portfolio tracker India, best mutual fund tracker, Indian investor tools, privacy focused investment app, ad-free portfolio analytics"
   schema={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Arthavi",
-    "url": "https://arthavi.com",
-    "logo": "https://arthavi.com/images/logo.png",
-    "foundingDate": "2024",
-    "description": "Privacy-focused portfolio analytics platform for Indian investors to track Mutual Funds and Stocks with AI-powered insights.",
-    "founder": {
-      "@type": "Person",
-      "name": "Tejas Chaudhari",
-      "url": "https://tejaschaudhari.com",
-      "jobTitle": "Founder & Lead Developer",
-      "knowsAbout": ["JavaScript", "TypeScript", "React", "Node.js", "Portfolio Analytics", "XIRR Calculations", "Personal Finance India"],
-      "description": "Full Stack Developer with 7+ years of experience building production-grade web applications. Started coding at age 10 in 2011."
-    },
-    "sameAs": [
-        "https://www.instagram.com/arthavi.app",
-     
-      ]
-    })}
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://arthavi.com/#organization",
+        "name": "Arthavi",
+        "url": "https://arthavi.com",
+        "logo": "https://arthavi.com/images/logo.png",
+        "foundingDate": "2026",
+        "location": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressCountry": "IN"
+          }
+        },
+        "description": "Privacy-focused portfolio analytics platform for Indian investors to track Mutual Funds and Stocks with AI-powered insights.",
+        "founder": {
+          "@id": "https://arthavi.com/about#tejaschaudhari"
+        },
+        "sameAs": [
+          "https://www.instagram.com/arthavi.app"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://arthavi.com/about#tejaschaudhari",
+        "name": "Tejas Chaudhari",
+        "url": "https://tejaschaudhari.com",
+        "jobTitle": "Founder & Lead Developer",
+        "worksFor": {
+          "@id": "https://arthavi.com/#organization"
+        },
+        "knowsAbout": ["JavaScript", "TypeScript", "React", "Node.js", "Portfolio Analytics", "XIRR Calculations", "Personal Finance India"],
+        "description": "Full Stack Developer with 7+ years of experience building production-grade web applications. Started coding at age 10 in 2011.",
+        "sameAs": [
+          "https://twitter.com/tejas038"
+        ]
+      }
+    ]
+  })}
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },
@@ -52,7 +74,7 @@ const seo = {
             <p>I realized Indian retail investors needed a better, privacy-first way to track their portfolios. So, I spent a month planning and building the initial version of Arthavi to solve my own problem. Today, it has grown into a comprehensive platform for thousands of investors.</p>
 
             <h2>Who We Are</h2>
-            <p>Arthavi was founded on a simple yet powerful premise: <strong>Indian retail investors deserve better
+            <p>Arthavi was founded in <strong>2026</strong> in <strong>Pune, India</strong> on a simple yet powerful premise: <strong>Indian retail investors deserve better
                     data.</strong> In a financial landscape dominated by broker-owned platforms and ad-heavy free tools,
                 clarity is often the first casualty. We set out to build the best portfolio analytics app for Indian
                 investors—one that serves the user, not the intermediary.</p>
