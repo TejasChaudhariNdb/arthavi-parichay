@@ -86,9 +86,6 @@ const breadcrumbSchema = breadcrumb ? JSON.stringify({
         gtag('js', new Date());
         gtag('config', 'G-RQMEP6S2H9');
     </script>
-
-    {schema && <script type="application/ld+json" set:html={schema}></script>}
-    {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema}></script>}
 </head>
 <body>
     <Header />
