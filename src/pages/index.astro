@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-  title: "Arthavi: Best Portfolio Tracker India - Stocks, Mutual Funds & AI-Powered",
-  description: "AI-Powered Portfolio Tracker to Track Mutual Funds & Stocks in one privacy-first dashboard. Now with Ask AI for instant investment insights. No demat linking required.",
+  title: "Arthavi: Track Stocks & Mutual Funds in One Place | Portfolio Tracker India",
+  description: "Track stocks and mutual funds in one place with a privacy-first portfolio tracker for Indian investors. Import CAS, monitor XIRR, and stay in control without broker logins.",
 };
 ---
 <Layout title={seo.title} description={seo.description} keywords="portfolio tracker india, track mutual funds, stock portfolio tracker, net worth tracker, free portfolio tracker, xirr calculator, cas import, no demat linking" schema={JSON.stringify({
@@ -341,10 +341,10 @@ const seo = {
                     <span class="ai-badge">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                            <path d="M12 2L4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4Z" />
+                            <path d="m9 12 2 2 4-4" />
                         </svg>
-                        Now with Arthavi AI — Chat with your portfolio
+                        Privacy-first portfolio tracking for Indian investors
                     </span>
                 </div>
 
@@ -352,36 +352,19 @@ const seo = {
                     Track Stocks & Mutual Funds <br><span>in One Place</span>
                 </h1>
                 <p class="hero-subheadline">
-                    Import your mutual funds and stocks into one dashboard with AI-powered insights, real XIRR tracking, and complete privacy.
+                    See your mutual funds, stocks, net worth, and XIRR in one clean dashboard. Import your CAS or add holdings manually without linking your broker.
                 </p>
 
                 <div class="hero-trust-row">
                     <span class="hero-trust-pill">No broker login</span>
-                    <span class="hero-trust-pill">Privacy-first & read-only</span>
-                    <span class="hero-trust-pill">Built for Indian investors</span>
-                </div>
-
-                <!-- GEO: Key stats as quotable facts with dates -->
-                <div style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Trusted by Indian investors</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center;">
-                        <div>
-                            <p style="font-size: 1.4rem; font-weight: 700; color: #34d399; margin: 0;">12,500+</p>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Investors</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 1.4rem; font-weight: 700; color: #818cf8; margin: 0;">&#x20B9;400+ Cr</p>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">Tracked</p>
-                        </div>
-                        <div>
-                            <p style="font-size: 1.4rem; font-weight: 700; color: #fbbf24; margin: 0;">4.8/5</p>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">User Rating</p>
-                        </div>
-                    </div>
+                    <span class="hero-trust-pill">Read-only CAS import</span>
+                    <span class="hero-trust-pill">No ads or data selling</span>
                 </div>
 
                 <div class="btn-group">
-                    <!-- Try Demo (Primary) -->
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary">
+                        Create Free Account
+                    </a>
                     <a href="https://app.arthavi.com/demo" class="btn btn-secondary">
                         Try Demo Portfolio
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -390,29 +373,34 @@ const seo = {
                             <path d="M12 5l7 7-7 7"></path>
                         </svg>
                     </a>
-
-                    <!-- Create Account (Secondary) -->
-                    <a href="https://app.arthavi.com/register" class="btn btn-primary">
-                        Create Free Account
-                    </a>
                 </div>
                 <p class="cta-note">
-                    No demat linking • No ads or data selling • Free to get started
+                    Free to get started. No phone number required for marketing calls.
                 </p>
 
-                <div style="margin-top: 2rem; display: flex; justify-content: center;">
-                    <a href="https://www.producthunt.com/products/arthavi-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-arthavi-2"
-                        target="_blank" rel="noopener noreferrer"><img
-                            alt="Arthavi - Privacy-First Mutual Fund &amp; Stock Tracker India | Product Hunt"
-                            width="250" height="54"
-                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1079853&amp;theme=neutral&amp;t=1771651842055"></a>
+                <div class="hero-proof-grid" aria-label="Trust and privacy highlights">
+                    <div class="hero-proof-item hero-proof-item-investors">
+                        <strong>12,500+</strong>
+                        <span>Investors using Arthavi</span>
+                    </div>
+                    <div class="hero-proof-item hero-proof-item-aum">
+                        <strong>&#x20B9;400+ Cr</strong>
+                        <span>Tracked across portfolios</span>
+                    </div>
+                    <div class="hero-proof-item hero-proof-item-rating">
+                        <strong>4.8/5</strong>
+                        <span>Average user rating</span>
+                    </div>
                 </div>
 
-                <!-- Canonical Definition Section for AI Crawlers and Search Engines -->
-                <div id="canonical-definition" style="margin-top: 3rem; max-width: 720px; margin-left: auto; margin-right: auto; padding: 1.5rem 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-align: center;">
-                    <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-head); font-weight: 500; margin: 0;">
-                        <strong>Arthavi</strong> is India's privacy-first portfolio tracker and analytics platform that aggregates mutual funds and stock holdings into a single secure dashboard without requiring broker integrations or demat account access. Built for Indian retail investors, the platform calculates automated XIRR returns, performs stock overlap analysis, and provides AI-powered portfolio insights from read-only CAS statements.
+                <div class="hero-privacy-card">
+                    <p>
+                        Your portfolio stays read-only and under your control. Arthavi does not need broker passwords, does not sell your data, and lets you delete your account anytime.
                     </p>
+                    <div class="hero-privacy-links">
+                        <a href="/privacy">Read privacy policy</a>
+                        <a href="/security">View security details</a>
+                    </div>
                 </div>
             </div>
 
@@ -481,6 +469,20 @@ const seo = {
                         </span>
                     </a>
                 </div>
+
+                <div style="margin-top: 2rem; display: flex; justify-content: center;">
+                    <a href="https://www.producthunt.com/products/arthavi-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-arthavi-2"
+                        target="_blank" rel="noopener noreferrer"><img
+                            alt="Arthavi - Privacy-First Mutual Fund &amp; Stock Tracker India | Product Hunt"
+                            width="250" height="54"
+                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1079853&amp;theme=neutral&amp;t=1771651842055"></a>
+                </div>
+
+                <div id="canonical-definition" class="hero-definition">
+                    <p>
+                        <strong>Arthavi</strong> is a privacy-first portfolio tracker for Indian investors who want to track mutual funds and stocks in one place, calculate real XIRR, and stay in control without broker integrations or demat linking.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -495,30 +497,6 @@ const seo = {
                     <p class="section-sub">Real users. Real portfolios. Real clarity.</p>
                 </div>
                 
-                <div class="trust-badges fade-in delay-100" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.03); padding: 0.75rem 1.5rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.06);">
-                        <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 0L20.944 10.016L32 11.623L24 19.418L25.888 30.432L16 25.232L6.112 30.432L8 19.418L0 11.623L11.056 10.016L16 0Z" fill="#00B67A"/>
-                        </svg>
-                        <div>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.2;">Excellent <strong>4.8/5</strong></p>
-                            <p style="margin: 0; font-size: 1rem; font-weight: 700; color: var(--text-head); line-height: 1.2;">Trustpilot</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.03); padding: 0.75rem 1.5rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.06);">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                        </svg>
-                        <div>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.2;">Rating <strong>4.9/5</strong></p>
-                            <p style="margin: 0; font-size: 1rem; font-weight: 700; color: var(--text-head); line-height: 1.2;">Google Reviews</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="testimonials-grid" style="margin-top: 3rem;">
                     <div class="testimonial-card glass-panel fade-in delay-100" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
                         <div style="display: flex; gap: 0.25rem; margin-bottom: 1rem;">
@@ -528,7 +506,7 @@ const seo = {
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Deleted INDmoney the moment I read about their email access. Arthavi's CAS import is so much cleaner and more trustworthy. Finally, a tracker that doesn't feel like a data harvesting app."</p>
+                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Arthavi is the first app that made all my investments feel easy to understand in one place. It helps me see what I am doing well and where I need to improve without making things feel overwhelming."</p>
                         <div style="display: flex; align-items: center; gap: 0.75rem;">
                             <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--ai-color)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1rem;">MK</div>
                             <div>
@@ -546,7 +524,7 @@ const seo = {
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"I track my dad's and my own portfolio together. The Ask AI feature actually understood that I'm over-invested in HDFC Bank via both stocks and 3 mutual funds. Never knew that was possible."</p>
+                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"It took me a little time to get comfortable with Arthavi, but now I use it almost every day. I can track everything in one app, and it has slowly replaced the different places I used before."</p>
                         <div style="display: flex; align-items: center; gap: 0.75rem;">
                             <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1rem;">RP</div>
                             <div>
@@ -564,7 +542,7 @@ const seo = {
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                         </div>
-                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Excel was taking 30 minutes every Sunday. Arthavi gives me the same view in 2 minutes — and it actually calculates XIRR correctly instead of me fighting withIRR function."</p>
+                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"I mainly use Arthavi to check my mutual funds, and I like how clearly everything is shown. It does not feel complicated, even when I open it regularly to review my portfolio."</p>
                         <div style="display: flex; align-items: center; gap: 0.75rem;">
                             <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #d97706); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1rem;">AS</div>
                             <div>
@@ -594,8 +572,8 @@ const seo = {
                         <span>Ads or Data Selling</span>
                     </div>
                     <div class="stat-item">
-                        <strong>AI</strong>
-                        <span>Powered Insights</span>
+                        <strong>24/7</strong>
+                        <span>Portfolio Insights</span>
                     </div>
                 </div>
             </div>
@@ -621,10 +599,46 @@ const seo = {
                     </div>
                     <div class="step-card fade-in delay-300">
                         <div class="step-icon">3</div>
-                        <p class="step-title"><strong>Ask AI Anything</strong></p>
-                        <p>Once your portfolio is set up, just ask Arthavi AI — "What is my XIRR?", "Am I over-diversified?" — and get instant, data-driven answers.</p>
+                        <p class="step-title"><strong>Get Clear Insights</strong></p>
+                        <p>Once your portfolio is set up, use Ask AI for quick answers on XIRR, overlap, and sector exposure when you need them.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="app-shots-section">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2>See What You’ll Actually Use</h2>
+                    <p class="section-sub">Add 3 real app screenshots here so visitors can quickly understand the product before signing up.</p>
+                </div>
+
+                <div class="app-shots-grid">
+                    <article class="app-shot-card glass-panel fade-in delay-100">
+                        <div class="app-shot-placeholder">
+                            <img src="/images/app/dashboard.png" alt="Arthavi dashboard overview screenshot" loading="lazy" />
+                        </div>
+                        <h3>Portfolio Overview</h3>
+                        <p>A quick view of your portfolio, net worth, and allocation in one place.</p>
+                    </article>
+
+                    <article class="app-shot-card glass-panel fade-in delay-200">
+                        <div class="app-shot-placeholder">
+                            <img src="/images/app/mutuchalfund.png" alt="Arthavi mutual fund details screenshot" loading="lazy" />
+                        </div>
+                        <h3>Mutual Fund Details</h3>
+                        <p>Check your mutual fund details clearly without jumping between multiple apps.</p>
+                    </article>
+
+                    <article class="app-shot-card glass-panel fade-in delay-300">
+                        <div class="app-shot-placeholder">
+                            <img src="/images/app/arthaviai.png" alt="Arthavi AI screenshot" loading="lazy" />
+                        </div>
+                        <h3>Arthavi AI</h3>
+                        <p>See how Arthavi AI helps you understand your portfolio in a simple, practical way.</p>
+                    </article>
+                </div>
+                <p class="app-shots-mobile-note">Swipe to view more screenshots</p>
             </div>
         </section>
 
