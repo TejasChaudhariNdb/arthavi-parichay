@@ -29,9 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (heroPreviewImage && heroPreviewTabs.length) {
     setHeroPreview(mobilePreviewQuery.matches ? "mobile" : "desktop");
     heroPreviewTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
+      const switchPreview = (event) => {
+        if (event) event.preventDefault();
         setHeroPreview(tab.dataset.previewTarget || "desktop");
-      });
+      };
+
+      tab.addEventListener("click", switchPreview);
+      tab.addEventListener("touchend", switchPreview, { passive: false });
     });
   }
 
