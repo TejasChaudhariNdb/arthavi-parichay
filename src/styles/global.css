@@ -1501,28 +1501,18 @@
         }
 
         .app-shot-placeholder {
-            min-height: 380px;
             margin-bottom: 1rem;
-            border-radius: 18px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background:
-                radial-gradient(circle at top, rgba(99, 102, 241, 0.18), transparent 42%),
-                linear-gradient(180deg, rgba(21, 26, 35, 0.95), rgba(11, 14, 20, 0.92));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.25rem;
-            text-align: center;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            overflow: hidden;
         }
 
         .app-shot-placeholder img {
             width: 100%;
-            height: 100%;
-            max-height: 520px;
-            object-fit: contain;
-            border-radius: 14px;
-            filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.28));
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .step-card strong {
