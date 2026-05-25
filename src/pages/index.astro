@@ -405,14 +405,39 @@ const seo = {
             </div>
 
             <div class="container">
-                <figure class="dashboard-preview glass-panel fade-in delay-200">
+                <div class="hero-preview-switcher fade-in delay-100" role="tablist" aria-label="Preview mode">
+                    <button
+                        type="button"
+                        class="hero-preview-tab is-active"
+                        data-preview-target="desktop"
+                        role="tab"
+                        aria-selected="true"
+                    >
+                        Desktop Screen
+                    </button>
+                    <button
+                        type="button"
+                        class="hero-preview-tab"
+                        data-preview-target="mobile"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Mobile Screen
+                    </button>
+                </div>
+                <p class="hero-preview-note fade-in delay-100">Includes light & dark mode switching. Use the tabs above to preview the desktop screen and mobile screen.</p>
+                <figure class="dashboard-preview glass-panel fade-in delay-200" id="hero-preview-frame" data-preview-mode="desktop">
                     <picture>
-                        <source
-                            srcset="images/widgets-480w.webp 480w, images/widgets-800w.webp 800w, images/widgets.webp 1024w"
-                            type="image/webp" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1024px">
-                        <img src="images/widgets.webp"
-                            alt="Arthavi portfolio dashboard displaying net worth and asset allocation" width="1024"
-                            height="571" loading="eager" fetchpriority="high">
+                        <img
+                            id="hero-preview-image"
+                            src="/images/app/dashboard_laptop.png"
+                            alt="Arthavi portfolio dashboard on laptop showing net worth, allocation, and performance"
+                            data-desktop-src="/images/app/dashboard_laptop.png"
+                            data-mobile-src="/images/app/dashboard.png"
+                            data-desktop-alt="Arthavi portfolio dashboard on laptop showing net worth, allocation, and performance"
+                            data-mobile-alt="Arthavi mobile dashboard showing portfolio value, gains, and allocation"
+                            width="1600"
+                            height="1000" loading="eager" fetchpriority="high">
                     </picture>
                     <figcaption class="sr-only">Net worth dashboard showing consolidated mutual fund and stock
                         performance for Indian investors, including XIRR-based returns and AMC allocation.</figcaption>
@@ -468,14 +493,6 @@ const seo = {
                             <span class="btn-store-title">Web App</span>
                         </span>
                     </a>
-                </div>
-
-                <div style="margin-top: 2rem; display: flex; justify-content: center;">
-                    <a href="https://www.producthunt.com/products/arthavi-2?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-arthavi-2"
-                        target="_blank" rel="noopener noreferrer"><img
-                            alt="Arthavi - Privacy-First Mutual Fund &amp; Stock Tracker India | Product Hunt"
-                            width="250" height="54"
-                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1079853&amp;theme=neutral&amp;t=1771651842055"></a>
                 </div>
 
                 <div id="canonical-definition" class="hero-definition">
@@ -606,39 +623,25 @@ const seo = {
             </div>
         </section>
 
-        <section class="app-shots-section">
+        <section class="feature-shot-section">
             <div class="container">
-                <div class="section-header text-center fade-in">
-                    <h2>See What You’ll Actually Use</h2>
-                    <p class="section-sub">Add 3 real app screenshots here so visitors can quickly understand the product before signing up.</p>
+                <div class="feature-shot-layout">
+                    <div class="feature-shot-copy fade-in">
+                        <span class="feature-shot-eyebrow">Track with clarity</span>
+                        <h2>See your mutual fund details without the usual clutter</h2>
+                        <p>
+                            Arthavi keeps your holdings, fund details, and portfolio view easy to scan so you can check performance regularly without feeling lost.
+                        </p>
+                    </div>
+                    <div class="feature-shot-visual fade-in delay-100">
+                        <figure class="feature-shot-figure feature-shot-figure-back">
+                            <img src="/images/app/dashboard.png" alt="Arthavi dashboard on mobile" loading="lazy" />
+                        </figure>
+                        <figure class="feature-shot-figure feature-shot-figure-front">
+                            <img src="/images/app/mutuchalfund.png" alt="Arthavi mutual fund details on mobile" loading="lazy" />
+                        </figure>
+                    </div>
                 </div>
-
-                <div class="app-shots-grid">
-                    <article class="app-shot-card glass-panel fade-in delay-100">
-                        <div class="app-shot-placeholder">
-                            <img src="/images/app/dashboard.png" alt="Arthavi dashboard overview screenshot" loading="lazy" />
-                        </div>
-                        <h3>Portfolio Overview</h3>
-                        <p>A quick view of your portfolio, net worth, and allocation in one place.</p>
-                    </article>
-
-                    <article class="app-shot-card glass-panel fade-in delay-200">
-                        <div class="app-shot-placeholder">
-                            <img src="/images/app/mutuchalfund.png" alt="Arthavi mutual fund details screenshot" loading="lazy" />
-                        </div>
-                        <h3>Mutual Fund Details</h3>
-                        <p>Check your mutual fund details clearly without jumping between multiple apps.</p>
-                    </article>
-
-                    <article class="app-shot-card glass-panel fade-in delay-300">
-                        <div class="app-shot-placeholder">
-                            <img src="/images/app/arthaviai.png" alt="Arthavi AI screenshot" loading="lazy" />
-                        </div>
-                        <h3>Arthavi AI</h3>
-                        <p>See how Arthavi AI helps you understand your portfolio in a simple, practical way.</p>
-                    </article>
-                </div>
-                <p class="app-shots-mobile-note">Swipe to view more screenshots</p>
             </div>
         </section>
 
@@ -936,6 +939,11 @@ const seo = {
                             <div style="flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.88rem; color: var(--text-muted);">Ask about your portfolio...</div>
                             <button style="background: linear-gradient(135deg, #6366f1, #8b5cf6); border: none; border-radius: 8px; padding: 0.75rem 1rem; color: white; cursor: pointer;">→</button>
                         </div>
+                    </div>
+                    <div class="ai-phone-shot">
+                        <figure class="feature-shot-figure fade-in delay-200">
+                            <img src="/images/app/arthaviai.png" alt="Arthavi AI mobile screenshot" loading="lazy" />
+                        </figure>
                     </div>
                     <div>
                         <div class="ai-tabs">
