@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.3.1"
+    "astro": "^6.3.1",
+    "posthog-js": "^1.376.1"
   }
 }

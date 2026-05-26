@@ -86,7 +86,24 @@ const breadcrumbSchema = breadcrumb ? JSON.stringify({
         gtag('js', new Date());
         gtag('config', 'G-RQMEP6S2H9');
     </script>
+
+    <!-- PostHog Integration -->
+    <script>
+        import posthog from 'posthog-js';
+        const key = import.meta.env.PUBLIC_POSTHOG_KEY;
+        const host = import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com';
+        if (key) {
+            posthog.init(key, {
+                api_host: host,
+                persistence: 'cookie',
+                cross_subdomain_cookie: true,
+                autocapture: false,
+                capture_pageview: true,
+            });
+        }
+    </script>
 </head>
+
 <body>
     <Header />
     <slot />

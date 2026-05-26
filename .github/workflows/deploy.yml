@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      PUBLIC_POSTHOG_KEY: phc_khcgrrNcGrhKbVPLhLu5uYE4WoYSrLQUmYV5T9nQHkph
+      PUBLIC_POSTHOG_HOST: https://us.i.posthog.com
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
