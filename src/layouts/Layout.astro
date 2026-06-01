@@ -102,6 +102,27 @@ const breadcrumbSchema = breadcrumb ? JSON.stringify({
                 autocapture: false,
                 capture_pageview: true,
             });
+
+            // Track custom CTA events globally across the site
+            document.addEventListener('click', (event) => {
+                const target = event.target as HTMLElement;
+                const link = target.closest('a');
+                if (link && link.href) {
+                    if (link.href.includes('app.arthavi.com/demo')) {
+                        posthog.capture('demo_clicked', {
+                            target_url: link.href,
+                            button_text: link.innerText?.trim() || link.textContent?.trim(),
+                            page_path: window.location.pathname
+                        });
+                    } else if (link.href.includes('app.arthavi.com/register') || link.href === 'https://app.arthavi.com' || link.href === 'https://app.arthavi.com/') {
+                        posthog.capture('create_account_clicked', {
+                            target_url: link.href,
+                            button_text: link.innerText?.trim() || link.textContent?.trim(),
+                            page_path: window.location.pathname
+                        });
+                    }
+                }
+            });
         }
     </script>
 </head>

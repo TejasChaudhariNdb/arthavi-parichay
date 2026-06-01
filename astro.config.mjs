@@ -29,6 +29,7 @@ export default defineConfig({
     '/mutual-fund-portfolio-tracker-india.html': '/mutual-fund-portfolio-tracker-india/',
     '/net-worth-tracker-india.html': '/net-worth-tracker-india/',
     '/portfolio-tracker-india.html': '/portfolio-tracker-india/',
+    '/portfolio-tracker-app-for-stocks-and-mutual-funds.html': '/portfolio-tracker-app-for-stocks-and-mutual-funds/',
     '/privacy.html': '/privacy/',
     '/retirement-planning.html': '/retirement-planning/',
     '/security.html': '/security/',
