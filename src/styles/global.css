@@ -5,7 +5,7 @@
             --bg-surface: #151a23;
             --bg-hover: #1f2937;
 
-            --primary: #6366f1;
+            --primary: #5457e5;
             --primary-hover: #4f46e5;
             --primary-glow: #818cf8;
             --ai-color: #8b5cf6;
@@ -154,7 +154,7 @@
         }
 
         .btn-demo {
-            background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #5457e5 0%, #7c3aed 100%);
             box-shadow: 0 12px 30px rgba(99, 102, 241, 0.34);
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
@@ -766,7 +766,7 @@
 
         .chat-msg.user {
             align-self: flex-end;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #5457e5, #8b5cf6);
             color: #fff;
             border-radius: 14px 14px 3px 14px;
         }
@@ -919,16 +919,25 @@
             box-shadow: 0 10px 18px rgba(99, 102, 241, 0.18);
         }
 
-        .dashboard-preview img {
+        .dashboard-preview img.preview-img-desktop {
+            display: block;
             width: 100%;
             height: auto;
-            display: block;
-            transition: width 0.25s ease, max-width 0.25s ease, margin 0.25s ease;
         }
 
-        .dashboard-preview[data-preview-mode="mobile"] img {
+        .dashboard-preview img.preview-img-mobile {
+            display: none;
             width: min(100%, 340px);
             margin: 0 auto;
+            height: auto;
+        }
+
+        .dashboard-preview[data-preview-mode="mobile"] img.preview-img-desktop {
+            display: none !important;
+        }
+
+        .dashboard-preview[data-preview-mode="mobile"] img.preview-img-mobile {
+            display: block !important;
         }
 
         .hero-definition {
@@ -1967,7 +1976,7 @@
                 padding: 0.35rem;
             }
 
-            .dashboard-preview[data-preview-mode="mobile"] img {
+            .dashboard-preview[data-preview-mode="mobile"] img.preview-img-mobile {
                 width: 100%;
                 max-width: 280px;
             }

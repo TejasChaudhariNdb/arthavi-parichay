@@ -4,7 +4,7 @@
   --bg-surface: #151a23;
   --bg-hover: #1f2937;
 
-  --primary: #6366f1;
+  --primary: #5457e5;
   --primary-hover: #4f46e5;
   --primary-glow: #818cf8;
 
@@ -644,7 +644,7 @@ nav a:hover {
 footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 4rem 0 2rem;
-  color: var(--text-muted);
+  color: var(--text-body);
   font-size: 0.9rem;
 }
 

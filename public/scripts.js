@@ -1,23 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const heroPreviewImage = document.querySelector("#hero-preview-image");
+  const heroPreviewImageDesktop = document.querySelector("#hero-preview-image-desktop");
   const heroPreviewFrame = document.querySelector("#hero-preview-frame");
   const heroPreviewTabs = document.querySelectorAll(".hero-preview-tab");
   const mobilePreviewQuery = window.matchMedia("(max-width: 768px)");
 
   const setHeroPreview = (mode) => {
-    if (!heroPreviewImage || !heroPreviewTabs.length) return;
-    const src =
-      mode === "mobile"
-        ? heroPreviewImage.dataset.mobileSrc
-        : heroPreviewImage.dataset.desktopSrc;
-    const alt =
-      mode === "mobile"
-        ? heroPreviewImage.dataset.mobileAlt
-        : heroPreviewImage.dataset.desktopAlt;
-
-    if (src) heroPreviewImage.src = src;
-    if (alt) heroPreviewImage.alt = alt;
-    if (heroPreviewFrame) heroPreviewFrame.dataset.previewMode = mode;
+    if (!heroPreviewFrame || !heroPreviewTabs.length) return;
+    heroPreviewFrame.dataset.previewMode = mode;
 
     heroPreviewTabs.forEach((tab) => {
       const active = tab.dataset.previewTarget === mode;
@@ -26,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  if (heroPreviewImage && heroPreviewTabs.length) {
+  if (heroPreviewImageDesktop && heroPreviewTabs.length) {
     setHeroPreview(mobilePreviewQuery.matches ? "mobile" : "desktop");
     heroPreviewTabs.forEach((tab) => {
       const switchPreview = (event) => {

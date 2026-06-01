@@ -424,16 +424,22 @@ const seo = {
                 <p class="hero-preview-note fade-in delay-100">Includes light & dark mode. Preview desktop and mobile screens.</p>
                 <figure class="dashboard-preview glass-panel fade-in delay-200" id="hero-preview-frame" data-preview-mode="desktop">
                     <picture>
+                        <!-- Desktop Preview -->
                         <img
-                            id="hero-preview-image"
+                            id="hero-preview-image-desktop"
                             src="/images/app/dashboard_laptop.webp"
                             alt="Arthavi portfolio dashboard on laptop showing net worth, allocation, and performance"
-                            data-desktop-src="/images/app/dashboard_laptop.webp"
-                            data-mobile-src="/images/app/dashboard.webp"
-                            data-desktop-alt="Arthavi portfolio dashboard on laptop showing net worth, allocation, and performance"
-                            data-mobile-alt="Arthavi mobile dashboard showing portfolio value, gains, and allocation"
                             width="1600"
-                            height="1000" loading="eager" fetchpriority="high">
+                            height="1000" loading="eager" fetchpriority="high"
+                            class="preview-img-desktop">
+                        <!-- Mobile Preview -->
+                        <img
+                            id="hero-preview-image-mobile"
+                            src="/images/app/dashboard.webp"
+                            alt="Arthavi mobile dashboard showing portfolio value, gains, and allocation"
+                            width="1179"
+                            height="2556" loading="lazy"
+                            class="preview-img-mobile">
                     </picture>
                     <figcaption class="sr-only">Net worth dashboard showing consolidated mutual fund and stock
                         performance for Indian investors, including XIRR-based returns and AMC allocation.</figcaption>
