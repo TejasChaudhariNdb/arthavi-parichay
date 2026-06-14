@@ -1,0 +1,500 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "Introducing Multi-Profile & Family Wealth Aggregation | Arthavi",
+  description: "Track your family's combined net worth in one privacy-first dashboard. Introduce Multi-Profile tracking, aggregated allocations, and consolidated growth charts.",
+};
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="family wealth aggregation, multi-profile portfolio tracker, family portfolio dashboard india, consolidate mutual funds family, track spouse and child investments"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Introducing Multi-Profile & Family Wealth Aggregation: The Command Center for Your Family's Net Worth",
+        "image": "https://arthavi.com/images/og-image.png",
+        "author": {
+          "@type": "Organization",
+          "name": "Arthavi"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Arthavi",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://arthavi.com/images/logo.png"
+          }
+        },
+        "datePublished": "2026-06-14",
+        "dateModified": "2026-06-14",
+        "description": "We are thrilled to launch the new Multi-Profile & Family Portfolio update! Track individual holdings, set family goals, and get an aggregated picture of your combined family net worth."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I securely track my spouse's investments in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To securely track your spouse's investments, request their CAMS/KFintech Consolidated Account Statement (CAS) PDF or export holdings CSV from brokers like Zerodha or Groww. Instead of sharing active login credentials or granting email access, upload these statements to a dedicated profile on Arthavi. This maintains a read-only, local-parsing secure view."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I combine Zerodha stocks and Groww mutual funds across family members?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. By creating separate family member profiles in Arthavi, you can import mutual funds via CAMS/KFintech CAS statement uploads, and stock portfolios from Zerodha, Groww, or Angel One via CSV upload. Switching to the \"All Family\" dashboard consolidates these investments into a unified returns calculation (XIRR) and sector allocation chart."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between personal and family goals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Personal goals are scoped to individual family profiles (e.g., a child's education or personal vehicle) and are visible only when that specific profile is active. Family goals are collective targets (e.g., retirement fund or buying a home) that aggregate assets across all profile holdings and are displayed on the consolidated \"All Family\" dashboard."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my family's financial data secure during aggregation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Arthavi uses strict privacy-first parsing. Financial statements are processed locally on your device or via secure, encrypted connections. Because Arthavi does not utilize active broker APIs or store credentials, there is zero risk of unauthorized trade execution or leakage of account control."
+            }
+          }
+        ]
+      }
+    ]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/introducing-multi-profile-family-wealth-aggregation" }
+    ]
+  }}
+>
+
+    <main class="container" style="padding-top: calc(var(--header-height) + 2rem);">
+        <article class="prose fade-in" style="max-width: 800px; margin: 0 auto; padding-bottom: 5rem;">
+            
+            <!-- Launch Badge -->
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <span class="launch-badge">🚀 PRODUCT UPDATE</span>
+            </div>
+
+            <h1 style="font-size: 2.5rem; line-height: 1.2; text-align: center; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fff, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Introducing Multi-Profile &amp; Family Wealth Aggregation
+            </h1>
+
+            <p style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.7; text-align: center; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Transforming Arthavi from an individual investment tracker into a unified, privacy-first family wealth command center.
+            </p>
+
+            <!-- Standalone GEO Definition -->
+            <div class="geo-definition-card glass-panel" style="margin-bottom: 3rem; border-left: 4px solid var(--primary); padding: 1.5rem; background: rgba(255, 255, 255, 0.01);">
+                <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: var(--text-head);">
+                    <strong>What is Family Wealth Aggregation?</strong> <br />
+                    Family wealth aggregation is the process of consolidating all financial assets—including mutual funds, stocks, EPF, gold, and cash—belonging to multiple household members into a single, unified net worth dashboard. This enables families in India to track combined asset allocations, identify sector or stock-level overlap risks across multiple PAN accounts, and monitor progress toward collective financial goals.
+                </p>
+            </div>
+
+            <!-- Hero Screenshot Mockup -->
+            <div class="device-mockup glass-panel" style="margin-bottom: 3rem;">
+                <div class="device-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="url-bar">app.arthavi.com/dashboard</span>
+                </div>
+                <div class="mockup-img-container">
+                    <img 
+                        src="/images/family_dashboard.webp" 
+                        alt="Arthavi consolidated family net worth dashboard showing combined portfolios and asset allocation" 
+                        loading="eager" 
+                        class="mockup-image"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <div class="image-placeholder-fallback" style="display:none; height: 350px; background: rgba(255,255,255,0.02); align-items:center; justify-content:center; flex-direction:column; gap:10px; color: var(--text-muted); font-size:0.9rem;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <span>[Family Dashboard Screenshot: family_dashboard.webp]</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>Managing personal finances is only half the battle. For many retail investors in India, wealth management is a household affair. Between tracking your direct stock portfolio, monitoring your spouse's mutual fund SIPs, maintaining minor accounts for your kids, and planning investments for elderly parents, the complexity multiplies exponentially.</p>
+
+            <p>Historically, solving this meant a spreadsheet nightmare or compromising security by sharing broker login details and OTPs. We knew there had to be a better way.</p>
+
+            <p>Today, we are thrilled to release **Multi-Profile &amp; Family Portfolio tracking** on Arthavi. This update turns your secure dashboard into a comprehensive wealth hub, allowing you to track individual holdings while enjoying a beautiful consolidated picture of your entire family's assets—with zero broker linking and zero privacy compromises.</p>
+
+            <!-- Founder Quote for GEO Authority -->
+            <div class="quote-box" style="border-left: 4px solid #a78bfa; padding-left: 1.5rem; margin: 2.5rem 0; font-style: italic;">
+                <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-head); margin-bottom: 0.5rem;">
+                    "True family wealth aggregation isn't just about summing numbers across different profiles. It's about identifying risk overlaps and tax harvesting opportunities across different PAN structures without compromising individual credentials or security."
+                </p>
+                <cite style="font-size: 0.9rem; color: var(--text-muted); font-style: normal; display: block;">
+                    — <strong>Tejas Chaudhari</strong>, Founder of Arthavi
+                </cite>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 3rem 0;" />
+
+            <h2>🌟 Core Features &amp; What's New</h2>
+
+            <p>This update spans both our backend database architecture and our premium frontend experience. Here is a deep dive into the four major layers of the new Family portfolio system:</p>
+
+            <!-- Feature 1 -->
+            <div class="feature-block glass-panel">
+                <div class="feature-icon-box" style="background: rgba(99, 102, 241, 0.1); color: #818cf8;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3>1. Family Profiles &amp; Custom Entities</h3>
+                <p>Create dedicated spaces for each member of your household. No more merging everything into one confusing bucket or signing in and out of different accounts.</p>
+                <ul>
+                    <li><strong>Pre-Mapped Relations</strong>: Instantly configure profiles for <em>Self, Spouse, Mother, Father, or Child</em>.</li>
+                    <li><strong>Custom Entity Labels</strong>: Name custom profiles (e.g., "Grandpa", "HUF", or "Joint Account").</li>
+                    <li><strong>Structured Entity Badging</strong>: Clean visual indicators highlight structure type at a glance:
+                        <span class="badge badge-ind">INDIVIDUAL</span>
+                        <span class="badge badge-joint">JOINT</span>
+                        <span class="badge badge-cust">CUSTOM</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Profile Creation Screenshot Mockup -->
+            <div class="device-mockup glass-panel" style="margin: 3rem 0;">
+                <div class="device-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="url-bar">app.arthavi.com/profile/settings</span>
+                </div>
+                <div class="mockup-img-container">
+                    <img 
+                        src="/images/profile_create_switcher.webp" 
+                        alt="Adding family members and profiles setup in Arthavi settings" 
+                        loading="lazy" 
+                        class="mockup-image"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <div class="image-placeholder-fallback" style="display:none; height: 280px; background: rgba(255,255,255,0.02); align-items:center; justify-content:center; flex-direction:column; gap:10px; color: var(--text-muted); font-size:0.9rem;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <span>[Create Profile Settings Screenshot: profile_create_switcher.webp]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-block glass-panel">
+                <div class="feature-icon-box" style="background: rgba(16, 185, 129, 0.1); color: #34d399;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="3" x2="9" y2="21"></line>
+                        <line x1="17" y1="9" x2="9" y2="9"></line>
+                        <line x1="17" y1="17" x2="9" y2="17"></line>
+                    </svg>
+                </div>
+                <h3>2. The "All Family" Aggregation Engine</h3>
+                <p>When you select the special "All Family" view, Arthavi acts as a consolidated data aggregator, dynamically pulling holdings, calculations, and performance metrics across every member profile.</p>
+                <ul>
+                    <li><strong>Consolidated Dashboard</strong>: See the sum total of your family net worth, aggregated invested capital, total lifetime returns, and combined day's changes.</li>
+                    <li><strong>Merged Asset Allocation</strong>: View overall sector weights, mutual fund categories, and stock concentrations in a single aggregated chart.</li>
+                    <li><strong>👑 Top Holdings Widget</strong>: A brand-new card ranking the largest stock and mutual fund holdings across your entire family. Each row identifies who owns the asset using their personalized relationship avatar.</li>
+                    <li><strong>Separated Goal Scopes</strong>: Keep your personal goals (e.g., "Rahul's New Laptop") private to your profile, while tracking collective family targets (e.g., "House Downpayment") on the aggregated dashboard.</li>
+                </ul>
+            </div>
+
+            <!-- Switcher Screenshot Mockup -->
+            <div class="device-mockup glass-panel" style="margin: 3rem 0;">
+                <div class="device-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="url-bar">app.arthavi.com/dashboard</span>
+                </div>
+                <div class="mockup-img-container">
+                    <img 
+                        src="/images/profile_switcher.webp" 
+                        alt="Premium glassmorphic profile switcher in Arthavi showing linear gradients for relationships" 
+                        loading="lazy" 
+                        class="mockup-image"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <div class="image-placeholder-fallback" style="display:none; height: 280px; background: rgba(255,255,255,0.02); align-items:center; justify-content:center; flex-direction:column; gap:10px; color: var(--text-muted); font-size:0.9rem;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <span>[Profile Switcher Dropdown Screenshot: profile_switcher.webp]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-block glass-panel">
+                <div class="feature-icon-box" style="background: rgba(167, 139, 250, 0.1); color: #c084fc;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <h3>3. Premium Switcher Experience</h3>
+                <p>We designed the profile switcher to be visual and responsive. The switcher sits securely in your header bar, leveraging modern glassmorphism styling and backdrop filters.</p>
+                <ul>
+                    <li><strong>Custom Relationship Gradients</strong>: To help you identify the active account context instantly, every profile gets a premium linear gradient avatar:
+                        <div class="avatar-row" style="margin-top: 1rem;">
+                            <div class="avatar-chip"><span class="avatar-dot" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);"></span> Self (Cool Blue)</div>
+                            <div class="avatar-chip"><span class="avatar-dot" style="background: linear-gradient(135deg, #f97316, #ea580c);"></span> Spouse (Warm Amber)</div>
+                            <div class="avatar-chip"><span class="avatar-dot" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);"></span> Mother (Pink-Purple)</div>
+                            <div class="avatar-chip"><span class="avatar-dot" style="background: linear-gradient(135deg, #fbbf24, #d97706, #b45309);"></span> All Family (Stellar Gold)</div>
+                        </div>
+                    </li>
+                    <li><strong>Active Scoped Borders</strong>: Sidebars and settings highlights show active border indicators linking data to the selected individual.</li>
+                    <li><strong>Switching Toast Feedback</strong>: A custom, haptic-style success banner notifies you exactly when profile contexts change in the background.</li>
+                </ul>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-block glass-panel">
+                <div class="feature-icon-box" style="background: rgba(239, 68, 68, 0.1); color: #f87171;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3>4. Safe Profile Deletion &amp; DB Cleanup</h3>
+                <p>Financial data integrity is crucial. We've built strict safety rules to ensure you never accidentally delete active investments or leave orphan records in the database.</p>
+                <ul>
+                    <li><strong>Checklist Safety Modal</strong>: If you attempt to delete a profile containing active assets, a modal pops up listing all blocking dependencies (Active Mutual Funds, Stocks, or Goals).</li>
+                    <li><strong>Auto-Context Switch Shortcuts</strong>: The checklist displays links (e.g., <em>Unlink Mutual Funds</em>). Clicking them automatically switches the active switcher context to that profile and navigates you to the correct page to resolve them.</li>
+                    <li><strong>Database Folio Cleanups</strong>: When deleting a scheme, the backend automatically drops empty parent `Folio`, `Portfolio`, and snapshot headers, keeping your database clean.</li>
+                </ul>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 3rem 0;" />
+
+            <h2>🛡️ The Privacy-First Difference</h2>
+            <p>Most aggregator apps require you to share passwords to your demat accounts or connect your email inbox so their servers can scrape statement attachments. This exposes your family's sensitive data to third-party databases, advertisements, and lead generators.</p>
+            <p>Arthavi is different. Because our architecture relies on secure, local file parsing, you can upload multiple CAS statements and CSV holding exports directly. <strong>You never have to ask your family members for their broker PINs or passwords.</strong> They simply send you their monthly statement PDF, you drag-and-drop it into their respective profile, and you get complete analytics instantly.</p>
+
+            <h2>🚀 How to Set Up Your Family Command Center</h2>
+            <p>Setting up your family dashboard is simple and takes under five minutes:</p>
+            <ol>
+                <li><strong>Add Profile</strong>: Go to your **Profile Settings** page, click "Add Profile", choose a relation, select a profile structure (Individual, Joint, or Custom), and save.</li>
+                <li><strong>Download Statements</strong>: Generate CAS statements from CAMS or KFintech for each member's PAN number.</li>
+                <li><strong>Upload Scoped Files</strong>: Select the member in the header dropdown switcher, navigate to "Import Statement", and upload their file. Repeat this step for each profile.</li>
+                <li><strong>View Aggregation</strong>: Switch to "All Family" to see your combined Net Worth, combined asset allocation charts, and the consolidated Top Holdings list ranking your family's largest assets.</li>
+            </ol>
+
+            <p>The Multi-Profile update is now live for all Arthavi users. Ditch the manual spreadsheets and start tracking your family's wealth safely today.</p>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 3.5rem 0 3rem;" />
+
+            <!-- Visible FAQ Section matching Schema for AEO/GEO -->
+            <h2 id="faq">💡 Frequently Asked Questions about Family Wealth Aggregation</h2>
+            
+            <div class="faq-accordion" style="margin: 2rem 0 3.5rem; display: grid; gap: 1.5rem;">
+                <div class="faq-card glass-panel" style="padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04);">
+                    <h3 style="margin-top: 0; font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">How do I securely track my spouse's investments in India?</h3>
+                    <p style="margin-bottom: 0; color: var(--text-body); line-height: 1.6;">
+                        To securely track your spouse's investments, request their CAMS/KFintech Consolidated Account Statement (CAS) PDF or export holdings CSV from brokers like Zerodha or Groww. Instead of sharing active login credentials or granting email access, upload these statements to a dedicated profile on Arthavi. This maintains a read-only, local-parsing secure view.
+                    </p>
+                </div>
+                
+                <div class="faq-card glass-panel" style="padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04);">
+                    <h3 style="margin-top: 0; font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">Can I combine Zerodha stocks and Groww mutual funds across family members?</h3>
+                    <p style="margin-bottom: 0; color: var(--text-body); line-height: 1.6;">
+                        Yes. By creating separate family member profiles in Arthavi, you can import mutual funds via CAMS/KFintech CAS statement uploads, and stock portfolios from Zerodha, Groww, or Angel One via CSV upload. Switching to the "All Family" dashboard consolidates these investments into a unified returns calculation (XIRR) and sector allocation chart.
+                    </p>
+                </div>
+                
+                <div class="faq-card glass-panel" style="padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04);">
+                    <h3 style="margin-top: 0; font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">What is the difference between personal and family goals?</h3>
+                    <p style="margin-bottom: 0; color: var(--text-body); line-height: 1.6;">
+                        Personal goals are scoped to individual family profiles (e.g., a child's education or personal vehicle) and are visible only when that specific profile is active. Family goals are collective targets (e.g., retirement fund or buying a home) that aggregate assets across all profile holdings and are displayed on the consolidated "All Family" dashboard.
+                    </p>
+                </div>
+                
+                <div class="faq-card glass-panel" style="padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04);">
+                    <h3 style="margin-top: 0; font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">Is my family's financial data secure during aggregation?</h3>
+                    <p style="margin-bottom: 0; color: var(--text-body); line-height: 1.6;">
+                        Yes, Arthavi uses strict privacy-first parsing. Financial statements are processed locally on your device or via secure, encrypted connections. Because Arthavi does not utilize active broker APIs or store credentials, there is zero risk of unauthorized trade execution or leakage of account control.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; text-align: center; padding: 3rem; background: var(--bg-surface); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06);">
+                <h3 style="margin-top: 0; font-size: 1.6rem; color: #fff;">Consolidate Your Family's Portfolios Today</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">Experience India's most secure family net worth tracking. Completely free and ad-free.</p>
+                <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">Get Started for Free &rarr;</a>
+            </div>
+
+        </article>
+    </main>
+
+</Layout>
+
+<style>
+    .launch-badge {
+        display: inline-block;
+        background: rgba(99, 102, 241, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        color: #a78bfa;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 0.35rem 0.9rem;
+        border-radius: 100px;
+    }
+    
+    .device-mockup {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(11, 14, 20, 0.6);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .device-header {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 0.75rem 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .device-header .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    
+    .device-header .dot.red { background: #ef4444; }
+    .device-header .dot.yellow { background: #f59e0b; }
+    .device-header .dot.green { background: #10b981; }
+    
+    .device-header .url-bar {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        padding: 0.2rem 2rem;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-left: 2rem;
+        flex-grow: 0.4;
+        text-align: center;
+    }
+
+    .mockup-img-container {
+        position: relative;
+        background: #0d1117;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mockup-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        max-height: 480px;
+        object-fit: cover;
+        object-position: top center;
+    }
+    
+    .feature-block {
+        margin: 2.5rem 0;
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.01);
+        position: relative;
+    }
+    
+    .feature-icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .feature-block h3 {
+        margin-top: 0;
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+        color: #fff;
+    }
+    
+    .feature-block p {
+        color: var(--text-body);
+        margin-bottom: 1.25rem;
+    }
+    
+    .feature-block ul {
+        margin-bottom: 0;
+        padding-left: 1.25rem;
+    }
+    
+    .feature-block li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        margin-left: 0.5rem;
+        vertical-align: middle;
+    }
+    
+    .badge-ind { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-joint { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-cust { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    
+    .avatar-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+    
+    .avatar-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    
+    .avatar-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+</style>
