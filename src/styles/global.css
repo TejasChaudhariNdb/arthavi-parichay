@@ -1992,6 +1992,212 @@
             }
         }
 
+        /* Conversion Nudge Section */
+        .conversion-nudge {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .conversion-nudge::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .nudge-card {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            background:
+                radial-gradient(circle at top, rgba(99, 102, 241, 0.10), transparent 50%),
+                linear-gradient(180deg, rgba(21, 26, 35, 0.85), rgba(11, 14, 20, 0.75));
+            border: 1px solid rgba(99, 102, 241, 0.20);
+            box-shadow:
+                0 0 40px rgba(99, 102, 241, 0.08),
+                0 30px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .nudge-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .nudge-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+            color: var(--text-body);
+            font-weight: 500;
+        }
+
+        .nudge-stat strong {
+            color: var(--text-head);
+            font-family: var(--font-heading);
+            font-size: 1rem;
+        }
+
+        .nudge-stat .nudge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .nudge-dot-green { background: #34d399; box-shadow: 0 0 6px rgba(52, 211, 153, 0.4); }
+        .nudge-dot-purple { background: #818cf8; box-shadow: 0 0 6px rgba(129, 140, 248, 0.4); }
+        .nudge-dot-gold { background: #fbbf24; box-shadow: 0 0 6px rgba(251, 191, 36, 0.4); }
+
+        .nudge-card h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
+        }
+
+        .nudge-card > p {
+            color: var(--text-body);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.65;
+        }
+
+        .nudge-card .btn {
+            padding: 0.9rem 2rem;
+            font-size: 1.05rem;
+        }
+
+        .nudge-card .nudge-subtext {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Steps CTA */
+        .steps-cta {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .steps-cta .btn {
+            padding: 0.85rem 2rem;
+            font-size: 1.02rem;
+        }
+
+        .steps-cta .cta-note {
+            margin-top: 0.75rem;
+        }
+
+        /* Features CTA Row */
+        .features-cta-row {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .features-cta-row h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .features-cta-row .cta-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        /* Demo text link style */
+        .demo-text-link {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .demo-text-link:hover {
+            color: var(--text-head);
+        }
+
+        /* Final CTA social proof */
+        .cta-social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-proof-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .cta-proof-item strong {
+            color: var(--text-head);
+            font-family: var(--font-heading);
+        }
+
+        /* Floating CTA pulse on first appearance */
+        @keyframes cta-pulse {
+            0%, 100% { box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35); }
+            50% { box-shadow: 0 10px 35px rgba(99, 102, 241, 0.55), 0 0 0 6px rgba(99, 102, 241, 0.12); }
+        }
+
+        .btn-floating-cta.pulse-once {
+            animation: cta-pulse 1.5s ease 1;
+        }
+
+        @media (max-width: 768px) {
+            .nudge-card {
+                padding: 2rem 1.25rem;
+            }
+
+            .nudge-stats {
+                gap: 1rem;
+            }
+
+            .features-cta-row .cta-btns {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cta-social-proof {
+                gap: 1rem;
+            }
+        }
+
         /* Text Page Layouts (Privacy, Terms, About, etc) */
         .page-header {
             padding-top: calc(var(--header-height) + 4rem);

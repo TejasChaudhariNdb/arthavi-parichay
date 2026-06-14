@@ -362,20 +362,19 @@ const seo = {
                 </div>
 
                 <div class="btn-group">
-                    <a href="https://app.arthavi.com/register" class="btn btn-primary">
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.08rem;">
                         Create Free Account
-                    </a>
-                    <a href="https://app.arthavi.com/demo" class="btn btn-secondary">
-                        Try Demo Portfolio
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
                             <path d="M5 12h14"></path>
                             <path d="M12 5l7 7-7 7"></path>
                         </svg>
                     </a>
                 </div>
                 <p class="cta-note">
-                    Free to get started. No phone number required for marketing calls.
+                    Free to get started. No phone number required.
+                    <span style="margin-left: 0.25rem;">·</span>
+                    <a href="https://app.arthavi.com/demo" class="demo-text-link" style="margin-left: 0.25rem;">or try a demo portfolio →</a>
                 </p>
 
                 <div class="hero-proof-grid" aria-label="Trust and privacy highlights">
@@ -622,6 +621,10 @@ const seo = {
                         <p>Once your portfolio is set up, use Ask AI for quick answers on XIRR, overlap, and sector exposure when you need them.</p>
                     </div>
                 </div>
+                <div class="steps-cta fade-in">
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+                    <p class="cta-note">Takes 30 seconds. No phone number needed.</p>
+                </div>
             </div>
         </section>
 
@@ -782,10 +785,13 @@ const seo = {
                         </ul>
                     </article>
                 </div>
-                <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);" class="fade-in">
-                    <h3 style="margin-bottom: 0.5rem; font-size: 1.8rem;">Want to see everything?</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">We have packed 42+ powerful features into Arthavi.</p>
-                    <a href="/features/" class="btn btn-secondary" style="padding: 0.8rem 1.8rem; font-size: 1rem; border: 1px solid rgba(255,255,255,0.2);">Explore All Features</a>
+                <div class="features-cta-row fade-in">
+                    <h3>Want to see everything?</h3>
+                    <p style="color: var(--text-muted);">We have packed 42+ powerful features into Arthavi.</p>
+                    <div class="cta-btns">
+                        <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+                        <a href="/features/" class="btn btn-secondary" style="border: 1px solid rgba(255,255,255,0.2);">Explore All Features</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -991,8 +997,8 @@ const seo = {
                             </div>
                         </div>
                         <div style="margin-top: 2rem;">
-                            <a href="/ask-ai-investment-assistant/" class="btn btn-primary" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.3);">Explore Ask AI <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></a>
-                            <a href="https://app.arthavi.com/register" class="btn btn-secondary" style="margin-left: 0.75rem;">Start Free</a>
+                            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.3);">Create Free Account <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></a>
+                            <p style="margin-top: 0.75rem;"><a href="/ask-ai-investment-assistant/" class="demo-text-link">Learn more about Ask AI →</a></p>
                         </div>
                     </div>
                 </div>
@@ -1121,6 +1127,32 @@ const seo = {
                             alt="Arthavi Mobile App Interface showing portfolio tracking on the go" loading="lazy"
                             width="2048" height="2048">
                     </picture>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conversion Nudge -->
+        <section class="conversion-nudge">
+            <div class="container">
+                <div class="nudge-card fade-in">
+                    <div class="nudge-stats">
+                        <span class="nudge-stat">
+                            <span class="nudge-dot nudge-dot-green"></span>
+                            <strong>12,500+</strong> investors
+                        </span>
+                        <span class="nudge-stat">
+                            <span class="nudge-dot nudge-dot-purple"></span>
+                            <strong>₹400+ Cr</strong> tracked
+                        </span>
+                        <span class="nudge-stat">
+                            <span class="nudge-dot nudge-dot-gold"></span>
+                            <strong>4.8/5</strong> rating
+                        </span>
+                    </div>
+                    <h2>Start Tracking Your Net Worth Today</h2>
+                    <p>Free. Private. No broker login required. Set up in under 2 minutes.</p>
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+                    <p class="nudge-subtext">No phone number needed · Delete anytime</p>
                 </div>
             </div>
         </section>
@@ -1724,27 +1756,42 @@ const seo = {
         </section>
 
         <!-- Final CTA -->
-        <section class="cta-section">
+        <section class="cta-section" id="final-cta">
             <div class="container cta-content fade-in">
                 <h2>Ready to Take Control?</h2>
-                <div style="margin: 1.5rem 0 2.5rem;">
+                <div style="margin: 1.5rem 0 2rem;">
                     <p class="text-muted" style="margin-bottom:0.5rem">Take control of your investments with a platform
                         designed for clarity, accuracy, and privacy.</p>
                     <p class="text-head">No ads. No data selling. Just better decisions.</p>
                 </div>
 
                 <div class="btn-group cta-actions" style="margin-top: 0;">
-                    <a href="https://app.arthavi.com/demo" class="btn btn-primary btn-demo">
-                        Try Demo Portfolio
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.08rem;">
+                        Create Free Account
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
                             <path d="M5 12h14"></path>
                             <path d="M12 5l7 7-7 7"></path>
                         </svg>
                     </a>
-                    <a href="https://app.arthavi.com/register" class="btn btn-secondary">
-                        Create Free Account
-                    </a>
+                </div>
+                <p style="margin-top: 1rem;">
+                    <a href="https://app.arthavi.com/demo" class="demo-text-link">or try a demo portfolio first →</a>
+                </p>
+
+                <div class="cta-social-proof">
+                    <span class="cta-proof-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <strong>12,500+</strong> investors
+                    </span>
+                    <span class="cta-proof-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <strong>₹400+ Cr</strong> tracked
+                    </span>
+                    <span class="cta-proof-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <strong>Privacy-first</strong> design
+                    </span>
                 </div>
             </div>
         </section>
@@ -1917,11 +1964,32 @@ const seo = {
         // Mobile floating CTA scroll behavior
         document.addEventListener("DOMContentLoaded", () => {
             const floatingCta = document.getElementById('mobile-floating-cta');
+            const floatingBtn = document.getElementById('floating-create-account-btn');
             if (floatingCta) {
+                let hasPulsed = false;
+                const finalCtaSection = document.getElementById('final-cta');
+
                 const handleScroll = () => {
-                    // Show after scrolling 400px down (past hero)
-                    if (window.scrollY > 400) {
+                    const scrollY = window.scrollY;
+                    const shouldShow = scrollY > 300;
+
+                    // Hide when near the final CTA to avoid double-CTA distraction
+                    let nearFinalCta = false;
+                    if (finalCtaSection) {
+                        const rect = finalCtaSection.getBoundingClientRect();
+                        nearFinalCta = rect.top < window.innerHeight && rect.bottom > 0;
+                    }
+
+                    if (shouldShow && !nearFinalCta) {
                         floatingCta.classList.add('visible');
+                        // Pulse animation on first appearance
+                        if (!hasPulsed && floatingBtn) {
+                            hasPulsed = true;
+                            floatingBtn.classList.add('pulse-once');
+                            floatingBtn.addEventListener('animationend', () => {
+                                floatingBtn.classList.remove('pulse-once');
+                            }, { once: true });
+                        }
                     } else {
                         floatingCta.classList.remove('visible');
                     }
