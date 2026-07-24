@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Car Loan EMI Calculator 2025 — Bike Loan, SBI & HDFC Rates | Arthavi"
+  description="Free car loan EMI calculator with current SBI (9.15%), HDFC, and Axis Bank rates. Also calculate bike/two-wheeler loan EMI. View amortization schedule and down payment impact."
+  keywords="car loan EMI calculator, bike loan EMI calculator, car EMI calculator, SBI car loan EMI calculator, HDFC car loan EMI, auto loan calculator India, two wheeler loan EMI 2025"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }, { name: "Car Loan EMI Calculator", url: "https://arthavi.com/car-loan-emi-calculator" }] }}
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://arthavi.com/car-loan-emi-calculator", "name": "Car Loan EMI Calculator 2025 — SBI, HDFC Rates", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebApplication", "name": "Car Loan EMI Calculator", "url": "https://arthavi.com/car-loan-emi-calculator", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "What is the EMI for ₹10 lakh car loan for 5 years?", "acceptedAnswer": { "@type": "Answer", "text": "At SBI's current car loan rate of 9.15% p.a., the EMI for ₹10 lakh car loan for 5 years (60 months) is approximately ₹20,892/month. Total interest = ₹2.54 lakh. Total repayment = ₹12.54 lakh." } },
+        { "@type": "Question", "name": "What is SBI car loan interest rate in 2025?", "acceptedAnswer": { "@type": "Answer", "text": "SBI car loan interest rate in July 2025 is 9.15% to 9.65% p.a. depending on credit score and car model (new vs used). SBI offers the lowest car loan rates among major banks. HDFC Bank charges 9.25–9.75%, ICICI Bank 9.30–10%, and Axis Bank 9.20–9.80% p.a." } },
+        { "@type": "Question", "name": "Is it better to take car loan or pay cash?", "acceptedAnswer": { "@type": "Answer", "text": "Pay cash if: interest cost exceeds expected investment return. Take a car loan if: you can invest the cash at higher returns (e.g., 12% equity returns vs 9.15% car loan), or need liquidity. Car loans have NO tax benefit unlike home loans. Most financial advisors recommend maximizing down payment (20-30%) and keeping tenure short (3-5 years)." } }
+      ]}
+    ]
+  })}
+>
+  <main style="padding-top:5.5rem;">
+    <section class="calc-page-hero">
+      <div class="container">
+        <div class="calc-breadcrumb"><a href="/calculators/">Calculators</a><span>→</span><span>Car Loan EMI Calculator</span></div>
+        <div class="calc-hero-content">
+          <div class="calc-hero-left">
+            <span class="calc-badge" style="background:rgba(244,63,94,.12);border:1px solid rgba(244,63,94,.25);color:#fb7185;">🚗 Auto Loan Calculator</span>
+            <h1>Car Loan EMI Calculator</h1>
+            <p class="calc-hero-desc">Calculate <strong>car loan EMI</strong> and <strong>bike/two-wheeler loan EMI</strong> with current bank rates. View amortization schedule and compare the impact of down payment.</p>
+            <div class="vehicle-tabs">
+              <button class="veh-tab active" onclick="setVehicle('car', this)">🚗 Car Loan</button>
+              <button class="veh-tab" onclick="setVehicle('bike', this)">🏍️ Bike Loan</button>
+            </div>
+            <div class="bank-rates-box">
+              <h3>Current Auto Loan Rates (July 2025)</h3>
+              <table class="rates-table">
+                <thead><tr><th>Bank</th><th>Car Loan</th><th>Bike Loan</th></tr></thead>
+                <tbody>
+                  <tr><td>SBI</td><td>9.15%</td><td>14.45%</td></tr>
+                  <tr><td>HDFC Bank</td><td>9.25%</td><td>13.00%</td></tr>
+                  <tr><td>ICICI Bank</td><td>9.30%</td><td>14.00%</td></tr>
+                  <tr><td>Axis Bank</td><td>9.20%</td><td>13.50%</td></tr>
+                  <tr><td>Canara Bank</td><td>9.35%</td><td>13.75%</td></tr>
+                </tbody>
+              </table>
+              <p class="rates-note">*Rates indicative as of July 2025. Final rate depends on credit score.</p>
+            </div>
+          </div>
+
+          <div class="calc-hero-right">
+            <div class="calc-panel glass-panel">
+              <h2 class="calc-panel-title" id="cl-panel-title">Car Loan EMI Calculator</h2>
+              <div class="calc-inputs">
+                <div class="calc-input-group">
+                  <label id="cl-vehicle-label">Vehicle Price</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="cl-price" value="1000000" min="50000" oninput="calcCarLoan()"></div>
+                  <input type="range" id="cl-price-slider" min="100000" max="10000000" step="50000" value="1000000" class="calc-slider">
+                  <div class="slider-labels"><span>₹1L</span><span>₹1 Cr</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Down Payment</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="cl-down" value="200000" min="0" oninput="calcCarLoan()"></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Annual Interest Rate</label>
+                  <div class="input-row"><input type="number" id="cl-rate" value="9.15" min="5" max="30" step="0.05" oninput="calcCarLoan()"><span class="input-suffix">%</span></div>
+                  <input type="range" id="cl-rate-slider" min="8" max="20" step="0.25" value="9.15" class="calc-slider">
+                </div>
+                <div class="calc-input-group">
+                  <label>Loan Tenure</label>
+                  <div class="input-row"><input type="number" id="cl-tenure" value="5" min="1" max="8" oninput="calcCarLoan()"><span class="input-suffix">Years</span></div>
+                  <input type="range" id="cl-tenure-slider" min="1" max="8" step="1" value="5" class="calc-slider">
+                  <div class="slider-labels"><span>1 yr</span><span>8 yrs</span></div>
+                </div>
+              </div>
+              <div class="cl-results">
+                <div class="result-main"><span class="result-label">Monthly EMI</span><span class="result-value" id="cl-emi" style="color:#fb7185">₹16,618</span></div>
+                <div class="result-breakdown">
+                  <div class="result-item"><span>Loan Amount</span><span id="cl-loan">₹8,00,000</span></div>
+                  <div class="result-item"><span>Total Interest</span><span id="cl-total-int" style="color:#f59e0b">₹1,97,092</span></div>
+                  <div class="result-item result-item-bold"><span>Total Repayment</span><span id="cl-total" style="color:#34d399">₹9,97,092</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-heading">Car & Bike Loan FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the EMI for Tata Tiago EV at 8.99% for 5 years? <span class="faq-icon">+</span></div><div class="faq-a">Tata Tiago EV base variant price ≈ ₹7.99 lakh (ex-showroom). With 20% down payment (₹1.6L), loan amount = ₹6.39L. At 8.99% for 5 years, EMI ≈ ₹13,243/month. Total interest = ₹1.55L. Note: Government subsidies (FAME-2) may reduce on-road price further.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the EMI for Royal Enfield Hunter 350? <span class="faq-icon">+</span></div><div class="faq-a">Royal Enfield Hunter 350 price ≈ ₹1.49 lakh (ex-showroom). With 10% down payment (₹15K), loan amount = ₹1.34L. At SBI bike rate 14.45% for 3 years, EMI ≈ ₹4,618/month. Total interest = ₹32,268. Total repayment = ₹1.66 lakh.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I foreclose my car loan without penalty? <span class="faq-icon">+</span></div><div class="faq-a">Prepayment charges vary: SBI and most PSU banks charge 0-2% on outstanding principal. Private banks like HDFC and ICICI may charge 5-6% in the first year, reducing to 2-3% after. Some lenders have lock-in periods (6-12 months). Check your loan agreement before prepaying. Prepaying in early years saves maximum interest.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What documents are needed for a car loan? <span class="faq-icon">+</span></div><div class="faq-a">Car loan documents: (1) ID Proof — Aadhaar, PAN, Passport, (2) Address Proof — utility bill, bank statement, (3) Income Proof — last 3 months salary slips, 6 months bank statement, Form 16, (4) Employment Proof — employee ID or HR letter, (5) Photographs. Self-employed need ITR for 2 years and business proof. Processing time: 1-3 working days.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/emi-calculator/" class="related-card"><span class="related-icon">💳</span><div><strong>EMI Calculator</strong><p>All loan types</p></div></a>
+          <a href="/home-loan-emi-calculator/" class="related-card"><span class="related-icon">🏡</span><div><strong>Home Loan EMI</strong><p>With tax benefits</p></div></a>
+          <a href="/fd-calculator/" class="related-card"><span class="related-icon">🏦</span><div><strong>FD Calculator</strong><p>Park down payment savings</p></div></a>
+          <a href="/sip-calculator/" class="related-card"><span class="related-icon">📈</span><div><strong>SIP Calculator</strong><p>Build car fund via SIP</p></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+let vehicleType='car';
+function setVehicle(type, btn){
+  vehicleType=type;
+  document.querySelectorAll('.veh-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const rateInput=document.getElementById('cl-rate');
+  const rateSlider=document.getElementById('cl-rate-slider');
+  const rate=type==='car'?9.15:14.45;
+  if(rateInput)rateInput.value=rate;
+  if(rateSlider)rateSlider.value=rate;
+  const title=document.getElementById('cl-panel-title');
+  if(title)title.textContent=type==='car'?'Car Loan EMI Calculator':'Bike Loan EMI Calculator';
+  const label=document.getElementById('cl-vehicle-label');
+  if(label)label.textContent=type==='car'?'Car On-Road Price':'Bike On-Road Price';
+  calcCarLoan();
+}
+window.setVehicle=setVehicle;
+const priceSlider=document.getElementById('cl-price-slider');const priceInput=document.getElementById('cl-price');
+if(priceSlider&&priceInput){priceInput.addEventListener('input',()=>{priceSlider.value=priceInput.value;calcCarLoan();});priceSlider.addEventListener('input',()=>{priceInput.value=priceSlider.value;calcCarLoan();});}
+const rSlider=document.getElementById('cl-rate-slider');const rInput=document.getElementById('cl-rate');
+if(rSlider&&rInput){rInput.addEventListener('input',()=>{rSlider.value=rInput.value;calcCarLoan();});rSlider.addEventListener('input',()=>{rInput.value=rSlider.value;calcCarLoan();});}
+const tSlider=document.getElementById('cl-tenure-slider');const tInput=document.getElementById('cl-tenure');
+if(tSlider&&tInput){tInput.addEventListener('input',()=>{tSlider.value=tInput.value;calcCarLoan();});tSlider.addEventListener('input',()=>{tInput.value=tSlider.value;calcCarLoan();});}
+function calcCarLoan(){
+  const price=parseFloat(document.getElementById('cl-price').value)||0;
+  const down=parseFloat(document.getElementById('cl-down').value)||0;
+  const P=Math.max(0,price-down);
+  const annualRate=parseFloat(document.getElementById('cl-rate').value)||0;
+  const years=parseFloat(document.getElementById('cl-tenure').value)||0;
+  const R=annualRate/12/100;const N=years*12;
+  if(!P||!R||!N)return;
+  const emi=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);
+  const totalPay=emi*N;const totalInt=totalPay-P;
+  document.getElementById('cl-emi').textContent=fmt(emi);
+  document.getElementById('cl-loan').textContent=fmt(P);
+  document.getElementById('cl-total-int').textContent=fmt(totalInt);
+  document.getElementById('cl-total').textContent=fmt(totalPay);
+}
+window.calcCarLoan=calcCarLoan;
+document.addEventListener('DOMContentLoaded',calcCarLoan);
+</script>
+
+<style>
+  .calc-page-hero{padding:2rem 0 3rem;}.calc-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;}.calc-breadcrumb a{color:var(--text-muted);text-decoration:none;}.calc-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:1rem;}.calc-hero-content{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;}.calc-hero-left h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--text-head);margin-bottom:1rem;}.calc-hero-desc{color:var(--text-muted);line-height:1.75;font-size:.93rem;margin-bottom:1.25rem;}.calc-hero-desc strong{color:var(--text-head);}.vehicle-tabs{display:flex;gap:.5rem;margin-bottom:1.25rem;}.veh-tab{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text-muted);border-radius:10px;padding:.6rem;font-size:.85rem;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s;}.veh-tab.active{background:rgba(244,63,94,.12);border-color:rgba(244,63,94,.35);color:#fb7185;font-weight:600;}.bank-rates-box{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.25rem;}.bank-rates-box h3{font-size:.85rem;font-weight:700;color:var(--text-head);margin-bottom:.75rem;}.rates-table{width:100%;border-collapse:collapse;font-size:.8rem;}.rates-table th{background:rgba(244,63,94,.08);color:#fb7185;padding:.55rem .75rem;text-align:left;font-weight:600;}.rates-table td{padding:.5rem .75rem;color:var(--text-muted);border-bottom:1px solid rgba(255,255,255,.04);}.rates-table td:first-child{color:var(--text-head);font-weight:500;}.rates-note{font-size:.7rem;color:var(--text-muted);margin-top:.5rem;font-style:italic;}.calc-panel{padding:1.75rem;border-radius:20px;}.calc-panel-title{font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.calc-inputs{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.25rem;}.calc-input-group label{display:block;font-size:.78rem;color:var(--text-muted);margin-bottom:.35rem;font-weight:500;}.input-row{display:flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;transition:border-color .2s;}.input-row:focus-within{border-color:rgba(244,63,94,.4);}.input-prefix{padding:.6rem .75rem;font-size:.85rem;color:var(--text-muted);background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-suffix{padding:.6rem .75rem;font-size:.82rem;color:var(--text-muted);border-left:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-row input{flex:1;background:none;border:none;outline:none;padding:.6rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;width:100%;}.calc-slider{width:100%;margin-top:.4rem;accent-color:#f43f5e;}.slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-muted);margin-top:.15rem;}.cl-results{background:rgba(244,63,94,.06);border:1px solid rgba(244,63,94,.15);border-radius:14px;padding:1.25rem;}.result-main{text-align:center;margin-bottom:1rem;}.result-label{display:block;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem;}.result-value{font-size:1.8rem;font-weight:800;font-family:'Outfit',sans-serif;}.result-breakdown{display:flex;flex-direction:column;gap:.4rem;}.result-item{display:flex;justify-content:space-between;font-size:.83rem;color:var(--text-muted);}.result-item span:last-child{font-weight:600;color:var(--text-head);}.result-item-bold{border-top:1px solid rgba(255,255,255,.06);padding-top:.4rem;font-weight:600;}.faq-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.faq-heading{font-size:1.4rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;}.faq-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s;}.faq-item.open{border-color:rgba(244,63,94,.3);}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;font-size:.9rem;font-weight:600;color:var(--text-head);gap:1rem;}.faq-icon{font-size:1.2rem;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}.faq-item.open .faq-icon{transform:rotate(45deg);}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem;font-size:.86rem;color:var(--text-muted);line-height:1.75;}.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}.related-section{padding:3rem 0 5rem;border-top:1px solid rgba(255,255,255,.05);}.related-heading{font-size:1.2rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}.related-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem;text-decoration:none;transition:all .2s;}.related-card:hover{border-color:rgba(244,63,94,.3);transform:translateY(-2px);}.related-icon{font-size:1.5rem;flex-shrink:0;}.related-card strong{display:block;font-size:.86rem;color:var(--text-head);margin-bottom:.15rem;}.related-card p{font-size:.73rem;color:var(--text-muted);margin:0;}@media(max-width:900px){.calc-hero-content{grid-template-columns:1fr;}}
+</style>

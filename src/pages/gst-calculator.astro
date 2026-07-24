@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="GST Calculator India 2025 — Inclusive & Exclusive, All Slabs | Arthavi"
+  description="Free GST calculator for India. Calculate GST for all slabs (5%, 12%, 18%, 28%). Switch between inclusive/exclusive modes. View CGST + SGST breakdown. No sign-up needed."
+  keywords="GST calculator, GST calculator India, GST inclusive exclusive calculator, CGST SGST calculator, GST 18% calculator, GST on services, how to calculate GST India 2025"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }, { name: "GST Calculator", url: "https://arthavi.com/gst-calculator" }] }}
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://arthavi.com/gst-calculator", "name": "GST Calculator India 2025 — All Slabs, Inclusive & Exclusive", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebApplication", "name": "GST Calculator India", "url": "https://arthavi.com/gst-calculator", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "What are the GST slabs in India?", "acceptedAnswer": { "@type": "Answer", "text": "India has 4 main GST slabs: 5% (essential goods, medicines, healthcare services), 12% (processed food, computers, business class air travel), 18% (most services, electronics, telecom, restaurants), 28% (luxury goods, cars, tobacco, aerated drinks). Some goods are exempt (0%) or attract special rates (0.25% for diamonds, 3% for gold/silver)." } },
+        { "@type": "Question", "name": "How to calculate GST on a price?", "acceptedAnswer": { "@type": "Answer", "text": "GST Exclusive (price without GST): Add GST = Price × GST% / 100. Example: ₹1000 + 18% GST = ₹180 GST = ₹1180 total. GST Inclusive (price with GST already included): Extract GST = Total × GST% / (100 + GST%). Example: From ₹1180 inclusive price, GST = ₹1180 × 18/118 = ₹180. Base price = ₹1000." } }
+      ]}
+    ]
+  })}
+>
+  <main style="padding-top:5.5rem;">
+    <section class="calc-page-hero">
+      <div class="container">
+        <div class="calc-breadcrumb"><a href="/calculators/">Calculators</a><span>→</span><span>GST Calculator</span></div>
+        <div class="calc-hero-content">
+          <div class="calc-hero-left">
+            <span class="calc-badge" style="background:rgba(45,212,191,.12);border:1px solid rgba(45,212,191,.25);color:#2dd4bf;">📋 GST Calculator</span>
+            <h1>GST Calculator</h1>
+            <p class="calc-hero-desc"><strong>GST (Goods and Services Tax)</strong> was introduced in India on 1 July 2017, replacing multiple indirect taxes. Calculate GST for any amount using all 4 GST slabs in both GST-exclusive and GST-inclusive modes.</p>
+            <div class="gst-slabs-grid">
+              <div class="gst-slab-card" style="border-color:rgba(52,211,153,.25)"><div class="gsc-rate" style="color:#34d399">5%</div><div class="gsc-label">Essential goods, medicines</div></div>
+              <div class="gst-slab-card" style="border-color:rgba(99,102,241,.25)"><div class="gsc-rate" style="color:#818cf8">12%</div><div class="gsc-label">Computers, processed food</div></div>
+              <div class="gst-slab-card" style="border-color:rgba(245,158,11,.25)"><div class="gsc-rate" style="color:#fbbf24">18%</div><div class="gsc-label">Services, electronics, telecom</div></div>
+              <div class="gst-slab-card" style="border-color:rgba(239,68,68,.25)"><div class="gsc-rate" style="color:#f87171">28%</div><div class="gsc-label">Luxury goods, cars, tobacco</div></div>
+            </div>
+          </div>
+
+          <div class="calc-hero-right">
+            <div class="calc-panel glass-panel">
+              <h2 class="calc-panel-title">GST Calculator</h2>
+              <div class="gst-mode-toggle">
+                <button class="gst-mode-btn active" id="mode-excl" onclick="setMode('exclusive', this)">GST Exclusive<br><small>Add GST to amount</small></button>
+                <button class="gst-mode-btn" id="mode-incl" onclick="setMode('inclusive', this)">GST Inclusive<br><small>Extract GST from total</small></button>
+              </div>
+              <div class="calc-inputs">
+                <div class="calc-input-group">
+                  <label id="gst-amount-label">Original Amount (Before GST)</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="gst-amount" value="10000" min="0" oninput="calcGST()"></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>GST Rate</label>
+                  <div class="gst-rate-btns">
+                    <button class="gst-rate-btn" onclick="setGSTRate(0, this)">0%</button>
+                    <button class="gst-rate-btn" onclick="setGSTRate(5, this)">5%</button>
+                    <button class="gst-rate-btn" onclick="setGSTRate(12, this)">12%</button>
+                    <button class="gst-rate-btn active" onclick="setGSTRate(18, this)">18%</button>
+                    <button class="gst-rate-btn" onclick="setGSTRate(28, this)">28%</button>
+                  </div>
+                  <div class="input-row" style="margin-top:.5rem"><input type="number" id="gst-rate" value="18" min="0" max="50" step="0.5" oninput="calcGST()"><span class="input-suffix">% (custom)</span></div>
+                </div>
+              </div>
+
+              <div class="gst-results">
+                <div class="gst-result-row"><span>Base Amount</span><span id="gst-base">₹10,000</span></div>
+                <div class="gst-result-row gst-breakdown">
+                  <span>CGST (<span id="cgst-pct">9%</span>)</span><span id="gst-cgst">₹900</span>
+                </div>
+                <div class="gst-result-row gst-breakdown">
+                  <span>SGST (<span id="sgst-pct">9%</span>)</span><span id="gst-sgst">₹900</span>
+                </div>
+                <div class="gst-result-row gst-main" style="color:#2dd4bf"><span>Total GST</span><span id="gst-total-tax">₹1,800</span></div>
+                <div class="gst-result-row gst-grand" style="border-top:1px solid rgba(255,255,255,.08);padding-top:.65rem;font-weight:700"><span>Total Amount (with GST)</span><span id="gst-grand-total" style="color:#2dd4bf">₹11,800</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-heading">GST FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What are the GST slabs in India 2025? <span class="faq-icon">+</span></div><div class="faq-a">4 main slabs: 5% (essential goods, medicines, healthcare), 12% (processed food, computers, business class flights), 18% (most services, electronics, restaurants, telecom), 28% (luxury cars, tobacco, aerated beverages). Special rates: 0% (fresh food, education), 0.25% (diamonds), 3% (gold, silver).</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the difference between CGST, SGST, and IGST? <span class="faq-icon">+</span></div><div class="faq-a">For intra-state transactions (buyer and seller in same state): GST is split equally as CGST (Central GST) + SGST (State GST). At 18% GST: CGST = 9%, SGST = 9%. For inter-state transactions (different states): IGST (Integrated GST) = full GST rate (18%). IGST is collected by Center and shared with destination state.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Is GST charged on food at restaurants? <span class="faq-icon">+</span></div><div class="faq-a">Restaurant GST: Non-AC/non-licensed restaurants = 5% GST (no ITC). AC restaurants = 5% GST. Hotel restaurants (room tariff above ₹7,500) = 18% GST. Zomato/Swiggy food delivery = 5% GST. Outdoor catering = 18% GST. Note: Alcohol is not covered under GST — it falls under state excise duty.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is Input Tax Credit (ITC) in GST? <span class="faq-icon">+</span></div><div class="faq-a">ITC allows businesses to claim credit for GST paid on purchases/inputs against GST collected on sales. Example: A manufacturer pays ₹180 GST on raw materials and collects ₹360 GST on finished goods. Net GST payable = ₹360 − ₹180 = ₹180. ITC is not available for personal use, food/beverages, health clubs, or cab services.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/income-tax-calculator/" class="related-card"><span class="related-icon">🧾</span><div><strong>Income Tax Calculator</strong><p>Direct tax calculation</p></div></a>
+          <a href="/emi-calculator/" class="related-card"><span class="related-icon">💳</span><div><strong>EMI Calculator</strong><p>Loan repayment planning</p></div></a>
+          <a href="/fd-calculator/" class="related-card"><span class="related-icon">🏦</span><div><strong>FD Calculator</strong><p>Business cash management</p></div></a>
+          <a href="/compound-interest-calculator/" class="related-card"><span class="related-icon">📊</span><div><strong>Compound Interest</strong><p>Business investment growth</p></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+function fmt(n){return '₹'+Math.round(n*100)/100..toLocaleString('en-IN',{minimumFractionDigits:0,maximumFractionDigits:2});}
+let gstMode='exclusive';let currentRate=18;
+function setMode(mode,btn){gstMode=mode;document.querySelectorAll('.gst-mode-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const label=document.getElementById('gst-amount-label');if(label)label.textContent=mode==='exclusive'?'Original Amount (Before GST)':'Total Amount (Including GST)';calcGST();}
+window.setMode=setMode;
+function setGSTRate(rate,btn){currentRate=rate;document.getElementById('gst-rate').value=rate;document.querySelectorAll('.gst-rate-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calcGST();}
+window.setGSTRate=setGSTRate;
+function calcGST(){
+  const amount=parseFloat(document.getElementById('gst-amount').value)||0;
+  const rate=parseFloat(document.getElementById('gst-rate').value)||0;
+  currentRate=rate;
+  let base,totalGST,grand;
+  if(gstMode==='exclusive'){base=amount;totalGST=amount*rate/100;grand=amount+totalGST;}
+  else{grand=amount;base=amount*100/(100+rate);totalGST=grand-base;}
+  const halfGST=totalGST/2;
+  document.getElementById('gst-base').textContent=fmt(base);
+  document.getElementById('gst-cgst').textContent=fmt(halfGST);
+  document.getElementById('gst-sgst').textContent=fmt(halfGST);
+  document.getElementById('gst-total-tax').textContent=fmt(totalGST);
+  document.getElementById('gst-grand-total').textContent=fmt(grand);
+  document.getElementById('cgst-pct').textContent=(rate/2)+'%';
+  document.getElementById('sgst-pct').textContent=(rate/2)+'%';
+}
+window.calcGST=calcGST;
+document.getElementById('gst-rate')&&document.getElementById('gst-rate').addEventListener('input',()=>{document.querySelectorAll('.gst-rate-btn').forEach(b=>b.classList.remove('active'));calcGST();});
+document.addEventListener('DOMContentLoaded',calcGST);
+</script>
+
+<style>
+  .calc-page-hero{padding:2rem 0 3rem;}.calc-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;}.calc-breadcrumb a{color:var(--text-muted);text-decoration:none;}.calc-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:1rem;}.calc-hero-content{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;}.calc-hero-left h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--text-head);margin-bottom:1rem;}.calc-hero-desc{color:var(--text-muted);line-height:1.75;font-size:.93rem;margin-bottom:1.25rem;}.calc-hero-desc strong{color:var(--text-head);}.gst-slabs-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}.gst-slab-card{background:rgba(255,255,255,.025);border:1px solid;border-radius:10px;padding:.85rem;}.gsc-rate{font-size:1.25rem;font-weight:800;font-family:'Outfit',sans-serif;margin-bottom:.25rem;}.gsc-label{font-size:.73rem;color:var(--text-muted);}.calc-panel{padding:1.75rem;border-radius:20px;}.calc-panel-title{font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:1rem;}.gst-mode-toggle{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.25rem;}.gst-mode-btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text-muted);border-radius:10px;padding:.65rem .5rem;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:inherit;text-align:center;line-height:1.4;}.gst-mode-btn small{display:block;font-size:.65rem;opacity:.7;}.gst-mode-btn.active{background:rgba(45,212,191,.12);border-color:rgba(45,212,191,.35);color:#2dd4bf;font-weight:600;}.calc-inputs{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.25rem;}.calc-input-group label{display:block;font-size:.78rem;color:var(--text-muted);margin-bottom:.35rem;font-weight:500;}.input-row{display:flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;transition:border-color .2s;}.input-row:focus-within{border-color:rgba(45,212,191,.4);}.input-prefix{padding:.6rem .75rem;font-size:.85rem;color:var(--text-muted);background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-suffix{padding:.6rem .75rem;font-size:.82rem;color:var(--text-muted);border-left:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-row input{flex:1;background:none;border:none;outline:none;padding:.6rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;width:100%;}.gst-rate-btns{display:flex;gap:.4rem;flex-wrap:wrap;}.gst-rate-btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text-muted);border-radius:8px;padding:.4rem .7rem;font-size:.82rem;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s;}.gst-rate-btn.active{background:rgba(45,212,191,.12);border-color:rgba(45,212,191,.35);color:#2dd4bf;font-weight:600;}.gst-results{background:rgba(45,212,191,.05);border:1px solid rgba(45,212,191,.15);border-radius:14px;padding:1.25rem;display:flex;flex-direction:column;gap:.55rem;}.gst-result-row{display:flex;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--text-muted);}.gst-result-row span:last-child{font-weight:600;color:var(--text-head);}.gst-breakdown{font-size:.82rem;padding-left:.75rem;}.gst-main{font-size:.95rem;font-weight:600;}.gst-grand{font-size:1rem;}.faq-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.faq-heading{font-size:1.4rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;}.faq-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s;}.faq-item.open{border-color:rgba(45,212,191,.3);}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;font-size:.9rem;font-weight:600;color:var(--text-head);gap:1rem;}.faq-icon{font-size:1.2rem;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}.faq-item.open .faq-icon{transform:rotate(45deg);}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem;font-size:.86rem;color:var(--text-muted);line-height:1.75;}.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}.related-section{padding:3rem 0 5rem;border-top:1px solid rgba(255,255,255,.05);}.related-heading{font-size:1.2rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}.related-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem;text-decoration:none;transition:all .2s;}.related-card:hover{border-color:rgba(45,212,191,.3);transform:translateY(-2px);}.related-icon{font-size:1.5rem;flex-shrink:0;}.related-card strong{display:block;font-size:.86rem;color:var(--text-head);margin-bottom:.15rem;}.related-card p{font-size:.73rem;color:var(--text-muted);margin:0;}@media(max-width:900px){.calc-hero-content{grid-template-columns:1fr;}}
+</style>

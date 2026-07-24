@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="FD Calculator 2025 — Fixed Deposit Maturity, TDS & Senior Rates | Arthavi"
+  description="Free FD calculator for SBI, HDFC, ICICI & all banks. Calculate fixed deposit maturity amount, interest earned, TDS deduction, and senior citizen rates. Monthly/quarterly/annual compounding."
+  keywords="FD calculator, fixed deposit calculator, FD maturity calculator, SBI FD calculator, HDFC FD calculator, senior citizen FD rates, TDS on FD, fd interest calculator India 2025"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }, { name: "FD Calculator", url: "https://arthavi.com/fd-calculator" }] }}
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://arthavi.com/fd-calculator", "name": "FD Calculator 2025 — Fixed Deposit Maturity, TDS & Senior Rates", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebApplication", "name": "Fixed Deposit Calculator", "url": "https://arthavi.com/fd-calculator", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "How is FD interest calculated?", "acceptedAnswer": { "@type": "Answer", "text": "FD interest for cumulative deposits: Maturity Amount = P × (1 + r/n)^(n×t), where P = principal, r = annual interest rate, n = compounding frequency (quarterly = 4), t = tenure in years. For example, ₹1 lakh at 7% for 3 years compounded quarterly = ₹1,23,144." } },
+        { "@type": "Question", "name": "What is TDS on FD?", "acceptedAnswer": { "@type": "Answer", "text": "TDS (Tax Deducted at Source) on FD interest is 10% if interest exceeds ₹40,000 per year (₹50,000 for senior citizens). If PAN is not submitted, TDS rate is 20%. Submit Form 15G (below 60 years, zero tax liability) or Form 15H (senior citizens) to avoid TDS deduction." } },
+        { "@type": "Question", "name": "What are current SBI FD rates in 2025?", "acceptedAnswer": { "@type": "Answer", "text": "SBI FD rates as of July 2025: 7 days to 45 days = 3.50%, 46–179 days = 5.50%, 180–210 days = 6.25%, 211 days to less than 1 year = 6.50%, 1–2 years = 6.80%, 2–3 years = 7.00%, 3–5 years = 6.75%, 5–10 years = 6.50%. Senior citizens get an additional 0.50%." } }
+      ]}
+    ]
+  })}
+>
+  <main style="padding-top:5.5rem;">
+    <section class="calc-page-hero">
+      <div class="container">
+        <div class="calc-breadcrumb">
+          <a href="/calculators/">Calculators</a><span>→</span><span>FD Calculator</span>
+        </div>
+        <div class="calc-hero-content">
+          <div class="calc-hero-left">
+            <span class="calc-badge" style="background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.25);color:#22d3ee;">🏦 Fixed Deposit</span>
+            <h1>FD Calculator</h1>
+            <p class="calc-hero-desc">A <strong>Fixed Deposit (FD) calculator</strong> computes your maturity amount based on principal, interest rate, tenure, and compounding frequency. FDs are the safest investment option in India, backed by DICGC insurance up to ₹5 lakh.</p>
+            <div class="fd-rates-preview">
+              <h3 style="font-size:.85rem;font-weight:700;color:var(--text-head);margin-bottom:.75rem;">Current Best FD Rates (July 2025)</h3>
+              <div class="fd-rate-chips">
+                <div class="fd-chip"><span class="fd-chip-bank">SBI</span><span class="fd-chip-rate">7.00%</span><span class="fd-chip-tenure">2-3 yr</span></div>
+                <div class="fd-chip"><span class="fd-chip-bank">HDFC</span><span class="fd-chip-rate">7.25%</span><span class="fd-chip-tenure">1-2 yr</span></div>
+                <div class="fd-chip"><span class="fd-chip-bank">ICICI</span><span class="fd-chip-rate">7.25%</span><span class="fd-chip-tenure">1-2 yr</span></div>
+                <div class="fd-chip"><span class="fd-chip-bank">Axis</span><span class="fd-chip-rate">7.20%</span><span class="fd-chip-tenure">1-2 yr</span></div>
+                <div class="fd-chip"><span class="fd-chip-bank">Small Fin.</span><span class="fd-chip-rate">9.0%+</span><span class="fd-chip-tenure">Select</span></div>
+              </div>
+              <p class="rates-note">*Senior citizens get +0.50% on all banks. Rates indicative.</p>
+            </div>
+          </div>
+
+          <div class="calc-hero-right">
+            <div class="calc-panel glass-panel">
+              <h2 class="calc-panel-title">FD Maturity Calculator</h2>
+              <div class="senior-toggle-row">
+                <label class="toggle-label">
+                  <input type="checkbox" id="fd-senior" onchange="calcFD()">
+                  <span class="toggle-sw"></span>
+                  Senior Citizen (+0.50%)
+                </label>
+              </div>
+              <div class="calc-inputs">
+                <div class="calc-input-group">
+                  <label>Principal Amount</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="fd-principal" value="100000" min="1000" oninput="calcFD()"></div>
+                  <input type="range" id="fd-principal-slider" min="10000" max="10000000" step="10000" value="100000" class="calc-slider">
+                  <div class="slider-labels"><span>₹10K</span><span>₹1 Cr</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Annual Interest Rate</label>
+                  <div class="input-row"><input type="number" id="fd-rate" value="7.00" min="1" max="15" step="0.05" oninput="calcFD()"><span class="input-suffix">% p.a.</span></div>
+                  <input type="range" id="fd-rate-slider" min="3" max="12" step="0.25" value="7" class="calc-slider">
+                  <div class="slider-labels"><span>3%</span><span>12%</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Tenure</label>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+                    <div class="input-row"><input type="number" id="fd-years" value="3" min="0" max="10" oninput="calcFD()"><span class="input-suffix">Yr</span></div>
+                    <div class="input-row"><input type="number" id="fd-months" value="0" min="0" max="11" oninput="calcFD()"><span class="input-suffix">Mo</span></div>
+                  </div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Compounding Frequency</label>
+                  <select id="fd-compound" onchange="calcFD()" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.65rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;outline:none;">
+                    <option value="4" selected>Quarterly (Banks default)</option>
+                    <option value="12">Monthly</option>
+                    <option value="2">Half-Yearly</option>
+                    <option value="1">Annually</option>
+                  </select>
+                </div>
+              </div>
+              <div class="fd-results">
+                <div class="result-main"><span class="result-label">Maturity Amount</span><span class="result-value" id="fd-maturity">₹1,23,144</span></div>
+                <div class="result-breakdown">
+                  <div class="result-item"><span>Principal Invested</span><span id="fd-principal-show">₹1,00,000</span></div>
+                  <div class="result-item"><span>Interest Earned</span><span id="fd-interest" style="color:#34d399">₹23,144</span></div>
+                  <div class="result-item"><span>TDS Deducted (est.)</span><span id="fd-tds" style="color:#f59e0b">₹0</span></div>
+                  <div class="result-item result-item-bold"><span>Net Maturity (after TDS)</span><span id="fd-net">₹1,23,144</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-heading">Fixed Deposit FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How is FD interest calculated? <span class="faq-icon">+</span></div><div class="faq-a">FD maturity amount = P × (1 + r/n)^(n×t). For ₹1 lakh at 7% for 3 years (quarterly compounding): 1,00,000 × (1 + 0.07/4)^12 = ₹1,23,144. Interest earned = ₹23,144 (vs ₹21,000 with simple interest).</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">When is TDS deducted on FD? <span class="faq-icon">+</span></div><div class="faq-a">TDS at 10% is deducted when FD interest in a financial year exceeds ₹40,000 (₹50,000 for senior citizens). Submit Form 15G (under 60) or 15H (senior citizen) to avoid TDS if your total income is below taxable limit.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Is FD interest taxable? <span class="faq-icon">+</span></div><div class="faq-a">Yes. FD interest is fully taxable as "Income from Other Sources" at your applicable income tax slab rate. It is NOT eligible for 80C deduction (except 5-year tax-saving FDs). Even if TDS is not deducted, you must declare interest in ITR.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the DICGC insurance limit on FDs? <span class="faq-icon">+</span></div><div class="faq-a">DICGC (Deposit Insurance and Credit Guarantee Corporation) insures bank deposits — including FDs — up to ₹5 lakh per depositor per bank. This limit applies to the sum of all deposits (principal + interest) across all your accounts in one bank. For amounts above ₹5 lakh, consider spreading across multiple banks.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">FD vs PPF — which is better? <span class="faq-icon">+</span></div><div class="faq-a">PPF offers 7.1% tax-free returns (EEE category — no tax on investment, returns, or maturity), 15-year lock-in, and 80C deduction up to ₹1.5 lakh. FD offers flexibility — tenures from 7 days to 10 years, but interest is fully taxable. For long-term tax-free investing, PPF wins. For liquidity and short-term, FD wins.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/ppf-calculator/" class="related-card"><span class="related-icon">🏛️</span><div><strong>PPF Calculator</strong><p>Tax-free alternative to FD</p></div></a>
+          <a href="/compound-interest-calculator/" class="related-card"><span class="related-icon">📊</span><div><strong>Compound Interest</strong><p>Compare compounding frequencies</p></div></a>
+          <a href="/sip-calculator/" class="related-card"><span class="related-icon">📈</span><div><strong>SIP Calculator</strong><p>Higher returns for long-term</p></div></a>
+          <a href="/income-tax-calculator/" class="related-card"><span class="related-icon">🧾</span><div><strong>Income Tax Calculator</strong><p>How FD interest is taxed</p></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+const pSlider = document.getElementById('fd-principal-slider');
+const pInput = document.getElementById('fd-principal');
+const rSlider = document.getElementById('fd-rate-slider');
+const rInput = document.getElementById('fd-rate');
+if(pSlider && pInput){ pInput.addEventListener('input',()=>{pSlider.value=pInput.value;calcFD();}); pSlider.addEventListener('input',()=>{pInput.value=pSlider.value;calcFD();}); }
+if(rSlider && rInput){ rInput.addEventListener('input',()=>{rSlider.value=rInput.value;calcFD();}); rSlider.addEventListener('input',()=>{rInput.value=rSlider.value;calcFD();}); }
+
+function calcFD() {
+  let P = parseFloat(document.getElementById('fd-principal').value)||0;
+  let rate = parseFloat(document.getElementById('fd-rate').value)||0;
+  const senior = document.getElementById('fd-senior').checked;
+  if(senior) rate += 0.5;
+  const years = parseFloat(document.getElementById('fd-years').value)||0;
+  const months = parseFloat(document.getElementById('fd-months').value)||0;
+  const n = parseFloat(document.getElementById('fd-compound').value)||4;
+  const t = years + months/12;
+  const r = rate/100;
+  const maturity = P * Math.pow(1 + r/n, n*t);
+  const interest = maturity - P;
+  const tdsThreshold = senior ? 50000 : 40000;
+  const tds = (interest/t > tdsThreshold) ? interest * 0.10 : 0;
+  document.getElementById('fd-maturity').textContent = fmt(maturity);
+  document.getElementById('fd-principal-show').textContent = fmt(P);
+  document.getElementById('fd-interest').textContent = fmt(interest);
+  document.getElementById('fd-tds').textContent = fmt(tds);
+  document.getElementById('fd-net').textContent = fmt(maturity - tds);
+}
+window.calcFD = calcFD;
+document.addEventListener('DOMContentLoaded', calcFD);
+</script>
+
+<style>
+  .calc-page-hero{padding:2rem 0 3rem;}.calc-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;}.calc-breadcrumb a{color:var(--text-muted);text-decoration:none;}.calc-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:1rem;}.calc-hero-content{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;}.calc-hero-left h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--text-head);margin-bottom:1rem;}.calc-hero-desc{color:var(--text-muted);line-height:1.75;font-size:.93rem;margin-bottom:1.25rem;}.calc-hero-desc strong{color:var(--text-head);}.fd-rates-preview{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.25rem;}.fd-rate-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem;}.fd-chip{display:flex;flex-direction:column;align-items:center;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.15);border-radius:10px;padding:.6rem .75rem;}.fd-chip-bank{font-size:.68rem;color:var(--text-muted);}.fd-chip-rate{font-size:.95rem;font-weight:700;color:#22d3ee;}.fd-chip-tenure{font-size:.65rem;color:var(--text-muted);}.rates-note{font-size:.7rem;color:var(--text-muted);font-style:italic;}.calc-panel{padding:1.75rem;border-radius:20px;}.calc-panel-title{font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:1rem;}.senior-toggle-row{margin-bottom:1rem;}.toggle-label{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:var(--text-muted);cursor:pointer;}.toggle-label input[type=checkbox]{display:none;}.toggle-sw{width:40px;height:22px;background:rgba(255,255,255,.08);border-radius:11px;position:relative;flex-shrink:0;transition:background .2s;}.toggle-label input:checked+.toggle-sw{background:#06b6d4;}.toggle-sw::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform .2s;}.toggle-label input:checked+.toggle-sw::after{transform:translateX(18px);}.calc-inputs{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.25rem;}.calc-input-group label{display:block;font-size:.78rem;color:var(--text-muted);margin-bottom:.35rem;font-weight:500;}.input-row{display:flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;transition:border-color .2s;}.input-row:focus-within{border-color:rgba(6,182,212,.4);}.input-prefix{padding:.6rem .75rem;font-size:.85rem;color:var(--text-muted);background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-suffix{padding:.6rem .75rem;font-size:.82rem;color:var(--text-muted);border-left:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-row input{flex:1;background:none;border:none;outline:none;padding:.6rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;width:100%;}.calc-slider{width:100%;margin-top:.4rem;accent-color:#06b6d4;}.slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-muted);margin-top:.15rem;}.fd-results{background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.15);border-radius:14px;padding:1.25rem;}.result-main{text-align:center;margin-bottom:1rem;}.result-label{display:block;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem;}.result-value{font-size:1.8rem;font-weight:800;color:#22d3ee;font-family:'Outfit',sans-serif;}.result-breakdown{display:flex;flex-direction:column;gap:.4rem;}.result-item{display:flex;justify-content:space-between;font-size:.83rem;color:var(--text-muted);}.result-item span:last-child{font-weight:600;color:var(--text-head);}.result-item-bold{border-top:1px solid rgba(255,255,255,.06);padding-top:.4rem;font-weight:600;}.faq-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.faq-heading{font-size:1.4rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;}.faq-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s;}.faq-item.open{border-color:rgba(6,182,212,.3);}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;font-size:.9rem;font-weight:600;color:var(--text-head);gap:1rem;}.faq-icon{font-size:1.2rem;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}.faq-item.open .faq-icon{transform:rotate(45deg);}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem;font-size:.86rem;color:var(--text-muted);line-height:1.75;}.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}.related-section{padding:3rem 0 5rem;border-top:1px solid rgba(255,255,255,.05);}.related-heading{font-size:1.2rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}.related-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem;text-decoration:none;transition:all .2s;}.related-card:hover{border-color:rgba(6,182,212,.3);transform:translateY(-2px);}.related-icon{font-size:1.5rem;flex-shrink:0;}.related-card strong{display:block;font-size:.86rem;color:var(--text-head);margin-bottom:.15rem;}.related-card p{font-size:.73rem;color:var(--text-muted);margin:0;}@media(max-width:900px){.calc-hero-content{grid-template-columns:1fr;}}
+</style>

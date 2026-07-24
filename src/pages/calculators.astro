@@ -2,184 +2,1114 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-  title: "Free Investment Calculators | SIP, SWP, CAGR, XIRR & Lumpsum",
-  description: "Calculate your investment returns with Arthavi's free calculators. SIP, SWP, CAGR, XIRR, and Lumpsum calculators — built for Indian investors. Fast, accurate, no sign-up required.",
+  title: "Free Financial Calculators India 2025 | EMI, SIP, Tax, HRA, FD, PPF | Arthavi",
+  description: "India's most comprehensive free calculator hub. Calculate EMI, SIP returns, income tax (FY 2025-26), HRA exemption, FD maturity, PPF, CAGR, XIRR and more. No sign-up required.",
+};
+
+const calculators = [
+  {
+    id: "emi",
+    name: "EMI Calculator",
+    slug: "/emi-calculator/",
+    desc: "Calculate monthly EMI for any loan — home, car, personal or education. View complete amortization schedule.",
+    tags: ["Loan", "Monthly Payment", "Amortization"],
+    icon: "💳",
+    color: "#6366f1",
+    bg: "rgba(99,102,241,0.12)",
+    category: "loans",
+    trending: true,
+    trendLabel: "Top 3 India"
+  },
+  {
+    id: "income-tax",
+    name: "Income Tax Calculator",
+    slug: "/income-tax-calculator/",
+    desc: "Calculate your income tax for FY 2025-26. Compare old vs new tax regime and find which saves you more.",
+    tags: ["FY 2025-26", "Old vs New Regime", "Tax Saving"],
+    icon: "🧾",
+    color: "#f59e0b",
+    bg: "rgba(245,158,11,0.12)",
+    category: "tax",
+    trending: true,
+    trendLabel: "+90% Trending"
+  },
+  {
+    id: "hra",
+    name: "HRA Calculator",
+    slug: "/hra-calculator/",
+    desc: "Calculate HRA exemption under Income Tax Act. Updated for 8th Pay Commission rates for metro and non-metro cities.",
+    tags: ["HRA Exemption", "8th Pay Commission", "Metro/Non-Metro"],
+    icon: "🏠",
+    color: "#10b981",
+    bg: "rgba(16,185,129,0.12)",
+    category: "tax",
+    trending: true,
+    trendLabel: "+750% Breakout"
+  },
+  {
+    id: "sip",
+    name: "SIP Calculator",
+    slug: "/sip-calculator/",
+    desc: "Calculate how your monthly SIP grows with step-up, inflation adjustment and lumpsum top-up options.",
+    tags: ["Monthly SIP", "Step Up", "Inflation Adjusted"],
+    icon: "📈",
+    color: "#8b5cf6",
+    bg: "rgba(139,92,246,0.12)",
+    category: "investment",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "fd",
+    name: "FD Calculator",
+    slug: "/fd-calculator/",
+    desc: "Calculate Fixed Deposit maturity amount across SBI, HDFC, ICICI, and other major Indian banks.",
+    tags: ["Maturity Amount", "TDS", "Senior Citizen Rates"],
+    icon: "🏦",
+    color: "#06b6d4",
+    bg: "rgba(6,182,212,0.12)",
+    category: "investment",
+    trending: true,
+    trendLabel: "High Volume"
+  },
+  {
+    id: "compound-interest",
+    name: "Compound Interest Calculator",
+    slug: "/compound-interest-calculator/",
+    desc: "See how compound interest grows your money. Compare monthly, quarterly, and annual compounding frequencies.",
+    tags: ["Compound vs Simple", "Compounding Frequency", "Growth Rate"],
+    icon: "📊",
+    color: "#ec4899",
+    bg: "rgba(236,72,153,0.12)",
+    category: "investment",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "ppf",
+    name: "PPF Calculator",
+    slug: "/ppf-calculator/",
+    desc: "Calculate PPF maturity at current 7.1% interest rate. Plan partial withdrawals and extensions beyond 15 years.",
+    tags: ["Tax Free Returns", "7.1% Interest", "EEE Category"],
+    icon: "🏛️",
+    color: "#f97316",
+    bg: "rgba(249,115,22,0.12)",
+    category: "investment",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "home-loan",
+    name: "Home Loan EMI Calculator",
+    slug: "/home-loan-emi-calculator/",
+    desc: "Calculate home loan EMI with current SBI, HDFC, and LIC HFL rates. View amortization and tax benefits under 80C.",
+    tags: ["Home Loan", "Bank Rates", "Tax Benefit 80C"],
+    icon: "🏡",
+    color: "#84cc16",
+    bg: "rgba(132,204,22,0.12)",
+    category: "loans",
+    trending: true,
+    trendLabel: "+200% Rising"
+  },
+  {
+    id: "swp",
+    name: "SWP Calculator",
+    slug: "/swp-calculator/",
+    desc: "Plan your Systematic Withdrawal Plan. See how long your corpus lasts at a monthly withdrawal amount.",
+    tags: ["Corpus", "Monthly Withdrawal", "Retirement Income"],
+    icon: "💰",
+    color: "#34d399",
+    bg: "rgba(52,211,153,0.12)",
+    category: "investment",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "retirement",
+    name: "Retirement Calculator",
+    slug: "/retirement-calculator/",
+    desc: "Find how much corpus you need to retire comfortably. Calculate inflation-adjusted expenses and required monthly SIP.",
+    tags: ["Retirement Corpus", "Inflation Adjusted", "Monthly SIP Needed"],
+    icon: "🌅",
+    color: "#a78bfa",
+    bg: "rgba(167,139,250,0.12)",
+    category: "retirement",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "car-loan",
+    name: "Car Loan EMI Calculator",
+    slug: "/car-loan-emi-calculator/",
+    desc: "Calculate car loan EMI with current SBI, HDFC, and Axis Bank rates. Includes bike loan calculation too.",
+    tags: ["Car Loan", "Bike Loan", "Down Payment"],
+    icon: "🚗",
+    color: "#f43f5e",
+    bg: "rgba(244,63,94,0.12)",
+    category: "loans",
+    trending: true,
+    trendLabel: "+100% Rising"
+  },
+  {
+    id: "nps",
+    name: "NPS Calculator",
+    slug: "/nps-calculator/",
+    desc: "Calculate your National Pension System corpus and monthly pension. Tax benefit of ₹50,000 under 80CCD(1B).",
+    tags: ["NPS Tier 1", "Annuity", "80CCD(1B)"],
+    icon: "🧓",
+    color: "#0ea5e9",
+    bg: "rgba(14,165,233,0.12)",
+    category: "retirement",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "cagr",
+    name: "CAGR Calculator",
+    slug: "/cagr-calculator/",
+    desc: "Calculate Compound Annual Growth Rate for any investment. Measure true year-over-year performance.",
+    tags: ["Growth Rate", "Investment Performance", "Annualized Return"],
+    icon: "🚀",
+    color: "#fbbf24",
+    bg: "rgba(251,191,36,0.12)",
+    category: "investment",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "xirr",
+    name: "XIRR Calculator",
+    slug: "/xirr-calculator-mutual-funds/",
+    desc: "Calculate true return rate for irregular cash flows — SIPs, lump-sums, redemptions, and dividends.",
+    tags: ["Irregular Cash Flows", "True Returns", "Mutual Fund"],
+    icon: "📉",
+    color: "#c084fc",
+    bg: "rgba(192,132,252,0.12)",
+    category: "investment",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "gst",
+    name: "GST Calculator",
+    slug: "/gst-calculator/",
+    desc: "Calculate GST on any amount. Switch between inclusive/exclusive modes with CGST, SGST breakdown for all slab rates.",
+    tags: ["GST Slabs", "CGST + SGST", "Inclusive/Exclusive"],
+    icon: "📋",
+    color: "#2dd4bf",
+    bg: "rgba(45,212,191,0.12)",
+    category: "tax",
+    trending: false,
+    trendLabel: ""
+  },
+  {
+    id: "lumpsum",
+    name: "Lumpsum Calculator",
+    slug: "/mutual-fund-calculator/",
+    desc: "See how a one-time lump-sum investment grows. Perfect for windfall allocation or bonus investments.",
+    tags: ["One-Time Investment", "Growth Period", "Expected Return"],
+    icon: "💎",
+    color: "#fb923c",
+    bg: "rgba(251,146,60,0.12)",
+    category: "investment",
+    trending: false,
+    trendLabel: ""
+  }
+];
+
+const faqs = [
+  {
+    q: "Which is the best EMI calculator in India?",
+    a: "Arthavi's free EMI calculator lets you calculate monthly EMI for home loan, car loan, personal loan, and education loan — all in one place. It uses the standard EMI formula: EMI = [P × R × (1+R)^N] / [(1+R)^N – 1], where P is principal, R is monthly interest rate, and N is tenure in months. No sign-up needed."
+  },
+  {
+    q: "How do I calculate income tax for FY 2025-26?",
+    a: "For FY 2025-26 (AY 2026-27), you can choose between the old tax regime (with deductions like 80C, HRA, standard deduction) or the new tax regime (lower slab rates, no deductions). The new regime has slabs: ₹0–3 lakh (0%), ₹3–7 lakh (5%), ₹7–10 lakh (10%), ₹10–12 lakh (15%), ₹12–15 lakh (20%), above ₹15 lakh (30%). Use Arthavi's Income Tax Calculator to compare both regimes instantly."
+  },
+  {
+    q: "What is the HRA exemption formula?",
+    a: "HRA exemption under Income Tax Act Section 10(13A) is the minimum of: (1) Actual HRA received from employer, (2) 50% of basic salary for metro cities (Delhi, Mumbai, Kolkata, Chennai) or 40% for non-metro cities, or (3) Actual rent paid minus 10% of basic salary. Arthavi's HRA calculator computes this automatically."
+  },
+  {
+    q: "What is the current PPF interest rate in 2025?",
+    a: "The PPF (Public Provident Fund) interest rate for Q1 FY 2025-26 is 7.1% per annum, compounded annually. PPF falls in the EEE (Exempt-Exempt-Exempt) category, meaning your contributions (up to ₹1.5 lakh/year), interest earned, and maturity amount are all tax-free."
+  },
+  {
+    q: "How is SIP return calculated?",
+    a: "SIP returns are calculated using the Future Value of Annuity formula: FV = P × [(1 + r)^n – 1] / r × (1 + r), where P is monthly investment, r is monthly return rate (annual rate ÷ 12), and n is number of months. For example, ₹5,000/month at 12% return for 10 years grows to approximately ₹11.6 lakh from ₹6 lakh invested."
+  },
+  {
+    q: "What is the EMI for ₹20 lakh home loan for 20 years?",
+    a: "At SBI's current home loan rate of ~8.5% per annum, the EMI for ₹20 lakh home loan for 20 years is approximately ₹17,356 per month. Total interest paid over 20 years = ₹21.65 lakh, making total repayment = ₹41.65 lakh. Use Arthavi's Home Loan EMI Calculator with current bank rates."
+  },
+  {
+    q: "What is the difference between SIP and lumpsum investment?",
+    a: "SIP (Systematic Investment Plan) involves investing a fixed amount monthly, which averages out market volatility through rupee-cost averaging. Lumpsum investing puts all capital at once, which gives higher returns in bull markets but higher risk. For salaried investors, SIP is recommended. For those with a windfall, lumpsum investment in debt funds followed by systematic transfer plans (STP) is advisable."
+  },
+  {
+    q: "How much corpus do I need to retire in India?",
+    a: "A common retirement planning rule is the 25x Rule: multiply your expected annual retirement expenses by 25. For example, if you need ₹60,000/month (₹7.2 lakh/year) at retirement, you need a corpus of ₹1.8 crore. This assumes a safe withdrawal rate of 4% per year. Arthavi's Retirement Calculator accounts for inflation and calculates the exact SIP needed to reach your goal."
+  },
+  {
+    q: "What is compound interest and how does it differ from simple interest?",
+    a: "Simple interest is calculated only on the principal: SI = P × R × T / 100. Compound interest is calculated on principal plus accumulated interest: CI = P × (1 + R/100)^T – P. For example, ₹1 lakh at 10% for 10 years gives ₹1 lakh in simple interest but ₹1.59 lakh in compound interest (annual compounding). Monthly compounding yields even more: ₹1.70 lakh."
+  },
+  {
+    q: "Is GST included in the calculator prices?",
+    a: "Arthavi's GST Calculator helps you determine if a quoted price is GST-inclusive or exclusive. India has four main GST slabs: 5% (essential goods, healthcare), 12% (processed food, computers), 18% (most services, electronics), and 28% (luxury goods, cars, tobacco). For each transaction, GST is split equally as CGST (Central GST) and SGST (State GST) for intra-state, or IGST for inter-state."
+  }
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/calculators",
+      "url": "https://arthavi.com/calculators",
+      "name": "Free Financial Calculators India 2025 | EMI, SIP, Tax, HRA, FD, PPF",
+      "description": "India's most comprehensive free calculator hub. Calculate EMI, SIP returns, income tax FY 2025-26, HRA exemption, FD maturity, PPF, CAGR, XIRR and more.",
+      "isPartOf": { "@id": "https://arthavi.com/#website" },
+      "inLanguage": "en-IN",
+      "dateModified": "2025-07-24"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://arthavi.com/#website",
+      "url": "https://arthavi.com",
+      "name": "Arthavi",
+      "description": "Privacy-first portfolio tracker and financial calculators for Indian investors",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://arthavi.com/calculators?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Free Financial Calculators for India",
+      "url": "https://arthavi.com/calculators",
+      "numberOfItems": 16,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EMI Calculator", "url": "https://arthavi.com/emi-calculator" },
+        { "@type": "ListItem", "position": 2, "name": "Income Tax Calculator FY 2025-26", "url": "https://arthavi.com/income-tax-calculator" },
+        { "@type": "ListItem", "position": 3, "name": "HRA Calculator", "url": "https://arthavi.com/hra-calculator" },
+        { "@type": "ListItem", "position": 4, "name": "SIP Calculator", "url": "https://arthavi.com/sip-calculator" },
+        { "@type": "ListItem", "position": 5, "name": "FD Calculator", "url": "https://arthavi.com/fd-calculator" },
+        { "@type": "ListItem", "position": 6, "name": "Compound Interest Calculator", "url": "https://arthavi.com/compound-interest-calculator" },
+        { "@type": "ListItem", "position": 7, "name": "PPF Calculator", "url": "https://arthavi.com/ppf-calculator" },
+        { "@type": "ListItem", "position": 8, "name": "Home Loan EMI Calculator", "url": "https://arthavi.com/home-loan-emi-calculator" },
+        { "@type": "ListItem", "position": 9, "name": "SWP Calculator", "url": "https://arthavi.com/swp-calculator" },
+        { "@type": "ListItem", "position": 10, "name": "Retirement Calculator", "url": "https://arthavi.com/retirement-calculator" },
+        { "@type": "ListItem", "position": 11, "name": "Car Loan EMI Calculator", "url": "https://arthavi.com/car-loan-emi-calculator" },
+        { "@type": "ListItem", "position": 12, "name": "NPS Calculator", "url": "https://arthavi.com/nps-calculator" },
+        { "@type": "ListItem", "position": 13, "name": "CAGR Calculator", "url": "https://arthavi.com/cagr-calculator" },
+        { "@type": "ListItem", "position": 14, "name": "XIRR Calculator", "url": "https://arthavi.com/xirr-calculator-mutual-funds" },
+        { "@type": "ListItem", "position": 15, "name": "GST Calculator", "url": "https://arthavi.com/gst-calculator" },
+        { "@type": "ListItem", "position": 16, "name": "Lumpsum Calculator", "url": "https://arthavi.com/mutual-fund-calculator" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    }
+  ]
 };
 ---
 
-<Layout title={seo.title} description={seo.description} keywords="SIP calculator, SWP calculator, CAGR calculator, XIRR calculator, lumpsum calculator, mutual fund calculator, investment return calculator, India" breadcrumb={{items:[{name:"Home",url:"https://arthavi.com/"},{name:"Calculators",url:"https://arthavi.com/calculators"}]}} schema={JSON.stringify({"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://arthavi.com/calculators","url":"https://arthavi.com/calculators","name":"Free Investment Calculators | SIP, SWP, CAGR, XIRR & Lumpsum","description":"Calculate your investment returns with Arthavi's free calculators. SIP, SWP, CAGR, XIRR, and Lumpsum calculators for Indian investors.","isPartOf":{"@id":"https://arthavi.com/#website"},"inLanguage":"en-IN"},{"@type":"ItemList","name":"Investment Calculators","url":"https://arthavi.com/calculators","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"name":"SIP Calculator","url":"https://arthavi.com/sip-calculator"},{"@type":"ListItem","position":2,"name":"SWP Calculator","url":"https://arthavi.com/swp-calculator"},{"@type":"ListItem","position":3,"name":"CAGR Calculator","url":"https://arthavi.com/cagr-calculator"},{"@type":"ListItem","position":4,"name":"XIRR Calculator","url":"https://arthavi.com/xirr-calculator-mutual-funds"},{"@type":"ListItem","position":5,"name":"Lumpsum Calculator","url":"https://arthavi.com/lumpsum-calculator"}]}]})}>
-  <main style="padding-top: 6rem;">
-    <section style="padding: 4rem 0 2rem; position: relative; z-index: 2;">
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="EMI calculator, SIP calculator, income tax calculator 2025-26, HRA calculator, FD calculator, PPF calculator, compound interest calculator, home loan EMI calculator, CAGR calculator, XIRR calculator, retirement calculator, NPS calculator, GST calculator, free financial calculators India"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }] }}
+  schema={JSON.stringify(schemaData)}
+>
+  <main style="padding-top: 5rem;">
+
+    <!-- Hero Section -->
+    <section class="hub-hero">
       <div class="container">
-        <div class="section-header text-center fade-in">
-          <span style="display:inline-block; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;">Free Tools</span>
-          <h1>Investment Calculators</h1>
-          <p class="section-sub">Plan your wealth with precision. All calculators are free, fast, and require no sign-up.</p>
-        </div>
+        <div class="hub-hero-inner fade-in">
+          <span class="hub-badge">🇮🇳 Made for Indian Investors</span>
+          <h1 class="hub-title">Financial Calculators</h1>
+          <p class="hub-subtitle">
+            16 free calculators — EMI, SIP, Income Tax, HRA, FD, PPF, and more.
+            No sign-up. No ads. Just fast, accurate results.
+          </p>
 
-        <div class="calc-hub-grid" style="margin-top: 3rem;">
-          <a href="/sip-calculator/" class="calc-card glass-panel fade-in delay-100" style="text-decoration: none;">
-            <div class="calc-card-icon" style="background: rgba(99,102,241,0.12);">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="1" x2="12" y2="23"></line>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          <!-- Search Bar -->
+          <div class="hub-search-wrap">
+            <div class="hub-search">
+              <svg class="hub-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
               </svg>
+              <input
+                id="calc-search"
+                type="text"
+                placeholder="Search calculators — try 'EMI', 'tax', 'PPF'..."
+                autocomplete="off"
+              />
+              <kbd class="hub-search-kbd">⌘K</kbd>
             </div>
-            <h3>SIP Calculator</h3>
-            <p>Calculate how much your monthly SIP investments will grow over time. See projected returns, total invested, and wealth gained instantly.</p>
-            <div class="calc-card-tags">
-              <span>Monthly Investment</span>
-              <span>Expected Return</span>
-              <span>Time Horizon</span>
-            </div>
-            <div class="calc-card-arrow">Try Calculator →</div>
-          </a>
+          </div>
 
-          <a href="/swp-calculator/" class="calc-card glass-panel fade-in delay-200" style="text-decoration: none;">
-            <div class="calc-card-icon" style="background: rgba(16,185,129,0.12);">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-              </svg>
-            </div>
-            <h3>SWP Calculator</h3>
-            <p>Plan your systematic withdrawal plan. See how long your corpus lasts and how much you can withdraw monthly from your investments.</p>
-            <div class="calc-card-tags">
-              <span>Corpus Amount</span>
-              <span>Monthly Withdrawal</span>
-              <span>Withdrawal Period</span>
-            </div>
-            <div class="calc-card-arrow">Try Calculator →</div>
-          </a>
-
-          <a href="/cagr-calculator/" class="calc-card glass-panel fade-in delay-300" style="text-decoration: none;">
-            <div class="calc-card-icon" style="background: rgba(245,158,11,0.12);">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                <polyline points="17 6 23 6 23 12"></polyline>
-              </svg>
-            </div>
-            <h3>CAGR Calculator</h3>
-            <p>Calculate the Compound Annual Growth Rate of your investments. Measure how fast your money has grown year over year.</p>
-            <div class="calc-card-tags">
-              <span>Initial Investment</span>
-              <span>Final Value</span>
-              <span>Investment Period</span>
-            </div>
-            <div class="calc-card-arrow">Try Calculator →</div>
-          </a>
-
-          <a href="/xirr-calculator-mutual-funds/" class="calc-card glass-panel fade-in delay-100" style="text-decoration: none;">
-            <div class="calc-card-icon" style="background: rgba(139,92,246,0.12);">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-            </div>
-            <h3>XIRR Calculator</h3>
-            <p>Calculate the true internal rate of return for irregular cash flows. Accounts for SIPs, lump-sums, redemptions, and dividend payouts.</p>
-            <div class="calc-card-tags">
-              <span>Cash Flows</span>
-              <span>Transaction Dates</span>
-              <span>Actual Returns</span>
-            </div>
-            <div class="calc-card-arrow">Try Calculator →</div>
-          </a>
-
-          <a href="/lumpsum-calculator/" class="calc-card glass-panel fade-in delay-200" style="text-decoration: none;">
-            <div class="calc-card-icon" style="background: rgba(236,72,153,0.12);">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
-            </div>
-            <h3>Lumpsum Calculator</h3>
-            <p>See how a one-time lump sum investment grows over time. Perfect for calculating returns on initial investments or windfall allocations.</p>
-            <div class="calc-card-tags">
-              <span>One-Time Investment</span>
-              <span>Growth Period</span>
-              <span>Expected Return</span>
-            </div>
-            <div class="calc-card-arrow">Try Calculator →</div>
-          </a>
-        </div>
-
-        <div class="glass-panel fade-in" style="margin-top: 3rem; padding: 2rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-          <h3 style="margin-bottom: 0.75rem;">Need a Complete Portfolio View?</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem;">Upload your CAS statement to Arthavi and let AI calculate your actual XIRR, sector overlap, and benchmark comparison — all in one privacy-first dashboard.</p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
-            <a href="https://app.arthavi.com/demo" class="btn btn-secondary">Try Demo</a>
+          <!-- Category Tabs -->
+          <div class="hub-tabs" id="hub-tabs">
+            <button class="hub-tab active" data-cat="all">All <span class="tab-count">16</span></button>
+            <button class="hub-tab" data-cat="loans">Loans & EMI <span class="tab-count">3</span></button>
+            <button class="hub-tab" data-cat="tax">Tax & HRA <span class="tab-count">3</span></button>
+            <button class="hub-tab" data-cat="investment">Investment <span class="tab-count">7</span></button>
+            <button class="hub-tab" data-cat="retirement">Retirement <span class="tab-count">2</span></button>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <style>
-    .calc-hub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .calc-card {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.07);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .calc-card:hover {
-      border-color: rgba(99,102,241,0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(99,102,241,0.1);
-    }
-    .calc-card-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-    }
-    .calc-card h3 {
-      font-size: 1.3rem;
-      color: var(--text-head);
-      margin-bottom: 0.75rem;
-    }
-    .calc-card p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.65;
-      flex-grow: 1;
-      margin-bottom: 1.25rem;
-    }
-    .calc-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.25rem;
-    }
-    .calc-card-tags span {
-      font-size: 0.75rem;
-      color: var(--primary-glow);
-      background: rgba(99,102,241,0.08);
-      border: 1px solid rgba(99,102,241,0.15);
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-    }
-    .calc-card-arrow {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-    @media (max-width: 600px) {
-      .calc-hub-grid {
-        grid-template-columns: 1fr;
+    <!-- Stats Bar -->
+    <section class="hub-stats-bar">
+      <div class="container">
+        <div class="hub-stats">
+          <div class="hub-stat">
+            <span class="stat-num">16</span>
+            <span class="stat-label">Free Calculators</span>
+          </div>
+          <div class="hub-stat-divider"></div>
+          <div class="hub-stat">
+            <span class="stat-num">0</span>
+            <span class="stat-label">Sign-ups Needed</span>
+          </div>
+          <div class="hub-stat-divider"></div>
+          <div class="hub-stat">
+            <span class="stat-num">FY 2025-26</span>
+            <span class="stat-label">Tax Data Updated</span>
+          </div>
+          <div class="hub-stat-divider"></div>
+          <div class="hub-stat">
+            <span class="stat-num">8th PC</span>
+            <span class="stat-label">HRA Rates Included</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Grid -->
+    <section class="hub-grid-section">
+      <div class="container">
+        <div class="hub-no-results" id="no-results" style="display:none;">
+          <p>No calculators found for "<span id="no-results-term"></span>". Try searching for 'EMI', 'SIP', 'tax', or 'PPF'.</p>
+        </div>
+        <div class="hub-grid" id="calc-grid">
+          {calculators.map((calc, i) => (
+            <a
+              href={calc.slug}
+              class="hub-card fade-in"
+              data-cat={calc.category}
+              data-name={calc.name.toLowerCase()}
+              data-tags={calc.tags.join(' ').toLowerCase()}
+              style={`animation-delay: ${i * 40}ms`}
+            >
+              {calc.trending && (
+                <div class="hub-card-trend">{calc.trendLabel}</div>
+              )}
+              <div class="hub-card-top">
+                <div class="hub-card-icon" style={`background: ${calc.bg}; color: ${calc.color};`}>
+                  <span>{calc.icon}</span>
+                </div>
+                <div class="hub-card-arrow">→</div>
+              </div>
+              <h2 class="hub-card-name">{calc.name}</h2>
+              <p class="hub-card-desc">{calc.desc}</p>
+              <div class="hub-card-tags">
+                {calc.tags.map(tag => (
+                  <span class="hub-tag">{tag}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- GEO Intro / Quotable Definition -->
+    <section class="hub-about-section">
+      <div class="container">
+        <div class="hub-about-grid">
+          <div class="hub-about-text">
+            <h2>What are financial calculators and why do you need them?</h2>
+            <p>
+              A <strong>financial calculator</strong> is a digital tool that performs complex financial math instantly — helping Indian investors make data-driven decisions about loans, taxes, investments, and retirement. Instead of manually computing EMI formulas or income tax slabs, these calculators give you accurate results in seconds.
+            </p>
+            <p>
+              Arthavi provides <strong>16 free financial calculators</strong> specifically calibrated for India — using RBI-standard EMI formulas, Income Tax Act 2025 slabs, current PPF rates (7.1% p.a.), and 8th Pay Commission HRA rates. All calculators run entirely in your browser — no data is sent to any server.
+            </p>
+            <div class="hub-about-points">
+              <div class="hub-about-point">
+                <span class="point-icon">✓</span>
+                <span>Uses standard RBI / SEBI formulas</span>
+              </div>
+              <div class="hub-about-point">
+                <span class="point-icon">✓</span>
+                <span>Updated for FY 2025-26 tax slabs</span>
+              </div>
+              <div class="hub-about-point">
+                <span class="point-icon">✓</span>
+                <span>Indian number format (₹1,23,456)</span>
+              </div>
+              <div class="hub-about-point">
+                <span class="point-icon">✓</span>
+                <span>No registration or login required</span>
+              </div>
+            </div>
+          </div>
+          <div class="hub-about-cards">
+            <div class="hub-about-card" style="border-color: rgba(99,102,241,0.3);">
+              <div class="about-card-icon" style="background: rgba(99,102,241,0.12); color:#818cf8;">💳</div>
+              <div>
+                <strong>EMI Formula</strong>
+                <code>EMI = [P × R × (1+R)^N] / [(1+R)^N – 1]</code>
+              </div>
+            </div>
+            <div class="hub-about-card" style="border-color: rgba(16,185,129,0.3);">
+              <div class="about-card-icon" style="background: rgba(16,185,129,0.12); color:#34d399;">📈</div>
+              <div>
+                <strong>SIP Formula</strong>
+                <code>FV = P × [(1 + r)^n – 1] / r × (1 + r)</code>
+              </div>
+            </div>
+            <div class="hub-about-card" style="border-color: rgba(245,158,11,0.3);">
+              <div class="about-card-icon" style="background: rgba(245,158,11,0.12); color:#fbbf24;">🧾</div>
+              <div>
+                <strong>Tax (New Regime 2025)</strong>
+                <code>₹0–3L: 0% | ₹3–7L: 5% | ₹7–10L: 10%</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="hub-faq-section">
+      <div class="container">
+        <div class="hub-faq-header">
+          <h2>Frequently Asked Questions</h2>
+          <p>Answers to the most common financial calculation questions in India</p>
+        </div>
+        <div class="hub-faq-list" id="faq-list">
+          {faqs.map((faq, i) => (
+            <div class="hub-faq-item" id={`faq-${i}`}>
+              <button class="hub-faq-q" onclick={`toggleFaq(${i})`}>
+                <span>{faq.q}</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="hub-faq-a" id={`faq-a-${i}`}>
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hub-cta-section">
+      <div class="container">
+        <div class="hub-cta glass-panel">
+          <div class="hub-cta-content">
+            <h2>Want your complete investment picture?</h2>
+            <p>Arthavi's portfolio tracker combines all calculators with your actual portfolio data — XIRR, sector overlap, and AI-powered analysis. Privacy-first, no broker login needed.</p>
+            <div class="hub-cta-btns">
+              <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+              <a href="https://app.arthavi.com/demo" class="btn btn-secondary">Try Demo</a>
+            </div>
+          </div>
+          <div class="hub-cta-badges">
+            <div class="cta-badge">🔒 Privacy First</div>
+            <div class="cta-badge">📊 AI Analysis</div>
+            <div class="cta-badge">🇮🇳 Made for India</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<script is:inline>
+  // Search functionality
+  const searchInput = document.getElementById('calc-search');
+  const grid = document.getElementById('calc-grid');
+  const noResults = document.getElementById('no-results');
+  const noResultsTerm = document.getElementById('no-results-term');
+  const cards = grid ? Array.from(grid.querySelectorAll('.hub-card')) : [];
+
+  function filterCards(query, category) {
+    let visible = 0;
+    cards.forEach(card => {
+      const name = card.dataset.name || '';
+      const tags = card.dataset.tags || '';
+      const cat = card.dataset.cat || '';
+      const matchesQuery = !query || name.includes(query) || tags.includes(query);
+      const matchesCat = category === 'all' || cat === category;
+      if (matchesQuery && matchesCat) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    if (noResults) {
+      if (visible === 0) {
+        noResults.style.display = 'block';
+        if (noResultsTerm) noResultsTerm.textContent = query;
+      } else {
+        noResults.style.display = 'none';
       }
     }
-  </style>
-</Layout>
+  }
+
+  let currentCategory = 'all';
+  let currentQuery = '';
+
+  if (searchInput) {
+    searchInput.addEventListener('input', e => {
+      currentQuery = e.target.value.toLowerCase().trim();
+      filterCards(currentQuery, currentCategory);
+    });
+    // Keyboard shortcut
+    document.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  }
+
+  // Tab functionality
+  document.querySelectorAll('.hub-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.hub-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentCategory = tab.dataset.cat;
+      filterCards(currentQuery, currentCategory);
+    });
+  });
+
+  // FAQ accordion
+  function toggleFaq(i) {
+    const answer = document.getElementById('faq-a-' + i);
+    const item = document.getElementById('faq-' + i);
+    if (!answer || !item) return;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.hub-faq-item').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.hub-faq-a').forEach(el => el.style.maxHeight = '0');
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+  window.toggleFaq = toggleFaq;
+</script>
+
+<style>
+  /* Hub Hero */
+  .hub-hero {
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hub-hero::before {
+    content: '';
+    position: absolute;
+    top: -150px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hub-hero-inner {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .hub-badge {
+    display: inline-block;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.25);
+    color: #34d399;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+  .hub-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+  .hub-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Search */
+  .hub-search-wrap {
+    margin-bottom: 1.75rem;
+  }
+  .hub-search {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 0.85rem 1.25rem;
+    transition: all 0.2s ease;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .hub-search:focus-within {
+    border-color: rgba(99,102,241,0.45);
+    background: rgba(99,102,241,0.06);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.08);
+  }
+  .hub-search-icon {
+    width: 18px; height: 18px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .hub-search input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-head);
+    font-size: 0.95rem;
+    font-family: inherit;
+  }
+  .hub-search input::placeholder { color: var(--text-muted); }
+  .hub-search-kbd {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 0.15rem 0.45rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: monospace;
+    flex-shrink: 0;
+  }
+
+  /* Tabs */
+  .hub-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .hub-tab {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--text-muted);
+    border-radius: 100px;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: inherit;
+  }
+  .hub-tab:hover {
+    border-color: rgba(99,102,241,0.3);
+    color: var(--text-head);
+  }
+  .hub-tab.active {
+    background: rgba(99,102,241,0.15);
+    border-color: rgba(99,102,241,0.4);
+    color: #a5b4fc;
+    font-weight: 600;
+  }
+  .tab-count {
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.72rem;
+  }
+
+  /* Stats Bar */
+  .hub-stats-bar {
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 3rem;
+  }
+  .hub-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hub-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+  .stat-num {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-head);
+    font-family: 'Outfit', sans-serif;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .hub-stat-divider {
+    width: 1px; height: 36px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* Grid */
+  .hub-grid-section { padding-bottom: 4rem; }
+  .hub-no-results {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .hub-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    overflow: hidden;
+  }
+  .hub-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .hub-card:hover {
+    border-color: rgba(99,102,241,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.25), 0 0 0 1px rgba(99,102,241,0.1);
+  }
+  .hub-card:hover::before { opacity: 1; }
+
+  .hub-card-trend {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(16,185,129,0.15);
+    border: 1px solid rgba(16,185,129,0.3);
+    color: #34d399;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+  }
+  .hub-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .hub-card-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .hub-card-arrow {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s;
+    margin-top: 4px;
+  }
+  .hub-card:hover .hub-card-arrow {
+    transform: translateX(4px);
+    color: #a5b4fc;
+  }
+  .hub-card-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-head);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .hub-card-desc {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+  .hub-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .hub-tag {
+    font-size: 0.7rem;
+    color: rgba(165,180,252,0.8);
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.12);
+    padding: 0.15rem 0.55rem;
+    border-radius: 100px;
+  }
+
+  /* About Section */
+  .hub-about-section {
+    padding: 4rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .hub-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .hub-about-text h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-head);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .hub-about-text p {
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .hub-about-text strong { color: var(--text-head); }
+  .hub-about-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 1.5rem;
+  }
+  .hub-about-point {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .point-icon {
+    color: #34d399;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .hub-about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hub-about-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+  }
+  .about-card-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .hub-about-card strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-head);
+    margin-bottom: 0.25rem;
+  }
+  .hub-about-card code {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: 'Courier New', monospace;
+    background: rgba(255,255,255,0.04);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+  }
+
+  /* FAQ */
+  .hub-faq-section {
+    padding: 4rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .hub-faq-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .hub-faq-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-head);
+    margin-bottom: 0.5rem;
+  }
+  .hub-faq-header p { color: var(--text-muted); font-size: 1rem; }
+  .hub-faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .hub-faq-item {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .hub-faq-item.open {
+    border-color: rgba(99,102,241,0.3);
+  }
+  .hub-faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.1rem 1.25rem;
+    background: none;
+    border: none;
+    color: var(--text-head);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    gap: 1rem;
+    font-family: inherit;
+  }
+  .hub-faq-q:hover { color: #a5b4fc; }
+  .faq-chevron {
+    width: 18px; height: 18px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+  .hub-faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .hub-faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .hub-faq-a p {
+    padding: 0 1.25rem 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* CTA */
+  .hub-cta-section {
+    padding: 3rem 0 5rem;
+  }
+  .hub-cta {
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hub-cta-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-head);
+    margin-bottom: 0.6rem;
+  }
+  .hub-cta-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 500px;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .hub-cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hub-cta-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+  .cta-badge {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .hub-about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hub-cta { flex-direction: column; }
+    .hub-cta-badges { flex-direction: row; flex-wrap: wrap; }
+  }
+  @media (max-width: 600px) {
+    .hub-grid { grid-template-columns: 1fr; }
+    .hub-stats { gap: 1.25rem; }
+    .hub-stat-divider { display: none; }
+    .hub-search-kbd { display: none; }
+    .hub-cta { padding: 2rem 1.5rem; }
+  }
+</style>

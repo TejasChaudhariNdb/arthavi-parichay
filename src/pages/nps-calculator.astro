@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="NPS Calculator 2025 — National Pension System Corpus & Pension | Arthavi"
+  description="Free NPS calculator for Tier 1 and Tier 2. Calculate NPS corpus, estimated monthly pension, and tax benefit of ₹50,000 under Section 80CCD(1B). Compare NPS vs PPF."
+  keywords="NPS calculator, national pension system calculator, NPS tier 1 calculator, NPS corpus calculator, NPS monthly pension calculator, 80CCD 1B calculator, NPS vs PPF India 2025"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }, { name: "NPS Calculator", url: "https://arthavi.com/nps-calculator" }] }}
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://arthavi.com/nps-calculator", "name": "NPS Calculator 2025 — Corpus & Monthly Pension", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebApplication", "name": "NPS Calculator", "url": "https://arthavi.com/nps-calculator", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "What is the additional tax benefit in NPS under 80CCD(1B)?", "acceptedAnswer": { "@type": "Answer", "text": "Section 80CCD(1B) allows an additional deduction of ₹50,000 per year for NPS Tier 1 contributions, over and above the ₹1.5 lakh limit under Section 80C. For a person in the 30% tax bracket, this saves ₹15,000 in tax annually (₹50,000 × 30%). This is exclusive to NPS — no other investment offers this extra deduction." } },
+        { "@type": "Question", "name": "How is NPS pension calculated?", "acceptedAnswer": { "@type": "Answer", "text": "At NPS maturity (age 60), you can withdraw 60% of corpus tax-free as lump sum. The remaining 40% must be used to purchase an annuity from an IRDAI-approved insurance company. Annuity rate: approximately 5.5-6.5% p.a. Example: ₹1 crore corpus → ₹60L lump sum + ₹40L annuity → monthly pension ≈ ₹18,333-21,667 per month." } },
+        { "@type": "Question", "name": "What is the difference between NPS Tier 1 and Tier 2?", "acceptedAnswer": { "@type": "Answer", "text": "NPS Tier 1 is mandatory for government employees, available to all citizens. Lock-in till age 60 (with partial withdrawals from year 3 for education/medical). Tax benefits: 80CCD(1) up to 10% of salary, 80CCD(1B) additional ₹50,000. Tier 2 is voluntary with no lock-in, no tax benefit (except for government employees under NPS). Think of Tier 2 as a flexible mutual fund-like investment account." } }
+      ]}
+    ]
+  })}
+>
+  <main style="padding-top:5.5rem;">
+    <section class="calc-page-hero">
+      <div class="container">
+        <div class="calc-breadcrumb"><a href="/calculators/">Calculators</a><span>→</span><span>NPS Calculator</span></div>
+        <div class="calc-hero-content">
+          <div class="calc-hero-left">
+            <span class="calc-badge" style="background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.25);color:#38bdf8;">🧓 Pension Calculator</span>
+            <h1>NPS Calculator</h1>
+            <p class="calc-hero-desc"><strong>National Pension System (NPS)</strong> is India's government-sponsored retirement scheme offering market-linked returns and unique tax benefits — ₹50,000 additional deduction under Section 80CCD(1B) that no other investment provides.</p>
+            <div class="nps-benefits">
+              <div class="nps-benefit"><span class="nb-icon">💰</span><div><strong>Extra ₹50K Deduction</strong><p>80CCD(1B) — beyond 80C limit</p></div></div>
+              <div class="nps-benefit"><span class="nb-icon">📊</span><div><strong>Market-Linked Returns</strong><p>Equity (E), Corporate Debt (C), Govt Bonds (G)</p></div></div>
+              <div class="nps-benefit"><span class="nb-icon">🎁</span><div><strong>60% Tax-Free Withdrawal</strong><p>Lump sum at age 60</p></div></div>
+              <div class="nps-benefit"><span class="nb-icon">🏛️</span><div><strong>PFRDA Regulated</strong><p>Government oversight, DICGC backed</p></div></div>
+            </div>
+          </div>
+
+          <div class="calc-hero-right">
+            <div class="calc-panel glass-panel">
+              <h2 class="calc-panel-title">NPS Corpus & Pension Calculator</h2>
+              <div class="calc-inputs">
+                <div class="ret-input-row">
+                  <div class="calc-input-group">
+                    <label>Current Age</label>
+                    <div class="input-row"><input type="number" id="nps-curr-age" value="30" min="18" max="60" oninput="calcNPS()"><span class="input-suffix">yrs</span></div>
+                  </div>
+                  <div class="calc-input-group">
+                    <label>Monthly Contribution</label>
+                    <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="nps-monthly" value="5000" min="500" oninput="calcNPS()"></div>
+                  </div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Expected Annual Return</label>
+                  <div class="nps-return-chips">
+                    <button class="nps-chip" onclick="setNPSReturn(8, this)">Conservative (8%)</button>
+                    <button class="nps-chip active" onclick="setNPSReturn(10, this)">Balanced (10%)</button>
+                    <button class="nps-chip" onclick="setNPSReturn(12, this)">Aggressive (12%)</button>
+                  </div>
+                  <div class="input-row" style="margin-top:.5rem"><input type="number" id="nps-return" value="10" min="5" max="20" step="0.5" oninput="calcNPS()"><span class="input-suffix">% p.a.</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Annuity Rate (for pension)</label>
+                  <div class="input-row"><input type="number" id="nps-annuity" value="6" min="4" max="10" step="0.5" oninput="calcNPS()"><span class="input-suffix">% p.a.</span></div>
+                </div>
+              </div>
+              <div class="nps-results">
+                <div class="nps-result-header">At Retirement (Age 60)</div>
+                <div class="nps-result-grid">
+                  <div class="nps-result-item"><div class="nri-label">Total Corpus</div><div class="nri-value" id="nps-corpus">₹1.14 Cr</div></div>
+                  <div class="nps-result-item"><div class="nri-label">Lump Sum (60%)</div><div class="nri-value" id="nps-lump" style="color:#38bdf8">₹68.5L</div></div>
+                  <div class="nps-result-item"><div class="nri-label">Annuity (40%)</div><div class="nri-value" id="nps-annuity-amt">₹45.7L</div></div>
+                  <div class="nps-result-item"><div class="nri-label">Est. Monthly Pension</div><div class="nri-value" id="nps-pension" style="color:#34d399">₹22,837</div></div>
+                </div>
+                <div class="nps-tax-note">
+                  💡 Tax saving from 80CCD(1B): Up to <strong id="nps-tax-saving">₹15,000/yr</strong> (30% slab)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-heading">NPS FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the NPS Section 80CCD(1B) benefit? <span class="faq-icon">+</span></div><div class="faq-a">80CCD(1B) allows ₹50,000 additional deduction for NPS Tier 1 — completely separate from ₹1.5L under 80C. Total possible deduction: ₹2 lakh. At 30% tax rate: ₹15,000 annual tax saving. This is exclusive to NPS — no other investment (not even PPF or ELSS) gives this extra ₹50K deduction.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I withdraw from NPS before age 60? <span class="faq-icon">+</span></div><div class="faq-a">Partial withdrawal from NPS Tier 1 is allowed after 3 years for: children's higher education, marriage, house purchase/construction, life-threatening illness. Maximum 25% of own contributions (not employer's). Only 3 times in the entire tenure. For complete exit before 60: 80% must go to annuity, 20% lump sum (taxable). This is why NPS is best for long-term retirement — treat it as illiquid.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">NPS vs PPF — which is better? <span class="faq-icon">+</span></div><div class="faq-a">PPF: 7.1% guaranteed, fully tax-free, ₹1.5L/year limit, 15-year lock-in, EEE. NPS: Market-linked (8-12%), 60% lump sum tax-free + 40% annuity taxable, no contribution limit, locked till 60, extra ₹50K deduction under 80CCD(1B). Recommendation: Invest ₹50K/year in NPS for the extra 80CCD(1B) benefit, balance in PPF + equity funds.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the minimum monthly contribution for NPS? <span class="faq-icon">+</span></div><div class="faq-a">NPS Tier 1 minimum: ₹500 per contribution, ₹1,000 per year minimum. No maximum limit. For Tier 2: ₹250 minimum per contribution, ₹250 opening balance. To claim 80CCD(1B) deduction, you need to contribute at least ₹50,000 annually to Tier 1. NPS accounts can be opened at any bank, post office, or online through eNPS portal.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/ppf-calculator/" class="related-card"><span class="related-icon">🏛️</span><div><strong>PPF Calculator</strong><p>Guaranteed 7.1% returns</p></div></a>
+          <a href="/retirement-calculator/" class="related-card"><span class="related-icon">🌅</span><div><strong>Retirement Calculator</strong><p>Total corpus planning</p></div></a>
+          <a href="/income-tax-calculator/" class="related-card"><span class="related-icon">🧾</span><div><strong>Tax Calculator</strong><p>80CCD(1B) impact</p></div></a>
+          <a href="/swp-calculator/" class="related-card"><span class="related-icon">💰</span><div><strong>SWP Calculator</strong><p>Post-retirement income</p></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+function fmtC(n){if(n>=10000000)return '₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return '₹'+(n/100000).toFixed(1)+'L';return '₹'+Math.round(n).toLocaleString('en-IN');}
+function fmtM(n){if(n>=100000)return '₹'+(n/100000).toFixed(1)+'L';return '₹'+Math.round(n).toLocaleString('en-IN');}
+function setNPSReturn(rate,btn){document.getElementById('nps-return').value=rate;document.querySelectorAll('.nps-chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');calcNPS();}
+window.setNPSReturn=setNPSReturn;
+function calcNPS(){
+  const currAge=parseInt(document.getElementById('nps-curr-age').value)||30;
+  const monthly=parseFloat(document.getElementById('nps-monthly').value)||0;
+  const annualReturn=parseFloat(document.getElementById('nps-return').value)||10;
+  const annuityRate=parseFloat(document.getElementById('nps-annuity').value)||6;
+  const years=60-currAge;const months=years*12;
+  const r=annualReturn/12/100;
+  const corpus=monthly*(Math.pow(1+r,months)-1)/r*(1+r);
+  const lumpSum=corpus*0.60;const annuityAmt=corpus*0.40;
+  const monthlyPension=annuityAmt*annuityRate/100/12;
+  const annualContrib=Math.min(monthly*12,50000);
+  const taxSaving=annualContrib*0.30;
+  document.getElementById('nps-corpus').textContent=fmtC(corpus);
+  document.getElementById('nps-lump').textContent=fmtC(lumpSum);
+  document.getElementById('nps-annuity-amt').textContent=fmtC(annuityAmt);
+  document.getElementById('nps-pension').textContent=fmtM(monthlyPension)+'/mo';
+  document.getElementById('nps-tax-saving').textContent=fmtM(taxSaving)+'/yr';
+}
+window.calcNPS=calcNPS;
+document.addEventListener('DOMContentLoaded',calcNPS);
+</script>
+
+<style>
+  .calc-page-hero{padding:2rem 0 3rem;}.calc-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;}.calc-breadcrumb a{color:var(--text-muted);text-decoration:none;}.calc-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:1rem;}.calc-hero-content{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;}.calc-hero-left h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--text-head);margin-bottom:1rem;}.calc-hero-desc{color:var(--text-muted);line-height:1.75;font-size:.93rem;margin-bottom:1.25rem;}.calc-hero-desc strong{color:var(--text-head);}.nps-benefits{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;}.nps-benefit{display:flex;align-items:flex-start;gap:.65rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.85rem;}.nb-icon{font-size:1.2rem;flex-shrink:0;}.nps-benefit strong{display:block;font-size:.82rem;color:var(--text-head);margin-bottom:.1rem;}.nps-benefit p{font-size:.7rem;color:var(--text-muted);margin:0;}.calc-panel{padding:1.75rem;border-radius:20px;}.calc-panel-title{font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.calc-inputs{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.25rem;}.calc-input-group label{display:block;font-size:.78rem;color:var(--text-muted);margin-bottom:.35rem;font-weight:500;}.ret-input-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}.input-row{display:flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;transition:border-color .2s;}.input-row:focus-within{border-color:rgba(14,165,233,.4);}.input-prefix{padding:.6rem .75rem;font-size:.85rem;color:var(--text-muted);background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-suffix{padding:.6rem .75rem;font-size:.82rem;color:var(--text-muted);border-left:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-row input{flex:1;background:none;border:none;outline:none;padding:.6rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;width:100%;}.nps-return-chips{display:flex;gap:.4rem;flex-wrap:wrap;}.nps-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--text-muted);border-radius:8px;padding:.4rem .7rem;font-size:.78rem;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s;}.nps-chip.active{background:rgba(14,165,233,.12);border-color:rgba(14,165,233,.35);color:#38bdf8;font-weight:600;}.nps-results{background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.15);border-radius:14px;padding:1.25rem;}.nps-result-header{font-size:.72rem;color:#38bdf8;text-transform:uppercase;letter-spacing:.06em;font-weight:700;text-align:center;margin-bottom:.85rem;}.nps-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.85rem;}.nps-result-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:.85rem;text-align:center;}.nri-label{font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem;}.nri-value{font-size:1rem;font-weight:800;color:var(--text-head);font-family:'Outfit',sans-serif;}.nps-tax-note{font-size:.82rem;color:var(--text-muted);text-align:center;background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.1);border-radius:8px;padding:.6rem;}.nps-tax-note strong{color:#34d399;}.faq-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.faq-heading{font-size:1.4rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;}.faq-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s;}.faq-item.open{border-color:rgba(14,165,233,.3);}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;font-size:.9rem;font-weight:600;color:var(--text-head);gap:1rem;}.faq-icon{font-size:1.2rem;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}.faq-item.open .faq-icon{transform:rotate(45deg);}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem;font-size:.86rem;color:var(--text-muted);line-height:1.75;}.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}.related-section{padding:3rem 0 5rem;border-top:1px solid rgba(255,255,255,.05);}.related-heading{font-size:1.2rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}.related-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem;text-decoration:none;transition:all .2s;}.related-card:hover{border-color:rgba(14,165,233,.3);transform:translateY(-2px);}.related-icon{font-size:1.5rem;flex-shrink:0;}.related-card strong{display:block;font-size:.86rem;color:var(--text-head);margin-bottom:.15rem;}.related-card p{font-size:.73rem;color:var(--text-muted);margin:0;}@media(max-width:900px){.calc-hero-content{grid-template-columns:1fr;}.nps-benefits{grid-template-columns:1fr;}}
+</style>

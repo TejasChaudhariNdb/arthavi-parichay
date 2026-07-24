@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Retirement Calculator India — How Much Corpus Do You Need? | Arthavi"
+  description="Free retirement calculator for India. Calculate how much corpus you need to retire comfortably. Accounts for inflation, life expectancy, and current savings. Find the monthly SIP needed."
+  keywords="retirement calculator India, retirement corpus calculator, how much money needed to retire India, retirement planning calculator, 25x rule calculator India, FIRE calculator India"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }, { name: "Retirement Calculator", url: "https://arthavi.com/retirement-calculator" }] }}
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://arthavi.com/retirement-calculator", "name": "Retirement Calculator India — How Much Corpus Do You Need?", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebApplication", "name": "Retirement Calculator India", "url": "https://arthavi.com/retirement-calculator", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "How much corpus do I need to retire in India?", "acceptedAnswer": { "@type": "Answer", "text": "Use the 25x Rule: multiply your expected annual retirement expenses by 25. For ₹60,000/month expenses (₹7.2 lakh/year), you need ₹1.8 crore corpus. This assumes a 4% safe withdrawal rate. Adjust for inflation — ₹60,000 today = ₹1.07 lakh in 10 years at 6% inflation. Arthavi's retirement calculator does all this automatically." } },
+        { "@type": "Question", "name": "At what age should I start retirement planning?", "acceptedAnswer": { "@type": "Answer", "text": "Start retirement planning as early as possible — ideally in your 20s. Starting at 25 vs 35 can make a 3x difference in corpus due to compounding. If you invest ₹10,000/month from age 25 at 12% return, you get ₹3.5 crore by 60. Starting at 35, same amount gives ₹1.2 crore." } },
+        { "@type": "Question", "name": "What is the 4% safe withdrawal rate?", "acceptedAnswer": { "@type": "Answer", "text": "The 4% Safe Withdrawal Rate (SWR) means you can withdraw 4% of your retirement corpus annually without depleting it over 30+ years (based on historical market returns). For a corpus of ₹2 crore, 4% = ₹8 lakh/year = ₹66,667/month. In India, a 3-3.5% SWR is considered more conservative given inflation risks." } }
+      ]}
+    ]
+  })}
+>
+  <main style="padding-top:5.5rem;">
+    <section class="calc-page-hero">
+      <div class="container">
+        <div class="calc-breadcrumb"><a href="/calculators/">Calculators</a><span>→</span><span>Retirement Calculator</span></div>
+        <div class="calc-hero-content">
+          <div class="calc-hero-left">
+            <span class="calc-badge" style="background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.25);color:#c4b5fd;">🌅 Retirement Planning</span>
+            <h1>Retirement Calculator</h1>
+            <p class="calc-hero-desc">Calculate how much corpus you need to retire comfortably in India, accounting for <strong>inflation, life expectancy, and current savings</strong>. Find exactly how much to SIP monthly to reach your retirement goal.</p>
+            <div class="retirement-rules">
+              <div class="ret-rule"><div class="rr-title">25× Rule</div><div class="rr-desc">Annual expenses × 25 = retirement corpus needed</div></div>
+              <div class="ret-rule"><div class="rr-title">4% SWR</div><div class="rr-desc">Safe annual withdrawal = 4% of corpus</div></div>
+              <div class="ret-rule"><div class="rr-title">Rule of 72</div><div class="rr-desc">72 ÷ return rate = years to double money</div></div>
+            </div>
+          </div>
+
+          <div class="calc-hero-right">
+            <div class="calc-panel glass-panel">
+              <h2 class="calc-panel-title">Retirement Calculator</h2>
+              <div class="calc-inputs">
+                <div class="ret-input-row">
+                  <div class="calc-input-group">
+                    <label>Current Age</label>
+                    <div class="input-row"><input type="number" id="ret-curr-age" value="30" min="18" max="60" oninput="calcRetirement()"><span class="input-suffix">yrs</span></div>
+                  </div>
+                  <div class="calc-input-group">
+                    <label>Retirement Age</label>
+                    <div class="input-row"><input type="number" id="ret-age" value="60" min="45" max="75" oninput="calcRetirement()"><span class="input-suffix">yrs</span></div>
+                  </div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Monthly Expenses Today</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="ret-expenses" value="60000" min="5000" oninput="calcRetirement()"></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Current Retirement Savings</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="ret-savings" value="0" min="0" oninput="calcRetirement()"></div>
+                </div>
+                <div class="ret-input-row">
+                  <div class="calc-input-group">
+                    <label>Expected Return (pre-retire)</label>
+                    <div class="input-row"><input type="number" id="ret-pre-return" value="12" min="4" max="20" step="0.5" oninput="calcRetirement()"><span class="input-suffix">%</span></div>
+                  </div>
+                  <div class="calc-input-group">
+                    <label>Inflation Rate</label>
+                    <div class="input-row"><input type="number" id="ret-inflation" value="6" min="2" max="12" step="0.5" oninput="calcRetirement()"><span class="input-suffix">%</span></div>
+                  </div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Life Expectancy</label>
+                  <div class="input-row"><input type="number" id="ret-life" value="85" min="70" max="100" oninput="calcRetirement()"><span class="input-suffix">yrs</span></div>
+                </div>
+              </div>
+
+              <div class="ret-results">
+                <div class="ret-result-header">Your Retirement Plan</div>
+                <div class="ret-result-grid">
+                  <div class="ret-result-item">
+                    <div class="rri-label">Corpus Needed</div>
+                    <div class="rri-value" id="ret-corpus">₹5.2 Cr</div>
+                  </div>
+                  <div class="ret-result-item">
+                    <div class="rri-label">Monthly SIP Required</div>
+                    <div class="rri-value" id="ret-sip">₹18,500</div>
+                  </div>
+                  <div class="ret-result-item">
+                    <div class="rri-label">Years to Retire</div>
+                    <div class="rri-value" id="ret-years">30 yrs</div>
+                  </div>
+                  <div class="ret-result-item">
+                    <div class="rri-label">Monthly Income at Retire</div>
+                    <div class="rri-value" id="ret-monthly">₹3.44L</div>
+                  </div>
+                </div>
+                <div class="ret-insight" id="ret-insight"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-heading">Retirement Planning FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How much corpus do I need to retire in India? <span class="faq-icon">+</span></div><div class="faq-a">Use the 25x Rule: Annual expenses × 25 = corpus needed. For ₹60,000/month = ₹7.2L/year × 25 = ₹1.8 Cr (at today's value). But accounting for inflation (6% for 30 years), ₹60,000 today = ₹3.44L/month at retirement. So inflation-adjusted corpus needed = ₹3.44L × 12 × 25 = ₹10.3 Cr.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the best investment for retirement in India? <span class="faq-icon">+</span></div><div class="faq-a">Diversified retirement portfolio: (1) Equity mutual funds (ELSS, large-cap, flexi-cap) for growth — 60-70% for young investors, (2) PPF/EPF for guaranteed tax-free returns — 15-20%, (3) NPS for retirement-focused pension with 80CCD benefits — 10-15%, (4) FD/Debt funds for stability as you approach retirement — increase allocation with age.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is FIRE in retirement planning? <span class="faq-icon">+</span></div><div class="faq-a">FIRE = Financial Independence, Retire Early. It requires saving 50-70% of income aggressively, reaching 25× annual expenses in investable assets, then withdrawing at ≤4% per year. In India, lean FIRE targets ₹1-2 Cr corpus (frugal lifestyle), while fat FIRE targets ₹5-10+ Cr for comfortable early retirement.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How does inflation affect retirement planning? <span class="faq-icon">+</span></div><div class="faq-a">At 6% inflation, purchasing power halves every 12 years. ₹50,000/month today = ₹2.86 lakh/month in 30 years. Your retirement corpus must not only maintain but outgrow inflation. Equity investments historically provide 12-15% returns in India vs 6% inflation, giving a real return of 6-9%. This is why equity allocation is critical in long-term retirement portfolios.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/ppf-calculator/" class="related-card"><span class="related-icon">🏛️</span><div><strong>PPF Calculator</strong><p>Safe retirement investment</p></div></a>
+          <a href="/nps-calculator/" class="related-card"><span class="related-icon">🧓</span><div><strong>NPS Calculator</strong><p>Pension corpus planning</p></div></a>
+          <a href="/sip-calculator/" class="related-card"><span class="related-icon">📈</span><div><strong>SIP Calculator</strong><p>Monthly investment growth</p></div></a>
+          <a href="/swp-calculator/" class="related-card"><span class="related-icon">💰</span><div><strong>SWP Calculator</strong><p>Monthly withdrawal in retirement</p></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+function fmtC(n){if(n>=10000000)return '₹'+(n/10000000).toFixed(1)+' Cr';if(n>=100000)return '₹'+(n/100000).toFixed(1)+' L';return '₹'+Math.round(n).toLocaleString('en-IN');}
+function fmtM(n){if(n>=100000)return '₹'+(n/100000).toFixed(1)+'L';return '₹'+Math.round(n).toLocaleString('en-IN');}
+function calcRetirement(){
+  const currAge=parseInt(document.getElementById('ret-curr-age').value)||30;
+  const retAge=parseInt(document.getElementById('ret-age').value)||60;
+  const monthlyExp=parseFloat(document.getElementById('ret-expenses').value)||0;
+  const currSavings=parseFloat(document.getElementById('ret-savings').value)||0;
+  const preReturn=parseFloat(document.getElementById('ret-pre-return').value)||12;
+  const inflation=parseFloat(document.getElementById('ret-inflation').value)||6;
+  const lifeExp=parseInt(document.getElementById('ret-life').value)||85;
+  const yearsToRetire=Math.max(0,retAge-currAge);
+  const retireDuration=Math.max(0,lifeExp-retAge);
+  // Inflation-adjusted monthly expenses at retirement
+  const retMonthlyExp=monthlyExp*Math.pow(1+inflation/100,yearsToRetire);
+  const retAnnualExp=retMonthlyExp*12;
+  // Corpus needed using 25x rule (adjusted)
+  const postRetReturn=0.07; // conservative 7% post-retirement
+  const realRate=(postRetReturn-inflation/100)/(1+inflation/100);
+  let corpusNeeded;
+  if(Math.abs(realRate)<0.001){corpusNeeded=retAnnualExp*retireDuration;}
+  else{corpusNeeded=retAnnualExp*(1-Math.pow(1+realRate,-retireDuration))/realRate;}
+  // Current savings grown to retirement
+  const savedGrown=currSavings*Math.pow(1+preReturn/100,yearsToRetire);
+  // SIP needed for remaining corpus
+  const remaining=Math.max(0,corpusNeeded-savedGrown);
+  const monthlyRate=preReturn/12/100;
+  const months=yearsToRetire*12;
+  let sipNeeded=0;
+  if(months>0&&monthlyRate>0){
+    sipNeeded=remaining*monthlyRate/(Math.pow(1+monthlyRate,months)-1);
+  }
+  document.getElementById('ret-corpus').textContent=fmtC(corpusNeeded);
+  document.getElementById('ret-sip').textContent=fmtM(sipNeeded)+'/mo';
+  document.getElementById('ret-years').textContent=yearsToRetire+' yrs';
+  document.getElementById('ret-monthly').textContent=fmtM(retMonthlyExp)+'/mo';
+  const insight=document.getElementById('ret-insight');
+  if(insight){
+    if(sipNeeded<=0)insight.textContent='🎉 Your current savings are enough to fund your retirement!';
+    else insight.textContent=`💡 Invest ${fmtM(sipNeeded)}/month in equity SIP starting today to retire at ${retAge}.`;
+    insight.style.color=sipNeeded<=0?'#34d399':'#a5b4fc';
+  }
+}
+window.calcRetirement=calcRetirement;
+document.addEventListener('DOMContentLoaded',calcRetirement);
+</script>
+
+<style>
+  .calc-page-hero{padding:2rem 0 3rem;}.calc-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;}.calc-breadcrumb a{color:var(--text-muted);text-decoration:none;}.calc-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:1rem;}.calc-hero-content{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;}.calc-hero-left h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--text-head);margin-bottom:1rem;}.calc-hero-desc{color:var(--text-muted);line-height:1.75;font-size:.93rem;margin-bottom:1.25rem;}.calc-hero-desc strong{color:var(--text-head);}.retirement-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;}.ret-rule{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.85rem .75rem;}.rr-title{font-size:.85rem;font-weight:700;color:#c4b5fd;margin-bottom:.25rem;}.rr-desc{font-size:.72rem;color:var(--text-muted);line-height:1.4;}.calc-panel{padding:1.75rem;border-radius:20px;}.calc-panel-title{font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.calc-inputs{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.25rem;}.calc-input-group label{display:block;font-size:.78rem;color:var(--text-muted);margin-bottom:.35rem;font-weight:500;}.ret-input-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}.input-row{display:flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;transition:border-color .2s;}.input-row:focus-within{border-color:rgba(167,139,250,.4);}.input-prefix{padding:.6rem .75rem;font-size:.85rem;color:var(--text-muted);background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-suffix{padding:.6rem .75rem;font-size:.82rem;color:var(--text-muted);border-left:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-row input{flex:1;background:none;border:none;outline:none;padding:.6rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;width:100%;}.ret-results{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:14px;padding:1.25rem;}.ret-result-header{font-size:.78rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:1rem;text-align:center;}.ret-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;}.ret-result-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:.85rem;text-align:center;}.rri-label{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem;}.rri-value{font-size:1.05rem;font-weight:800;color:#c4b5fd;font-family:'Outfit',sans-serif;}.ret-insight{text-align:center;font-size:.85rem;font-weight:600;padding:.65rem;border-radius:8px;background:rgba(255,255,255,.03);}.faq-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.faq-heading{font-size:1.4rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;}.faq-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s;}.faq-item.open{border-color:rgba(167,139,250,.3);}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;font-size:.9rem;font-weight:600;color:var(--text-head);gap:1rem;}.faq-icon{font-size:1.2rem;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}.faq-item.open .faq-icon{transform:rotate(45deg);}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem;font-size:.86rem;color:var(--text-muted);line-height:1.75;}.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}.related-section{padding:3rem 0 5rem;border-top:1px solid rgba(255,255,255,.05);}.related-heading{font-size:1.2rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}.related-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem;text-decoration:none;transition:all .2s;}.related-card:hover{border-color:rgba(167,139,250,.3);transform:translateY(-2px);}.related-icon{font-size:1.5rem;flex-shrink:0;}.related-card strong{display:block;font-size:.86rem;color:var(--text-head);margin-bottom:.15rem;}.related-card p{font-size:.73rem;color:var(--text-muted);margin:0;}@media(max-width:900px){.calc-hero-content{grid-template-columns:1fr;}.retirement-rules{grid-template-columns:1fr 1fr;}.ret-result-grid{grid-template-columns:1fr 1fr;}}@media(max-width:600px){.retirement-rules{grid-template-columns:1fr;}.ret-result-grid{grid-template-columns:1fr 1fr;}.ret-input-row{grid-template-columns:1fr;}}
+</style>

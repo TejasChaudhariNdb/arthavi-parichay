@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Home Loan EMI Calculator 2025 — SBI, HDFC, LIC HFL Rates | Arthavi"
+  description="Free home loan EMI calculator with current SBI (8.50%), HDFC (8.75%) and LIC HFL rates. Calculate monthly EMI, amortization schedule, and tax benefits under Section 80C and 24b."
+  keywords="home loan EMI calculator, home loan calculator, SBI home loan EMI calculator, HDFC home loan EMI calculator, housing loan calculator, home loan tax benefit calculator India 2025"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }, { name: "Home Loan EMI Calculator", url: "https://arthavi.com/home-loan-emi-calculator" }] }}
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://arthavi.com/home-loan-emi-calculator", "name": "Home Loan EMI Calculator 2025 — SBI, HDFC, LIC HFL Rates", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebApplication", "name": "Home Loan EMI Calculator", "url": "https://arthavi.com/home-loan-emi-calculator", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "What is the EMI for ₹30 lakh home loan for 20 years?", "acceptedAnswer": { "@type": "Answer", "text": "At SBI's current rate of 8.50% p.a., the EMI for ₹30 lakh home loan for 20 years is approximately ₹26,035/month. Total interest paid = ₹32.48 lakh. Total repayment = ₹62.48 lakh. At HDFC's 8.75%, EMI = ₹26,538/month." } },
+        { "@type": "Question", "name": "What tax benefits are available on home loans?", "acceptedAnswer": { "@type": "Answer", "text": "Home loan tax benefits: (1) Section 80C — Principal repayment deduction up to ₹1.5 lakh/year, (2) Section 24b — Interest payment deduction up to ₹2 lakh/year for self-occupied property (unlimited for let-out), (3) Section 80EEA — Additional ₹1.5 lakh interest deduction for first-time buyers (affordable housing). Maximum possible: ₹5 lakh/year tax deduction." } },
+        { "@type": "Question", "name": "What is the maximum home loan tenure in India?", "acceptedAnswer": { "@type": "Answer", "text": "Most Indian banks offer home loan tenure up to 30 years. SBI offers up to 30 years, HDFC Bank up to 30 years, LIC HFL up to 30 years. However, the loan must be repaid before the borrower turns 70 (varies by bank). Longer tenure = lower EMI but higher total interest." } }
+      ]}
+    ]
+  })}
+>
+  <main style="padding-top:5.5rem;">
+    <section class="calc-page-hero">
+      <div class="container">
+        <div class="calc-breadcrumb"><a href="/calculators/">Calculators</a><span>→</span><span>Home Loan EMI Calculator</span></div>
+        <div class="calc-hero-content">
+          <div class="calc-hero-left">
+            <span class="calc-badge" style="background:rgba(132,204,22,.12);border:1px solid rgba(132,204,22,.25);color:#a3e635;">🏡 Home Loan</span>
+            <h1>Home Loan EMI Calculator</h1>
+            <p class="calc-hero-desc">Calculate your home loan EMI with <strong>current bank rates</strong>. Get the full amortization schedule and estimate your <strong>tax savings</strong> under Section 80C (principal) and Section 24b (interest).</p>
+            <div class="bank-quick-rates">
+              <h3>Current Home Loan Rates (July 2025)</h3>
+              <div class="bank-rate-list">
+                <div class="bank-rate-item" onclick="setBank(8.50, this)">
+                  <span class="br-bank">🏛️ SBI</span><span class="br-rate">8.50%</span>
+                  <span class="br-badge">Lowest</span>
+                </div>
+                <div class="bank-rate-item" onclick="setBank(8.65, this)">
+                  <span class="br-bank">🏦 LIC HFL</span><span class="br-rate">8.65%</span>
+                </div>
+                <div class="bank-rate-item" onclick="setBank(8.70, this)">
+                  <span class="br-bank">🏦 Kotak</span><span class="br-rate">8.70%</span>
+                </div>
+                <div class="bank-rate-item" onclick="setBank(8.75, this)">
+                  <span class="br-bank">🏦 HDFC</span><span class="br-rate">8.75%</span>
+                </div>
+                <div class="bank-rate-item" onclick="setBank(8.75, this)">
+                  <span class="br-bank">🏦 ICICI</span><span class="br-rate">8.75%</span>
+                </div>
+              </div>
+              <p class="rates-note">Click a bank to auto-fill. Rates indicative as of July 2025.</p>
+            </div>
+          </div>
+
+          <div class="calc-hero-right">
+            <div class="calc-panel glass-panel">
+              <h2 class="calc-panel-title">Home Loan EMI Calculator</h2>
+              <div class="calc-inputs">
+                <div class="calc-input-group">
+                  <label>Property Value</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="hl-property" value="5000000" min="100000" oninput="syncDownPayment(); calcHL()"></div>
+                  <input type="range" id="hl-property-slider" min="500000" max="50000000" step="100000" value="5000000" class="calc-slider">
+                  <div class="slider-labels"><span>₹5L</span><span>₹5 Cr</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Down Payment</label>
+                  <div class="down-payment-row">
+                    <div class="input-row" style="flex:1"><span class="input-prefix">₹</span><input type="number" id="hl-down" value="1000000" min="0" oninput="calcHL()"></div>
+                    <span class="dp-pct" id="dp-pct">20%</span>
+                  </div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Loan Amount <small id="loan-amount-display" style="color:#a3e635;margin-left:.5rem">₹40,00,000</small></label>
+                  <input type="range" id="hl-down-slider" min="0" max="80" step="5" value="20" class="calc-slider" oninput="setDownPct(this.value)">
+                  <div class="slider-labels"><span>0% Down</span><span>80% Down</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Annual Interest Rate</label>
+                  <div class="input-row"><input type="number" id="hl-rate" value="8.5" min="5" max="20" step="0.05" oninput="calcHL()"><span class="input-suffix">%</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Loan Tenure</label>
+                  <div class="input-row"><input type="number" id="hl-tenure" value="20" min="1" max="30" oninput="calcHL()"><span class="input-suffix">Years</span></div>
+                  <input type="range" id="hl-t-slider" min="5" max="30" step="5" value="20" class="calc-slider">
+                  <div class="slider-labels"><span>5 yr</span><span>30 yr</span></div>
+                </div>
+              </div>
+              <div class="hl-results">
+                <div class="result-main"><span class="result-label">Monthly EMI</span><span class="result-value" style="color:#a3e635" id="hl-emi">₹34,711</span></div>
+                <div class="result-breakdown">
+                  <div class="result-item"><span>Loan Amount</span><span id="hl-loan-amt">₹40,00,000</span></div>
+                  <div class="result-item"><span>Total Interest Paid</span><span id="hl-total-int" style="color:#f59e0b">₹43,30,705</span></div>
+                  <div class="result-item"><span>Total Repayment</span><span id="hl-total">₹83,30,705</span></div>
+                  <div class="result-item" style="border-top:1px solid rgba(255,255,255,.06);padding-top:.4rem;"><span>Tax Saving — Sec 80C (est.)</span><span id="hl-80c" style="color:#34d399">up to ₹1,50,000/yr</span></div>
+                  <div class="result-item result-item-bold"><span>Tax Saving — Sec 24b (est.)</span><span id="hl-24b" style="color:#34d399">up to ₹2,00,000/yr</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="amort-section">
+      <div class="container">
+        <h2 class="section-title-sm">Amortization Schedule (Yearly)</h2>
+        <div class="amort-table-wrap"><table class="amort-table" id="hl-amort-table"><thead><tr><th>Year</th><th>Opening Balance</th><th>Principal Paid</th><th>Interest Paid</th><th>Closing Balance</th></tr></thead><tbody id="hl-amort-body"></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-heading">Home Loan FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What tax benefit do I get on home loan interest? <span class="faq-icon">+</span></div><div class="faq-a">Section 24b: Up to ₹2 lakh/year deduction on interest for self-occupied property. For let-out property, entire interest is deductible (but loss set-off capped at ₹2 lakh from other income). Additionally, Section 80EEA gives first-time homebuyers extra ₹1.5 lakh deduction for affordable housing (up to ₹45 lakh).</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Should I make a higher down payment or invest the extra money? <span class="faq-icon">+</span></div><div class="faq-a">Compare home loan rate vs expected investment return. If loan rate (say 8.5%) > investment return (say 6% FD), pay more down payment. If investment return (say 12% equity) > loan rate, consider keeping money invested. Also factor in: home loan interest is deductible under 24b (reduces effective rate).</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is PMAY subsidy (Pradhan Mantri Awas Yojana)? <span class="faq-icon">+</span></div><div class="faq-a">PMAY Credit Linked Subsidy Scheme (CLSS) provides interest subsidy for home loans under EWS/LIG/MIG categories. EWS (income up to ₹3L): 6.5% subsidy on ₹6 lakh. LIG (₹3-6L): 6.5% on ₹6L. MIG-I (₹6-12L): 4% on ₹9L. MIG-II (₹12-18L): 3% on ₹12L. PMAY subsidy is credited upfront to the loan account, significantly reducing EMI.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the difference between fixed and floating home loan rates? <span class="faq-icon">+</span></div><div class="faq-a">Fixed rate: Interest locked throughout tenure (typically 1-2% higher). Floating rate: Linked to repo rate (RLLR/MCLR); changes with RBI policy. When RBI cuts rates, floating rate loan beneficiaries see lower EMI or reduced tenure. Most Indian home loans (90%+) are floating rate as they're cheaper long-term.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/emi-calculator/" class="related-card"><span class="related-icon">💳</span><div><strong>EMI Calculator</strong><p>All loan types</p></div></a>
+          <a href="/income-tax-calculator/" class="related-card"><span class="related-icon">🧾</span><div><strong>Tax Calculator</strong><p>80C + 24b savings</p></div></a>
+          <a href="/car-loan-emi-calculator/" class="related-card"><span class="related-icon">🚗</span><div><strong>Car Loan EMI</strong><p>Auto loan calculator</p></div></a>
+          <a href="/sip-calculator/" class="related-card"><span class="related-icon">📈</span><div><strong>SIP Calculator</strong><p>Build down payment corpus</p></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+function setBank(rate, btn){
+  document.getElementById('hl-rate').value=rate;
+  document.querySelectorAll('.bank-rate-item').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  calcHL();
+}
+window.setBank=setBank;
+function syncDownPayment(){
+  const prop=parseFloat(document.getElementById('hl-property').value)||0;
+  const down=parseFloat(document.getElementById('hl-down').value)||0;
+  const pct=prop>0?Math.round(down/prop*100):0;
+  const dp=document.getElementById('dp-pct');if(dp)dp.textContent=pct+'%';
+  const dSlider=document.getElementById('hl-down-slider');if(dSlider)dSlider.value=pct;
+  updateLoanAmt();
+}
+function setDownPct(pct){
+  const prop=parseFloat(document.getElementById('hl-property').value)||0;
+  const downAmt=Math.round(prop*pct/100);
+  document.getElementById('hl-down').value=downAmt;
+  const dp=document.getElementById('dp-pct');if(dp)dp.textContent=pct+'%';
+  updateLoanAmt();calcHL();
+}
+window.setDownPct=setDownPct;
+function updateLoanAmt(){
+  const prop=parseFloat(document.getElementById('hl-property').value)||0;
+  const down=parseFloat(document.getElementById('hl-down').value)||0;
+  const loan=Math.max(0,prop-down);
+  const el=document.getElementById('loan-amount-display');if(el)el.textContent=fmt(loan);
+}
+const propSlider=document.getElementById('hl-property-slider');const propInput=document.getElementById('hl-property');
+if(propSlider&&propInput){propInput.addEventListener('input',()=>{propSlider.value=propInput.value;syncDownPayment();calcHL();});propSlider.addEventListener('input',()=>{propInput.value=propSlider.value;syncDownPayment();calcHL();});}
+const tSlider=document.getElementById('hl-t-slider');const tInput=document.getElementById('hl-tenure');
+if(tSlider&&tInput){tInput.addEventListener('input',()=>{tSlider.value=tInput.value;calcHL();});tSlider.addEventListener('input',()=>{tInput.value=tSlider.value;calcHL();});}
+
+function calcHL(){
+  const prop=parseFloat(document.getElementById('hl-property').value)||0;
+  const down=parseFloat(document.getElementById('hl-down').value)||0;
+  const P=Math.max(0,prop-down);
+  const annualRate=parseFloat(document.getElementById('hl-rate').value)||0;
+  const years=parseFloat(document.getElementById('hl-tenure').value)||0;
+  const R=annualRate/12/100;const N=years*12;
+  if(!P||!R||!N)return;
+  const emi=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);
+  const totalPay=emi*N;const totalInt=totalPay-P;
+  document.getElementById('hl-emi').textContent=fmt(emi);
+  document.getElementById('hl-loan-amt').textContent=fmt(P);
+  document.getElementById('hl-total-int').textContent=fmt(totalInt);
+  document.getElementById('hl-total').textContent=fmt(totalPay);
+  updateLoanAmt();
+  // Amortization
+  const body=document.getElementById('hl-amort-body');if(!body)return;
+  body.innerHTML='';let balance=P;
+  for(let y=1;y<=years;y++){let yp=0,yi=0;const ob=balance;
+    for(let m=0;m<12&&(y-1)*12+m<N;m++){const int=balance*R;const pr=Math.min(emi-int,balance);yi+=int;yp+=pr;balance-=pr;}
+    if(balance<0)balance=0;
+    body.innerHTML+=`<tr><td>Year ${y}</td><td>${fmt(ob)}</td><td>${fmt(yp)}</td><td>${fmt(yi)}</td><td>${fmt(Math.max(0,balance))}</td></tr>`;
+  }
+}
+window.calcHL=calcHL;
+document.addEventListener('DOMContentLoaded',()=>{syncDownPayment();calcHL();});
+</script>
+
+<style>
+  .calc-page-hero{padding:2rem 0 3rem;}.calc-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;}.calc-breadcrumb a{color:var(--text-muted);text-decoration:none;}.calc-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:1rem;}.calc-hero-content{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;}.calc-hero-left h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--text-head);margin-bottom:1rem;}.calc-hero-desc{color:var(--text-muted);line-height:1.75;font-size:.93rem;margin-bottom:1.25rem;}.calc-hero-desc strong{color:var(--text-head);}.bank-quick-rates h3{font-size:.85rem;font-weight:700;color:var(--text-head);margin-bottom:.75rem;}.bank-rate-list{display:flex;flex-wrap:wrap;gap:.5rem;}.bank-rate-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.65rem .85rem;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.15rem;position:relative;}.bank-rate-item:hover,.bank-rate-item.active{border-color:rgba(132,204,22,.4);background:rgba(132,204,22,.06);}.br-bank{font-size:.73rem;color:var(--text-muted);}.br-rate{font-size:.95rem;font-weight:700;color:#a3e635;}.br-badge{font-size:.6rem;background:rgba(52,211,153,.15);color:#34d399;border-radius:4px;padding:.1rem .35rem;font-weight:700;}.rates-note{font-size:.7rem;color:var(--text-muted);margin-top:.5rem;font-style:italic;}.calc-panel{padding:1.75rem;border-radius:20px;}.calc-panel-title{font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.calc-inputs{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.25rem;}.calc-input-group label{display:block;font-size:.78rem;color:var(--text-muted);margin-bottom:.35rem;font-weight:500;}.down-payment-row{display:flex;align-items:center;gap:.5rem;}.dp-pct{font-size:.9rem;font-weight:700;color:#a3e635;flex-shrink:0;}.input-row{display:flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;transition:border-color .2s;}.input-row:focus-within{border-color:rgba(132,204,22,.4);}.input-prefix{padding:.6rem .75rem;font-size:.85rem;color:var(--text-muted);background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-suffix{padding:.6rem .75rem;font-size:.82rem;color:var(--text-muted);border-left:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-row input{flex:1;background:none;border:none;outline:none;padding:.6rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;width:100%;}.calc-slider{width:100%;margin-top:.4rem;accent-color:#84cc16;}.slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-muted);margin-top:.15rem;}.hl-results{background:rgba(132,204,22,.06);border:1px solid rgba(132,204,22,.15);border-radius:14px;padding:1.25rem;}.result-main{text-align:center;margin-bottom:1rem;}.result-label{display:block;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem;}.result-value{font-size:1.8rem;font-weight:800;font-family:'Outfit',sans-serif;}.result-breakdown{display:flex;flex-direction:column;gap:.4rem;}.result-item{display:flex;justify-content:space-between;font-size:.83rem;color:var(--text-muted);}.result-item span:last-child{font-weight:600;color:var(--text-head);}.result-item-bold{font-weight:600;}.amort-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.section-title-sm{font-size:1.35rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.amort-table-wrap{overflow-x:auto;}.amort-table{width:100%;border-collapse:collapse;font-size:.83rem;}.amort-table th{background:rgba(132,204,22,.1);color:#a3e635;padding:.65rem .85rem;text-align:left;font-weight:600;font-size:.75rem;text-transform:uppercase;}.amort-table td{padding:.55rem .85rem;color:var(--text-muted);border-bottom:1px solid rgba(255,255,255,.04);}.faq-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.faq-heading{font-size:1.4rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;}.faq-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s;}.faq-item.open{border-color:rgba(132,204,22,.3);}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;font-size:.9rem;font-weight:600;color:var(--text-head);gap:1rem;}.faq-icon{font-size:1.2rem;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}.faq-item.open .faq-icon{transform:rotate(45deg);}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem;font-size:.86rem;color:var(--text-muted);line-height:1.75;}.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}.related-section{padding:3rem 0 5rem;border-top:1px solid rgba(255,255,255,.05);}.related-heading{font-size:1.2rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}.related-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem;text-decoration:none;transition:all .2s;}.related-card:hover{border-color:rgba(132,204,22,.3);transform:translateY(-2px);}.related-icon{font-size:1.5rem;flex-shrink:0;}.related-card strong{display:block;font-size:.86rem;color:var(--text-head);margin-bottom:.15rem;}.related-card p{font-size:.73rem;color:var(--text-muted);margin:0;}@media(max-width:900px){.calc-hero-content{grid-template-columns:1fr;}}
+</style>

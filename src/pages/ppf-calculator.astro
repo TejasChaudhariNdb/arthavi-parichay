@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="PPF Calculator 2025 — Public Provident Fund Maturity at 7.1% | Arthavi"
+  description="Free PPF calculator with current 7.1% interest rate. Calculate PPF maturity after 15 years, partial withdrawal amounts, 5-year extensions, and tax-free returns. EEE tax category."
+  keywords="PPF calculator, public provident fund calculator, PPF maturity calculator, PPF interest rate 2025, PPF 15 year calculator, PPF partial withdrawal calculator, PPF vs FD"
+  breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators" }, { name: "PPF Calculator", url: "https://arthavi.com/ppf-calculator" }] }}
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "@id": "https://arthavi.com/ppf-calculator", "name": "PPF Calculator 2025 — Public Provident Fund at 7.1%", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebApplication", "name": "PPF Calculator", "url": "https://arthavi.com/ppf-calculator", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "What is the current PPF interest rate in 2025?", "acceptedAnswer": { "@type": "Answer", "text": "The PPF interest rate for Q1 FY 2025-26 (April–June 2025) is 7.1% per annum, compounded annually. This rate is set by the Government of India and reviewed quarterly. PPF has maintained 7.1% since April 2020." } },
+        { "@type": "Question", "name": "What is the PPF maturity amount for ₹1.5 lakh/year for 15 years?", "acceptedAnswer": { "@type": "Answer", "text": "Investing ₹1,50,000 per year in PPF at 7.1% for 15 years yields a maturity amount of approximately ₹40,68,209. Total invested = ₹22,50,000. Interest earned = ₹18,18,209. All returns are completely tax-free (EEE category)." } },
+        { "@type": "Question", "name": "How much can I withdraw from PPF before maturity?", "acceptedAnswer": { "@type": "Answer", "text": "PPF partial withdrawal is allowed from the 7th financial year. Maximum withdrawal = 50% of the balance at the end of 4th year OR 50% of the balance at the end of the preceding year, whichever is lower. Only one withdrawal per financial year is permitted." } }
+      ]}
+    ]
+  })}
+>
+  <main style="padding-top:5.5rem;">
+    <section class="calc-page-hero">
+      <div class="container">
+        <div class="calc-breadcrumb"><a href="/calculators/">Calculators</a><span>→</span><span>PPF Calculator</span></div>
+        <div class="calc-hero-content">
+          <div class="calc-hero-left">
+            <span class="calc-badge" style="background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);color:#fb923c;">🏛️ PPF Calculator</span>
+            <h1>PPF Calculator</h1>
+            <p class="calc-hero-desc"><strong>Public Provident Fund (PPF)</strong> is India's safest long-term investment with guaranteed 7.1% p.a. returns (government-backed) and EEE tax status — contributions, interest, and maturity are all tax-free. Minimum ₹500/year, maximum ₹1.5 lakh/year.</p>
+            <div class="ppf-features">
+              <div class="ppf-feature"><span class="pf-icon">🔒</span><div><strong>Government Backed</strong><p>Sovereign guarantee — zero risk</p></div></div>
+              <div class="ppf-feature"><span class="pf-icon">🎁</span><div><strong>EEE Tax Category</strong><p>Invest, earn & withdraw — all tax-free</p></div></div>
+              <div class="ppf-feature"><span class="pf-icon">📋</span><div><strong>80C Eligible</strong><p>Deduction up to ₹1.5 lakh/year</p></div></div>
+              <div class="ppf-feature"><span class="pf-icon">📅</span><div><strong>15 Year Tenure</strong><p>Extendable in 5-year blocks</p></div></div>
+            </div>
+          </div>
+
+          <div class="calc-hero-right">
+            <div class="calc-panel glass-panel">
+              <h2 class="calc-panel-title">PPF Maturity Calculator</h2>
+              <div class="ppf-rate-display">Current PPF Rate: <strong style="color:#fb923c">7.1% p.a.</strong> (Q1 FY 2025-26)</div>
+              <div class="calc-inputs">
+                <div class="calc-input-group">
+                  <label>Annual Investment Amount</label>
+                  <div class="input-row"><span class="input-prefix">₹</span><input type="number" id="ppf-amount" value="150000" min="500" max="150000" oninput="calcPPF()"></div>
+                  <input type="range" id="ppf-amount-slider" min="500" max="150000" step="500" value="150000" class="calc-slider">
+                  <div class="slider-labels"><span>₹500</span><span>₹1.5L (Max)</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>Investment Period</label>
+                  <div class="input-row"><input type="number" id="ppf-years" value="15" min="15" max="50" oninput="calcPPF()"><span class="input-suffix">Years</span></div>
+                  <input type="range" id="ppf-y-slider" min="15" max="50" step="5" value="15" class="calc-slider">
+                  <div class="slider-labels"><span>15 yr</span><span>50 yr</span></div>
+                </div>
+                <div class="calc-input-group">
+                  <label>PPF Interest Rate</label>
+                  <div class="input-row"><input type="number" id="ppf-rate" value="7.1" min="1" max="15" step="0.1" oninput="calcPPF()"><span class="input-suffix">%</span></div>
+                </div>
+              </div>
+              <div class="ppf-results">
+                <div class="result-main"><span class="result-label">Maturity Amount (Tax-Free)</span><span class="result-value" style="color:#fb923c" id="ppf-maturity">₹40,68,209</span></div>
+                <div class="result-breakdown">
+                  <div class="result-item"><span>Total Invested</span><span id="ppf-invested">₹22,50,000</span></div>
+                  <div class="result-item"><span>Interest Earned</span><span id="ppf-interest" style="color:#34d399">₹18,18,209</span></div>
+                  <div class="result-item"><span>Tax Saved (30% slab est.)</span><span id="ppf-tax-saved" style="color:#34d399">₹6,75,000</span></div>
+                  <div class="result-item result-item-bold"><span>Effective Return Rate</span><span id="ppf-effective">7.1%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ppf-table-section">
+      <div class="container">
+        <h2 class="section-title-sm">Year-by-Year PPF Growth</h2>
+        <div class="amort-table-wrap">
+          <table class="amort-table">
+            <thead><tr><th>Year</th><th>Opening Balance</th><th>Annual Investment</th><th>Interest Earned</th><th>Closing Balance</th></tr></thead>
+            <tbody id="ppf-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="faq-heading">PPF FAQs</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the current PPF interest rate in 2025? <span class="faq-icon">+</span></div><div class="faq-a">PPF interest rate for Q1 FY 2025-26 is 7.1% per annum, compounded annually. This rate is set by GOI and reviewed every quarter. PPF has maintained 7.1% since April 2020.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the maximum PPF investment per year? <span class="faq-icon">+</span></div><div class="faq-a">Maximum PPF investment is ₹1,50,000 per financial year (April to March). Minimum is ₹500/year. Contribution in excess of ₹1.5 lakh is not eligible for 80C deduction and earns no interest.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">When can I withdraw from PPF? <span class="faq-icon">+</span></div><div class="faq-a">Full withdrawal is only allowed at maturity (after 15 years). Partial withdrawal allowed from 7th year — up to 50% of balance at end of 4th year or preceding year, whichever is lower. One withdrawal per year. Premature closure allowed after 5 years for medical/education emergencies.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">PPF vs ELSS — which is better for 80C? <span class="faq-icon">+</span></div><div class="faq-a">PPF: 7.1% tax-free, zero risk, 15-year lock-in, EEE. ELSS (Equity funds): Market-linked returns (historically 12-15%), 3-year lock-in (shortest among 80C options), LTCG tax at 10% above ₹1 lakh. For risk-averse investors: PPF. For wealth creation with higher risk: ELSS. Optimal: Split between both.</div></div>
+          <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I open a PPF account for my minor child? <span class="faq-icon">+</span></div><div class="faq-a">Yes. Parents can open a PPF account for a minor child. However, the combined investment across the parent's account AND the minor's account cannot exceed ₹1.5 lakh per year. Interest earned on the minor's account is clubbed with the parent's income until the child turns 18.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-section">
+      <div class="container">
+        <h2 class="related-heading">Related Calculators</h2>
+        <div class="related-grid">
+          <a href="/nps-calculator/" class="related-card"><span class="related-icon">🧓</span><div><strong>NPS Calculator</strong><p>Higher returns, 80CCD(1B)</p></div></a>
+          <a href="/fd-calculator/" class="related-card"><span class="related-icon">🏦</span><div><strong>FD Calculator</strong><p>Flexible tenure, taxable</p></div></a>
+          <a href="/income-tax-calculator/" class="related-card"><span class="related-icon">🧾</span><div><strong>Income Tax Calculator</strong><p>80C impact on tax savings</p></div></a>
+          <a href="/retirement-calculator/" class="related-card"><span class="related-icon">🌅</span><div><strong>Retirement Calculator</strong><p>Long-term corpus planning</p></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+function fmt(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+const amtSlider=document.getElementById('ppf-amount-slider');const amtInput=document.getElementById('ppf-amount');const ySlider=document.getElementById('ppf-y-slider');const yInput=document.getElementById('ppf-years');
+if(amtSlider&&amtInput){amtInput.addEventListener('input',()=>{amtSlider.value=amtInput.value;calcPPF();});amtSlider.addEventListener('input',()=>{amtInput.value=amtSlider.value;calcPPF();});}
+if(ySlider&&yInput){yInput.addEventListener('input',()=>{ySlider.value=yInput.value;calcPPF();});ySlider.addEventListener('input',()=>{yInput.value=ySlider.value;calcPPF();});}
+
+function calcPPF(){
+  const annual=parseFloat(document.getElementById('ppf-amount').value)||0;
+  const years=parseInt(document.getElementById('ppf-years').value)||15;
+  const rate=parseFloat(document.getElementById('ppf-rate').value)||7.1;
+  const r=rate/100;
+  let balance=0;
+  const body=document.getElementById('ppf-table-body');
+  if(body)body.innerHTML='';
+  for(let y=1;y<=years;y++){
+    const opening=balance;
+    balance+=annual;
+    const interest=balance*r;
+    balance+=interest;
+    if(body){
+      const tr=document.createElement('tr');
+      tr.innerHTML=`<td>Year ${y}</td><td>${fmt(opening)}</td><td>${fmt(annual)}</td><td>${fmt(interest)}</td><td>${fmt(balance)}</td>`;
+      body.appendChild(tr);
+    }
+  }
+  const invested=annual*years;
+  const interest=balance-invested;
+  document.getElementById('ppf-maturity').textContent=fmt(balance);
+  document.getElementById('ppf-invested').textContent=fmt(invested);
+  document.getElementById('ppf-interest').textContent=fmt(interest);
+  document.getElementById('ppf-tax-saved').textContent=fmt(Math.min(annual,150000)*years*0.30);
+  document.getElementById('ppf-effective').textContent=rate+'%';
+}
+window.calcPPF=calcPPF;
+document.addEventListener('DOMContentLoaded',calcPPF);
+</script>
+
+<style>
+  .calc-page-hero{padding:2rem 0 3rem;}.calc-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;}.calc-breadcrumb a{color:var(--text-muted);text-decoration:none;}.calc-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:1rem;}.calc-hero-content{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start;}.calc-hero-left h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--text-head);margin-bottom:1rem;}.calc-hero-desc{color:var(--text-muted);line-height:1.75;font-size:.93rem;margin-bottom:1.25rem;}.calc-hero-desc strong{color:var(--text-head);}.ppf-features{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}.ppf-feature{display:flex;align-items:flex-start;gap:.75rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:.85rem;}.pf-icon{font-size:1.25rem;flex-shrink:0;}.ppf-feature strong{display:block;font-size:.83rem;color:var(--text-head);margin-bottom:.1rem;}.ppf-feature p{font-size:.72rem;color:var(--text-muted);margin:0;}.calc-panel{padding:1.75rem;border-radius:20px;}.calc-panel-title{font-size:1.05rem;font-weight:700;color:var(--text-head);margin-bottom:.5rem;}.ppf-rate-display{font-size:.82rem;color:var(--text-muted);background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.15);border-radius:8px;padding:.5rem .75rem;margin-bottom:1.25rem;}.calc-inputs{display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.25rem;}.calc-input-group label{display:block;font-size:.78rem;color:var(--text-muted);margin-bottom:.35rem;font-weight:500;}.input-row{display:flex;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;transition:border-color .2s;}.input-row:focus-within{border-color:rgba(249,115,22,.4);}.input-prefix{padding:.6rem .75rem;font-size:.85rem;color:var(--text-muted);background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-suffix{padding:.6rem .75rem;font-size:.82rem;color:var(--text-muted);border-left:1px solid rgba(255,255,255,.06);flex-shrink:0;}.input-row input{flex:1;background:none;border:none;outline:none;padding:.6rem .75rem;color:var(--text-head);font-size:.9rem;font-family:inherit;width:100%;}.calc-slider{width:100%;margin-top:.4rem;accent-color:#f97316;}.slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-muted);margin-top:.15rem;}.ppf-results{background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.15);border-radius:14px;padding:1.25rem;}.result-main{text-align:center;margin-bottom:1rem;}.result-label{display:block;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem;}.result-value{font-size:1.8rem;font-weight:800;font-family:'Outfit',sans-serif;}.result-breakdown{display:flex;flex-direction:column;gap:.4rem;}.result-item{display:flex;justify-content:space-between;font-size:.83rem;color:var(--text-muted);}.result-item span:last-child{font-weight:600;color:var(--text-head);}.result-item-bold{border-top:1px solid rgba(255,255,255,.06);padding-top:.4rem;font-weight:600;}.ppf-table-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.section-title-sm{font-size:1.35rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.amort-table-wrap{overflow-x:auto;}.amort-table{width:100%;border-collapse:collapse;font-size:.83rem;}.amort-table th{background:rgba(249,115,22,.1);color:#fb923c;padding:.65rem .85rem;text-align:left;font-weight:600;font-size:.75rem;text-transform:uppercase;}.amort-table td{padding:.55rem .85rem;color:var(--text-muted);border-bottom:1px solid rgba(255,255,255,.04);}.faq-section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.05);}.faq-heading{font-size:1.4rem;font-weight:700;color:var(--text-head);margin-bottom:1.5rem;}.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;}.faq-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .2s;}.faq-item.open{border-color:rgba(249,115,22,.3);}.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;font-size:.9rem;font-weight:600;color:var(--text-head);gap:1rem;}.faq-icon{font-size:1.2rem;color:var(--text-muted);transition:transform .2s;flex-shrink:0;}.faq-item.open .faq-icon{transform:rotate(45deg);}.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem;font-size:.86rem;color:var(--text-muted);line-height:1.75;}.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}.related-section{padding:3rem 0 5rem;border-top:1px solid rgba(255,255,255,.05);}.related-heading{font-size:1.2rem;font-weight:700;color:var(--text-head);margin-bottom:1.25rem;}.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}.related-card{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem;text-decoration:none;transition:all .2s;}.related-card:hover{border-color:rgba(249,115,22,.3);transform:translateY(-2px);}.related-icon{font-size:1.5rem;flex-shrink:0;}.related-card strong{display:block;font-size:.86rem;color:var(--text-head);margin-bottom:.15rem;}.related-card p{font-size:.73rem;color:var(--text-muted);margin:0;}@media(max-width:900px){.calc-hero-content{grid-template-columns:1fr;}.ppf-features{grid-template-columns:1fr;}}
+</style>
