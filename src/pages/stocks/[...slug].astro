@@ -45,7 +45,7 @@ const shortSymbol = seedMatch.short_symbol;
 const stockSlug = seedMatch.slug;
 const stockSector = seedMatch.sector;
 
-const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000';
+const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://setu2.arthavi.com';
 
 let stockData = {
   symbol: stockSymbol,
@@ -1237,7 +1237,7 @@ const breadcrumb = {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
     if (pathParts.length >= 2 && pathParts[0] === 'stocks') {
       const stockId = pathParts[1];
-      const backendUrl = 'http://localhost:8000';
+      const backendUrl = import.meta.env.PUBLIC_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:8000' : 'https://setu2.arthavi.com');
       try {
         const res = await fetch(`${backendUrl}/api/public/stocks/${stockId}`);
         if (!res.ok) return;
