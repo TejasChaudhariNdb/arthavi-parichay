@@ -1,0 +1,201 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { STOCK_SEED_DATA } from '../../data/stockSeedData';
+
+export async function getStaticPaths() {
+  const categories = [
+    { slug: 'technology', title: 'Technology Stocks in India', sector: 'Technology' },
+    { slug: 'banking', title: 'Banking & Financial Stocks in India', sector: 'Banking' },
+    { slug: 'finance', title: 'Financial Services & NBFC Stocks', sector: 'Finance' },
+    { slug: 'energy', title: 'Energy & Power Stocks in India', sector: 'Energy' },
+    { slug: 'defence', title: 'Defence & Aerospace Stocks', sector: 'Defence' },
+    { slug: 'fmcg', title: 'FMCG & Consumer Goods Stocks', sector: 'FMCG' },
+    { slug: 'automobile', title: 'Automobile & EV Stocks', sector: 'Automobile' },
+    { slug: 'healthcare', title: 'Pharma & Healthcare Stocks', sector: 'Healthcare' },
+    { slug: 'nifty-50', title: 'Nifty 50 Blue Chip Stocks', sector: 'Nifty 50' },
+    { slug: 'dividend-stocks', title: 'High Dividend Yield Stocks in India', sector: 'Dividend' },
+    { slug: 'large-cap', title: 'Top Large Cap Stocks in India', sector: 'Large Cap' }
+  ];
+
+  return categories.map(cat => ({
+    params: { category: cat.slug },
+    props: { catInfo: cat }
+  }));
+}
+
+const { category } = Astro.params;
+const { catInfo } = Astro.props;
+
+const categoryTitle = catInfo?.title || 'Indian Stock Categories';
+const metaDescription = `Explore top ${catInfo?.title || 'stocks'} in India with live share prices, P/E ratio, market cap, dividend yield, and financial performance metrics on Arthavi.`;
+
+// Filter matching stocks
+let categoryStocks = STOCK_SEED_DATA.filter(s => {
+  if (catInfo?.sector === 'Nifty 50' || catInfo?.sector === 'Large Cap') return true;
+  return s.sector.toLowerCase() === (catInfo?.sector || '').toLowerCase();
+});
+
+if (catInfo?.sector === 'Nifty 50' || catInfo?.sector === 'Large Cap') {
+  categoryStocks = categoryStocks.slice(0, 50);
+}
+
+const canonicalUrl = `https://arthavi.com/stocks/${category}/`;
+
+const schemaGraph = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+      "url": canonicalUrl,
+      "name": categoryTitle,
+      "description": metaDescription
+    },
+    {
+      "@type": "ItemList",
+      "name": categoryTitle,
+      "numberOfItems": categoryStocks.length,
+      "itemListElement": categoryStocks.map((item, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": item.name,
+        "url": `https://arthavi.com/stocks/${item.slug}/`
+      }))
+    }
+  ]
+});
+
+const breadcrumb = {
+  items: [
+    { name: "Home", url: "https://arthavi.com/" },
+    { name: "Stocks", url: "https://arthavi.com/stocks/" },
+    { name: categoryTitle, url: canonicalUrl }
+  ]
+};
+---
+
+<Layout title={`${categoryTitle} | Arthavi`} description={metaDescription} canonical={canonicalUrl} schema={schemaGraph} breadcrumb={breadcrumb}>
+  <main class="category-page-container">
+    <div class="container">
+      <div class="category-header glass-panel">
+        <span class="hub-badge">Stock Hub</span>
+        <h1>{categoryTitle}</h1>
+        <p>Compare performance, valuation multiples, and dividend yields for leading Indian companies.</p>
+      </div>
+
+      <div class="stocks-table-box glass-panel">
+        <div class="table-responsive">
+          <table class="stocks-table">
+            <thead>
+              <tr>
+                <th>Company Name</th>
+                <th>Ticker</th>
+                <th>Sector</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {categoryStocks.map(stock => (
+                <tr>
+                  <td class="name-col">
+                    <a href={`/stocks/${stock.slug}/`}><strong>{stock.name}</strong></a>
+                  </td>
+                  <td><span class="ticker-pill">NSE: {stock.short_symbol.toUpperCase()}</span></td>
+                  <td>{stock.sector}</td>
+                  <td>
+                    <a href={`/stocks/${stock.slug}/`} class="btn btn-secondary btn-sm">View Analysis →</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .category-page-container {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    color: #F3F4F6;
+  }
+
+  .glass-panel {
+    background: rgba(18, 24, 38, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  }
+
+  .category-header {
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hub-badge {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38BDF8;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .category-header h1 {
+    font-size: 2.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #FFF;
+  }
+
+  .category-header p {
+    color: #9CA3AF;
+    margin: 0;
+  }
+
+  .stocks-table-box {
+    padding: 1.5rem;
+  }
+
+  .stocks-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  .stocks-table th {
+    padding: 1rem;
+    font-size: 0.82rem;
+    color: #9CA3AF;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stocks-table td {
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .name-col a {
+    color: #FFF;
+    text-decoration: none;
+  }
+
+  .name-col a:hover { color: #38BDF8; }
+
+  .ticker-pill {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    color: #9CA3AF;
+  }
+
+  .btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+</style>
