@@ -322,11 +322,36 @@ const seo = {
                 "@type": "Answer",
                 "text": "Yes, Arthavi supports tracking for HUF, corporate, and individual accounts by importing the respective CAS statements associated with those PANs. You can organize them into separate dashboards or aggregate them."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "Which is the best free financial calculator for India in 2025?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi offers a comprehensive free financial calculator hub for India, covering 16 calculators in one place. Popular calculators include the EMI Calculator (home, car, personal loans), Income Tax Calculator FY 2025-26 (old vs new regime comparison), HRA Calculator (updated for 8th Pay Commission rates), SIP Calculator (with step-up and inflation adjustments), and PPF Calculator. All run client-side with no sign-up required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the income tax for ₹12 lakh salary in FY 2025-26?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Under the new tax regime for FY 2025-26, a gross salary of ₹12 lakh attracts a net tax of ₹71,500 (including 4% health & education cess) after applying the ₹75,000 standard deduction. Under the old regime, the tax would be ₹1,17,000 (assuming ₹1.5L 80C and ₹50K standard deduction). The new regime saves ₹45,500 in this case. You can use Arthavi's Income Tax Calculator to model other salaries."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is HRA exemption calculated for metro cities in 2025?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "HRA exemption under Section 10(13A) is the minimum of three values: actual HRA received, 50% of basic salary for metro cities (Delhi, Mumbai, Kolkata, Chennai) or 40% for non-metro, and actual rent paid minus 10% of basic salary. Use Arthavi's HRA Calculator to determine your tax-exempt house rent allowance easily."
+              }
             }
           ]
         }
       ]
     })}>
+
 
     
     
@@ -1301,44 +1326,41 @@ const seo = {
             </div>
         </section>
 
-        <!-- Common Questions -->
-        <section style="padding: 4rem 0; background: var(--bg-surface);">
-            <div class="container" style="max-width: 800px;">
+        <!-- Unified Searchable FAQ Section -->
+        <section id="faq" style="padding: 5rem 0; background: var(--bg-surface); border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <div class="container" style="max-width: 900px;">
                 <div class="section-header text-center fade-in" style="margin-bottom: 2.5rem;">
-                    <h2>Common Questions</h2>
-                </div>
-                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div class="glass-panel fade-in" style="padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">What is a CAS statement and why does it matter?</h3>
-                        <p style="color: var(--text-body); line-height: 1.7; margin: 0;">A <strong>Consolidated Account Statement (CAS)</strong> is an official financial document issued by SEBI-registered Registrar and Transfer Agents (RTAs) such as CAMS and KFintech. It consolidates all your mutual fund transactions across brokers into a single PDF, providing a verifiable, tamper-resistant record of your investments. Arthavi parses this document locally to extract transactions — it never stores or reuses the file.</p>
-                    </div>
-                    <div class="glass-panel fade-in" style="padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">How does Arthavi calculate XIRR?</h3>
-                        <p style="color: var(--text-body); line-height: 1.7; margin: 0;">Arthavi calculates <strong>XIRR (Extended Internal Rate of Return)</strong> using your actual cash flows — every SIP installment, lumpsum investment, redemption, and dividend payout — with precise transaction dates extracted from your CAS or manual entries. This produces a time-weighted return figure that accounts for the timing of each investment, which is the industry-standard metric for measuring portfolio performance in India.</p>
-                    </div>
-                    <div class="glass-panel fade-in" style="padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Why is Arthavi more private than other portfolio trackers?</h3>
-                        <p style="color: var(--text-body); line-height: 1.7; margin: 0;">Most portfolio apps in India require demat account linking, which grants them read/write access to your broker and exposes your holdings to their data infrastructure. Arthavi requires neither. You upload only a CAS document — a read-only, SEBI-regulated file — to your own device. Arthavi does not sell, share, or monetize your data to third parties, brokers, or advertisers. Phone numbers are not even mandatory for signup.</p>
-                    </div>
-                    <div class="glass-panel fade-in" style="padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Can Arthavi help detect portfolio overlap?</h3>
-                        <p style="color: var(--text-body); line-height: 1.7; margin: 0;">Yes. Arthavi's <strong>Ask AI</strong> feature analyzes your holdings across mutual funds and stocks to detect sector and stock-level overlap. For example, if Mirae Large Cap and Axis Bluechip both hold HDFC Bank and Reliance as top holdings, Arthavi flags this as a potential concentration risk — helping you avoid redundancy and improve diversification.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-       <section id="faq" class="faq-section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2>Frequently Asked Questions</h2>
+                    <h2 class="heading-lg" style="color: var(--text-head); margin-bottom: 0.5rem;">Frequently Asked Questions</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Find instant answers about portfolio tracking, security, AI assistant, and calculators.</p>
                 </div>
 
-                <div class="faq-grid fade-in">
-                    <div class="faq-item">
+                <!-- FAQ Search & Filters -->
+                <div class="faq-search-container fade-in" style="max-width: 600px; margin: 0 auto 2.5rem; text-align: center;">
+                    <div style="position: relative; display: flex; align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 0.25rem 0.75rem; margin-bottom: 1.25rem; transition: border-color 0.2s;" onfocusin="this.style.borderColor='rgba(99, 102, 241, 0.4)'" onfocusout="this.style.borderColor='rgba(255, 255, 255, 0.08)'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem; flex-shrink: 0;">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="faq-search-input" placeholder="Search FAQ (e.g. CAS, XIRR, tax, safety)..." style="width: 100%; background: none; border: none; outline: none; padding: 0.65rem 0.5rem; color: var(--text-head); font-size: 0.95rem; font-family: inherit;" />
+                    </div>
+
+                    <div class="faq-filter-tabs" style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+                        <button class="faq-tab-btn active" data-filter="all">All</button>
+                        <button class="faq-tab-btn" data-filter="portfolio">Portfolio Tracking</button>
+                        <button class="faq-tab-btn" data-filter="privacy">Security & Privacy</button>
+                        <button class="faq-tab-btn" data-filter="ai">AI Assistant</button>
+                        <button class="faq-tab-btn" data-filter="calculators">Calculators</button>
+                    </div>
+                </div>
+
+                <!-- Combined FAQ Items Grid -->
+                <div class="faq-grid fade-in" id="unified-faq-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+
+                    <!-- PORTFOLIO CATEGORY -->
+                    <div class="faq-item" data-category="portfolio" data-q="what is arthavi how does it help indian investors">
                         <button class="faq-question" aria-expanded="false">
                             What is Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
@@ -1347,234 +1369,24 @@ const seo = {
                             Arthavi is India's privacy-first, ad-free portfolio tracker that consolidates your mutual funds and stocks in a single dashboard with AI-powered analytics. By importing your CAS statement or adding holdings manually, you get a unified view of your net worth and true XIRR without linking broker accounts.
                         </div>
                     </div>
-                    <div class="faq-item">
+
+                    <div class="faq-item" data-category="portfolio" data-q="what is a cas consolidated account statement statement and why does it matter cams kfintech">
                         <button class="faq-question" aria-expanded="false">
-                            Is Arthavi free?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            What is a CAS statement and why does it matter?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Yes, Arthavi's core portfolio tracking features are completely free to use. While advanced analytics and premium tools may be introduced in the future, our core privacy-first tracking and data security will always remain standard and free.
+                            A <strong>Consolidated Account Statement (CAS)</strong> is an official financial document issued by SEBI-registered Registrar and Transfer Agents (RTAs) such as CAMS and KFintech. It consolidates all your mutual fund transactions across brokers into a single PDF, providing a verifiable, tamper-resistant record of your investments. Arthavi parses this document locally to extract transactions — it never stores or reuses the file.
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is my data shared?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            No, your financial data is never sold, shared, or monetized with third parties, brokers, or advertisers. Arthavi adheres to a strict privacy-first policy, utilizing your uploaded data solely to compute your personal portfolio analytics.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Does Arthavi execute trades?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            No, Arthavi is a read-only analytics platform and does not execute trades, place orders, or hold your funds. You remain in full control of your actual investments via your existing brokers, while Arthavi provides the data intelligence layer.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How is CAS data handled?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Your <a href="https://www.camsonline.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline;">Consolidated Account Statement (CAS)</a> PDF is processed securely (often locally on your device) to extract transaction details and is never stored, shared, or scanned for advertising. Arthavi uses industry-standard encryption to parse this official, SEBI-regulated document generated by CAMS or KFintech.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is it SEBI registered?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            No, Arthavi does not require SEBI registration because it is a technology platform for tracking and visualization, not a broker or Registered Investment Advisor (RIA). We provide automated data-driven analytics and do not offer customized investment advice or trade execution.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is my data encrypted?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Yes, all user data is fully encrypted both at rest using bank-grade AES-256 encryption and in transit via secure TLS protocols. This ensures your personal financial information remains confidential and protected.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How do I know my data is safe? Will I receive random marketing calls?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            You will never receive marketing calls because Arthavi does not collect phone numbers during signup, nor do we sell or share user data for lead generation. Your information is encrypted at rest and in transit, and we require minimal permissions solely to run your portfolio analytics.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Do you support fixed or debt instruments like FDs, PPF, and NPS?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Arthavi currently supports mutual funds and equity, but tracking for fixed income and debt instruments like FDs, PPF, and NPS is on our active roadmap and coming soon. Our goal is to provide a complete, unified wealth dashboard in India.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How does the Ask AI Investment Assistant work?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            The Ask AI Investment Assistant works by parsing your abstract portfolio holdings securely and answering questions in plain English, such as checking for portfolio overlap or sector exposure. It functions as a data-driven personal analyst for your uploaded data.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is the AI Assistant giving me financial advice?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            No, the AI Assistant provides objective, data-driven insights based on your holdings and does not offer certified financial advice, stock tips, or buy/sell recommendations. It is designed to help you interpret your current portfolio metrics.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Does the AI have access to my sensitive login credentials?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            No, the AI never has access to your login credentials because Arthavi does not integrate with your brokers or ask for passwords. The AI operates entirely on the anonymized holding data extracted from your uploaded CAS PDF.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Can I track family portfolios or multiple CAS files?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Yes, you can track family portfolios by uploading multiple CAS files belonging to different family members (PANs). Arthavi aggregates these statements into a unified family dashboard to show combined net worth and overall returns.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is Arthavi better than tracking investments in Excel?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></svg>
-                        </button>
-                        <div class="faq-answer">
-                            Yes, Arthavi is significantly better than Excel because it automates transaction importing, calculates live XIRR, pulls real-time stock prices, and provides AI insights without manual data entry or complex formulas.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Do I need to link my demat account or broker to use Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            No, you do not need to link your demat account or share broker login credentials to use Arthavi. You can securely import your portfolio using a read-only SEBI CAS PDF from CAMS or KFintech, keeping your account completely secure.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How is the XIRR calculated on Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Arthavi calculates your XIRR (Extended Internal Rate of Return) based on your actual cash flows and transaction dates extracted from your CAS or manual entries. It accounts for SIPs, lump-sums, redemptions, and dividend payouts for high accuracy.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            What happens if I want to delete my account and data?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            You have complete control over your data. If you choose to leave Arthavi, you can delete your account at any time. We will permanently wipe all your transaction data, CAS files, and personal information from our servers immediately.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
+                    <div class="faq-item" data-category="portfolio" data-q="how do i track mutual funds in arthavi cas statement pdf upload">
                         <button class="faq-question" aria-expanded="false">
                             How to track mutual funds in Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
@@ -1584,81 +1396,10 @@ const seo = {
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is Arthavi safe to use?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Yes, Arthavi is highly secure and safe to use because it operates as a read-only platform, does not link to bank or broker accounts, and does not require credentials or phone numbers. All data is encrypted at rest and in transit.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Can I track NPS on Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            No, NPS tracking is not currently supported, but it is on our development roadmap along with other debt instruments. For now, you can track all your mutual funds and NSE/BSE stock portfolios.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How does Arthavi make money if it is free and ad-free?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Arthavi will make money by introducing premium tiers for advanced analytical tools and custom AI reporting in the future, rather than selling user data or showing ads. The core portfolio tracking features will remain free forever.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Is there a mobile app available for Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Yes, Arthavi is available as a web app optimized for mobile devices, and native Android/iOS applications are currently in development. You can access the fully responsive dashboard on any smartphone browser.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How does Arthavi fetch live stock prices?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Arthavi fetches live stock prices and mutual fund NAVs directly from real-time market data providers for NSE and BSE stocks, as well as official AMFI feeds for mutual funds. Your portfolio values update automatically.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
+                    <div class="faq-item" data-category="portfolio" data-q="can i track my zerodha and groww portfolios together on arthavi cams cas upstox angel one">
                         <button class="faq-question" aria-expanded="false">
                             Can I track my Zerodha and Groww portfolios together on Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
@@ -1668,25 +1409,62 @@ const seo = {
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item" data-category="portfolio" data-q="do i need to link my demat account or broker to use arthavi">
                         <button class="faq-question" aria-expanded="false">
-                            What is the difference between absolute return and XIRR?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            Do I need to link my demat account or broker to use Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Absolute return measures the simple percentage gain on your total investment, whereas XIRR (Extended Internal Rate of Return) calculates your annualized rate of return factoring in the specific dates and amounts of every cash flow. XIRR is the most accurate metric for tracking SIPs and recurring investments.
+                            No, you do not need to link your demat account or share broker login credentials to use Arthavi. You can securely import your portfolio using a read-only SEBI CAS PDF from CAMS or KFintech, keeping your account completely secure.
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item" data-category="portfolio" data-q="how is the xirr calculated on arthavi absolute return difference compounding">
+                        <button class="faq-question" aria-expanded="false">
+                            How is the XIRR calculated on Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi calculates your XIRR (Extended Internal Rate of Return) based on your actual cash flows and transaction dates extracted from your CAS or manual entries. It accounts for SIPs, lump-sums, redemptions, and dividend payouts for high accuracy. XIRR is the most accurate metric for tracking SIPs and recurring investments.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="can i track family portfolios or multiple cas files family wealth aggregation">
+                        <button class="faq-question" aria-expanded="false">
+                            Can I track family portfolios or multiple CAS files?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, you can track family portfolios by uploading multiple CAS files belonging to different family members (PANs). Arthavi aggregates these statements into a unified family dashboard to show combined net worth and overall returns.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="is arthavi better than tracking investments in excel manual formula sheets">
+                        <button class="faq-question" aria-expanded="false">
+                            Is Arthavi better than tracking investments in Excel?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, Arthavi is significantly better than Excel because it automates transaction importing, calculates live XIRR, pulls real-time stock prices, and provides AI insights without manual data entry or complex formulas.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="can i add transactions manually without uploading a cas statement stocks mutual funds">
                         <button class="faq-question" aria-expanded="false">
                             Can I add transactions manually without uploading a CAS statement?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
@@ -1696,11 +1474,10 @@ const seo = {
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item" data-category="portfolio" data-q="does arthavi support us stocks or cryptocurrency tracking indian only">
                         <button class="faq-question" aria-expanded="false">
                             Does Arthavi support US stocks or cryptocurrency tracking?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
@@ -1710,25 +1487,10 @@ const seo = {
                         </div>
                     </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            Can Arthavi parse password-protected CAS files?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Yes, Arthavi handles password-protected CAS files by asking you to enter the password locally in your browser during the upload process. The password is never sent to our servers and is only used to decrypt the PDF on your device.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
+                    <div class="faq-item" data-category="portfolio" data-q="how often should i upload my cas file to keep my portfolio updated cams">
                         <button class="faq-question" aria-expanded="false">
                             How often should I upload my CAS file to keep my portfolio updated?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
@@ -1738,11 +1500,10 @@ const seo = {
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item" data-category="portfolio" data-q="can i track huf or corporate investment portfolios on arthavi multiple pan">
                         <button class="faq-question" aria-expanded="false">
                             Can I track HUF or corporate investment portfolios on Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
@@ -1751,6 +1512,350 @@ const seo = {
                             Yes, Arthavi supports tracking for HUF, corporate, and individual accounts by importing the respective CAS statements associated with those PANs. You can organize them into separate dashboards or aggregate them.
                         </div>
                     </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="does arthavi execute trades buy sell stocks mutual funds read only">
+                        <button class="faq-question" aria-expanded="false">
+                            Does Arthavi execute trades?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No, Arthavi is a read-only analytics platform and does not execute trades, place orders, or hold your funds. You remain in full control of your actual investments via your existing brokers, while Arthavi provides the data intelligence layer.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="is it sebi registered investment advisor advice advisor portfolio app">
+                        <button class="faq-question" aria-expanded="false">
+                            Is it SEBI registered?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No, Arthavi does not require SEBI registration because it is a technology platform for tracking and visualization, not a broker or Registered Investment Advisor (RIA). We provide automated data-driven analytics and do not offer customized investment advice or trade execution.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="do you support fixed or debt instruments like fds ppf and nps tracking bonds">
+                        <button class="faq-question" aria-expanded="false">
+                            Do you support fixed or debt instruments like FDs, PPF, and NPS?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi currently supports mutual funds and equity, but tracking for fixed income and debt instruments like FDs, PPF, and NPS is on our active roadmap and coming soon. Our goal is to provide a complete, unified wealth dashboard in India.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="is there a mobile app available for arthavi android ios mobile responsive">
+                        <button class="faq-question" aria-expanded="false">
+                            Is there a mobile app available for Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, Arthavi is available as a web app optimized for mobile devices, and native Android/iOS applications are currently in development. You can access the fully responsive dashboard on any smartphone browser.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="how does arthavi fetch live stock prices bse nse mutual fund nav">
+                        <button class="faq-question" aria-expanded="false">
+                            How does Arthavi fetch live stock prices?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi fetches live stock prices and mutual fund NAVs directly from real-time market data providers for NSE and BSE stocks, as well as official AMFI feeds for mutual funds. Your portfolio values update automatically.
+                        </div>
+                    </div>
+
+                    <!-- SECURITY & PRIVACY CATEGORY -->
+                    <div class="faq-item" data-category="privacy" data-q="why is arthavi more private than other portfolio trackers ad free spam broker linking email sms">
+                        <button class="faq-question" aria-expanded="false">
+                            Why is Arthavi more private than other portfolio trackers?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Most portfolio apps in India require demat account linking or email scraping, which exposes your private holdings to external databases. Arthavi requires neither. You upload only a CAS statement locally. Arthavi is ad-free and does not sell or share your data to third parties. Phone numbers are not collected.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="is my data shared with third parties advertisers sold leads loans">
+                        <button class="faq-question" aria-expanded="false">
+                            Is my data shared?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No, your financial data is never sold, shared, or monetized with third parties, brokers, or advertisers. Arthavi adheres to a strict privacy-first policy, utilizing your uploaded data solely to compute your personal portfolio analytics.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="is my data encrypted security aes-256 bank-grade tls security protocols">
+                        <button class="faq-question" aria-expanded="false">
+                            Is my data encrypted?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, all user data is fully encrypted both at rest using bank-grade AES-256 encryption and in transit via secure TLS protocols. This ensures your personal financial information remains confidential and protected.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="how do i know my data is safe will i receive random marketing calls phone numbers spam">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I know my data is safe? Will I receive random marketing calls?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You will never receive marketing calls because Arthavi does not collect phone numbers during signup, nor do we sell or share user data for lead generation. Your information is encrypted at rest and in transit, and we require minimal permissions solely to run your portfolio analytics.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="what happens if i want to delete my account and data wipe permanently">
+                        <button class="faq-question" aria-expanded="false">
+                            What happens if I want to delete my account and data?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You have complete control over your data. If you choose to leave Arthavi, you can delete your account at any time. We will permanently wipe all your transaction data, CAS files, and personal information from our servers immediately.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="is arthavi safe to use bank connection read only password security">
+                        <button class="faq-question" aria-expanded="false">
+                            Is Arthavi safe to use?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, Arthavi is highly secure and safe to use because it operates as a read-only platform, does not link to bank or broker accounts, and does not require credentials or phone numbers. All data is encrypted at rest and in transit.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="how does arthavi make money if it is free and ad-free premium tiers subscription model">
+                        <button class="faq-question" aria-expanded="false">
+                            How does Arthavi make money if it is free and ad-free?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi will make money by introducing premium tiers for advanced analytical tools and custom AI reporting in the future, rather than selling user data or showing ads. The core portfolio tracking features will remain free forever.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="how is cas data handled cams kfintech password protected encryption local">
+                        <button class="faq-question" aria-expanded="false">
+                            How is CAS data handled?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Your Consolidated Account Statement (CAS) PDF is processed securely (often locally on your device) to extract transaction details and is never stored, shared, or scanned for advertising. Arthavi uses industry-standard encryption to parse this official, SEBI-regulated document generated by CAMS or KFintech.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="privacy" data-q="can arthavi parse password protected cas files locally decrypted browser cams kfintech">
+                        <button class="faq-question" aria-expanded="false">
+                            Can Arthavi parse password-protected CAS files?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, Arthavi handles password-protected CAS files by asking you to enter the password locally in your browser during the upload process. The password is never sent to our servers and is only used to decrypt the PDF on your device.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="how often should i upload my cas file to keep my portfolio updated cams">
+                        <button class="faq-question" aria-expanded="false">
+                            How often should I upload my CAS file to keep my portfolio updated?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            You only need to upload an updated CAS file once a month or after you make new transactions. Once imported, Arthavi updates the current value of your holdings automatically using live market feeds and daily NAVs.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="can i track huf or corporate investment portfolios on arthavi">
+                        <button class="faq-question" aria-expanded="false">
+                            Can I track HUF or corporate investment portfolios on Arthavi?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes, Arthavi supports tracking for HUF, corporate, and individual accounts by importing the respective CAS statements associated with those PANs. You can organize them into separate dashboards or aggregate them.
+                        </div>
+                    </div>
+
+
+                    <!-- AI ASSISTANT CATEGORY -->
+                    <div class="faq-item" data-category="ai" data-q="can arthavi help detect portfolio overlap sector stock concentration risk large cap bluechip">
+                        <button class="faq-question" aria-expanded="false">
+                            Can I check for mutual fund and stock portfolio overlap?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Yes. Arthavi's <strong>Ask AI</strong> feature analyzes your holdings across mutual funds and stocks to detect sector and stock-level overlap. For example, if Mirae Large Cap and Axis Bluechip both hold HDFC Bank and Reliance as top holdings, Arthavi flags this as a potential concentration risk — helping you avoid redundancy and improve diversification.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="ai" data-q="how does the ask ai investment assistant work prompt chat portfolio data analysis">
+                        <button class="faq-question" aria-expanded="false">
+                            How does the Ask AI Investment Assistant work?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            The Ask AI Investment Assistant works by parsing your abstract portfolio holdings securely and answering questions in plain English, such as checking for portfolio overlap or sector exposure. It functions as a data-driven personal analyst for your uploaded data.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="ai" data-q="is the ai assistant giving me financial advice certified advisory stock tips">
+                        <button class="faq-question" aria-expanded="false">
+                            Is the AI Assistant giving me financial advice?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No, the AI Assistant provides objective, data-driven insights based on your holdings and does not offer certified financial advice, stock tips, or buy/sell recommendations. It is designed to help you interpret your current portfolio metrics.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="ai" data-q="does the ai have access to my sensitive login credentials passwords broker integration">
+                        <button class="faq-question" aria-expanded="false">
+                            Does the AI have access to my sensitive login credentials?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            No, the AI never has access to your login credentials because Arthavi does not integrate with your brokers or ask for passwords. The AI operates entirely on the anonymized holding data extracted from your uploaded CAS PDF.
+                        </div>
+                    </div>
+
+
+                    <!-- CALCULATORS CATEGORY -->
+                    <div class="faq-item" data-category="calculators" data-q="which is the best free financial calculator for india in 2025 emi tax hra sip fd ppf nps">
+                        <button class="faq-question" aria-expanded="false">
+                            Which is the best free financial calculator for India in 2025?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi offers a comprehensive free financial calculator hub for India, covering 16 calculators in one place. Popular calculators include the EMI Calculator (home, car, personal loans), Income Tax Calculator FY 2025-26 (old vs new regime comparison), HRA Calculator (updated for 8th Pay Commission rates), SIP Calculator (with step-up and inflation adjustments), and PPF Calculator. All run client-side with no sign-up required.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="calculators" data-q="what is the income tax for 12 lakh salary gross slab new regime old regime fy 2025-26 ay 2026-27">
+                        <button class="faq-question" aria-expanded="false">
+                            What is the income tax for ₹12 lakh salary in FY 2025-26?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Under the new tax regime for FY 2025-26, a gross salary of ₹12 lakh attracts a net tax of ₹71,500 (including 4% health & education cess) after applying the ₹75,000 standard deduction. Under the old regime, the tax would be ₹1,17,000 (assuming ₹1.5L 80C and ₹50K standard deduction). The new regime saves ₹45,500 in this case. You can use Arthavi's Income Tax Calculator to model other salaries.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="calculators" data-q="how is hra exemption calculated for metro cities in 2025 section 10 13a 8th pay commission rent">
+                        <button class="faq-question" aria-expanded="false">
+                            How is HRA exemption calculated for metro cities in 2025?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            HRA exemption under Section 10(13A) is the minimum of three values: actual HRA received, 50% of basic salary for metro cities (Delhi, Mumbai, Kolkata, Chennai) or 40% for non-metro, and actual rent paid minus 10% of basic salary. Use Arthavi's HRA Calculator to determine your tax-exempt house rent allowance easily.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="calculators" data-q="what is the emi for 50 lakh home loan for 20 years sbi interest rate hdfc total payment">
+                        <button class="faq-question" aria-expanded="false">
+                            What is the EMI for ₹50 lakh home loan for 20 years?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            At SBI's current home loan rate of 8.50% p.a., EMI for ₹50 lakh home loan for 20 years = approximately ₹43,391/month. Total interest payable = ₹54.14 lakh. Total repayment = ₹1,04,14,000. At HDFC's 8.75%, EMI = ₹44,230/month, total interest = ₹56.15 lakh. Tax benefit: Up to ₹1.5 lakh/year under Section 80C (principal) + up to ₹2 lakh/year under Section 24b (interest). Use <a href="/home-loan-emi-calculator/" style="color:#a5b4fc;">Arthavi's Home Loan EMI Calculator</a> for a full amortization schedule.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="calculators" data-q="what are the income tax slabs for fy 2025-26 under the new regime standard deduction rebate 87a">
+                        <button class="faq-question" aria-expanded="false">
+                            What are the income tax slabs for FY 2025-26 under the new regime?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Income tax slabs for FY 2025-26 (AY 2026-27) under the new tax regime: ₹0–3 lakh = 0%, ₹3–7 lakh = 5%, ₹7–10 lakh = 10%, ₹10–12 lakh = 15%, ₹12–15 lakh = 20%, above ₹15 lakh = 30%. Standard deduction = ₹75,000. Section 87A rebate makes income up to ₹7 lakh effectively tax-free. 4% Health &amp; Education Cess applies on total tax. Surcharge applies for income above ₹50 lakh.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="calculators" data-q="how much sip is needed to become a crorepati in india 1 crore return years compound">
+                        <button class="faq-question" aria-expanded="false">
+                            How much SIP is needed to become a crorepati in India?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            To accumulate ₹1 crore through SIP at 12% annual return: ₹5,500/month for 20 years = ₹1.00 crore | ₹2,600/month for 25 years = ₹1.00 crore | ₹1,200/month for 30 years = ₹1.00 crore. The power of compounding means starting earlier dramatically reduces the monthly amount needed. A step-up SIP (increasing 10% annually) can reach ₹1 crore even faster. Use <a href="/sip-calculator/" style="color:#a5b4fc;">Arthavi's SIP Calculator</a> with step-up and inflation features to model your exact scenario.
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1868,6 +1973,39 @@ const seo = {
                 </div>
             </div>
         </section>
+
+        <!-- ===== CALCULATOR HUB SPOTLIGHT ===== -->
+        <section style="padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
+          <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+                <span style="display:inline-block;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:#34d399;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.85rem;border-radius:100px;">Free Tools</span>
+                <span style="font-size:0.8rem;color:var(--text-muted);">Updated for FY 2025-26 &amp; 8th Pay Commission</span>
+              </div>
+              <h2 style="font-size:1.7rem;font-weight:800;color:var(--text-head);margin-bottom:0.85rem;line-height:1.3;">Free Financial Calculators for Indian Investors</h2>
+              <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
+                Arthavi's calculator hub covers <strong style="color:var(--text-head);">16 free Indian financial calculators</strong> — including EMI calculator, HRA exemption calculator (updated for 8th Pay Commission), Income Tax Calculator for FY 2025-26 (old vs new regime comparison), SIP calculator, FD calculator, PPF calculator (7.1% rate), NPS calculator (80CCD(1B) benefit), Home Loan EMI calculator, Car Loan EMI calculator, Compound Interest calculator, Retirement calculator, SWP calculator, CAGR calculator, XIRR calculator, GST calculator, and Lumpsum calculator. All calculators run client-side — no data is stored or shared.
+              </p>
+              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.65rem;margin-bottom:1.5rem;">
+                <a href="/emi-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(99,102,241,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">💳 EMI Calculator</a>
+                <a href="/income-tax-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(245,158,11,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🧾 Income Tax Calculator</a>
+                <a href="/hra-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏠 HRA Calculator</a>
+                <a href="/sip-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(139,92,246,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">📈 SIP Calculator</a>
+                <a href="/fd-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(6,182,212,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏦 FD Calculator</a>
+                <a href="/ppf-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(249,115,22,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏛️ PPF Calculator</a>
+                <a href="/home-loan-emi-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(132,204,22,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏡 Home Loan EMI</a>
+                <a href="/retirement-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(167,139,250,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🌅 Retirement Calculator</a>
+                <a href="/nps-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(14,165,233,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🧓 NPS Calculator</a>
+                <a href="/compound-interest-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(236,72,153,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">📊 Compound Interest</a>
+                <a href="/car-loan-emi-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(244,63,94,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🚗 Car Loan EMI</a>
+                <a href="/gst-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(45,212,191,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">📋 GST Calculator</a>
+              </div>
+              <a href="/calculators/" style="display:inline-flex;align-items:center;gap:0.5rem;color:#a5b4fc;font-size:0.9rem;font-weight:600;text-decoration:none;">View All 16 Calculators →</a>
+            </div>
+          </div>
+        </section>
+          </div>
+        </section>
     </main>
 
     <!-- Floating CTA Button for Mobile -->
@@ -1942,6 +2080,47 @@ const seo = {
                 display: block;
             }
         }
+
+        /* Homepage FAQ Styles */
+        .hp-faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .hp-faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .hp-faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-head);
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 0.45rem 0.95rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            font-family: inherit;
+        }
+        .faq-tab-btn:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--text-head);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .faq-tab-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
     </style>
 
     <script>
@@ -2001,6 +2180,57 @@ const seo = {
                 handleScroll();
             }
         });
+
+        // Unified Homepage FAQ Search & Filter Engine
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchInput = document.getElementById("faq-search-input") as HTMLInputElement;
+            const tabBtns = document.querySelectorAll(".faq-tab-btn");
+            const faqItems = document.querySelectorAll("#unified-faq-list .faq-item") as NodeListOf<HTMLElement>;
+            const noResults = document.getElementById("faq-no-results");
+
+            let currentFilter = "all";
+            let searchQuery = "";
+
+            function filterFAQ() {
+                let visibleCount = 0;
+                faqItems.forEach((item) => {
+                    const cat = item.getAttribute("data-category") || "";
+                    const searchIndex = item.getAttribute("data-q") || "";
+                    const matchesCat = (currentFilter === "all" || cat === currentFilter);
+                    const matchesSearch = (!searchQuery || searchIndex.includes(searchQuery));
+
+                    if (matchesCat && matchesSearch) {
+                        item.style.display = "";
+                        visibleCount++;
+                    } else {
+                        item.style.display = "none";
+                        item.classList.remove("active"); // close hidden items
+                    }
+                });
+
+                if (noResults) {
+                    noResults.style.display = visibleCount === 0 ? "block" : "none";
+                }
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener("input", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    searchQuery = target.value.toLowerCase().trim();
+                    filterFAQ();
+                });
+            }
+
+            tabBtns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    tabBtns.forEach((t) => t.classList.remove("active"));
+                    btn.classList.add("active");
+                    currentFilter = btn.getAttribute("data-filter") || "all";
+                    filterFAQ();
+                });
+            });
+        });
     </script>
 
 </Layout>
+
