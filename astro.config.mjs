@@ -59,6 +59,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       filenameBase: 'sitemap',
+      filter: (page) => !page.includes('/stocks/'),
       serialize(item) {
         if (item.url === 'https://arthavi.com' || item.url === 'https://arthavi.com/') {
           item.changefreq = ChangeFreqEnum.WEEKLY;
