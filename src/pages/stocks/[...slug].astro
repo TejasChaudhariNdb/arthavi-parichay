@@ -104,7 +104,7 @@ let stockData = {
   executives: []
 };
 
-// Fetch real-time cached data from FastAPI backend
+// Fetch real-time cached data from FastAPI backend at build time
 try {
   const res = await fetch(`${apiUrl}/api/public/stocks/${stockSlug}`);
   if (res.ok) {
@@ -126,7 +126,7 @@ try {
   console.warn(`[Astro Build] Backend API un-reachable at ${apiUrl}, using fallback:`, err);
 }
 
-// Formatted values
+// Formatted helper functions
 const formatCurrency = (val: number | null | undefined) => {
   if (val === null || val === undefined) return 'N/A';
   if (val >= 1e12) return `₹${(val / 1e12).toFixed(2)} Lakh Cr`;
@@ -142,9 +142,9 @@ const formatPercent = (val: number | null | undefined) => {
 // Related stocks in same sector
 const relatedStocks = STOCK_SEED_DATA
   .filter(s => s.sector === stockSector && s.slug !== stockSlug)
-  .slice(0, 5);
+  .slice(0, 6);
 
-// Deterministic AI Insight Generator
+// Valuation & Insights
 const valPe = stockData.fundamentals.pe || 25;
 const valuationInsight = valPe < 20
   ? `${stockName} currently trades at an attractive P/E ratio of ${valPe}, reflecting a discounted valuation compared to broader sector averages.`
@@ -158,28 +158,180 @@ const dividendInsight = stockData.dividend.yield
   ? `${stockName} offers a competitive dividend yield of ${stockData.dividend.yield}% with an annual dividend rate of ₹${stockData.dividend.rate}, making it attractive for passive income investors.`
   : `${stockName} prioritizes capital reinvestment into business expansion over aggressive dividend payouts.`;
 
-// Dynamic Meta Titles & Descriptions based on active tab
+// Dynamic H1 Title, Meta Tags & Canonical per Tab
+let pageH1 = `${stockName} (${shortSymbol.toUpperCase()}) Share Price & Analysis`;
 let metaTitle = `${stockName} (${shortSymbol.toUpperCase()}) Share Price Today | Fundamentals & PE Ratio | Arthavi`;
 let metaDescription = `Track ${stockName} (${shortSymbol.toUpperCase()}) share price, valuation metrics, P/E ratio, market cap, dividend yield, company profile, and financial performance on Arthavi.`;
 
-if (activeTab === 'financials') {
+if (activeTab === 'share-price') {
+  pageH1 = `${stockName} Share Price Today, 52-Week Range & Price Target`;
+  metaTitle = `${stockName} Share Price Today, 52 Week High Low & Target Price | Arthavi`;
+  metaDescription = `Check live ${stockName} share price today, 52-week high/low range, price target, analyst recommendations, and technical performance indicators on Arthavi.`;
+} else if (activeTab === 'financials') {
+  pageH1 = `${stockName} Financial Statements, P/E Ratio & ROE Valuation`;
   metaTitle = `${stockName} Financials, P/E Ratio & Valuation Metrics | Arthavi`;
   metaDescription = `Comprehensive financial analysis for ${stockName} including P/E ratio, ROE, profit margins, balance sheet metrics, cash flows, and EV/EBITDA multiples.`;
 } else if (activeTab === 'dividend') {
+  pageH1 = `${stockName} Dividend History, Annual Yield & Ex-Date`;
   metaTitle = `${stockName} Dividend History, Yield & Ex-Date | Arthavi`;
   metaDescription = `Track ${stockName} dividend yield, payout rate, ex-dividend dates, split history, and income performance metrics on Arthavi.`;
 } else if (activeTab === 'shareholding-pattern') {
+  pageH1 = `${stockName} Shareholding Pattern: Promoter & FII Holding`;
   metaTitle = `${stockName} Shareholding Pattern, Promoter & FII Holding | Arthavi`;
   metaDescription = `Analyze ${stockName} ownership structure including promoter holdings, FII/DII institutional stake, cash reserves, and debt-to-equity metrics.`;
 } else if (activeTab === 'peer-comparison') {
+  pageH1 = `${stockName} Peer Comparison & Sector Competitors`;
   metaTitle = `${stockName} Peer Comparison & Sector Competitors | Arthavi`;
   metaDescription = `Compare ${stockName} against top ${stockSector} competitors on P/E ratio, ROE, market capitalization, margins, and dividend yields.`;
 }
 
-// Canonical URL
+// Canonical URL (Self-referencing for indexability)
 const canonicalUrl = `https://arthavi.com/stocks/${stockSlug}/${activeTab !== 'overview' ? activeTab + '/' : ''}`;
 
-// Schema JSON-LD
+// Dynamic FAQ list per tab for Unique HTML Content & Schema
+let tabFaqs = [];
+
+if (activeTab === 'overview') {
+  tabFaqs = [
+    {
+      q: `What is ${stockName} share price today?`,
+      a: `${stockName} (${shortSymbol.toUpperCase()}) is currently trading at ₹${stockData.price.toLocaleString('en-IN')}, with a day change of ${formatPercent(stockData.changePercent)}.`
+    },
+    {
+      q: `Is ${stockName} a large cap company?`,
+      a: `With a market capitalization of ${formatCurrency(stockData.fundamentals.marketCap)}, ${stockName} is categorized as a leading company in the ${stockSector} sector in India.`
+    },
+    {
+      q: `What is ${stockName} P/E ratio?`,
+      a: `${stockName} trades at a P/E ratio of ${stockData.fundamentals.pe || 'N/A'} and a Forward P/E of ${stockData.fundamentals.forwardPE || 'N/A'}.`
+    },
+    {
+      q: `What sector does ${stockName} belong to?`,
+      a: `${stockName} belongs to the ${stockSector} sector in India.`
+    },
+    {
+      q: `What is ${stockName} dividend yield?`,
+      a: stockData.dividend.yield
+        ? `${stockName} offers a dividend yield of ${stockData.dividend.yield}% with an annual dividend rate of ₹${stockData.dividend.rate}.`
+        : `${stockName} currently does not pay a regular dividend or dividend data is not available.`
+    },
+    {
+      q: `What is ${stockName} 52-week high and low?`,
+      a: stockData.performance.high52 && stockData.performance.low52
+        ? `${stockName} has traded between ₹${stockData.performance.low52} (52-week low) and ₹${stockData.performance.high52} (52-week high).`
+        : `52-week price range data for ${stockName} is currently being updated.`
+    },
+    {
+      q: `What is ${stockName} return on equity (ROE)?`,
+      a: stockData.fundamentals.roe
+        ? `${stockName} has an ROE of ${stockData.fundamentals.roe}%, showing how efficiently the company generates profit from shareholder equity.`
+        : `ROE data for ${stockName} is currently being updated.`
+    },
+    {
+      q: `Is ${stockName} good for long-term investment?`,
+      a: `${stockName} is a leading ${stockSector} company in India with a market cap of ${formatCurrency(stockData.fundamentals.marketCap)} and a P/E ratio of ${stockData.fundamentals.pe || 'N/A'}. Always consult a SEBI-registered financial advisor before investing.`
+    }
+  ];
+} else if (activeTab === 'share-price') {
+  tabFaqs = [
+    {
+      q: `What is ${stockName} 52-week high and 52-week low?`,
+      a: `${stockName} has recorded a 52-week high of ₹${stockData.performance.high52 || 'N/A'} and a 52-week low of ₹${stockData.performance.low52 || 'N/A'}.`
+    },
+    {
+      q: `What is analyst target price for ${stockName}?`,
+      a: `Consensus analyst target price for ${stockName} is ₹${stockData.performance.targetPrice || 'N/A'}, based on overall Wall Street and Indian broker research updates.`
+    },
+    {
+      q: `What was ${stockName} previous close and opening price?`,
+      a: `${stockName} opened trading today at ₹${stockData.performance.open || 'N/A'} after closing at ₹${stockData.performance.previousClose || 'N/A'} in the previous session.`
+    },
+    {
+      q: `How volatile is ${stockName} share price?`,
+      a: `${stockName} operates in the ${stockSector} sector. Investors should monitor intraday day high (₹${stockData.performance.dayHigh || 'N/A'}) and day low (₹${stockData.performance.dayLow || 'N/A'}) levels alongside broader sector movements.`
+    }
+  ];
+} else if (activeTab === 'financials') {
+  tabFaqs = [
+    {
+      q: `What is ${stockName} P/E ratio and Price-to-Book (P/B) ratio?`,
+      a: `${stockName} trades at a trailing P/E of ${stockData.fundamentals.pe || 'N/A'}, a Forward P/E of ${stockData.fundamentals.forwardPE || 'N/A'}, and a P/B ratio of ${stockData.fundamentals.pb || 'N/A'}.`
+    },
+    {
+      q: `What is ${stockName} Return on Equity (ROE)?`,
+      a: `${stockName} reports a Return on Equity (ROE) of ${stockData.fundamentals.roe ? stockData.fundamentals.roe + '%' : 'N/A'}, reflecting shareholder capital efficiency.`
+    },
+    {
+      q: `What are ${stockName} profit margin and operating margin?`,
+      a: `${stockName} maintains a net profit margin of ${stockData.fundamentals.profitMargin ? stockData.fundamentals.profitMargin + '%' : 'N/A'} and an operating margin of ${stockData.fundamentals.operatingMargin ? stockData.fundamentals.operatingMargin + '%' : 'N/A'}.`
+    },
+    {
+      q: `What is ${stockName} Enterprise Value and EBITDA multiplier?`,
+      a: `${stockName} has an Enterprise Value of ${formatCurrency(stockData.fundamentals.enterpriseValue)} and reported earnings per share (TTM EPS) of ₹${stockData.fundamentals.eps || 'N/A'}.`
+    }
+  ];
+} else if (activeTab === 'dividend') {
+  tabFaqs = [
+    {
+      q: `What is ${stockName} dividend yield?`,
+      a: stockData.dividend.yield 
+        ? `${stockName} offers a dividend yield of ${stockData.dividend.yield}%.`
+        : `${stockName} currently does not pay a regular dividend yield or data is pending update.`
+    },
+    {
+      q: `What is ${stockName} annual dividend rate per share?`,
+      a: `${stockName} pays an annual dividend rate of ₹${stockData.dividend.rate || '0.00'} per share.`
+    },
+    {
+      q: `When was ${stockName} last ex-dividend date?`,
+      a: `${stockName}'s last recorded ex-dividend date was ${stockData.dividend.exDate || 'N/A'}.`
+    },
+    {
+      q: `Has ${stockName} announced stock splits or bonus shares?`,
+      a: `${stockName}'s last recorded stock split factor was ${stockData.dividend.lastSplit || 'N/A'}.`
+    }
+  ];
+} else if (activeTab === 'shareholding-pattern') {
+  tabFaqs = [
+    {
+      q: `What is promoter holding percentage in ${stockName}?`,
+      a: `Promoters hold ${stockData.ownership.promoter ? stockData.ownership.promoter + '%' : 'N/A'} of total equity shares in ${stockName}.`
+    },
+    {
+      q: `What is FII and institutional holding in ${stockName}?`,
+      a: `Foreign Institutional Investors (FII) and domestic institutions hold ${stockData.ownership.fii ? stockData.ownership.fii + '%' : 'N/A'} of ${stockName}.`
+    },
+    {
+      q: `What is ${stockName} Debt-to-Equity ratio?`,
+      a: `${stockName} maintains a debt-to-equity ratio of ${stockData.ownership.debtToEquity !== null ? stockData.ownership.debtToEquity : 'N/A'}, reflecting balance sheet leverage.`
+    },
+    {
+      q: `How much cash reserves does ${stockName} hold?`,
+      a: `${stockName} holds total cash and equivalent liquid reserves of ${formatCurrency(stockData.ownership.cash)}.`
+    }
+  ];
+} else if (activeTab === 'peer-comparison') {
+  tabFaqs = [
+    {
+      q: `Who are ${stockName}'s main sector competitors in India?`,
+      a: `${stockName} competes with leading ${stockSector} companies in India including ${relatedStocks.map(s => s.name).join(', ')}.`
+    },
+    {
+      q: `How does ${stockName}'s valuation compare with sector peers?`,
+      a: `${stockName} trades at a P/E of ${stockData.fundamentals.pe || 'N/A'}. Compare this against ${stockSector} industry averages to evaluate if the stock is trading at a premium or discount.`
+    },
+    {
+      q: `Which company has the largest market cap among ${stockName}'s peers?`,
+      a: `${stockName} has a market cap of ${formatCurrency(stockData.fundamentals.marketCap)}. Check our peer comparison table to review relative sizes across the ${stockSector} sector.`
+    },
+    {
+      q: `Why compare ${stockName} with sector peers?`,
+      a: `Comparing P/E ratio, ROE, margins, and market cap against ${stockSector} competitors helps investors identify value traps and quality industry leaders.`
+    }
+  ];
+}
+
+// Schema JSON-LD tailored per sub-page
 const schemaGraph = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
@@ -201,52 +353,40 @@ const schemaGraph = JSON.stringify({
     },
     {
       "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": `What is ${stockName} share price today?`,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": `${stockName} (${shortSymbol.toUpperCase()}) is currently trading around ₹${stockData.price.toLocaleString('en-IN')}.`
-          }
-        },
-        {
-          "@type": "Question",
-          "name": `What is ${stockName} P/E ratio?`,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": `${stockName} currently has a P/E ratio of ${stockData.fundamentals.pe || 'N/A'}.`
-          }
-        },
-        {
-          "@type": "Question",
-          "name": `What is ${stockName} market capitalization?`,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": `${stockName} has a market capitalization of ${formatCurrency(stockData.fundamentals.marketCap)}.`
-          }
-        },
-        {
-          "@type": "Question",
-          "name": `What sector does ${stockName} belong to?`,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": `${stockName} operates in the ${stockSector} sector.`
-          }
+      "mainEntity": tabFaqs.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
         }
-      ]
+      }))
     }
   ]
 });
 
-// Breadcrumbs
-const breadcrumb = {
-  items: [
-    { name: "Home", url: "https://arthavi.com/" },
-    { name: "Stocks", url: "https://arthavi.com/stocks/" },
-    { name: stockName, url: `https://arthavi.com/stocks/${stockSlug}/` }
-  ]
-};
+// Breadcrumbs per tab
+const breadcrumbItems = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Stocks", url: "https://arthavi.com/stocks/" },
+  { name: stockName, url: `https://arthavi.com/stocks/${stockSlug}/` }
+];
+
+if (activeTab !== 'overview') {
+  const tabLabelMap: Record<string, string> = {
+    'share-price': 'Share Price',
+    'financials': 'Financials',
+    'dividend': 'Dividends',
+    'shareholding-pattern': 'Shareholding',
+    'peer-comparison': 'Peer Comparison'
+  };
+  breadcrumbItems.push({
+    name: tabLabelMap[activeTab] || activeTab,
+    url: canonicalUrl
+  });
+}
+
+const breadcrumb = { items: breadcrumbItems };
 ---
 
 <Layout 
@@ -256,7 +396,7 @@ const breadcrumb = {
   schema={schemaGraph}
   breadcrumb={breadcrumb}
 >
-  <!-- Sticky Header Bar on Scroll -->
+  <!-- Sticky Stock Header Bar on Scroll -->
   <div id="sticky-stock-bar" class="sticky-stock-bar hidden">
     <div class="container sticky-bar-inner">
       <div class="sticky-bar-info">
@@ -274,17 +414,31 @@ const breadcrumb = {
   </div>
 
   <main class="stock-page-container">
-    <!-- Breadcrumb Navigation (Clear of fixed header with top margin) -->
+    <!-- Breadcrumb Navigation -->
     <nav class="container breadcrumb-nav" aria-label="Breadcrumb">
       <ol class="breadcrumb-list">
         <li><a href="/">Home</a></li>
         <li><span class="crumb-separator">/</span></li>
         <li><a href="/stocks/">Stocks</a></li>
         <li><span class="crumb-separator">/</span></li>
-        <li class="crumb-active" aria-current="page">{stockName}</li>
+        {activeTab === 'overview' ? (
+          <li class="crumb-active" aria-current="page">{stockName}</li>
+        ) : (
+          <>
+            <li><a href={`/stocks/${stockSlug}/`}>{stockName}</a></li>
+            <li><span class="crumb-separator">/</span></li>
+            <li class="crumb-active" aria-current="page">
+              {activeTab === 'share-price' && 'Share Price'}
+              {activeTab === 'financials' && 'Financials'}
+              {activeTab === 'dividend' && 'Dividends'}
+              {activeTab === 'shareholding-pattern' && 'Shareholding'}
+              {activeTab === 'peer-comparison' && 'Peer Comparison'}
+            </li>
+          </>
+        )}
       </ol>
       <div class="meta-timestamps">
-        <span>⏱ 3 min read</span>
+        <span>⏱ 4 min read</span>
         <span class="meta-dot">·</span>
         <span>Updated Today</span>
       </div>
@@ -299,8 +453,8 @@ const breadcrumb = {
               <span class="sector-badge">{stockSector}</span>
               <span class="ticker-badge">NSE: {shortSymbol.toUpperCase()}</span>
             </div>
-            <h1 class="stock-title">{stockName}</h1>
-            <p class="stock-subtitle">{stockData.company.industry}</p>
+            <h1 class="stock-title">{pageH1}</h1>
+            <p class="stock-subtitle">{stockName} ({shortSymbol.toUpperCase()}) — {stockData.company.industry}</p>
           </div>
 
           <div class="price-box text-right">
@@ -319,7 +473,7 @@ const breadcrumb = {
           <div class="action-buttons">
             <a href="https://app.arthavi.com/register" class="btn btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-              Add to Portfolio
+              Track in Portfolio
             </a>
           </div>
 
@@ -336,267 +490,423 @@ const breadcrumb = {
       </div>
     </section>
 
-    <!-- Subpage Navigation Tabs (Interactive & Deep-linkable) -->
+    <!-- Subpage Navigation Tabs (Direct Hyperlinks for Clean Crawling) -->
     <section class="container tab-nav-section">
       <div class="tab-scroll-container">
-        <a href={`/stocks/${stockSlug}/`} class={`tab-link ${activeTab === 'overview' ? 'is-active' : ''}`} data-tab-name="overview">Overview</a>
-        <a href={`/stocks/${stockSlug}/share-price/`} class={`tab-link ${activeTab === 'share-price' ? 'is-active' : ''}`} data-tab-name="share-price">Share Price</a>
-        <a href={`/stocks/${stockSlug}/financials/`} class={`tab-link ${activeTab === 'financials' ? 'is-active' : ''}`} data-tab-name="financials">Financials & P/E</a>
-        <a href={`/stocks/${stockSlug}/dividend/`} class={`tab-link ${activeTab === 'dividend' ? 'is-active' : ''}`} data-tab-name="dividend">Dividends</a>
-        <a href={`/stocks/${stockSlug}/shareholding-pattern/`} class={`tab-link ${activeTab === 'shareholding-pattern' ? 'is-active' : ''}`} data-tab-name="shareholding-pattern">Shareholding</a>
-        <a href={`/stocks/${stockSlug}/peer-comparison/`} class={`tab-link ${activeTab === 'peer-comparison' ? 'is-active' : ''}`} data-tab-name="peer-comparison">Peer Comparison</a>
+        <a href={`/stocks/${stockSlug}/`} class={`tab-link ${activeTab === 'overview' ? 'is-active' : ''}`}>Overview</a>
+        <a href={`/stocks/${stockSlug}/share-price/`} class={`tab-link ${activeTab === 'share-price' ? 'is-active' : ''}`}>Share Price</a>
+        <a href={`/stocks/${stockSlug}/financials/`} class={`tab-link ${activeTab === 'financials' ? 'is-active' : ''}`}>Financials & P/E</a>
+        <a href={`/stocks/${stockSlug}/dividend/`} class={`tab-link ${activeTab === 'dividend' ? 'is-active' : ''}`}>Dividends</a>
+        <a href={`/stocks/${stockSlug}/shareholding-pattern/`} class={`tab-link ${activeTab === 'shareholding-pattern' ? 'is-active' : ''}`}>Shareholding</a>
+        <a href={`/stocks/${stockSlug}/peer-comparison/`} class={`tab-link ${activeTab === 'peer-comparison' ? 'is-active' : ''}`}>Peer Comparison</a>
       </div>
     </section>
 
-    <!-- Quick Stats Grid -->
-    <section class="container section-space tab-content-block" data-tabs="overview,share-price,financials">
-      <h2 class="section-title">Quick Fundamentals</h2>
-      <div class="quick-stats-grid">
-        <div class="stat-card glass-panel">
-          <span class="stat-label">Market Cap</span>
-          <span class="stat-value">{formatCurrency(stockData.fundamentals.marketCap)}</span>
-        </div>
-        <div class="stat-card glass-panel">
-          <span class="stat-label">P/E Ratio</span>
-          <span class="stat-value">{stockData.fundamentals.pe || 'N/A'}</span>
-        </div>
-        <div class="stat-card glass-panel">
-          <span class="stat-label">P/B Ratio</span>
-          <span class="stat-value">{stockData.fundamentals.pb || 'N/A'}</span>
-        </div>
-        <div class="stat-card glass-panel">
-          <span class="stat-label">ROE</span>
-          <span class="stat-value">{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</span>
-        </div>
-        <div class="stat-card glass-panel">
-          <span class="stat-label">Dividend Yield</span>
-          <span class="stat-value">{stockData.dividend.yield ? `${stockData.dividend.yield}%` : 'N/A'}</span>
-        </div>
-        <div class="stat-card glass-panel">
-          <span class="stat-label">52W High</span>
-          <span class="stat-value">{stockData.performance.high52 ? `₹${stockData.performance.high52}` : 'N/A'}</span>
-        </div>
-        <div class="stat-card glass-panel">
-          <span class="stat-label">52W Low</span>
-          <span class="stat-value">{stockData.performance.low52 ? `₹${stockData.performance.low52}` : 'N/A'}</span>
-        </div>
-        <div class="stat-card glass-panel">
-          <span class="stat-label">EPS (TTM)</span>
-          <span class="stat-value">{stockData.fundamentals.eps ? `₹${stockData.fundamentals.eps}` : 'N/A'}</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Performance & Valuation Section -->
-    <section class="container section-space tab-content-block" data-tabs="overview,share-price,financials">
-      <div class="card-grid-2">
-        <div class="glass-panel content-box">
-          <h3 class="box-title">Price Performance</h3>
-          <div class="metric-row">
-            <span>Previous Close</span>
-            <strong>{stockData.performance.previousClose ? `₹${stockData.performance.previousClose}` : 'N/A'}</strong>
-          </div>
-          <div class="metric-row">
-            <span>Open</span>
-            <strong>{stockData.performance.open ? `₹${stockData.performance.open}` : 'N/A'}</strong>
-          </div>
-          <div class="metric-row">
-            <span>Day High / Low</span>
-            <strong>{stockData.performance.dayHigh && stockData.performance.dayLow ? `₹${stockData.performance.dayHigh} / ₹${stockData.performance.dayLow}` : 'N/A'}</strong>
-          </div>
-          <div class="metric-row">
-            <span>Analyst Target Price</span>
-            <strong>{stockData.performance.targetPrice ? `₹${stockData.performance.targetPrice}` : 'N/A'}</strong>
-          </div>
-
-          <!-- 52-Week Range Bar -->
-          {stockData.performance.high52 && stockData.performance.low52 && (
-            <div class="range-box">
-              <div class="range-labels">
-                <span>52W Low: ₹{stockData.performance.low52}</span>
-                <span>52W High: ₹{stockData.performance.high52}</span>
-              </div>
-              <div class="range-track">
-                <div class="range-fill" style={`width: ${Math.min(Math.max(((stockData.price - stockData.performance.low52) / (stockData.performance.high52 - stockData.performance.low52) * 100), 5), 100).toFixed(1)}%`}></div>
-              </div>
+    <!-- ==================== TAB 1: OVERVIEW ==================== -->
+    {activeTab === 'overview' && (
+      <>
+        <!-- Quick Stats Grid -->
+        <section class="container section-space">
+          <h2 class="section-title">{stockName} Key Fundamental Metrics</h2>
+          <div class="quick-stats-grid">
+            <div class="stat-card glass-panel">
+              <span class="stat-label">Market Cap</span>
+              <span class="stat-value">{formatCurrency(stockData.fundamentals.marketCap)}</span>
             </div>
-          )}
-        </div>
-
-        <!-- Valuation Card + AI Insight -->
-        <div class="glass-panel content-box">
-          <h3 class="box-title">Valuation Analysis</h3>
-          <div class="ai-insight-box">
-            <span class="ai-sparkle">✨ Valuation Insight</span>
-            <p>{valuationInsight}</p>
-          </div>
-
-          <div class="metrics-two-col">
-            <div class="mini-metric">
-              <span>Forward P/E</span>
-              <strong>{stockData.fundamentals.forwardPE || 'N/A'}</strong>
+            <div class="stat-card glass-panel">
+              <span class="stat-label">P/E Ratio</span>
+              <span class="stat-value">{stockData.fundamentals.pe || 'N/A'}</span>
             </div>
-            <div class="mini-metric">
-              <span>Enterprise Value</span>
-              <strong>{formatCurrency(stockData.fundamentals.enterpriseValue)}</strong>
+            <div class="stat-card glass-panel">
+              <span class="stat-label">P/B Ratio</span>
+              <span class="stat-value">{stockData.fundamentals.pb || 'N/A'}</span>
             </div>
-            <div class="mini-metric">
-              <span>P/B Ratio</span>
-              <strong>{stockData.fundamentals.pb || 'N/A'}</strong>
+            <div class="stat-card glass-panel">
+              <span class="stat-label">ROE</span>
+              <span class="stat-value">{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</span>
             </div>
-            <div class="mini-metric">
-              <span>Forward EPS</span>
-              <strong>{stockData.fundamentals.forwardEPS ? `₹${stockData.fundamentals.forwardEPS}` : 'N/A'}</strong>
+            <div class="stat-card glass-panel">
+              <span class="stat-label">Dividend Yield</span>
+              <span class="stat-value">{stockData.dividend.yield ? `${stockData.dividend.yield}%` : 'N/A'}</span>
+            </div>
+            <div class="stat-card glass-panel">
+              <span class="stat-label">52W High</span>
+              <span class="stat-value">{stockData.performance.high52 ? `₹${stockData.performance.high52}` : 'N/A'}</span>
+            </div>
+            <div class="stat-card glass-panel">
+              <span class="stat-label">52W Low</span>
+              <span class="stat-value">{stockData.performance.low52 ? `₹${stockData.performance.low52}` : 'N/A'}</span>
+            </div>
+            <div class="stat-card glass-panel">
+              <span class="stat-label">EPS (TTM)</span>
+              <span class="stat-value">{stockData.fundamentals.eps ? `₹${stockData.fundamentals.eps}` : 'N/A'}</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Profitability & Ownership -->
-    <section class="container section-space tab-content-block" data-tabs="overview,financials,shareholding-pattern">
-      <div class="card-grid-2">
-        <!-- Profitability Box -->
-        <div class="glass-panel content-box">
-          <h3 class="box-title">Profitability & Margins</h3>
-          <div class="ai-insight-box">
-            <span class="ai-sparkle">✨ Profitability Insight</span>
-            <p>{profitabilityInsight}</p>
+        <!-- Overview Executive Narrative Article -->
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">Executive Investment Overview & Business Profile</h2>
+            <div class="ai-insight-box">
+              <span class="ai-sparkle">✨ Overview Analysis</span>
+              <p>{valuationInsight}</p>
+            </div>
+            <p class="essay-paragraph">
+              <strong>{stockName}</strong> is one of the premier companies in India's <strong>{stockSector}</strong> sector.
+              Currently trading at <strong>₹{stockData.price.toLocaleString('en-IN')}</strong> with a market capitalization of 
+              <strong>{formatCurrency(stockData.fundamentals.marketCap)}</strong>, the company occupies a key position in the Indian equity market.
+            </p>
+            <p class="essay-paragraph">
+              Investors evaluating {stockName} focus closely on its capital return metrics: Return on Equity (ROE) stands at 
+              <strong>{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</strong> alongside operating margins of 
+              <strong>{stockData.fundamentals.operatingMargin ? `${stockData.fundamentals.operatingMargin}%` : 'N/A'}</strong>. 
+              The company's earnings multiple of <strong>{stockData.fundamentals.pe || 'N/A'} P/E</strong> provides a clear signal of market expectation relative to sector peers.
+            </p>
           </div>
+        </section>
 
-          <div class="metric-row">
-            <span>Return on Equity (ROE)</span>
-            <strong>{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</strong>
-          </div>
-          <div class="metric-row">
-            <span>Profit Margin</span>
-            <strong>{stockData.fundamentals.profitMargin ? `${stockData.fundamentals.profitMargin}%` : 'N/A'}</strong>
-          </div>
-          <div class="metric-row">
-            <span>Operating Margin</span>
-            <strong>{stockData.fundamentals.operatingMargin ? `${stockData.fundamentals.operatingMargin}%` : 'N/A'}</strong>
-          </div>
-        </div>
-
-        <!-- Ownership & Balance Sheet Box -->
-        <div class="glass-panel content-box">
-          <h3 class="box-title">Shareholding & Balance Sheet</h3>
-          <div class="metric-row">
-            <span>Promoter Holding</span>
-            <strong>{stockData.ownership.promoter ? `${stockData.ownership.promoter}%` : 'N/A'}</strong>
-          </div>
-          <div class="metric-row">
-            <span>FII / Institutional Holding</span>
-            <strong>{stockData.ownership.fii ? `${stockData.ownership.fii}%` : 'N/A'}</strong>
-          </div>
-          <div class="metric-row">
-            <span>Total Cash</span>
-            <strong>{formatCurrency(stockData.ownership.cash)}</strong>
-          </div>
-          <div class="metric-row">
-            <span>Debt-to-Equity Ratio</span>
-            <strong>{stockData.ownership.debtToEquity !== null ? stockData.ownership.debtToEquity : 'N/A'}</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Dividends Section -->
-    <section class="container section-space tab-content-block" data-tabs="overview,dividend">
-      <div class="glass-panel content-box">
-        <h3 class="box-title">Dividend Information</h3>
-        <div class="ai-insight-box">
-          <span class="ai-sparkle">✨ Dividend Insight</span>
-          <p>{dividendInsight}</p>
-        </div>
-
-        <div class="dividend-grid">
-          <div class="div-card">
-            <span>Dividend Yield</span>
-            <strong>{stockData.dividend.yield ? `${stockData.dividend.yield}%` : 'N/A'}</strong>
-          </div>
-          <div class="div-card">
-            <span>Annual Dividend Rate</span>
-            <strong>{stockData.dividend.rate ? `₹${stockData.dividend.rate}` : 'N/A'}</strong>
-          </div>
-          <div class="div-card">
-            <span>Last Ex-Dividend Date</span>
-            <strong>{stockData.dividend.exDate || 'N/A'}</strong>
-          </div>
-          <div class="div-card">
-            <span>Last Split Factor</span>
-            <strong>{stockData.dividend.lastSplit || 'N/A'}</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Company Profile & Key Executives -->
-    <section class="container section-space tab-content-block" data-tabs="overview">
-      <div class="glass-panel content-box">
-        <h3 class="box-title">Company Profile</h3>
-        <p class="company-desc">{stockData.company.description}</p>
-
-        <div class="profile-details-grid">
-          <div><strong>Website:</strong> {stockData.company.website ? <a href={stockData.company.website} target="_blank" rel="noopener noreferrer">{stockData.company.website}</a> : 'N/A'}</div>
-          <div><strong>Employees:</strong> {stockData.company.employees ? stockData.company.employees.toLocaleString('en-IN') : 'N/A'}</div>
-          <div><strong>Sector:</strong> {stockData.company.sector}</div>
-          <div><strong>Industry:</strong> {stockData.company.industry}</div>
-          <div><strong>Headquarters:</strong> {stockData.company.address || 'N/A'}</div>
-          <div><strong>Phone:</strong> {stockData.company.phone || 'N/A'}</div>
-        </div>
-
-        {stockData.executives.length > 0 && (
-          <div>
-            <h4 class="sub-box-title">Key Leadership</h4>
-            <div class="executives-grid">
-              {stockData.executives.map(exec => (
-                <div class="exec-card">
-                  <strong>{exec.name}</strong>
-                  <span>{exec.title}</span>
+        <!-- Company Profile & Leadership -->
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h3 class="box-title">Company Profile & Information</h3>
+            <p class="company-desc">{stockData.company.description}</p>
+            <div class="profile-details-grid">
+              <div><strong>Website:</strong> {stockData.company.website ? <a href={stockData.company.website} target="_blank" rel="noopener noreferrer">{stockData.company.website}</a> : 'N/A'}</div>
+              <div><strong>Employees:</strong> {stockData.company.employees ? stockData.company.employees.toLocaleString('en-IN') : 'N/A'}</div>
+              <div><strong>Sector:</strong> {stockData.company.sector}</div>
+              <div><strong>Industry:</strong> {stockData.company.industry}</div>
+              <div><strong>Headquarters:</strong> {stockData.company.address || 'N/A'}</div>
+              <div><strong>Phone:</strong> {stockData.company.phone || 'N/A'}</div>
+            </div>
+            {stockData.executives.length > 0 && (
+              <div>
+                <h4 class="sub-box-title">Key Executive Leadership</h4>
+                <div class="executives-grid">
+                  {stockData.executives.map(exec => (
+                    <div class="exec-card">
+                      <strong>{exec.name}</strong>
+                      <span>{exec.title}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            )}
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- ==================== TAB 2: SHARE PRICE ==================== -->
+    {activeTab === 'share-price' && (
+      <>
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">{stockName} Live Share Price & Performance Metrics</h2>
+            <div class="metrics-two-col">
+              <div class="mini-metric">
+                <span>Current Price</span>
+                <strong>₹{stockData.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Day Change</span>
+                <strong class={stockData.change >= 0 ? 'text-green' : 'text-red'}>
+                  {formatPercent(stockData.changePercent)}
+                </strong>
+              </div>
+              <div class="mini-metric">
+                <span>Previous Close</span>
+                <strong>{stockData.performance.previousClose ? `₹${stockData.performance.previousClose}` : 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Open Price</span>
+                <strong>{stockData.performance.open ? `₹${stockData.performance.open}` : 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Day High / Low</span>
+                <strong>{stockData.performance.dayHigh && stockData.performance.dayLow ? `₹${stockData.performance.dayHigh} / ₹${stockData.performance.dayLow}` : 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Analyst Price Target</span>
+                <strong>{stockData.performance.targetPrice ? `₹${stockData.performance.targetPrice}` : 'N/A'}</strong>
+              </div>
+            </div>
+
+            <!-- 52-Week Range Bar -->
+            {stockData.performance.high52 && stockData.performance.low52 && (
+              <div class="range-box">
+                <div class="range-labels">
+                  <span>52W Low: ₹{stockData.performance.low52}</span>
+                  <span>52W High: ₹{stockData.performance.high52}</span>
+                </div>
+                <div class="range-track">
+                  <div class="range-fill" style={`width: ${Math.min(Math.max(((stockData.price - stockData.performance.low52) / (stockData.performance.high52 - stockData.performance.low52) * 100), 5), 100).toFixed(1)}%`}></div>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <!-- Detailed Share Price Analysis Article -->
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">{stockName} Stock Price Momentum & 52-Week Range Analysis</h2>
+            <p class="essay-paragraph">
+              <strong>{stockName}</strong> ({shortSymbol.toUpperCase()}) is trading around 
+              <strong>₹{stockData.price.toLocaleString('en-IN')}</strong> on the National Stock Exchange (NSE).
+              Over the past 52 weeks, {stockName} has reached a high of <strong>₹{stockData.performance.high52 || 'N/A'}</strong> 
+              and touched a low of <strong>₹{stockData.performance.low52 || 'N/A'}</strong>.
+            </p>
+            <p class="essay-paragraph">
+              Analyst consensus targets for {stockName} project a potential target price around 
+              <strong>₹{stockData.performance.targetPrice || 'N/A'}</strong>. Understanding price action within the 
+              {stockSector} sector gives investors key context on whether current levels represent consolidated support or near-term resistance.
+            </p>
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- ==================== TAB 3: FINANCIALS ==================== -->
+    {activeTab === 'financials' && (
+      <>
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">{stockName} Financial Statements & Valuation Multiples</h2>
+            <div class="ai-insight-box">
+              <span class="ai-sparkle">✨ Financials & Valuation Analysis</span>
+              <p>{valuationInsight}</p>
+            </div>
+            <div class="metrics-two-col">
+              <div class="mini-metric">
+                <span>P/E Ratio (TTM)</span>
+                <strong>{stockData.fundamentals.pe || 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Forward P/E</span>
+                <strong>{stockData.fundamentals.forwardPE || 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Price-to-Book (P/B)</span>
+                <strong>{stockData.fundamentals.pb || 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Return on Equity (ROE)</span>
+                <strong>{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Profit Margin</span>
+                <strong>{stockData.fundamentals.profitMargin ? `${stockData.fundamentals.profitMargin}%` : 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Operating Margin</span>
+                <strong>{stockData.fundamentals.operatingMargin ? `${stockData.fundamentals.operatingMargin}%` : 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>EPS (TTM)</span>
+                <strong>{stockData.fundamentals.eps ? `₹${stockData.fundamentals.eps}` : 'N/A'}</strong>
+              </div>
+              <div class="mini-metric">
+                <span>Enterprise Value</span>
+                <strong>{formatCurrency(stockData.fundamentals.enterpriseValue)}</strong>
+              </div>
             </div>
           </div>
-        )}
-      </div>
-    </section>
+        </section>
 
-    <!-- SEO FAQ Accordion -->
-    <section class="container section-space tab-content-block" data-tabs="overview,share-price,financials">
+        <!-- Detailed Financial Essay -->
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">Financial Health & Profitability Breakdown for {stockName}</h2>
+            <p class="essay-paragraph">
+              A comprehensive review of <strong>{stockName}</strong> reveals an ROE of 
+              <strong>{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</strong> and operating profitability margins of 
+              <strong>{stockData.fundamentals.operatingMargin ? `${stockData.fundamentals.operatingMargin}%` : 'N/A'}</strong>. 
+              {profitabilityInsight}
+            </p>
+            <p class="essay-paragraph">
+              Evaluating valuation metrics, {stockName} maintains a Price-to-Earnings ratio of <strong>{stockData.fundamentals.pe || 'N/A'}</strong> 
+              and a Price-to-Book multiple of <strong>{stockData.fundamentals.pb || 'N/A'}</strong>. 
+              These valuation metrics, combined with an Enterprise Value of <strong>{formatCurrency(stockData.fundamentals.enterpriseValue)}</strong>, 
+              provide essential indicators for fundamentally driven stock selection in India's {stockSector} sector.
+            </p>
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- ==================== TAB 4: DIVIDENDS ==================== -->
+    {activeTab === 'dividend' && (
+      <>
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">{stockName} Dividend Metrics & Yield Breakdown</h2>
+            <div class="ai-insight-box">
+              <span class="ai-sparkle">✨ Dividend Yield Analysis</span>
+              <p>{dividendInsight}</p>
+            </div>
+            <div class="dividend-grid">
+              <div class="div-card">
+                <span>Dividend Yield</span>
+                <strong>{stockData.dividend.yield ? `${stockData.dividend.yield}%` : 'N/A'}</strong>
+              </div>
+              <div class="div-card">
+                <span>Annual Dividend Rate</span>
+                <strong>{stockData.dividend.rate ? `₹${stockData.dividend.rate}` : 'N/A'}</strong>
+              </div>
+              <div class="div-card">
+                <span>Last Ex-Dividend Date</span>
+                <strong>{stockData.dividend.exDate || 'N/A'}</strong>
+              </div>
+              <div class="div-card">
+                <span>Stock Split Factor</span>
+                <strong>{stockData.dividend.lastSplit || 'N/A'}</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Detailed Dividend Essay -->
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">{stockName} Dividend History & Income Potential</h2>
+            <p class="essay-paragraph">
+              For income-focused investors, <strong>{stockName}</strong> currently features a dividend yield of 
+              <strong>{stockData.dividend.yield ? `${stockData.dividend.yield}%` : 'N/A'}</strong>, delivering an annual payout rate of 
+              <strong>₹{stockData.dividend.rate || '0.00'}</strong> per share. 
+              The company's last ex-dividend date was recorded on <strong>{stockData.dividend.exDate || 'N/A'}</strong>.
+            </p>
+            <p class="essay-paragraph">
+              Analyzing dividend payouts alongside cash flows is crucial to ensure sustainability. 
+              {stockName}'s capital allocation strategy balances dividend payouts with reinvestment for business expansion in the {stockSector} industry.
+            </p>
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- ==================== TAB 5: SHAREHOLDING PATTERN ==================== -->
+    {activeTab === 'shareholding-pattern' && (
+      <>
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">{stockName} Shareholding Pattern & Capital Structure</h2>
+            <div class="metric-row">
+              <span>Promoter Holding</span>
+              <strong>{stockData.ownership.promoter ? `${stockData.ownership.promoter}%` : 'N/A'}</strong>
+            </div>
+            <div class="metric-row">
+              <span>FII / Institutional Holding</span>
+              <strong>{stockData.ownership.fii ? `${stockData.ownership.fii}%` : 'N/A'}</strong>
+            </div>
+            <div class="metric-row">
+              <span>Total Cash Reserves</span>
+              <strong>{formatCurrency(stockData.ownership.cash)}</strong>
+            </div>
+            <div class="metric-row">
+              <span>Debt-to-Equity Ratio</span>
+              <strong>{stockData.ownership.debtToEquity !== null ? stockData.ownership.debtToEquity : 'N/A'}</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Detailed Ownership Essay -->
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">Ownership Distribution & Institutional Interest for {stockName}</h2>
+            <p class="essay-paragraph">
+              The ownership structure of <strong>{stockName}</strong> reflects strong promoter confidence, with promoters holding 
+              <strong>{stockData.ownership.promoter ? `${stockData.ownership.promoter}%` : 'N/A'}</strong> of total outstanding shares. 
+              Foreign Institutional Investors (FII) and domestic financial institutions hold 
+              <strong>{stockData.ownership.fii ? `${stockData.ownership.fii}%` : 'N/A'}</strong>.
+            </p>
+            <p class="essay-paragraph">
+              From a balance sheet perspective, {stockName} maintains total cash reserves of 
+              <strong>{formatCurrency(stockData.ownership.cash)}</strong> and a debt-to-equity leverage ratio of 
+              <strong>{stockData.ownership.debtToEquity !== null ? stockData.ownership.debtToEquity : 'N/A'}</strong>, demonstrating prudential financial risk management.
+            </p>
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- ==================== TAB 6: PEER COMPARISON ==================== -->
+    {activeTab === 'peer-comparison' && (
+      <>
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">{stockName} vs Competitors: Sector Peer Comparison Table</h2>
+            <p class="company-desc">Compare {stockName} against top performing companies in the {stockSector} sector in India.</p>
+
+            <div class="table-responsive">
+              <table class="peer-table">
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Ticker</th>
+                    <th>Sector</th>
+                    <th>Compare Page</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Target stock row -->
+                  <tr class="highlight-row">
+                    <td><strong>{stockName} (This Stock)</strong></td>
+                    <td><span class="ticker-badge">NSE: {shortSymbol.toUpperCase()}</span></td>
+                    <td>{stockSector}</td>
+                    <td><span class="current-label">Current Page</span></td>
+                  </tr>
+                  <!-- Sector peers rows -->
+                  {relatedStocks.map(peer => (
+                    <tr>
+                      <td><a href={`/stocks/${peer.slug}/`} class="peer-link"><strong>{peer.name}</strong></a></td>
+                      <td><span class="ticker-badge">NSE: {peer.short_symbol.toUpperCase()}</span></td>
+                      <td>{peer.sector}</td>
+                      <td>
+                        <a href={`/stocks/${peer.slug}/peer-comparison/`} class="btn btn-secondary btn-sm">Compare →</a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Peer Analysis Essay -->
+        <section class="container section-space">
+          <div class="glass-panel content-box">
+            <h2 class="box-title">Sector Moat & Comparative Valuation Analysis</h2>
+            <p class="essay-paragraph">
+              Within the Indian <strong>{stockSector}</strong> sector, <strong>{stockName}</strong> competes directly with industry leaders like 
+              {relatedStocks.map(s => s.name).join(', ')}.
+            </p>
+            <p class="essay-paragraph">
+              When analyzing sector competitors, investors compare metrics such as Price-to-Earnings (P/E), Return on Equity (ROE), and Market Capitalization.
+              {stockName}'s market valuation reflects its market share, operational execution, and long-term earnings growth profile relative to sector peers.
+            </p>
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- ==================== FAQ SECTION (ALL TABS) ==================== -->
+    <section class="container section-space">
       <h2 class="section-title">Frequently Asked Questions</h2>
       <div class="faq-accordion">
-        <details class="faq-item glass-panel">
-          <summary class="faq-question">What is {stockName} share price today?</summary>
-          <div class="faq-answer">
-            {stockName} ({shortSymbol.toUpperCase()}) is currently trading at ₹{stockData.price.toLocaleString('en-IN')}, with a day change of {formatPercent(stockData.changePercent)}.
-          </div>
-        </details>
-        <details class="faq-item glass-panel">
-          <summary class="faq-question">Is {stockName} a large cap company?</summary>
-          <div class="faq-answer">
-            Yes, with a market capitalization of {formatCurrency(stockData.fundamentals.marketCap)}, {stockName} is categorized as a leading blue-chip company in India.
-          </div>
-        </details>
-        <details class="faq-item glass-panel">
-          <summary class="faq-question">What is {stockName} P/E ratio?</summary>
-          <div class="faq-answer">
-            {stockName} trades at a P/E ratio of {stockData.fundamentals.pe || 'N/A'} and a Forward P/E of {stockData.fundamentals.forwardPE || 'N/A'}.
-          </div>
-        </details>
-        <details class="faq-item glass-panel">
-          <summary class="faq-question">What sector does {stockName} belong to?</summary>
-          <div class="faq-answer">
-            {stockName} belongs to the {stockSector} sector in India.
-          </div>
-        </details>
+        {tabFaqs.map(item => (
+          <details class="faq-item glass-panel">
+            <summary class="faq-question">{item.q}</summary>
+            <div class="faq-answer">{item.a}</div>
+          </details>
+        ))}
       </div>
     </section>
 
-    <!-- Related Stocks in Sector -->
+    <!-- ==================== RELATED SECTOR STOCKS ==================== -->
     {relatedStocks.length > 0 && (
-      <section class="container section-space tab-content-block" data-tabs="overview,peer-comparison">
-        <h2 class="section-title">Similar {stockSector} Stocks</h2>
+      <section class="container section-space">
+        <h2 class="section-title">Explore Similar {stockSector} Stocks</h2>
         <div class="related-grid">
           {relatedStocks.map(peer => (
             <a href={`/stocks/${peer.slug}/`} class="related-card glass-panel">
@@ -608,7 +918,7 @@ const breadcrumb = {
       </section>
     )}
 
-    <!-- Category Internal Links -->
+    <!-- Category Chips Internal Links -->
     <section class="container section-space">
       <div class="internal-chips-box glass-panel">
         <strong>Explore Categories:</strong>
@@ -625,9 +935,7 @@ const breadcrumb = {
 </Layout>
 
 <style>
-  /* Premium Vercel/Linear dark aesthetics */
   .stock-page-container {
-    /* Fixed navbar offset so breadcrumbs are NEVER hidden */
     padding-top: calc(var(--header-height, 80px) + 2rem);
     padding-bottom: 5rem;
     color: #F3F4F6;
@@ -657,6 +965,7 @@ const breadcrumb = {
     gap: 0.5rem;
     list-style: none;
     padding: 0;
+    flex-wrap: wrap;
   }
 
   .breadcrumb-list a {
@@ -714,17 +1023,18 @@ const breadcrumb = {
   }
 
   .stock-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     font-weight: 700;
     margin: 0;
     color: #FFFFFF;
     letter-spacing: -0.02em;
+    line-height: 1.25;
   }
 
   .stock-subtitle {
     color: #9CA3AF;
     font-size: 0.95rem;
-    margin-top: 0.25rem;
+    margin-top: 0.35rem;
   }
 
   .main-price {
@@ -825,7 +1135,6 @@ const breadcrumb = {
     padding-bottom: 0.5rem;
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
-    cursor: pointer;
   }
 
   .tab-link:hover, .tab-link.is-active {
@@ -870,27 +1179,23 @@ const breadcrumb = {
     color: #FFF;
   }
 
-  /* Content Cards & Grids */
-  .card-grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .card-grid-2 { grid-template-columns: 1fr; }
-  }
-
   .content-box {
     padding: 1.8rem;
   }
 
   .box-title {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 1.2rem;
     color: #FFF;
+  }
+
+  .essay-paragraph {
+    color: #D1D5DB;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
   }
 
   .metric-row {
@@ -954,7 +1259,7 @@ const breadcrumb = {
 
   .metrics-two-col {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
   }
@@ -990,6 +1295,48 @@ const breadcrumb = {
 
   .div-card span { font-size: 0.78rem; color: #9CA3AF; }
   .div-card strong { font-size: 1.1rem; color: #FFF; }
+
+  /* Peer Table */
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .peer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    text-align: left;
+  }
+
+  .peer-table th {
+    padding: 0.8rem;
+    font-size: 0.82rem;
+    color: #9CA3AF;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .peer-table td {
+    padding: 0.9rem 0.8rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .peer-link {
+    color: #FFF;
+    text-decoration: none;
+  }
+
+  .peer-link:hover { color: #38BDF8; }
+
+  .highlight-row {
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .current-label {
+    font-size: 0.75rem;
+    color: #38BDF8;
+    font-weight: 600;
+  }
 
   /* Company Profile */
   .company-desc {
@@ -1134,7 +1481,6 @@ const breadcrumb = {
 
   .hidden { display: none !important; }
 
-  /* Print Styles */
   @media print {
     .breadcrumb-nav, .hero-actions-row, .tab-nav-section, .utility-buttons, .sticky-stock-bar {
       display: none !important;
@@ -1145,49 +1491,6 @@ const breadcrumb = {
 </style>
 
 <script>
-  // Dynamic Tab Filtering and Switching
-  function applyActiveTabFilter() {
-    const pathParts = window.location.pathname.split('/').filter(Boolean);
-    const currentTab = (pathParts.length >= 3 && pathParts[0] === 'stocks') ? pathParts[2] : 'overview';
-
-    // Update tab-link active UI
-    document.querySelectorAll('.tab-link').forEach(link => {
-      const tabName = link.getAttribute('data-tab-name');
-      if (tabName === currentTab) {
-        link.classList.add('is-active');
-      } else {
-        link.classList.remove('is-active');
-      }
-    });
-
-    // Show/hide sections based on data-tabs attribute
-    document.querySelectorAll('.tab-content-block').forEach(block => {
-      const allowedTabs = (block.getAttribute('data-tabs') || 'overview').split(',');
-      if (currentTab === 'overview' || allowedTabs.includes(currentTab)) {
-        block.classList.remove('hidden');
-      } else {
-        block.classList.add('hidden');
-      }
-    });
-  }
-
-  // Initial tab filter run
-  applyActiveTabFilter();
-
-  // Tab click listener for smooth tab toggle without full page reload
-  document.querySelectorAll('.tab-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href) {
-        window.history.pushState({}, '', href);
-        applyActiveTabFilter();
-      }
-    });
-  });
-
-  // Handle browser back/forward buttons for tabs
-  window.addEventListener('popstate', applyActiveTabFilter);
-
   // Copy stock symbol functionality
   const copyBtn = document.getElementById('copy-symbol-btn');
   const copyToast = document.getElementById('copy-toast');
@@ -1232,7 +1535,7 @@ const breadcrumb = {
     }
   });
 
-  // Client-side hydration from live FastAPI backend API
+  // Client-side live price updates from backend API
   (async function hydrateStockData() {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
     if (pathParts.length >= 2 && pathParts[0] === 'stocks') {
@@ -1244,7 +1547,6 @@ const breadcrumb = {
         const data = await res.json();
         if (!data || !data.price) return;
 
-        // Update DOM elements if present
         const priceEls = document.querySelectorAll('.main-price, .sticky-price-value');
         priceEls.forEach(el => {
           if (el.classList.contains('main-price')) {
@@ -1259,28 +1561,6 @@ const breadcrumb = {
           const isPos = data.change >= 0;
           changePill.className = `price-change-pill ${isPos ? 'bg-green-soft text-green' : 'bg-red-soft text-red'}`;
           changePill.textContent = `${isPos ? '▲' : '▼'} ₹${Math.abs(data.change).toFixed(2)} (${isPos ? '+' : ''}${data.changePercent.toFixed(2)}%)`;
-        }
-
-        // Update company description if placeholder
-        const descEl = document.querySelector('.company-desc');
-        if (descEl && data.company && data.company.description) {
-          descEl.textContent = data.company.description;
-        }
-
-        // Update quick stats if available
-        const statValues = document.querySelectorAll('.quick-stats-grid .stat-value');
-        if (statValues.length >= 8 && data.fundamentals) {
-          if (data.fundamentals.marketCap) {
-            const mc = data.fundamentals.marketCap;
-            statValues[0].textContent = mc >= 1e12 ? `₹${(mc / 1e12).toFixed(2)} Lakh Cr` : `₹${(mc / 1e7).toFixed(2)} Cr`;
-          }
-          if (data.fundamentals.pe) statValues[1].textContent = data.fundamentals.pe;
-          if (data.fundamentals.pb) statValues[2].textContent = data.fundamentals.pb;
-          if (data.fundamentals.roe) statValues[3].textContent = `${data.fundamentals.roe}%`;
-          if (data.dividend && data.dividend.yield) statValues[4].textContent = `${data.dividend.yield}%`;
-          if (data.performance && data.performance.high52) statValues[5].textContent = `₹${data.performance.high52}`;
-          if (data.performance && data.performance.low52) statValues[6].textContent = `₹${data.performance.low52}`;
-          if (data.fundamentals.eps) statValues[7].textContent = `₹${data.fundamentals.eps}`;
         }
       } catch (err) {
         console.debug('Client hydration skipped:', err);

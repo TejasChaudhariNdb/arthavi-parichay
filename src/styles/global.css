@@ -33,9 +33,13 @@
             padding: 0;
         }
 
-        html {
+        html, body {
             scroll-behavior: smooth;
             font-size: 16px;
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            position: relative;
         }
 
         body {
@@ -44,7 +48,6 @@
             font-family: var(--font-body);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
         h1,
@@ -78,9 +81,11 @@
 
         /* Utility Classes */
         .container {
+            width: 100%;
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 1.5rem;
+            box-sizing: border-box;
         }
 
         .flex {
@@ -237,7 +242,9 @@
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
             width: 100%;
+            max-width: 100vw;
             z-index: 1000;
             background: rgba(11, 14, 20, 0.72);
             backdrop-filter: blur(16px);
@@ -245,6 +252,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
             height: var(--header-height);
+            box-sizing: border-box;
         }
 
         .header-inner {
@@ -1712,9 +1720,17 @@
                 margin-bottom: 1rem;
             }
 
+            .container {
+                padding: 0 1rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
             .hero-shell {
                 padding: 1.75rem 1rem 1.5rem;
                 border-radius: 22px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .hero-preview-switcher {

@@ -13,14 +13,15 @@ export const GET: APIRoute = async () => {
   const lastmodDate = getLatestTradingDate();
   const baseUrl = 'https://arthavi.com';
 
+  // All stock pages are indexed (index, follow), so include all sub-pages in the sitemap.
+  // Overview pages get priority 1.0; sub-pages get 0.8.
   const subroutes = ['', 'share-price', 'financials', 'dividend', 'shareholding-pattern', 'peer-comparison'];
-
   const urlEntries: string[] = [];
 
   for (const stock of STOCK_SEED_DATA) {
     for (const sub of subroutes) {
       const path = sub ? `/stocks/${stock.slug}/${sub}/` : `/stocks/${stock.slug}/`;
-      const priority = sub === '' ? '0.9' : '0.8';
+      const priority = sub === '' ? '1.0' : '0.8';
       urlEntries.push(`
   <url>
     <loc>${baseUrl}${path}</loc>

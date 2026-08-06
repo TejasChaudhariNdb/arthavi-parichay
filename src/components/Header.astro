@@ -1,66 +1,87 @@
 ---
 ---
 <header>
-        <div class="container header-inner">
-            <a href="/" class="logo" aria-label="Arthavi Home">
-                <span class="logo-mark">
-                    <img src="/images/logo.webp" alt="Arthavi Logo" width="30" height="26" style="border-radius: 4px;">
-                </span>
-                <span class="logo-text">Arthavi</span>
-            </a>
-            <nav class="desktop-nav" role="navigation" aria-label="Primary navigation">
-                <ul>
-                    <li><a href="/#features">Features</a></li>
-                    <li><a href="/features/">All Features</a></li>
-                    <li><a href="/#ask-ai" class="nav-ai-link">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
-                            </svg>
-                            Ask AI
-                        </a></li>
-                    <li><a href="/arthavi-vs-groww/">Compare</a></li>
-                    <li><a href="/#faq">FAQ</a></li>
-                </ul>
-            </nav>
-            <div class="nav-actions">
-                <a href="https://app.arthavi.com/register" class="btn btn-primary nav-cta" id="nav-cta">Create Free Account</a>
-                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <div class="container header-inner">
+        <a href="/" class="logo" aria-label="Arthavi Home">
+            <span class="logo-mark">
+                <img src="/images/logo.webp" alt="Arthavi Logo" width="30" height="26" style="border-radius: 4px;">
+            </span>
+            <span class="logo-text">Arthavi</span>
+        </a>
+        <nav class="desktop-nav" role="navigation" aria-label="Primary navigation">
+            <ul>
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/features/">All Features</a></li>
+                <li><a href="/stocks/">Stocks Hub</a></li>
+                <li><a href="/#ask-ai" class="nav-ai-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z" />
+                        </svg>
+                        Ask AI
+                    </a></li>
+                <li><a href="/arthavi-vs-groww/">Compare</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <!-- Desktop CTA (Hidden on mobile) -->
+            <a href="https://app.arthavi.com/register" class="btn btn-primary nav-cta" id="nav-cta">Create Free Account</a>
+
+            <!-- Mobile Hamburger Menu Button Only -->
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                 <span></span><span></span><span></span>
             </button>
-            </div>
         </div>
-    </header>
-    <nav class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
-        <div class="mobile-menu-header">
-            <p class="mobile-menu-kicker">Privacy-first portfolio tracking</p>
-            <p class="mobile-menu-copy">Track stocks and mutual funds in one place without broker logins or data selling.</p>
-        </div>
-        <a href="/#features" onclick="closeMobileMenu()">Features</a>
-        <a href="/features/" onclick="closeMobileMenu()">All 42+ Features</a>
-        <a href="/#ask-ai" onclick="closeMobileMenu()" style="color: #c4b5fd; font-weight:600;">✦ Ask AI</a>
-        <a href="/arthavi-vs-groww/" onclick="closeMobileMenu()">Compare Trackers</a>
-        <a href="/#faq" onclick="closeMobileMenu()">FAQ</a>
-        <a href="/about/" onclick="closeMobileMenu()">About</a>
-        <a href="/security/" onclick="closeMobileMenu()">Security</a>
-        <div class="mobile-menu-actions">
-            <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
-            <a href="https://app.arthavi.com/demo" class="demo-text-link" style="text-align: center; padding: 0.5rem;">or try a demo portfolio →</a>
-        </div>
-    </nav>
+    </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+        <p class="mobile-menu-kicker">Privacy-first portfolio tracking</p>
+        <p class="mobile-menu-copy">Track stocks and mutual funds in one place without broker logins or data selling.</p>
+    </div>
+    <a href="/#features" onclick="closeMobileMenu()">Features</a>
+    <a href="/features/" onclick="closeMobileMenu()">All 42+ Features</a>
+    <a href="/stocks/" onclick="closeMobileMenu()">📈 Stock Market Hub</a>
+    <a href="/calculators/" onclick="closeMobileMenu()">🧮 Portfolio Calculators</a>
+    <a href="/#ask-ai" onclick="closeMobileMenu()" style="color: #c4b5fd; font-weight:600;">✦ Ask AI Assistant</a>
+    <a href="/arthavi-vs-groww/" onclick="closeMobileMenu()">Compare Trackers</a>
+    <a href="/#faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="/about/" onclick="closeMobileMenu()">About</a>
+    <a href="/security/" onclick="closeMobileMenu()">Security</a>
+    <div class="mobile-menu-actions">
+        <a href="https://app.arthavi.com/demo" class="btn btn-primary btn-demo-mobile">⚡ Try Interactive Demo</a>
+    </div>
+</nav>
+
+<style>
+    @media (max-width: 768px) {
+        .nav-cta {
+            display: none !important;
+        }
+
+        .btn-demo-mobile {
+            background: linear-gradient(135deg, #5457e5 0%, #7c3aed 100%);
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+</style>
 
 <script>
 // Mobile menu toggle
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
+    if (mobileMenu) mobileMenu.classList.remove('open');
+    if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
 }
 if (hamburger) {
     hamburger.addEventListener('click', function () {
-        const open = mobileMenu.classList.toggle('open');
+        const open = mobileMenu ? mobileMenu.classList.toggle('open') : false;
         hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 }
