@@ -2,11 +2,7 @@ import type { APIRoute } from 'astro';
 import { STOCK_SEED_DATA } from '../data/stockSeedData';
 
 function getLatestTradingDate(): string {
-  const date = new Date();
-  const day = date.getDay(); // 0 = Sun, 6 = Sat
-  if (day === 0) date.setDate(date.getDate() - 2);
-  else if (day === 6) date.setDate(date.getDate() - 1);
-  return date.toISOString().split('T')[0];
+  return new Date().toISOString().split('T')[0];
 }
 
 export const GET: APIRoute = async () => {
