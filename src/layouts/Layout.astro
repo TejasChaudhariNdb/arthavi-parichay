@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FloatingBottomBar from '../components/FloatingBottomBar.astro';
 import '../styles/global.css';
 import '../../public/styles.css';
 import '@fontsource/inter/400.css';
@@ -133,6 +134,7 @@ const breadcrumbSchema = breadcrumb ? JSON.stringify({
     <Header />
     <slot />
     <Footer />
+    <FloatingBottomBar />
     
     <script is:inline src="/scripts.js" defer></script>
 </body>
