@@ -18,9 +18,77 @@ const breadcrumb = {
     { name: "Stocks Directory", url: "https://arthavi.com/stocks/" }
   ]
 };
+// Schema JSON-LD Graph for Google Indexing, GEO & AEO
+const schemaGraph = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/stocks/#webpage",
+      "url": "https://arthavi.com/stocks/",
+      "name": title,
+      "description": description,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthavi.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Stocks Directory", "item": "https://arthavi.com/stocks/" }
+        ]
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Top Indian NSE & BSE Stocks Directory",
+      "numberOfItems": totalStocks,
+      "itemListElement": STOCK_SEED_DATA.slice(0, 30).map((stock, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": stock.name,
+        "url": `https://arthavi.com/stocks/${stock.slug}/`
+      }))
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many Indian stocks are listed in the Arthavi Directory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Arthavi indexes over ${totalStocks} top Indian NSE and BSE listed stocks across technology, banking, energy, FMCG, defence, automobile, and healthcare sectors.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are stock prices updated in real-time on Arthavi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Arthavi fetches live real-time market prices, day changes, P/E ratios, and market cap metrics directly from official market data feeds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What fundamental metrics are available for each stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each stock page includes P/E ratio, Forward P/E, Price-to-Book (P/B), Return on Equity (ROE), Dividend Yield, EPS, 52-week High/Low range, Promoter holding, and FII ownership."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I track my stock portfolio on Arthavi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can track your stock holdings alongside mutual funds by importing broker statements or CSV exports from Zerodha, Groww, Angel One, or ICICI Direct without giving away broker logins or email access."
+          }
+        }
+      ]
+    }
+  ]
+});
 ---
 
-<Layout title={title} description={description} canonical={canonical} breadcrumb={breadcrumb}>
+<Layout title={title} description={description} canonical={canonical} breadcrumb={breadcrumb} schema={schemaGraph}>
   <main class="stocks-index-container">
     <div class="container hero-section">
       <!-- Breadcrumb -->
@@ -38,6 +106,32 @@ const breadcrumb = {
         <p class="page-subtitle">
           Real-time prices, valuation metrics, P/E ratios, and fundamental analysis for all {totalStocks} top NSE & BSE companies.
         </p>
+      </div>
+
+      <!-- GEO / AEO AI Direct Answer Box -->
+      <div class="geo-aeo-box glass-panel">
+        <div class="geo-header">
+          <span class="geo-sparkle">✨ Quick Takeaways & Directory Summary</span>
+          <span class="geo-tag">AEO & GEO Verified</span>
+        </div>
+        <div class="geo-grid">
+          <div class="geo-item">
+            <strong>Tracked Equities:</strong>
+            <span>{totalStocks}+ Top NSE & BSE Indian Companies</span>
+          </div>
+          <div class="geo-item">
+            <strong>Key Metrics:</strong>
+            <span>Live Price, P/E Ratio, Market Cap, ROE, 52W High/Low, Dividends</span>
+          </div>
+          <div class="geo-item">
+            <strong>Coverage Sectors:</strong>
+            <span>Technology, Banking, Energy, Defence, FMCG, Auto, Healthcare</span>
+          </div>
+          <div class="geo-item">
+            <strong>Data Accuracy:</strong>
+            <span>Real-time API Feed + Multi-Broker Portfolio Consolidation</span>
+          </div>
+        </div>
       </div>
 
       <!-- Controls & Search -->
@@ -89,6 +183,57 @@ const breadcrumb = {
         <p>Try searching for another ticker or clear the sector filter.</p>
       </div>
     </div>
+
+    <!-- Comprehensive SEO & Educational Content Section -->
+    <section class="container seo-content-section" style="margin-top: 5rem;">
+      <div class="glass-panel content-box" style="padding: 2.5rem;">
+        <h2 style="font-size: 2rem; color: #FFF; margin-bottom: 1.25rem;">Indian Stock Market Directory & Fundamental Analysis Guide</h2>
+        <p style="color: #9CA3AF; line-height: 1.7; margin-bottom: 1.5rem;">
+          Navigating the Indian stock market requires reliable data, clear valuation metrics, and accurate fundamental insights. Arthavi's Indian Stocks Directory covers all <strong>{totalStocks} top NSE & BSE companies</strong>, offering investors real-time share prices, P/E ratio evaluations, Return on Equity (ROE) benchmarking, and dividend yield histories.
+        </p>
+
+        <h3 style="font-size: 1.4rem; color: #38BDF8; margin: 2rem 0 1rem 0;">Key Fundamental Metrics Explained</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+          <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+            <h4 style="color: #FFF; margin-bottom: 0.5rem;">Price-to-Earnings (P/E) Ratio</h4>
+            <p style="color: #9CA3AF; font-size: 0.9rem; line-height: 1.5;">Measures how much investors pay per rupee of net profit. A lower P/E relative to sector peers suggests potential value, while a higher P/E signals strong growth expectations.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+            <h4 style="color: #FFF; margin-bottom: 0.5rem;">Return on Equity (ROE)</h4>
+            <p style="color: #9CA3AF; font-size: 0.9rem; line-height: 1.5;">Evaluates how efficiently company management generates profits from net shareholder equity. High ROE companies consistently outperform over long cycles.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+            <h4 style="color: #FFF; margin-bottom: 0.5rem;">52-Week High & Low Range</h4>
+            <p style="color: #9CA3AF; font-size: 0.9rem; line-height: 1.5;">Indicates price momentum boundaries over the past year, providing critical technical context on support levels and potential breakout points.</p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+            <h4 style="color: #FFF; margin-bottom: 0.5rem;">Promoter & FII Holding</h4>
+            <p style="color: #9CA3AF; font-size: 0.9rem; line-height: 1.5;">Tracking institutional backing and promoter skin-in-the-game offers insights into institutional confidence and long-term business stability.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size: 1.4rem; color: #38BDF8; margin: 2rem 0 1rem 0;">Sectoral Breakdown & Market Dominance</h3>
+        <p style="color: #9CA3AF; line-height: 1.7; margin-bottom: 2rem;">
+          Our directory organizes Indian stocks across key sectors: <strong>Technology</strong> (TCS, Infosys, Wipro), <strong>Banking & Finance</strong> (HDFC Bank, ICICI Bank, SBI), <strong>Energy & Power</strong> (Reliance Industries, NTPC, Tata Power), <strong>Defence</strong> (HAL, BEL), <strong>FMCG</strong> (ITC, HUL), and <strong>Automobile</strong> (Tata Motors, Maruti). Comparing valuation multiples within specific industry buckets prevents comparing high-growth tech companies with capital-intensive manufacturing firms.
+        </p>
+
+        <h3 style="font-size: 1.4rem; color: #38BDF8; margin: 2rem 0 1rem 0;">Frequently Asked Questions (FAQ)</h3>
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
+            <h4 style="color: #FFF; font-size: 1.1rem; margin-bottom: 0.4rem;">How many Indian stocks are listed in the Arthavi Directory?</h4>
+            <p style="color: #9CA3AF; font-size: 0.95rem; line-height: 1.6;">Arthavi indexes over {totalStocks} top Indian NSE and BSE listed stocks across major industry sectors including IT, Banking, Energy, Defence, FMCG, Auto, and Healthcare.</p>
+          </div>
+          <div style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
+            <h4 style="color: #FFF; font-size: 1.1rem; margin-bottom: 0.4rem;">Are stock prices updated in real-time on Arthavi?</h4>
+            <p style="color: #9CA3AF; font-size: 0.95rem; line-height: 1.6;">Yes! Arthavi's stock pages connect directly to real-time market data API endpoints to display live share prices, day change percentages, and intraday high/low levels.</p>
+          </div>
+          <div style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
+            <h4 style="color: #FFF; font-size: 1.1rem; margin-bottom: 0.4rem;">Can I track stocks from Zerodha, Groww, and Angel One together?</h4>
+            <p style="color: #9CA3AF; font-size: 0.95rem; line-height: 1.6;">Yes. Arthavi is a privacy-first portfolio tracker that lets you consolidate stock holdings from all Indian brokers alongside your mutual funds without sharing broker credentials or email access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
 
@@ -153,6 +298,59 @@ const breadcrumb = {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  }
+
+  .geo-aeo-box {
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 2rem;
+    background: rgba(56, 189, 248, 0.04);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+  }
+
+  .geo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .geo-sparkle {
+    color: #38BDF8;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .geo-tag {
+    font-size: 0.75rem;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38BDF8;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .geo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .geo-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .geo-item strong {
+    font-size: 0.85rem;
+    color: #F3F4F6;
+  }
+
+  .geo-item span {
+    font-size: 0.85rem;
+    color: #9CA3AF;
   }
 
   .search-filter-box {

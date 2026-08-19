@@ -331,10 +331,23 @@ if (activeTab === 'overview') {
   ];
 }
 
-// Schema JSON-LD tailored per sub-page
+// Schema JSON-LD tailored per sub-page with GEO & FinancialProduct schema
 const schemaGraph = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "FinancialProduct",
+      "@id": `https://arthavi.com/stocks/${stockSlug}/#financialproduct`,
+      "name": stockName,
+      "tickerSymbol": stockSymbol,
+      "description": stockData.company.description || metaDescription,
+      "category": stockSector,
+      "offers": {
+        "@type": "Offer",
+        "price": stockData.price,
+        "priceCurrency": stockData.currency || "INR"
+      }
+    },
     {
       "@type": "Corporation",
       "@id": `https://arthavi.com/stocks/${stockSlug}/#corporation`,
@@ -505,6 +518,19 @@ const breadcrumb = { items: breadcrumbItems };
     <!-- ==================== TAB 1: OVERVIEW ==================== -->
     {activeTab === 'overview' && (
       <>
+        <!-- GEO / AEO Direct Answer Executive Summary Box -->
+        <section class="container section-space" style="margin-bottom: 1rem;">
+          <div class="glass-panel content-box" style="padding: 1.5rem 1.8rem; background: rgba(56, 189, 248, 0.04); border: 1px solid rgba(56, 189, 248, 0.2);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem;">
+              <span style="color: #38BDF8; font-weight: 700; font-size: 0.95rem;">✨ Executive Direct Answer Summary — {stockName}</span>
+              <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.15); color: #38BDF8; padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 600;">GEO & AEO Verified</span>
+            </div>
+            <p style="color: #F3F4F6; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+              <strong>{stockName} ({shortSymbol.toUpperCase()})</strong> is currently trading at <strong>₹{stockData.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</strong> in the <strong>{stockSector}</strong> sector. It has a market cap of <strong>{formatCurrency(stockData.fundamentals.marketCap)}</strong>, a P/E ratio of <strong>{stockData.fundamentals.pe || 'N/A'}</strong>, an ROE of <strong>{stockData.fundamentals.roe ? stockData.fundamentals.roe + '%' : 'N/A'}</strong>, and a 52-week trading range between <strong>₹{stockData.performance.low52 || 'N/A'}</strong> and <strong>₹{stockData.performance.high52 || 'N/A'}</strong>.
+            </p>
+          </div>
+        </section>
+
         <!-- Quick Stats Grid -->
         <section class="container section-space">
           <h2 class="section-title">{stockName} Key Fundamental Metrics</h2>
