@@ -511,35 +511,35 @@ const breadcrumb = { items: breadcrumbItems };
           <div class="quick-stats-grid">
             <div class="stat-card glass-panel">
               <span class="stat-label">Market Cap</span>
-              <span class="stat-value">{formatCurrency(stockData.fundamentals.marketCap)}</span>
+              <span class="stat-value" data-stat="marketCap">{formatCurrency(stockData.fundamentals.marketCap)}</span>
             </div>
             <div class="stat-card glass-panel">
               <span class="stat-label">P/E Ratio</span>
-              <span class="stat-value">{stockData.fundamentals.pe || 'N/A'}</span>
+              <span class="stat-value" data-stat="pe">{stockData.fundamentals.pe || 'N/A'}</span>
             </div>
             <div class="stat-card glass-panel">
               <span class="stat-label">P/B Ratio</span>
-              <span class="stat-value">{stockData.fundamentals.pb || 'N/A'}</span>
+              <span class="stat-value" data-stat="pb">{stockData.fundamentals.pb || 'N/A'}</span>
             </div>
             <div class="stat-card glass-panel">
               <span class="stat-label">ROE</span>
-              <span class="stat-value">{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</span>
+              <span class="stat-value" data-stat="roe">{stockData.fundamentals.roe ? `${stockData.fundamentals.roe}%` : 'N/A'}</span>
             </div>
             <div class="stat-card glass-panel">
               <span class="stat-label">Dividend Yield</span>
-              <span class="stat-value">{stockData.dividend.yield ? `${stockData.dividend.yield}%` : 'N/A'}</span>
+              <span class="stat-value" data-stat="divYield">{stockData.dividend.yield ? `${stockData.dividend.yield}%` : 'N/A'}</span>
             </div>
             <div class="stat-card glass-panel">
               <span class="stat-label">52W High</span>
-              <span class="stat-value">{stockData.performance.high52 ? `₹${stockData.performance.high52}` : 'N/A'}</span>
+              <span class="stat-value" data-stat="high52">{stockData.performance.high52 ? `₹${stockData.performance.high52}` : 'N/A'}</span>
             </div>
             <div class="stat-card glass-panel">
               <span class="stat-label">52W Low</span>
-              <span class="stat-value">{stockData.performance.low52 ? `₹${stockData.performance.low52}` : 'N/A'}</span>
+              <span class="stat-value" data-stat="low52">{stockData.performance.low52 ? `₹${stockData.performance.low52}` : 'N/A'}</span>
             </div>
             <div class="stat-card glass-panel">
               <span class="stat-label">EPS (TTM)</span>
-              <span class="stat-value">{stockData.fundamentals.eps ? `₹${stockData.fundamentals.eps}` : 'N/A'}</span>
+              <span class="stat-value" data-stat="eps">{stockData.fundamentals.eps ? `₹${stockData.fundamentals.eps}` : 'N/A'}</span>
             </div>
           </div>
         </section>
@@ -616,19 +616,19 @@ const breadcrumb = { items: breadcrumbItems };
               </div>
               <div class="mini-metric">
                 <span>Previous Close</span>
-                <strong>{stockData.performance.previousClose ? `₹${stockData.performance.previousClose}` : 'N/A'}</strong>
+                <strong data-stat="previousClose">{stockData.performance.previousClose ? `₹${stockData.performance.previousClose}` : 'N/A'}</strong>
               </div>
               <div class="mini-metric">
                 <span>Open Price</span>
-                <strong>{stockData.performance.open ? `₹${stockData.performance.open}` : 'N/A'}</strong>
+                <strong data-stat="open">{stockData.performance.open ? `₹${stockData.performance.open}` : 'N/A'}</strong>
               </div>
               <div class="mini-metric">
                 <span>Day High / Low</span>
-                <strong>{stockData.performance.dayHigh && stockData.performance.dayLow ? `₹${stockData.performance.dayHigh} / ₹${stockData.performance.dayLow}` : 'N/A'}</strong>
+                <strong data-stat="dayHighLow">{stockData.performance.dayHigh && stockData.performance.dayLow ? `₹${stockData.performance.dayHigh} / ₹${stockData.performance.dayLow}` : 'N/A'}</strong>
               </div>
               <div class="mini-metric">
                 <span>Analyst Price Target</span>
-                <strong>{stockData.performance.targetPrice ? `₹${stockData.performance.targetPrice}` : 'N/A'}</strong>
+                <strong data-stat="targetPrice">{stockData.performance.targetPrice ? `₹${stockData.performance.targetPrice}` : 'N/A'}</strong>
               </div>
             </div>
 
@@ -1488,9 +1488,30 @@ const breadcrumb = { items: breadcrumbItems };
     body { background: #FFF !important; color: #000 !important; }
     .glass-panel { border: none !important; background: transparent !important; box-shadow: none !important; }
   }
+
+  .live-update-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #10B981;
+    font-weight: 600;
+  }
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #10B981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+    animation: pulse-animation 2s infinite;
+  }
+  @keyframes pulse-animation {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
 </style>
 
-<script>
+<script define:vars={{ apiUrl, stockSlug }}>
   // Copy stock symbol functionality
   const copyBtn = document.getElementById('copy-symbol-btn');
   const copyToast = document.getElementById('copy-toast');
@@ -1535,36 +1556,92 @@ const breadcrumb = { items: breadcrumbItems };
     }
   });
 
-  // Client-side live price updates from backend API
+  // Client-side real-time stock data hydration
   (async function hydrateStockData() {
-    const pathParts = window.location.pathname.split('/').filter(Boolean);
-    if (pathParts.length >= 2 && pathParts[0] === 'stocks') {
-      const stockId = pathParts[1];
-      const backendUrl = import.meta.env.PUBLIC_API_URL || (window.location.hostname === 'localhost' ? 'http://localhost:8000' : 'https://setu2.arthavi.com');
-      try {
-        const res = await fetch(`${backendUrl}/api/public/stocks/${stockId}`);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (!data || !data.price) return;
+    try {
+      const backendUrl = apiUrl || (window.location.hostname === 'localhost' ? 'http://localhost:8000' : 'https://setu2.arthavi.com');
+      const res = await fetch(`${backendUrl}/api/public/stocks/${stockSlug}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      if (!data || !data.price) return;
 
-        const priceEls = document.querySelectorAll('.main-price, .sticky-price-value');
-        priceEls.forEach(el => {
-          if (el.classList.contains('main-price')) {
-            el.innerHTML = `₹${data.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })} <span class="price-currency">${data.currency || 'INR'}</span>`;
-          } else {
-            el.textContent = `₹${data.price.toFixed(2)}`;
-          }
-        });
-
-        const changePill = document.querySelector('.price-change-pill');
-        if (changePill && data.change !== undefined) {
-          const isPos = data.change >= 0;
-          changePill.className = `price-change-pill ${isPos ? 'bg-green-soft text-green' : 'bg-red-soft text-red'}`;
-          changePill.textContent = `${isPos ? '▲' : '▼'} ₹${Math.abs(data.change).toFixed(2)} (${isPos ? '+' : ''}${data.changePercent.toFixed(2)}%)`;
+      // 1. Update prices (Main & Sticky)
+      const priceEls = document.querySelectorAll('.main-price, .sticky-price-value');
+      priceEls.forEach(el => {
+        if (el.classList.contains('main-price')) {
+          el.innerHTML = `₹${data.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })} <span class="price-currency">${data.currency || 'INR'}</span>`;
+        } else {
+          el.textContent = `₹${data.price.toFixed(2)}`;
         }
-      } catch (err) {
-        console.debug('Client hydration skipped:', err);
+      });
+
+      // 2. Update price change pills
+      const isPos = data.change >= 0;
+      const changePill = document.querySelector('.price-change-pill');
+      if (changePill && data.change !== undefined) {
+        changePill.className = `price-change-pill ${isPos ? 'bg-green-soft text-green' : 'bg-red-soft text-red'}`;
+        changePill.textContent = `${isPos ? '▲' : '▼'} ₹${Math.abs(data.change).toFixed(2)} (${isPos ? '+' : ''}${data.changePercent.toFixed(2)}%)`;
       }
+
+      const stickyChange = document.querySelector('.sticky-price-change');
+      if (stickyChange && data.changePercent !== undefined) {
+        stickyChange.className = `sticky-price-change ${isPos ? 'text-green' : 'text-red'}`;
+        stickyChange.textContent = `${isPos ? '+' : ''}${data.changePercent.toFixed(2)}%`;
+      }
+
+      // 3. Update header timestamp to Live status
+      const metaTimestamps = document.querySelector('.meta-timestamps');
+      if (metaTimestamps) {
+        metaTimestamps.innerHTML = `<span>⏱ 4 min read</span><span class="meta-dot">·</span><span class="live-update-badge"><span class="pulse-dot"></span> Live Updated</span>`;
+      }
+
+      // 4. Update fundamental metrics if data-stat elements exist
+      const fmtCurr = (val) => {
+        if (val === null || val === undefined) return 'N/A';
+        if (val >= 1e12) return `₹${(val / 1e12).toFixed(2)} Lakh Cr`;
+        if (val >= 1e7) return `₹${(val / 1e7).toFixed(2)} Cr`;
+        return `₹${val.toLocaleString('en-IN')}`;
+      };
+
+      const setStat = (key, val) => {
+        const el = document.querySelector(`[data-stat="${key}"]`);
+        if (el && val !== undefined && val !== null) el.textContent = val;
+      };
+
+      if (data.fundamentals) {
+        setStat('marketCap', fmtCurr(data.fundamentals.marketCap));
+        setStat('pe', data.fundamentals.pe ? data.fundamentals.pe.toFixed(2) : 'N/A');
+        setStat('pb', data.fundamentals.pb ? data.fundamentals.pb.toFixed(2) : 'N/A');
+        setStat('roe', data.fundamentals.roe ? `${data.fundamentals.roe}%` : 'N/A');
+        setStat('eps', data.fundamentals.eps ? `₹${data.fundamentals.eps}` : 'N/A');
+        setStat('enterpriseValue', fmtCurr(data.fundamentals.enterpriseValue));
+      }
+
+      if (data.dividend) {
+        setStat('divYield', data.dividend.yield ? `${data.dividend.yield}%` : 'N/A');
+      }
+
+      if (data.performance) {
+        setStat('high52', data.performance.high52 ? `₹${data.performance.high52}` : 'N/A');
+        setStat('low52', data.performance.low52 ? `₹${data.performance.low52}` : 'N/A');
+        setStat('previousClose', data.performance.previousClose ? `₹${data.performance.previousClose}` : 'N/A');
+        setStat('open', data.performance.open ? `₹${data.performance.open}` : 'N/A');
+        setStat('targetPrice', data.performance.targetPrice ? `₹${data.performance.targetPrice}` : 'N/A');
+        if (data.performance.dayHigh && data.performance.dayLow) {
+          setStat('dayHighLow', `₹${data.performance.dayHigh} / ₹${data.performance.dayLow}`);
+        }
+
+        // Update 52-week range bar fill
+        if (data.performance.high52 && data.performance.low52 && data.price) {
+          const rangeFill = document.querySelector('.range-fill');
+          if (rangeFill) {
+            const pct = Math.min(Math.max(((data.price - data.performance.low52) / (data.performance.high52 - data.performance.low52) * 100), 5), 100);
+            rangeFill.style.width = `${pct.toFixed(1)}%`;
+          }
+        }
+      }
+    } catch (err) {
+      console.debug('Client live stock hydration notice:', err);
     }
   })();
 </script>
