@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { STOCK_SEED_DATA } from '../../data/stockSeedData';
 
-// Define static paths for all 343 stocks and subpages
-export async function getStaticPaths() {
+// Define static paths for all stocks and subpages — no API calls at build time
+export function getStaticPaths() {
   const paths = [];
   const subroutes = ['', 'share-price', 'financials', 'dividend', 'shareholding-pattern', 'peer-comparison'];
 
@@ -22,32 +22,29 @@ export async function getStaticPaths() {
   return paths;
 }
 
+const { stockSeed, activeTabProp } = Astro.props;
 const { slug: rawSlug } = Astro.params;
 
 // Parse slug parts safely
 const slugParts = (rawSlug || '').split('/').filter(Boolean);
-const mainIdentifier = slugParts[0] || 'tata-consultancy-services';
 const rawTab = slugParts[1] || 'overview';
 
 const validTabs = ['overview', 'share-price', 'financials', 'dividend', 'shareholding-pattern', 'peer-comparison'];
 const activeTab = validTabs.includes(rawTab) ? rawTab : 'overview';
 
-// Match seed stock
-const seedMatch = STOCK_SEED_DATA.find(s => 
-  s.slug.toLowerCase() === mainIdentifier.toLowerCase() || 
-  s.short_symbol.toLowerCase() === mainIdentifier.toLowerCase() || 
-  s.symbol.toLowerCase() === mainIdentifier.toLowerCase()
-) || STOCK_SEED_DATA[0];
-
+// Use seed stock from props
+const seedMatch = stockSeed;
 const stockName = seedMatch.name;
 const stockSymbol = seedMatch.symbol;
 const shortSymbol = seedMatch.short_symbol;
 const stockSlug = seedMatch.slug;
 const stockSector = seedMatch.sector;
 
+// API URL for client-side hydration script
 const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://setu2.arthavi.com';
 
-let stockData = {
+// Static placeholder data (live values hydrated client-side on page load)
+const stockData = {
   symbol: stockSymbol,
   slug: stockSlug,
   shortSymbol: shortSymbol,
@@ -56,75 +53,13 @@ let stockData = {
   currency: 'INR',
   change: 0,
   changePercent: 0,
-  company: {
-    sector: stockSector,
-    industry: `${stockSector} Industry`,
-    website: '',
-    description: `${stockName} is a leading ${stockSector} company in India.`,
-    employees: null,
-    address: null,
-    phone: null
-  },
-  fundamentals: {
-    marketCap: null,
-    pe: null,
-    forwardPE: null,
-    pb: null,
-    roe: null,
-    eps: null,
-    forwardEPS: null,
-    profitMargin: null,
-    operatingMargin: null,
-    enterpriseValue: null,
-    ebitda: null
-  },
-  performance: {
-    high52: null,
-    low52: null,
-    previousClose: null,
-    open: null,
-    dayHigh: null,
-    dayLow: null,
-    targetPrice: null
-  },
-  ownership: {
-    promoter: null,
-    fii: null,
-    cash: null,
-    debt: null,
-    debtToEquity: null
-  },
-  dividend: {
-    yield: null,
-    rate: null,
-    lastDividend: null,
-    exDate: null,
-    lastSplit: null
-  },
+  company: { sector: stockSector, industry: `${stockSector} Industry`, website: '', description: `${stockName} is a leading ${stockSector} company in India.`, employees: null, address: null, phone: null },
+  fundamentals: { marketCap: null, pe: null, forwardPE: null, pb: null, roe: null, eps: null, forwardEPS: null, profitMargin: null, operatingMargin: null, enterpriseValue: null, ebitda: null },
+  performance: { high52: null, low52: null, previousClose: null, open: null, dayHigh: null, dayLow: null, targetPrice: null },
+  ownership: { promoter: null, fii: null, cash: null, debt: null, debtToEquity: null },
+  dividend: { yield: null, rate: null, lastDividend: null, exDate: null, lastSplit: null },
   executives: []
 };
-
-// Fetch real-time cached data from FastAPI backend at build time
-try {
-  const res = await fetch(`${apiUrl}/api/public/stocks/${stockSlug}`);
-  if (res.ok) {
-    const fetchedData = await res.json();
-    if (fetchedData && fetchedData.name) {
-      stockData = {
-        ...stockData,
-        ...fetchedData,
-        company: { ...stockData.company, ...(fetchedData.company || {}) },
-        fundamentals: { ...stockData.fundamentals, ...(fetchedData.fundamentals || {}) },
-        performance: { ...stockData.performance, ...(fetchedData.performance || {}) },
-        ownership: { ...stockData.ownership, ...(fetchedData.ownership || {}) },
-        dividend: { ...stockData.dividend, ...(fetchedData.dividend || {}) },
-        executives: fetchedData.executives || []
-      };
-    }
-  }
-} catch (err) {
-  console.warn(`[Astro Build] Backend API un-reachable at ${apiUrl}, using fallback:`, err);
-}
 
 // Formatted helper functions
 const formatCurrency = (val: number | null | undefined) => {
