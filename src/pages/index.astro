@@ -73,11 +73,6 @@ const seo = {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "INR"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "12500"
           }
         },
         {
@@ -322,30 +317,6 @@ const seo = {
                 "@type": "Answer",
                 "text": "Yes, Arthavi supports tracking for HUF, corporate, and individual accounts by importing the respective CAS statements associated with those PANs. You can organize them into separate dashboards or aggregate them."
               }
-            },
-            {
-              "@type": "Question",
-              "name": "Which is the best free financial calculator for India in 2025?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Arthavi offers a comprehensive free financial calculator hub for India, covering 16 calculators in one place. Popular calculators include the EMI Calculator (home, car, personal loans), Income Tax Calculator FY 2025-26 (old vs new regime comparison), HRA Calculator (updated for 8th Pay Commission rates), SIP Calculator (with step-up and inflation adjustments), and PPF Calculator. All run client-side with no sign-up required."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the income tax for ₹12 lakh salary in FY 2025-26?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Under the new tax regime for FY 2025-26, a gross salary of ₹12 lakh attracts a net tax of ₹71,500 (including 4% health & education cess) after applying the ₹75,000 standard deduction. Under the old regime, the tax would be ₹1,17,000 (assuming ₹1.5L 80C and ₹50K standard deduction). The new regime saves ₹45,500 in this case. You can use Arthavi's Income Tax Calculator to model other salaries."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How is HRA exemption calculated for metro cities in 2025?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "HRA exemption under Section 10(13A) is the minimum of three values: actual HRA received, 50% of basic salary for metro cities (Delhi, Mumbai, Kolkata, Chennai) or 40% for non-metro, and actual rent paid minus 10% of basic salary. Use Arthavi's HRA Calculator to determine your tax-exempt house rent allowance easily."
-              }
             }
           ]
         }
@@ -369,26 +340,20 @@ const seo = {
                             <path d="M12 2L4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4Z" />
                             <path d="m9 12 2 2 4-4" />
                         </svg>
-                        Privacy-first portfolio tracking for Indian investors
+                        Privacy-first · Built solo in Pune · No VC, no data deals
                     </span>
                 </div>
 
                 <h1 class="heading-xl">
-                    Track Stocks & Mutual Funds <br><span>in One Place</span>
+                    See Exactly How Your <br><span>Investments Are Performing</span>
                 </h1>
                 <p class="hero-subheadline">
-                    See your mutual funds, stocks, net worth, and XIRR in one clean dashboard. Import your CAS or add holdings manually without linking your broker.
+                    Mutual funds, stocks, XIRR, and net worth — one clean dashboard. No broker login needed.
                 </p>
-
-                <div class="hero-trust-row">
-                    <span class="hero-trust-pill">No broker login</span>
-                    <span class="hero-trust-pill">Read-only CAS import</span>
-                    <span class="hero-trust-pill">No ads or data selling</span>
-                </div>
 
                 <div class="btn-group">
                     <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.08rem;">
-                        Create Free Account
+                        Start Tracking Free
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
                             <path d="M5 12h14"></path>
@@ -397,81 +362,25 @@ const seo = {
                     </a>
                 </div>
                 <p class="cta-note">
-                    Free to get started. No phone number required.
+                    Free forever. No phone number required.
                     <span style="margin-left: 0.25rem;">·</span>
                     <a href="https://app.arthavi.com/demo" class="demo-text-link" style="margin-left: 0.25rem;">or try a demo portfolio →</a>
                 </p>
-
-                <div class="hero-proof-grid" aria-label="Trust and privacy highlights">
-                    <div class="hero-proof-item hero-proof-item-investors">
-                        <strong>12,500+</strong>
-                        <span>Investors using Arthavi</span>
-                    </div>
-                    <div class="hero-proof-item hero-proof-item-aum">
-                        <strong>&#x20B9;400+ Cr</strong>
-                        <span>Tracked across portfolios</span>
-                    </div>
-                    <div class="hero-proof-item hero-proof-item-rating">
-                        <strong>4.8/5</strong>
-                        <span>Average user rating</span>
-                    </div>
-                </div>
-
-                <div class="hero-privacy-card">
-                    <p>
-                        Your portfolio stays read-only and under your control. Arthavi does not need broker passwords, does not sell your data, and lets you delete your account anytime.
-                    </p>
-                </div>
             </div>
 
             <div class="container">
-                <div class="hero-preview-switcher fade-in delay-100" role="tablist" aria-label="Preview mode">
-                    <button
-                        type="button"
-                        class="hero-preview-tab is-active"
-                        data-preview-target="desktop"
-                        role="tab"
-                        aria-selected="true"
-                    >
-                        Desktop Screen
-                    </button>
-                    <button
-                        type="button"
-                        class="hero-preview-tab"
-                        data-preview-target="mobile"
-                        role="tab"
-                        aria-selected="false"
-                    >
-                        Mobile Screen
-                    </button>
-                </div>
-                <p class="hero-preview-note fade-in delay-100">Includes light & dark mode. Preview desktop and mobile screens.</p>
-                <figure class="dashboard-preview glass-panel fade-in delay-200" id="hero-preview-frame" data-preview-mode="desktop">
-                    <picture>
-                        <!-- Desktop Preview -->
-                        <img
-                            id="hero-preview-image-desktop"
-                            src="/images/app/dashboard_laptop.webp"
-                            alt="Arthavi portfolio dashboard on laptop showing net worth, allocation, and performance"
-                            width="3022"
-                            height="1736" loading="eager" fetchpriority="high"
-                            class="preview-img-desktop">
-                        <!-- Mobile Preview -->
-                        <img
-                            id="hero-preview-image-mobile"
-                            src="/images/app/dashboard.webp"
-                            alt="Arthavi mobile dashboard showing portfolio value, gains, and allocation"
-                            width="1179"
-                            height="2556" loading="lazy"
-                            class="preview-img-mobile">
-                    </picture>
+                <figure class="dashboard-preview glass-panel fade-in delay-200" id="hero-preview-frame">
+                    <img
+                        src="/images/app/dashboard_laptop.webp"
+                        alt="Arthavi portfolio dashboard showing net worth, allocation, and performance"
+                        width="3022"
+                        height="1736" loading="eager" fetchpriority="high">
                     <figcaption class="sr-only">Net worth dashboard showing consolidated mutual fund and stock
                         performance for Indian investors, including XIRR-based returns and AMC allocation.</figcaption>
                 </figure>
 
-                <!-- Store Buttons Below Fold -->
-                <div class="btn-group fade-in delay-300" style="margin-top: 3rem;">
-                    <!-- Android Button -->
+                <!-- Google Play - only real store listing -->
+                <div class="btn-group fade-in delay-300" style="margin-top: 2rem;">
                     <a href="https://play.google.com/store/apps/details?id=com.arthavi.app.twa" class="btn-store">
                         <span class="btn-store-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none">
@@ -486,45 +395,10 @@ const seo = {
                             </svg>
                         </span>
                         <span class="btn-store-copy">
-                            <span class="btn-store-kicker">Download on</span>
+                            <span class="btn-store-kicker">Also available on</span>
                             <span class="btn-store-title">Google Play</span>
                         </span>
                     </a>
-
-                    <!-- iOS Button -->
-                    <a href="https://app.arthavi.com/register" class="btn-store">
-                        <span class="btn-store-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16.84 12.93c.02 2.22 1.95 2.95 1.97 2.96-.02.05-.31 1.06-1.02 2.1-.61.9-1.25 1.79-2.24 1.81-.98.02-1.29-.58-2.41-.58-1.12 0-1.47.56-2.37.6-.94.04-1.66-.95-2.28-1.84-1.26-1.82-2.22-5.14-.93-7.39.64-1.11 1.79-1.81 3.03-1.83.95-.02 1.84.65 2.41.65.57 0 1.64-.8 2.76-.68.47.02 1.78.19 2.63 1.43-.07.04-1.56.92-1.55 2.77Zm-1.78-6.74c.51-.62.85-1.47.76-2.31-.74.03-1.62.49-2.15 1.05-.48.5-.89 1.38-.78 2.2.81.06 1.64-.46 2.17-.94Z" />
-                            </svg>
-                        </span>
-                        <span class="btn-store-copy">
-                            <span class="btn-store-kicker">Download on the</span>
-                            <span class="btn-store-title">App Store</span>
-                        </span>
-                    </a>
-
-                    <!-- Web App Button -->
-                    <a href="https://app.arthavi.com/register" class="btn-store">
-                        <span class="btn-store-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="9"></circle>
-                                <path d="M3 12h18"></path>
-                                <path d="M12 3a14.5 14.5 0 0 1 0 18"></path>
-                                <path d="M12 3a14.5 14.5 0 0 0 0 18"></path>
-                            </svg>
-                        </span>
-                        <span class="btn-store-copy">
-                            <span class="btn-store-kicker">Open in your</span>
-                            <span class="btn-store-title">Web App</span>
-                        </span>
-                    </a>
-                </div>
-
-                <div id="canonical-definition" class="hero-definition">
-                    <p>
-                        <strong>Arthavi</strong> is a privacy-first portfolio tracker for Indian investors who want to track mutual funds and stocks in one place, calculate real XIRR, and stay in control without broker integrations or demat linking.
-                    </p>
                 </div>
             </div>
         </section>
@@ -536,64 +410,82 @@ const seo = {
         <section style="padding: 5rem 0; background: var(--bg-surface);">
             <div class="container">
                 <div class="section-header text-center fade-in">
-                    <h2>What Investors Are Saying</h2>
-                    <p class="section-sub">Real users. Real portfolios. Real clarity.</p>
+                    <h2>What Real Users Say</h2>
+                    <p class="section-sub">Unfiltered feedback from investors who track their family portfolios on Arthavi.</p>
                 </div>
                 
                 <div class="testimonials-grid" style="margin-top: 3rem;">
-                    <div class="testimonial-card glass-panel fade-in delay-100" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                        <div style="display: flex; gap: 0.25rem; margin-bottom: 1rem;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <!-- Lakshminarayanan Iyer -->
+                    <div class="testimonial-card glass-panel fade-in delay-100" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; gap: 0.25rem; margin-bottom: 1rem;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Appreciate the seriousness in implementing improvements. I am encouraged to see the suggestions given are implemented immediately."</p>
                         </div>
-                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Arthavi is the first app that made all my investments feel easy to understand in one place. It helps me see what I am doing well and where I need to improve without making things feel overwhelming."</p>
                         <div style="display: flex; align-items: center; gap: 0.75rem;">
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--ai-color)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1rem;">MK</div>
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--ai-color)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 0.95rem;">LI</div>
                             <div>
-                                <p style="font-weight: 600; color: var(--text-head); font-size: 0.9rem; margin: 0;">Meera K.</p>
-                                <p style="font-size: 0.8rem; color: var(--text-body); margin: 0;">Software Engineer, Mumbai</p>
+                                <p style="font-weight: 600; color: var(--text-head); font-size: 0.9rem; margin: 0;">Lakshminarayanan Iyer</p>
+                                <p style="font-size: 0.8rem; color: var(--text-body); margin: 0;">Verified User · Feedback #1373</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="glass-panel fade-in delay-200" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                        <div style="display: flex; gap: 0.25rem; margin-bottom: 1rem;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <!-- Mitul Patel -->
+                    <div class="testimonial-card glass-panel fade-in delay-200" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; gap: 0.25rem; margin-bottom: 1rem;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"Awesome app. It's great and finally it solved my problem of all my family portfolio tracking."</p>
                         </div>
-                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"It took me a little time to get comfortable with Arthavi, but now I use it almost every day. I can track everything in one app, and it has slowly replaced the different places I used before."</p>
                         <div style="display: flex; align-items: center; gap: 0.75rem;">
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1rem;">RP</div>
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 0.95rem;">MP</div>
                             <div>
-                                <p style="font-weight: 600; color: var(--text-head); font-size: 0.9rem; margin: 0;">Rahul P.</p>
-                                <p style="font-size: 0.8rem; color: var(--text-body); margin: 0;">Product Manager, Bangalore</p>
+                                <p style="font-weight: 600; color: var(--text-head); font-size: 0.9rem; margin: 0;">Mitul Patel</p>
+                                <p style="font-size: 0.8rem; color: var(--text-body); margin: 0;">Family Portfolio Investor</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="glass-panel fade-in delay-300" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
-                        <div style="display: flex; gap: 0.25rem; margin-bottom: 1rem;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <!-- Shashikant Gupta -->
+                    <div class="testimonial-card glass-panel fade-in delay-300" style="padding: 2rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; gap: 0.25rem; margin-bottom: 1rem;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"The app is getting consistently better and I am glad my feedback is contributing to it. Great that you take out time to go through every suggestion."</p>
                         </div>
-                        <p style="color: var(--text-body); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic;">"I mainly use Arthavi to check my mutual funds, and I like how clearly everything is shown. It does not feel complicated, even when I open it regularly to review my portfolio."</p>
                         <div style="display: flex; align-items: center; gap: 0.75rem;">
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #d97706); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1rem;">AS</div>
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #d97706); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 0.95rem;">SG</div>
                             <div>
-                                <p style="font-weight: 600; color: var(--text-head); font-size: 0.9rem; margin: 0;">Anita S.</p>
-                                <p style="font-size: 0.8rem; color: var(--text-body); margin: 0;">Chartered Accountant, Delhi</p>
+                                <p style="font-weight: 600; color: var(--text-head); font-size: 0.9rem; margin: 0;">Shashikant Gupta</p>
+                                <p style="font-size: 0.8rem; color: var(--text-body); margin: 0;">Active Contributor</p>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Provenance & Honest Smallness note -->
+                <div class="fade-in delay-200" style="text-align: center; margin-top: 2.5rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.25rem; font-size: 0.88rem; color: var(--text-muted);">
+                    <span>📍 Built solo in Pune</span>
+                    <span>·</span>
+                    <span>🛡️ 100% Private, zero data selling</span>
+                    <span>·</span>
+                    <span>💬 Direct feedback-driven development</span>
                 </div>
             </div>
         </section>
@@ -647,7 +539,7 @@ const seo = {
                     </div>
                 </div>
                 <div class="steps-cta fade-in">
-                    <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary">Get Started in 30 Seconds</a>
                     <p class="cta-note">Takes 30 seconds. No phone number needed.</p>
                 </div>
             </div>
@@ -814,7 +706,7 @@ const seo = {
                     <h3>Want to see everything?</h3>
                     <p style="color: var(--text-muted);">We have packed 42+ powerful features into Arthavi.</p>
                     <div class="cta-btns">
-                        <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+                        <a href="https://app.arthavi.com/register" class="btn btn-primary">Try All 42+ Features Free</a>
                         <a href="/features/" class="btn btn-secondary" style="border: 1px solid rgba(255,255,255,0.2);">Explore All Features</a>
                     </div>
                 </div>
@@ -1022,7 +914,7 @@ const seo = {
                             </div>
                         </div>
                         <div style="margin-top: 2rem;">
-                            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.3);">Create Free Account <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></a>
+                            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); box-shadow: 0 4px 20px rgba(139,92,246,0.3);">Ask AI About Your Portfolio <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></a>
                             <p style="margin-top: 0.75rem;"><a href="/ask-ai-investment-assistant/" class="demo-text-link">Learn more about Ask AI →</a></p>
                         </div>
                     </div>
@@ -1163,20 +1055,20 @@ const seo = {
                     <div class="nudge-stats">
                         <span class="nudge-stat">
                             <span class="nudge-dot nudge-dot-green"></span>
-                            <strong>12,500+</strong> investors
+                            <strong>Solo-built</strong> in Pune
                         </span>
                         <span class="nudge-stat">
                             <span class="nudge-dot nudge-dot-purple"></span>
-                            <strong>₹400+ Cr</strong> tracked
+                            <strong>0 ads · 0 tracking</strong>
                         </span>
                         <span class="nudge-stat">
                             <span class="nudge-dot nudge-dot-gold"></span>
-                            <strong>4.8/5</strong> rating
+                            <strong>100% Private</strong> &amp; read-only
                         </span>
                     </div>
                     <h2>Start Tracking Your Net Worth Today</h2>
                     <p>Free. Private. No broker login required. Set up in under 2 minutes.</p>
-                    <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Tracking — 100% Free &amp; Private</a>
                     <p class="nudge-subtext">No phone number needed · Delete anytime</p>
                 </div>
             </div>
@@ -1331,7 +1223,7 @@ const seo = {
             <div class="container" style="max-width: 900px;">
                 <div class="section-header text-center fade-in" style="margin-bottom: 2.5rem;">
                     <h2 class="heading-lg" style="color: var(--text-head); margin-bottom: 0.5rem;">Frequently Asked Questions</h2>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Find instant answers about portfolio tracking, security, AI assistant, and calculators.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Find instant answers about portfolio tracking, security, CAS import, and AI assistant.</p>
                 </div>
 
                 <!-- FAQ Search & Filters -->
@@ -1349,7 +1241,6 @@ const seo = {
                         <button class="faq-tab-btn" data-filter="portfolio">Portfolio Tracking</button>
                         <button class="faq-tab-btn" data-filter="privacy">Security & Privacy</button>
                         <button class="faq-tab-btn" data-filter="ai">AI Assistant</button>
-                        <button class="faq-tab-btn" data-filter="calculators">Calculators</button>
                     </div>
                 </div>
 
@@ -1777,84 +1668,7 @@ const seo = {
                     </div>
 
 
-                    <!-- CALCULATORS CATEGORY -->
-                    <div class="faq-item" data-category="calculators" data-q="which is the best free financial calculator for india in 2025 emi tax hra sip fd ppf nps">
-                        <button class="faq-question" aria-expanded="false">
-                            Which is the best free financial calculator for India in 2025?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Arthavi offers a comprehensive free financial calculator hub for India, covering 16 calculators in one place. Popular calculators include the EMI Calculator (home, car, personal loans), Income Tax Calculator FY 2025-26 (old vs new regime comparison), HRA Calculator (updated for 8th Pay Commission rates), SIP Calculator (with step-up and inflation adjustments), and PPF Calculator. All run client-side with no sign-up required.
-                        </div>
-                    </div>
 
-                    <div class="faq-item" data-category="calculators" data-q="what is the income tax for 12 lakh salary gross slab new regime old regime fy 2025-26 ay 2026-27">
-                        <button class="faq-question" aria-expanded="false">
-                            What is the income tax for ₹12 lakh salary in FY 2025-26?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Under the new tax regime for FY 2025-26, a gross salary of ₹12 lakh attracts a net tax of ₹71,500 (including 4% health & education cess) after applying the ₹75,000 standard deduction. Under the old regime, the tax would be ₹1,17,000 (assuming ₹1.5L 80C and ₹50K standard deduction). The new regime saves ₹45,500 in this case. You can use Arthavi's Income Tax Calculator to model other salaries.
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-category="calculators" data-q="how is hra exemption calculated for metro cities in 2025 section 10 13a 8th pay commission rent">
-                        <button class="faq-question" aria-expanded="false">
-                            How is HRA exemption calculated for metro cities in 2025?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            HRA exemption under Section 10(13A) is the minimum of three values: actual HRA received, 50% of basic salary for metro cities (Delhi, Mumbai, Kolkata, Chennai) or 40% for non-metro, and actual rent paid minus 10% of basic salary. Use Arthavi's HRA Calculator to determine your tax-exempt house rent allowance easily.
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-category="calculators" data-q="what is the emi for 50 lakh home loan for 20 years sbi interest rate hdfc total payment">
-                        <button class="faq-question" aria-expanded="false">
-                            What is the EMI for ₹50 lakh home loan for 20 years?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            At SBI's current home loan rate of 8.50% p.a., EMI for ₹50 lakh home loan for 20 years = approximately ₹43,391/month. Total interest payable = ₹54.14 lakh. Total repayment = ₹1,04,14,000. At HDFC's 8.75%, EMI = ₹44,230/month, total interest = ₹56.15 lakh. Tax benefit: Up to ₹1.5 lakh/year under Section 80C (principal) + up to ₹2 lakh/year under Section 24b (interest). Use <a href="/home-loan-emi-calculator/" style="color:#a5b4fc;">Arthavi's Home Loan EMI Calculator</a> for a full amortization schedule.
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-category="calculators" data-q="what are the income tax slabs for fy 2025-26 under the new regime standard deduction rebate 87a">
-                        <button class="faq-question" aria-expanded="false">
-                            What are the income tax slabs for FY 2025-26 under the new regime?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Income tax slabs for FY 2025-26 (AY 2026-27) under the new tax regime: ₹0–3 lakh = 0%, ₹3–7 lakh = 5%, ₹7–10 lakh = 10%, ₹10–12 lakh = 15%, ₹12–15 lakh = 20%, above ₹15 lakh = 30%. Standard deduction = ₹75,000. Section 87A rebate makes income up to ₹7 lakh effectively tax-free. 4% Health &amp; Education Cess applies on total tax. Surcharge applies for income above ₹50 lakh.
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-category="calculators" data-q="how much sip is needed to become a crorepati in india 1 crore return years compound">
-                        <button class="faq-question" aria-expanded="false">
-                            How much SIP is needed to become a crorepati in India?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            To accumulate ₹1 crore through SIP at 12% annual return: ₹5,500/month for 20 years = ₹1.00 crore | ₹2,600/month for 25 years = ₹1.00 crore | ₹1,200/month for 30 years = ₹1.00 crore. The power of compounding means starting earlier dramatically reduces the monthly amount needed. A step-up SIP (increasing 10% annually) can reach ₹1 crore even faster. Use <a href="/sip-calculator/" style="color:#a5b4fc;">Arthavi's SIP Calculator</a> with step-up and inflation features to model your exact scenario.
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -1872,7 +1686,7 @@ const seo = {
 
                 <div class="btn-group cta-actions" style="margin-top: 0;">
                     <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.08rem;">
-                        Create Free Account
+                        Create Your Free Dashboard
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
                             <path d="M5 12h14"></path>
@@ -1887,15 +1701,15 @@ const seo = {
                 <div class="cta-social-proof">
                     <span class="cta-proof-item">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <strong>12,500+</strong> investors
+                        <strong>Solo-built</strong> in Pune
                     </span>
                     <span class="cta-proof-item">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <strong>₹400+ Cr</strong> tracked
+                        <strong>No VC</strong> · No data deals
                     </span>
                     <span class="cta-proof-item">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <strong>Privacy-first</strong> design
+                        <strong>Free forever</strong> core
                     </span>
                 </div>
             </div>
@@ -1974,113 +1788,9 @@ const seo = {
             </div>
         </section>
 
-        <!-- ===== CALCULATOR HUB SPOTLIGHT ===== -->
-        <section style="padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
-          <div class="container">
-            <div style="max-width: 900px; margin: 0 auto;">
-              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
-                <span style="display:inline-block;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:#34d399;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.85rem;border-radius:100px;">Free Tools</span>
-                <span style="font-size:0.8rem;color:var(--text-muted);">Updated for FY 2025-26 &amp; 8th Pay Commission</span>
-              </div>
-              <h2 style="font-size:1.7rem;font-weight:800;color:var(--text-head);margin-bottom:0.85rem;line-height:1.3;">Free Financial Calculators for Indian Investors</h2>
-              <p style="color:var(--text-muted);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;">
-                Arthavi's calculator hub covers <strong style="color:var(--text-head);">16 free Indian financial calculators</strong> — including EMI calculator, HRA exemption calculator (updated for 8th Pay Commission), Income Tax Calculator for FY 2025-26 (old vs new regime comparison), SIP calculator, FD calculator, PPF calculator (7.1% rate), NPS calculator (80CCD(1B) benefit), Home Loan EMI calculator, Car Loan EMI calculator, Compound Interest calculator, Retirement calculator, SWP calculator, CAGR calculator, XIRR calculator, GST calculator, and Lumpsum calculator. All calculators run client-side — no data is stored or shared.
-              </p>
-              <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.65rem;margin-bottom:1.5rem;">
-                <a href="/emi-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(99,102,241,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">💳 EMI Calculator</a>
-                <a href="/income-tax-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(245,158,11,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🧾 Income Tax Calculator</a>
-                <a href="/hra-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(16,185,129,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏠 HRA Calculator</a>
-                <a href="/sip-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(139,92,246,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">📈 SIP Calculator</a>
-                <a href="/fd-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(6,182,212,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏦 FD Calculator</a>
-                <a href="/ppf-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(249,115,22,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏛️ PPF Calculator</a>
-                <a href="/home-loan-emi-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(132,204,22,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🏡 Home Loan EMI</a>
-                <a href="/retirement-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(167,139,250,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🌅 Retirement Calculator</a>
-                <a href="/nps-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(14,165,233,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🧓 NPS Calculator</a>
-                <a href="/compound-interest-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(236,72,153,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">📊 Compound Interest</a>
-                <a href="/car-loan-emi-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(244,63,94,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">🚗 Car Loan EMI</a>
-                <a href="/gst-calculator/" style="display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.7rem 0.85rem;text-decoration:none;transition:all 0.2s;color:var(--text-muted);font-size:0.82rem;font-weight:500;" onmouseover="this.style.borderColor='rgba(45,212,191,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">📋 GST Calculator</a>
-              </div>
-              <a href="/calculators/" style="display:inline-flex;align-items:center;gap:0.5rem;color:#a5b4fc;font-size:0.9rem;font-weight:600;text-decoration:none;">View All 16 Calculators →</a>
-            </div>
-          </div>
-        </section>
-          </div>
-        </section>
     </main>
 
-    <!-- Floating CTA Button for Mobile -->
-    <div id="mobile-floating-cta" class="mobile-floating-cta">
-        <a href="https://app.arthavi.com/register" class="btn-floating-cta" id="floating-create-account-btn">
-            <span>Create Free Account</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="M12 5l7 7-7 7"></path>
-            </svg>
-        </a>
-    </div>
-
     <style>
-        /* Mobile Floating CTA Styles */
-        .mobile-floating-cta {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            z-index: 9999;
-            width: calc(100% - 32px);
-            max-width: 380px;
-            display: none;
-            opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .mobile-floating-cta.visible {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .btn-floating-cta {
-            width: 100%;
-            padding: 0.95rem 1.5rem;
-            border-radius: 100px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--ai-color) 100%);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #fff !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .btn-floating-cta:active {
-            transform: scale(0.97);
-            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.25);
-        }
-
-        .btn-floating-cta svg {
-            transition: transform 0.2s ease;
-        }
-
-        .btn-floating-cta:active svg {
-            transform: translateX(4px);
-        }
-
-        @media (max-width: 768px) {
-            .mobile-floating-cta {
-                display: block;
-            }
-        }
-
         /* Homepage FAQ Styles */
         .hp-faq-item {
             background: rgba(255, 255, 255, 0.02);
@@ -2099,6 +1809,8 @@ const seo = {
             border: none;
             color: var(--text-head);
             font-size: 0.95rem;
+        }
+        .faq-tab-btn {
             border: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-muted);
             font-size: 0.82rem;
@@ -2139,47 +1851,6 @@ const seo = {
         if (typeof window !== 'undefined') {
             window['switchConv'] = switchConv;
         }
-
-        // Mobile floating CTA scroll behavior
-        document.addEventListener("DOMContentLoaded", () => {
-            const floatingCta = document.getElementById('mobile-floating-cta');
-            const floatingBtn = document.getElementById('floating-create-account-btn');
-            if (floatingCta) {
-                let hasPulsed = false;
-                const finalCtaSection = document.getElementById('final-cta');
-
-                const handleScroll = () => {
-                    const scrollY = window.scrollY;
-                    const shouldShow = scrollY > 300;
-
-                    // Hide when near the final CTA to avoid double-CTA distraction
-                    let nearFinalCta = false;
-                    if (finalCtaSection) {
-                        const rect = finalCtaSection.getBoundingClientRect();
-                        nearFinalCta = rect.top < window.innerHeight && rect.bottom > 0;
-                    }
-
-                    if (shouldShow && !nearFinalCta) {
-                        floatingCta.classList.add('visible');
-                        // Pulse animation on first appearance
-                        if (!hasPulsed && floatingBtn) {
-                            hasPulsed = true;
-                            floatingBtn.classList.add('pulse-once');
-                            floatingBtn.addEventListener('animationend', () => {
-                                floatingBtn.classList.remove('pulse-once');
-                            }, { once: true });
-                        }
-                    } else {
-                        floatingCta.classList.remove('visible');
-                    }
-                };
-                
-                // Listen to scroll events (passive: true for mobile performance)
-                window.addEventListener('scroll', handleScroll, { passive: true });
-                // Check initial scroll state
-                handleScroll();
-            }
-        });
 
         // Unified Homepage FAQ Search & Filter Engine
         document.addEventListener("DOMContentLoaded", () => {
