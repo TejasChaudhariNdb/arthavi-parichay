@@ -2,275 +2,350 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-  title: "Complete Feature List | Arthavi Portfolio Tracker",
-  description: "Explore all 42+ powerful features of Arthavi. From Mutual Fund tracking and direct Stock insights, to AI chatbots, goal setting, and privacy modes.",
+  title: "Complete Feature Catalog | Arthavi Portfolio Tracker India",
+  description: "Explore all 50+ powerful features of Arthavi: Multi-profile family wealth tracking, Capital Gains (LTCG/STCG) tax reports, CAS parser, live NSE/BSE stocks, and Ask AI.",
 };
 ---
 
-<Layout title={seo.title} description={seo.description} keywords="arthavi features, portfolio tracker features, mutual fund features, stock tracking features, ai investment tracker, complete feature list" schema={JSON.stringify({"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Arthavi","applicationCategory":"FinanceApplication","operatingSystem":"Web, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Privacy-first portfolio tracker for Indian investors. Tracks mutual funds via CAS import and stocks with live NSE/BSE prices. No demat linking required."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many features does Arthavi have?","acceptedAnswer":{"@type":"Answer","text":"Arthavi currently has 42+ powerful features organized into 7 categories including Dashboard, Mutual Funds, Stocks, Transactions, Goals, AI Chat, and Settings."}},{"@type":"Question","name":"Does Arthavi track both Mutual Funds and Stocks?","acceptedAnswer":{"@type":"Answer","text":"Yes, Arthavi provides comprehensive tracking for both Mutual Funds and NSE/BSE stocks in a unified dashboard."}},{"@type":"Question","name":"How does the AI Investment Assistant work?","acceptedAnswer":{"@type":"Answer","text":"Arthavi's Ask AI feature analyzes your unique portfolio and answers your personal finance questions. It provides smart nudges and insights without needing any human advisor."}}]}]})} breadcrumb={{items:[{name:"Home",url:"https://arthavi.com/"},{name:"Features",url:"https://arthavi.com/features"}]}}>>
-    <main style="padding-top: 8rem; padding-bottom: 4rem;">
-        <section id="complete-features" class="features" style="padding-top: 2rem; position: relative; z-index: 2;">
+<Layout title={seo.title} description={seo.description} keywords="arthavi features, portfolio tracker features, mutual fund features, stock tracking features, ai investment tracker, family portfolio tracker, capital gains report india, ltcg stcg calculator, complete feature list" schema={JSON.stringify({"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Arthavi","applicationCategory":"FinanceApplication","operatingSystem":"Web, Android, iOS PWA","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Privacy-first portfolio tracker for Indian investors. Tracks mutual funds via CAS import, live NSE/BSE stocks, family portfolios, capital gains tax reports, and AI portfolio analysis. Zero broker passwords required."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Arthavi support family portfolio tracking across multiple PANs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Arthavi features multi-profile family tracking, allowing you to organize folios and Demat accounts for Self, Spouse, Parents, Children, and HUF under one login with one-click aggregated net worth."}},{"@type":"Question","name":"Can Arthavi generate Capital Gains Tax reports for ITR filing?","acceptedAnswer":{"@type":"Answer","text":"Yes. Arthavi generates comprehensive realized LTCG and STCG tax reports with Section 112A grandfathering (Jan 31, 2018 FMV) and updated Budget tax rates (12.5% LTCG, 20% STCG) with direct CSV/Excel export."}},{"@type":"Question","name":"How does Arthavi AI analyze my portfolio?","acceptedAnswer":{"@type":"Answer","text":"Arthavi's Ask AI assistant reviews your holdings to identify hidden fund overlap, sector concentration risk, and answers plain-English questions about your asset allocation without human advisors or data selling."}}]}]})} breadcrumb={{items:[{name:"Home",url:"https://arthavi.com/"},{name:"Features",url:"https://arthavi.com/features"}]}}>
+    <main style="padding-top: 7rem; padding-bottom: 5rem;">
+        <section id="complete-features" class="features" style="padding-top: 1rem; position: relative; z-index: 2;">
             <div class="container">
                 <div class="section-header text-center fade-in">
-                    <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;">Everything Inside</span>
-                    <h2>Complete Feature List</h2>
-                    <p>Everything you need to track, manage, and grow your wealth in one powerful app.</p>
+                    <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Everything Built For Indian Investors</span>
+                    <h1 class="heading-xl" style="margin-bottom: 1rem;">Complete Feature Catalog</h1>
+                    <p style="max-width: 680px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+                        Explore every tool, report, and intelligence module built into Arthavi. Designed from the ground up for privacy, family wealth, and true cash-flow accuracy.
+                    </p>
                 </div>
                 
-                <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-top: 3.5rem; gap: 2rem;">
+                <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); margin-top: 3.5rem; gap: 2rem;">
                     
-                    <!-- Dashboard Features -->
-                    <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                    <!-- 1. Family Wealth & Multi-Profile Tracking -->
+                    <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem; border-color: rgba(99,102,241,0.3);">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
-                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 100%); border: 1px solid rgba(99,102,241,0.2); display: flex; align-items: center; justify-content: center; color: var(--primary-glow); box-shadow: 0 4px 12px rgba(99,102,241,0.1);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.25) 0%, rgba(99,102,241,0.05) 100%); border: 1px solid rgba(99,102,241,0.3); display: flex; align-items: center; justify-content: center; color: #a78bfa; box-shadow: 0 4px 12px rgba(99,102,241,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Dashboard Features</h3>
+                            <div>
+                                <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Multi-Profile Family Wealth</h2>
+                                <span style="font-size: 0.8rem; color: #a78bfa; font-weight: 600;">Unique to Arthavi</span>
+                            </div>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Net Worth Tracking</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Shows total portfolio value (MF + Stocks)</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Multi-PAN Management</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Track separate portfolios for Self, Spouse, Parents, Children, and HUF under one master account.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Portfolio Summary</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Invested amount, current value, profit/loss, return %, XIRR</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Instant Profile Switching</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Switch between family member dashboards in a single click without logging out or re-authenticating.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Performance Chart</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Historical portfolio value over time</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Aggregated Household Net Worth</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">View combined family net worth, combined asset allocation, and overall household XIRR performance.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Market Prediction Card</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Daily market predictions</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Portfolio Health Score</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Health assessment of portfolio</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Smart Insights</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">AI-powered nudges and recommendations</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Benchmark Comparison</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Compare returns vs benchmarks (NIFTY 50)</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Financial Goals</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">View and track financial goals</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Refer & Earn</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Referral program for unlocking AI</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Independent CAS Sync</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Import separate CAMS/KFintech CAS PDFs for each individual family member with isolated folios.</span></div>
                             </li>
                         </ul>
                     </article>
 
-                    <!-- Holdings - Mutual Funds -->
+                    <!-- 2. Capital Gains & Tax Readiness (LTCG / STCG) -->
+                    <article class="feature-card glass-panel fade-in delay-200" style="display: flex; flex-direction: column; padding: 2.2rem; border-color: rgba(245,158,11,0.3);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(245,158,11,0.25) 0%, rgba(245,158,11,0.05) 100%); border: 1px solid rgba(245,158,11,0.3); display: flex; align-items: center; justify-content: center; color: #fbbf24; box-shadow: 0 4px 12px rgba(245,158,11,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            </div>
+                            <div>
+                                <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Capital Gains & Tax Reports</h2>
+                                <span style="font-size: 0.8rem; color: #fbbf24; font-weight: 600;">FY 2025-26 &amp; FY 2024-25 Ready</span>
+                            </div>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Realized LTCG &amp; STCG Breakdown</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Accurate computation of short-term and long-term capital gains matching Indian Income Tax Act requirements.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Section 112A Grandfathering</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Automatic application of Jan 31, 2018 Fair Market Value (FMV) grandfathering for equity holdings.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Post-Budget 2024 Revised Tax Rates</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Calculates tax liability using revised 12.5% LTCG (₹1.25L exemption) and 20% STCG rules.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">One-Click Excel / CSV Export</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Download pre-formatted capital gains schedules ready for your Chartered Accountant or ITR-2 / ITR-3 filing.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Trade Basis Reconciliation</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">In-line editing of historical purchase prices and dates to resolve missing cost basis in legacy trades.</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- 3. Ask AI Investment Assistant -->
+                    <article class="feature-card glass-panel fade-in delay-300" style="display: flex; flex-direction: column; padding: 2.2rem; border-color: rgba(167,139,250,0.3);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(167,139,250,0.25) 0%, rgba(167,139,250,0.05) 100%); border: 1px solid rgba(167,139,250,0.3); display: flex; align-items: center; justify-content: center; color: #c084fc; box-shadow: 0 4px 12px rgba(167,139,250,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"></path></svg>
+                            </div>
+                            <div>
+                                <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Ask AI Investment Assistant</h2>
+                                <span style="font-size: 0.8rem; color: #c084fc; font-weight: 600;">Ranked #1 for 'arthavi ai'</span>
+                            </div>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #c084fc;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Context-Aware Portfolio Q&amp;A</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Ask questions directly about your investments in plain English: "Am I too heavy on midcaps?", "What is my total tech exposure?".</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #c084fc;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Mutual Fund Overlap Detection</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Identifies duplicated underlying stock holdings between your large-cap, flexi-cap, and index funds.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #c084fc;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Sector Concentration Warnings</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Alerts you when Banking, IT, or Energy exposure exceeds healthy risk thresholds.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #c084fc;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Zero Human Advisors</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Unbiased analysis with zero commissions, no product cross-selling, and no third-party data access.</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- 4. Unified Dashboard & Net Worth Analytics -->
+                    <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(59,130,246,0.25) 0%, rgba(59,130,246,0.05) 100%); border: 1px solid rgba(59,130,246,0.3); display: flex; align-items: center; justify-content: center; color: #60a5fa; box-shadow: 0 4px 12px rgba(59,130,246,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                            </div>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Net Worth &amp; Portfolio Dashboard</h2>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Unified Net Worth Counter</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Real-time aggregation of Indian Mutual Funds and NSE/BSE stocks into a single total.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Cash-Flow Accurate XIRR</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Accurate annualized returns accounting for exact dates of every SIP, lump sum, and redemption.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Historical Performance Chart</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Interactive timeline chart illustrating portfolio net worth evolution over 1M, 6M, 1Y, 3Y, 5Y, and All.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Asset Allocation Wheel</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Visual distribution across Equity (Large, Mid, Small), Debt, Hybrid, and Liquid assets.</span></div>
+                            </li>
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: var(--primary);" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Top Holdings &amp; Gainers / Losers</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Instantly identify your top wealth drivers and the biggest drag on your 1-day or all-time returns.</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- 5. CAMS & KFintech CAS Import Engine -->
                     <article class="feature-card glass-panel fade-in delay-200" style="display: flex; flex-direction: column; padding: 2.2rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
-                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(16,185,129,0.05) 100%); border: 1px solid rgba(16,185,129,0.2); display: flex; align-items: center; justify-content: center; color: #34d399; box-shadow: 0 4px 12px rgba(16,185,129,0.1);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,0.25) 0%, rgba(16,185,129,0.05) 100%); border: 1px solid rgba(16,185,129,0.3); display: flex; align-items: center; justify-content: center; color: #34d399; box-shadow: 0 4px 12px rgba(16,185,129,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Holdings - Mutual Funds</h3>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">CAMS &amp; KFintech CAS Import</h2>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Scheme List</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">List of all mutual fund schemes</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">10-Second Automated Parser</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Drag and drop your official CAMS or KFintech Consolidated Account Statement PDF.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">AMC Allocation</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Allocation by Asset Management Company</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Zero Password Storage</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Decryption happens locally in your browser memory. Your PDF password is never stored or transmitted.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Scheme Allocation</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Allocation by specific schemes</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Full Transaction History Extraction</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Extracts every historical SIP, lump-sum purchase, redemption, switch, dividend reinvestment, and STT.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Investment History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Investment history over time</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Add Transaction</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Add buy/sell/SIP transactions</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">CAS Upload</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Import via Consolidated Account Statement</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Share Holdings</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Share portfolio summary</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Search & Sort</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Search and sort schemes</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #34d399;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Daily NAV Auto-Sync</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Holding valuations refresh automatically every evening using official AMFI NAV releases.</span></div>
                             </li>
                         </ul>
                     </article>
 
-                    <!-- Holdings - Stocks -->
+                    <!-- 6. Live NSE & BSE Indian Stock Portfolio -->
                     <article class="feature-card glass-panel fade-in delay-300" style="display: flex; flex-direction: column; padding: 2.2rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
-                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(236,72,153,0.2) 0%, rgba(236,72,153,0.05) 100%); border: 1px solid rgba(236,72,153,0.2); display: flex; align-items: center; justify-content: center; color: #f472b6; box-shadow: 0 4px 12px rgba(236,72,153,0.1);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(236,72,153,0.25) 0%, rgba(236,72,153,0.05) 100%); border: 1px solid rgba(236,72,153,0.3); display: flex; align-items: center; justify-content: center; color: #f472b6; box-shadow: 0 4px 12px rgba(236,72,153,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Holdings - Stocks</h3>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">NSE &amp; BSE Stock Portfolio</h2>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Stock Holdings List</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">All stock holdings</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Live Market Quotes</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Real-time stock prices across 4,000+ companies listed on NSE and BSE.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Stock Performance</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Individual stock performance</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Fast Trade Logging</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Log Buy and Sell transactions with auto-calculated weighted average buy price.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Add Stock Transaction</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Add buy/sell transactions</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Stock Journey Chart</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Visual timeline mapping all your buy/sell points directly onto the stock's historical price curve.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Stock Search</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Search stocks by symbol</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Investment History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Investment history over time</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #f472b6;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Zero Broker Linking</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">No Zerodha, Groww, AngelOne, or Upstox login passwords required. Your Demat account remains 100% untouchable.</span></div>
                             </li>
                         </ul>
                     </article>
 
-                    <!-- Activity / Transactions -->
+                    <!-- 7. Portfolio Health Score & Risk Diagnostics -->
                     <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
-                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0.05) 100%); border: 1px solid rgba(245,158,11,0.2); display: flex; align-items: center; justify-content: center; color: #fbbf24; box-shadow: 0 4px 12px rgba(245,158,11,0.1);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,0.25) 0%, rgba(16,185,129,0.05) 100%); border: 1px solid rgba(16,185,129,0.3); display: flex; align-items: center; justify-content: center; color: #10b981; box-shadow: 0 4px 12px rgba(16,185,129,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Activity / Transactions</h3>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Portfolio Health Score (0–100)</h2>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Transaction History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Complete transaction log</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #10b981;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Objective Quantitative Rating</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Computes an algorithmic 0–100 health index based on asset balance, equity/debt dispersion, and AMC concentration.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Search & Filter</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Search by name, filter by type (BUY/SELL/SIP/TAX)</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #10b981;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Benchmark Alpha Card</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Compares your portfolio's performance directly against the NIFTY 50 and NIFTY 500 TRI benchmarks.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Add Transactions</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Manual entry for both MFs and stocks</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Export CSV</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Download transaction data</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fbbf24;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Edit/Delete Transactions</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Modify or remove entries</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #10b981;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Smart Nudges &amp; Action Items</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Automated nudges highlight underperforming funds, excessive cash drag, or SIP payment gaps.</span></div>
                             </li>
                         </ul>
                     </article>
 
-                    <!-- Goals -->
+                    <!-- 8. Goal Planning & Asset Linking -->
                     <article class="feature-card glass-panel fade-in delay-200" style="display: flex; flex-direction: column; padding: 2.2rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
-                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(14,165,233,0.2) 0%, rgba(14,165,233,0.05) 100%); border: 1px solid rgba(14,165,233,0.2); display: flex; align-items: center; justify-content: center; color: #38bdf8; box-shadow: 0 4px 12px rgba(14,165,233,0.1);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(14,165,233,0.25) 0%, rgba(14,165,233,0.05) 100%); border: 1px solid rgba(14,165,233,0.3); display: flex; align-items: center; justify-content: center; color: #38bdf8; box-shadow: 0 4px 12px rgba(14,165,233,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Goals</h3>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Goal Planning &amp; Tracking</h2>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Create Goals</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Set financial goals with target amount and date</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Target-Based Milestones</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Create goals for Early Retirement (FIRE), Home Down Payment, Child's Higher Education, or Emergency Fund.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Goal Tracking</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Track progress toward goals</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Asset-to-Goal Linking</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Link individual mutual fund schemes and stocks directly to specific goals to track real-time funding status.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Edit/Delete Goals</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Manage existing goals</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Link Investments</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Associate investments with goals</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #38bdf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Progress Projections</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Shows required monthly SIP pace to reach your target by the planned horizon date.</span></div>
                             </li>
                         </ul>
                     </article>
 
-                    <!-- AI Chat -->
+                    <!-- 9. Privacy Shield & Biometric Lock -->
                     <article class="feature-card glass-panel fade-in delay-300" style="display: flex; flex-direction: column; padding: 2.2rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
-                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(167,139,250,0.2) 0%, rgba(167,139,250,0.05) 100%); border: 1px solid rgba(167,139,250,0.2); display: flex; align-items: center; justify-content: center; color: #a855f7; box-shadow: 0 4px 12px rgba(167,139,250,0.1);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(239,68,68,0.25) 0%, rgba(239,68,68,0.05) 100%); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; color: #f87171; box-shadow: 0 4px 12px rgba(239,68,68,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">AI Chat</h3>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Privacy Shield &amp; Biometrics</h2>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #a855f7;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Portfolio Q&A</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Ask questions about portfolio</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #f87171;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">One-Click Privacy Mode</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Instantly mask and blur all rupee balances, returns, and percentages for use in public cafes, offices, or transit.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #a855f7;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Session History</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">View past conversations</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #f87171;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">WebAuthn Biometric App Lock</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Secure your portfolio with hardware-backed Face ID, Touch ID, or fingerprint lock directly in your browser or Android app.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #a855f7;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Current Limitations</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">8 free chats before requiring upgrade</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #f87171;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Zero Ads &amp; Zero Phone Spam</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">No phone number required to register. We never sell user data, broker loans, or pester you with spam calls.</span></div>
                             </li>
                         </ul>
                     </article>
 
-                    <!-- Profile & Settings -->
+                    <!-- 10. Investor Engagement & Predictions -->
                     <article class="feature-card glass-panel fade-in delay-100" style="display: flex; flex-direction: column; padding: 2.2rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
-                            <div style="width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(251,113,133,0.2) 0%, rgba(251,113,133,0.05) 100%); border: 1px solid rgba(251,113,133,0.2); display: flex; align-items: center; justify-content: center; color: #fb7185; box-shadow: 0 4px 12px rgba(251,113,133,0.1);">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(234,179,8,0.25) 0%, rgba(234,179,8,0.05) 100%); border: 1px solid rgba(234,179,8,0.3); display: flex; align-items: center; justify-content: center; color: #eab308; box-shadow: 0 4px 12px rgba(234,179,8,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Profile & Settings</h3>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Predictions &amp; Community Feedback</h2>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Profile Management</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Update personal details, PAN, phone</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #eab308;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Daily Nifty 50 Prediction Game</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Predict daily market close direction (Bullish/Bearish), build your forecasting streak, and view community sentiment.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Privacy Mode</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Toggle to hide portfolio values</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #eab308;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Live Community Feature Board</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Direct portal in the app to suggest features, upvote community ideas, and track what the solo developer is building next.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Biometric Lock</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Enable app lock with biometrics</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #eab308;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Secure Social Share Cards</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Share stock returns or milestone accomplishments with friends with all portfolio totals safely omitted.</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- 11. Automated Weekly Digest & PWA -->
+                    <article class="feature-card glass-panel fade-in delay-200" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.25) 0%, rgba(99,102,241,0.05) 100%); border: 1px solid rgba(99,102,241,0.3); display: flex; align-items: center; justify-content: center; color: #818cf8; box-shadow: 0 4px 12px rgba(99,102,241,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Reports &amp; Mobile Access</h2>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #818cf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Weekly Sunday Email Digest</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Automated weekend email summary covering weekly net worth delta, top 3 gainers, top losers, and XIRR shift.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Notifications</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Push notification settings</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #818cf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Official Google Play App</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Native Android app available directly from the Google Play Store with fast biometric lock support.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Theme</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Light/Dark mode</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #818cf8;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Universal Web &amp; iOS PWA</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Add to Home Screen on iPhone, iPad, Mac, or Windows for an instantaneous app-like experience.</span></div>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- 12. Activity & Transaction Ledger -->
+                    <article class="feature-card glass-panel fade-in delay-300" style="display: flex; flex-direction: column; padding: 2.2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 1.2rem;">
+                            <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(20,184,166,0.25) 0%, rgba(20,184,166,0.05) 100%); border: 1px solid rgba(20,184,166,0.3); display: flex; align-items: center; justify-content: center; color: #2dd4bf; box-shadow: 0 4px 12px rgba(20,184,166,0.15);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                            </div>
+                            <h2 style="margin: 0; font-size: 1.35rem; color: var(--text-head); font-weight: 600;">Activity &amp; Audit Trail</h2>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem; flex-grow: 1;">
+                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #2dd4bf;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Unified Activity Stream</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Combined transaction history covering both mutual fund orders and stock trades with live search.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">PWA Install</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Install as app</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #2dd4bf;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Advanced Filters</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Filter by transaction type (BUY, SELL, SIP, STP, SWP, TAX) and asset category.</span></div>
                             </li>
                             <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Referral Code</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Apply referral codes</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Reset Portfolio</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Delete all data</span></div>
-                            </li>
-                            <li style="display: flex; gap: 0.85rem; align-items: flex-start;">
-                                <svg style="flex-shrink: 0; margin-top: 0.15rem; color: #fb7185;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Contact Support</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Get help</span></div>
+                                <svg style="flex-shrink: 0; margin-top: 0.2rem; color: #2dd4bf;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div><strong style="color: var(--text-head); display: block; font-size: 0.95rem; margin-bottom: 0.15rem;">Full Data Portability</strong><span style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; display: block;">Export all historical transactions as clean CSV files anytime. You own your financial data 100%.</span></div>
                             </li>
                         </ul>
                     </article>
@@ -279,135 +354,112 @@ const seo = {
             </div>
         </section>
 
+        <!-- FAQ Section -->
         <section id="faq" class="faq-section" style="padding: 4rem 0;">
             <div class="container">
                 <div class="section-header text-center fade-in">
-                    <h2>Features FAQ</h2>
-                    <p>Common questions about Arthavi's capabilities.</p>
+                    <h2 class="heading-md">Frequently Asked Questions</h2>
+                    <p style="color: var(--text-muted);">Common questions about Arthavi's features, privacy, and calculations.</p>
                 </div>
-                <div class="faq-grid fade-in" style="max-width: 800px; margin: 2rem auto;">
+                <div class="faq-grid fade-in" style="max-width: 800px; margin: 2.5rem auto 0;">
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            How to track all my mutual funds in one place?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            How does Arthavi track my family's mutual funds and stocks together?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            You can import your Consolidated Account Statement (CAS) directly into Arthavi to instantly sync and track all your mutual funds across any broker or platform.
+                            Arthavi includes a built-in Multi-Profile Family Portfolio feature. You can create distinct profiles for Self, Spouse, Parents, Children, or HUF. For mutual funds, you upload each member's CAMS/KFintech CAS statement. For stocks, you log trades under each profile. Arthavi lets you toggle between individual profiles or view a consolidated household net worth with a single click.
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            How to track stocks and mutual funds together?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            How does the Capital Gains Tax report work for FY 2025-26?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Arthavi provides a unified dashboard that consolidates your CAS mutual fund data alongside your NSE/BSE stock holdings, giving you a complete view of your net worth in a single app.
+                            Arthavi automatically computes realized LTCG and STCG whenever you redeem mutual funds or sell stocks. It accounts for holding periods, applies Section 112A equity grandfathering rules (using Jan 31, 2018 FMV prices), and uses the updated tax slabs (12.5% for LTCG with ₹1.25L exemption, 20% for STCG). You can download an Excel or CSV file directly formatted for your Chartered Accountant or ITR filing.
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            How to calculate SIP returns and XIRR?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            Why doesn't Arthavi require my Demat or broker login passwords?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Arthavi automatically computes your true XIRR based on the actual cash flows of your SIPs and lump-sum investments. No manual Excel formulas needed.
+                            Unlike traditional fintech apps that ask for your Zerodha or Upstox login passwords or scrape your personal Gmail inbox, Arthavi uses a read-only architecture. For mutual funds, we parse official SEBI-regulated CAS statements directly in your browser. For stocks, you log your trades directly. This eliminates the risk of account compromise, broker credential leaks, and unwanted sales calls.
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            How to import CAS statement in Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            How does Arthavi calculate SIP returns and XIRR?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Simply generate your CAS PDF from CAMS or KFintech and upload it securely to Arthavi. The file is processed locally to extract your transactions and is never stored permanently.
+                            Arthavi runs a true cash-flow XIRR (Extended Internal Rate of Return) algorithm that factors in the exact date and rupee amount of every single SIP installment, dividend reinvestment, and withdrawal. This gives you the real annualized return on your capital, rather than misleading simple absolute return percentages.
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false">
-                            How does Arthavi AI analyze my portfolio?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            What can I ask the Ask AI assistant?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            The Ask AI feature reviews your holdings, asset allocation, and sector exposure. It provides real-time, smart nudges regarding over-concentration, drawdowns, and answers your specific finance questions.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How to check portfolio health score?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Your Portfolio Health Score (0-100) is visible on your main dashboard. It is calculated by evaluating your diversification (MF to stock ratio) and risk profile.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How to compare my portfolio with NIFTY 50?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            The Benchmark Comparison card on the dashboard maps your portfolio's historical performance directly against the NIFTY 50 index to see if you are outperforming the market.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How to safely track investments without sharing broker passwords?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Arthavi uses CAS parsing and manual stock entry, which means you never have to link your demat account, share passwords, or grant read access to your email inbox.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            How to set and track financial goals in Arthavi?
-                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            Use the Goal Planning feature to create custom goals, set target amounts and dates, and link specific investments to track your progress over time.
+                            You can ask natural questions about your investments, such as: "Which of my funds have high overlap?", "What is my total exposure to the banking sector across both stocks and mutual funds?", or "How did my portfolio handle the recent market dip?". The AI inspects your specific asset allocation and gives objective, commission-free answers.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <div style="text-align: center; margin-top: 5rem;">
-            <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Create Free Account</a>
-        </div>
+
+        <!-- Bottom CTA -->
+        <section class="conversion-nudge" style="margin-top: 3rem;">
+            <div class="container text-center">
+                <h2 class="heading-md" style="margin-bottom: 0.75rem;">Experience Every Feature in Action</h2>
+                <p style="color: var(--text-muted); max-width: 550px; margin: 0 auto 2rem; font-size: 1.05rem;">
+                    Free forever. No phone number required. Start tracking your investments with complete privacy today.
+                </p>
+                <div class="btn-group" style="justify-content: center; gap: 1rem;">
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">
+                        Start Tracking Free
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:8px">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a href="https://app.arthavi.com/demo" class="btn btn-secondary" style="padding: 0.9rem 2rem; font-size: 1.05rem;">
+                        Explore Demo Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 </Layout>
+
+<script>
+// FAQ Accordion interaction
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !isExpanded);
+        const answer = button.nextElementSibling;
+        if (answer) {
+            answer.classList.toggle('active', !isExpanded);
+        }
+    });
+});
+</script>
