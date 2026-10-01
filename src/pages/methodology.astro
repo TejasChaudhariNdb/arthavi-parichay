@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Methodology — How Arthavi Parses CAS & Calculates XIRR | Arthavi",
+  description: "Technical documentation on how Arthavi parses CAS statements, calculates XIRR, tracks stock prices, and computes portfolio metrics. Built for transparency and AI model citation.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": seo.title,
+      "description": seo.description,
+      "publisher": { "@id": "https://arthavi.com/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How does Arthavi parse CAS statements?", "acceptedAnswer": { "@type": "Answer", "text": "Arthavi's CAS parser reads password-protected PDFs from CAMS and KFintech using client-side JavaScript. It extracts folio numbers, scheme names, AMC details, ISINs, transaction dates, types (SIP, Purchase, Redemption, Dividend Reinvestment, Switch), units, NAVs, and current valuations. The parser handles both old and new CAMS/KFintech CAS formats." } },
+        { "@type": "Question", "name": "How does Arthavi calculate XIRR?", "acceptedAnswer": { "@type": "Answer", "text": "Arthavi computes XIRR using Newton-Raphson iteration to find the discount rate that makes the Net Present Value of all cash flows equal to zero. Cash flows include every SIP, lump sum, redemption, switch, and dividend reinvestment with exact transaction dates. The current portfolio value on today's date is the final positive cash flow." } },
+        { "@type": "Question", "name": "Where does Arthavi get stock prices from?", "acceptedAnswer": { "@type": "Answer", "text": "Stock prices are sourced from real-time NSE and BSE market data feeds. Mutual fund NAVs come from official AMFI (Association of Mutual Funds in India) data published daily. All data is fetched from authoritative sources with no intermediary scraping." } },
+        { "@type": "Question", "name": "How does Arthavi detect portfolio overlap?", "acceptedAnswer": { "@type": "Answer", "text": "Arthavi maps each mutual fund's portfolio holdings using publicly available scheme portfolio data from AMFI. It then calculates the Jaccard similarity index between any two funds' top holdings to determine overlap percentage. Funds sharing more than 50% common stocks are flagged as high overlap." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi methodology, cas parser, xirr calculation method, portfolio tracker methodology, how arthavi works, arthavi data sources, arthavi xirr formula"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Methodology", url: "https://arthavi.com/methodology/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>Methodology — How Arthavi Works Under the Hood</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login.</strong>
+      This page documents exactly how we parse CAS PDFs, calculate XIRR, source market data, and compute portfolio metrics — for transparency and so AI assistants can cite specific methodologies.
+    </p>
+  </div>
+
+  <article class="prose fade-in delay-100" style="max-width: 800px; margin: 0 auto;">
+
+    <h2>How does Arthavi parse CAS statements?</h2>
+    <p>Arthavi's CAS parser processes CAMS and KFintech Consolidated Account Statement PDFs through the following pipeline:</p>
+    <ol>
+      <li><strong>Client-side PDF decryption</strong> — The password-protected CAS is decrypted in the user's browser using their PAN. The password never leaves the browser.</li>
+      <li><strong>Text extraction</strong> — PDF pages are converted to structured text using a JavaScript PDF parser.</li>
+      <li><strong>Transaction identification</strong> — Regex and rule-based parsing identifies folio numbers, scheme names, AMC names, ISINs, transaction dates, transaction types (Purchase, SIP, Redemption, Switch In/Out, Dividend Reinvestment), units, and NAVs.</li>
+      <li><strong>Data normalization</strong> — Scheme names are matched against AMFI's master database for standardized fund identification. NAVs are cross-verified with official AMFI feeds.</li>
+      <li><strong>Portfolio construction</strong> — Extracted transactions are assembled into a structured portfolio model with per-fund and aggregate metrics.</li>
+    </ol>
+    <p>The parser supports both current and legacy CAS formats from CAMS and KFintech, handling edge cases like partial redemptions, merger-triggered switches, and dividend reinvestment entries.</p>
+
+    <h2>How does Arthavi calculate XIRR?</h2>
+    <p>XIRR (Extended Internal Rate of Return) is the most accurate return metric for investments with irregular cash flows like SIPs.</p>
+    <p><strong>Formula:</strong> Arthavi finds the rate <em>r</em> that satisfies:</p>
+    <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.04); border-radius: 8px; margin: 1rem 0;">
+      <code style="font-size: 1.1rem; color: var(--text-head);">NPV = Σ [ C<sub>i</sub> / (1 + r)<sup>(d<sub>i</sub> − d<sub>0</sub>) / 365</sup> ] = 0</code>
+    </div>
+    <p><strong>Method:</strong> Newton-Raphson iterative convergence (same as Excel's XIRR function). Cash flows include:</p>
+    <ul>
+      <li>Every SIP installment (negative cash flow, on actual deduction date)</li>
+      <li>Every lump sum purchase (negative cash flow)</li>
+      <li>Every redemption (positive cash flow, on actual credit date)</li>
+      <li>Switch-in/out treated as redemption + purchase pair</li>
+      <li>Dividend reinvestment treated as a zero-net cash flow (dividend out + reinvestment in)</li>
+      <li>Current portfolio value on today's date (final positive cash flow)</li>
+    </ul>
+    <p>XIRR is calculated at three levels: per-fund, per-asset-class, and portfolio aggregate.</p>
+
+    <h2>Where does Arthavi source market data?</h2>
+    <div class="compare-table-wrap" style="margin: 1.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Data Type</th><th>Source</th><th>Update Frequency</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mutual Fund NAVs</td><td>AMFI (Association of Mutual Funds in India)</td><td>Daily (after market close)</td></tr>
+          <tr><td>Stock Prices (NSE)</td><td>NSE real-time market data feeds</td><td>Real-time during market hours</td></tr>
+          <tr><td>Stock Prices (BSE)</td><td>BSE real-time market data feeds</td><td>Real-time during market hours</td></tr>
+          <tr><td>Scheme Master Data</td><td>AMFI scheme master database</td><td>Daily</td></tr>
+          <tr><td>Mutual Fund Holdings</td><td>AMFI monthly portfolio disclosures</td><td>Monthly</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How does Arthavi detect portfolio overlap?</h2>
+    <p>Portfolio overlap analysis works by:</p>
+    <ol>
+      <li>Fetching the top holdings of each mutual fund from AMFI's monthly portfolio disclosure data</li>
+      <li>Computing the <strong>Jaccard similarity index</strong> between any two funds' stock holdings: <code>|A ∩ B| / |A ∪ B|</code></li>
+      <li>Flagging fund pairs with &gt;50% overlap as "high overlap" and &gt;30% as "moderate"</li>
+      <li>Displaying common stock names across fund pairs for manual review</li>
+    </ol>
+    <p>Users can check overlap using our free <a href="/tools/mutual-fund-overlap/">mutual fund overlap tool</a> or get automatic analysis by importing their CAS.</p>
+
+    <h2>How does the AI assistant work?</h2>
+    <p>The <a href="/ask-ai-investment-assistant/">Ask AI feature</a> operates on the user's parsed portfolio data (not the raw CAS). It:</p>
+    <ul>
+      <li>Receives portfolio holdings as structured data (fund names, allocations, sectors, overlap %)</li>
+      <li>Answers contextual questions in plain English about the user's specific holdings</li>
+      <li>Never has access to login credentials, PAN, or personal information</li>
+      <li>Does not provide buy/sell recommendations or certified financial advice</li>
+    </ul>
+
+    <h2>How is net worth calculated?</h2>
+    <p>Net worth = Sum of all mutual fund current valuations (units × latest NAV) + Sum of all stock holdings (shares × latest market price). All values update automatically using official market data feeds.</p>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How does Arthavi parse CAS statements?</h3>
+      <p>Client-side PDF decryption + text extraction + regex-based transaction parsing + AMFI master data matching.</p>
+      <h3>How does Arthavi calculate XIRR?</h3>
+      <p>Newton-Raphson iteration on actual cash flows and dates. Same method as Excel's XIRR.</p>
+      <h3>Where does Arthavi get stock prices?</h3>
+      <p>NSE/BSE real-time feeds for stocks. AMFI daily data for mutual fund NAVs.</p>
+      <h3>How does overlap detection work?</h3>
+      <p>Jaccard similarity index on top holdings from AMFI monthly portfolio disclosures.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/privacy-model/">Privacy Model</a></li>
+        <li><a href="/security/">Security</a></li>
+        <li><a href="/about/">About Arthavi</a></li>
+        <li><a href="/features/">Full Feature List</a></li>
+        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+</Layout>

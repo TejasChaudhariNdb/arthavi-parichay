@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "Free LTCG STCG Tax Calculator for Mutual Funds & Stocks (FY 2025-26) | Arthavi",
+  description: "Calculate Long Term Capital Gains (LTCG) and Short Term Capital Gains (STCG) tax on mutual funds and stocks for FY 2025-26. Free, no login. Updated with latest Budget tax rates.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is the LTCG tax rate on equity mutual funds in India?", "acceptedAnswer": { "@type": "Answer", "text": "For FY 2025-26, Long Term Capital Gains (LTCG) on equity mutual funds and stocks are taxed at 12.5% on gains exceeding ₹1.25 lakhs per financial year. The holding period must be more than 12 months to qualify as long-term. Gains up to ₹1.25 lakhs are tax-free." } },
+        { "@type": "Question", "name": "What is the STCG tax rate on mutual funds?", "acceptedAnswer": { "@type": "Answer", "text": "Short Term Capital Gains (STCG) on equity mutual funds and stocks (held less than 12 months) are taxed at 20% for FY 2025-26. For debt mutual funds, gains are added to your income and taxed at your income tax slab rate." } },
+        { "@type": "Question", "name": "How to calculate LTCG on mutual funds?", "acceptedAnswer": { "@type": "Answer", "text": "LTCG = (Selling Price - Purchase Price) for units held more than 12 months. The first ₹1.25 lakhs of LTCG per FY is exempt. The remaining amount is taxed at 12.5%. Use Arthavi's capital gains reports for automatic calculation from your CAS statement." } },
+        { "@type": "Question", "name": "What is the difference between LTCG and STCG?", "acceptedAnswer": { "@type": "Answer", "text": "LTCG applies to assets held more than 12 months (equity) or 24 months (debt). STCG applies to assets held for shorter periods. LTCG on equity is taxed at 12.5% (with ₹1.25L exemption), while STCG on equity is taxed at 20%." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="ltcg calculator, stcg calculator, ltcg tax on mutual funds, stcg tax on mutual funds, capital gains tax calculator india, ltcg stcg calculator, mutual fund tax calculator india, ltcg exemption limit"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Tools", url: "https://arthavi.com/tools/ltcg-stcg-calculator/" },
+      { name: "LTCG/STCG Calculator", url: "https://arthavi.com/tools/ltcg-stcg-calculator/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>LTCG & STCG Tax Calculator for Mutual Funds (FY 2025-26)</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">Equity LTCG is taxed at 12.5% above ₹1.25 lakhs/year; STCG at 20% (FY 2025-26).</strong>
+      Use this free calculator to estimate your capital gains tax on mutual fund and stock redemptions. For automatic LTCG/STCG reports, import your CAS into <a href="https://app.arthavi.com/register" style="color: var(--primary-glow);">Arthavi</a> — no broker login required.
+    </p>
+  </div>
+
+  <div id="tax-tool" class="fade-in delay-100" style="max-width: 800px; margin: 0 auto 3rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <!-- Inputs -->
+      <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem;">
+        <h2 style="font-size: 1.1rem; margin-bottom: 1.5rem;">Enter Your Gains</h2>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Asset Type</label>
+          <select id="asset-type" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 0.9rem;">
+            <option value="equity">Equity Mutual Fund / Listed Stocks</option>
+            <option value="debt">Debt Mutual Fund</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Purchase Amount (₹)</label>
+          <input type="number" id="buy-price" value="500000" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Selling Amount (₹)</label>
+          <input type="number" id="sell-price" value="700000" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Holding Period</label>
+          <select id="holding-period" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 0.9rem;">
+            <option value="long">More than 12 months (Long Term)</option>
+            <option value="short">Less than 12 months (Short Term)</option>
+          </select>
+        </div>
+        <button id="calc-tax-btn" type="button" style="width: 100%; padding: 0.85rem; border-radius: 12px; background: linear-gradient(135deg, #5457e5, #7c3aed); color: white; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(99,102,241,0.3);">Calculate Tax</button>
+      </div>
+
+      <!-- Results -->
+      <div>
+        <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 1rem;">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Estimated Tax Payable</p>
+          <p id="tax-result" style="font-size: 3rem; font-weight: 700; color: #f87171; margin: 0; font-family: var(--font-heading);">₹12,500</p>
+          <p id="tax-type-label" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">LTCG @ 12.5%</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Total Gain</p>
+            <p id="total-cap-gain" style="font-size: 1.15rem; font-weight: 600; color: #34d399; margin: 0;">₹2,00,000</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Exempt Amount</p>
+            <p id="exempt-amount" style="font-size: 1.15rem; font-weight: 600; color: #818cf8; margin: 0;">₹1,25,000</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Taxable Gain</p>
+            <p id="taxable-gain" style="font-size: 1.15rem; font-weight: 600; color: #fbbf24; margin: 0;">₹75,000</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Tax Rate</p>
+            <p id="tax-rate-display" style="font-size: 1.15rem; font-weight: 600; color: var(--text-head); margin: 0;">12.5%</p>
+          </div>
+        </div>
+        <div style="margin-top: 1rem; padding: 1rem; border-radius: 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15);">
+          <p style="margin: 0; font-size: 0.88rem; color: var(--text-body);">
+            <strong style="color: var(--text-head);">Automatic tax reports:</strong> Arthavi generates LTCG/STCG breakdowns from your CAS statement.
+            <a href="https://app.arthavi.com/demo" style="color: var(--primary-glow); font-weight: 600;"> Try demo →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
+    <h2>What is the LTCG tax rate on equity mutual funds in India?</h2>
+    <p>For FY 2025-26 (post Budget 2024 revision), Long Term Capital Gains (LTCG) on equity mutual funds and listed stocks are taxed at <strong>12.5%</strong> on gains exceeding <strong>₹1.25 lakhs</strong> per financial year. The holding period must be more than 12 months to qualify as long-term. Gains up to ₹1.25 lakhs per year are completely tax-free.</p>
+
+    <h2>What is the STCG tax rate on mutual funds?</h2>
+    <p>Short Term Capital Gains (STCG) on equity mutual funds and stocks (held less than 12 months) are taxed at <strong>20%</strong> for FY 2025-26. For debt mutual funds, gains are added to your total income and taxed at your income tax slab rate.</p>
+
+    <h2>How to calculate LTCG on mutual funds?</h2>
+    <ol>
+      <li>Determine your purchase price (cost of acquisition) and selling price</li>
+      <li>Calculate the capital gain: Selling Price − Purchase Price</li>
+      <li>If held more than 12 months, apply the LTCG exemption of ₹1.25 lakhs</li>
+      <li>Pay 12.5% tax on the remaining taxable gain (plus 4% cess)</li>
+    </ol>
+    <p>For automatic tax computation, import your <a href="/guides/cas-statement-explained/">CAS statement</a> into <a href="https://app.arthavi.com/register">Arthavi</a> — it generates per-fund and aggregated capital gains reports.</p>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is the LTCG tax rate on equity mutual funds?</h3>
+      <p>12.5% on gains above ₹1.25 lakhs per FY (holding period &gt; 12 months). Gains below ₹1.25L are tax-free.</p>
+      <h3>What is the STCG tax rate?</h3>
+      <p>20% on equity (held &lt; 12 months). Debt fund STCG is taxed at your income slab rate.</p>
+      <h3>What is the difference between LTCG and STCG?</h3>
+      <p>LTCG is for assets held over 12 months (equity); STCG for shorter. LTCG has lower rates and exemption limits.</p>
+      <h3>How to save LTCG tax on mutual funds?</h3>
+      <p>Plan redemptions to keep annual LTCG below ₹1.25 lakhs. Stagger sells across financial years. Tax-loss harvest losing positions against gains.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">More free tools</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
+        <li><a href="/tools/mutual-fund-overlap/">Mutual Fund Overlap Checker</a></li>
+        <li><a href="/calculators/">All Calculators</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+<script is:inline>
+(function() {
+  const fmt = n => '₹' + Math.abs(Math.round(n)).toLocaleString('en-IN');
+  const $ = id => document.getElementById(id);
+  function calc() {
+    const assetType = $('asset-type').value;
+    const buy = parseFloat($('buy-price').value) || 0;
+    const sell = parseFloat($('sell-price').value) || 0;
+    const period = $('holding-period').value;
+    const gain = sell - buy;
+    let taxRate = 0, exempt = 0, label = '';
+    if (assetType === 'equity') {
+      if (period === 'long') {
+        taxRate = 0.125; exempt = 125000; label = 'LTCG @ 12.5%';
+      } else {
+        taxRate = 0.20; exempt = 0; label = 'STCG @ 20%';
+      }
+    } else {
+      if (period === 'long') {
+        taxRate = 0.20; exempt = 0; label = 'LTCG (Debt) @ 20% with indexation';
+      } else {
+        taxRate = 0.30; exempt = 0; label = 'STCG (Debt) @ slab rate (~30%)';
+      }
+    }
+    const taxableGain = Math.max(0, gain - exempt);
+    const tax = Math.max(0, taxableGain * taxRate);
+    const cess = tax * 0.04;
+    const totalTax = tax + cess;
+    $('tax-result').textContent = gain > 0 ? fmt(totalTax) : '₹0';
+    $('tax-type-label').textContent = gain > 0 ? label + ' + 4% cess' : 'No gain — no tax';
+    $('total-cap-gain').textContent = gain >= 0 ? fmt(gain) : '-' + fmt(gain);
+    $('total-cap-gain').style.color = gain >= 0 ? '#34d399' : '#f87171';
+    $('exempt-amount').textContent = fmt(Math.min(exempt, Math.max(0, gain)));
+    $('taxable-gain').textContent = fmt(taxableGain);
+    $('tax-rate-display').textContent = (taxRate * 100) + '%';
+  }
+  $('calc-tax-btn').onclick = calc;
+  calc();
+})();
+</script>
+
+<style>
+  @media(max-width: 768px) {
+    #tax-tool > div { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+</Layout>

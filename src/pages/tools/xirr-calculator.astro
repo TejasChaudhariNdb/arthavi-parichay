@@ -1,0 +1,283 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "Free XIRR Calculator Online for Mutual Funds & SIPs | Arthavi",
+  description: "Calculate your true XIRR (Extended Internal Rate of Return) for SIPs and mutual fund investments. Free, no login required. Add your cash flows and get accurate annualized returns instantly.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Calculate XIRR for Mutual Fund SIPs",
+      "description": "Step-by-step guide to calculate XIRR using the Arthavi free online calculator.",
+      "step": [
+        { "@type": "HowToStep", "name": "Add your SIP investments", "text": "Enter each SIP date and the amount invested as a negative number (cash outflow)." },
+        { "@type": "HowToStep", "name": "Add current portfolio value", "text": "In the last row, enter today's date and your current portfolio value as a positive number." },
+        { "@type": "HowToStep", "name": "Click Calculate", "text": "The calculator finds the discount rate that makes the NPV of all cash flows equal to zero — your XIRR." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is XIRR and why is it better than CAGR for SIPs?", "acceptedAnswer": { "@type": "Answer", "text": "XIRR (Extended Internal Rate of Return) calculates your annualized return accounting for the exact dates and amounts of every cash flow. Unlike CAGR which assumes a single lump sum, XIRR handles the irregular cash flows of SIPs accurately, giving you a true picture of your investment performance." } },
+        { "@type": "Question", "name": "How is XIRR calculated?", "acceptedAnswer": { "@type": "Answer", "text": "XIRR is calculated by finding the discount rate 'r' that makes the Net Present Value (NPV) of all cash flows equal to zero. The formula uses Newton-Raphson iteration: NPV = Σ [Ci / (1+r)^((di-d0)/365)] = 0, where Ci is each cash flow and di is its date." } },
+        { "@type": "Question", "name": "What is a good XIRR for mutual funds in India?", "acceptedAnswer": { "@type": "Answer", "text": "For equity mutual funds in India, an XIRR of 12-15% over 5+ years is considered good. Large-cap funds typically deliver 10-13% XIRR, mid-cap funds 13-18%, and small-cap funds can deliver 15-22% but with higher volatility. Debt funds typically show 6-8% XIRR." } },
+        { "@type": "Question", "name": "Can I calculate XIRR for multiple SIPs in different funds?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enter all cash flows across all funds along with the combined current value. For per-fund XIRR, use Arthavi's portfolio tracker which automatically calculates fund-level and portfolio-level XIRR from your CAS statement." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="xirr calculator, xirr calculator online free, xirr calculator for sip, xirr calculator mutual funds, how to calculate xirr, xirr formula, xirr vs cagr"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Tools", url: "https://arthavi.com/tools/xirr-calculator/" },
+      { name: "XIRR Calculator", url: "https://arthavi.com/tools/xirr-calculator/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>Free XIRR Calculator for Mutual Funds & SIPs</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">XIRR (Extended Internal Rate of Return) is the most accurate way to measure returns on SIP investments.</strong>
+      Unlike simple CAGR, XIRR accounts for the exact dates and amounts of every cash flow. Use this free calculator — no login required — to find your true annualized mutual fund return.
+    </p>
+  </div>
+
+  <div id="xirr-tool" class="fade-in delay-100" style="max-width: 900px; margin: 0 auto 3rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <!-- Left: Cash Flows -->
+      <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem;">
+        <h2 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Add Your Cash Flows</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Investments = negative. Current value = positive (last row).</p>
+        <div id="cashflow-rows"></div>
+        <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+          <button id="add-row-btn" type="button" style="flex: 1; padding: 0.6rem; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: var(--text-body); cursor: pointer; font-size: 0.88rem;">+ Add Row</button>
+          <button id="add-sip-btn" type="button" style="flex: 1; padding: 0.6rem; border-radius: 10px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #c4b5fd; cursor: pointer; font-size: 0.88rem;">+ Generate SIP Series</button>
+        </div>
+      </div>
+      <!-- Right: Result -->
+      <div>
+        <div id="xirr-result-card" style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 1.5rem;">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Your XIRR</p>
+          <p id="xirr-result" style="font-size: 3.5rem; font-weight: 700; color: var(--text-head); margin: 0; font-family: var(--font-heading);">—</p>
+          <p id="xirr-result-label" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">Add cash flows to calculate</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Total Invested</p>
+            <p id="total-invested" style="font-size: 1.15rem; font-weight: 600; color: var(--text-head); margin: 0;">₹0</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Current Value</p>
+            <p id="current-value" style="font-size: 1.15rem; font-weight: 600; color: var(--text-head); margin: 0;">₹0</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Absolute Return</p>
+            <p id="abs-return" style="font-size: 1.15rem; font-weight: 600; color: #34d399; margin: 0;">0%</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Total Gain</p>
+            <p id="total-gain" style="font-size: 1.15rem; font-weight: 600; color: #34d399; margin: 0;">₹0</p>
+          </div>
+        </div>
+        <button id="calc-xirr-btn" type="button" style="width: 100%; margin-top: 1.5rem; padding: 0.85rem; border-radius: 12px; background: linear-gradient(135deg, #5457e5, #7c3aed); color: white; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(99,102,241,0.3);">Calculate XIRR</button>
+      </div>
+    </div>
+
+    <!-- SIP Modal -->
+    <div id="sip-modal" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); justify-content: center; align-items: center;">
+      <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; max-width: 400px; width: 90%;">
+        <h3 style="margin-bottom: 1rem;">Generate Monthly SIP Series</h3>
+        <label style="font-size: 0.85rem; color: var(--text-muted);">Monthly SIP Amount (₹)</label>
+        <input type="number" id="sip-amount" value="5000" style="width: 100%; padding: 0.6rem; border-radius: 8px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); margin-bottom: 1rem; font-size: 1rem;">
+        <label style="font-size: 0.85rem; color: var(--text-muted);">Start Date</label>
+        <input type="date" id="sip-start" style="width: 100%; padding: 0.6rem; border-radius: 8px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); margin-bottom: 1rem; font-size: 1rem;">
+        <label style="font-size: 0.85rem; color: var(--text-muted);">Number of Months</label>
+        <input type="number" id="sip-months" value="12" min="1" max="360" style="width: 100%; padding: 0.6rem; border-radius: 8px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); margin-bottom: 1.5rem; font-size: 1rem;">
+        <div style="display: flex; gap: 0.75rem;">
+          <button id="sip-cancel" type="button" style="flex: 1; padding: 0.65rem; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: var(--text-body); cursor: pointer;">Cancel</button>
+          <button id="sip-generate" type="button" style="flex: 1; padding: 0.65rem; border-radius: 10px; background: linear-gradient(135deg, #5457e5, #7c3aed); color: white; font-weight: 600; border: none; cursor: pointer;">Generate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
+    <h2>What is XIRR and why is it better than CAGR for SIPs?</h2>
+    <p>XIRR (Extended Internal Rate of Return) calculates your annualized return accounting for the exact dates and amounts of every cash flow. Unlike simple CAGR which assumes a single lump sum investment, XIRR handles the irregular cash flows of SIPs, additional purchases, and partial redemptions — giving you a true picture of your investment performance.</p>
+
+    <h2>How is XIRR calculated?</h2>
+    <p>XIRR finds the discount rate <em>r</em> that makes the Net Present Value (NPV) of all cash flows equal to zero:</p>
+    <p style="text-align: center; font-family: monospace; font-size: 1.1rem; color: var(--text-head); padding: 1rem; background: rgba(255,255,255,0.04); border-radius: 8px;">NPV = Σ [ C<sub>i</sub> / (1 + r)<sup>(d<sub>i</sub> - d<sub>0</sub>) / 365</sup> ] = 0</p>
+    <p>This calculator uses Newton-Raphson iteration to converge on the rate, the same method Excel's XIRR function uses internally.</p>
+
+    <h2>What is a good XIRR for mutual funds in India?</h2>
+    <ul>
+      <li><strong>Large-cap funds</strong>: 10–13% XIRR over 5+ years</li>
+      <li><strong>Mid-cap funds</strong>: 13–18% XIRR over 5+ years</li>
+      <li><strong>Small-cap funds</strong>: 15–22% XIRR (higher volatility)</li>
+      <li><strong>Debt funds</strong>: 6–8% XIRR</li>
+    </ul>
+    <p>Want automatic XIRR calculation on your actual portfolio? <a href="https://app.arthavi.com/demo">Try Arthavi's portfolio tracker</a> — import your <a href="/guides/cas-statement-explained/">CAS statement</a> and get per-fund and portfolio-level XIRR instantly.</p>
+
+    <h2>Can I calculate XIRR for multiple SIPs in different funds?</h2>
+    <p>Yes. Enter all cash flows across all funds along with the combined current value. For per-fund XIRR, use <a href="https://app.arthavi.com/register">Arthavi's portfolio tracker</a> which automatically calculates fund-level and portfolio-level XIRR from your CAS statement.</p>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is XIRR and why is it better than CAGR for SIPs?</h3>
+      <p>XIRR accounts for the exact dates and amounts of every cash flow, making it accurate for SIPs. CAGR only works for single lump sum investments.</p>
+      <h3>How is XIRR calculated?</h3>
+      <p>XIRR is calculated by finding the discount rate that makes the NPV of all cash flows equal to zero, using Newton-Raphson iteration.</p>
+      <h3>What is a good XIRR for mutual funds in India?</h3>
+      <p>For equity mutual funds, 12–15% XIRR over 5+ years is considered good. Large-cap funds typically return 10–13%, mid-cap 13–18%.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">More free tools</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
+        <li><a href="/tools/mutual-fund-overlap/">Mutual Fund Overlap Checker</a></li>
+        <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Tax Calculator</a></li>
+        <li><a href="/cagr-calculator/">CAGR Calculator</a></li>
+        <li><a href="/calculators/">All Calculators</a></li>
+      </ul>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Related guides</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/guides/how-to-track-mutual-funds-and-stocks-in-one-place/">Track MF + Stocks Together</a></li>
+        <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+<script is:inline>
+(function() {
+  const fmt = n => '₹' + Math.abs(n).toLocaleString('en-IN', {maximumFractionDigits: 0});
+  const container = document.getElementById('cashflow-rows');
+  let rows = [];
+
+  function createRow(date, amount) {
+    const d = date || new Date().toISOString().split('T')[0];
+    const a = amount !== undefined ? amount : -5000;
+    const row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 32px;gap:0.5rem;margin-bottom:0.5rem;align-items:center;';
+    row.innerHTML = `<input type="date" value="${d}" style="padding:0.5rem;border-radius:8px;background:var(--bg-main);border:1px solid rgba(255,255,255,0.1);color:var(--text-head);font-size:0.88rem;">
+      <input type="number" value="${a}" style="padding:0.5rem;border-radius:8px;background:var(--bg-main);border:1px solid rgba(255,255,255,0.1);color:var(--text-head);font-size:0.88rem;text-align:right;">
+      <button type="button" style="background:none;border:none;color:#f87171;cursor:pointer;font-size:1.1rem;padding:0;">✕</button>`;
+    row.querySelector('button').onclick = () => { row.remove(); };
+    container.appendChild(row);
+  }
+
+  // Initial rows
+  const today = new Date();
+  const y1 = new Date(today); y1.setFullYear(y1.getFullYear() - 1);
+  createRow(y1.toISOString().split('T')[0], -60000);
+  createRow(today.toISOString().split('T')[0], 72000);
+
+  document.getElementById('add-row-btn').onclick = () => createRow();
+  document.getElementById('add-sip-btn').onclick = () => {
+    const modal = document.getElementById('sip-modal');
+    const d = new Date(); d.setFullYear(d.getFullYear() - 1);
+    document.getElementById('sip-start').value = d.toISOString().split('T')[0];
+    modal.style.display = 'flex';
+  };
+  document.getElementById('sip-cancel').onclick = () => { document.getElementById('sip-modal').style.display = 'none'; };
+  document.getElementById('sip-generate').onclick = () => {
+    const amt = parseFloat(document.getElementById('sip-amount').value) || 5000;
+    const start = new Date(document.getElementById('sip-start').value);
+    const months = parseInt(document.getElementById('sip-months').value) || 12;
+    container.innerHTML = '';
+    for (let i = 0; i < months; i++) {
+      const d = new Date(start); d.setMonth(d.getMonth() + i);
+      createRow(d.toISOString().split('T')[0], -amt);
+    }
+    createRow(new Date().toISOString().split('T')[0], 0);
+    document.getElementById('sip-modal').style.display = 'none';
+  };
+
+  function calcXIRR(cashflows, guess) {
+    if (cashflows.length < 2) return null;
+    let rate = guess || 0.1;
+    const d0 = cashflows[0].date;
+    for (let iter = 0; iter < 200; iter++) {
+      let npv = 0, dnpv = 0;
+      for (const cf of cashflows) {
+        const years = (cf.date - d0) / (365.25 * 86400000);
+        const pv = cf.amount / Math.pow(1 + rate, years);
+        npv += pv;
+        dnpv -= years * pv / (1 + rate);
+      }
+      if (Math.abs(dnpv) < 1e-12) break;
+      const newRate = rate - npv / dnpv;
+      if (Math.abs(newRate - rate) < 1e-9) { rate = newRate; break; }
+      rate = newRate;
+      if (rate < -0.99) rate = -0.99;
+    }
+    return isFinite(rate) ? rate : null;
+  }
+
+  document.getElementById('calc-xirr-btn').onclick = () => {
+    const inputs = container.querySelectorAll('div');
+    const cashflows = [];
+    let totalInvested = 0, currentVal = 0;
+    inputs.forEach(row => {
+      const dateInput = row.querySelector('input[type="date"]');
+      const amtInput = row.querySelector('input[type="number"]');
+      if (dateInput && amtInput) {
+        const d = new Date(dateInput.value);
+        const a = parseFloat(amtInput.value) || 0;
+        if (!isNaN(d.getTime())) {
+          cashflows.push({ date: d, amount: a });
+          if (a < 0) totalInvested += Math.abs(a);
+          if (a > 0) currentVal += a;
+        }
+      }
+    });
+    cashflows.sort((a, b) => a.date - b.date);
+    const xirr = calcXIRR(cashflows);
+    const resultEl = document.getElementById('xirr-result');
+    const labelEl = document.getElementById('xirr-result-label');
+    if (xirr !== null && !isNaN(xirr)) {
+      const pct = (xirr * 100).toFixed(2);
+      resultEl.textContent = pct + '%';
+      resultEl.style.color = xirr >= 0 ? '#34d399' : '#f87171';
+      labelEl.textContent = xirr >= 0 ? 'annualized return' : 'annualized loss';
+    } else {
+      resultEl.textContent = 'Error';
+      resultEl.style.color = '#f87171';
+      labelEl.textContent = 'Check your cash flows';
+    }
+    document.getElementById('total-invested').textContent = fmt(totalInvested);
+    document.getElementById('current-value').textContent = fmt(currentVal);
+    const gain = currentVal - totalInvested;
+    document.getElementById('total-gain').textContent = (gain >= 0 ? '+' : '-') + fmt(Math.abs(gain));
+    document.getElementById('total-gain').style.color = gain >= 0 ? '#34d399' : '#f87171';
+    const absRet = totalInvested > 0 ? ((gain / totalInvested) * 100).toFixed(1) : 0;
+    document.getElementById('abs-return').textContent = absRet + '%';
+    document.getElementById('abs-return').style.color = gain >= 0 ? '#34d399' : '#f87171';
+  };
+})();
+</script>
+
+<style>
+  @media(max-width: 768px) {
+    #xirr-tool > div { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+</Layout>

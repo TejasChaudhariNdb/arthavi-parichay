@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Import CAS from CAMS, KFintech & NSDL (Step-by-Step) | Arthavi",
+  description: "Step-by-step guide to downloading and importing your CAS (Consolidated Account Statement) from CAMS, KFintech, and NSDL into Arthavi. Import your entire mutual fund portfolio in 30 seconds.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Import CAS from CAMS into Arthavi",
+      "description": "Complete step-by-step guide to downloading CAS from CAMS and importing it into Arthavi portfolio tracker.",
+      "totalTime": "PT5M",
+      "step": [
+        { "@type": "HowToStep", "name": "Go to CAMS Online", "text": "Visit camsonline.com and click on 'Investors' → 'Consolidated Account Statement' (or go directly to the CAS page)." },
+        { "@type": "HowToStep", "name": "Select Statement Type", "text": "Choose 'Detailed' and select 'CAMS+KFintech' to include all AMCs in one statement." },
+        { "@type": "HowToStep", "name": "Enter your email and PAN", "text": "Enter the email address registered with your mutual fund folios and your PAN number." },
+        { "@type": "HowToStep", "name": "Choose date range", "text": "Select 'Since Inception' for complete transaction history, or specify a custom date range." },
+        { "@type": "HowToStep", "name": "Submit and receive email", "text": "Click Submit. CAMS sends the password-protected CAS PDF to your email within 2-5 minutes." },
+        { "@type": "HowToStep", "name": "Upload to Arthavi", "text": "Log into Arthavi, click 'Import CAS', upload the PDF, and enter your PAN as the password. Your portfolio appears in under 30 seconds." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How to import CAS from CAMS to a portfolio tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Visit camsonline.com, request a detailed CAS with your PAN and email, receive it via email, then upload the PDF to Arthavi. The parser extracts all transactions automatically in under 30 seconds." } },
+        { "@type": "Question", "name": "How to get CAS from KFintech?", "acceptedAnswer": { "@type": "Answer", "text": "Visit kfintech.com (mfs.kfintech.com), go to 'General' → 'Consolidated Account Statement', enter your PAN and email, select 'Detailed' type, and submit. The CAS PDF arrives via email within minutes." } },
+        { "@type": "Question", "name": "How to get CAS from NSDL for demat mutual funds?", "acceptedAnswer": { "@type": "Answer", "text": "For mutual funds held in demat mode, request your CAS from NSDL's website (nsdl.co.in). However, most retail investors hold mutual funds in statement mode (non-demat), so CAMS/KFintech CAS covers the vast majority of holdings." } },
+        { "@type": "Question", "name": "Why is my CAS not showing all mutual funds?", "acceptedAnswer": { "@type": "Answer", "text": "This usually happens when the email or PAN you entered doesn't match all your folios. Some investors have funds registered under different email addresses. Try requesting CAS using your PAN (which covers all folios regardless of email) from both CAMS and KFintech." } },
+        { "@type": "Question", "name": "Can Arthavi parse password-protected CAS files?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Arthavi asks for the CAS password (your PAN) during upload. The PDF is decrypted locally in your browser — the password never reaches Arthavi's servers." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="how to import cas, import cas cams, import cas kfintech, import cas nsdl, download cas statement, cas import portfolio tracker, how to get cas pdf, cams cas download"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Guides", url: "https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/" },
+      { name: "Import CAS", url: "https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>How to Import CAS from CAMS, KFintech & NSDL</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">To import your CAS, visit camsonline.com or kfintech.com, request a detailed CAS with your PAN, and upload the emailed PDF to Arthavi.</strong>
+      The entire process takes under 5 minutes, and your complete mutual fund portfolio — every SIP, redemption, and dividend — appears instantly. No broker login required.
+    </p>
+  </div>
+
+  <article class="prose fade-in delay-100" style="max-width: 800px; margin: 0 auto;">
+
+    <h2>How to import CAS from CAMS</h2>
+    <ol>
+      <li><strong>Go to CAMS Online</strong> — Visit <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener">camsonline.com → CAS</a></li>
+      <li><strong>Select "Detailed" statement</strong> — Choose "CAMS+KFintech" option to include all AMCs</li>
+      <li><strong>Enter email and PAN</strong> — Use the email registered with your folios</li>
+      <li><strong>Choose "Since Inception"</strong> — This gives your complete transaction history</li>
+      <li><strong>Submit</strong> — CAS PDF arrives in your email within 2–5 minutes</li>
+      <li><strong>Upload to Arthavi</strong> — Click "Import CAS", upload the PDF, enter your PAN as password</li>
+    </ol>
+
+    <h2>How to import CAS from KFintech</h2>
+    <ol>
+      <li><strong>Go to KFintech</strong> — Visit <a href="https://mfs.kfintech.com/investor/General/ConsolidatedAccountStatement" target="_blank" rel="noopener">mfs.kfintech.com → CAS</a></li>
+      <li><strong>Select "Detailed" statement</strong> — Choose the transaction-level view</li>
+      <li><strong>Enter PAN and email</strong> — Same as registered with your folios</li>
+      <li><strong>Select date range</strong> — Use "Since Inception" for complete history</li>
+      <li><strong>Submit and download</strong> — PDF arrives via email, password is your PAN</li>
+      <li><strong>Upload to Arthavi</strong> — Same as CAMS: import, enter password, done</li>
+    </ol>
+
+    <h2>How to get CAS from NSDL (for demat mutual funds)</h2>
+    <p>If your mutual funds are held in <strong>demat mode</strong> (through your depository participant), request CAS from NSDL:</p>
+    <ol>
+      <li>Visit <a href="https://nsdl.co.in" target="_blank" rel="noopener">nsdl.co.in</a> → Investor Services → CAS</li>
+      <li>Enter your DP ID and Client ID</li>
+      <li>Download the generated CAS PDF</li>
+    </ol>
+    <p><strong>Note:</strong> Most retail investors hold mutual funds in "statement mode" (non-demat), so CAMS/KFintech CAS covers 95%+ of holdings. NSDL CAS is only needed for demat-held mutual fund units.</p>
+
+    <h2>Why is my CAS not showing all mutual funds?</h2>
+    <p>Common reasons:</p>
+    <ul>
+      <li><strong>Different email addresses</strong> — Some funds may be registered under a different email. Try requesting with PAN only.</li>
+      <li><strong>Demat-held funds</strong> — Funds bought via Zerodha/Groww in demat mode won't appear in CAMS/KFintech CAS. Use NSDL CAS for those.</li>
+      <li><strong>Closed folios</strong> — Fully redeemed funds may not appear in a "current holdings" view. Request "since inception" detailed statement.</li>
+    </ul>
+
+    <h2>Can Arthavi parse password-protected CAS files?</h2>
+    <p>Yes. When you upload your CAS, Arthavi asks for the password (your PAN). The PDF is decrypted <strong>locally in your browser</strong> — the password never reaches Arthavi's servers. This is a critical privacy measure that sets Arthavi apart from trackers that require email access.</p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+        Try Arthavi Demo — No Signup Required
+      </a>
+      <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">No broker login. No spam calls. Your data stays yours.</p>
+    </div>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How to import CAS from CAMS to a portfolio tracker?</h3>
+      <p>Visit camsonline.com, request detailed CAS with PAN and email, receive via email, upload to Arthavi. Takes under 5 minutes.</p>
+      <h3>How to get CAS from KFintech?</h3>
+      <p>Visit kfintech.com → CAS, enter PAN and email, select "Detailed", submit. PDF arrives in minutes.</p>
+      <h3>What is the CAS password?</h3>
+      <p>Your PAN number in uppercase (e.g., ABCDE1234F).</p>
+      <h3>Why is my CAS not showing all mutual funds?</h3>
+      <p>Check if funds are under different email or held in demat mode (use NSDL CAS for demat).</p>
+      <h3>Can Arthavi parse password-protected CAS files?</h3>
+      <p>Yes. Password decryption happens in your browser — PAN never reaches our servers.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related guides</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
+        <li><a href="/guides/how-to-track-mutual-funds-and-stocks-in-one-place/">Track MF & Stocks in One Place</a></li>
+      </ul>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Alternatives</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/alternatives/mprofit/">MProfit Alternative</a></li>
+        <li><a href="/alternatives/indmoney/">INDmoney Alternative</a></li>
+        <li><a href="/alternatives/kuvera/">Kuvera Alternative</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+</Layout>

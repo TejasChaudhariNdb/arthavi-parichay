@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "Free SIP Return Calculator with Step Up & Inflation | Arthavi",
+  description: "Calculate SIP returns with step-up, inflation adjustment, and custom tenure. See how your monthly investments compound into crores. Free, no login required.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Calculate SIP Returns",
+      "description": "Step-by-step guide to estimate future wealth from your Systematic Investment Plan.",
+      "step": [
+        { "@type": "HowToStep", "name": "Enter monthly SIP amount", "text": "Input how much you invest each month." },
+        { "@type": "HowToStep", "name": "Set expected return rate", "text": "Enter annual expected return (12% is typical for equity)." },
+        { "@type": "HowToStep", "name": "Choose tenure", "text": "Select how many years you plan to invest." },
+        { "@type": "HowToStep", "name": "Add step-up (optional)", "text": "Enter annual SIP increase percentage for realistic projections." },
+        { "@type": "HowToStep", "name": "Review results", "text": "See total invested, estimated returns, and final corpus value." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much will ₹5,000 SIP grow in 10 years?", "acceptedAnswer": { "@type": "Answer", "text": "A ₹5,000 monthly SIP at 12% annual return grows to approximately ₹11.6 lakhs in 10 years (₹6 lakhs invested, ₹5.6 lakhs in returns). With a 10% annual step-up, the same SIP grows to approximately ₹17.4 lakhs." } },
+        { "@type": "Question", "name": "What is step-up SIP?", "acceptedAnswer": { "@type": "Answer", "text": "A step-up SIP automatically increases your monthly investment by a fixed percentage every year. For example, a ₹5,000 SIP with 10% annual step-up becomes ₹5,500 in year 2, ₹6,050 in year 3, and so on. This dramatically accelerates wealth creation." } },
+        { "@type": "Question", "name": "What is a good SIP return in India?", "acceptedAnswer": { "@type": "Answer", "text": "Large-cap equity mutual funds historically deliver 10–13% annualized returns over 10+ years. Mid-cap and small-cap funds can deliver 14–18%. Debt funds typically return 6–8%. Always compare your actual XIRR (not absolute returns) to judge fund performance." } },
+        { "@type": "Question", "name": "How to track SIP returns accurately?", "acceptedAnswer": { "@type": "Answer", "text": "Simple percentage returns are misleading for SIPs because each installment has a different holding period. Use XIRR (Extended Internal Rate of Return) for accurate annualized returns. Import your CAS statement into Arthavi to see automatic XIRR for every fund." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="sip return calculator, sip calculator with step up, sip calculator india, sip growth calculator, how much sip 5000 10 years, step up sip calculator, sip return calculator online"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Tools", url: "https://arthavi.com/tools/sip-return-calculator/" },
+      { name: "SIP Return Calculator", url: "https://arthavi.com/tools/sip-return-calculator/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>Free SIP Return Calculator with Step-Up</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">A ₹5,000 monthly SIP at 12% return grows to ₹11.6 lakhs in 10 years — but with 10% annual step-up it becomes ₹17.4 lakhs.</strong>
+      Use this free calculator to project your SIP wealth with step-up and inflation adjustment. For tracking actual SIP returns, import your CAS into <a href="https://app.arthavi.com/register" style="color: var(--primary-glow);">Arthavi</a> for automatic XIRR.
+    </p>
+  </div>
+
+  <div id="sip-tool" class="fade-in delay-100" style="max-width: 900px; margin: 0 auto 3rem;">
+    <!-- Result Hero -->
+    <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 2rem;">
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem;">Total Wealth After <span id="r-years">10</span> Years</p>
+      <p id="r-total" style="font-size: 3.2rem; font-weight: 700; color: var(--text-head); margin: 0; font-family: var(--font-heading);">₹11,61,695</p>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.5rem;">
+        <span id="r-returns" style="color: #34d399; font-weight: 600;">₹5,61,695</span> returns on <span id="r-invested">₹6,00,000</span> invested
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+      <!-- Inputs -->
+      <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem;">
+        <h2 style="font-size: 1.1rem; margin-bottom: 1.5rem;">Configure Your SIP</h2>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Monthly SIP Amount (₹)</label>
+          <input type="number" id="sip-amount" value="5000" min="100" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Expected Annual Return (%)</label>
+          <input type="number" id="sip-rate" value="12" min="1" max="30" step="0.5" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Investment Period (Years)</label>
+          <input type="range" id="sip-years" value="10" min="1" max="40" style="width: 100%; accent-color: var(--primary);">
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted);"><span>1yr</span><span id="sip-years-label">10 years</span><span>40yr</span></div>
+        </div>
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem;">Annual Step-Up (%)</label>
+          <input type="number" id="sip-stepup" value="0" min="0" max="25" style="width: 100%; padding: 0.6rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 1rem;">
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">Increase SIP by this % every year</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Total Invested</p>
+            <p id="s-invested" style="font-size: 1.2rem; font-weight: 600; color: var(--text-head); margin: 0;">₹6,00,000</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Wealth Gained</p>
+            <p id="s-gained" style="font-size: 1.2rem; font-weight: 600; color: #34d399; margin: 0;">₹5,61,695</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Growth Multiple</p>
+            <p id="s-multiple" style="font-size: 1.2rem; font-weight: 600; color: #818cf8; margin: 0;">1.9x</p>
+          </div>
+          <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.15rem; text-align: center;">
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0 0 0.25rem;">Monthly SIP (Final Year)</p>
+            <p id="s-final-sip" style="font-size: 1.2rem; font-weight: 600; color: var(--text-head); margin: 0;">₹5,000</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1.25rem; border-radius: 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15);">
+          <p style="margin: 0; font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
+            <strong style="color: var(--text-head);">Want to track your actual SIP performance?</strong><br>
+            Import your <a href="/guides/cas-statement-explained/" style="color: var(--primary-glow);">CAS statement</a> into Arthavi to see real XIRR, not projected returns.
+            <a href="https://app.arthavi.com/demo" style="color: var(--primary-glow); font-weight: 600;"> Try demo →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
+    <h2>How much will ₹5,000 SIP grow in 10 years?</h2>
+    <p>A ₹5,000 monthly SIP at 12% annual return grows to approximately ₹11.6 lakhs in 10 years (₹6 lakhs invested, ₹5.6 lakhs in returns). With a 10% annual step-up, the same SIP grows to approximately ₹17.4 lakhs — a 50% increase in final corpus just by incrementally increasing your SIP each year.</p>
+
+    <h2>What is a step-up SIP and why does it matter?</h2>
+    <p>A step-up SIP automatically increases your monthly investment by a fixed percentage every year. As your income grows, so does your investment — without you having to remember to change it. Even a modest 10% annual step-up can nearly double your final corpus over 15–20 years compared to a flat SIP.</p>
+
+    <h2>How to track SIP returns accurately?</h2>
+    <p>This calculator shows <em>projected</em> returns based on assumed rates. For your <em>actual</em> SIP performance, you need <a href="/tools/xirr-calculator/">XIRR</a> — which accounts for every real cash flow date. Import your <a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">CAS statement</a> into Arthavi to get automatic per-fund XIRR.</p>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much will ₹5,000 SIP grow in 10 years?</h3>
+      <p>At 12% annual return, ₹5,000/month SIP grows to ₹11.6 lakhs in 10 years. With 10% step-up, it reaches ₹17.4 lakhs.</p>
+      <h3>What is step-up SIP?</h3>
+      <p>A step-up SIP increases your monthly amount by a fixed percentage each year, accelerating wealth creation as your income grows.</p>
+      <h3>What is a good SIP return in India?</h3>
+      <p>Large-cap equity funds deliver 10–13% XIRR, mid-cap 13–18%, small-cap 15–22% over 5+ years. Debt funds return 6–8%.</p>
+      <h3>How to track actual SIP returns?</h3>
+      <p>Use XIRR, not absolute returns. Import your CAS into Arthavi for automatic fund-level XIRR calculation.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">More free tools</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+        <li><a href="/tools/mutual-fund-overlap/">Mutual Fund Overlap Checker</a></li>
+        <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Tax Calculator</a></li>
+        <li><a href="/calculators/">All Calculators</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+<script is:inline>
+(function() {
+  const fmt = n => '₹' + n.toLocaleString('en-IN', {maximumFractionDigits: 0});
+  const $ = id => document.getElementById(id);
+  function calc() {
+    const monthly = parseFloat($('sip-amount').value) || 5000;
+    const rate = (parseFloat($('sip-rate').value) || 12) / 100;
+    const years = parseInt($('sip-years').value) || 10;
+    const stepup = (parseFloat($('sip-stepup').value) || 0) / 100;
+    const monthlyRate = rate / 12;
+    let total = 0, invested = 0, currentSip = monthly;
+    for (let y = 0; y < years; y++) {
+      for (let m = 0; m < 12; m++) {
+        invested += currentSip;
+        total += currentSip;
+        total *= (1 + monthlyRate);
+      }
+      currentSip = currentSip * (1 + stepup);
+    }
+    total = Math.round(total);
+    invested = Math.round(invested);
+    const gained = total - invested;
+    const multiple = invested > 0 ? (total / invested).toFixed(1) : '0';
+    $('r-total').textContent = fmt(total);
+    $('r-years').textContent = years;
+    $('r-returns').textContent = fmt(gained);
+    $('r-invested').textContent = fmt(invested);
+    $('s-invested').textContent = fmt(invested);
+    $('s-gained').textContent = fmt(gained);
+    $('s-multiple').textContent = multiple + 'x';
+    $('s-final-sip').textContent = fmt(Math.round(currentSip / (1 + stepup)));
+    $('sip-years-label').textContent = years + ' years';
+  }
+  ['sip-amount','sip-rate','sip-years','sip-stepup'].forEach(id => {
+    $(id).addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+
+<style>
+  @media(max-width: 768px) {
+    #sip-tool > div:last-child { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+</Layout>

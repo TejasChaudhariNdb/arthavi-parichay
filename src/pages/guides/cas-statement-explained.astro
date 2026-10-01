@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "What is CAS Statement? Consolidated Account Statement Explained | Arthavi",
+  description: "A CAS (Consolidated Account Statement) is an official SEBI document containing your complete mutual fund transaction history. Learn what CAS is, how to download it, and how to use it for portfolio tracking.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Get Your CAS Statement",
+      "description": "Step-by-step guide to requesting and downloading your Consolidated Account Statement from CAMS or KFintech.",
+      "totalTime": "PT3M",
+      "step": [
+        { "@type": "HowToStep", "name": "Visit CAMS or KFintech website", "text": "Go to camsonline.com or kfintech.com and navigate to the CAS/Consolidated Statement section." },
+        { "@type": "HowToStep", "name": "Enter your email and PAN", "text": "Provide the email address and PAN registered with your mutual fund folios." },
+        { "@type": "HowToStep", "name": "Select statement type", "text": "Choose 'Detailed Statement' with transaction history (not just summary)." },
+        { "@type": "HowToStep", "name": "Download the PDF", "text": "The CAS PDF is emailed to you within minutes. It's password-protected with your PAN." },
+        { "@type": "HowToStep", "name": "Upload to Arthavi", "text": "Upload the CAS PDF to Arthavi for automatic portfolio import in under 30 seconds." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is a CAS statement?", "acceptedAnswer": { "@type": "Answer", "text": "A Consolidated Account Statement (CAS) is an official SEBI-mandated document issued by CAMS or KFintech that contains your complete mutual fund transaction history across all AMCs (Asset Management Companies). It includes every SIP, lump sum, redemption, switch, and dividend transaction with dates, NAVs, and units." } },
+        { "@type": "Question", "name": "What is the difference between CAS from CAMS and CAS from KFintech?", "acceptedAnswer": { "@type": "Answer", "text": "CAMS and KFintech are the two Registrar and Transfer Agents (RTAs) in India. Each covers different AMCs. To get a complete CAS covering all your mutual funds, you can request it from either — both provide a consolidated view of holdings across all AMCs regardless of the RTA." } },
+        { "@type": "Question", "name": "Is CAS statement safe to share with a portfolio tracker?", "acceptedAnswer": { "@type": "Answer", "text": "A CAS is a read-only document that contains transaction history but not your bank account details, passwords, or trading credentials. It's safe to upload to a trusted tracker like Arthavi, which processes it securely and never stores the raw PDF." } },
+        { "@type": "Question", "name": "How often is CAS generated?", "acceptedAnswer": { "@type": "Answer", "text": "CAMS and KFintech can generate a CAS on-demand whenever you request it. SEBI also mandates that RTAs send a monthly CAS via email if you've had transactions during the month, and a half-yearly CAS in September and March." } },
+        { "@type": "Question", "name": "What is the password for CAS PDF?", "acceptedAnswer": { "@type": "Answer", "text": "The CAS PDF is password-protected with your PAN number (in uppercase). For example, if your PAN is ABCDE1234F, that's the PDF password." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="cas statement, consolidated account statement, what is cas statement, cas statement explained, cas pdf, cas from cams, cas from kfintech, cas mutual fund, cas statement download"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Guides", url: "https://arthavi.com/guides/cas-statement-explained/" },
+      { name: "CAS Statement Explained", url: "https://arthavi.com/guides/cas-statement-explained/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>CAS Statement Explained — What It Is and How to Use It</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">A CAS (Consolidated Account Statement) is an official SEBI document from CAMS or KFintech that contains your complete mutual fund transaction history across all AMCs.</strong>
+      Upload it to a portfolio tracker like Arthavi to instantly see your holdings, XIRR, and net worth — with no broker login and no email scraping required.
+    </p>
+  </div>
+
+  <article class="prose fade-in delay-100" style="max-width: 800px; margin: 0 auto;">
+
+    <h2>What does a CAS statement contain?</h2>
+    <p>Your CAS includes:</p>
+    <ul>
+      <li><strong>Folio numbers</strong> for each AMC (e.g., HDFC, SBI, Axis, PPFAS)</li>
+      <li><strong>Complete transaction history</strong> — every SIP, lump sum, redemption, switch, and dividend</li>
+      <li><strong>NAV and units</strong> for each transaction</li>
+      <li><strong>Current valuation</strong> as of the statement date</li>
+      <li><strong>PAN-level identification</strong> linking all your folios</li>
+    </ul>
+    <p>This is why CAS is the gold standard for portfolio import — it's comprehensive, official, and contains everything a tracker needs to show your complete mutual fund portfolio.</p>
+
+    <h2>How is CAS different from individual AMC statements?</h2>
+    <p>Individual AMC statements (from HDFC MF, SBI MF, etc.) only show that AMC's funds. A CAS <strong>consolidates all AMCs</strong> into a single document. One CAS upload to <a href="https://app.arthavi.com/register">Arthavi</a> replaces 10+ individual AMC imports.</p>
+
+    <h2>How to download your CAS statement</h2>
+    <ol>
+      <li><strong>Visit CAMS or KFintech</strong> — Go to <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener">camsonline.com</a> or <a href="https://mfs.kfintech.com/investor/General/ConsolidatedAccountStatement" target="_blank" rel="noopener">kfintech.com</a></li>
+      <li><strong>Enter your email and PAN</strong> — Use the email registered with your mutual fund folios</li>
+      <li><strong>Select "Detailed" statement</strong> — Choose the detailed/transaction-level option, not just summary</li>
+      <li><strong>Receive via email</strong> — The PDF arrives in minutes, password-protected with your PAN</li>
+      <li><strong>Upload to Arthavi</strong> — Import the PDF for instant portfolio tracking</li>
+    </ol>
+    <p>For step-by-step screenshots, see: <a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to import CAS from CAMS, KFintech, and NSDL</a>.</p>
+
+    <h2>What is the difference between CAS from CAMS and CAS from KFintech?</h2>
+    <p>CAMS and KFintech are the two Registrar and Transfer Agents (RTAs) in India. Each covers different AMCs. However, <strong>both can generate a consolidated CAS</strong> that includes funds from all AMCs — they share data via SEBI mandate. So you only need to download from one source.</p>
+
+    <h2>Is CAS safe to upload to a portfolio tracker?</h2>
+    <p>Yes. A CAS is a <strong>read-only document</strong> — it does not contain your bank account details, trading passwords, or demat credentials. Uploading it to a trusted tracker like Arthavi (which processes it securely in your browser) is far safer than sharing broker login credentials or granting Gmail read access.</p>
+
+    <h2>What is the password for CAS PDF?</h2>
+    <p>The CAS PDF is password-protected with your <strong>PAN number in uppercase</strong>. For example, if your PAN is ABCDE1234F, enter that as the PDF password. Arthavi decrypts the PDF locally in your browser — the password never reaches our servers.</p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+        Try Arthavi Demo — No Signup Required
+      </a>
+      <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">No broker login. No spam calls. Your data stays yours.</p>
+    </div>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is a CAS statement?</h3>
+      <p>A Consolidated Account Statement (CAS) is an official SEBI document from CAMS or KFintech with your complete mutual fund history across all AMCs.</p>
+      <h3>What is the CAS PDF password?</h3>
+      <p>Your PAN number in uppercase (e.g., ABCDE1234F).</p>
+      <h3>Is CAS safe to share with a portfolio tracker?</h3>
+      <p>Yes. CAS is read-only and doesn't contain bank/trading credentials. Arthavi processes it in your browser.</p>
+      <h3>How often should I download CAS?</h3>
+      <p>Once a month or after new investments. SEBI mandates monthly CAS for active investors.</p>
+      <h3>Do I need CAS from both CAMS and KFintech?</h3>
+      <p>No. Either source generates a consolidated view covering all AMCs.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related guides</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/guides/how-to-track-mutual-funds-and-stocks-in-one-place/">Track MF & Stocks in One Place</a></li>
+        <li><a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to Import CAS (Step-by-Step)</a></li>
+      </ul>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Free tools</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+        <li><a href="/tools/mutual-fund-overlap/">Mutual Fund Overlap Checker</a></li>
+        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+</Layout>

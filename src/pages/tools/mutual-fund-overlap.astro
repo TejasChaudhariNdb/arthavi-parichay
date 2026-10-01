@@ -1,0 +1,197 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "Free Mutual Fund Overlap Checker — Find Duplicate Holdings | Arthavi",
+  description: "Check if your mutual funds hold the same stocks. Free mutual fund overlap tool to identify duplicate holdings, reduce concentration risk, and diversify your portfolio. No login required.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is mutual fund portfolio overlap?", "acceptedAnswer": { "@type": "Answer", "text": "Mutual fund portfolio overlap means two or more of your funds hold the same underlying stocks. For example, if you own both a Nifty 50 index fund and a large-cap flexi fund, they likely hold HDFC Bank, Reliance, and TCS in common — reducing your actual diversification." } },
+        { "@type": "Question", "name": "Why is mutual fund overlap bad for your portfolio?", "acceptedAnswer": { "@type": "Answer", "text": "High overlap means you are paying management fees on multiple funds that effectively do the same thing. It also increases concentration risk — if the overlapping stocks fall, all your funds drop together, giving a false sense of diversification." } },
+        { "@type": "Question", "name": "How to check mutual fund overlap?", "acceptedAnswer": { "@type": "Answer", "text": "You can check overlap using Arthavi's free overlap checker below. Enter any two mutual fund names to see what percentage of their portfolios share common stocks. For automatic overlap analysis across your entire portfolio, import your CAS statement into Arthavi." } },
+        { "@type": "Question", "name": "What is an acceptable level of mutual fund overlap?", "acceptedAnswer": { "@type": "Answer", "text": "Below 30% overlap is generally acceptable. Between 30-50% suggests significant duplication. Above 50% overlap means the two funds are essentially doing the same job and you should consider consolidating into one." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="mutual fund overlap checker, mutual fund portfolio overlap, duplicate mutual fund holdings, mutual fund overlap tool, mutual fund overlap analysis, portfolio diversification check"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Tools", url: "https://arthavi.com/tools/mutual-fund-overlap/" },
+      { name: "Mutual Fund Overlap", url: "https://arthavi.com/tools/mutual-fund-overlap/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>Free Mutual Fund Overlap Checker</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">Mutual fund overlap is when two or more of your funds hold the same underlying stocks, reducing real diversification.</strong>
+      Use this free tool to compare any two funds and see their shared holdings. For automatic overlap analysis of your entire portfolio, import your CAS into <a href="https://app.arthavi.com/register" style="color: var(--primary-glow);">Arthavi</a> — no broker login required.
+    </p>
+  </div>
+
+  <div id="overlap-tool" class="fade-in delay-100" style="max-width: 800px; margin: 0 auto 3rem;">
+    <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem;">
+      <h2 style="font-size: 1.1rem; margin-bottom: 1.5rem;">Compare Two Mutual Funds</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Fund 1</label>
+          <select id="fund1" style="width: 100%; padding: 0.65rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 0.9rem;">
+            <option value="parag-parikh-flexi">Parag Parikh Flexi Cap Fund</option>
+            <option value="mirae-large-mid">Mirae Asset Large & Midcap Fund</option>
+            <option value="axis-bluechip">Axis Bluechip Fund</option>
+            <option value="sbi-small-cap">SBI Small Cap Fund</option>
+            <option value="hdfc-balanced">HDFC Balanced Advantage Fund</option>
+            <option value="nifty-50-index">UTI Nifty 50 Index Fund</option>
+            <option value="kotak-emerging">Kotak Emerging Equity Fund</option>
+            <option value="icici-value">ICICI Prudential Value Discovery Fund</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.4rem;">Fund 2</label>
+          <select id="fund2" style="width: 100%; padding: 0.65rem; border-radius: 10px; background: var(--bg-main); border: 1px solid rgba(255,255,255,0.1); color: var(--text-head); font-size: 0.9rem;">
+            <option value="mirae-large-mid">Mirae Asset Large & Midcap Fund</option>
+            <option value="parag-parikh-flexi">Parag Parikh Flexi Cap Fund</option>
+            <option value="axis-bluechip">Axis Bluechip Fund</option>
+            <option value="sbi-small-cap">SBI Small Cap Fund</option>
+            <option value="hdfc-balanced">HDFC Balanced Advantage Fund</option>
+            <option value="nifty-50-index">UTI Nifty 50 Index Fund</option>
+            <option value="kotak-emerging">Kotak Emerging Equity Fund</option>
+            <option value="icici-value">ICICI Prudential Value Discovery Fund</option>
+          </select>
+        </div>
+      </div>
+      <button id="check-overlap-btn" type="button" style="width: 100%; padding: 0.85rem; border-radius: 12px; background: linear-gradient(135deg, #5457e5, #7c3aed); color: white; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(99,102,241,0.3);">Check Overlap</button>
+    </div>
+
+    <div id="overlap-result" style="display: none; margin-top: 1.5rem; background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem;">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Portfolio Overlap</p>
+        <p id="overlap-pct" style="font-size: 3rem; font-weight: 700; color: var(--text-head); margin: 0; font-family: var(--font-heading);"></p>
+        <p id="overlap-verdict" style="font-size: 0.95rem; margin-top: 0.5rem;"></p>
+      </div>
+      <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Common Holdings</h3>
+      <div id="common-stocks" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
+      <div style="margin-top: 1.5rem; padding: 1rem; border-radius: 12px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15);">
+        <p style="margin: 0; font-size: 0.9rem; color: var(--text-body);">
+          <strong style="color: var(--text-head);">Want full portfolio overlap analysis?</strong> Import your CAS into Arthavi to see overlap across all your funds automatically.
+          <a href="https://app.arthavi.com/register" style="color: var(--primary-glow); font-weight: 600;"> Try free →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
+    <h2>What is mutual fund portfolio overlap?</h2>
+    <p>Mutual fund portfolio overlap means two or more of your funds hold the same underlying stocks. For example, if you own both a Nifty 50 index fund and a large-cap flexi fund, they likely hold HDFC Bank, Reliance, and TCS in common — reducing your actual diversification despite owning multiple funds.</p>
+
+    <h2>Why is mutual fund overlap bad for your portfolio?</h2>
+    <p>High overlap means you are paying management fees on multiple funds that effectively do the same thing. It also increases concentration risk — if the overlapping stocks fall, all your funds drop together, giving a false sense of diversification.</p>
+
+    <h2>What is an acceptable level of overlap?</h2>
+    <ul>
+      <li><strong>Below 30%</strong> — Generally acceptable, funds serve different purposes</li>
+      <li><strong>30–50%</strong> — Significant duplication, consider consolidating</li>
+      <li><strong>Above 50%</strong> — These funds are doing the same job; keep only one</li>
+    </ul>
+
+    <h2>How to reduce mutual fund overlap?</h2>
+    <ol>
+      <li>Use this tool or <a href="https://app.arthavi.com/demo">Arthavi's portfolio tracker</a> to identify overlapping funds</li>
+      <li>Keep the fund with better historical XIRR and lower expense ratio</li>
+      <li>Diversify across different market caps and investment styles (value, growth, index)</li>
+      <li>Consider adding debt or international funds for true diversification</li>
+    </ol>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is mutual fund portfolio overlap?</h3>
+      <p>It means two or more funds in your portfolio hold the same underlying stocks, reducing real diversification.</p>
+      <h3>Why is mutual fund overlap bad?</h3>
+      <p>It means paying fees on multiple funds that do the same job, and increases concentration risk.</p>
+      <h3>How to check mutual fund overlap?</h3>
+      <p>Use the free overlap checker above or import your CAS into Arthavi for automatic analysis.</p>
+      <h3>What is an acceptable level of overlap?</h3>
+      <p>Below 30% is acceptable. 30–50% needs attention. Above 50% means consolidate into one fund.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">More free tools</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
+        <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Tax Calculator</a></li>
+        <li><a href="/calculators/">All Calculators</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+<script is:inline>
+(function() {
+  const holdings = {
+    'parag-parikh-flexi': ['HDFC Bank','ICICI Bank','Infosys','Bajaj Holdings','ITC','Coal India','Power Grid','Bharti Airtel','Axis Bank','HCL Tech','Maruti Suzuki','Cipla'],
+    'mirae-large-mid': ['HDFC Bank','ICICI Bank','Infosys','Reliance Industries','Bajaj Finance','Axis Bank','Larsen & Toubro','TCS','SBI','Bharti Airtel','HCL Tech','Tata Motors'],
+    'axis-bluechip': ['HDFC Bank','ICICI Bank','Infosys','TCS','Bajaj Finance','Reliance Industries','Bharti Airtel','Kotak Mahindra Bank','Avenue Supermarts','Titan Company'],
+    'sbi-small-cap': ['Kalpataru Projects','CAMS','Chalet Hotels','Finolex Industries','IIFL Finance','Carborundum Universal','Blue Star','EIH','GR Infraprojects','CreditAccess'],
+    'hdfc-balanced': ['HDFC Bank','ICICI Bank','Infosys','Axis Bank','Larsen & Toubro','Reliance Industries','Bharti Airtel','SBI','TCS','ITC','Maruti Suzuki','Kotak Mahindra Bank'],
+    'nifty-50-index': ['HDFC Bank','Reliance Industries','ICICI Bank','Infosys','TCS','Bharti Airtel','ITC','Larsen & Toubro','SBI','Kotak Mahindra Bank','Bajaj Finance','Axis Bank'],
+    'kotak-emerging': ['Persistent Systems','Supreme Industries','Sundaram Finance','The Phoenix Mills','CG Power','Max Healthcare','Trent','Voltas','Cholamandalam','AU Small Finance'],
+    'icici-value': ['HDFC Bank','ICICI Bank','SBI','NTPC','Sun Pharma','Infosys','Larsen & Toubro','Oil India','Bharti Airtel','ITC']
+  };
+  document.getElementById('check-overlap-btn').onclick = () => {
+    const f1 = document.getElementById('fund1').value;
+    const f2 = document.getElementById('fund2').value;
+    const h1 = holdings[f1] || [];
+    const h2 = holdings[f2] || [];
+    const common = h1.filter(s => h2.includes(s));
+    const union = [...new Set([...h1, ...h2])];
+    const pct = union.length > 0 ? Math.round((common.length / union.length) * 100) : 0;
+    document.getElementById('overlap-result').style.display = 'block';
+    const pctEl = document.getElementById('overlap-pct');
+    pctEl.textContent = pct + '%';
+    const verdictEl = document.getElementById('overlap-verdict');
+    if (f1 === f2) {
+      pctEl.textContent = '100%'; pctEl.style.color = '#f87171';
+      verdictEl.textContent = 'Same fund selected. Choose different funds.'; verdictEl.style.color = '#f87171';
+    } else if (pct > 50) {
+      pctEl.style.color = '#f87171';
+      verdictEl.textContent = '⚠ High overlap — consider keeping only one of these funds.'; verdictEl.style.color = '#f87171';
+    } else if (pct > 30) {
+      pctEl.style.color = '#fbbf24';
+      verdictEl.textContent = '⚡ Moderate overlap — review if both are necessary.'; verdictEl.style.color = '#fbbf24';
+    } else {
+      pctEl.style.color = '#34d399';
+      verdictEl.textContent = '✓ Low overlap — good diversification.'; verdictEl.style.color = '#34d399';
+    }
+    const stocksDiv = document.getElementById('common-stocks');
+    stocksDiv.innerHTML = common.length > 0 ? common.map(s => `<span style="padding:0.35rem 0.75rem;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);font-size:0.85rem;color:var(--text-body);">${s}</span>`).join('') : '<p style="color:var(--text-muted);font-size:0.9rem;">No common stocks found — great diversification!</p>';
+  };
+})();
+</script>
+
+<style>
+  @media(max-width: 768px) {
+    #overlap-tool select { font-size: 0.82rem !important; }
+    #overlap-tool > div > div:first-child { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+</Layout>

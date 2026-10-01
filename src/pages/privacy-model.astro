@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Privacy Model — How Arthavi Protects Your Financial Data | Arthavi",
+  description: "Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login. Learn exactly how your data is collected, processed, stored, and protected.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": seo.title,
+      "description": seo.description,
+      "publisher": { "@id": "https://arthavi.com/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Does Arthavi read your emails?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi never requests Gmail or email read access. Portfolio data is imported exclusively through direct CAS PDF upload controlled by the user. This is fundamentally different from apps like INDmoney that scrape investment emails via OAuth." } },
+        { "@type": "Question", "name": "Does Arthavi require broker login credentials?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi never asks for Zerodha, Groww, Upstox, or any broker password, MPIN, or TOTP token. Portfolio tracking works through read-only CAS statements and manual stock entries." } },
+        { "@type": "Question", "name": "Does Arthavi sell user data to third parties?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi does not sell, share, or monetize user data with lenders, insurance companies, mutual fund distributors, or advertisers. The platform earns through premium feature tiers, not data brokering." } },
+        { "@type": "Question", "name": "How does Arthavi encrypt user data?", "acceptedAnswer": { "@type": "Answer", "text": "All data in transit uses TLS 1.3 with HSTS. Data at rest is encrypted using AES-256 bank-grade encryption. CAS PDF passwords are processed locally in the user's browser and never transmitted to servers." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi privacy, portfolio tracker privacy, arthavi data security, no email scraping portfolio tracker, privacy first portfolio tracker india, arthavi data policy"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Privacy Model", url: "https://arthavi.com/privacy-model/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>How Arthavi Protects Your Financial Data</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login.</strong>
+      We never read your emails, never ask for broker passwords, never sell your data, and never make marketing calls. CAS PDF passwords are decrypted in your browser — they never reach our servers.
+    </p>
+  </div>
+
+  <article class="prose fade-in delay-100" style="max-width: 800px; margin: 0 auto;">
+
+    <h2>What data does Arthavi collect?</h2>
+    <p>Arthavi collects only the minimum data necessary to provide portfolio tracking:</p>
+    <div class="compare-table-wrap" style="margin: 1.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Collected?</th>
+            <th>How It's Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Email address</td><td>Yes</td><td>Account authentication only</td></tr>
+          <tr><td>Phone number</td><td>No</td><td>Never collected — you'll never get marketing calls</td></tr>
+          <tr><td>CAS PDF content</td><td>Parsed</td><td>Transaction data extracted, raw PDF not stored permanently</td></tr>
+          <tr><td>CAS password (PAN)</td><td>No</td><td>Decrypted in browser, never sent to server</td></tr>
+          <tr><td>Stock holdings</td><td>Yes</td><td>Used for portfolio display and analytics</td></tr>
+          <tr><td>Gmail/email inbox</td><td>No</td><td>Never requested — no OAuth email scopes</td></tr>
+          <tr><td>Broker credentials</td><td>No</td><td>Never requested — no demat linking</td></tr>
+          <tr><td>Bank account details</td><td>No</td><td>Not needed for tracking</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How does Arthavi compare to competitors on privacy?</h2>
+    <div class="compare-table-wrap" style="margin: 1.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Privacy Dimension</th>
+            <th class="col-arthavi">Arthavi</th>
+            <th>INDmoney</th>
+            <th>Groww</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Email reading</strong></td><td class="col-arthavi">Never</td><td>Full Gmail access</td><td>N/A (broker)</td></tr>
+          <tr><td><strong>Broker password</strong></td><td class="col-arthavi">Never</td><td>Often required</td><td>Own platform</td></tr>
+          <tr><td><strong>Phone collection</strong></td><td class="col-arthavi">Never</td><td>Required</td><td>Required</td></tr>
+          <tr><td><strong>Data selling</strong></td><td class="col-arthavi">Never</td><td>Cross-selling</td><td>Broker ecosystem</td></tr>
+          <tr><td><strong>Spam calls</strong></td><td class="col-arthavi">Zero</td><td>Reported by users</td><td>Reported</td></tr>
+          <tr><td><strong>Import method</strong></td><td class="col-arthavi">User-uploaded CAS</td><td>Email scraping</td><td>Broker account</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How is data encrypted?</h2>
+    <ul>
+      <li><strong>In transit</strong>: TLS 1.3 with HTTP Strict Transport Security (HSTS)</li>
+      <li><strong>At rest</strong>: AES-256 encryption (bank-grade)</li>
+      <li><strong>CAS password</strong>: Processed client-side in browser JavaScript — never transmitted</li>
+      <li><strong>Database</strong>: Encrypted volumes with access controls</li>
+    </ul>
+
+    <h2>What happens when you delete your account?</h2>
+    <p>When you delete your Arthavi account, all data is <strong>permanently and immediately wiped</strong> from our servers — all transactions, CAS data, stock holdings, and personal information. There is no 30-day grace period; deletion is final.</p>
+
+    <h2>How does Arthavi make money without selling data?</h2>
+    <p>Arthavi's revenue model is based on premium feature tiers for advanced analytics (coming soon). The core portfolio tracking — CAS import, XIRR, family tracking, and AI analysis — is free forever. We do not monetize through ads, data brokering, affiliate lead generation, or cross-selling financial products.</p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+        Try Arthavi Demo — No Signup Required
+      </a>
+      <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">No broker login. No spam calls. Your data stays yours.</p>
+    </div>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>Does Arthavi read your emails?</h3>
+      <p>No. Arthavi never requests Gmail or email access. Data is imported through direct CAS PDF upload.</p>
+      <h3>Does Arthavi require broker login credentials?</h3>
+      <p>No. We never ask for broker passwords, MPINs, or TOTP tokens.</p>
+      <h3>Does Arthavi sell user data?</h3>
+      <p>No. We don't sell, share, or monetize data with lenders, insurers, or advertisers.</p>
+      <h3>How does Arthavi encrypt data?</h3>
+      <p>TLS 1.3 in transit, AES-256 at rest. CAS passwords processed in-browser only.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/methodology/">Data Methodology</a></li>
+        <li><a href="/security/">Security</a></li>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/about/">About Arthavi</a></li>
+        <li><a href="/alternatives/indmoney/">vs INDmoney (Privacy)</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+</Layout>

@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Track Mutual Funds and Stocks in One Place (India 2026) | Arthavi",
+  description: "Track mutual funds and stocks in one unified dashboard. Upload your CAS statement, add stocks, and see your complete net worth with true XIRR. No broker login required.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Track Mutual Funds and Stocks in One Place",
+      "description": "Step-by-step guide to consolidating your mutual funds and stocks into a single portfolio dashboard using Arthavi.",
+      "totalTime": "PT5M",
+      "step": [
+        { "@type": "HowToStep", "name": "Download your CAS statement", "text": "Request a Consolidated Account Statement (CAS) from CAMS (camsonline.com) or KFintech (kfintech.com). This official document contains your complete mutual fund transaction history across all AMCs." },
+        { "@type": "HowToStep", "name": "Upload CAS to Arthavi", "text": "Create a free Arthavi account and upload your CAS PDF. The parser extracts all folios, transactions, NAVs, and SIP dates in under 30 seconds." },
+        { "@type": "HowToStep", "name": "Add your stock holdings", "text": "Search and add your NSE/BSE stocks manually or upload a CSV. Enter your buy price and quantity for accurate P&L tracking." },
+        { "@type": "HowToStep", "name": "View unified portfolio", "text": "Your dashboard now shows combined mutual fund and stock holdings with net worth, asset allocation, sector breakdown, and true XIRR." },
+        { "@type": "HowToStep", "name": "Ask AI for insights", "text": "Use the Ask AI feature to check portfolio overlap, sector concentration, and get plain-English analysis of your investments." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How to track mutual funds and stocks together in India?", "acceptedAnswer": { "@type": "Answer", "text": "Upload your CAMS/KFintech CAS statement to Arthavi and add your stocks manually. Arthavi consolidates both into a single dashboard showing combined net worth, asset allocation, and true XIRR. No broker login is required." } },
+        { "@type": "Question", "name": "Can I track Zerodha and Groww portfolios together?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your CAS statement contains mutual fund holdings from all AMCs regardless of which broker you used to buy. Upload it to Arthavi and add stocks from any broker to see everything in one place." } },
+        { "@type": "Question", "name": "Do I need to give broker login credentials?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi is a privacy-first portfolio tracker that imports CAS statements with no broker login. You never share passwords, MPINs, or demat credentials." } },
+        { "@type": "Question", "name": "How often should I update my portfolio on Arthavi?", "acceptedAnswer": { "@type": "Answer", "text": "Upload a new CAS statement once a month or after making new investments. Stock prices update automatically in real-time via live market feeds." } }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="track mutual funds and stocks together, portfolio tracker india, track investments one place, consolidate mutual funds stocks, unified portfolio dashboard, track zerodha groww together"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Guides", url: "https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/" },
+      { name: "Track MF & Stocks Together", url: "https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/" }
+    ]
+  }}
+>
+
+<main class="container">
+  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+    <h1>How to Track Mutual Funds and Stocks in One Place</h1>
+  </section>
+
+  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+      <strong style="color: var(--text-head);">Upload your CAMS/KFintech CAS statement to Arthavi and add your stocks to see everything in one dashboard — with true XIRR, net worth, and AI insights.</strong>
+      Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login. The entire process takes under 5 minutes.
+    </p>
+  </div>
+
+  <article class="prose fade-in delay-100" style="max-width: 800px; margin: 0 auto;">
+
+    <h2>Why should you track mutual funds and stocks together?</h2>
+    <p>Most Indian investors have mutual funds on one platform (Kuvera, Groww, MFU) and stocks on another (Zerodha, Groww, Angel One). This fragmentation means you can't see your true net worth, real asset allocation, or overall portfolio XIRR. Tracking everything in one place reveals:</p>
+    <ul>
+      <li><strong>True net worth</strong> — See your complete financial picture, not just one slice</li>
+      <li><strong>Real asset allocation</strong> — Know if you're overexposed to equity or a specific sector</li>
+      <li><strong>Accurate XIRR</strong> — Calculate your true annualized return across all investments</li>
+      <li><strong>Portfolio overlap</strong> — Discover if your mutual funds hold the same stocks</li>
+    </ul>
+
+    <h2>How to consolidate your portfolio in 5 steps</h2>
+
+    <h3>Step 1: Download your CAS statement</h3>
+    <p>A <a href="/guides/cas-statement-explained/">Consolidated Account Statement (CAS)</a> is an official SEBI document containing your complete mutual fund history. Download it from:</p>
+    <ul>
+      <li><strong>CAMS</strong>: Visit <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener">camsonline.com</a> → Consolidated Account Statement</li>
+      <li><strong>KFintech</strong>: Visit <a href="https://mfs.kfintech.com/investor/General/ConsolidatedAccountStatement" target="_blank" rel="noopener">kfintech.com</a> → CAS</li>
+    </ul>
+    <p>See our detailed guide: <a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to import CAS from CAMS, KFintech, and NSDL</a>.</p>
+
+    <h3>Step 2: Upload CAS to Arthavi</h3>
+    <p>Create a free <a href="https://app.arthavi.com/register">Arthavi account</a> and upload your CAS PDF. The parser extracts all folios, transactions, NAVs, and SIP dates in under 30 seconds. Your password-protected CAS is decrypted locally in your browser — the password never reaches our servers.</p>
+
+    <h3>Step 3: Add your stock holdings</h3>
+    <p>Search for any NSE/BSE stock and enter your buy price and quantity. You can also upload a CSV for bulk import. Live market prices update automatically.</p>
+
+    <h3>Step 4: View your unified portfolio</h3>
+    <p>Your dashboard now shows combined mutual fund and stock holdings with net worth, asset allocation, sector breakdown, and true <a href="/tools/xirr-calculator/">XIRR</a>.</p>
+
+    <h3>Step 5: Ask AI for insights</h3>
+    <p>Use the <a href="/ask-ai-investment-assistant/">Ask AI feature</a> to check <a href="/tools/mutual-fund-overlap/">portfolio overlap</a>, sector concentration, and get plain-English analysis of your investments.</p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+        Try Arthavi Demo — No Signup Required
+      </a>
+      <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">No broker login. No spam calls. Your data stays yours.</p>
+    </div>
+
+    <h2>Can I track Zerodha and Groww portfolios together?</h2>
+    <p>Yes. Your CAS statement contains mutual fund holdings from all AMCs regardless of which platform you used to purchase them. Upload it to Arthavi and add stocks from any broker. See our guide: <a href="/blog/track-zerodha-groww-portfolio-together/">Track Zerodha and Groww portfolios together</a>.</p>
+
+    <h2>Do I need to give my broker login credentials?</h2>
+    <p>No. Arthavi is a privacy-first portfolio tracker that imports CAS statements, with no broker login. You never share passwords, MPINs, TOTP tokens, or demat credentials. No broker login. No spam calls. Your data stays yours.</p>
+
+    <section id="faq" style="margin-top: 3rem;">
+      <h2>Frequently Asked Questions</h2>
+      <h3>How to track mutual funds and stocks together in India?</h3>
+      <p>Upload your CAS statement to Arthavi and add stocks. Both appear in a single dashboard with unified XIRR and net worth.</p>
+      <h3>Can I track Zerodha and Groww portfolios together?</h3>
+      <p>Yes. CAS covers all AMCs regardless of broker. Add stocks from any platform to consolidate.</p>
+      <h3>Do I need to give broker login credentials?</h3>
+      <p>No. Arthavi imports CAS statements with no broker login — your credentials are never shared.</p>
+      <h3>How often should I update my portfolio?</h3>
+      <p>Upload a new CAS monthly or after new investments. Stock prices update automatically via live feeds.</p>
+    </section>
+
+    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related guides</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
+        <li><a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to Import CAS</a></li>
+      </ul>
+      <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Free tools</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+        <li><a href="/tools/mutual-fund-overlap/">Fund Overlap Checker</a></li>
+        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
+        <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Tax Calculator</a></li>
+      </ul>
+    </nav>
+  </article>
+</main>
+
+</Layout>
