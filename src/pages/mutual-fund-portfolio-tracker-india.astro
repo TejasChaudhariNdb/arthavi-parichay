@@ -1,76 +1,398 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedContent from '../components/RelatedContent.astro';
 
 const seo = {
-  title: "Best Mutual Fund Portfolio Tracker India | Import Investments Instantly",
-  description: "The best mutual fund portfolio tracker in India. Simply import your investment statement to get real-time tracking, XIRR analysis, and consolidate your wealth.",
+  title: "Best Mutual Fund Portfolio Tracker India (2026) | Arthavi",
+  description: "Consolidate CAMS, KFintech, and multi-broker mutual fund folios into one private dashboard. Automatic XIRR, overlap analysis, and CAS import with zero broker login.",
+  canonical: "https://arthavi.com/mutual-fund-portfolio-tracker-india/",
+  datePublished: "2025-01-15",
+  dateModified: "2026-03-30"
 };
----
-<Layout title={seo.title} description={seo.description} keywords="mutual fund portfolio tracker, value research portfolio tracker, google finance portfolio tracker, track mutual funds and stocks, how to track mutual funds in real time, best apps for tracking stocks and mutual funds" schema={JSON.stringify({
-      "@context": "https://schema.org",
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Mutual Fund Portfolio Tracker", url: "https://arthavi.com/mutual-fund-portfolio-tracker-india/" }
+];
+
+const faqs = [
+  {
+    question: "How can I track all my mutual fund investments in one place?",
+    answer: "The cleanest and safest way is to import your Consolidated Account Statement (CAS) from CAMS or KFintech. This pulls every folio across all Indian AMCs (HDFC, ICICI Prudential, SBI, Nippon, Parag Parikh, etc.) into a unified dashboard without linking broker credentials."
+  },
+  {
+    question: "Can I track both Demat and SoR (Statement of Record) mutual funds together?",
+    answer: "Yes. While broker apps like Zerodha Coin only hold units in Demat mode and platforms like Groww hold them in SoR or Demat, an official CAMS/KFintech or NSDL eCAS consolidates both. Arthavi reads this unified file to display your combined portfolio."
+  },
+  {
+    question: "Why is XIRR more accurate than CAGR for mutual fund SIPs?",
+    answer: "CAGR assumes a single lump-sum investment at inception. SIPs involve dozens of monthly transactions at fluctuating NAVs. XIRR (Extended Internal Rate of Return) accounts for the exact date and cash flow of every purchase and dividend, showing your true annualized return."
+  },
+  {
+    question: "How does Arthavi detect mutual fund portfolio overlap?",
+    answer: "Arthavi decomposes every scheme into its underlying 50–70 equity holdings and weighs them by portfolio allocation. If you hold both Parag Parikh Flexi Cap and UTI Nifty 50, Arthavi reveals the exact percentage of overlapping stocks (e.g., HDFC Bank, ICICI Bank, Reliance) so you can avoid unnecessary duplication."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${seo.canonical}#webpage`,
+      "url": seo.canonical,
+      "name": seo.title,
+      "description": seo.description,
+      "inLanguage": "en-IN",
+      "datePublished": seo.datePublished,
+      "dateModified": seo.dateModified
+    },
+    {
       "@type": "FAQPage",
-      "mainEntity": [{
+      "@id": `${seo.canonical}#faq`,
+      "mainEntity": faqs.map(f => ({
         "@type": "Question",
-        "name": "How to track mutual funds in real time?",
+        "name": f.question,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The fastest way to track mutual funds in real-time is to import your investment statement (CAS — Consolidated Account Statement) into a dedicated portfolio tracker. You bypass broker delays and get instant end-of-day NAV updates."
+          "text": f.answer
         }
-      }, {
-        "@type": "Question",
-        "name": "Can I track mutual funds and stocks together?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, the best apps for tracking stocks and mutual funds allow you to manage a unified dashboard. Arthavi allows you to import your investment statement and manually add NSE/BSE stocks alongside them."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Arthavi vs Value Research or Google Finance?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While a Google Finance portfolio tracker is good for basic manual entry, it relies heavily on spreadsheet skills. Arthavi automates XIRR math directly from your imported investment statement without building clunky templates."
-        }
-      }]
-    })}>
+      }))
+    }
+  ]
+});
+---
 
-    
+<Layout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  keywords="mutual fund portfolio tracker india, best app to track mutual funds, track cams kfintech folios, mutual fund xirr tracker, portfolio overlap tracker india, consolidated account statement app"
+  schema={schema}
+  breadcrumb={{ items: breadcrumbs }}
+>
+  <main class="pillar-container">
+    <div class="container-inner">
+      <Breadcrumbs items={breadcrumbs} />
 
-    <main class="container">
-        <section class="page-header fade-in">
-            <h1>Mutual Fund Portfolio Tracker for India</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">
-                The most private way to track your mutual funds. Upload your investment statement (CAS) — a file you can download from your mutual fund provider — and get instant analytics.
-            </p>
-            <div style="margin-top: 2rem;">
-                <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+      <header class="pillar-header">
+        <div class="pillar-badge">Pillar Hub &bull; Mutual Fund Tracking</div>
+        <h1 class="pillar-title">Mutual Fund Portfolio Tracker for Indian Investors</h1>
+        <p class="pillar-subtitle">
+          Consolidate every SIP, folio, and AMC into a single, private dashboard. Accurate XIRR math, stock-level overlap detection, and instant CAS statement imports with zero broker login.
+        </p>
+        <div class="hero-actions">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Tracking Free</a>
+          <a href="/tools/xirr-calculator/" class="btn btn-secondary">Try Free XIRR Tool</a>
+        </div>
+      </header>
+
+      <section class="quick-stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">44+</div>
+          <div class="stat-label">Indian AMCs Supported</div>
+          <p class="stat-sub">From SBI & HDFC to Quant & PPFAS</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">CAS Statement Compatible</div>
+          <p class="stat-sub">CAMS, KFintech, CDSL & NSDL eCAS</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">0</div>
+          <div class="stat-label">Broker Logins Required</div>
+          <p class="stat-sub">No Zerodha or Groww passwords needed</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Daily</div>
+          <div class="stat-label">Automated NAV Updates</div>
+          <p class="stat-sub">End-of-day AMFI pricing synced</p>
+        </div>
+      </section>
+
+      <article class="pillar-content prose">
+        <h2>The Fragmented Reality of Mutual Fund Investing in India</h2>
+        <p>
+          Most Indian investors do not buy mutual funds from a single source. Over 5 to 10 years of investing, your wealth gets dispersed across:
+        </p>
+        <ul>
+          <li><strong>Discount Brokers (Zerodha Coin, Groww, AngelOne):</strong> Demat-held units locked inside their closed-loop apps.</li>
+          <li><strong>Direct AMC Portals:</strong> Folios initiated directly on AMC websites or via MFCentral, CAMS, and KFintech.</li>
+          <li><strong>Bank RM Portals:</strong> Legacy Regular plan folios sold by HDFC, ICICI, or SBI bank branch managers with 1-1.5% commission drag.</li>
+          <li><strong>Fintech Apps:</strong> Kuvera, INDmoney, or ET Money.</li>
+        </ul>
+        <p>
+          When tax season arrives, or when you want to calculate your <strong>real annualized portfolio return (XIRR)</strong>, no single broker app has the complete picture. Logging into 5 different portals is tedious, and copying transactions into Google Sheets breaks after a few dozen SIP cycles.
+        </p>
+
+        <h2>How Arthavi Solves Mutual Fund Tracking</h2>
+        <p>
+          Arthavi provides a unified <strong>mutual fund portfolio tracker for India</strong> built around the official regulatory standard: the <strong>Consolidated Account Statement (CAS)</strong>.
+        </p>
+
+        <div class="feature-box-grid">
+          <div class="feature-box">
+            <div class="feature-icon">⚡</div>
+            <h3>1-Click CAS Import</h3>
+            <p>Upload your monthly password-protected PDF or Excel statement from CAMS or KFintech. Arthavi parses all historic buy, sell, SIP, and dividend reinvestment transactions in seconds.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">📈</div>
+            <h3>Accurate Cash-Flow XIRR</h3>
+            <p>Unlike simplistic CAGR that assumes a single starting date, our XIRR engine evaluates the exact timestamp and rupee value of every SIP installment, giving you institutional accuracy.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">🔍</div>
+            <h3>Portfolio Overlap Analyzer</h3>
+            <p>Holding 3 different Flexi-cap or Large-cap funds? Arthavi reveals when you are paying double expense ratios for the exact same underlying shares of Reliance, Infosys, and HDFC Bank.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-icon">🛡️</div>
+            <h3>Zero Gmail Scraping & Zero Broker Login</h3>
+            <p>We never ask for your email password, Google OAuth read permissions, or broker credentials. Your financial statements stay in your control without ad tracking or loan spam.</p>
+          </div>
+        </div>
+
+        <h2>Comparison: Arthavi vs Other Tracking Methods</h2>
+        <div class="table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Arthavi</th>
+                <th>Broker Apps (Zerodha/Groww)</th>
+                <th>Google Sheets / Excel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Cross-Broker Tracking</strong></td>
+                <td class="text-positive">✓ Full (via CAMS/KFintech CAS)</td>
+                <td class="text-neutral">Partial (only their platform units)</td>
+                <td class="text-neutral">Manual entry required</td>
+              </tr>
+              <tr>
+                <td><strong>SIP XIRR Calculation</strong></td>
+                <td class="text-positive">✓ Automated per folio & overall</td>
+                <td class="text-neutral">Often buggy or limited</td>
+                <td class="text-negative">Requires complex `=XIRR()` formulas</td>
+              </tr>
+              <tr>
+                <td><strong>Stock-Level Fund Overlap</strong></td>
+                <td class="text-positive">✓ Automated stock breakdown</td>
+                <td class="text-negative">✗ Not supported</td>
+                <td class="text-negative">✗ Impossible without external APIs</td>
+              </tr>
+              <tr>
+                <td><strong>Privacy & Zero Ad-Targeting</strong></td>
+                <td class="text-positive">✓ Zero spam calls or loans</td>
+                <td class="text-neutral">Brokers cross-sell F&O and margin</td>
+                <td class="text-positive">✓ Private, but tedious</td>
+              </tr>
+              <tr>
+                <td><strong>Direct vs Regular Expense Drag</strong></td>
+                <td class="text-positive">✓ Highlights commission loss</td>
+                <td class="text-negative">✗ Often hidden by distributors</td>
+                <td class="text-negative">✗ Manual calculation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          {faqs.map(faq => (
+            <div class="faq-item">
+              <h3 class="faq-question">{faq.question}</h3>
+              <p class="faq-answer">{faq.answer}</p>
             </div>
-        </section>
+          ))}
+        </div>
+      </article>
 
-        <article class="prose fade-in delay-100">
-            <h2>Why Use a Dedicated Mutual Fund Tracker?</h2>
-            <p>If you have ever searched for the <strong>best apps for tracking stocks and mutual funds</strong>, you know the struggle. Broker apps only show you the funds you bought through them. If you have moved from Regular to Direct
-                plans, or switched brokers (e.g., Zerodha to Groww), your data is heavily fragmented.</p>
-            <p>Arthavi serves as a central <strong>mutual fund portfolio tracker</strong> for India, accepting your investment statement (CAS — Consolidated Account Statement) from CAMS and KFintech.</p>
-
-            <h3>How to track mutual funds in real time</h3>
-            <p>Many investors wonder <strong>how to track mutual funds in real time</strong> without waiting for monthly broker emails. By importing your CAS directly, our system continuously fetches the latest Net Asset Values (NAVs) at the end of every trading day. You never have to manually update prices again.</p>
-
-            <h2>Alternatives on the Market</h2>
-            <p>You might be currently using a <strong>google finance portfolio tracker</strong> spreadsheet or a <strong>value research portfolio tracker</strong>. The issue with spreadsheets is that manual entry for SIPs breaks down after 3-5 years (try inputting 60 different transaction dates manually!). The issue with older platforms is often outdated user interfaces or paywalls for basic XIRR features.</p>
-            <p>Arthavi is built to be modern, incredibly fast, and 100% free for core tracking functionality.</p>
-
-            <h2>Privacy-First Approach</h2>
-            <p>Many "free" CAS analyzers upload your statement to third-party servers to scrape email addresses, analyze your expenses, or sell
-                leads. Arthavi processes data securely. We don't read your emails. We don't sell data. We are entirely ad-free.</p>
-
-            <div style="margin-top: 3rem; text-align: center;">
-                <h3>Get a consolidated view of your wealth</h3>
-                <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
-            </div>
-        </article>
-    </main>
-
-    
-    
-
+      <RelatedContent
+        hub="mutual-funds"
+        currentUrl="/mutual-fund-portfolio-tracker-india/"
+        customTitle="Explore the Mutual Fund Tracking Knowledge Base"
+      />
+    </div>
+  </main>
 </Layout>
+
+<style>
+  .pillar-container {
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 5rem;
+  }
+  .container-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .pillar-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .pillar-badge {
+    display: inline-block;
+    background: rgba(0, 208, 156, 0.12);
+    border: 1px solid rgba(0, 208, 156, 0.3);
+    color: var(--accent-primary, #00D09C);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .pillar-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-heading, #fff);
+    margin: 0 0 1.25rem;
+  }
+  .pillar-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted, #94a3b8);
+    max-width: 760px;
+    margin: 0 auto 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 208, 156, 0.3);
+  }
+  .stat-val {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--accent-primary, #00D09C);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-heading, #fff);
+    margin-bottom: 0.25rem;
+  }
+  .stat-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted, #94a3b8);
+    margin: 0;
+  }
+  .feature-box-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+  .feature-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .feature-box h3 {
+    font-size: 1.15rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+  }
+  .feature-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 2.5rem 0;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .comparison-table th {
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+    color: #fff;
+  }
+  .text-positive {
+    color: var(--accent-primary, #00D09C);
+    font-weight: 600;
+  }
+  .text-neutral {
+    color: #cbd5e1;
+  }
+  .text-negative {
+    color: #f87171;
+  }
+  .faq-accordion {
+    margin-top: 2rem;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .faq-question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.75rem;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .pillar-title {
+      font-size: 2.1rem;
+    }
+    .pillar-subtitle {
+      font-size: 1.05rem;
+    }
+  }
+</style>

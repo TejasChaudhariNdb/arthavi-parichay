@@ -1,0 +1,391 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedContent from '../components/RelatedContent.astro';
+
+const seo = {
+  title: "Private Portfolio Tracker India | Zero Broker Login, Zero Spam | Arthavi",
+  description: "The most private investment tracker in India. No broker logins, zero Gmail inbox reading, zero loan telemarketing. Your portfolio data stays 100% yours.",
+  canonical: "https://arthavi.com/private-portfolio-tracker/",
+  datePublished: "2025-01-20",
+  dateModified: "2026-03-30"
+};
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Private Portfolio Tracker", url: "https://arthavi.com/private-portfolio-tracker/" }
+];
+
+const faqs = [
+  {
+    question: "Why is an ad-free, private portfolio tracker essential for investors?",
+    answer: "Your investment portfolio is your most sensitive personal financial data. Most 'free' tracking apps monetize by profiling your net worth to sell high-interest personal loans, credit cards, or speculative F&O trading services. A private tracker eliminates these conflicts of interest."
+  },
+  {
+    question: "Does Arthavi ask for access to my Gmail or Outlook inbox?",
+    answer: "Never. We do not require or support Gmail/email scraping. Third-party apps that parse your inbox gain access to bank balance alerts, credit card OTPs, and confidential correspondence. Arthavi relies solely on direct, user-uploaded CAS statements."
+  },
+  {
+    question: "How does Arthavi function without asking for my broker password?",
+    answer: "Arthavi uses official Consolidated Account Statements (CAS) issued by SEBI-regulated RTAs (CAMS, KFintech) and depositories (NSDL, CDSL). You download your statement directly to your device and upload it. Decryption happens locally in your browser memory."
+  },
+  {
+    question: "Will I ever receive spam calls or WhatsApp marketing from Arthavi?",
+    answer: "No. Arthavi has a strict zero-telemarketing policy. We do not sell, rent, or monetize your contact information or portfolio holdings with insurance agents, loan brokers, or third-party marketing networks."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${seo.canonical}#webpage`,
+      "url": seo.canonical,
+      "name": seo.title,
+      "description": seo.description,
+      "inLanguage": "en-IN",
+      "datePublished": seo.datePublished,
+      "dateModified": seo.dateModified
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${seo.canonical}#faq`,
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    }
+  ]
+});
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  keywords="private portfolio tracker india, safe portfolio tracker, portfolio tracker without broker login, portfolio tracker without gmail access, no ads wealth tracker india, secure mutual fund tracker"
+  schema={schema}
+  breadcrumb={{ items: breadcrumbs }}
+>
+  <main class="pillar-container">
+    <div class="container-inner">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="pillar-header">
+        <div class="pillar-badge">Pillar Hub &bull; Financial Privacy & Sovereign Data</div>
+        <h1 class="pillar-title">Private Portfolio Tracker for Indian Investors</h1>
+        <p class="pillar-subtitle">
+          Track stocks, mutual funds, and net worth without compromising your security. Zero broker logins, zero Gmail scraping, zero telemarketing calls, and zero data resale.
+        </p>
+        <div class="hero-actions">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Tracking Privately</a>
+          <a href="/privacy-model/" class="btn btn-secondary">Read Privacy Architecture</a>
+        </div>
+      </header>
+
+      <section class="quick-stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">0</div>
+          <div class="stat-label">Spam Calls or SMS</div>
+          <p class="stat-sub">Zero sales pitches for personal loans</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">0</div>
+          <div class="stat-label">Broker Logins Required</div>
+          <p class="stat-sub">Your trading credentials stay confidential</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">0</div>
+          <div class="stat-label">Gmail Permissions</div>
+          <p class="stat-sub">We never touch your personal inbox or OTPs</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Local</div>
+          <div class="stat-label">Client-Side Decryption</div>
+          <p class="stat-sub">PDF passwords decrypted in browser memory</p>
+        </div>
+      </section>
+
+      <article class="pillar-content prose">
+        <h2>The Fintech Dilemma: If the Tracker Is Free, You Are the Asset</h2>
+        <p>
+          Managing wealth in India has quietly transformed into a surveillance industry. Leading financial tracking apps operate on venture capital business models designed to monetize your financial life in three distinct ways:
+        </p>
+        <ul>
+          <li><strong>The Loan & Credit Card Funnel:</strong> The moment an app detects you have ₹15 Lakhs in mutual funds or ₹5 Lakhs in savings, your profile is routed to banking partners to pitch high-margin personal loans and co-branded credit cards.</li>
+          <li><strong>Inbox Scraping:</strong> Automated sync features request Google OAuth permissions with full read access to your email. These background crawlers inspect order receipts, bank account statements, and salary deposits.</li>
+          <li><strong>Broker Credential Storage:</strong> Many aggregators ask for your Zerodha, Upstox, or Groww username, password, and TOTP seeds to automate syncs, storing sensitive trading session tokens on cloud databases.</li>
+        </ul>
+        <p>
+          When an investment tool profits by nudging you into debt or harvesting your inbox, it is no longer working for your financial freedom.
+        </p>
+
+        <h2>The Arthavi Privacy Architecture</h2>
+        <p>
+          Arthavi was designed from day one around <strong>data sovereignty</strong>:
+        </p>
+
+        <div class="privacy-pillars-grid">
+          <div class="privacy-box">
+            <div class="privacy-icon">🛡️</div>
+            <h3>1. Zero Broker Login Required</h3>
+            <p>You never provide passwords or API tokens for your brokerage or demat accounts. Your trading login remains strictly between you and your broker.</p>
+          </div>
+          <div class="privacy-box">
+            <div class="privacy-icon">🚫</div>
+            <h3>2. Zero Email Inbox Scraping</h3>
+            <p>We refuse to request Google or Microsoft email read permissions. Your personal communications and two-factor authentication OTPs remain completely untouched.</p>
+          </div>
+          <div class="privacy-box">
+            <div class="privacy-icon">💻</div>
+            <h3>3. Client-Side Decryption</h3>
+            <p>Your password-protected CAS files are decrypted locally in your browser memory using WebAssembly. Your statement password is never sent to or logged on our servers.</p>
+          </div>
+          <div class="privacy-box">
+            <div class="privacy-icon">📵</div>
+            <h3>4. Strict Zero-Telemarketing Policy</h3>
+            <p>We do not partner with banks, NBFCs, or insurance telemarketers. You will never receive unsolicited sales calls or loan offers because of Arthavi.</p>
+          </div>
+        </div>
+
+        <h2>Architectural Comparison: Privacy & Security</h2>
+        <div class="table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Security Vector</th>
+                <th>Arthavi</th>
+                <th>INDmoney / Kuvera</th>
+                <th>Standard Broker Apps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gmail / Inbox Reading</strong></td>
+                <td class="text-positive">✓ Never requested</td>
+                <td class="text-negative">✗ Core sync mechanism</td>
+                <td class="text-positive">✓ Not required</td>
+              </tr>
+              <tr>
+                <td><strong>Broker Credentials Needed</strong></td>
+                <td class="text-positive">✓ 0 broker logins</td>
+                <td class="text-neutral">Optional broker linking</td>
+                <td class="text-positive">Direct login to their own app</td>
+              </tr>
+              <tr>
+                <td><strong>Data Monetization / Ads</strong></td>
+                <td class="text-positive">✓ Zero ad-networks or lead-gen</td>
+                <td class="text-negative">✗ Cross-sells loans, credit & insurance</td>
+                <td class="text-neutral">Promotes margin trading & F&O</td>
+              </tr>
+              <tr>
+                <td><strong>Local Statement Decryption</strong></td>
+                <td class="text-positive">✓ In-browser memory only</td>
+                <td class="text-negative">✗ Server-side statement parsing</td>
+                <td class="text-neutral">N/A</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          {faqs.map(faq => (
+            <div class="faq-item">
+              <h3 class="faq-question">{faq.question}</h3>
+              <p class="faq-answer">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <RelatedContent
+        hub="privacy"
+        currentUrl="/private-portfolio-tracker/"
+        customTitle="Explore Privacy Architecture & Security Resources"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .pillar-container {
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 5rem;
+  }
+  .container-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .pillar-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .pillar-badge {
+    display: inline-block;
+    background: rgba(0, 208, 156, 0.12);
+    border: 1px solid rgba(0, 208, 156, 0.3);
+    color: var(--accent-primary, #00D09C);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .pillar-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-heading, #fff);
+    margin: 0 0 1.25rem;
+  }
+  .pillar-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted, #94a3b8);
+    max-width: 760px;
+    margin: 0 auto 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 208, 156, 0.3);
+  }
+  .stat-val {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--accent-primary, #00D09C);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-heading, #fff);
+    margin-bottom: 0.25rem;
+  }
+  .stat-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted, #94a3b8);
+    margin: 0;
+  }
+  .privacy-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+  .privacy-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .privacy-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .privacy-box h3 {
+    font-size: 1.15rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+  }
+  .privacy-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 2.5rem 0;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .comparison-table th {
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+    color: #fff;
+  }
+  .text-positive {
+    color: var(--accent-primary, #00D09C);
+    font-weight: 600;
+  }
+  .text-neutral {
+    color: #cbd5e1;
+  }
+  .text-negative {
+    color: #f87171;
+  }
+  .faq-accordion {
+    margin-top: 2rem;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .faq-question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.75rem;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .pillar-title {
+      font-size: 2.1rem;
+    }
+    .pillar-subtitle {
+      font-size: 1.05rem;
+    }
+  }
+</style>

@@ -1,10 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 const seo = {
   title: "How to Track Mutual Funds and Stocks in One Place (India 2026) | Arthavi",
   description: "Track mutual funds and stocks in one unified dashboard. Upload your CAS statement, add stocks, and see your complete net worth with true XIRR. No broker login required.",
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Mutual Fund Hub", url: "https://arthavi.com/mutual-fund-portfolio-tracker-india/" },
+  { name: "Track MF & Stocks in One Place", url: "https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/" }
+];
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -53,17 +61,12 @@ const schema = JSON.stringify({
   description={seo.description}
   keywords="track mutual funds and stocks together, portfolio tracker india, track investments one place, consolidate mutual funds stocks, unified portfolio dashboard, track zerodha groww together"
   schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Guides", url: "https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/" },
-      { name: "Track MF & Stocks Together", url: "https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/" }
-    ]
-  }}
+  breadcrumb={{ items: breadcrumbs }}
 >
 
-<main class="container">
-  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+<main class="container" style="padding-top: calc(var(--header-height) + 1.5rem);">
+  <Breadcrumbs items={breadcrumbs} />
+  <section class="page-header fade-in" style="text-align: center; padding: 2rem 0 1.5rem;">
     <h1>How to Track Mutual Funds and Stocks in One Place</h1>
   </section>
 
@@ -132,20 +135,7 @@ const schema = JSON.stringify({
       <p>Upload a new CAS monthly or after new investments. Stock prices update automatically via live feeds.</p>
     </section>
 
-    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
-      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related guides</h3>
-      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-        <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
-        <li><a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to Import CAS</a></li>
-      </ul>
-      <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Free tools</h3>
-      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
-        <li><a href="/tools/mutual-fund-overlap/">Fund Overlap Checker</a></li>
-        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
-        <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Tax Calculator</a></li>
-      </ul>
-    </nav>
+    <RelatedContent hub="mutual-funds" currentUrl="/guides/how-to-track-mutual-funds-and-stocks-in-one-place/" />
   </article>
 </main>
 

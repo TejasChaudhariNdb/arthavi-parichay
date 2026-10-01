@@ -1,0 +1,76 @@
+---
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class={`breadcrumb-nav ${className}`}>
+  <ol class="breadcrumb-list">
+    {items.map((item, index) => {
+      const isLast = index === items.length - 1;
+      return (
+        <li class="breadcrumb-item">
+          {index > 0 && (
+            <span class="breadcrumb-separator" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </span>
+          )}
+          {isLast ? (
+            <span class="breadcrumb-current" aria-current="page">{item.name}</span>
+          ) : (
+            <a href={item.url} class="breadcrumb-link">{item.name}</a>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb-nav {
+    margin-bottom: 1.5rem;
+  }
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-muted, #94a3b8);
+  }
+  .breadcrumb-separator {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0.5rem;
+    opacity: 0.5;
+  }
+  .breadcrumb-link {
+    color: var(--text-muted, #94a3b8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .breadcrumb-link:hover {
+    color: var(--accent-primary, #00D09C);
+  }
+  .breadcrumb-current {
+    color: var(--text-heading, #f1f5f9);
+    font-weight: 600;
+  }
+</style>

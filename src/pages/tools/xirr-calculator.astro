@@ -1,10 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 const seo = {
   title: "Free XIRR Calculator Online for Mutual Funds & SIPs | Arthavi",
   description: "Calculate your true XIRR (Extended Internal Rate of Return) for SIPs and mutual fund investments. Free, no login required. Add your cash flows and get accurate annualized returns instantly.",
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Portfolio Analytics Hub", url: "https://arthavi.com/portfolio-analytics-india/" },
+  { name: "XIRR Calculator", url: "https://arthavi.com/tools/xirr-calculator/" }
+];
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -52,17 +60,12 @@ const schema = JSON.stringify({
   description={seo.description}
   keywords="xirr calculator, xirr calculator online free, xirr calculator for sip, xirr calculator mutual funds, how to calculate xirr, xirr formula, xirr vs cagr"
   schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Tools", url: "https://arthavi.com/tools/xirr-calculator/" },
-      { name: "XIRR Calculator", url: "https://arthavi.com/tools/xirr-calculator/" }
-    ]
-  }}
+  breadcrumb={{ items: breadcrumbs }}
 >
 
-<main class="container">
-  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+<main class="container" style="padding-top: calc(var(--header-height) + 1.5rem);">
+  <Breadcrumbs items={breadcrumbs} />
+  <section class="page-header fade-in" style="text-align: center; padding: 2rem 0 1.5rem;">
     <h1>Free XIRR Calculator for Mutual Funds & SIPs</h1>
   </section>
 
@@ -163,21 +166,7 @@ const schema = JSON.stringify({
       <p>For equity mutual funds, 12–15% XIRR over 5+ years is considered good. Large-cap funds typically return 10–13%, mid-cap 13–18%.</p>
     </section>
 
-    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
-      <h3 style="font-size: 1rem; margin-bottom: 1rem;">More free tools</h3>
-      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
-        <li><a href="/tools/mutual-fund-overlap/">Mutual Fund Overlap Checker</a></li>
-        <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Tax Calculator</a></li>
-        <li><a href="/cagr-calculator/">CAGR Calculator</a></li>
-        <li><a href="/calculators/">All Calculators</a></li>
-      </ul>
-      <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Related guides</h3>
-      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-        <li><a href="/guides/how-to-track-mutual-funds-and-stocks-in-one-place/">Track MF + Stocks Together</a></li>
-        <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
-      </ul>
-    </nav>
+    <RelatedContent hub="analytics" currentUrl="/tools/xirr-calculator/" />
   </article>
 </main>
 

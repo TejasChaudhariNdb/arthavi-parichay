@@ -1,0 +1,414 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedContent from '../components/RelatedContent.astro';
+
+const seo = {
+  title: "Portfolio Analytics India: XIRR, Overlap & Allocation Tracker | Arthavi",
+  description: "Institutional-grade portfolio analytics for Indian investors. Auto-calculate multi-folio XIRR, mutual fund overlap percentage, asset allocation drift, and capital gains tax.",
+  canonical: "https://arthavi.com/portfolio-analytics-india/",
+  datePublished: "2025-02-20",
+  dateModified: "2026-03-30"
+};
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Portfolio Analytics India", url: "https://arthavi.com/portfolio-analytics-india/" }
+];
+
+const faqs = [
+  {
+    question: "Why does my broker app show a different return from my true XIRR?",
+    answer: "Many broker applications display simplistic Point-to-Point CAGR or Absolute Return. If you invest via monthly SIPs or make intermittent top-ups, Point-to-Point return drastically miscalculates your performance. XIRR computes the exact internal rate of return for every rupee in and out."
+  },
+  {
+    question: "What is an acceptable mutual fund overlap percentage?",
+    answer: "A healthy mutual fund portfolio generally maintains under 25% overlap between equity schemes. If two funds have more than 40-50% overlap, you are essentially paying two separate management expense ratios for the exact same underlying companies (such as HDFC Bank, ICICI Bank, or Infosys)."
+  },
+  {
+    question: "How does asset allocation rebalancing work in Arthavi?",
+    answer: "Arthavi categorizes your direct stocks, equity mutual funds, debt funds, PPF, EPF, and Sovereign Gold Bonds (SGBs). When a strong equity bull market pushes your equity weight beyond your target threshold (e.g. from 70% to 82%), Arthavi highlights the precise rebalancing drift."
+  },
+  {
+    question: "Does Arthavi calculate capital gains tax under the new Budget rules?",
+    answer: "Yes. Arthavi applies the updated Indian capital gains tax rates: Long-Term Capital Gains (LTCG) on listed equity and equity mutual funds at 12.5% for gains exceeding the ₹1.25 Lakh annual exemption, and Short-Term Capital Gains (STCG) at 20%."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${seo.canonical}#webpage`,
+      "url": seo.canonical,
+      "name": seo.title,
+      "description": seo.description,
+      "inLanguage": "en-IN",
+      "datePublished": seo.datePublished,
+      "dateModified": seo.dateModified
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${seo.canonical}#faq`,
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    }
+  ]
+});
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  keywords="portfolio analytics india, mutual fund xirr calculator, portfolio overlap tool, asset allocation tracker india, ltcg tax calculation mutual funds, portfolio health score"
+  schema={schema}
+  breadcrumb={{ items: breadcrumbs }}
+>
+  <main class="pillar-container">
+    <div class="container-inner">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="pillar-header">
+        <div class="pillar-badge">Pillar Hub &bull; Analytics & Quantitative Math</div>
+        <h1 class="pillar-title">Advanced Portfolio Analytics for Indian Investors</h1>
+        <p class="pillar-subtitle">
+          Go beyond basic profit/loss numbers. Discover your true cash-flow XIRR, unmask redundant mutual fund overlap, rebalance asset allocation drift, and optimize capital gains taxation.
+        </p>
+        <div class="hero-actions">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Analyze My Portfolio Free</a>
+          <a href="/tools/mutual-fund-overlap/" class="btn btn-secondary">Check Fund Overlap</a>
+        </div>
+      </header>
+
+      <section class="quick-stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">XIRR</div>
+          <div class="stat-label">Institutional Cash Flow Math</div>
+          <p class="stat-sub">Accounts for irregular SIP dates & dividends</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Stock-Level</div>
+          <div class="stat-label">True Overlap Detection</div>
+          <p class="stat-sub">Deconstructs 1,000+ mutual fund holdings</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">12.5%</div>
+          <div class="stat-label">Budget 2024–26 Tax Engine</div>
+          <p class="stat-sub">LTCG & STCG tax liability tracking</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">AI-Powered</div>
+          <div class="stat-label">Natural Language Chat</div>
+          <p class="stat-sub">Ask questions about sector exposures</p>
+        </div>
+      </section>
+
+      <article class="pillar-content prose">
+        <h2>Why Profit/Loss Percentage is Deceiving</h2>
+        <p>
+          Most retail brokerage applications show simple numbers: <em>"Invested: ₹10,00,000 | Current: ₹13,50,000 (+35.0%)"</em>.
+        </p>
+        <p>
+          While this absolute return looks satisfying, it tells you nothing about financial efficiency:
+        </p>
+        <ul>
+          <li>Did that return take 2 years or 7 years to accumulate?</li>
+          <li>How did ₹15,000 monthly SIP installments deploy during market crashes versus peaks?</li>
+          <li>Did your active mutual funds generate positive <strong>Alpha</strong> over the low-cost Nifty 50 Total Return Index (TRI), or did you pay 1.5% in distributor fees for index-lagging returns?</li>
+        </ul>
+        <p>
+          Without institutional metrics like <strong>XIRR (Extended Internal Rate of Return)</strong> and <strong>benchmark alpha</strong>, it is impossible to know whether your investment strategy is beating fixed deposits and inflation after taxes.
+        </p>
+
+        <h2>The Core Pillars of Portfolio Analytics</h2>
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <div class="analytics-icon">📊</div>
+            <h3>1. Cash-Flow XIRR & Benchmark Alpha</h3>
+            <p>Calculates the exact annualized return of every SIP inflow, redemption, and dividend payout. Benchmarks your net performance against Nifty 50 TRI, Nifty Midcap 150, and Nifty Smallcap 250.</p>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-icon">🔀</div>
+            <h3>2. Stock-Level Portfolio Overlap</h3>
+            <p>If you hold a Large Cap fund, a Flexi Cap fund, and an ELSS tax saver, you might own HDFC Bank and Reliance in all three. Arthavi weighs your actual rupee exposure to avoid paying 3x AMC fees for duplicated stocks.</p>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-icon">⚖️</div>
+            <h3>3. Dynamic Asset Allocation Drift</h3>
+            <p>Visualizes your true equity, debt, gold, and cash exposure across all brokers and bank accounts. Alerts you when asset class percentages drift away from your target risk profile.</p>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-icon">📑</div>
+            <h3>4. Tax Liability & Capital Gains Engine</h3>
+            <p>Updated for Budget 2024–2026 tax reforms: applies 12.5% Long-Term Capital Gains (with the ₹1.25 Lakh exemption threshold) and 20% Short-Term Capital Gains on equity instruments.</p>
+          </div>
+        </div>
+
+        <h2>How Arthavi Overlap Engine Works</h2>
+        <p>
+          Mutual fund overlap calculation requires decomposing portfolio constituent weights:
+        </p>
+        <div class="code-math-box">
+          <code>
+            Overlap % = &sum; min(Weight in Fund A, Weight in Fund B) for each common stock
+          </code>
+        </div>
+        <p>
+          If Fund A holds 9% in ICICI Bank and Fund B holds 6% in ICICI Bank, the overlapping portion for that stock is 6%. Summing this across all 60+ underlying shares gives the true portfolio duplication score. High overlap (&gt;35%) means you are unnecessarily complicating your portfolio without diversification benefits.
+        </p>
+
+        <h2>Analytics Tool Matrix</h2>
+        <div class="table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Analytics Metric</th>
+                <th>Traditional Broker App</th>
+                <th>Generic Spreadsheet</th>
+                <th>Arthavi Analytics</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Multi-Folio XIRR</strong></td>
+                <td class="text-neutral">Single broker only</td>
+                <td class="text-negative">Breaks on missing dates</td>
+                <td class="text-positive">✓ Auto-calculated across all AMCs</td>
+              </tr>
+              <tr>
+                <td><strong>Underlying Stock Exposure</strong></td>
+                <td class="text-negative">✗ Only displays scheme names</td>
+                <td class="text-negative">✗ Not possible manually</td>
+                <td class="text-positive">✓ Full stock deconstruction</td>
+              </tr>
+              <tr>
+                <td><strong>LTCG Exemption Tracker</strong></td>
+                <td class="text-negative">✗ No unified tax view</td>
+                <td class="text-neutral">Requires manual formula updates</td>
+                <td class="text-positive">✓ ₹1.25L exemption threshold computed</td>
+              </tr>
+              <tr>
+                <td><strong>AI Natural Language Chat</strong></td>
+                <td class="text-negative">✗ No</td>
+                <td class="text-negative">✗ No</td>
+                <td class="text-positive">✓ Query portfolio risks in plain English</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          {faqs.map(faq => (
+            <div class="faq-item">
+              <h3 class="faq-question">{faq.question}</h3>
+              <p class="faq-answer">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <RelatedContent
+        hub="analytics"
+        currentUrl="/portfolio-analytics-india/"
+        customTitle="Explore Analytics Tools & Deep Dives"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .pillar-container {
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 5rem;
+  }
+  .container-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .pillar-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .pillar-badge {
+    display: inline-block;
+    background: rgba(0, 208, 156, 0.12);
+    border: 1px solid rgba(0, 208, 156, 0.3);
+    color: var(--accent-primary, #00D09C);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .pillar-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-heading, #fff);
+    margin: 0 0 1.25rem;
+  }
+  .pillar-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted, #94a3b8);
+    max-width: 760px;
+    margin: 0 auto 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 208, 156, 0.3);
+  }
+  .stat-val {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--accent-primary, #00D09C);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-heading, #fff);
+    margin-bottom: 0.25rem;
+  }
+  .stat-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted, #94a3b8);
+    margin: 0;
+  }
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+  .analytics-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .analytics-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .analytics-card h3 {
+    font-size: 1.15rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+  }
+  .analytics-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .code-math-box {
+    background: #0f172a;
+    border: 1px solid rgba(0, 208, 156, 0.3);
+    padding: 1.25rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    color: var(--accent-primary, #00D09C);
+    font-family: monospace;
+    font-size: 1rem;
+    overflow-x: auto;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 2.5rem 0;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .comparison-table th {
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+    color: #fff;
+  }
+  .text-positive {
+    color: var(--accent-primary, #00D09C);
+    font-weight: 600;
+  }
+  .text-neutral {
+    color: #cbd5e1;
+  }
+  .text-negative {
+    color: #f87171;
+  }
+  .faq-accordion {
+    margin-top: 2rem;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .faq-question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.75rem;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .pillar-title {
+      font-size: 2.1rem;
+    }
+    .pillar-subtitle {
+      font-size: 1.05rem;
+    }
+  }
+</style>

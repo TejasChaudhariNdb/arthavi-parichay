@@ -1,0 +1,398 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedContent from '../components/RelatedContent.astro';
+
+const seo = {
+  title: "CAS Statement Portfolio Tracker India | CAMS & KFintech Import | Arthavi",
+  description: "Track your complete mutual fund and equity portfolio using official CAS statements from CAMS, KFintech, and NSDL. Zero broker passwords, zero inbox scraping, 100% private.",
+  canonical: "https://arthavi.com/cas-statement-portfolio-tracker/",
+  datePublished: "2025-02-10",
+  dateModified: "2026-03-30"
+};
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "CAS Statement Portfolio Tracker", url: "https://arthavi.com/cas-statement-portfolio-tracker/" }
+];
+
+const faqs = [
+  {
+    question: "What is a CAS (Consolidated Account Statement)?",
+    answer: "A CAS is an official, SEBI-regulated consolidated statement showing all financial transactions and holdings of an investor across all mutual funds (via RTAs like CAMS and KFintech) and equity shares (via depositories like NSDL and CDSL) linked to a single PAN."
+  },
+  {
+    question: "Why is importing CAS safer than connecting broker login credentials?",
+    answer: "Connecting your broker requires sharing user credentials, API keys, or TOTP session tokens with third-party servers. If that company suffers a data breach, your trading account is compromised. CAS statements are read-only snapshot documents. They cannot execute trades, withdraw funds, or access your bank accounts."
+  },
+  {
+    question: "How do I download a free CAS statement from CAMS or KFintech?",
+    answer: "Visit the CAMS online portal or KFintech Mailback service. Select 'Consolidated Account Statement - CAMS+KFintech', enter your registered email address, specify your PAN, and choose a password. A password-protected PDF or Excel statement is emailed to you within 5 minutes free of charge."
+  },
+  {
+    question: "What is the password format for CAMS and KFintech CAS PDFs?",
+    answer: "For CAMS/KFintech mailback statements, the password is the custom alphanumeric password you entered when requesting the statement on the portal. For NSDL/CDSL eCAS statements, the password is often your PAN in UPPERCASE or PAN followed by your Date of Birth (DDMMYYYY)."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${seo.canonical}#webpage`,
+      "url": seo.canonical,
+      "name": seo.title,
+      "description": seo.description,
+      "inLanguage": "en-IN",
+      "datePublished": seo.datePublished,
+      "dateModified": seo.dateModified
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${seo.canonical}#faq`,
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    }
+  ]
+});
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  keywords="cas statement portfolio tracker, cams cas tracker, kfintech cas import, nsdl ecas import, track portfolio without broker password, consolidated account statement mutual funds"
+  schema={schema}
+  breadcrumb={{ items: breadcrumbs }}
+>
+  <main class="pillar-container">
+    <div class="container-inner">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="pillar-header">
+        <div class="pillar-badge">Pillar Hub &bull; Statements & Verification</div>
+        <h1 class="pillar-title">CAS Statement Portfolio Tracker for India</h1>
+        <p class="pillar-subtitle">
+          The sovereign, private way to audit and track your investments. Import read-only CAMS, KFintech, and NSDL statements with zero demat logins, zero inbox parsing, and 100% data integrity.
+        </p>
+        <div class="hero-actions">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Import Your CAS Free</a>
+          <a href="/guides/cas-statement-explained/" class="btn btn-secondary">Read CAS Guide</a>
+        </div>
+      </header>
+
+      <section class="quick-stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">3 Types</div>
+          <div class="stat-label">CAS Formats Handled</div>
+          <p class="stat-sub">CAMS+KFintech, CDSL & NSDL eCAS</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Read-Only</div>
+          <div class="stat-label">Non-Transactional Security</div>
+          <p class="stat-sub">Zero trade execution or withdrawal risks</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">0 Emails</div>
+          <div class="stat-label">No Gmail OAuth Permissions</div>
+          <p class="stat-sub">Your inbox OTPs remain unread</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">SEBI-Recognized Source</div>
+          <p class="stat-sub">Official registrar transaction data</p>
+        </div>
+      </section>
+
+      <article class="pillar-content prose">
+        <h2>Why the Consolidated Account Statement is the Gold Standard</h2>
+        <p>
+          In the Indian capital markets, tracking your wealth has historically forced you into an uncomfortable trade-off. To see all your holdings in one dashboard, modern apps ask you to:
+        </p>
+        <ul>
+          <li><strong>Hand over your stockbroker passwords:</strong> Connecting Zerodha, Groww, AngelOne, or Upstox through unofficial reverse-engineered APIs.</li>
+          <li><strong>Grant full read access to your Gmail/Outlook inbox:</strong> Giving software permission to parse all your financial emails, OTPs, and personal communications.</li>
+        </ul>
+        <p>
+          Both methods present severe attack vectors. If an aggregator app's cloud server is compromised, credentials and sensitive emails are leaked.
+        </p>
+        <p>
+          The <strong>Consolidated Account Statement (CAS)</strong> was mandated by SEBI specifically to eliminate this risk. It is an official, digitally signed summary generated directly by mutual fund Registrars and Transfer Agents (RTAs) and depositories.
+        </p>
+
+        <h2>The Three Types of CAS Statements in India</h2>
+        <div class="cas-types-grid">
+          <div class="cas-card">
+            <h3>1. CAMS + KFintech Combined CAS</h3>
+            <span class="cas-tag">Mutual Funds Only</span>
+            <p>Generated via CAMS Mailback or KFintech Mailback. Covers all 44+ Asset Management Companies in India across both Direct and Regular plans. Contains exact transaction histories, dates, units, stamp duties, and NAVs.</p>
+          </div>
+          <div class="cas-card">
+            <h3>2. NSDL / CDSL Depository CAS</h3>
+            <span class="cas-tag">Stocks + Demat MFs + Bonds</span>
+            <p>Sent monthly by depositories if you executed demat transactions. Consolidates NSE/BSE listed equities, REITs, InvITs, sovereign gold bonds (SGBs), and demat mutual fund units.</p>
+          </div>
+          <div class="cas-card">
+            <h3>3. MFCentral CAS</h3>
+            <span class="cas-tag">Joint CAMS & KFintech Platform</span>
+            <p>Developed jointly by CAMS and KFintech under SEBI directives. Provides an instant, unified PDF or Excel summary of all non-demat mutual fund holdings.</p>
+          </div>
+        </div>
+
+        <h2>How Arthavi Imports and Analyzes CAS</h2>
+        <ol>
+          <li><strong>Download your statement:</strong> Request your monthly eCAS from CAMS, KFintech, or NSDL to your own email address.</li>
+          <li><strong>Upload the file to Arthavi:</strong> Drag and drop your password-protected PDF or Excel into Arthavi. The decryption password is processed locally in your browser memory.</li>
+          <li><strong>Instant Portfolio Reconciliation:</strong> Arthavi extracts historical cash flows, calculates XIRR across individual folios, flags asset overlaps, and computes updated capital gains.</li>
+        </ol>
+
+        <h2>Statement Import vs Gmail Scraping vs Broker API</h2>
+        <div class="table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Security Parameter</th>
+                <th>Arthavi CAS Import</th>
+                <th>Gmail Inbox Scraping (INDmoney/Kuvera)</th>
+                <th>Broker Logins (Zerodha/Groww)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Inbox Privacy</strong></td>
+                <td class="text-positive">✓ Zero email access needed</td>
+                <td class="text-negative">✗ Reads financial emails & receipts</td>
+                <td class="text-positive">✓ No email access</td>
+              </tr>
+              <tr>
+                <td><strong>Account Takeover Risk</strong></td>
+                <td class="text-positive">✓ Zero (read-only file)</td>
+                <td class="text-neutral">Medium (sensitive data in email)</td>
+                <td class="text-negative">✗ High (broker session tokens shared)</td>
+              </tr>
+              <tr>
+                <td><strong>Cross-Broker Completeness</strong></td>
+                <td class="text-positive">✓ 100% of Indian AMCs & folios</td>
+                <td class="text-neutral">Fails if emails are moved/deleted</td>
+                <td class="text-neutral">Requires logging into 5+ brokers</td>
+              </tr>
+              <tr>
+                <td><strong>Spam & Telemarketing</strong></td>
+                <td class="text-positive">✓ Zero sales calls or loan offers</td>
+                <td class="text-negative">✗ Inboxes scanned for loan eligibility</td>
+                <td class="text-neutral">Brokers upsell F&O and credit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          {faqs.map(faq => (
+            <div class="faq-item">
+              <h3 class="faq-question">{faq.question}</h3>
+              <p class="faq-answer">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <RelatedContent
+        hub="cas"
+        currentUrl="/cas-statement-portfolio-tracker/"
+        customTitle="Explore CAS Guides & Privacy Resources"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .pillar-container {
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 5rem;
+  }
+  .container-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .pillar-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .pillar-badge {
+    display: inline-block;
+    background: rgba(0, 208, 156, 0.12);
+    border: 1px solid rgba(0, 208, 156, 0.3);
+    color: var(--accent-primary, #00D09C);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .pillar-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-heading, #fff);
+    margin: 0 0 1.25rem;
+  }
+  .pillar-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted, #94a3b8);
+    max-width: 760px;
+    margin: 0 auto 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 208, 156, 0.3);
+  }
+  .stat-val {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-primary, #00D09C);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-heading, #fff);
+    margin-bottom: 0.25rem;
+  }
+  .stat-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted, #94a3b8);
+    margin: 0;
+  }
+  .cas-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+  .cas-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .cas-card h3 {
+    font-size: 1.15rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+  }
+  .cas-tag {
+    display: inline-block;
+    background: rgba(0, 208, 156, 0.15);
+    color: #00D09C;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .cas-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 2.5rem 0;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .comparison-table th {
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+    color: #fff;
+  }
+  .text-positive {
+    color: var(--accent-primary, #00D09C);
+    font-weight: 600;
+  }
+  .text-neutral {
+    color: #cbd5e1;
+  }
+  .text-negative {
+    color: #f87171;
+  }
+  .faq-accordion {
+    margin-top: 2rem;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .faq-question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.75rem;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .pillar-title {
+      font-size: 2.1rem;
+    }
+    .pillar-subtitle {
+      font-size: 1.05rem;
+    }
+  }
+</style>

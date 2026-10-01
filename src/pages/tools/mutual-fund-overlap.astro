@@ -1,10 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 const seo = {
   title: "Free Mutual Fund Overlap Checker — Find Duplicate Holdings | Arthavi",
   description: "Check if your mutual funds hold the same stocks. Free mutual fund overlap tool to identify duplicate holdings, reduce concentration risk, and diversify your portfolio. No login required.",
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Mutual Fund Hub", url: "https://arthavi.com/mutual-fund-portfolio-tracker-india/" },
+  { name: "Mutual Fund Overlap Tool", url: "https://arthavi.com/tools/mutual-fund-overlap/" }
+];
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -52,17 +60,12 @@ const schema = JSON.stringify({
   description={seo.description}
   keywords="mutual fund overlap checker, mutual fund portfolio overlap, duplicate mutual fund holdings, mutual fund overlap tool, mutual fund overlap analysis, portfolio diversification check"
   schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Tools", url: "https://arthavi.com/tools/mutual-fund-overlap/" },
-      { name: "Mutual Fund Overlap", url: "https://arthavi.com/tools/mutual-fund-overlap/" }
-    ]
-  }}
+  breadcrumb={{ items: breadcrumbs }}
 >
 
-<main class="container">
-  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+<main class="container" style="padding-top: calc(var(--header-height) + 1.5rem);">
+  <Breadcrumbs items={breadcrumbs} />
+  <section class="page-header fade-in" style="text-align: center; padding: 2rem 0 1.5rem;">
     <h1>Free Mutual Fund Overlap Checker</h1>
   </section>
 
@@ -158,15 +161,7 @@ const schema = JSON.stringify({
       <p>Below 30% is acceptable. 30–50% needs attention. Above 50% means consolidate into one fund.</p>
     </section>
 
-    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
-      <h3 style="font-size: 1rem; margin-bottom: 1rem;">More free tools</h3>
-      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-        <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
-        <li><a href="/tools/sip-return-calculator/">SIP Return Calculator</a></li>
-        <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Tax Calculator</a></li>
-        <li><a href="/calculators/">All Calculators</a></li>
-      </ul>
-    </nav>
+    <RelatedContent hub="mutual-funds" currentUrl="/tools/mutual-fund-overlap/" />
   </article>
 </main>
 

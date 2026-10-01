@@ -1,0 +1,490 @@
+---
+export type HubKey = 'mutual-funds' | 'cas' | 'analytics' | 'family' | 'privacy';
+
+interface Props {
+  hub: HubKey;
+  currentUrl?: string;
+  customTitle?: string;
+}
+
+const { hub, currentUrl = '', customTitle } = Astro.props;
+
+interface HubData {
+  title: string;
+  hubUrl: string;
+  description: string;
+  tool: {
+    title: string;
+    url: string;
+    description: string;
+    badge: string;
+  };
+  spokes: Array<{
+    title: string;
+    url: string;
+    description: string;
+    tag: string;
+  }>;
+}
+
+const HUB_REGISTRY: Record<HubKey, HubData> = {
+  'mutual-funds': {
+    title: 'Mutual Fund Portfolio Tracking Hub',
+    hubUrl: '/mutual-fund-portfolio-tracker-india/',
+    description: 'Master Indian mutual fund tracking across AMCs, Direct vs Regular plans, and multi-broker portfolios.',
+    tool: {
+      title: 'Mutual Fund Overlap Calculator',
+      url: '/tools/mutual-fund-overlap/',
+      description: 'Check portfolio duplication between your active funds and index schemes with 0 login.',
+      badge: 'Free Interactive Tool'
+    },
+    spokes: [
+      {
+        title: 'How to Track Mutual Funds & Stocks in One Place',
+        url: '/guides/how-to-track-mutual-funds-and-stocks-in-one-place/',
+        description: 'Complete walkthrough to unify Zerodha, Groww, AngelOne & direct AMCs in a single dashboard.',
+        tag: 'Guide'
+      },
+      {
+        title: 'Top 10 Mutual Funds for SIP (2026)',
+        url: '/top-10-mutual-funds-for-sip-2026/',
+        description: 'Curated list of low-cost, consistent large, mid, and flexi-cap funds with rolling returns.',
+        tag: 'Research'
+      },
+      {
+        title: 'Arthavi vs Kuvera Comparison',
+        url: '/alternatives/kuvera/',
+        description: 'Feature-by-feature comparison on CAS import, privacy, and portfolio health metrics.',
+        tag: 'Comparison'
+      },
+      {
+        title: 'SIP Return Calculator (with Inflation)',
+        url: '/tools/sip-return-calculator/',
+        description: 'Calculate real purchasing power of your SIP investments after taxation and inflation.',
+        tag: 'Tool'
+      }
+    ]
+  },
+  'cas': {
+    title: 'CAS & Account Statement Hub',
+    hubUrl: '/cas-statement-portfolio-tracker/',
+    description: 'Everything about CAMS, KFintech, and NSDL/CDSL Consolidated Account Statements for Indian investors.',
+    tool: {
+      title: 'Free XIRR Calculator',
+      url: '/tools/xirr-calculator/',
+      description: 'Calculate true annualized return on irregular SIPs, dividend reinvestments, and partial redemptions.',
+      badge: 'Instant Math'
+    },
+    spokes: [
+      {
+        title: 'CAS Statement Explained: CAMS & KFintech',
+        url: '/guides/cas-statement-explained/',
+        description: 'Decode folios, ISINs, transaction types, stamp duty, and NAV prices in your official CAS.',
+        tag: 'Deep Dive'
+      },
+      {
+        title: 'How to Import CAS from CAMS, KFintech & NSDL',
+        url: '/guides/how-to-import-cas-cams-kfintech-nsdl/',
+        description: 'Step-by-step tutorial with screenshots to request eCAS without sharing broker credentials.',
+        tag: 'Tutorial'
+      },
+      {
+        title: 'Portfolio Tracker Without Broker Login',
+        url: '/portfolio-tracker-without-broker-login/',
+        description: 'Why sharing broker passwords or TOTP tokens is unsafe and how statement imports solve it.',
+        tag: 'Security'
+      },
+      {
+        title: 'Portfolio Tracker Without Gmail Scraping',
+        url: '/portfolio-tracker-without-gmail-access/',
+        description: 'Protect bank OTPs and financial receipts from third-party email parsers.',
+        tag: 'Privacy'
+      }
+    ]
+  },
+  'analytics': {
+    title: 'Portfolio Analytics & XIRR Hub',
+    hubUrl: '/portfolio-analytics-india/',
+    description: 'Advanced portfolio math: XIRR, rolling returns, asset allocation rebalancing, and tax liability calculation.',
+    tool: {
+      title: 'LTCG & STCG Tax Calculator',
+      url: '/tools/ltcg-stcg-calculator/',
+      description: 'Updated for Budget 2024–2026: 12.5% LTCG with ₹1.25L exemption and 20% STCG rules.',
+      badge: 'Tax Engine'
+    },
+    spokes: [
+      {
+        title: 'AI Portfolio Analyzer & Market Research',
+        url: '/ai-portfolio-analyzer-market-research/',
+        description: 'How AI models benchmark asset concentration, sector tilts, and expense drag without human bias.',
+        tag: 'AI Insights'
+      },
+      {
+        title: 'Ask AI Investment Assistant',
+        url: '/ask-ai-investment-assistant/',
+        description: 'Chat with your portfolio to spot duplicate stocks across your mutual funds instantly.',
+        tag: 'Feature'
+      },
+      {
+        title: 'Free Mutual Fund Overlap Tool',
+        url: '/tools/mutual-fund-overlap/',
+        description: 'Calculate exact stock-level overlap percentage between any two mutual funds in India.',
+        tag: 'Tool'
+      },
+      {
+        title: 'CAGR vs XIRR Calculator',
+        url: '/cagr-calculator/',
+        description: 'When to use Compound Annual Growth Rate vs Extended Internal Rate of Return for SIPs.',
+        tag: 'Finance Math'
+      }
+    ]
+  },
+  'family': {
+    title: 'Family Wealth Management Hub',
+    hubUrl: '/family-portfolio-tracker/',
+    description: 'Consolidate multiple PANs, HUFs, spouse, parents, and minor accounts into one unified family dashboard.',
+    tool: {
+      title: 'Retirement Corpus Calculator',
+      url: '/retirement-calculator/',
+      description: 'Plan family financial independence taking into account healthcare inflation and lifestyle expenses.',
+      badge: 'Family Planning'
+    },
+    spokes: [
+      {
+        title: 'Net Worth Tracker India',
+        url: '/net-worth-tracker-india/',
+        description: 'Track equity, mutual funds, EPF, PPF, gold, and real estate in a unified net worth statement.',
+        tag: 'Wealth'
+      },
+      {
+        title: 'Financial Planning for Indian Families',
+        url: '/financial-planning/',
+        description: 'Structuring emergency funds, insurance coverage, and goal-based investing across family members.',
+        tag: 'Strategy'
+      },
+      {
+        title: 'PPF Interest & Maturity Calculator',
+        url: '/ppf-calculator/',
+        description: 'Model 15-year tax-free compounding under Section 80C for family safety nets.',
+        tag: 'Calculator'
+      },
+      {
+        title: 'NPS Pension & Annuity Calculator',
+        url: '/nps-calculator/',
+        description: 'Calculate tier-1 tax deductions, pension corpus, and monthly annuity payouts.',
+        tag: 'Calculator'
+      }
+    ]
+  },
+  'privacy': {
+    title: 'Privacy & Financial Data Security Hub',
+    hubUrl: '/private-portfolio-tracker/',
+    description: 'Zero broker credentials, client-side encryption, zero email parsing, and zero ad-targeting for investors.',
+    tool: {
+      title: 'Direct CAS Portfolio Analyzer',
+      url: '/tools/xirr-calculator/',
+      description: 'Audit your investments without giving third-party apps read access to your Gmail inbox.',
+      badge: 'Zero Broker Login'
+    },
+    spokes: [
+      {
+        title: 'Arthavi Privacy Architecture',
+        url: '/privacy-model/',
+        description: 'How our zero-knowledge data design ensures your financial statements never get sold to loan telemarketers.',
+        tag: 'Architecture'
+      },
+      {
+        title: 'Enterprise-Grade Security Standards',
+        url: '/security/',
+        description: 'AES-256 encryption at rest, TLS 1.3 in transit, and continuous independent vulnerability assessments.',
+        tag: 'Security'
+      },
+      {
+        title: 'Tracker Without Broker Login',
+        url: '/portfolio-tracker-without-broker-login/',
+        description: 'Eliminate account takeover risk by keeping your Zerodha, Groww, and Upstox passwords private.',
+        tag: 'Protection'
+      },
+      {
+        title: 'Tracker Without Gmail Sync',
+        url: '/portfolio-tracker-without-gmail-access/',
+        description: 'Why you should never grant third-party apps read access to your personal email inbox.',
+        tag: 'Data Safety'
+      }
+    ]
+  }
+};
+
+const hubData = HUB_REGISTRY[hub] || HUB_REGISTRY['mutual-funds'];
+// Filter out current URL so we don't link to the page we are on
+const normalize = (u: string) => u.replace(/\/$/, '');
+const currentNormalized = normalize(currentUrl);
+const filteredSpokes = hubData.spokes.filter(s => normalize(s.url) !== currentNormalized);
+const isParentHub = normalize(hubData.hubUrl) === currentNormalized;
+---
+
+<section class="related-content-section" aria-labelledby="related-resources-heading">
+  <div class="related-container">
+    <div class="related-header">
+      <div class="hub-pill">
+        <span class="hub-dot"></span>
+        <span>{hubData.title}</span>
+      </div>
+      <h2 id="related-resources-heading" class="related-title">
+        {customTitle || (isParentHub ? 'Essential Spokes & Deep Dives in This Cluster' : `More from the ${hubData.title}`)}
+      </h2>
+      <p class="related-desc">{hubData.description}</p>
+    </div>
+
+    <!-- Featured Tool Card -->
+    {normalize(hubData.tool.url) !== currentNormalized && (
+      <div class="tool-highlight-card">
+        <div class="tool-content">
+          <span class="tool-badge">{hubData.tool.badge}</span>
+          <h3 class="tool-title">{hubData.tool.title}</h3>
+          <p class="tool-desc">{hubData.tool.description}</p>
+        </div>
+        <a href={hubData.tool.url} class="tool-cta">
+          Launch Tool
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    )}
+
+    <!-- Spokes Grid -->
+    <div class="spokes-grid">
+      {filteredSpokes.map((spoke) => (
+        <a href={spoke.url} class="spoke-card">
+          <div class="spoke-header">
+            <span class="spoke-tag">{spoke.tag}</span>
+            <svg class="spoke-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </div>
+          <h4 class="spoke-title">{spoke.title}</h4>
+          <p class="spoke-desc">{spoke.description}</p>
+        </a>
+      ))}
+    </div>
+
+    <!-- Parent Hub Link if on a spoke page -->
+    {!isParentHub && (
+      <div class="hub-parent-footer">
+        <span>Looking for the comprehensive overview?</span>
+        <a href={hubData.hubUrl} class="hub-parent-link">
+          Explore the Main {hubData.title} &rarr;
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .related-content-section {
+    margin: 4rem 0 2rem;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(180deg, rgba(17, 24, 39, 0.4) 0%, rgba(15, 23, 42, 0.7) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .related-content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: radial-gradient(circle, rgba(0, 208, 156, 0.4) 0%, transparent 80%);
+  }
+  .related-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .related-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .hub-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    background: rgba(0, 208, 156, 0.1);
+    border: 1px solid rgba(0, 208, 156, 0.25);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-primary, #00D09C);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+  .hub-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-primary, #00D09C);
+    box-shadow: 0 0 8px rgba(0, 208, 156, 0.8);
+  }
+  .related-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text-heading, #f1f5f9);
+    margin: 0 0 0.5rem;
+  }
+  .related-desc {
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .tool-highlight-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 208, 156, 0.08) 0%, rgba(16, 185, 129, 0.03) 100%);
+    border: 1px solid rgba(0, 208, 156, 0.3);
+    padding: 1.5rem 1.75rem;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+  }
+  .tool-badge {
+    display: inline-block;
+    background: rgba(0, 208, 156, 0.2);
+    color: #00D09C;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    margin-bottom: 0.4rem;
+  }
+  .tool-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.25rem;
+  }
+  .tool-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted, #94a3b8);
+    margin: 0;
+  }
+  .tool-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--accent-primary, #00D09C);
+    color: #0B0E14;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .tool-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 208, 156, 0.4);
+  }
+  .spokes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .spoke-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .spoke-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 208, 156, 0.35);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .spoke-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+  }
+  .spoke-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+  }
+  .spoke-arrow {
+    color: #64748b;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .spoke-card:hover .spoke-arrow {
+    color: var(--accent-primary, #00D09C);
+    transform: translate(2px, -2px);
+  }
+  .spoke-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-heading, #f1f5f9);
+    margin: 0 0 0.4rem;
+    line-height: 1.35;
+  }
+  .spoke-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted, #94a3b8);
+    margin: 0;
+    line-height: 1.45;
+    flex-grow: 1;
+  }
+  .hub-parent-footer {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted, #94a3b8);
+  }
+  .hub-parent-link {
+    color: var(--accent-primary, #00D09C);
+    font-weight: 600;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+  }
+  .hub-parent-link:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 640px) {
+    .tool-highlight-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .tool-cta {
+      width: 100%;
+      justify-content: center;
+    }
+    .spokes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

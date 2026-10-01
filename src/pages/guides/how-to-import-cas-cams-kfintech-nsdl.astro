@@ -1,10 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 const seo = {
   title: "How to Import CAS from CAMS, KFintech & NSDL (Step-by-Step) | Arthavi",
   description: "Step-by-step guide to downloading and importing your CAS (Consolidated Account Statement) from CAMS, KFintech, and NSDL into Arthavi. Import your entire mutual fund portfolio in 30 seconds.",
 };
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "CAS Statement Hub", url: "https://arthavi.com/cas-statement-portfolio-tracker/" },
+  { name: "Import CAS Guide", url: "https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/" }
+];
 
 const schema = JSON.stringify({
   "@context": "https://schema.org",
@@ -55,17 +63,12 @@ const schema = JSON.stringify({
   description={seo.description}
   keywords="how to import cas, import cas cams, import cas kfintech, import cas nsdl, download cas statement, cas import portfolio tracker, how to get cas pdf, cams cas download"
   schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Guides", url: "https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/" },
-      { name: "Import CAS", url: "https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/" }
-    ]
-  }}
+  breadcrumb={{ items: breadcrumbs }}
 >
 
-<main class="container">
-  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+<main class="container" style="padding-top: calc(var(--header-height) + 1.5rem);">
+  <Breadcrumbs items={breadcrumbs} />
+  <section class="page-header fade-in" style="text-align: center; padding: 2rem 0 1.5rem;">
     <h1>How to Import CAS from CAMS, KFintech & NSDL</h1>
   </section>
 
@@ -139,19 +142,7 @@ const schema = JSON.stringify({
       <p>Yes. Password decryption happens in your browser — PAN never reaches our servers.</p>
     </section>
 
-    <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
-      <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related guides</h3>
-      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-        <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
-        <li><a href="/guides/how-to-track-mutual-funds-and-stocks-in-one-place/">Track MF & Stocks in One Place</a></li>
-      </ul>
-      <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Alternatives</h3>
-      <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-        <li><a href="/alternatives/mprofit/">MProfit Alternative</a></li>
-        <li><a href="/alternatives/indmoney/">INDmoney Alternative</a></li>
-        <li><a href="/alternatives/kuvera/">Kuvera Alternative</a></li>
-      </ul>
-    </nav>
+    <RelatedContent hub="cas" currentUrl="/guides/how-to-import-cas-cams-kfintech-nsdl/" />
   </article>
 </main>
 

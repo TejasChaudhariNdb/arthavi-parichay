@@ -1,0 +1,392 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedContent from '../components/RelatedContent.astro';
+
+const seo = {
+  title: "Family Portfolio Tracker India | Multi-PAN & HUF Wealth Tracking | Arthavi",
+  description: "Track your family's entire net worth across multiple PANs, HUFs, spouse, parents, and minor accounts in one unified dashboard. Zero broker credential sharing required.",
+  canonical: "https://arthavi.com/family-portfolio-tracker/",
+  datePublished: "2025-02-25",
+  dateModified: "2026-03-30"
+};
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Family Portfolio Tracker", url: "https://arthavi.com/family-portfolio-tracker/" }
+];
+
+const faqs = [
+  {
+    question: "Why should an Indian family track wealth across multiple PANs?",
+    answer: "In India, each adult family member and Hindu Undivided Family (HUF) is a separate legal tax entity with their own basic tax exemption slabs and ₹1.25 Lakh annual Long-Term Capital Gains (LTCG) exemption. Distributing investments across spouse, parents, and HUF saves substantial tax, but creates fragmented portfolio tracking."
+  },
+  {
+    question: "Do I need to ask for my spouse or parents' broker login passwords?",
+    answer: "No. With Arthavi, you never share broker credentials or ask for OTPs during live trading hours. Simply upload each family member's periodic CAS statement from CAMS, KFintech, or NSDL. Each portfolio is assigned to a designated family member profile under one master account."
+  },
+  {
+    question: "Can I view both the consolidated family net worth and individual PAN returns?",
+    answer: "Yes. Arthavi allows you to toggle instantly between the Consolidated Family Net Worth view (total equity, debt, gold, and real estate) and specific member views (e.g. Self, Spouse, Mother, Father, HUF) with independent XIRR calculations."
+  },
+  {
+    question: "Does Arthavi help with nominee and emergency readiness?",
+    answer: "Yes. Indian banks and AMCs hold over ₹1.5 Lakh Crores in unclaimed deposits and mutual fund folios because family members were unaware of investments. Arthavi acts as a central family asset register so your nominees have full visibility into folios and demat account numbers."
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${seo.canonical}#webpage`,
+      "url": seo.canonical,
+      "name": seo.title,
+      "description": seo.description,
+      "inLanguage": "en-IN",
+      "datePublished": seo.datePublished,
+      "dateModified": seo.dateModified
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${seo.canonical}#faq`,
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    }
+  ]
+});
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  canonical={seo.canonical}
+  keywords="family portfolio tracker india, multi pan portfolio tracker, huf portfolio tracker, track spouse mutual funds, family net worth tracker, consolidate family investments"
+  schema={schema}
+  breadcrumb={{ items: breadcrumbs }}
+>
+  <main class="pillar-container">
+    <div class="container-inner">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <header class="pillar-header">
+        <div class="pillar-badge">Pillar Hub &bull; Multi-Entity Wealth Management</div>
+        <h1 class="pillar-title">Family Portfolio Tracker for Indian Households</h1>
+        <p class="pillar-subtitle">
+          Unify multiple PANs, HUF folios, spouse, parent, and minor holdings in one master family dashboard. Full net worth visibility with zero password sharing or security risks.
+        </p>
+        <div class="hero-actions">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Track Family Wealth Free</a>
+          <a href="/net-worth-tracker-india/" class="btn btn-secondary">Explore Net Worth Tool</a>
+        </div>
+      </header>
+
+      <section class="quick-stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">Multi-PAN</div>
+          <div class="stat-label">Independent Tax Entities</div>
+          <p class="stat-sub">Self, Spouse, Parents, Children & HUF</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">0</div>
+          <div class="stat-label">Shared Passwords</div>
+          <p class="stat-sub">No borrowing OTPs during market hours</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">Dual-View</div>
+          <div class="stat-label">Consolidated & Individual</div>
+          <p class="stat-sub">Toggle from total wealth to single PAN</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">Nominee Transparency</div>
+          <p class="stat-sub">Emergency asset register for loved ones</p>
+        </div>
+      </section>
+
+      <article class="pillar-content prose">
+        <h2>Why Indian Family Portfolios Are Inherently Fragmented</h2>
+        <p>
+          In India, smart financial planning almost always involves investing across multiple entities. Indian investors strategically allocate capital across:
+        </p>
+        <ul>
+          <li><strong>Self & Spouse PANs:</strong> To claim independent ₹1.25 Lakh annual tax-free Long-Term Capital Gains (saving ₹31,250 in LTCG tax per year).</li>
+          <li><strong>Hindu Undivided Family (HUF):</strong> Utilizing a separate PAN with its own basic exemption slab and Section 80C deductions.</li>
+          <li><strong>Senior Citizen Parents:</strong> Utilizing Section 80TTB benefits (₹50,000 tax-free interest) and higher tax slabs.</li>
+          <li><strong>Children / Minor Folios:</strong> Setting aside targeted education funds under guardian accounts.</li>
+        </ul>
+        <p>
+          The financial benefit is clear. But managing this structure is chaos: you juggle 4 different broker apps, 6 different login passwords, and have to call your spouse or parents for 2FA OTP codes whenever you need to check portfolio valuations.
+        </p>
+
+        <h2>The Arthavi Solution: Family Wealth Without Credential Sharing</h2>
+        <p>
+          Arthavi provides a clean, secure family hierarchy:
+        </p>
+
+        <div class="family-cards-grid">
+          <div class="family-card">
+            <div class="family-icon">👨‍👩‍👧‍👦</div>
+            <h3>Consolidated Household Net Worth</h3>
+            <p>See your family's aggregate wealth across equity, mutual funds, EPF, PPF, NPS, physical gold, and real estate. Understand household asset allocation at a glance.</p>
+          </div>
+          <div class="family-card">
+            <div class="family-icon">👤</div>
+            <h3>Independent PAN Drilldowns</h3>
+            <p>Click into any family member to see their specific folios, cost basis, unrealized capital gains, and XIRR performance without mixing tax records.</p>
+          </div>
+          <div class="family-card">
+            <div class="family-icon">🔒</div>
+            <h3>Statement-Based Ingestion</h3>
+            <p>Family members don't need to give you their Demat or net banking credentials. Simply upload their periodic CAS PDF once a quarter.</p>
+          </div>
+          <div class="family-card">
+            <div class="family-icon">📂</div>
+            <h3>Zero Unclaimed Wealth Risk</h3>
+            <p>Every year, thousands of crores end up in IEPF because heirs cannot locate folio numbers. Arthavi maintains an organized register of every AMC, folio, and demat account.</p>
+          </div>
+        </div>
+
+        <h2>Comparison: Family Tracking Approaches</h2>
+        <div class="table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Arthavi Family Hub</th>
+                <th>Broker Logins (Zerodha/Groww)</th>
+                <th>Shared Google Sheet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Multi-PAN View</strong></td>
+                <td class="text-positive">✓ Unified dashboard</td>
+                <td class="text-negative">✗ Must logout & login with OTP</td>
+                <td class="text-neutral">Manual maintenance</td>
+              </tr>
+              <tr>
+                <td><strong>HUF Portfolio Support</strong></td>
+                <td class="text-positive">✓ Dedicated HUF profile tag</td>
+                <td class="text-neutral">Requires separate broker account</td>
+                <td class="text-neutral">Manual</td>
+              </tr>
+              <tr>
+                <td><strong>Security & Privacy</strong></td>
+                <td class="text-positive">✓ No passwords shared</td>
+                <td class="text-negative">✗ High risk (sharing trading logins)</td>
+                <td class="text-positive">✓ Safe, but static</td>
+              </tr>
+              <tr>
+                <td><strong>Automated Valuation</strong></td>
+                <td class="text-positive">✓ Daily AMFI NAV & NSE prices</td>
+                <td class="text-positive">✓ Live, but fragmented</td>
+                <td class="text-negative">✗ Formulas frequently break</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          {faqs.map(faq => (
+            <div class="faq-item">
+              <h3 class="faq-question">{faq.question}</h3>
+              <p class="faq-answer">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <RelatedContent
+        hub="family"
+        currentUrl="/family-portfolio-tracker/"
+        customTitle="Explore Family Wealth & Net Worth Tools"
+      />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .pillar-container {
+    padding-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 5rem;
+  }
+  .container-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .pillar-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .pillar-badge {
+    display: inline-block;
+    background: rgba(0, 208, 156, 0.12);
+    border: 1px solid rgba(0, 208, 156, 0.3);
+    color: var(--accent-primary, #00D09C);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .pillar-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-heading, #fff);
+    margin: 0 0 1.25rem;
+  }
+  .pillar-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted, #94a3b8);
+    max-width: 760px;
+    margin: 0 auto 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 208, 156, 0.3);
+  }
+  .stat-val {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--accent-primary, #00D09C);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-heading, #fff);
+    margin-bottom: 0.25rem;
+  }
+  .stat-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted, #94a3b8);
+    margin: 0;
+  }
+  .family-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+  .family-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .family-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .family-card h3 {
+    font-size: 1.15rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+  }
+  .family-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 2.5rem 0;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .comparison-table th, .comparison-table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .comparison-table th {
+    background: rgba(255, 255, 255, 0.04);
+    font-weight: 600;
+    color: #fff;
+  }
+  .text-positive {
+    color: var(--accent-primary, #00D09C);
+    font-weight: 600;
+  }
+  .text-neutral {
+    color: #cbd5e1;
+  }
+  .text-negative {
+    color: #f87171;
+  }
+  .faq-accordion {
+    margin-top: 2rem;
+  }
+  .faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .faq-question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.75rem;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--text-muted, #94a3b8);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .pillar-title {
+      font-size: 2.1rem;
+    }
+    .pillar-subtitle {
+      font-size: 1.05rem;
+    }
+  }
+</style>
