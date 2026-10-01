@@ -12,10 +12,38 @@ const schema = JSON.stringify({
   "@graph": [
     {
       "@type": "WebPage",
+      "@id": "https://arthavi.com/alternatives/kuvera/#webpage",
+      "url": "https://arthavi.com/alternatives/kuvera/",
       "name": seo.title,
       "description": seo.description,
       "dateModified": lastUpdated,
       "publisher": { "@id": "https://arthavi.com/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://arthavi.com/alternatives/kuvera/#itemlist",
+      "name": "Top Independent Kuvera Alternatives for Mutual Funds in India",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Arthavi",
+          "url": "https://arthavi.com",
+          "description": "Independent, privacy-first portfolio analytics platform with automated CAS import and zero broker ownership."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kuvera (Groww)",
+          "url": "https://kuvera.in",
+          "description": "Direct mutual fund platform acquired by discount broker Groww."
+        }
+      ]
+    },
+    {
+      "@type": "Table",
+      "@id": "https://arthavi.com/alternatives/kuvera/#table",
+      "about": "Arthavi vs Kuvera (Groww) Comparison Table"
     },
     {
       "@type": "FAQPage",
@@ -81,7 +109,9 @@ const schema = JSON.stringify({
 
 <main class="container">
   <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
-    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem;">Last updated: {lastUpdated}</p>
+    <p style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.2);">
+      <span>✓</span> Last verified: {lastUpdated} (Independent Platform Audit)
+    </p>
     <h1>Best Kuvera Alternative After the Groww Acquisition (2026)</h1>
   </section>
 

@@ -10,6 +10,22 @@ const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebApplication",
+      "@id": "https://arthavi.com/tools/sip-return-calculator/#app",
+      "name": "Free SIP Return & Step-Up Calculator",
+      "url": "https://arthavi.com/tools/sip-return-calculator/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "inLanguage": "en-IN",
+      "description": "Calculate future corpus value for Systematic Investment Plans with optional annual step-up percentage and inflation adjustment."
+    },
+    {
       "@type": "HowTo",
       "name": "How to Calculate SIP Returns",
       "description": "Step-by-step guide to estimate future wealth from your Systematic Investment Plan.",

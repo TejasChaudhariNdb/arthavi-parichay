@@ -6,14 +6,23 @@ const seo = {
   description: "Arthavi AI is India's first portfolio-aware investment assistant. Ask about XIRR, portfolio overlap, sector concentration, or benchmark comparisons. Get instant, data-driven answers about your real mutual funds and stocks.",
 };
 ---
-<Layout title={seo.title} description={seo.description}  schema={JSON.stringify({
+<Layout title={seo.title} description={seo.description} schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Arthavi AI: India's First Portfolio-Aware Investment Assistant",
-      "description": "Arthavi AI is a smart investment assistant embedded in the Arthavi portfolio tracker. It reads your actual mutual fund and stock data to answer questions about XIRR, portfolio overlap, sector risk, and benchmark comparisons.",
-      "author": { "@type": "Organization", "name": "Arthavi", "url": "https://arthavi.com" },
-      "publisher": { "@type": "Organization", "name": "Arthavi", "logo": { "@type": "ImageObject", "url": "https://arthavi.com/logo.png" } },
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://arthavi.com/ask-ai-investment-assistant/" }
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://arthavi.com/ask-ai-investment-assistant/#article",
+          "headline": "Arthavi AI: India's First Portfolio-Aware Investment Assistant",
+          "description": "Arthavi AI is a smart investment assistant embedded in the Arthavi portfolio tracker. It reads your actual mutual fund and stock data to answer questions about XIRR, portfolio overlap, sector risk, and benchmark comparisons.",
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-10-01",
+          "image": "https://arthavi.com/images/og-image.png",
+          "author": { "@id": "https://arthavi.com/#founder" },
+          "publisher": { "@id": "https://arthavi.com/#organization" },
+          "reviewedBy": { "@id": "https://arthavi.com/#founder" },
+          "mainEntityOfPage": { "@id": "https://arthavi.com/ask-ai-investment-assistant/#webpage" }
+        }
+      ]
     })}>
 
     

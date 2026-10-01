@@ -6,14 +6,23 @@ const seo = {
   description: "Analyze your investment portfolio, ask financial doubts, and conduct real-time market research using Arthavi AI. The smart assistant for modern Indian investors.",
 };
 ---
-<Layout title={seo.title} description={seo.description}  schema={JSON.stringify({
+<Layout title={seo.title} description={seo.description} schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "AI Portfolio Analyzer: How Arthavi Helps You Research Markets and Solve Doubts",
-      "description": "Arthavi's AI Portfolio Analyzer allows Indian investors to dive deep into their investments, ask specific questions, and perform real-time market research without leaving their dashboard.",
-      "author": { "@type": "Organization", "name": "Arthavi", "url": "https://arthavi.com" },
-      "publisher": { "@type": "Organization", "name": "Arthavi", "logo": { "@type": "ImageObject", "url": "https://arthavi.com/logo.png" } },
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://arthavi.com/ai-portfolio-analyzer-market-research/" }
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://arthavi.com/ai-portfolio-analyzer-market-research/#article",
+          "headline": "AI Portfolio Analyzer: How Arthavi Helps You Research Markets and Solve Doubts",
+          "description": "Arthavi's AI Portfolio Analyzer allows Indian investors to dive deep into their investments, ask specific questions, and perform real-time market research without leaving their dashboard.",
+          "datePublished": "2026-03-01",
+          "dateModified": "2026-10-01",
+          "image": "https://arthavi.com/images/og-image.png",
+          "author": { "@id": "https://arthavi.com/#founder" },
+          "publisher": { "@id": "https://arthavi.com/#organization" },
+          "reviewedBy": { "@id": "https://arthavi.com/#founder" },
+          "mainEntityOfPage": { "@id": "https://arthavi.com/ai-portfolio-analyzer-market-research/#webpage" }
+        }
+      ]
     })}>
 
     

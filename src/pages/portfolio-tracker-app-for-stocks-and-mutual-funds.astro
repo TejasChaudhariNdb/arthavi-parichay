@@ -10,37 +10,32 @@ const seo = {
   title={seo.title}
   description={seo.description}
   keywords="portfolio tracker app for stocks and mutual funds, best portfolio tracker app india, track stocks and mutual funds in one app, mutual fund and stock tracker app, privacy portfolio app"
-  schema={JSON.stringify([
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi",
-      "operatingSystem": "Web, Android, iOS",
-      "applicationCategory": "FinanceApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "INR"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://arthavi.com/#software",
+        "name": "Arthavi",
+        "operatingSystem": "Web, Android, iOS",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "INR"
+        },
+        "description": "A privacy-first portfolio tracker app for Indian stocks and mutual funds. Track performance via secure CAS statement uploads with zero broker links or email reading."
       },
-      "description": "A privacy-first portfolio tracker app for Indian stocks and mutual funds. Track performance via secure CAS statement uploads and direct manual entries with zero broker links or email reading.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Arthavi",
-        "logo": "https://arthavi.com/images/logo.png"
+      {
+        "@type": "WebPage",
+        "@id": "https://arthavi.com/portfolio-tracker-app-for-stocks-and-mutual-funds/#webpage",
+        "url": "https://arthavi.com/portfolio-tracker-app-for-stocks-and-mutual-funds/",
+        "name": "Portfolio Tracker App for Stocks and Mutual Funds",
+        "description": "Discover the most secure way to track Indian equities and mutual funds in a single dashboard without linking broker accounts or sharing email credentials.",
+        "publisher": { "@id": "https://arthavi.com/#organization" }
       }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Portfolio Tracker App for Stocks and Mutual Funds",
-      "description": "Discover the most secure way to track Indian equities and mutual funds in a single dashboard without linking broker accounts or sharing email credentials.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Arthavi",
-        "logo": "https://arthavi.com/images/logo.png"
-      }
-    }
-  ])}
+    ]
+  })}
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },

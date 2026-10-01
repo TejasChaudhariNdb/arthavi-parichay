@@ -10,6 +10,33 @@ const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebApplication",
+      "@id": "https://arthavi.com/tools/ltcg-stcg-calculator/#app",
+      "name": "Free Mutual Fund & Stock LTCG/STCG Tax Calculator",
+      "url": "https://arthavi.com/tools/ltcg-stcg-calculator/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "inLanguage": "en-IN",
+      "description": "Calculate Long Term and Short Term Capital Gains tax on mutual funds and equities under latest FY 2025-26 Budget tax rules."
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Calculate Capital Gains Tax on Mutual Funds",
+      "description": "Step-by-step guide to determine your LTCG and STCG tax liability for FY 2025-26.",
+      "step": [
+        { "@type": "HowToStep", "name": "Enter sale proceeds and purchase cost", "text": "Input total sale value and initial purchase cost of your units." },
+        { "@type": "HowToStep", "name": "Select holding period", "text": "Choose whether units were held for more than 12 months (LTCG) or less (STCG)." },
+        { "@type": "HowToStep", "name": "Apply ₹1.25L LTCG exemption", "text": "For equity LTCG, the first ₹1.25 lakhs of profit per financial year is completely tax-free." },
+        { "@type": "HowToStep", "name": "Calculate tax payable", "text": "The tool computes 12.5% on excess LTCG or 20% flat on STCG." }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "What is the LTCG tax rate on equity mutual funds in India?", "acceptedAnswer": { "@type": "Answer", "text": "For FY 2025-26, Long Term Capital Gains (LTCG) on equity mutual funds and stocks are taxed at 12.5% on gains exceeding ₹1.25 lakhs per financial year. The holding period must be more than 12 months to qualify as long-term. Gains up to ₹1.25 lakhs are tax-free." } },

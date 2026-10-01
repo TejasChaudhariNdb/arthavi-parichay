@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "node scripts/indexnow-ping.mjs",
+    "validate:schema": "node scripts/validate-schema.mjs",
+    "postbuild": "node scripts/validate-schema.mjs && node scripts/indexnow-ping.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

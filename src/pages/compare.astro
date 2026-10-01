@@ -91,9 +91,28 @@ const schema = JSON.stringify({
   "@graph": [
     {
       "@type": "CollectionPage",
+      "@id": "https://arthavi.com/compare/#webpage",
       "name": "Compare Indian Investment Portfolio Trackers (2026)",
       "description": "Side-by-side comparison of Arthavi vs MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel for tracking Indian mutual funds and stocks.",
       "url": "https://arthavi.com/compare/"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://arthavi.com/compare/#itemlist",
+      "name": "Comparison of Top Portfolio Trackers in India",
+      "numberOfItems": competitors.length,
+      "itemListElement": competitors.map((c, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": c.name,
+        "url": `https://arthavi.com${c.slug}`,
+        "description": c.keyDiff
+      }))
+    },
+    {
+      "@type": "Table",
+      "@id": "https://arthavi.com/compare/#table",
+      "about": "Comprehensive Comparison of Indian Portfolio Trackers across Price, Privacy, and Features"
     },
     {
       "@type": "FAQPage",
@@ -154,9 +173,14 @@ const schema = JSON.stringify({
 
       <!-- Hero Header -->
       <header style="text-align: center; margin-bottom: 3.5rem;">
-        <span style="display: inline-block; padding: 0.3rem 0.85rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38BDF8; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;">
-          Independent Wealth Tech Benchmark (2026)
-        </span>
+        <div style="display: flex; gap: 0.75rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 1rem;">
+          <span style="display: inline-block; padding: 0.3rem 0.85rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38BDF8; font-size: 0.85rem; font-weight: 600;">
+            Independent Wealth Tech Benchmark (2026)
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.85rem; border-radius: 9999px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); color: #10B981; font-size: 0.85rem; font-weight: 600;">
+            <span>✓</span> Last verified: October 2026 (Pricing & Feature Audit)
+          </span>
+        </div>
         <h1 style="font-size: 2.75rem; line-height: 1.2; margin-bottom: 1.25rem; color: #FFFFFF; font-family: var(--font-heading, 'Outfit', sans-serif);">
           Compare Indian Portfolio Trackers
         </h1>

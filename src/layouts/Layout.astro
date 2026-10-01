@@ -7,6 +7,8 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/outfit/600.css';
 
+import { buildPageGraph, STABLE_IDS, ORGANIZATION_ENTITY, FOUNDER_ENTITY, WEBSITE_ENTITY, SOFTWARE_APPLICATION_ENTITY } from '../utils/schemaGenerator';
+
 interface Props {
   title: string;
   description: string;
@@ -21,16 +23,65 @@ interface Props {
 
 const { title, description, keywords, schema, canonical = "https://arthavi.com" + Astro.url.pathname, noindex = false, breadcrumb } = Astro.props;
 
-const breadcrumbSchema = breadcrumb ? JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": breadcrumb.items.map((item, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "name": item.name,
-    "item": item.url
-  }))
-}) : null;
+// Generate or assemble unified single @graph schema
+let finalSchema = '';
+
+if (schema) {
+  try {
+    const parsed = JSON.parse(schema);
+    let existingNodes: any[] = [];
+    if (Array.isArray(parsed)) {
+      existingNodes = parsed;
+    } else if (parsed['@graph'] && Array.isArray(parsed['@graph'])) {
+      existingNodes = parsed['@graph'];
+    } else {
+      existingNodes = [parsed];
+    }
+    const nodes = [...existingNodes];
+
+    const hasOrg = nodes.some((n: any) => n['@id'] === STABLE_IDS.organization);
+    const hasFounder = nodes.some((n: any) => n['@id'] === STABLE_IDS.founder);
+    const hasWebsite = nodes.some((n: any) => n['@id'] === STABLE_IDS.website);
+    const hasSoftware = nodes.some((n: any) => n['@id'] === STABLE_IDS.software);
+
+    if (!hasOrg) nodes.unshift(ORGANIZATION_ENTITY);
+    if (!hasFounder) nodes.unshift(FOUNDER_ENTITY);
+    if (!hasWebsite) nodes.unshift(WEBSITE_ENTITY);
+    if (!hasSoftware) nodes.unshift(SOFTWARE_APPLICATION_ENTITY);
+
+    if (breadcrumb && !nodes.some((n: any) => n['@type'] === 'BreadcrumbList')) {
+      nodes.push({
+        "@type": "BreadcrumbList",
+        "@id": `${canonical}#breadcrumb`,
+        "itemListElement": breadcrumb.items.map((item, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": item.name,
+          "item": item.url
+        }))
+      });
+    }
+
+    finalSchema = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": nodes
+    });
+  } catch {
+    finalSchema = buildPageGraph({
+      canonical,
+      title,
+      description,
+      breadcrumbs: breadcrumb?.items
+    });
+  }
+} else {
+  finalSchema = buildPageGraph({
+    canonical,
+    title,
+    description,
+    breadcrumbs: breadcrumb?.items
+  });
+}
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +101,7 @@ const breadcrumbSchema = breadcrumb ? JSON.stringify({
     <link rel="preload" as="image" href="/images/app/dashboard.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
     <link rel="preload" as="image" href="/images/app/dashboard_laptop.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
 
-    {schema && <script type="application/ld+json" set:html={schema} />}
-    {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
+    {finalSchema && <script type="application/ld+json" set:html={finalSchema} />}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">

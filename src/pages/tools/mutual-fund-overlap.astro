@@ -10,6 +10,32 @@ const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebApplication",
+      "@id": "https://arthavi.com/tools/mutual-fund-overlap/#app",
+      "name": "Free Mutual Fund Overlap Checker",
+      "url": "https://arthavi.com/tools/mutual-fund-overlap/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "inLanguage": "en-IN",
+      "description": "Analyze portfolio overlap percentage and common stock holdings across Indian mutual funds to eliminate duplicate investments."
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Check Mutual Fund Overlap",
+      "description": "Step-by-step guide to determine duplicate stock holdings between two mutual funds.",
+      "step": [
+        { "@type": "HowToStep", "name": "Select Fund A", "text": "Choose your first mutual fund scheme from the dropdown." },
+        { "@type": "HowToStep", "name": "Select Fund B", "text": "Choose your second mutual fund scheme to compare." },
+        { "@type": "HowToStep", "name": "Analyze overlap", "text": "View common stock holdings, percentage overlap, and sector concentration risk." }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "What is mutual fund portfolio overlap?", "acceptedAnswer": { "@type": "Answer", "text": "Mutual fund portfolio overlap means two or more of your funds hold the same underlying stocks. For example, if you own both a Nifty 50 index fund and a large-cap flexi fund, they likely hold HDFC Bank, Reliance, and TCS in common — reducing your actual diversification." } },
