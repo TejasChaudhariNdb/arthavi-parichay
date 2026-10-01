@@ -11,11 +11,6 @@ export function getStaticPaths() {
     for (const sub of subroutes) {
       const slugPath = sub ? `${stock.slug}/${sub}` : stock.slug;
       paths.push({ params: { slug: slugPath }, props: { stockSeed: stock, activeTabProp: sub || 'overview' } });
-
-      if (stock.short_symbol && stock.short_symbol !== stock.slug) {
-        const shortPath = sub ? `${stock.short_symbol}/${sub}` : stock.short_symbol;
-        paths.push({ params: { slug: shortPath }, props: { stockSeed: stock, activeTabProp: sub || 'overview' } });
-      }
     }
   }
 

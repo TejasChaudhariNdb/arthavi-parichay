@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
-import sitemap, { ChangeFreqEnum } from '@astrojs/sitemap';
-
-const today = new Date().toISOString().split('T')[0];
 
 export default defineConfig({
   site: 'https://arthavi.com',
   trailingSlash: 'always',
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover'
+  },
   build: {
     inlineStylesheets: 'always',
   },
@@ -13,12 +14,12 @@ export default defineConfig({
     '/about.html': '/about/',
     '/ai-portfolio-analyzer-market-research.html': '/ai-portfolio-analyzer-market-research/',
     '/compare.html': '/compare/',
-    '/arthavi-vs-mprofit.html': '/arthavi-vs-mprofit/',
-    '/kuvera-alternative.html': '/kuvera-alternative/',
+    '/arthavi-vs-mprofit.html': '/alternatives/mprofit/',
+    '/kuvera-alternative.html': '/alternatives/kuvera/',
     '/arthavi-vs-dezerv.html': '/arthavi-vs-dezerv/',
     '/arthavi-vs-excel.html': '/arthavi-vs-excel/',
     '/arthavi-vs-groww.html': '/arthavi-vs-groww/',
-    '/arthavi-vs-indmoney.html': '/arthavi-vs-indmoney/',
+    '/arthavi-vs-indmoney.html': '/alternatives/indmoney/',
     '/arthavi-vs-valueresearch.html': '/arthavi-vs-valueresearch/',
     '/arthavi-vs-zerodha.html': '/arthavi-vs-zerodha/',
     '/ask-ai-investment-assistant.html': '/ask-ai-investment-assistant/',
@@ -39,12 +40,13 @@ export default defineConfig({
     '/privacy.html': '/privacy/',
     '/retirement-planning.html': '/retirement-planning/',
     '/security.html': '/security/',
-    '/sip-calculator.html': '/sip-calculator/',
+    '/sip-calculator.html': '/tools/sip-return-calculator/',
     '/stock-portfolio-tracker-india.html': '/stock-portfolio-tracker-india/',
     '/swp-calculator.html': '/swp-calculator/',
     '/terms.html': '/terms/',
     '/top-10-mutual-funds-for-sip-2026.html': '/top-10-mutual-funds-for-sip-2026/',
-    '/xirr-calculator-mutual-funds.html': '/xirr-calculator-mutual-funds/',
+    '/xirr-calculator-mutual-funds.html': '/tools/xirr-calculator/',
+    '/xirr-calculator/': '/tools/xirr-calculator/',
     
     // Blog pages
     '/blog/5-reasons-stop-using-excel-portfolio-tracking.html': '/blog/5-reasons-stop-using-excel-portfolio-tracking/',
@@ -58,38 +60,5 @@ export default defineConfig({
     '/blog/track-family-investment-portfolio.html': '/blog/track-family-investment-portfolio/',
     '/blog/track-stocks-mutual-funds-one-place-safely.html': '/blog/track-stocks-mutual-funds-one-place-safely/',
     '/blog/track-zerodha-groww-portfolio-together.html': '/blog/track-zerodha-groww-portfolio-together/'
-  },
-  integrations: [
-    sitemap({
-      filenameBase: 'sitemap',
-      filter: (page) => !page.includes('/stocks/'),
-      serialize(item) {
-        if (item.url === 'https://arthavi.com' || item.url === 'https://arthavi.com/') {
-          item.changefreq = ChangeFreqEnum.WEEKLY;
-          item.priority = 1.0;
-        } else if (item.url === 'https://arthavi.com/about/' ||
-                   item.url === 'https://arthavi.com/contact/' ||
-                   item.url === 'https://arthavi.com/security/' ||
-                   item.url === 'https://arthavi.com/privacy/' ||
-                   item.url === 'https://arthavi.com/terms/') {
-          item.changefreq = ChangeFreqEnum.MONTHLY;
-          item.priority = 0.6;
-        } else if (/\/(sip|swp|xirr|cagr|mutual-fund)-calculator\//.test(item.url)) {
-          item.changefreq = ChangeFreqEnum.MONTHLY;
-          item.priority = 0.8;
-        } else if (/arthavi-vs-/.test(item.url)) {
-          item.changefreq = ChangeFreqEnum.WEEKLY;
-          item.priority = 0.7;
-        } else if (/blog\//.test(item.url)) {
-          item.changefreq = ChangeFreqEnum.MONTHLY;
-          item.priority = 0.6;
-        } else {
-          item.changefreq = ChangeFreqEnum.WEEKLY;
-          item.priority = 0.7;
-        }
-        item.lastmod = today;
-        return item;
-      },
-    }),
-  ],
+  }
 });

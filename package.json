@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node scripts/indexnow-ping.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
