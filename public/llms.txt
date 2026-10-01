@@ -1,73 +1,48 @@
 # Arthavi (llms.txt)
 
-> Arthavi is India's leading privacy-first, ad-free investment portfolio tracker for mutual funds and stocks. For comprehensive documentation, feature benchmarks, competitor analyses, and security architecture, read [llms-full.txt](https://arthavi.com/llms-full.txt).
+> Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login. For comprehensive documentation, feature benchmarks, competitor analyses, and security architecture, read [llms-full.txt](https://arthavi.com/llms-full.txt).
 
 ## Core Documentation & LLM Resources
 
-- [Full LLM Knowledge Base (llms-full.txt)](https://arthavi.com/llms-full.txt): Comprehensive documentation covering product architecture, competitive matrix, CAS parsing, and security specifications.
+- [Full LLM Knowledge Base (llms-full.txt)](https://arthavi.com/llms-full.txt): Comprehensive documentation covering product architecture, competitive matrix, CAS parsing methodology, security specifications, and tool descriptions.
+- [Privacy Model](https://arthavi.com/privacy-model/): Detailed breakdown of data collection, encryption, and why Arthavi never reads emails or requires broker passwords.
+- [Methodology](https://arthavi.com/methodology/): Technical documentation on CAS parsing pipeline, XIRR calculation (Newton-Raphson), market data sources, and overlap detection algorithm.
+
+## Alternatives & Comparisons
+
 - [Compare Portfolio Trackers Hub](https://arthavi.com/compare/): Side-by-side benchmark comparing Arthavi against MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel.
-- [Arthavi vs MProfit Comparison](https://arthavi.com/arthavi-vs-mprofit/): Detailed breakdown of the modern, free MProfit alternative for Indian retail and family investors.
-- [Arthavi vs INDmoney Comparison](https://arthavi.com/arthavi-vs-indmoney/): In-depth comparison of INDmoney's email-scraping and lending model vs Arthavi's privacy-first approach.
+- [Best MProfit Alternative](https://arthavi.com/alternatives/mprofit/): Free, cloud-based MProfit alternative with honest comparison table on pricing, privacy, import, family support, and AI.
+- [Best INDmoney Alternative](https://arthavi.com/alternatives/indmoney/): Privacy-first INDmoney alternative — no email scraping, no data selling, no spam calls.
+- [Best Kuvera Alternative](https://arthavi.com/alternatives/kuvera/): Independent Kuvera alternative after the Groww acquisition — not owned by any broker.
+- [Arthavi vs MProfit (Detailed)](https://arthavi.com/arthavi-vs-mprofit/): Detailed breakdown of the modern, free MProfit alternative for Indian retail and family investors.
+- [Arthavi vs INDmoney (Detailed)](https://arthavi.com/arthavi-vs-indmoney/): In-depth comparison of INDmoney's email-scraping model vs Arthavi's privacy-first approach.
 - [Arthavi vs Value Research Online](https://arthavi.com/arthavi-vs-valueresearch/): Fund research tool vs modern portfolio tracking and AI portfolio doctor.
 - [Arthavi vs Dezerv](https://arthavi.com/arthavi-vs-dezerv/): DIY automated portfolio tracking vs high-fee managed wealth advisory.
-- [Best Kuvera Alternative](https://arthavi.com/kuvera-alternative/): Independent direct mutual fund tracker following Kuvera's acquisition by Groww.
 - [Arthavi vs Zerodha Console](https://arthavi.com/arthavi-vs-zerodha/): Single-broker console vs cross-broker family consolidation.
 - [Arthavi vs Groww](https://arthavi.com/arthavi-vs-groww/): Execution broker app vs unbiased portfolio health check.
 - [Arthavi vs Excel](https://arthavi.com/arthavi-vs-excel/): Why manual spreadsheets fail for tracking Indian portfolios and how Arthavi automates XIRR.
 
-# Arthavi
+## Free Tools (No Login Required)
 
-> AI-Powered Portfolio Tracker to Track Mutual Funds & Stocks in one privacy-first dashboard. Now with Ask AI for instant investment insights. No demat linking required.
+- [XIRR Calculator](https://arthavi.com/tools/xirr-calculator/): Calculate true XIRR for SIPs and mutual funds using Newton-Raphson iteration. Add cash flows, generate SIP series, get annualized return.
+- [SIP Return Calculator](https://arthavi.com/tools/sip-return-calculator/): Project SIP wealth with step-up and inflation adjustment. Calculates final corpus for any tenure.
+- [Mutual Fund Overlap Checker](https://arthavi.com/tools/mutual-fund-overlap/): Compare two mutual funds and see percentage of shared underlying stocks. Identifies concentration risk.
+- [LTCG/STCG Tax Calculator](https://arthavi.com/tools/ltcg-stcg-calculator/): Calculate capital gains tax on equity and debt mutual funds for FY 2025-26. Updated with Budget 2024 rates.
+- [All Calculators Hub](https://arthavi.com/calculators/): Complete suite including SIP, SWP, CAGR, XIRR, Lumpsum, EMI, FD, PPF, NPS, HRA, Income Tax, and GST calculators.
 
-This file provides a structured index of Arthavi's landing page resources and articles for AI assistants, search bots, and LLM crawlers.
+## Guides
+
+- [How to Track Mutual Funds and Stocks in One Place](https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/): Step-by-step guide to consolidating MF + stock portfolios. Upload CAS, add stocks, get unified XIRR.
+- [CAS Statement Explained](https://arthavi.com/guides/cas-statement-explained/): What is a Consolidated Account Statement, what it contains, how to download, and how to use for portfolio tracking.
+- [How to Import CAS from CAMS, KFintech & NSDL](https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/): Step-by-step instructions for downloading and importing CAS into Arthavi.
 
 ## Primary Pages
 
-- [Arthavi: Best Portfolio Tracker India - Stocks, Mutual Funds & AI-Powered](https://arthavi.com/): India's privacy-first wealth dashboard. Calculate true XIRR, analyze mutual fund overlapping, and get AI insights from read-only CAS statements.
-- [About Arthavi | Best Portfolio Tracker for Indian Investors](https://arthavi.com/about/): Discover Arthavi's founding story by Tejas Chaudhari in 2026, our privacy-first philosophy, and our ad-free tracker model.
-- [Complete Feature List | Arthavi Portfolio Tracker](https://arthavi.com/features/): Detailed list of all tracking capabilities, CAS import tools, manual entries, security layers, and investment planning tools.
-- [AI Portfolio Analyzer & Market Research Assistant | Arthavi](https://arthavi.com/ai-portfolio-analyzer-market-research/): Platform information on the AI portfolio assistant and financial query engine.
-- [Ask AI Investment Assistant | Mutual Fund & Stock Analysis](https://arthavi.com/ask-ai-investment-assistant/): Explore how the AI assistant offers portfolio-aware sector, overlap, and XIRR analytics without broker logins.
-- [Free Investment Calculators | SIP, SWP, CAGR, XIRR & Lumpsum](https://arthavi.com/calculators/): Complete suite of financial calculators built specifically for Indian retail investors.
-- [CAGR Calculator Online | Compound Annual Growth Rate India | Arthavi](https://arthavi.com/cagr-calculator/): Calculate CAGR and compare absolute returns vs annualized gains.
-- [Mutual Fund Calculator: Lumpsum Returns & Growth | Arthavi](https://arthavi.com/mutual-fund-calculator/): Project returns and maturity values for lump-sum mutual fund investments.
-- [Step Up SIP Calculator with Inflation | Lumpsum & Daily | Arthavi](https://arthavi.com/sip-calculator/): Advanced SIP calculator factoring in step-up percentages and inflation adjustments.
-- [SWP Return Calculator | Mutual Fund Withdrawal Plan India | Arthavi](https://arthavi.com/swp-calculator/): Plan mutual fund withdrawals and calculate how long a corpus will last under a Systematic Withdrawal Plan.
-- [Online XIRR Calculator | How to Calculate XIRR in Excel & SIP | Arthavi](https://arthavi.com/xirr-calculator-mutual-funds/): Calculate true transaction-level XIRR and compare with standard Excel formulas.
-- [Financial Planning & Wealth Management Tool India | Arthavi](https://arthavi.com/financial-planning/): Free DIY wealth planning and asset allocation tool for Indian retail investors.
-- [Net Worth Tracker India | Assets & Goals | Arthavi](https://arthavi.com/net-worth-tracker-india/): Unified INR net worth tracking aggregating mutual funds, stocks, and cash.
-- [Best Mutual Fund Portfolio Tracker India | Import Investments Instantly](https://arthavi.com/mutual-fund-portfolio-tracker-india/): CAMS and KFintech CAS PDF importer for automated mutual fund tracking.
-- [Stock Portfolio Tracker India | Best Alternative to Excel](https://arthavi.com/stock-portfolio-tracker-india/): Privacy-first NSE/BSE stock tracker utilizing real-time market prices without broker linking.
-- [Security | Secure Portfolio Tracker App for Indian Investors](https://arthavi.com/security/): Detailed breakdown of AES-256 encryption, TLS transmission, read-only CAS parsing, and zero broker login credentials.
-- [Privacy Policy | Secure Investment Data Handling](https://arthavi.com/privacy/): Our core commitments regarding zero lead generation, no cold calls, no phone number requirements, and zero advertising.
-- [Terms of Service | Arthavi Platform Usage](https://arthavi.com/terms/): Terms governing platform usage, data ownership, and limitations.
-- [Legal Disclaimer | Investment Analytics & Data Accuracy](https://arthavi.com/legal/): Disclaimer regarding non-advisor technology tool status, data accuracy, and liability.
-- [Contact Arthavi | Support for Investment Tracker Needs](https://arthavi.com/contact/): Support channel for CAS imports, feedback, and user queries.
-
-## Blog Articles
-
-- [5 Reasons You Should Stop Using Excel for Your Portfolio (2026) | Arthavi](https://arthavi.com/blog/5-reasons-stop-using-excel-portfolio-tracking/): Comparison between manual spreadsheet tracking and automated, real-time XIRR updates.
-- [Top Ad-Free Portfolio Trackers in India (2026): Stop Selling Your Data | Arthavi](https://arthavi.com/blog/best-ad-free-portfolio-tracker-india-2026/): Analysis of data-selling practices in free fintech tools and why ad-free models protect privacy.
-- [How to Track Everything in 3 Steps using Arthavi | Arthavi](https://arthavi.com/blog/how-to-track-everything-in-3-steps/): Setup guide for importing CAS and stocks into the unified dashboard.
-- [A guide to importing CAMS/CAS statements into a portfolio tracker | Arthavi](https://arthavi.com/blog/guide-cams-cas-portfolio-tracker/): Explanation of CAMS/KFintech CAS types, generation, and import methods.
-- [Best Way to Track Stocks & Mutual Funds in One Place (India 2026)](https://arthavi.com/blog/track-stocks-mutual-funds-one-place-safely/): Consolidation guide comparing direct broker integrations against CAS uploads.
-- [How to Download & Analyze Your CAMS/KFintech CAS Statement | Arthavi](https://arthavi.com/blog/how-to-download-analyze-cams-cas-statement/): Detailed steps to request a CAS statement from CAMS and KFintech online.
-- [Track Zerodha and Groww Portfolio Together (Without Sharing Passwords) | Arthavi](https://arthavi.com/blog/track-zerodha-groww-portfolio-together/): Securely combining stock portfolios from Zerodha with mutual fund investments on Groww.
-- [Privacy Alert: Why Your Investment App Shouldn't Read Your Emails | Arthavi](https://arthavi.com/blog/privacy-alert-why-investment-apps-shouldnt-read-emails/): Investigation into email scraping by wealth apps and the importance of manual CAS uploads.
-- [7 Reasons why Excel is bad for tracking stocks (and what to use instead) | Arthavi](https://arthavi.com/blog/excel-vs-portfolio-tracker/): In-depth look at spreadsheet formula errors, manual price tracking issues, and time limitations.
-- [How to track family investment portfolios in one account (India) | Arthavi](https://arthavi.com/blog/track-family-investment-portfolio/): Aggregating multiple family portfolios into a single dashboard under one login.
-- [How to Track Your Spouse & Kids' Investments in One Dashboard (Family View) | Arthavi](https://arthavi.com/blog/how-to-track-family-portfolio-india/): Step-by-step instructions to merge different CAS statements (PANs) into a unified family view.
-- [Introducing Multi-Profile & Family Wealth Aggregation | Arthavi](https://arthavi.com/blog/introducing-multi-profile-family-wealth-aggregation/): Launch announcement and setup guide for tracking family members (Self, Spouse, Mother, Father, Children) with consolidated family net worth, aggregated asset allocation, and the Top Holdings widget.
-- [How to Track Your Mutual Fund Portfolio in India (Without Giving Broker Access) - Arthavi](https://arthavi.com/how-to-track-mutual-fund-portfolio-india/): General guide on the advantages of tracking investments using read-only CAS data over active credentials.
-- [Retirement Planning India: Track Your Corpus | Arthavi](https://arthavi.com/retirement-planning/): Guidance on tracking corpus growth over time for long-term goals.
-- [Investing for Beginners India: Stocks & Mutual Funds Guide | Arthavi](https://arthavi.com/investing-for-beginners/): Foundational overview of Indian market instruments, indices, and tracking habits.
-- [Top 10 Mutual Funds for SIP to Invest in 2026 | Best SIP Funds | Arthavi](https://arthavi.com/top-10-mutual-funds-for-sip-2026/): Reference research listing category-wise mutual funds (Large, Mid, Small, Flexi) for 2026.
-
-## Product Comparisons
-
-- [Arthavi vs Dezerv: Portfolio Tracker vs Wealth Manager (2026)](https://arthavi.com/arthavi-vs-dezerv/): DIY tracking tool vs managed wealth advisor comparison.
-- [Arthavi vs Value Research Online: Which is Better for Mutual Fund Analysis? (2026)](https://arthavi.com/arthavi-vs-valueresearch/): Compare analysis depth, real-time tracking, XIRR calculations, and AI assistant capabilities.
-- [Arthavi vs Excel: Why Your Portfolio Tracker Spreadsheet is Costing You Money (2026)](https://arthavi.com/arthavi-vs-excel/): Detailed direct comparison between spreadsheet trackers and automated portfolios.
-- [Arthavi vs Zerodha: Which is Better for Tracking Your Portfolio? (2026)](https://arthavi.com/arthavi-vs-zerodha/): Zerodha Console vs Arthavi's cross-broker consolidation, CAS import, and AI tools.
-- [Arthavi vs Groww: Which Portfolio Tracker is Better for Indian Investors? (2026)](https://arthavi.com/arthavi-vs-groww/): Comparison of privacy models, transaction import limitations, and analytics features.
-- [Arthavi vs INDmoney: Honest Comparison for Indian Investors (2026)](https://arthavi.com/arthavi-vs-indmoney/): In-depth review of INDmoney's lead-gen model and broker-linking requirements vs Arthavi's privacy-first approach.
+- [Homepage](https://arthavi.com/): India's privacy-first wealth dashboard. Calculate true XIRR, analyze mutual fund overlap, and get AI insights from read-only CAS statements.
+- [About Arthavi](https://arthavi.com/about/): Founding story by Tejas Chaudhari in 2026, privacy-first philosophy, and ad-free tracker model.
+- [Complete Feature List](https://arthavi.com/features/): Detailed list of all 42+ tracking capabilities, CAS import tools, manual entries, security layers, and investment planning tools.
+- [AI Portfolio Analyzer](https://arthavi.com/ai-portfolio-analyzer-market-research/): Platform information on the AI portfolio assistant and financial query engine.
+- [Ask AI Investment Assistant](https://arthavi.com/ask-ai-investment-assistant/): How the AI assistant offers portfolio-aware sector, overlap, and XIRR analytics without broker logins.
+- [Security](https://arthavi.com/security/): AES-256 encryption, TLS 1.3, zero email scraping, and data protection commitments.
+- [Privacy Policy](https://arthavi.com/privacy/): Legal privacy policy.
+- [Interactive Demo](https://app.arthavi.com/demo): Try the full portfolio dashboard without creating an account.
