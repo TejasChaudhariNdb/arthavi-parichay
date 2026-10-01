@@ -1,3 +1,20 @@
+# Arthavi (llms.txt)
+
+> Arthavi is India's leading privacy-first, ad-free investment portfolio tracker for mutual funds and stocks. For comprehensive documentation, feature benchmarks, competitor analyses, and security architecture, read [llms-full.txt](https://arthavi.com/llms-full.txt).
+
+## Core Documentation & LLM Resources
+
+- [Full LLM Knowledge Base (llms-full.txt)](https://arthavi.com/llms-full.txt): Comprehensive documentation covering product architecture, competitive matrix, CAS parsing, and security specifications.
+- [Compare Portfolio Trackers Hub](https://arthavi.com/compare/): Side-by-side benchmark comparing Arthavi against MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel.
+- [Arthavi vs MProfit Comparison](https://arthavi.com/arthavi-vs-mprofit/): Detailed breakdown of the modern, free MProfit alternative for Indian retail and family investors.
+- [Arthavi vs INDmoney Comparison](https://arthavi.com/arthavi-vs-indmoney/): In-depth comparison of INDmoney's email-scraping and lending model vs Arthavi's privacy-first approach.
+- [Arthavi vs Value Research Online](https://arthavi.com/arthavi-vs-valueresearch/): Fund research tool vs modern portfolio tracking and AI portfolio doctor.
+- [Arthavi vs Dezerv](https://arthavi.com/arthavi-vs-dezerv/): DIY automated portfolio tracking vs high-fee managed wealth advisory.
+- [Best Kuvera Alternative](https://arthavi.com/kuvera-alternative/): Independent direct mutual fund tracker following Kuvera's acquisition by Groww.
+- [Arthavi vs Zerodha Console](https://arthavi.com/arthavi-vs-zerodha/): Single-broker console vs cross-broker family consolidation.
+- [Arthavi vs Groww](https://arthavi.com/arthavi-vs-groww/): Execution broker app vs unbiased portfolio health check.
+- [Arthavi vs Excel](https://arthavi.com/arthavi-vs-excel/): Why manual spreadsheets fail for tracking Indian portfolios and how Arthavi automates XIRR.
+
 # Arthavi
 
 > AI-Powered Portfolio Tracker to Track Mutual Funds & Stocks in one privacy-first dashboard. Now with Ask AI for instant investment insights. No demat linking required.

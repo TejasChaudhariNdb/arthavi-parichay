@@ -1,0 +1,378 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Compare Best Portfolio Trackers in India (2026) | Arthavi vs MProfit, INDmoney, Kuvera, Dezerv",
+  description: "Comprehensive 2026 comparison of Indian portfolio trackers: Arthavi vs MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel. See privacy, CAS import, family tracking, and pricing compared.",
+};
+
+const breadcrumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Compare", url: "https://arthavi.com/compare/" }
+];
+
+const competitors = [
+  {
+    name: "MProfit",
+    slug: "/arthavi-vs-mprofit/",
+    category: "Accounting & Multi-Asset",
+    pricing: "₹3,500 – ₹7,000+ / yr",
+    arthaviCost: "100% Free",
+    keyDiff: "Arthavi is 100% free with a modern web UI, automated CAS PDF upload, and AI insights, replacing MProfit's expensive legacy desktop setup.",
+    badge: "Top MProfit Alternative"
+  },
+  {
+    name: "INDmoney",
+    slug: "/arthavi-vs-indmoney/",
+    category: "Fintech Super-App",
+    pricing: "Free (Data-Selling & Cross-Selling)",
+    arthaviCost: "100% Ad-Free & Private",
+    keyDiff: "INDmoney requires full read access to your personal Gmail inbox and cross-sells loans/credit cards. Arthavi has zero email scraping and zero data selling.",
+    badge: "Privacy-First Choice"
+  },
+  {
+    name: "Value Research Online",
+    slug: "/arthavi-vs-valueresearch/",
+    category: "Fund Research & Ratings",
+    pricing: "Free / ₹1,990+ Premium",
+    arthaviCost: "100% Free",
+    keyDiff: "Value Research is great for fund ratings but has a manual tracker with no CAS import. Arthavi imports entire CAS histories in 30s with AI portfolio diagnostics.",
+    badge: "Best for Active Tracking"
+  },
+  {
+    name: "Dezerv",
+    slug: "/arthavi-vs-dezerv/",
+    category: "Managed Wealth Advisory",
+    pricing: "1% – 1.5% AUM Fee (₹50L+ Min)",
+    arthaviCost: "Zero Fees / No Minimum",
+    keyDiff: "Dezerv is an expensive wealth manager requiring high minimum capital. Arthavi is a self-directed DIY portfolio doctor with zero commission or advisory fees.",
+    badge: "DIY Wealth Alternative"
+  },
+  {
+    name: "Kuvera",
+    slug: "/kuvera-alternative/",
+    category: "Direct Mutual Funds",
+    pricing: "Acquired by Groww",
+    arthaviCost: "Independent & Free",
+    keyDiff: "Following Kuvera's acquisition by Groww, Arthavi offers an independent, privacy-first sanctuary for tracking direct mutual funds without broker lock-in.",
+    badge: "Top Kuvera Successor"
+  },
+  {
+    name: "Zerodha Console",
+    slug: "/arthavi-vs-zerodha/",
+    category: "Brokerage Back-office",
+    pricing: "Free for Zerodha users",
+    arthaviCost: "Cross-Broker Consolidation",
+    keyDiff: "Zerodha Console only shows assets inside Zerodha. Arthavi consolidates your Groww, Zerodha, Upstox, and direct CAMS/KFintech folios into one family dashboard.",
+    badge: "Unified Cross-Broker"
+  },
+  {
+    name: "Groww",
+    slug: "/arthavi-vs-groww/",
+    category: "Discount Broker & Mutual Funds",
+    pricing: "Free Brokerage App",
+    arthaviCost: "Independent Analytics",
+    keyDiff: "Groww focuses on transaction execution and pushes in-app products. Arthavi provides unbiased, in-depth portfolio health scoring with zero sales agenda.",
+    badge: "Independent Health Check"
+  },
+  {
+    name: "Excel / Google Sheets",
+    slug: "/arthavi-vs-excel/",
+    category: "Manual Spreadsheets",
+    pricing: "Free / Manual Effort",
+    arthaviCost: "Automated Real-time XIRR",
+    keyDiff: "Spreadsheets break on split transactions, require manual NAV updates, and don't calculate true transaction cashflow XIRR. Arthavi automates it completely.",
+    badge: "Automated Upgrade"
+  }
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Compare Indian Investment Portfolio Trackers (2026)",
+      "description": "Side-by-side comparison of Arthavi vs MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel for tracking Indian mutual funds and stocks.",
+      "url": "https://arthavi.com/compare/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best portfolio tracker for Indian investors in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Arthavi is the best privacy-first portfolio tracker in India. It consolidates mutual funds from CAMS and KFintech CAS statements and direct stocks from NSE/BSE into a unified family dashboard with true XIRR and AI portfolio insights, without requiring broker passwords or email inbox access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Arthavi differ from INDmoney?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The fundamental difference is privacy. INDmoney requires read access to your personal Gmail inbox to scrape credit card bills and investment statements, and monetizes by cross-selling loans and credit products. Arthavi never asks for email access, never sells user data, and imports investment statements via secure client-side CAS PDF upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free alternative to MProfit in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Arthavi is the premier free alternative to MProfit. While MProfit charges ₹3,500 to ₹7,000+ per year for desktop/cloud subscriptions, Arthavi provides a 100% free web and mobile platform with automated CAS import, multi-profile family tracking, and AI portfolio analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happened to Kuvera and what is the best alternative?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kuvera was acquired by discount broker Groww in 2024. Investors looking for an independent, clean, ad-free portfolio tracker choose Arthavi as the primary Kuvera alternative for tracking direct mutual funds and family holdings."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="compare portfolio trackers india, mprofit alternative, indmoney alternative, kuvera alternative, valueresearch alternative, dezerv alternative, best mutual fund tracker india 2026"
+  schema={schema}
+  breadcrumb={{ items: breadcrumbs }}
+>
+  <main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+    <div style="max-width: 1040px; margin: 0 auto;">
+      
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        <a href="/" style="color: var(--text-muted); text-decoration: none;">Home</a> &gt; 
+        <span style="color: #38BDF8;">Compare Portfolio Trackers</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <header style="text-align: center; margin-bottom: 3.5rem;">
+        <span style="display: inline-block; padding: 0.3rem 0.85rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38BDF8; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;">
+          Independent Wealth Tech Benchmark (2026)
+        </span>
+        <h1 style="font-size: 2.75rem; line-height: 1.2; margin-bottom: 1.25rem; color: #FFFFFF; font-family: var(--font-heading, 'Outfit', sans-serif);">
+          Compare Indian Portfolio Trackers
+        </h1>
+        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 780px; margin: 0 auto; line-height: 1.6;">
+          See how Arthavi compares against <strong>MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel</strong>. Honest, side-by-side breakdowns on data privacy, CAS statement import, family view, and pricing.
+        </p>
+      </header>
+
+      <!-- Grand Master Comparison Table -->
+      <section style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; margin-bottom: 4rem;">
+        <h2 style="font-size: 1.5rem; color: #FFFFFF; margin-top: 0; margin-bottom: 1.5rem;">
+          📊 2026 Master Comparison Matrix
+        </h2>
+        
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.02);">
+                <th style="padding: 1rem; color: #FFFFFF;">Tracker</th>
+                <th style="padding: 1rem; color: #FFFFFF;">Pricing</th>
+                <th style="padding: 1rem; color: #FFFFFF;">Privacy / Email Access</th>
+                <th style="padding: 1rem; color: #FFFFFF;">CAS Auto-Import</th>
+                <th style="padding: 1rem; color: #FFFFFF;">Family Tracking</th>
+                <th style="padding: 1rem; color: #FFFFFF;">AI Portfolio Doctor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(56, 189, 248, 0.2); background: rgba(56, 189, 248, 0.05);">
+                <td style="padding: 1rem; font-weight: 700; color: #38BDF8;">Arthavi</td>
+                <td style="padding: 1rem; color: #10B981; font-weight: 600;">100% Free Forever</td>
+                <td style="padding: 1rem; color: #10B981;">100% Private (No Email Read)</td>
+                <td style="padding: 1rem; color: #10B981;">Yes (CAMS & KFintech)</td>
+                <td style="padding: 1rem; color: #10B981;">Included Free</td>
+                <td style="padding: 1rem; color: #10B981;">Yes (Integrated AI)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <td style="padding: 1rem; font-weight: 600;"><a href="/arthavi-vs-mprofit/" style="color: #93C5FD; text-decoration: none;">MProfit</a></td>
+                <td style="padding: 1rem; color: #EF4444;">₹3,500 – ₹7,000+/yr</td>
+                <td style="padding: 1rem;">Local file / Cloud database</td>
+                <td style="padding: 1rem;">Yes (CAS & Contract Notes)</td>
+                <td style="padding: 1rem;">Paid License Only</td>
+                <td style="padding: 1rem; color: #94A3B8;">None</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <td style="padding: 1rem; font-weight: 600;"><a href="/arthavi-vs-indmoney/" style="color: #93C5FD; text-decoration: none;">INDmoney</a></td>
+                <td style="padding: 1rem;">Free (Cross-selling loans/cards)</td>
+                <td style="padding: 1rem; color: #EF4444;">Scrapes Gmail Inbox</td>
+                <td style="padding: 1rem;">Auto-scraped from email</td>
+                <td style="padding: 1rem;">Limited / Single User</td>
+                <td style="padding: 1rem;">Rule-based Insights</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <td style="padding: 1rem; font-weight: 600;"><a href="/arthavi-vs-valueresearch/" style="color: #93C5FD; text-decoration: none;">Value Research</a></td>
+                <td style="padding: 1rem;">Free / ₹1,990+ Premium</td>
+                <td style="padding: 1rem;">Manual Entry Account</td>
+                <td style="padding: 1rem; color: #EF4444;">No (Manual Entry)</td>
+                <td style="padding: 1rem;">Manual Folders</td>
+                <td style="padding: 1rem; color: #94A3B8;">None</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <td style="padding: 1rem; font-weight: 600;"><a href="/arthavi-vs-dezerv/" style="color: #93C5FD; text-decoration: none;">Dezerv</a></td>
+                <td style="padding: 1rem; color: #EF4444;">1%–1.5% AUM (₹50L+ Min)</td>
+                <td style="padding: 1rem;">Advisory Lead-Gen</td>
+                <td style="padding: 1rem;">Yes (Upload for Pitch)</td>
+                <td style="padding: 1rem;">Advisory Based</td>
+                <td style="padding: 1rem;">Human Advisor Pitch</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <td style="padding: 1rem; font-weight: 600;"><a href="/kuvera-alternative/" style="color: #93C5FD; text-decoration: none;">Kuvera</a></td>
+                <td style="padding: 1rem;">Merged into Groww</td>
+                <td style="padding: 1rem;">Groww Broker Account</td>
+                <td style="padding: 1rem;">Yes (Inside Groww)</td>
+                <td style="padding: 1rem;">Family Accounts</td>
+                <td style="padding: 1rem; color: #94A3B8;">None</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <td style="padding: 1rem; font-weight: 600;"><a href="/arthavi-vs-zerodha/" style="color: #93C5FD; text-decoration: none;">Zerodha Console</a></td>
+                <td style="padding: 1rem;">Brokerage Account</td>
+                <td style="padding: 1rem;">Broker Logins</td>
+                <td style="padding: 1rem; color: #EF4444;">No (Zerodha Only)</td>
+                <td style="padding: 1rem; color: #94A3B8;">None</td>
+                <td style="padding: 1rem; color: #94A3B8;">None</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                <td style="padding: 1rem; font-weight: 600;"><a href="/arthavi-vs-excel/" style="color: #93C5FD; text-decoration: none;">Excel / Sheets</a></td>
+                <td style="padding: 1rem;">Free / Heavy Labor</td>
+                <td style="padding: 1rem;">Local File</td>
+                <td style="padding: 1rem; color: #EF4444;">Manual Data Entry</td>
+                <td style="padding: 1rem;">Complex Custom Tabs</td>
+                <td style="padding: 1rem; color: #94A3B8;">None</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Competitor Cards Grid -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1.8rem; color: #FFFFFF; margin-bottom: 1.5rem; text-align: center;">
+          In-Depth Platform Comparisons
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+          {competitors.map((comp) => (
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s ease, border-color 0.2s ease;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                  <h3 style="font-size: 1.35rem; color: #FFFFFF; margin: 0;">
+                    Arthavi vs {comp.name}
+                  </h3>
+                  <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.12); color: #38BDF8; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
+                    {comp.badge}
+                  </span>
+                </div>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 1rem;">
+                  Category: <strong>{comp.category}</strong>
+                </p>
+                <p style="font-size: 0.95rem; color: #CBD5E1; line-height: 1.6; margin-bottom: 1.5rem;">
+                  {comp.keyDiff}
+                </p>
+              </div>
+              
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 0.75rem; margin-bottom: 1.25rem;">
+                  <span style="color: var(--text-muted);">{comp.name}: {comp.pricing}</span>
+                  <span style="color: #10B981; font-weight: 600;">Arthavi: {comp.arthaviCost}</span>
+                </div>
+                <a href={comp.slug} style="display: block; text-align: center; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38BDF8; padding: 0.65rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem;">
+                  Read Full Comparison &rarr;
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Why Arthavi is the Winner for Modern Investors -->
+      <section style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2.5rem; margin-bottom: 4rem;">
+        <h2 style="font-size: 1.8rem; color: #FFFFFF; margin-top: 0; margin-bottom: 1rem;">
+          Why Indian Investors Prefer Arthavi
+        </h2>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+          Traditional trackers in India fall into two problematic categories: expensive, outdated desktop software that costs thousands of rupees each year (like MProfit), or free apps that monetize by reading your Gmail inbox and spamming you with credit cards and loans (like INDmoney).
+        </p>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem;">
+          Arthavi provides the independent third path: <strong>100% free, 100% ad-free, and 100% privacy-first</strong>.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+          <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.06); padding: 1.25rem; border-radius: 10px;">
+            <h4 style="color: #38BDF8; margin-top: 0; margin-bottom: 0.5rem;">🔒 Zero Email Scraping</h4>
+            <p style="font-size: 0.9rem; color: #CBD5E1; margin: 0; line-height: 1.5;">We never ask for Gmail read permissions. Your personal communications remain 100% private.</p>
+          </div>
+          <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.06); padding: 1.25rem; border-radius: 10px;">
+            <h4 style="color: #38BDF8; margin-top: 0; margin-bottom: 0.5rem;">⚡ 30-Second CAS Import</h4>
+            <p style="font-size: 0.9rem; color: #CBD5E1; margin: 0; line-height: 1.5;">Upload your official CAMS/KFintech statement. All folios, SIPs, and NAVs populate automatically.</p>
+          </div>
+          <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.06); padding: 1.25rem; border-radius: 10px;">
+            <h4 style="color: #38BDF8; margin-top: 0; margin-bottom: 0.5rem;">👨‍👩‍👧‍👦 Multi-Profile Family View</h4>
+            <p style="font-size: 0.9rem; color: #CBD5E1; margin: 0; line-height: 1.5;">Track portfolios for yourself, spouse, parents, and kids with consolidated family net worth.</p>
+          </div>
+          <div style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.06); padding: 1.25rem; border-radius: 10px;">
+            <h4 style="color: #38BDF8; margin-top: 0; margin-bottom: 0.5rem;">🤖 AI Portfolio Doctor</h4>
+            <p style="font-size: 0.9rem; color: #CBD5E1; margin: 0; line-height: 1.5;">Conversational assistant identifies fund overlaps, sector concentrations, and risk drags in real-time.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1.8rem; color: #FFFFFF; margin-bottom: 1.5rem;">
+          Frequently Asked Questions
+        </h2>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 1.25rem;">
+            <h3 style="font-size: 1.15rem; color: #FFFFFF; margin-bottom: 0.5rem;">How does Arthavi make money if it is completely free?</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">
+              Arthavi is bootstrapped and operates on lean, serverless cloud infrastructure with minimal overhead. Our core portfolio tracker, CAS parser, and family view will always be 100% free and ad-free. We will never sell user data or cross-sell financial credit products.
+            </p>
+          </div>
+
+          <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 1.25rem;">
+            <h3 style="font-size: 1.15rem; color: #FFFFFF; margin-bottom: 0.5rem;">Can I track both Zerodha and Groww portfolios together?</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">
+              Yes. When you download a Consolidated Account Statement (CAS) from CAMS or KFintech, it contains your mutual funds regardless of whether you bought them via Zerodha Coin, Groww, Kuvera, or directly from the AMC. For stocks, simply add your holdings to Arthavi to view consolidated XIRR and asset allocation across all brokers.
+            </p>
+          </div>
+
+          <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 1.25rem;">
+            <h3 style="font-size: 1.15rem; color: #FFFFFF; margin-bottom: 0.5rem;">Is my CAS statement safe when uploaded to Arthavi?</h3>
+            <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">
+              Yes. All uploads are encrypted in transit via TLS 1.3 and at rest with AES-256. We only parse read-only investment statement data to compute your holdings and XIRR. We never share or sell this data to any third party.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom CTA Banner -->
+      <section style="text-align: center; background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(124, 58, 237, 0.12) 100%); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 3rem 2rem;">
+        <h2 style="font-size: 2.2rem; color: #FFFFFF; margin-top: 0; margin-bottom: 1rem;">
+          Start Tracking Your Complete Portfolio Today
+        </h2>
+        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 2rem auto; line-height: 1.6;">
+          Zero ads. Zero email scraping. Zero broker passwords. Experience modern wealth tracking built for Indian investors.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.85rem 2.2rem; font-size: 1.05rem; font-weight: 600; text-decoration: none;">
+            Create Free Account
+          </a>
+          <a href="https://app.arthavi.com/demo" class="btn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #FFFFFF; padding: 0.85rem 2.2rem; font-size: 1.05rem; text-decoration: none;">
+            Try Interactive Demo
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>

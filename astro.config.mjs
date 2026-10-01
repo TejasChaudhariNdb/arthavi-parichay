@@ -12,6 +12,9 @@ export default defineConfig({
   redirects: {
     '/about.html': '/about/',
     '/ai-portfolio-analyzer-market-research.html': '/ai-portfolio-analyzer-market-research/',
+    '/compare.html': '/compare/',
+    '/arthavi-vs-mprofit.html': '/arthavi-vs-mprofit/',
+    '/kuvera-alternative.html': '/kuvera-alternative/',
     '/arthavi-vs-dezerv.html': '/arthavi-vs-dezerv/',
     '/arthavi-vs-excel.html': '/arthavi-vs-excel/',
     '/arthavi-vs-groww.html': '/arthavi-vs-groww/',
