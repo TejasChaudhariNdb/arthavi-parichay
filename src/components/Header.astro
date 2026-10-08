@@ -24,10 +24,16 @@
             </ul>
         </nav>
         <div class="nav-actions">
-            <!-- Desktop CTA (Hidden on mobile) -->
+            <!-- Desktop Sign In Link -->
+            <a href="https://app.arthavi.com/" class="nav-signin-link desktop-only">Sign In</a>
+
+            <!-- Desktop CTA -->
             <a href="https://app.arthavi.com/register" class="btn btn-primary nav-cta" id="nav-cta">Create Free Account</a>
 
-            <!-- Mobile Hamburger Menu Button Only -->
+            <!-- Mobile compact CTA -->
+            <a href="https://app.arthavi.com/register" class="btn btn-primary btn-sm mobile-header-cta">Start Free</a>
+
+            <!-- Mobile Hamburger Menu Button -->
             <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                 <span></span><span></span><span></span>
             </button>
@@ -50,21 +56,55 @@
     <a href="/about/" onclick="closeMobileMenu()">About</a>
     <a href="/security/" onclick="closeMobileMenu()">Security</a>
     <div class="mobile-menu-actions">
-        <a href="https://app.arthavi.com/demo" class="btn btn-primary btn-demo-mobile">⚡ Try Interactive Demo</a>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary btn-register-mobile" style="margin-bottom: 0.75rem; text-align: center; justify-content: center; width: 100%;">Create Free Account →</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-secondary btn-demo-mobile" style="text-align: center; justify-content: center; width: 100%;">⚡ Try Interactive Demo</a>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0;">
+            Already have an account? <a href="https://app.arthavi.com/" style="color: #a78bfa; font-weight: 600;">Sign In</a>
+        </p>
     </div>
 </nav>
 
 <style>
+    .nav-signin-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.92rem;
+        font-weight: 500;
+        margin-right: 0.75rem;
+        transition: color 0.2s;
+    }
+    .nav-signin-link:hover {
+        color: var(--text-head);
+    }
+
+    .mobile-header-cta {
+        display: none;
+        padding: 0.42rem 0.9rem;
+        font-size: 0.84rem;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
     @media (max-width: 768px) {
-        .nav-cta {
+        .desktop-only, .nav-cta {
             display: none !important;
         }
 
-        .btn-demo-mobile {
+        .mobile-header-cta {
+            display: inline-flex !important;
+            align-items: center;
+        }
+
+        .btn-register-mobile {
             background: linear-gradient(135deg, #5457e5 0%, #7c3aed 100%);
-            width: 100%;
-            text-align: center;
-            justify-content: center;
+            box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+            display: flex;
+        }
+
+        .btn-demo-mobile {
+            display: flex;
         }
     }
 </style>
