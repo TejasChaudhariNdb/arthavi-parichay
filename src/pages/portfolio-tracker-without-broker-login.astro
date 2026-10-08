@@ -12,14 +12,57 @@ const seo = {
   keywords="portfolio tracker without broker login, no demat linking, track stocks without broker login, safe portfolio tracker india, arthavi tracker, manual stock tracker"
   schema={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Portfolio Tracker Without Broker Login",
-    "description": "Learn why tracking your portfolio without broker logins keeps your demat account secure. Discover the benefits of read-only CAS statements and manual stock tracking.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Arthavi",
-      "logo": "https://arthavi.com/images/logo.png"
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://arthavi.com/portfolio-tracker-without-broker-login/#webpage",
+        "url": "https://arthavi.com/portfolio-tracker-without-broker-login/",
+        "name": seo.title,
+        "description": seo.description,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Arthavi",
+          "logo": "https://arthavi.com/images/logo.png"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Arthavi Portfolio Tracker",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+        "description": "Secure portfolio tracker for Indian investors. Consolidate mutual funds and stocks without broker login or demat linking."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is it safe to link demat accounts to portfolio apps?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While SEBI-registered brokers secure their APIs, linking your account means a third-party app stores your transaction history and auth tokens. For absolute security, keeping trackers isolated from your brokerage without API links is best."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I track my stocks without broker login on Arthavi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can quickly add stock transactions manually by entering the name, purchase price, date, and quantity, or importing a holdings CSV. Arthavi automatically syncs live NSE/BSE stock prices to compute your daily gains."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I have to update mutual funds manually every time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. You only need to import your updated CAMS/KFintech CAS statement once a month or after new transactions. Daily NAV changes update automatically."
+            }
+          }
+        ]
+      }
+    ]
   })}
   breadcrumb={{
     items: [

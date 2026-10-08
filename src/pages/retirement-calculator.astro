@@ -2,17 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout
-  title="Retirement Calculator India — How Much Corpus Do You Need? | Arthavi"
-  description="Free retirement calculator for India. Calculate how much corpus you need to retire comfortably. Accounts for inflation, life expectancy, and current savings. Find the monthly SIP needed."
-  keywords="retirement calculator India, retirement corpus calculator, how much money needed to retire India, retirement planning calculator, 25x rule calculator India, FIRE calculator India"
+  title="Retirement Calculator India (2026) — Calculate FIRE Corpus & SIP | Arthavi"
+  description="Free retirement calculator for India (2026). Calculate your target retirement corpus, inflation-adjusted expenses, and monthly SIP needed to achieve FIRE. Free forever."
+  keywords="retirement calculator India, retirement corpus calculator, how much money needed to retire India, retirement planning calculator 2026, 25x rule calculator India, FIRE calculator India"
   breadcrumb={{ items: [{ name: "Home", url: "https://arthavi.com/" }, { name: "Calculators", url: "https://arthavi.com/calculators/" }, { name: "Retirement Calculator", url: "https://arthavi.com/retirement-calculator/" }] }}
   schema={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "WebPage", "@id": "https://arthavi.com/retirement-calculator/", "name": "Retirement Calculator India — How Much Corpus Do You Need?", "inLanguage": "en-IN", "dateModified": "2025-07-24" },
+      { "@type": "WebPage", "@id": "https://arthavi.com/retirement-calculator/", "name": "Retirement Calculator India (2026) — Calculate FIRE Corpus & SIP", "inLanguage": "en-IN", "dateModified": "2026-10-08" },
       { "@type": "WebApplication", "name": "Retirement Calculator India", "url": "https://arthavi.com/retirement-calculator/", "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
       { "@type": "FAQPage", "mainEntity": [
-        { "@type": "Question", "name": "How much corpus do I need to retire in India?", "acceptedAnswer": { "@type": "Answer", "text": "Use the 25x Rule: multiply your expected annual retirement expenses by 25. For ₹60,000/month expenses (₹7.2 lakh/year), you need ₹1.8 crore corpus. This assumes a 4% safe withdrawal rate. Adjust for inflation — ₹60,000 today = ₹1.07 lakh in 10 years at 6% inflation. Arthavi's retirement calculator does all this automatically." } },
+        { "@type": "Question", "name": "How much corpus do I need to retire in India?", "acceptedAnswer": { "@type": "Answer", "text": "Use the 25x Rule: multiply your expected annual retirement expenses by 25. For ₹60,000/month expenses (₹7.2 lakh/year), you need ₹1.8 crore corpus at today's value. Adjusting for 6% inflation over 30 years, you need ~₹10.3 crore. Arthavi's retirement calculator computes both values automatically." } },
         { "@type": "Question", "name": "At what age should I start retirement planning?", "acceptedAnswer": { "@type": "Answer", "text": "Start retirement planning as early as possible — ideally in your 20s. Starting at 25 vs 35 can make a 3x difference in corpus due to compounding. If you invest ₹10,000/month from age 25 at 12% return, you get ₹3.5 crore by 60. Starting at 35, same amount gives ₹1.2 crore." } },
         { "@type": "Question", "name": "What is the 4% safe withdrawal rate?", "acceptedAnswer": { "@type": "Answer", "text": "The 4% Safe Withdrawal Rate (SWR) means you can withdraw 4% of your retirement corpus annually without depleting it over 30+ years (based on historical market returns). For a corpus of ₹2 crore, 4% = ₹8 lakh/year = ₹66,667/month. In India, a 3-3.5% SWR is considered more conservative given inflation risks." } }
       ]}
@@ -94,6 +94,12 @@ import Layout from '../layouts/Layout.astro';
                   </div>
                 </div>
                 <div class="ret-insight" id="ret-insight"></div>
+                <!-- Conversion Box to Arthavi Portfolio Tracker -->
+                <div class="ret-cta-card" style="margin-top:1.5rem; padding:1.25rem; background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.25); border-radius:12px; text-align:center;">
+                  <div style="font-size:0.95rem; font-weight:700; color:#c7d2fe; margin-bottom:0.35rem;">🎯 Track Your Retirement Goal on Arthavi</div>
+                  <p style="font-size:0.83rem; color:var(--text-muted); margin:0 0 0.85rem 0; line-height:1.45;">Set your target corpus, track your SIP progress automatically, and monitor your true XIRR for free.</p>
+                  <a href="https://app.arthavi.com/register" class="btn btn-primary btn-sm" style="font-size:0.85rem; padding:0.5rem 1.25rem; display:inline-block;">Start Tracking Free →</a>
+                </div>
               </div>
             </div>
           </div>
