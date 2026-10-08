@@ -58,10 +58,11 @@ export function getCategorizedSitemaps() {
         if (rel === 'index.astro') {
           urlPath = '/';
         } else if (rel.endsWith('/index.astro')) {
-          urlPath = '/' + rel.slice(0, -11) + '/';
+          urlPath = '/' + rel.slice(0, -12) + '/';
         } else {
           urlPath = '/' + rel.slice(0, -6) + '/';
         }
+        urlPath = urlPath.replace(/\/+/g, '/');
 
         // Exclude 404
         if (urlPath === '/404/') continue;
