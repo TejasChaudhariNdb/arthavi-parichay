@@ -2,16 +2,57 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-  title: "Arthavi vs Dezerv: Portfolio Tracker vs Wealth Manager — What's Right for You? (2026)",
-  description: "Arthavi vs Dezerv — a detailed comparison of DIY portfolio tracking vs managed wealth. When does Dezerv's advisor model make sense, and when does Arthavi give you more control and transparency?",
+  title: "Dezerv Review & Alternatives: Arthavi vs Dezerv (2026)",
+  description: "Comparing Dezerv vs Arthavi in 2026: Wealth management vs free DIY portfolio tracking. Compare fees, safety, and how to track Dezerv returns independently.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="arthavi vs dezerv, dezerv alternative india, dezerv vs arthavi, dezerv review india 2026, is dezerv good for investment, portfolio tracker vs wealth manager india, dezerv portfolio tracking" schema={JSON.stringify({
+<Layout title={seo.title} description={seo.description} keywords="arthavi vs dezerv, dezerv alternative india, dezerv vs arthavi, dezerv review india 2026, is dezerv good for investment, dezerv wealth monitor, portfolio tracker vs wealth manager india" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Arthavi Portfolio Tracker",
-      "description": "DIY portfolio tracker for Indian investors. See real XIRR, Portfolio Health Score, and AI insights — for free, without a wealth manager.",
-      "brand": {"@type": "Brand", "name": "Arthavi"}
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "Arthavi Portfolio Tracker",
+          "description": "DIY portfolio tracker for Indian investors. See real XIRR, Portfolio Health Score, and AI insights — for free, without a wealth manager.",
+          "brand": {"@type": "Brand", "name": "Arthavi"}
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Dezerv worth it for Indian investors?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dezerv suits HNI investors (₹10L+) who prefer professional management over self-managing. For investors who want full transparency and control, Arthavi's free analytics toolset is a better fit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I track my Dezerv portfolio in Arthavi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Dezerv invests through mutual funds registered with CAMS/KFintech. Download your CAS and import it into Arthavi — your Dezerv holdings appear automatically alongside all other investments."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does Dezerv charge?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dezerv typically charges 0.5–1% of AUM annually as a management fee. Arthavi is free — it doesn't manage money, so there are no fees."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Arthavi better than Dezerv?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They serve different purposes. Dezerv manages your investments. Arthavi tracks and analyses them. The ideal approach is using both — Dezerv for expert allocation, Arthavi for independent analytics."
+              }
+            }
+          ]
+        }
+      ]
     })} breadcrumb={{
       items: [
         { name: "Home", url: "https://arthavi.com/" },

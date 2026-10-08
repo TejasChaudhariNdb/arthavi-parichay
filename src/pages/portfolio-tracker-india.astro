@@ -2,23 +2,80 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-  title: "Best Portfolio Tracker in India (2026) – Track Stocks & Mutual Funds Easily",
-  description: "Looking for the best portfolio tracker in India? Compare top tools, track your Zerodha, Groww, and Upstox investments, and monitor XIRR accurately.",
+  title: "Best Portfolio Tracker India (2026) — Free Stocks & Mutual Funds App | Arthavi",
+  description: "Discover the best free portfolio tracker in India (2026). Track Zerodha, Groww, and CAMS mutual funds in one private dashboard. Accurate XIRR, zero broker logins.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="portfolio tracker India, best portfolio tracker in india 2026, track mutual fund portfolio, stock portfolio tracker india, investment tracking app india, wealth tracker India, best apps for tracking stocks and mutual funds, tracking stocks online, portfolio tracker excel, crypto portfolio tracker, mutual fund portfolio tracker, google finance portfolio tracker, value research portfolio tracker, mprofit" schema={JSON.stringify({
+<Layout title={seo.title} description={seo.description} keywords="portfolio tracker India, best portfolio tracker in india 2026, best portfolio tracker app india free, track mutual fund portfolio, stock portfolio tracker india, investment tracking app india, wealth tracker India, all-in-one portfolio tracker india" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Arthavi Portfolio Tracker",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "description": "A privacy-first portfolio tracker for tracking Indian mutual funds and stocks.",
-      "featureList": "CAS Upload, Stock Tracking, XIRR"
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Arthavi Portfolio Tracker",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR"
+          },
+          "description": "A privacy-first portfolio tracker for tracking Indian mutual funds and stocks with automated CAS import and XIRR analytics.",
+          "featureList": "CAS Upload, Stock Tracking, XIRR Analytics, Capital Gains"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a portfolio tracker?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A portfolio tracker is a tool that allows you to monitor all your financial investments—such as stocks, mutual funds, EPF, and bonds—in one place. It helps you track your overall net worth and calculate true returns (XIRR)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which is best portfolio tracker in India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The best portfolio tracker depends on your privacy preferences. Arthavi is built for Indian investors focusing purely on accurate stock and mutual fund tracking with zero email scraping or broker credentials. Other alternatives include INDmoney, Kuvera, and Groww."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to track mutual funds and stocks together?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Upload your consolidated CAS statement for mutual funds and sync or add your stock holdings from brokers like Zerodha or Angel One to a unified tracker to view everything on a single dashboard."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Arthavi free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Arthavi is completely free to start tracking your wealth without broker lock-ins."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What tools help track my family's entire financial portfolio across all investments?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You need a tool that supports multi-portfolio tracking or multiple CAS uploads for different PANs. Arthavi makes it easy to track family accounts securely."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What sip tools help track portfolio performance across multiple funds?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To track SIP performance accurately across multiple funds, you need an XIRR-based calculator that factors in every individual SIP transaction date to tell you the true annualized return."
+              }
+            }
+          ]
+        }
+      ]
     })}>
 
     

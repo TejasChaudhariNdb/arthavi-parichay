@@ -2,34 +2,58 @@
 import Layout from '../../layouts/Layout.astro';
 
 const seo = {
-  title: "Track Zerodha and Groww Portfolio Together (Without Sharing Passwords) | Arthavi",
-  description: "Learn how to view your Zerodha stocks and Groww mutual funds in a single dashboard. A secure, privacy-first guide for Indian investors using Arthavi.",
+  title: "Can I Use Zerodha and Groww Together? How to Track Both (2026) | Arthavi",
+  description: "Yes, you can use Zerodha and Groww together! Learn SEBI rules, why investors use both brokers, and how to track your combined portfolio in one private dashboard.",
 };
 ---
 <Layout
   title={seo.title}
   description={seo.description}
-  keywords="track zerodha and groww together, zerodha groww portfolio consolidation, best app to track stocks and mutual funds india, portfolio tracker for multiple brokers, arthavi vs indmoney"
+  keywords="can i use zerodha and groww together, track zerodha and groww together, can i have zerodha and groww demat account, zerodha groww portfolio consolidation, best app to track stocks and mutual funds india"
   schema={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Track Zerodha and Groww Portfolio Together (Without Sharing Passwords)",
-    "image": "https://arthavi.com/images/og-image.png",
-    "author": {
-      "@type": "Organization",
-        "name": "Arthavi"
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Can You Use Zerodha and Groww Together? How to Track Both in One Place",
+        "image": "https://arthavi.com/images/og-image.png",
+        "author": { "@type": "Organization", "name": "Arthavi" },
+        "publisher": { "@type": "Organization", "name": "Arthavi", "logo": { "@type": "ImageObject", "url": "https://arthavi.com/images/logo.png" } },
+        "datePublished": "2026-02-16",
+        "dateModified": "2026-10-08",
+        "description": "Learn if you can use Zerodha and Groww together and how to consolidate both portfolios into one dashboard securely."
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Arthavi",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://arthavi.com/images/logo.png"
-        }
-      },
-      "datePublished": "2026-02-16",
-      "description": "A guide on consolidating Zerodha and Groww portfolios into one dashboard securely."
-    })}
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I use Zerodha and Groww together?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, absolutely! SEBI regulations allow Indian citizens to open and operate multiple Demat and trading accounts with different brokers. Many investors maintain Zerodha for direct stock trading and Groww for mutual fund SIPs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I have two Demat accounts in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can have multiple Demat accounts linked to the same PAN card across different brokers like Zerodha, Groww, and Angel One. Each Demat account will have a unique Demat account number (BO ID)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I view my Zerodha and Groww portfolio together?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can consolidate your investments into a privacy-first portfolio tracker like Arthavi. By importing your CAS statement (for Groww mutual funds) and holdings CSV (for Zerodha stocks), you get a unified dashboard with zero broker logins or password sharing."
+            }
+          }
+        ]
+      }
+    ]
+  })}
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },
@@ -38,14 +62,17 @@ const seo = {
   }}
 >
 
-    
-
     <main class="container" style="padding-top: calc(var(--header-height) + 2rem);">
         <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
-            <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Track Zerodha and Groww Portfolio Together (Without
-                Sharing Passwords)</h1>
+            <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Can You Use Zerodha and Groww Together? (How to Track Both in One Place)</h1>
 
-            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 2rem;">
+              <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: var(--text-head);">
+                <strong>⚡ Quick Answer:</strong> Yes, you can legally and easily use both Zerodha and Groww simultaneously. Under SEBI rules, you can hold multiple Demat accounts under the same PAN. Millions of Indian investors use <strong>Zerodha Kite</strong> for stock and F&O trading and <strong>Groww</strong> for mutual fund SIPs.
+              </p>
+            </div>
+
+            <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem;">
                 The classic Indian investor dilemma: You perform your stock trading on <strong><a href="/arthavi-vs-zerodha/">Zerodha Kite</a></strong>
                 because of its clean UI, but you started your SIPs on <strong><a href="/arthavi-vs-groww/">Groww</a></strong> because it was easy to set
                 up.

@@ -2,50 +2,170 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-  title: "Net Worth Tracker India | Assets & Goals | Arthavi",
-  description: "Calculate and track your Net Worth in INR. Aggregate Mutual Funds, Stocks, and more to see your total financial picture. Privacy-first Indian wealth tracker.",
+  title: "Net Worth Tracker India (2026) — Free Family Wealth Dashboard | Arthavi",
+  description: "Calculate and track your true Net Worth in INR. Consolidate mutual funds, stocks from Zerodha/Groww, EPF, and gold into one private dashboard. 100% Free.",
 };
 ---
-<Layout title={seo.title} description={seo.description} keywords="net worth tracker India, wealth tracker app, personal finance dashboard India, asset allocation tracker" schema={JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":"Net Worth Tracker India","description":"Calculate and track your Net Worth in INR. Aggregate Mutual Funds, Stocks, and more to see your total financial picture.","url":"https://arthavi.com/net-worth-tracker-india"})} breadcrumb={{items:[{name:"Home",url:"https://arthavi.com/"},{name:"Net Worth Tracker",url:"https://arthavi.com/net-worth-tracker-india"}]}}>
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="net worth tracker India, wealth tracker app india, personal finance dashboard India, family net worth tracker, asset allocation tracker india, best net worth tracker app india"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Arthavi Net Worth Tracker",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+        "description": "Calculate and track your family net worth across mutual funds, stocks, and fixed income in INR with automated CAS parsing."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I calculate my net worth in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your Net Worth equals Total Assets minus Total Liabilities. Total Assets include mutual funds, direct stocks, EPF/PPF, bank balances, gold, and real estate. Total Liabilities include home loans, car loans, and credit card balances. Arthavi calculates this automatically by parsing your investment statements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best app to track net worth in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Arthavi is the best privacy-first net worth tracker for Indian investors. Unlike apps that require bank logins or email scraping permissions, Arthavi aggregates your stocks and mutual funds directly from CAMS/KFintech CAS files."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I track my entire family's net worth together?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Arthavi supports multi-profile wealth aggregation, allowing you to combine CAS statements and demat holdings across different family PANs into one consolidated family net worth view."
+            }
+          }
+        ]
+      }
+    ]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Net Worth Tracker", url: "https://arthavi.com/net-worth-tracker-india/" }
+    ]
+  }}
+>
 
-    
-
-    <main class="container">
-        <section class="page-header fade-in">
-            <h1>Net Worth Tracker for Indian Investors</h1>
-            <p class="text-muted" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">
-                More than just a stock ticker. See your total wealth in one place.
+    <main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+        <section class="page-header fade-in" style="text-align: center; max-width: 860px; margin: 0 auto 3rem auto;">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25); border-radius: 9999px; padding: 0.35rem 1rem; font-size: 0.85rem; font-weight: 600; color: #a78bfa; margin-bottom: 1.25rem;">
+              <span>📈 Personal & Family Wealth Aggregation</span>
+            </div>
+            <h1 style="font-size: 2.75rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
+              Net Worth Tracker for Indian Investors (2026)
+            </h1>
+            <p class="text-muted" style="font-size: 1.25rem; line-height: 1.6; max-width: 760px; margin: 0 auto 2rem auto;">
+                Tired of messy Excel sheets? Consolidate your mutual funds, Zerodha/Groww stocks, EPF, and liquid assets into one real-time, private dashboard in INR.
             </p>
-            <div style="margin-top: 2rem;">
-                <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.85rem 2.25rem; font-size: 1.05rem;">
+                  Track My Net Worth Free →
+                </a>
+                <a href="/family-portfolio-tracker/" class="btn btn-secondary" style="padding: 0.85rem 1.75rem; font-size: 1.05rem;">
+                  Family Portfolio Mode
+                </a>
             </div>
         </section>
 
-        <article class="prose fade-in delay-100">
-            <h2>Why Net Worth Matters</h2>
-            <p>Tracking individual stock prices is noise. Tracking your <strong>Net Worth</strong> is signal. It is the
-                single most important metric for financial independence (FIRE) in India.</p>
+        <article class="prose fade-in delay-100" style="max-width: 860px; margin: 0 auto;">
+            <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 3rem;">
+              <h2 style="margin-top: 0; color: var(--text-head); font-size: 1.6rem;">Why Net Worth Tracking Beats Checking Stock Prices</h2>
+              <p>Tracking individual daily stock price fluctuations causes anxiety and emotional trading. Tracking your <strong>consolidated Net Worth</strong> provides clarity. It is the single most important metric for achieving Financial Independence and Retiring Early (FIRE) in India.</p>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.25rem; border-radius: 10px;">
+                  <h3 style="margin-top: 0; font-size: 1.1rem; color: #34d399;">1. True Asset Allocation</h3>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">See your real equity-to-debt split across all mutual fund schemes, direct stocks, and PF balances.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.25rem; border-radius: 10px;">
+                  <h3 style="margin-top: 0; font-size: 1.1rem; color: #60a5fa;">2. Unified XIRR</h3>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Discover your exact annualized rate of return across 5+ years of combined investments.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.25rem; border-radius: 10px;">
+                  <h3 style="margin-top: 0; font-size: 1.1rem; color: #a78bfa;">3. Zero Broker Lock-In</h3>
+                  <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0;">Switch brokers freely without losing your historical performance and wealth trajectory.</p>
+                </div>
+              </div>
+            </div>
 
-            <h2>Aggregation: The Full Picture</h2>
-            <p>Arthavi acts as a central hub for:</p>
+            <h2>What Arthavi Net Worth Tracker Aggregates</h2>
+            <p>Unlike broker apps that only show the products they sell you, Arthavi acts as an unbiased aggregation layer:</p>
             <ul>
-                <li><strong>Mutual Funds:</strong> Equity, Debt, and Hybrid funds via your investment statement.</li>
-                <li><strong>Stocks:</strong> Direct equity holdings in NSE/BSE.</li>
-                <li><strong>Cash & Liquid Assets:</strong> (Coming soon)</li>
+                <li><strong>Direct Mutual Funds:</strong> Equity, Debt, Hybrid, and Index funds via CAMS/KFintech CAS statement.</li>
+                <li><strong>Direct Stocks:</strong> NSE and BSE equity holdings from Zerodha, Groww, Angel One, or Upstox.</li>
+                <li><strong>Fixed Income & Provident Funds:</strong> Track EPF, PPF, and Sovereign Gold Bonds (SGBs).</li>
+                <li><strong>Family Multi-PAN Support:</strong> Aggregate spouse and parents' assets under one master login.</li>
             </ul>
 
-            <h2>Performance Over Time</h2>
-            <p>Visualize your wealth growth chart. See how your asset allocation shifts between Equity and Debt over
-                time, helping you rebalance your portfolio effectively.</p>
+            <h2>Spreadsheet vs Arthavi Net Worth Tracker</h2>
+            <div style="overflow-x: auto; margin: 2rem 0;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                <thead>
+                  <tr style="background: rgba(99,102,241,0.15); text-align: left;">
+                    <th style="padding: 0.9rem 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">Feature</th>
+                    <th style="padding: 0.9rem 1rem; border-bottom: 2px solid rgba(99,102,241,0.4); color: #a78bfa;">Arthavi Tracker</th>
+                    <th style="padding: 0.9rem 1rem; border-bottom: 2px solid rgba(255,255,255,0.1);">Google Sheets / Excel</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 0.8rem 1rem;">Setup Time</td>
+                    <td style="padding: 0.8rem 1rem; color: #34d399;">⚡ Under 2 minutes (upload CAS)</td>
+                    <td style="padding: 0.8rem 1rem; color: #f87171;">❌ Hours of manual formula writing</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 0.8rem 1rem;">XIRR Calculation</td>
+                    <td style="padding: 0.8rem 1rem; color: #34d399;">✅ Automated per transaction date</td>
+                    <td style="padding: 0.8rem 1rem; color: #f87171;">❌ Error-prone XIRR formula errors</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 0.8rem 1rem;">Stock & NAV Pricing</td>
+                    <td style="padding: 0.8rem 1rem; color: #34d399;">✅ Real-time NSE/BSE & AMFI sync</td>
+                    <td style="padding: 0.8rem 1rem; color: #f87171;">❌ GOOGLEFINANCE formula breaks often</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 0.8rem 1rem;">Privacy & Safety</td>
+                    <td style="padding: 0.8rem 1rem; color: #34d399;">🔒 Zero broker passwords or email reading</td>
+                    <td style="padding: 0.8rem 1rem; color: #34d399;">✅ Stored in personal cloud</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-            <div style="margin-top: 3rem; text-align: center;">
-                <h3>Start your wealth journey</h3>
-                <a href="https://app.arthavi.com/register" class="btn btn-primary">Create Free Account</a>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="faq-grid" style="margin: 2rem 0;">
+                <div class="faq-item" style="margin-bottom: 1.25rem;">
+                    <h3 style="font-size: 1.1rem; color: var(--text-head); margin-bottom: 0.4rem;">How do I calculate my net worth in India?</h3>
+                    <p class="text-sm">Your net worth is calculated by adding all your assets (mutual funds, stocks, PF, gold, bank accounts, real estate) and subtracting all your liabilities (home loans, personal loans, credit card balances). Arthavi does this automatically from your investment statements.</p>
+                </div>
+                <div class="faq-item" style="margin-bottom: 1.25rem;">
+                    <h3 style="font-size: 1.1rem; color: var(--text-head); margin-bottom: 0.4rem;">What is the best app to track net worth in India?</h3>
+                    <p class="text-sm">Arthavi is designed specifically for Indian retail investors who want an independent, ad-free net worth tracker. It never asks for broker passwords, bank credentials, or Gmail inbox permissions.</p>
+                </div>
+                <div class="faq-item" style="margin-bottom: 1.25rem;">
+                    <h3 style="font-size: 1.1rem; color: var(--text-head); margin-bottom: 0.4rem;">Can I track my entire family's net worth together?</h3>
+                    <p class="text-sm">Yes. Arthavi features a Multi-Profile Family Wealth mode that lets you upload CAS statements for your spouse and parents to view consolidated and individual net worth breakdowns.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3.5rem; text-align: center; padding: 2.5rem; background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(139,92,246,0.08) 100%); border: 1px solid rgba(99,102,241,0.3); border-radius: 16px;">
+                <h3 style="font-size: 1.6rem; color: var(--text-head); margin-bottom: 0.5rem;">Start Tracking Your Net Worth Today</h3>
+                <p class="text-muted" style="margin-bottom: 1.5rem;">Free forever • No broker login • Bank-grade privacy</p>
+                <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.85rem 2.25rem; font-size: 1.05rem;">Create Free Account →</a>
             </div>
         </article>
     </main>
-
-    
-    
-
 </Layout>
