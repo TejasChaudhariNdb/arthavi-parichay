@@ -185,6 +185,34 @@
             letter-spacing: 0.04em;
             text-transform: uppercase;
             box-shadow: 0 10px 20px rgba(251, 191, 36, 0.22);
+            pointer-events: none;
+        }
+
+        .hero-btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .hero-cta-btn {
+            padding: 0.95rem 2.2rem;
+            font-size: 1.08rem;
+            box-shadow: 0 4px 24px rgba(99, 102, 241, 0.45);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .hero-demo-btn {
+            padding: 0.95rem 2.2rem;
+            font-size: 1.08rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
 
         .btn-secondary {
@@ -1473,6 +1501,20 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        .compare-scroll-hint {
+            display: none;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin: 2rem auto -1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .compare-scroll-hint {
+                display: block;
+            }
+        }
+
         .compare-table-wrap {
             max-width: 1100px;
             margin: 3rem auto 2.5rem;
@@ -1529,6 +1571,111 @@
             border-radius: 999px;
             margin-top: 0.35rem;
             border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+
+        .table-icon {
+            display: inline-block;
+            vertical-align: -2px;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+        .icon-check { color: #34d399; }
+        .icon-cross { color: #f87171; }
+        .icon-alert { color: #fbbf24; }
+        .icon-shield { color: #a78bfa; }
+        .icon-sparkle { color: #c084fc; }
+
+        /* How It Works 3 Steps Responsive */
+        .how-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+        .step-icon-badge {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+        .step-icon-1 {
+            background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.15));
+            border: 1px solid rgba(99,102,241,0.3);
+        }
+        .step-icon-2 {
+            background: linear-gradient(135deg, rgba(52,211,153,0.2), rgba(16,185,129,0.15));
+            border: 1px solid rgba(52,211,153,0.3);
+        }
+        .step-icon-3 {
+            background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(168,85,247,0.15));
+            border: 1px solid rgba(139,92,246,0.3);
+        }
+        .step-num-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .step-heading {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-head);
+        }
+        .step-desc {
+            color: var(--text-body);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Trust Cards Responsive */
+        .trust-cards-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .trust-card {
+            padding: 1.75rem 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+        .trust-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.85rem;
+        }
+
+        /* Trust Ribbon Bar */
+        .trust-ribbon {
+            text-align: center;
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.85rem 1.25rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .trust-ribbon-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .trust-ribbon-dot {
+            color: rgba(255, 255, 255, 0.25);
         }
 
         .aeo-cards-grid {
@@ -2014,6 +2161,39 @@
         }
 
         @media (max-width: 768px) {
+            .how-steps-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
+                margin-top: 2rem !important;
+            }
+
+            .how-steps-grid .step-card {
+                padding: 1.75rem 1.25rem !important;
+            }
+
+            .trust-cards-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .trust-card {
+                padding: 1.5rem 1.25rem !important;
+            }
+
+            .trust-ribbon {
+                flex-direction: column;
+                gap: 0.5rem !important;
+                margin-top: 1.75rem !important;
+            }
+
+            .trust-ribbon-dot {
+                display: none !important;
+            }
+
+            .trust-ribbon-item {
+                font-size: 0.82rem !important;
+            }
+
             .step-card:hover {
                 transform: none;
             }
@@ -2089,6 +2269,32 @@
             }
         }
 
+        @media (max-width: 640px) {
+            .hero-btn-group {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                width: 100% !important;
+                max-width: 320px !important;
+                margin: 0 auto !important;
+                gap: 0.85rem !important;
+            }
+
+            .hero-cta-btn,
+            .hero-demo-btn {
+                width: 100% !important;
+                padding: 0.85rem 1.25rem !important;
+                font-size: 1rem !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+
+            .ai-badge {
+                font-size: 0.76rem !important;
+                padding: 0.35rem 0.75rem !important;
+                line-height: 1.4 !important;
+            }
+        }
+
         @media (max-width: 480px) {
             .footer-top {
                 grid-template-columns: 1fr;
@@ -2107,10 +2313,13 @@
             }
 
             .btn-demo::after {
-                position: static;
-                margin-left: 0.5rem;
-                display: inline-flex;
-                vertical-align: middle;
+                position: absolute;
+                top: -0.6rem;
+                right: 0.75rem;
+                font-size: 0.6rem;
+                padding: 0.15rem 0.45rem;
+                margin-left: 0;
+                display: inline-block;
             }
 
             .hero-shell {
