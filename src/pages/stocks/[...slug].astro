@@ -89,29 +89,31 @@ const dividendInsight = stockData.dividend.yield
   : `${stockName} prioritizes capital reinvestment into business expansion over aggressive dividend payouts.`;
 
 // Dynamic H1 Title, Meta Tags & Canonical per Tab
+const cleanStockName = stockName.length > 25 ? shortSymbol.toUpperCase() : stockName;
+
 let pageH1 = `${stockName} (${shortSymbol.toUpperCase()}) Share Price & Analysis`;
-let metaTitle = `${stockName} (${shortSymbol.toUpperCase()}) Share Price Today | Fundamentals & PE Ratio | Arthavi`;
+let metaTitle = `${shortSymbol.toUpperCase()}: ${cleanStockName} Share Price | Arthavi`;
 let metaDescription = `Track ${stockName} (${shortSymbol.toUpperCase()}) share price, valuation metrics, P/E ratio, market cap, dividend yield, company profile, and financial performance on Arthavi.`;
 
 if (activeTab === 'share-price') {
   pageH1 = `${stockName} Share Price Today, 52-Week Range & Price Target`;
-  metaTitle = `${stockName} Share Price Today, 52 Week High Low & Target Price | Arthavi`;
+  metaTitle = `${cleanStockName} Share Price & 52W Range | Arthavi`;
   metaDescription = `Check live ${stockName} share price today, 52-week high/low range, price target, analyst recommendations, and technical performance indicators on Arthavi.`;
 } else if (activeTab === 'financials') {
   pageH1 = `${stockName} Financial Statements, P/E Ratio & ROE Valuation`;
-  metaTitle = `${stockName} Financials, P/E Ratio & Valuation Metrics | Arthavi`;
+  metaTitle = `${cleanStockName} Financials, P/E & ROE | Arthavi`;
   metaDescription = `Comprehensive financial analysis for ${stockName} including P/E ratio, ROE, profit margins, balance sheet metrics, cash flows, and EV/EBITDA multiples.`;
 } else if (activeTab === 'dividend') {
   pageH1 = `${stockName} Dividend History, Annual Yield & Ex-Date`;
-  metaTitle = `${stockName} Dividend History, Yield & Ex-Date | Arthavi`;
+  metaTitle = `${cleanStockName} Dividend History & Yield | Arthavi`;
   metaDescription = `Track ${stockName} dividend yield, payout rate, ex-dividend dates, split history, and income performance metrics on Arthavi.`;
 } else if (activeTab === 'shareholding-pattern') {
   pageH1 = `${stockName} Shareholding Pattern: Promoter & FII Holding`;
-  metaTitle = `${stockName} Shareholding Pattern, Promoter & FII Holding | Arthavi`;
+  metaTitle = `${cleanStockName} Shareholding & FII Stake | Arthavi`;
   metaDescription = `Analyze ${stockName} ownership structure including promoter holdings, FII/DII institutional stake, cash reserves, and debt-to-equity metrics.`;
 } else if (activeTab === 'peer-comparison') {
   pageH1 = `${stockName} Peer Comparison & Sector Competitors`;
-  metaTitle = `${stockName} Peer Comparison & Sector Competitors | Arthavi`;
+  metaTitle = `${cleanStockName} vs Sector Competitors | Arthavi`;
   metaDescription = `Compare ${stockName} against top ${stockSector} competitors on P/E ratio, ROE, market capitalization, margins, and dividend yields.`;
 }
 
