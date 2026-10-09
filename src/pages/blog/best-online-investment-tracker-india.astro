@@ -1,0 +1,658 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "9 Best Online Investment Tracker Tools in India (2026) | Arthavi",
+  description: "Compare the best online investment tracker tools in India for 2026. Track stocks, mutual funds, NPS, and net worth in one place. Arthavi ranked #1 for privacy and accuracy.",
+  keywords: "best online investment tracker india, online investment tracker, investment tracker app india, mutual fund tracker india, portfolio tracker india 2026, best investment tracking app india, track investments india"
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://arthavi.com/blog/best-online-investment-tracker-india#article",
+      "headline": "9 Best Online Investment Tracker Tools in India (2026)",
+      "description": "Compare the best online investment tracker tools in India for 2026. Track stocks, mutual funds, NPS, and net worth in one place.",
+      "datePublished": "2026-10-10",
+      "dateModified": "2026-10-10",
+      "author": { "@type": "Organization", "name": "Arthavi", "url": "https://arthavi.com" },
+      "publisher": { "@type": "Organization", "name": "Arthavi" },
+      "mainEntityOfPage": "https://arthavi.com/blog/best-online-investment-tracker-india"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best online investment tracker in India?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Arthavi is the best online investment tracker in India for investors who want accuracy, privacy, and zero broker logins. It tracks mutual funds via CAS upload and stocks from any broker in one unified dashboard with real XIRR analytics." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which free investment tracker app is best for mutual funds and stocks in India?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Arthavi offers a completely free investment tracker that covers both mutual funds (via CAS import) and stocks from all major brokers including Zerodha, Groww, and Angel One — with no broker login required." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I track all my investments in one place in India?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Upload your CAMS/KFintech CAS statement to import all mutual fund holdings automatically. Then add your stock portfolio from any broker. Arthavi consolidates everything into one dashboard showing your true XIRR, asset allocation, and net worth." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a portfolio tracker that works without broker login in India?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — Arthavi is a privacy-first portfolio tracker that does NOT require your broker credentials or Gmail access. It uses CAS import for mutual funds and manual/CSV stock imports, keeping your credentials 100% safe." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track my family investments in one investment tracker app?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Arthavi supports multi-profile family tracking, allowing you to manage portfolios for multiple PANs under one account." }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthavi.com" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://arthavi.com/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Best Online Investment Tracker India 2026", "item": "https://arthavi.com/blog/best-online-investment-tracker-india" }
+      ]
+    }
+  ]
+});
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  schema={schema}
+  canonical="https://arthavi.com/blog/best-online-investment-tracker-india"
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com" },
+      { name: "Blog", url: "https://arthavi.com/blog" },
+      { name: "Best Online Investment Tracker India 2026", url: "https://arthavi.com/blog/best-online-investment-tracker-india" }
+    ]
+  }}
+>
+
+<style>
+  .blog-hero {
+    background: linear-gradient(135deg, #0B0E14 0%, #131829 60%, #0f1c2e 100%);
+    padding: 6rem 1.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(100,160,255,0.08) 0%, transparent 70%);
+  }
+  .blog-hero .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary, #5B8DEF);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .blog-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    position: relative;
+  }
+  .blog-hero .sub {
+    color: #9bacc8;
+    font-size: 1.1rem;
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    position: relative;
+  }
+  .blog-meta { font-size: 0.85rem; color: #6b7a99; margin-top: 1.5rem; position: relative; }
+
+  .article-wrap { max-width: 800px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+  .prose { color: var(--text-body, #c0cce0); font-size: 1.05rem; line-height: 1.75; }
+  .prose > * + * { margin-top: 1.1em; }
+  .prose h2 {
+    font-size: 1.65rem; font-weight: 700; color: var(--text-head, #e8edf7);
+    margin-top: 2.8em; margin-bottom: 0.5em; letter-spacing: -0.02em;
+    border-left: 4px solid var(--primary, #5B8DEF); padding-left: 0.85rem; line-height: 1.25;
+  }
+  .prose h3 {
+    font-size: 1.2rem; font-weight: 600; color: var(--text-head, #e8edf7);
+    margin-top: 2em; margin-bottom: 0.4em; letter-spacing: -0.01em;
+  }
+  .prose p { margin: 0 0 1em; }
+  .prose a { color: var(--primary, #5B8DEF); text-decoration: underline; text-underline-offset: 3px; }
+  .prose a:hover { opacity: 0.85; }
+  .prose strong { color: var(--text-head, #e8edf7); font-weight: 600; }
+  .prose ul { padding-left: 1.5rem; list-style: disc; }
+  .prose ul li { margin-bottom: 0.4em; }
+  .prose blockquote {
+    border-left: 3px solid var(--primary, #5B8DEF); padding: 0.75rem 1.25rem;
+    margin: 1.5rem 0; background: rgba(91,141,239,0.06); border-radius: 0 8px 8px 0;
+    color: #a8bcda; font-style: italic;
+  }
+
+  .winner-card {
+    background: linear-gradient(135deg, rgba(91,141,239,0.12) 0%, rgba(100,200,150,0.07) 100%);
+    border: 1px solid rgba(91,141,239,0.35); border-radius: 12px;
+    padding: 1.75rem 2rem; margin: 2rem 0; position: relative; overflow: hidden;
+  }
+  .winner-card::before {
+    content: '🏆 #1 Pick'; position: absolute; top: 1rem; right: 1.25rem;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; color: #5B8DEF;
+    background: rgba(91,141,239,0.15); padding: 0.25rem 0.75rem; border-radius: 999px;
+  }
+  .winner-card h2 { border: none !important; padding-left: 0 !important; margin-top: 0 !important; font-size: 1.5rem !important; }
+  .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-top: 1rem; }
+  @media (max-width: 560px) { .feat-grid { grid-template-columns: 1fr; } }
+  .feat-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.95rem; color: #c0cce0; }
+  .feat-item .icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1em; }
+
+  .cta-banner {
+    background: linear-gradient(135deg, #1a2744 0%, #0f2035 100%);
+    border: 1px solid rgba(91,141,239,0.25); border-radius: 12px;
+    padding: 2rem; text-align: center; margin: 2.5rem 0;
+  }
+  .cta-banner p { color: #9bacc8; margin-bottom: 1.25rem; }
+  .cta-banner .btn-cta {
+    display: inline-block; background: var(--primary, #5B8DEF); color: #fff;
+    font-weight: 600; padding: 0.75rem 2rem; border-radius: 8px;
+    text-decoration: none; font-size: 1rem; transition: opacity 0.2s;
+  }
+  .cta-banner .btn-cta:hover { opacity: 0.88; }
+
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0 2rem; border-radius: 10px; }
+  .comp-table {
+    width: 100%; border-collapse: collapse; font-size: 0.88rem;
+    background: var(--card-bg, #111827); border-radius: 10px; overflow: hidden;
+  }
+  .comp-table thead th {
+    background: rgba(91,141,239,0.1); color: #9bacc8; font-size: 0.75rem;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 0.9rem 0.85rem; text-align: left; border-bottom: 1px solid rgba(91,141,239,0.2); white-space: nowrap;
+  }
+  .comp-table tbody td {
+    padding: 0.8rem 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: middle; color: #c0cce0;
+  }
+  .comp-table tbody tr:last-child td { border-bottom: none; }
+  .comp-table tbody tr.hl td { background: rgba(91,141,239,0.07); }
+  .comp-table .tn { font-weight: 600; color: var(--text-head, #e8edf7); white-space: nowrap; }
+  .comp-table .y { color: #4ade80; }
+  .comp-table .n { color: #f87171; }
+  .comp-table .p { color: #facc15; }
+
+  .faq-section { margin-top: 3rem; }
+  .faq-section > h2 {
+    font-size: 1.65rem; font-weight: 700; color: var(--text-head, #e8edf7);
+    margin-bottom: 1.5rem; letter-spacing: -0.02em;
+  }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1.25rem 0; }
+  .faq-item summary {
+    font-weight: 600; color: var(--text-head, #e8edf7); cursor: pointer;
+    list-style: none; display: flex; justify-content: space-between;
+    align-items: center; gap: 1rem; font-size: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+'; font-size: 1.25rem; color: var(--primary, #5B8DEF);
+    flex-shrink: 0; transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-body { padding-top: 0.85rem; color: #9bacc8; line-height: 1.7; font-size: 0.97rem; }
+
+  .verdict-pill {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 999px; margin-bottom: 0.5rem;
+  }
+  .pill-green { background: rgba(74,222,128,0.12); color: #4ade80; }
+  .pill-yellow { background: rgba(250,204,21,0.12); color: #facc15; }
+  .pill-blue { background: rgba(91,141,239,0.15); color: #7ab3f7; }
+
+  .related-box {
+    background: var(--card-bg, #111827); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px; padding: 1.5rem; margin: 2.5rem 0;
+  }
+  .related-box h3 {
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #6b7a99; margin-bottom: 0.85rem;
+  }
+  .related-box ul { padding-left: 0; list-style: none; }
+  .related-box ul li { margin-bottom: 0.45rem; }
+  .related-box ul li a { color: var(--primary, #5B8DEF); text-decoration: underline; text-underline-offset: 3px; font-size: 0.95rem; }
+
+  .no-border-h2 { border: none !important; padding-left: 0 !important; }
+</style>
+
+<header class="blog-hero">
+  <span class="eyebrow">📊 Investment Tracker Guide · October 2026</span>
+  <h1>9 Best Online Investment Tracker Tools in India (2026)</h1>
+  <p class="sub">
+    Your stocks are on Zerodha. Mutual funds on Groww and CAMS. FDs on your bank app. We compared the top trackers so you can pick one that shows your true financial picture — no guesswork.
+  </p>
+  <p class="blog-meta">By Arthavi Team &nbsp;·&nbsp; 10 min read &nbsp;·&nbsp; Updated October 2026</p>
+</header>
+
+<main class="article-wrap" id="main">
+  <article class="prose">
+
+    <p>
+      If your investments are scattered across mutual funds, stocks, fixed deposits, and maybe some ULIPs, you already know the pain. Spreadsheets break. Memory fails. Checking five different apps every morning is nobody's idea of fun. That's where an <strong>online investment tracker</strong> steps in — one dashboard, all your assets, <strong>real-time visibility into your actual financial position</strong>.
+    </p>
+    <p>
+      But not every tracker does the same job. Some just show numbers. Others calculate real XIRR, flag hidden costs, and let you track family portfolios under one roof. The difference matters when you're a salaried investor in India trying to make every rupee work harder.
+    </p>
+    <p>
+      This guide breaks down the <strong>9 best online investment tracker tools in India in 2026</strong> — compared on asset coverage, data accuracy, privacy, ease of use, and cost. <strong>Arthavi is listed first</strong> because it was built specifically for Indian investors who value privacy and accuracy.
+    </p>
+
+    <h2 class="no-border-h2">Quick Comparison: Best Online Investment Trackers India 2026</h2>
+    <div class="table-wrap">
+      <table class="comp-table" aria-label="Comparison of best online investment trackers India 2026">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Free?</th>
+            <th>MF Tracking</th>
+            <th>Stock Tracking</th>
+            <th>No Broker Login</th>
+            <th>XIRR</th>
+            <th>Family Portfolios</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td class="tn">🏆 Arthavi</td>
+            <td class="y">✅ Yes</td>
+            <td class="y">✅ CAS Import</td>
+            <td class="y">✅ Any Broker</td>
+            <td class="y">✅ Privacy-First</td>
+            <td class="y">✅ Accurate</td>
+            <td class="y">✅ Multi-PAN</td>
+          </tr>
+          <tr>
+            <td class="tn">INDmoney</td>
+            <td class="y">✅ Yes</td>
+            <td class="y">✅ SMS + CAS</td>
+            <td class="y">✅ Yes</td>
+            <td class="n">❌ Needs login</td>
+            <td class="p">⚠️ Basic</td>
+            <td class="n">❌ No</td>
+          </tr>
+          <tr>
+            <td class="tn">Value Research</td>
+            <td class="y">✅ Free tier</td>
+            <td class="y">✅ MF Only</td>
+            <td class="n">❌ No</td>
+            <td class="y">✅ Yes</td>
+            <td class="y">✅ Yes</td>
+            <td class="n">❌ No</td>
+          </tr>
+          <tr>
+            <td class="tn">Groww Track</td>
+            <td class="y">✅ Yes</td>
+            <td class="p">⚠️ MF only</td>
+            <td class="p">⚠️ Groww only</td>
+            <td class="p">⚠️ Partial</td>
+            <td class="y">✅ Yes</td>
+            <td class="n">❌ No</td>
+          </tr>
+          <tr>
+            <td class="tn">MFCentral</td>
+            <td class="y">✅ Free</td>
+            <td class="y">✅ MF Only</td>
+            <td class="n">❌ No</td>
+            <td class="y">✅ OTP only</td>
+            <td class="n">❌ No</td>
+            <td class="n">❌ No</td>
+          </tr>
+          <tr>
+            <td class="tn">Zerodha Console</td>
+            <td class="y">✅ Yes</td>
+            <td class="n">❌ No</td>
+            <td class="p">⚠️ Zerodha only</td>
+            <td class="n">❌ Zerodha login</td>
+            <td class="y">✅ Yes</td>
+            <td class="n">❌ No</td>
+          </tr>
+          <tr>
+            <td class="tn">Kuvera</td>
+            <td class="y">✅ Free</td>
+            <td class="y">✅ Yes</td>
+            <td class="p">⚠️ Limited</td>
+            <td class="p">⚠️ Partial</td>
+            <td class="y">✅ Yes</td>
+            <td class="n">❌ No</td>
+          </tr>
+          <tr>
+            <td class="tn">ET Money</td>
+            <td class="p">⚠️ Freemium</td>
+            <td class="y">✅ Yes</td>
+            <td class="p">⚠️ Limited</td>
+            <td class="n">❌ Needs access</td>
+            <td class="p">⚠️ Paid only</td>
+            <td class="n">❌ No</td>
+          </tr>
+          <tr>
+            <td class="tn">MProfit</td>
+            <td class="n">❌ Paid</td>
+            <td class="y">✅ Yes</td>
+            <td class="y">✅ Yes</td>
+            <td class="y">✅ Yes</td>
+            <td class="y">✅ Yes</td>
+            <td class="y">✅ Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="related-box">
+      <h3>📌 Related Guides on Arthavi</h3>
+      <ul>
+        <li><a href="/portfolio-tracker-india">Best Portfolio Tracker India (2026) — Full Review</a></li>
+        <li><a href="/mutual-fund-portfolio-tracker-india">Free Mutual Fund Portfolio Tracker India</a></li>
+        <li><a href="/portfolio-tracker-without-broker-login">Portfolio Tracker Without Broker Login</a></li>
+        <li><a href="/cas-statement-portfolio-tracker">How to Use CAS Statement as Portfolio Tracker</a></li>
+      </ul>
+    </div>
+
+    <!-- 1. ARTHAVI -->
+    <div class="winner-card">
+      <h2>1. Arthavi — Best Online Investment Tracker in India</h2>
+      <p>
+        Arthavi is India's most <strong>privacy-first, accurate investment tracker</strong> for retail investors. Unlike apps that demand broker credentials or Gmail access, Arthavi uses your <strong>CAS (Consolidated Account Statement)</strong> from CAMS or KFintech to import all mutual fund holdings automatically — and supports stocks from any Indian broker via CSV or manual input.
+      </p>
+      <p>
+        The result: a single unified dashboard that shows your <strong>true XIRR, net worth, asset allocation, and capital gains</strong> — without ever handing over your credentials to a third party.
+      </p>
+      <div class="feat-grid">
+        <div class="feat-item"><span class="icon">✅</span><span>CAS import — all mutual funds, all AMCs</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>Stocks from Zerodha, Groww, Angel One &amp; more</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>Accurate XIRR per fund, per asset class</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>Capital gains report ready for tax filing</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>Multi-profile: track your entire family's wealth</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>Zero broker login / zero email scraping</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>100% free to start — no credit card needed</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>Dividends, splits, bonuses auto-captured</span></div>
+      </div>
+    </div>
+
+    <h3>How Arthavi imports your investment data</h3>
+    <p>
+      Setting up Arthavi takes under 5 minutes. Request your <strong>CAS statement from CAMS or KFintech</strong> (a single PDF consolidating every mutual fund you've ever held), upload it to Arthavi, and every folio, NAV, transaction, and XIRR is calculated instantly — no manual entry required.
+    </p>
+    <p>
+      For stocks, export your holding statement from your broker and upload it. Arthavi supports <strong>Zerodha, Groww, Angel One, HDFC Securities, ICICI Direct, Upstox</strong>, and more.
+    </p>
+
+    <h3>Privacy and security</h3>
+    <p>
+      This is Arthavi's biggest differentiator. Most apps ask for Gmail to read broker emails, or your broker username and password. <a href="/portfolio-tracker-without-broker-login">Arthavi never needs broker login credentials</a>. Your financial data stays on your device during import, and the platform adheres to strict data minimisation principles.
+    </p>
+
+    <blockquote>
+      "The best investment tracker you'll never regret using — because it never asks for your passwords."
+    </blockquote>
+
+    <h3>Who should use Arthavi</h3>
+    <p>
+      Arthavi fits <strong>any Indian investor</strong> who wants accurate, private tracking without trade-offs. Especially powerful for: investors with holdings across multiple brokers, families managing wealth for multiple members, and anyone who values not giving away credentials.
+    </p>
+
+    <h3>Arthavi pricing</h3>
+    <p>
+      <strong>Free to start</strong> — core portfolio tracking, XIRR analytics, and CAS import are all available at no cost. <a href="https://app.arthavi.com/register">Create your free account</a> and start tracking in minutes.
+    </p>
+
+    <div class="cta-banner">
+      <p><strong>See your true XIRR in under 5 minutes.</strong><br>Import your CAS statement and Arthavi does the rest — free, private, accurate.</p>
+      <a href="https://app.arthavi.com/register" id="blog-tracker-cta-1" class="btn-cta">Start Tracking Free →</a>
+    </div>
+
+    <!-- 2. INDmoney -->
+    <span class="verdict-pill pill-yellow">⚠️ Good — but requires credentials</span>
+    <h2>2. INDmoney</h2>
+    <p>
+      INDmoney is a popular <strong>all-in-one financial super app</strong> that tracks mutual funds, stocks, US equities, EPF, NPS, FDs, and credit cards in one place. It's free and supports a very wide range of asset classes, making it the most comprehensive net worth tracker for investors comfortable sharing account access.
+    </p>
+    <h3>What INDmoney does well</h3>
+    <ul>
+      <li>Broadest asset class coverage — MF, stocks, US stocks, EPF, NPS, FDs, credit cards</li>
+      <li>SMS parsing and CAS import for automated mutual fund setup</li>
+      <li>Price alerts, dividend notifications, and portfolio health nudges</li>
+      <li>Clean UI with net worth dashboard</li>
+    </ul>
+    <h3>INDmoney limitations</h3>
+    <p>
+      INDmoney requires <strong>broker login credentials or SMS access</strong> to sync holdings, which raises privacy concerns. The advisory layer is also limited — it shows what you hold but doesn't provide deep XIRR-per-fund analytics or a <a href="/portfolio-tracker-without-broker-login">credential-free option</a>.
+    </p>
+    <h3>Who should use INDmoney</h3>
+    <p>Investors who want maximum asset coverage and are comfortable with the credential-sharing model.</p>
+    <h3>Pricing</h3>
+    <p>Core tracking is free. Premium plans unlock faster support and deeper analytics.</p>
+
+    <!-- 3. Value Research -->
+    <span class="verdict-pill pill-green">✅ Best for MF-only investors</span>
+    <h2>3. Value Research Portfolio Manager</h2>
+    <p>
+      Value Research is India's most trusted name in <strong>mutual fund research</strong>. Its Portfolio Manager extends that analytical depth into tracking. If your investments are exclusively in mutual funds, this is one of the best tools available.
+    </p>
+    <h3>Key strengths</h3>
+    <ul>
+      <li>Deep mutual fund analytics — XIRR, category benchmarking, peer comparison</li>
+      <li>CAS import from CAMS/KFintech for hassle-free setup</li>
+      <li>Capital gains reports for tax filing</li>
+      <li>Research-grade fund ratings alongside your portfolio</li>
+    </ul>
+    <h3>Limitations</h3>
+    <p>
+      Value Research <strong>does not support stocks, FDs, or other non-MF assets</strong>, so your net worth picture remains incomplete if you hold equities outside mutual funds.
+    </p>
+    <h3>Who should use it</h3>
+    <p>Dedicated mutual fund investors who want research + tracking in one place without needing stocks.</p>
+    <h3>Pricing</h3>
+    <p>Free tier covers core tracking. Premium unlocks ad-free experience and advanced analytics.</p>
+
+    <!-- 4. Groww Track -->
+    <span class="verdict-pill pill-yellow">⚠️ Good for Groww users only</span>
+    <h2>4. Groww Track</h2>
+    <p>
+      Groww Track lets you import external mutual fund holdings via CAS to see a consolidated mutual fund picture alongside your Groww investments. Convenient if you already invest through Groww.
+    </p>
+    <h3>Key strengths</h3>
+    <ul>
+      <li>Easy CAS-based import for external mutual funds</li>
+      <li>XIRR and category allocation views</li>
+      <li>Free with no subscription</li>
+    </ul>
+    <h3>Limitations</h3>
+    <p>
+      Stock tracking is limited to holdings purchased within Groww. If you use Zerodha, Angel One, or any other broker for stocks, those won't appear. No EPF, NPS, or FD support. See our full <a href="/arthavi-vs-groww">Arthavi vs. Groww comparison</a>.
+    </p>
+    <h3>Who should use it</h3>
+    <p>Newer investors who invest primarily through Groww and want a basic consolidated MF view.</p>
+
+    <!-- 5. MFCentral -->
+    <span class="verdict-pill pill-green">✅ Best for authoritative MF data</span>
+    <h2>5. MFCentral</h2>
+    <p>
+      MFCentral is a <strong>joint initiative by CAMS and KFintech</strong> — India's two dominant registrar and transfer agents for mutual funds. It gives you a regulated, authoritative view of all your mutual fund folios across every AMC.
+    </p>
+    <h3>Key strengths</h3>
+    <ul>
+      <li>Data comes directly from registrar records — highest possible MF data accuracy</li>
+      <li>OTP + PAN verification only — no passwords required</li>
+      <li>Submit service requests (nomination updates, contact changes) directly</li>
+      <li>Completely free with no premium tier</li>
+    </ul>
+    <h3>Limitations</h3>
+    <p>MFCentral covers <strong>mutual funds only</strong>. No stocks, FDs, NPS, or XIRR analytics. It's a viewing and servicing tool, not a full portfolio tracker.</p>
+    <h3>Who should use it</h3>
+    <p>Investors who want registrar-backed, authoritative mutual fund data and don't need broader tracking.</p>
+
+    <!-- 6. Zerodha Console -->
+    <span class="verdict-pill pill-yellow">⚠️ Zerodha users only</span>
+    <h2>6. Zerodha Console</h2>
+    <p>
+      Zerodha Console is an excellent analytics platform — for your <strong>Zerodha holdings only</strong>. It provides detailed P&amp;L reports, XIRR, tax statements, and visualizations that are genuinely useful for active equity investors on the platform.
+    </p>
+    <h3>Limitations</h3>
+    <p>
+      No support for external broker holdings, CAS-based mutual fund imports, or any asset class outside Zerodha. See our <a href="/arthavi-vs-zerodha">Arthavi vs. Zerodha comparison</a> for a full breakdown.
+    </p>
+    <h3>Who should use it</h3>
+    <p>Zerodha users who invest only on that platform and want deep analytics for their equity portfolio.</p>
+
+    <!-- 7. Kuvera -->
+    <span class="verdict-pill pill-green">✅ Good for MF + goals</span>
+    <h2>7. Kuvera</h2>
+    <p>
+      Kuvera is a direct mutual fund investment platform with strong tracking and goal-based planning features. If you invest in mutual funds through Kuvera, the tracking experience is seamless.
+    </p>
+    <h3>Key strengths</h3>
+    <ul>
+      <li>Goal-based tracking and target allocation</li>
+      <li>CAS import supported</li>
+      <li>XIRR analytics and tax statements</li>
+      <li>Free for direct fund investments</li>
+    </ul>
+    <h3>Limitations</h3>
+    <p>Stock tracking is limited. Not suitable as an all-in-one net worth tracker with significant equity holdings outside the platform.</p>
+
+    <!-- 8. ET Money -->
+    <span class="verdict-pill pill-yellow">⚠️ Analytics locked behind paywall</span>
+    <h2>8. ET Money (Genius)</h2>
+    <p>
+      ET Money started as a mutual fund investment and tracking app and has evolved into a broader financial platform. Its "Genius" tier unlocks AI-driven portfolio insights and recommendations.
+    </p>
+    <h3>Limitations</h3>
+    <p>
+      The best analytics — including portfolio health scores and XIRR breakdowns — require the paid Genius subscription. Stock tracking remains limited. Free tier functionality is comparable to most other free trackers.
+    </p>
+    <h3>Who should use it</h3>
+    <p>Investors who want AI-driven MF insights and are willing to pay for the Genius tier.</p>
+
+    <!-- 9. MProfit -->
+    <span class="verdict-pill pill-blue">💼 Best for professionals / HNIs</span>
+    <h2>9. MProfit</h2>
+    <p>
+      MProfit is a <strong>professional-grade portfolio management software</strong> used by IFAs, CA firms, and HNI investors. It covers the widest range of asset classes including stocks, mutual funds, PMS, AIF, real estate, and more.
+    </p>
+    <h3>Key strengths</h3>
+    <ul>
+      <li>Widest asset class coverage of any tracker on this list</li>
+      <li>Professional tax reporting and capital gains statements</li>
+      <li>Multi-client / multi-portfolio management</li>
+      <li>No broker login required — import-based</li>
+    </ul>
+    <h3>Limitations</h3>
+    <p>
+      MProfit is <strong>not free</strong> — plans start at a few thousand rupees per year. The interface is feature-heavy and may feel complex for casual retail investors.
+    </p>
+    <h3>Who should use it</h3>
+    <p>IFAs, CA firms, and HNI investors with complex multi-asset portfolios who need professional-grade reporting.</p>
+
+    <!-- HOW TO CHOOSE -->
+    <h2>How to Choose the Right Online Investment Tracker</h2>
+    <p>Use this simple decision framework:</p>
+    <ul>
+      <li><strong>Want everything free + private + accurate XIRR?</strong> → <a href="https://app.arthavi.com/register">Arthavi</a></li>
+      <li><strong>Want widest asset coverage (US stocks, EPF, credit cards)?</strong> → INDmoney (accept credential sharing)</li>
+      <li><strong>Only mutual funds + deep research?</strong> → Value Research or Kuvera</li>
+      <li><strong>Only Zerodha stocks?</strong> → Zerodha Console</li>
+      <li><strong>Professional-grade multi-client reporting?</strong> → MProfit</li>
+      <li><strong>Just want official MF data with zero setup?</strong> → MFCentral</li>
+    </ul>
+
+    <h3>Key features to demand from any online investment tracker</h3>
+    <ul>
+      <li><strong>Accurate XIRR:</strong> Absolute returns lie. XIRR tells you the true annualised return factoring in every SIP date.</li>
+      <li><strong>No credential sharing:</strong> Never give your broker password to a third-party app. Use <a href="/portfolio-tracker-without-broker-login">trackers that work without broker login</a>.</li>
+      <li><strong>CAS-based import:</strong> The gold standard for mutual fund data accuracy in India.</li>
+      <li><strong>Capital gains reporting:</strong> Especially important with LTCG on equity having a ₹1.25 lakh threshold.</li>
+      <li><strong>Family portfolio support:</strong> Track multiple PANs if you manage family investments.</li>
+    </ul>
+
+    <div class="cta-banner">
+      <p><strong>Arthavi is free, private, and built specifically for Indian investors.</strong><br>Import your CAS, add your stocks, and see your complete financial picture in minutes.</p>
+      <a href="https://app.arthavi.com/register" id="blog-tracker-cta-2" class="btn-cta">Create Free Account →</a>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-section" aria-label="Frequently asked questions about online investment trackers">
+      <h2>Frequently Asked Questions</h2>
+
+      <details class="faq-item" id="faq-best-tracker">
+        <summary>What is the best online investment tracker in India?</summary>
+        <div class="faq-body">
+          Arthavi is the best online investment tracker for investors who prioritise accuracy, privacy, and zero broker credentials. It tracks mutual funds via CAS import and stocks from any Indian broker in one unified dashboard with true XIRR analytics — completely free.
+        </div>
+      </details>
+
+      <details class="faq-item" id="faq-free-tracker">
+        <summary>Which is the best free investment tracker app in India?</summary>
+        <div class="faq-body">
+          Arthavi is completely free for core portfolio tracking. Other free options include INDmoney, Value Research, MFCentral, and Groww Track — each with different asset coverage trade-offs. See the comparison table above for a side-by-side view.
+        </div>
+      </details>
+
+      <details class="faq-item" id="faq-track-all">
+        <summary>How do I track all my investments — MF + stocks + FDs — in one place?</summary>
+        <div class="faq-body">
+          Upload your CAS statement from CAMS or KFintech to import all mutual fund holdings automatically. Then add your stock holdings from any broker via CSV or manual entry. Arthavi consolidates everything into a single dashboard showing net worth, XIRR, and asset allocation.
+        </div>
+      </details>
+
+      <details class="faq-item" id="faq-no-login">
+        <summary>Is there a portfolio tracker that works without broker login?</summary>
+        <div class="faq-body">
+          Yes — <a href="/portfolio-tracker-without-broker-login">Arthavi never requires broker credentials</a>. Mutual funds import via CAS (a standard PDF statement), and stocks can be added via broker CSV exports or manual input. Your passwords stay with you.
+        </div>
+      </details>
+
+      <details class="faq-item" id="faq-family">
+        <summary>Can I track my entire family's investments in one app?</summary>
+        <div class="faq-body">
+          Yes. Arthavi supports multi-profile family tracking — add multiple PANs under one account and switch between family members' portfolios instantly. It's ideal for tracking a spouse's mutual funds, parents' FDs, and your own equity portfolio all in one place.
+        </div>
+      </details>
+
+      <details class="faq-item" id="faq-xirr">
+        <summary>What is XIRR and why does it matter for investment tracking?</summary>
+        <div class="faq-body">
+          XIRR (Extended Internal Rate of Return) is the true annualised return on your investment, calculated by accounting for the exact date and amount of every cash flow (SIP, lump sum, redemption). Absolute returns can be misleading for SIP investors — XIRR is the only metric that tells you what your money actually earned per year. Use Arthavi's <a href="/xirr-calculator-mutual-funds">XIRR calculator</a> to check any investment.
+        </div>
+      </details>
+    </section>
+
+    <div class="related-box" style="margin-top:3rem;">
+      <h3>📚 Keep Reading</h3>
+      <ul>
+        <li><a href="/blog/excel-vs-portfolio-tracker">Excel vs Portfolio Tracker — Which Is Right for You?</a></li>
+        <li><a href="/blog/how-to-track-family-portfolio-india">How to Track Your Family's Investments in India</a></li>
+        <li><a href="/blog/guide-cams-cas-portfolio-tracker">CAMS CAS Statement: Complete Guide to Importing Your Portfolio</a></li>
+        <li><a href="/blog/privacy-alert-why-investment-apps-shouldnt-read-emails">Privacy Alert: Why Investment Apps Shouldn't Read Your Emails</a></li>
+        <li><a href="/arthavi-vs-indmoney">Arthavi vs INDmoney — Full Comparison</a></li>
+        <li><a href="/arthavi-vs-groww">Arthavi vs Groww — Which Tracker is Better?</a></li>
+      </ul>
+    </div>
+
+  </article>
+</main>
+
+</Layout>
