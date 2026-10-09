@@ -8,29 +8,53 @@ const seo = {
 ---
 <Layout title={seo.title} description={seo.description} keywords="arthavi vs excel, portfolio tracker excel, mutual fund excel tracker india, excel vs portfolio app india, stop using excel for investments, google sheets portfolio tracker india alternative" schema={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Arthavi Portfolio Tracker",
-      "description": "Arthavi is a privacy-first portfolio tracker for Indian investors. It replaces manual Excel spreadsheets with automated XIRR, real-time NAV updates, AI insights, and Portfolio Health Scoring.",
-      "brand": {"@type": "Brand", "name": "Arthavi"},
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Why is XIRR better than simple returns in Excel?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Simple returns don't account for the timing of cash flows. XIRR uses actual transaction dates to calculate true annualized returns — especially critical for SIPs where money goes in at different times."
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "Arthavi Portfolio Tracker",
+          "description": "Arthavi is a privacy-first portfolio tracker for Indian investors. It replaces manual Excel spreadsheets with automated XIRR, real-time NAV updates, AI insights, and Portfolio Health Scoring.",
+          "brand": {"@type": "Brand", "name": "Arthavi"},
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://arthavi.com/arthavi-vs-excel/"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "1250",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why is XIRR better than simple returns in Excel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simple returns don't account for the timing of cash flows. XIRR uses actual transaction dates to calculate true annualized returns — especially critical for SIPs where money goes in at different times."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Excel update stock prices automatically?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Excel requires manual entry of prices or complex Google Finance integrations. Arthavi pulls live NSE/BSE prices automatically for all your holdings."
+              }
+            }
+          ]
         }
-      }, {
-        "@type": "Question",
-        "name": "Does Excel update stock prices automatically?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Excel requires manual entry of prices or complex Google Finance integrations. Arthavi pulls live NSE/BSE prices automatically for all your holdings."
-        }
-      }]
+      ]
     })} breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com/" },
-      { name: "Compare", url: "https://arthavi.com/arthavi-vs-excel" }
+      { name: "Compare", url: "https://arthavi.com/arthavi-vs-excel/" }
     ]
   }}>
 

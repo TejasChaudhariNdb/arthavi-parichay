@@ -1,0 +1,620 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface BMItem {
+  company: string;
+  meetDate: string;
+  desc: string;
+  pubDate: string;
+}
+
+interface FRItem {
+  company: string;
+  period: string;
+  consolidated: string;
+  audited: string;
+  periodEnd: string;
+  pubDate: string;
+}
+
+let initialBM: BMItem[] = [];
+let initialFR: FRItem[] = [];
+let lastBuildBM = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
+let lastBuildFR = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
+
+const extractField = (desc: string, key: string) => {
+  const re = new RegExp(key + ':([^|\\n]+)', 'i');
+  const m = desc.match(re);
+  return m ? m[1].trim() : '—';
+};
+
+try {
+  // Fetch Board Meetings
+  const bmRes = await fetch('https://nsearchives.nseindia.com/content/RSS/Board_Meetings.xml', {
+    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' },
+    signal: AbortSignal.timeout(5000)
+  });
+  if (bmRes.ok) {
+    const bmText = await bmRes.text();
+    const lastBuildMatch = bmText.match(/<lastBuildDate>([\s\S]*?)<\/lastBuildDate>/i);
+    if (lastBuildMatch) lastBuildBM = lastBuildMatch[1].trim();
+
+    const rawBM = bmText.match(/<item>[\s\S]*?<\/item>/gi) || [];
+    initialBM = rawBM.map(raw => {
+      const title = (raw.match(/<title>([\s\S]*?)<\/title>/i) || [])[1]?.trim() || '';
+      const desc = (raw.match(/<description>([\s\S]*?)<\/description>/i) || [])[1]?.trim() || '';
+      const pubDate = (raw.match(/<pubDate>([\s\S]*?)<\/pubDate>/i) || [])[1]?.trim() || '—';
+      const company = title.split('\n')[0].trim();
+      const mDate = extractField(desc, 'BOARD MEETING DATE');
+      const meetDate = mDate !== '—' ? mDate : extractField(desc, 'DATE');
+      return { company, meetDate, desc, pubDate };
+    });
+  }
+
+  // Fetch Financial Results
+  const frRes = await fetch('https://nsearchives.nseindia.com/content/RSS/Financial_Results.xml', {
+    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' },
+    signal: AbortSignal.timeout(5000)
+  });
+  if (frRes.ok) {
+    const frText = await frRes.text();
+    const rawFR = frText.match(/<item>[\s\S]*?<\/item>/gi) || [];
+    initialFR = rawFR.map(raw => {
+      const title = (raw.match(/<title>([\s\S]*?)<\/title>/i) || [])[1]?.trim() || '';
+      const desc = (raw.match(/<description>([\s\S]*?)<\/description>/i) || [])[1]?.trim() || '';
+      const pubDate = (raw.match(/<pubDate>([\s\S]*?)<\/pubDate>/i) || [])[1]?.trim() || '—';
+      const company = title.split('\n')[0].trim();
+      const relating = extractField(desc, 'RELATING TO');
+      const audited = extractField(desc, 'AUDITED/UNAUDITED');
+      const periodEnd = extractField(desc, 'PERIOD ENDED');
+      const consolidated = extractField(desc, 'CONSOLIDATED/NON-CONSOLIDATED');
+      return {
+        company,
+        period: relating !== '—' ? relating : 'Quarterly',
+        consolidated: consolidated !== '—' ? consolidated : '—',
+        audited: audited !== '—' ? audited : 'Unaudited',
+        periodEnd: periodEnd !== '—' ? periodEnd : '—',
+        pubDate
+      };
+    });
+  }
+} catch (e) {
+  // Graceful fallback during offline build
+}
+
+const seo = {
+  title: "NSE Board Meetings & Financial Results Today — Live Disclosures 2026 | Arthavi",
+  description: "Live NSE board meeting notices and quarterly financial results from National Stock Exchange India. Check upcoming board meeting dates and latest corporate earnings. Updated continuously from official exchange filings.",
+  keywords: "NSE board meetings today, NSE financial results today, NSE quarterly results 2026, nse board meeting date, nse results calendar, NSE Q2 results 2026, company quarterly results india"
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/nse-board-meetings-financial-results/#webpage",
+      "name": "NSE Board Meetings & Financial Results Today — Live",
+      "description": "Live NSE board meeting notices and quarterly financial results updated in real time from official National Stock Exchange of India disclosures.",
+      "url": "https://arthavi.com/nse-board-meetings-financial-results/",
+      "dateModified": new Date().toISOString().split('T')[0]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an NSE board meeting notice?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An NSE board meeting notice is a mandatory disclosure by listed companies at least 2 business days before a board meeting. It states the date and agenda — most importantly whether dividend, quarterly results, or other material decisions are on the agenda." }
+        },
+        {
+          "@type": "Question",
+          "name": "When do NSE Q2 2026 results come out?",
+          "acceptedAnswer": { "@type": "Answer", "text": "NSE Q2 FY2026 results (July-September 2026 quarter) are typically announced by companies between October and November 2026. Companies disclose their board meeting date for results at least 2 days in advance via NSE. Check this page daily for the latest updates." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do financial results affect my stock portfolio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Quarterly financial results reveal a company's revenue, profit, and margins. Strong results typically push the stock price up; weak results lead to sell-offs. Knowing result dates helps you make informed decisions about your holdings before and after the announcement." }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthavi.com/" },
+        { "@type": "ListItem", "position": 2, "name": "NSE Board Meetings & Financial Results", "item": "https://arthavi.com/nse-board-meetings-financial-results/" }
+      ]
+    }
+  ]
+});
+
+const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' });
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  schema={schema}
+  canonical="https://arthavi.com/nse-board-meetings-financial-results/"
+>
+
+<style>
+  .bm-hero {
+    background: linear-gradient(135deg, #0B0E14 0%, #130c25 60%, #0B0E1a 100%);
+    padding: 5rem 1.5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .bm-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 70%);
+  }
+  .bm-hero .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(139,92,246,0.12);
+    border: 1px solid rgba(139,92,246,0.3);
+    color: #a78bfa;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #a78bfa; animation: pulse-dot 2s infinite; }
+  @keyframes pulse-dot { 50% { opacity: 0.3; } }
+  .bm-hero h1 {
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    position: relative;
+  }
+  .bm-hero .sub { color: #8daac4; font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.6; position: relative; }
+  .bm-hero .date-badge {
+    display: inline-block; margin-top: 1.25rem;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: #8daac4; font-size: 0.82rem; padding: 0.4rem 1rem; border-radius: 999px; position: relative;
+  }
+
+  .page-wrap { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  /* Tabs for switching between board meetings and financial results */
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    background: var(--card-bg, #111827);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 4px;
+    width: fit-content;
+    margin-bottom: 1.5rem;
+  }
+  .tab-btn {
+    padding: 0.55rem 1.25rem;
+    border-radius: 7px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    color: #6b7a99;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active { background: var(--primary, #5B8DEF); color: #fff; }
+
+  .feed-panel { display: none; }
+  .feed-panel.active { display: block; }
+
+  .feed-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.82rem;
+    color: #6b7a99;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .feed-meta .last-upd { color: #a78bfa; font-weight: 600; }
+
+  .feed-table-wrap { overflow-x: auto; border-radius: 10px; }
+  .feed-table {
+    width: 100%; border-collapse: collapse; font-size: 0.9rem;
+    background: var(--card-bg, #111827); border-radius: 10px; overflow: hidden;
+  }
+  .feed-table thead th {
+    background: rgba(139,92,246,0.08); color: #6b7a99; font-size: 0.72rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 0.85rem 1rem; text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.06); white-space: nowrap;
+  }
+  .feed-table tbody td {
+    padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: middle; color: #c0cce0;
+  }
+  .feed-table tbody tr:last-child td { border-bottom: none; }
+  .feed-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .company-name { font-weight: 600; color: #e8edf7; }
+  .results-badge {
+    display: inline-block; font-size: 0.7rem; font-weight: 700;
+    padding: 0.18rem 0.55rem; border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .badge-q { background: rgba(139,92,246,0.18); color: #a78bfa; }
+  .badge-annual { background: rgba(59,130,246,0.18); color: #60a5fa; }
+  .badge-audited { background: rgba(22,163,74,0.18); color: #4ade80; }
+  .badge-unaudited { background: rgba(251,146,60,0.18); color: #fb923c; }
+
+  .skeleton { height: 16px; background: linear-gradient(90deg, #1a2235 25%, #243048 50%, #1a2235 75%); background-size: 400% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; }
+  @keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+  .cta-strip {
+    background: linear-gradient(135deg, #1a2744, #0f2035);
+    border: 1px solid rgba(91,141,239,0.2); border-radius: 10px;
+    padding: 1.5rem; display: flex; align-items: center;
+    justify-content: space-between; gap: 1.5rem; margin: 2rem 0; flex-wrap: wrap;
+  }
+  .cta-strip p { color: #9bacc8; margin: 0; font-size: 0.95rem; }
+  .cta-strip p strong { color: #e8edf7; }
+  .cta-strip .btn-cta {
+    background: var(--primary, #5B8DEF); color: #fff; font-weight: 600;
+    padding: 0.65rem 1.5rem; border-radius: 8px; text-decoration: none;
+    font-size: 0.9rem; white-space: nowrap; transition: opacity 0.2s; flex-shrink: 0;
+  }
+  .cta-strip .btn-cta:hover { opacity: 0.88; }
+
+  .prose-section { max-width: 760px; margin: 2.5rem 0; }
+  .prose-section h2 {
+    font-size: 1.4rem; font-weight: 700; color: #e8edf7;
+    margin-bottom: 0.75rem; letter-spacing: -0.02em;
+    border-left: 3px solid #a78bfa; padding-left: 0.75rem;
+  }
+  .prose-section p { color: #8daac4; line-height: 1.7; margin-bottom: 1em; font-size: 0.97rem; }
+  .prose-section a { color: var(--primary, #5B8DEF); text-decoration: underline; text-underline-offset: 3px; }
+
+  .faq-section { margin-top: 2.5rem; max-width: 760px; }
+  .faq-section h2 { font-size: 1.4rem; font-weight: 700; color: #e8edf7; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1rem 0; }
+  .faq-item summary { font-weight: 600; color: #e8edf7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.97rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 1.2rem; color: #a78bfa; flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-body { padding-top: 0.75rem; color: #8daac4; line-height: 1.65; font-size: 0.93rem; }
+
+  .empty-state { text-align: center; padding: 3rem 1rem; color: #6b7a99; }
+  .empty-state .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+</style>
+
+<header class="bm-hero">
+  <div class="live-badge">
+    <span class="live-dot"></span>
+    Live from NSE · Updated every 5 min
+  </div>
+  <h1>NSE Board Meetings &amp; Quarterly Financial Results</h1>
+  <p class="sub">
+    Upcoming board meeting notices and latest quarterly results from listed Indian companies.
+    Sourced directly from NSE's official disclosure feed.
+  </p>
+  <span class="date-badge">📅 {today}</span>
+</header>
+
+<main class="page-wrap" id="main">
+
+  <div class="cta-strip">
+    <p>
+      <strong>Own stocks affected by upcoming results?</strong><br>
+      Arthavi tracks your full portfolio and shows impact of results on your XIRR and net worth in real time.
+    </p>
+    <a href="https://app.arthavi.com/register" id="bm-cta-top" class="btn-cta">Track My Portfolio Free →</a>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tab-bar" role="tablist" aria-label="Feed type selector">
+    <button class="tab-btn active" id="tab-bm" role="tab" aria-selected="true" aria-controls="panel-bm">📅 Board Meetings</button>
+    <button class="tab-btn" id="tab-fr" role="tab" aria-selected="false" aria-controls="panel-fr">📊 Financial Results</button>
+  </div>
+
+  <!-- Board Meetings Panel -->
+  <div class="feed-panel active" id="panel-bm" role="tabpanel">
+    <div class="feed-meta">
+      <span>Source: <strong>NSE Board Meetings RSS</strong></span>
+      <span>Last updated: <span class="last-upd" id="bm-updated">{lastBuildBM}</span></span>
+    </div>
+    <div class="feed-table-wrap">
+      <table class="feed-table" aria-label="NSE Board Meetings live feed">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Board Meeting Date</th>
+            <th>Purpose / Agenda</th>
+            <th>Published</th>
+          </tr>
+        </thead>
+        <tbody id="bm-body">
+          {initialBM.length > 0 ? (
+            initialBM.map(item => (
+              <tr>
+                <td class="company-name">{item.company}</td>
+                <td style="font-weight:600;color:#e8edf7;white-space:nowrap">{item.meetDate}</td>
+                <td style="font-size:0.85rem;color:#9bacc8;max-width:320px">{item.desc.substring(0, 120)}…</td>
+                <td style="color:#6b7a99;font-size:0.85rem;white-space:nowrap">{item.pubDate}</td>
+              </tr>
+            ))
+          ) : (
+            <tr><td colspan="4"><div class="empty-state"><div class="icon">📭</div><p>No new board meeting notices posted right now. Feeds update during market hours. <a href="https://www.nseindia.com/companies-listing/corporate-filings-board-meetings" target="_blank" rel="noopener">View on NSE →</a></p></div></td></tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Financial Results Panel -->
+  <div class="feed-panel" id="panel-fr" role="tabpanel">
+    <div class="feed-meta">
+      <span>Source: <strong>NSE Financial Results RSS</strong></span>
+      <span>Last updated: <span class="last-upd" id="fr-updated">{lastBuildFR}</span></span>
+    </div>
+    <div class="feed-table-wrap">
+      <table class="feed-table" aria-label="NSE Financial Results live feed">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Period</th>
+            <th>Type</th>
+            <th>Audited?</th>
+            <th>Period Ended</th>
+            <th>Published</th>
+          </tr>
+        </thead>
+        <tbody id="fr-body">
+          {initialFR.length > 0 ? (
+            initialFR.map(item => (
+              <tr>
+                <td class="company-name">{item.company}</td>
+                <td><span class="results-badge badge-q">{item.period}</span></td>
+                <td style="font-size:0.82rem;color:#9bacc8">{item.consolidated}</td>
+                <td>
+                  <span class={`results-badge ${item.audited.toLowerCase().includes('audited') ? 'badge-audited' : 'badge-unaudited'}`}>
+                    {item.audited}
+                  </span>
+                </td>
+                <td style="font-weight:600;color:#e8edf7;font-size:0.88rem;white-space:nowrap">{item.periodEnd}</td>
+                <td style="color:#6b7a99;font-size:0.82rem;white-space:nowrap">{item.pubDate}</td>
+              </tr>
+            ))
+          ) : (
+            <tr><td colspan="6"><div class="empty-state"><div class="icon">📭</div><p>No new results posted right now. <a href="https://www.nseindia.com/companies-listing/corporate-filings-financial-results" target="_blank" rel="noopener">View on NSE →</a></p></div></td></tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Explainer -->
+  <div class="prose-section">
+    <h2>What Are NSE Board Meeting Notices?</h2>
+    <p>
+      All NSE-listed companies are required to notify the exchange at least <strong>2 business days</strong>
+      before a board meeting where material decisions — including quarterly results, dividends, buybacks,
+      or fund raises — will be discussed. This is your advance warning of upcoming catalysts for a stock.
+    </p>
+    <p>
+      For investors, board meeting notices for <strong>financial results</strong> are especially important.
+      They tell you exactly when a company will announce its Q1/Q2/Q3/Q4 numbers. If you hold that stock
+      in your portfolio, you can plan accordingly. Use Arthavi's
+      <a href="/portfolio-tracker-india">portfolio tracker</a> to monitor all your holdings
+      and see their current performance before results day.
+    </p>
+
+    <h2>Understanding NSE Quarterly Financial Results</h2>
+    <p>
+      Indian companies report financial results on a quarterly basis: <strong>Q1 (Apr–Jun)</strong>,
+      <strong>Q2 (Jul–Sep)</strong>, <strong>Q3 (Oct–Dec)</strong>, and <strong>Q4 / Annual (Jan–Mar)</strong>.
+      The Q2 FY2026 results season (for July–September 2026) typically runs through October–November 2026.
+    </p>
+    <p>
+      Results include revenue, EBITDA, PAT (Profit After Tax), EPS, and management guidance.
+      They are disclosed as XBRL filings on NSE, and the key metrics are available within minutes of filing.
+      <strong>Stock prices often move 5–20%</strong> on result day based on how the numbers compare to market expectations.
+    </p>
+    <p>
+      If any of these companies are in your portfolio, track their impact on your XIRR and net worth live
+      on <a href="/portfolio-tracker-india">Arthavi's portfolio dashboard</a>.
+    </p>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section" aria-label="FAQ about NSE board meetings and results">
+    <h2>Frequently Asked Questions</h2>
+
+    <details class="faq-item" id="faq-bm">
+      <summary>What is an NSE board meeting notice?</summary>
+      <div class="faq-body">
+        An NSE board meeting notice is a mandatory disclosure filed by listed companies at least 2 business days before a board meeting. It states the date and agenda — most importantly whether dividend declaration, quarterly results, stock split, or fundraising is on the agenda.
+      </div>
+    </details>
+
+    <details class="faq-item" id="faq-q2">
+      <summary>When do NSE Q2 FY2026 results come out?</summary>
+      <div class="faq-body">
+        NSE Q2 FY2026 results (July–September 2026 quarter) are typically announced by companies between October and November 2026. Large-cap companies like TCS, Infosys, HCL, HDFC Bank, and Reliance typically go first, followed by mid and small caps. Board meetings for these results are announced 2 days in advance on this page.
+      </div>
+    </details>
+
+    <details class="faq-item" id="faq-impact">
+      <summary>How do quarterly results affect my stock portfolio?</summary>
+      <div class="faq-body">
+        Quarterly financial results reveal a company's revenue, profit, and margins for that period. Strong results (beating expectations) typically push stock prices up; weak results cause sell-offs. Knowing result dates helps you make informed decisions about your holdings. Arthavi's portfolio tracker shows your live XIRR and net worth so you can see real-time impact.
+      </div>
+    </details>
+
+    <details class="faq-item" id="faq-xbrl">
+      <summary>What is the XBRL format used in NSE financial results?</summary>
+      <div class="faq-body">
+        XBRL (eXtensible Business Reporting Language) is the standardised format mandated by SEBI for filing financial results with NSE. It makes financial data machine-readable. NSE's RSS feed links to the XBRL XML files directly, which contain structured data on revenue, PAT, EPS, and more.
+      </div>
+    </details>
+  </section>
+
+  <!-- Related pages -->
+  <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.07);">
+    <p style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4b5f7a;margin-bottom:0.75rem;">Related Pages</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+      <a href="/nse-corporate-actions-today/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">NSE Corporate Actions Today</a>
+      <a href="/portfolio-tracker-india/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">Best Portfolio Tracker India</a>
+      <a href="/stock-portfolio-tracker-india/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">Stock Portfolio Tracker India</a>
+      <a href="/portfolio-analytics-india/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">Portfolio Analytics India</a>
+    </div>
+  </div>
+
+</main>
+
+<script is:inline>
+(function () {
+  const PROXIES = [
+    url => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
+    url => 'https://corsproxy.io/?' + encodeURIComponent(url)
+  ];
+  const BM_URL  = 'https://nsearchives.nseindia.com/content/RSS/Board_Meetings.xml';
+  const FR_URL  = 'https://nsearchives.nseindia.com/content/RSS/Financial_Results.xml';
+
+  function extract(desc, key) {
+    const re = new RegExp(key + ':([^|\\n]+)', 'i');
+    const m = desc.match(re);
+    return m ? m[1].trim() : '—';
+  }
+
+  function periodBadge(period) {
+    const p = (period || '').toUpperCase();
+    if (p.includes('ANNUAL')) return '<span class="results-badge badge-annual">Annual</span>';
+    if (p.includes('QUARTER') || p.includes('FOURTH') || p.includes('THIRD') || p.includes('SECOND') || p.includes('FIRST')) return '<span class="results-badge badge-q">Quarterly</span>';
+    return `<span class="results-badge badge-q">${period || '—'}</span>`;
+  }
+  function auditedBadge(val) {
+    return val && val.toLowerCase().includes('audited')
+      ? '<span class="results-badge badge-audited">Audited</span>'
+      : '<span class="results-badge badge-unaudited">Unaudited</span>';
+  }
+
+  async function fetchWithFallback(url) {
+    for (const proxyFn of PROXIES) {
+      try {
+        const res = await fetch(proxyFn(url), { signal: AbortSignal.timeout(7000) });
+        if (res.ok) {
+          const text = await res.text();
+          if (text && text.includes('<rss')) return text;
+        }
+      } catch (e) {
+        // next proxy
+      }
+    }
+    return null;
+  }
+
+  async function loadBM() {
+    try {
+      const text = await fetchWithFallback(BM_URL);
+      if (!text) throw new Error('BM fetch failed');
+
+      const xml = new DOMParser().parseFromString(text, 'application/xml');
+      const lastBuild = xml.querySelector('lastBuildDate');
+      if (lastBuild) {
+        document.getElementById('bm-updated').textContent = lastBuild.textContent.trim();
+      }
+
+      const items = Array.from(xml.querySelectorAll('item'));
+      if (items.length) {
+        document.getElementById('bm-body').innerHTML = items.map(item => {
+          const title = item.querySelector('title')?.textContent?.trim() || '';
+          const desc = item.querySelector('description')?.textContent?.trim() || '';
+          const pub = item.querySelector('pubDate')?.textContent?.trim() || '—';
+          const company = title.split('\n')[0].trim();
+          const meetDate = extract(desc, 'BOARD MEETING DATE') !== '—' ? extract(desc, 'BOARD MEETING DATE') : extract(desc, 'DATE');
+          return `<tr>
+            <td class="company-name">${company}</td>
+            <td style="font-weight:600;color:#e8edf7;white-space:nowrap">${meetDate}</td>
+            <td style="font-size:0.85rem;color:#9bacc8;max-width:320px">${desc.substring(0, 120)}…</td>
+            <td style="color:#6b7a99;font-size:0.85rem;white-space:nowrap">${pub}</td>
+          </tr>`;
+        }).join('');
+      }
+    } catch (e) {
+      console.warn('BM feed update skipped:', e);
+    }
+  }
+
+  async function loadFR() {
+    try {
+      const text = await fetchWithFallback(FR_URL);
+      if (!text) throw new Error('FR fetch failed');
+
+      const xml = new DOMParser().parseFromString(text, 'application/xml');
+      const lastBuild = xml.querySelector('lastBuildDate');
+      if (lastBuild) {
+        document.getElementById('fr-updated').textContent = lastBuild.textContent.trim();
+      }
+
+      const items = Array.from(xml.querySelectorAll('item'));
+      if (items.length) {
+        document.getElementById('fr-body').innerHTML = items.map(item => {
+          const title = item.querySelector('title')?.textContent?.trim() || '';
+          const desc = item.querySelector('description')?.textContent?.trim() || '';
+          const pub = item.querySelector('pubDate')?.textContent?.trim() || '—';
+          const company = title.split('\n')[0].trim();
+          const period = extract(desc, 'PERIOD');
+          const relating = extract(desc, 'RELATING TO');
+          const audited = extract(desc, 'AUDITED/UNAUDITED');
+          const periodEnd = extract(desc, 'PERIOD ENDED');
+          const consolidated = extract(desc, 'CONSOLIDATED/NON-CONSOLIDATED');
+          return `<tr>
+            <td class="company-name">${company}</td>
+            <td>${periodBadge(relating)}</td>
+            <td style="font-size:0.82rem;color:#9bacc8">${consolidated !== '—' ? consolidated : '—'}</td>
+            <td>${auditedBadge(audited)}</td>
+            <td style="font-weight:600;color:#e8edf7;font-size:0.88rem;white-space:nowrap">${periodEnd}</td>
+            <td style="color:#6b7a99;font-size:0.82rem;white-space:nowrap">${pub}</td>
+          </tr>`;
+        }).join('');
+      }
+    } catch (e) {
+      console.warn('FR feed update skipped:', e);
+    }
+  }
+
+  // Tab switching
+  document.getElementById('tab-bm').addEventListener('click', () => {
+    document.getElementById('tab-bm').classList.add('active');
+    document.getElementById('tab-fr').classList.remove('active');
+    document.getElementById('panel-bm').classList.add('active');
+    document.getElementById('panel-fr').classList.remove('active');
+  });
+  document.getElementById('tab-fr').addEventListener('click', () => {
+    document.getElementById('tab-fr').classList.add('active');
+    document.getElementById('tab-bm').classList.remove('active');
+    document.getElementById('panel-fr').classList.add('active');
+    document.getElementById('panel-bm').classList.remove('active');
+    if (!document.getElementById('fr-body').innerHTML.includes('<tr>')) loadFR();
+  });
+
+  // Auto-refresh every 5 min
+  loadBM();
+  loadFR();
+  setInterval(() => { loadBM(); loadFR(); }, 5 * 60 * 1000);
+})();
+</script>
+
+</Layout>

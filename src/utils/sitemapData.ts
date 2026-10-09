@@ -96,10 +96,14 @@ export function getCategorizedSitemaps() {
           if (urlPath === '/') {
             priority = 1.0;
             changefreq = 'weekly';
+          } else if (urlPath.includes('nse-corporate-actions') || urlPath.includes('nse-board-meetings')) {
+            // NSE live feed pages — update hourly for Google freshness signal
+            priority = 0.95;
+            changefreq = 'hourly';
           }
           corePages.push({
             url: `${BASE_URL}${urlPath}`,
-            lastmod,
+            lastmod: urlPath.includes('nse-') ? new Date().toISOString().split('T')[0] : lastmod,
             changefreq,
             priority
           });

@@ -1,0 +1,786 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface CorporateActionItem {
+  company: string;
+  type: 'DIVIDEND' | 'SPLIT' | 'BONUS' | 'BUYBACK' | 'RIGHTS' | 'OTHER';
+  purpose: string;
+  exDate: string;
+  pubDate: string;
+  desc: string;
+}
+
+let initialItems: CorporateActionItem[] = [];
+let lastBuildTime = new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST';
+
+try {
+  const res = await fetch('https://nsearchives.nseindia.com/content/RSS/Corporate_action.xml', {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+    },
+    signal: AbortSignal.timeout(6000)
+  });
+  if (res.ok) {
+    const text = await res.text();
+    const lastBuildMatch = text.match(/<lastBuildDate>([\s\S]*?)<\/lastBuildDate>/i);
+    if (lastBuildMatch) {
+      lastBuildTime = lastBuildMatch[1].trim();
+    }
+    const rawItems = text.match(/<item>[\s\S]*?<\/item>/gi) || [];
+    initialItems = rawItems.map(raw => {
+      const title = (raw.match(/<title>([\s\S]*?)<\/title>/i) || [])[1]?.trim() || '';
+      const desc = (raw.match(/<description>([\s\S]*?)<\/description>/i) || [])[1]?.trim() || '';
+      const pubDate = (raw.match(/<pubDate>([\s\S]*?)<\/pubDate>/i) || [])[1]?.trim() || '—';
+      const company = title.split(' - Ex-Date')[0].split('\n')[0].trim();
+
+      const t = (desc + ' ' + title).toUpperCase();
+      let type: CorporateActionItem['type'] = 'OTHER';
+      if (t.includes('BUYBACK') || t.includes('BUY BACK')) type = 'BUYBACK';
+      else if (t.includes('RIGHTS')) type = 'RIGHTS';
+      else if (t.includes('SPLIT') || t.includes('SUB-DIVISION')) type = 'SPLIT';
+      else if (t.includes('BONUS')) type = 'BONUS';
+      else if (t.includes('DIVIDEND')) type = 'DIVIDEND';
+
+      const extractField = (f: string) => {
+        const m = desc.match(new RegExp(f + ':([^|\\n]+)', 'i'));
+        return m ? m[1].trim() : '—';
+      };
+
+      const purposeRaw = extractField('PURPOSE');
+      const fv = extractField('FACE VALUE');
+      let purpose = purposeRaw !== '—' ? purposeRaw : desc.substring(0, 80);
+      if (fv !== '—') purpose += ` (FV ₹${fv})`;
+
+      const ex = extractField('EX-DATE');
+      const rec = extractField('RECORD DATE');
+      const exDate = ex !== '—' ? ex : rec;
+
+      return { company, type, purpose, exDate, pubDate, desc };
+    });
+  }
+} catch (err) {
+  // Graceful fallback during offline build
+}
+
+const seo = {
+  title: "NSE Corporate Actions Today — Live Dividends, Splits & Bonus (2026) | Arthavi",
+  description: "Live NSE corporate actions feed — today's dividends, stock splits, bonus issues, and buybacks from National Stock Exchange India. Updated every 5 minutes from NSE.",
+  keywords: "NSE corporate actions today, NSE dividend today, NSE stock split today, NSE bonus issue today, NSE buyback today, NSE corporate actions 2026, nse dividend announcement today india"
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/nse-corporate-actions-today/#webpage",
+      "name": "NSE Corporate Actions Today — Live Dividends, Splits & Bonus",
+      "description": "Live NSE corporate actions — dividends, stock splits, bonus issues, and buybacks updated every 5 minutes from the National Stock Exchange of India.",
+      "url": "https://arthavi.com/nse-corporate-actions-today/",
+      "dateModified": new Date().toISOString().split('T')[0]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://arthavi.com/nse-corporate-actions-today/#dataset",
+      "name": "NSE Corporate Actions Feed",
+      "description": "Real-time corporate actions from NSE India including dividends, stock splits, bonus issues, rights issues, and buybacks.",
+      "creator": { "@type": "Organization", "name": "NSE India" },
+      "distribution": { "@type": "DataDownload", "contentUrl": "https://nsearchives.nseindia.com/content/RSS/Corporate_action.xml" },
+      "updateFrequency": "P5M"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are NSE corporate actions?",
+          "acceptedAnswer": { "@type": "Answer", "text": "NSE corporate actions are events that materially change a listed company's stock — including dividend payments, stock splits (sub-division), bonus share issues, rights issues, and buybacks. These events directly affect your portfolio value and cost basis." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an ex-date for NSE dividends?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The ex-date (ex-dividend date) is the date on or after which a buyer is NOT entitled to the upcoming dividend. To receive the dividend, you must hold the shares BEFORE the ex-date. Shares typically drop by approximately the dividend amount on ex-date." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does a stock split affect my portfolio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A stock split increases the number of shares you hold while proportionally reducing the share price. Your total investment value stays the same. A 2:1 split means 2 shares for every 1 you held, each at half the price. Your portfolio tracker should auto-adjust for splits." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a bonus issue in NSE?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A bonus issue (bonus shares) means the company issues free additional shares to existing shareholders in a fixed ratio (e.g. 1:1 = one free share for every share held). Like a split, it doesn't change your total investment value but increases share count." }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://arthavi.com/" },
+        { "@type": "ListItem", "position": 2, "name": "NSE Corporate Actions Today", "item": "https://arthavi.com/nse-corporate-actions-today/" }
+      ]
+    }
+  ]
+});
+
+const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' });
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  schema={schema}
+  canonical="https://arthavi.com/nse-corporate-actions-today/"
+>
+
+<style>
+  /* ── Hero ── */
+  .ca-hero {
+    background: linear-gradient(135deg, #0B0E14 0%, #0f1e35 60%, #0B1420 100%);
+    padding: 5rem 1.5rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .ca-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34,197,94,0.07) 0%, transparent 70%);
+  }
+  .ca-hero .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.3);
+    color: #4ade80;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot { 50% { opacity: 0.3; } }
+
+  .ca-hero h1 {
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    max-width: 760px;
+    margin: 0 auto 1rem;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    position: relative;
+  }
+  .ca-hero .sub {
+    color: #8daac4;
+    font-size: 1.05rem;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+  }
+  .ca-hero .date-badge {
+    display: inline-block;
+    margin-top: 1.25rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #8daac4;
+    font-size: 0.82rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    position: relative;
+  }
+
+  /* ── Layout ── */
+  .page-wrap { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  /* ── Filter tabs ── */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    background: transparent;
+    color: #8daac4;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--primary, #5B8DEF);
+    border-color: var(--primary, #5B8DEF);
+    color: #fff;
+  }
+  .filter-btn[data-type="DIVIDEND"].active { background: #16a34a; border-color: #16a34a; }
+  .filter-btn[data-type="SPLIT"].active { background: #7c3aed; border-color: #7c3aed; }
+  .filter-btn[data-type="BONUS"].active { background: #d97706; border-color: #d97706; }
+  .filter-btn[data-type="BUYBACK"].active { background: #dc2626; border-color: #dc2626; }
+  .filter-btn .btn-icon { flex-shrink: 0; }
+
+  /* ── Feed container ── */
+  .feed-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.82rem;
+    color: #6b7a99;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .feed-meta #last-updated { color: #4ade80; font-weight: 600; }
+
+  .feed-table-wrap { overflow-x: auto; border-radius: 10px; }
+  #feed-container {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: var(--card-bg, #111827);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  #feed-container thead th {
+    background: rgba(91,141,239,0.08);
+    color: #6b7a99;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    white-space: nowrap;
+  }
+  #feed-container tbody td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: middle;
+    color: #c0cce0;
+  }
+  #feed-container tbody tr:last-child td { border-bottom: none; }
+  #feed-container tbody tr:hover td { background: rgba(255,255,255,0.025); }
+  .company-name { font-weight: 600; color: var(--text-head, #e8edf7); }
+  .type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.22rem 0.6rem;
+    border-radius: 5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .type-badge svg { flex-shrink: 0; }
+  .badge-dividend { background: rgba(22,163,74,0.18); color: #4ade80; border: 1px solid rgba(22,163,74,0.3); }
+  .badge-split { background: rgba(124,58,237,0.18); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
+  .badge-bonus { background: rgba(217,119,6,0.18); color: #fbbf24; border: 1px solid rgba(217,119,6,0.3); }
+  .badge-buyback { background: rgba(220,38,38,0.18); color: #f87171; border: 1px solid rgba(220,38,38,0.3); }
+  .badge-rights { background: rgba(59,130,246,0.18); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+  .badge-other { background: rgba(100,116,139,0.15); color: #94a3b8; border: 1px solid rgba(100,116,139,0.25); }
+  .date-cell { color: #6b7a99; font-size: 0.85rem; white-space: nowrap; }
+  .ex-date-cell { font-weight: 600; color: #e8edf7; white-space: nowrap; }
+
+  /* Loading skeleton */
+  .skeleton-row td { padding: 0.8rem 1rem; }
+  .skeleton { height: 16px; background: linear-gradient(90deg, #1a2235 25%, #243048 50%, #1a2235 75%); background-size: 400% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; }
+  @keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+  /* ── Info boxes ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2.5rem 0;
+  }
+  @media (max-width: 700px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card {
+    background: var(--card-bg, #111827);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  .card-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+  }
+  .info-card h3 { font-size: 1rem; font-weight: 600; color: var(--text-head, #e8edf7); margin-bottom: 0.4rem; }
+  .info-card p { font-size: 0.88rem; color: #6b7a99; line-height: 1.55; margin: 0; }
+
+  /* ── Arthavi CTA ── */
+  .cta-strip {
+    background: linear-gradient(135deg, #1a2744, #0f2035);
+    border: 1px solid rgba(91,141,239,0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+  .cta-strip p { color: #9bacc8; margin: 0; font-size: 0.95rem; }
+  .cta-strip p strong { color: #e8edf7; }
+  .cta-strip .btn-cta {
+    background: var(--primary, #5B8DEF); color: #fff;
+    font-weight: 600; padding: 0.65rem 1.5rem; border-radius: 8px;
+    text-decoration: none; font-size: 0.9rem; white-space: nowrap;
+    transition: opacity 0.2s; flex-shrink: 0;
+  }
+  .cta-strip .btn-cta:hover { opacity: 0.88; }
+
+  /* ── Prose section ── */
+  .prose-section { max-width: 760px; margin: 2.5rem 0; }
+  .prose-section h2 {
+    font-size: 1.4rem; font-weight: 700; color: var(--text-head, #e8edf7);
+    margin-bottom: 0.75rem; letter-spacing: -0.02em;
+    border-left: 3px solid var(--primary, #5B8DEF); padding-left: 0.75rem;
+  }
+  .prose-section p { color: #8daac4; line-height: 1.7; margin-bottom: 1em; font-size: 0.97rem; }
+  .prose-section a { color: var(--primary, #5B8DEF); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ── FAQ ── */
+  .faq-section { margin-top: 2.5rem; max-width: 760px; }
+  .faq-section h2 { font-size: 1.4rem; font-weight: 700; color: var(--text-head, #e8edf7); margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 1rem 0; }
+  .faq-item summary { font-weight: 600; color: #e8edf7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.97rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--primary, #5B8DEF); flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-body { padding-top: 0.75rem; color: #8daac4; line-height: 1.65; font-size: 0.93rem; }
+
+  /* ── No data state ── */
+  .empty-state { text-align: center; padding: 3rem 1rem; color: #6b7a99; }
+  .empty-state .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+</style>
+
+<!-- Hero -->
+<header class="ca-hero">
+  <div class="live-badge">
+    <span class="live-dot"></span>
+    Live from NSE · Updated every 5 min
+  </div>
+  <h1>NSE Corporate Actions — Live Dividends, Splits & Bonus</h1>
+  <p class="sub">
+    Today's dividends, stock splits, bonus issues, rights, and buybacks from the National Stock Exchange of India.
+    Data sourced directly from NSE's official feed.
+  </p>
+  <span class="date-badge">📅 {today}</span>
+</header>
+
+<main class="page-wrap" id="main">
+
+  <!-- CTA strip -->
+  <div class="cta-strip">
+    <p>
+      <strong>Does a dividend or split affect your portfolio?</strong><br>
+      Track the exact impact on your Arthavi dashboard — XIRR, cost basis, and net worth auto-updated.
+    </p>
+    <a href="https://app.arthavi.com/register" id="ca-cta-top" class="btn-cta">Track My Portfolio Free →</a>
+  </div>
+
+  <!-- Filter buttons -->
+  <div class="filter-bar" id="filterBar" aria-label="Filter corporate actions by type">
+    <button class="filter-btn active" data-type="ALL" id="filter-all">All Actions</button>
+    <button class="filter-btn" data-type="DIVIDEND" id="filter-dividend">
+      <svg class="btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M15 9.5a2.5 2.5 0 0 0-5 0c0 2.5 5 2.5 5 5a2.5 2.5 0 0 1-5 0"/></svg>
+      Dividends
+    </button>
+    <button class="filter-btn" data-type="SPLIT" id="filter-split">
+      <svg class="btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+      Stock Splits
+    </button>
+    <button class="filter-btn" data-type="BONUS" id="filter-bonus">
+      <svg class="btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+      Bonus Issues
+    </button>
+    <button class="filter-btn" data-type="BUYBACK" id="filter-buyback">
+      <svg class="btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+      Buybacks
+    </button>
+    <button class="filter-btn" data-type="RIGHTS" id="filter-rights">
+      <svg class="btn-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
+      Rights Issues
+    </button>
+  </div>
+
+  <!-- Feed meta row -->
+  <div class="feed-meta">
+    <span>Source: <strong>Official Exchange Disclosures</strong> (National Stock Exchange of India)</span>
+    <span>Last updated: <span id="last-updated">{lastBuildTime}</span></span>
+  </div>
+
+  <!-- Live feed table -->
+  <div class="feed-table-wrap">
+    <table id="feed-container" aria-label="NSE Corporate Actions live feed">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Action Type</th>
+          <th>Details</th>
+          <th>Ex-Date / Record Date</th>
+          <th>Published</th>
+        </tr>
+      </thead>
+      <tbody id="feed-body">
+        {initialItems.length > 0 ? (
+          initialItems.map(item => (
+            <tr data-type={item.type}>
+              <td class="company-name">{item.company}</td>
+              <td>
+                <span class={`type-badge badge-${item.type.toLowerCase()}`}>
+                  {item.type === 'DIVIDEND' && (
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M15 9.5a2.5 2.5 0 0 0-5 0c0 2.5 5 2.5 5 5a2.5 2.5 0 0 1-5 0"/></svg>
+                  )}
+                  {item.type === 'SPLIT' && (
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+                  )}
+                  {item.type === 'BONUS' && (
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+                  )}
+                  {item.type === 'BUYBACK' && (
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+                  )}
+                  {item.type === 'RIGHTS' && (
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
+                  )}
+                  {item.type === 'OTHER' && (
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  )}
+                  {item.type === 'DIVIDEND' && 'Dividend'}
+                  {item.type === 'SPLIT' && 'Split'}
+                  {item.type === 'BONUS' && 'Bonus'}
+                  {item.type === 'BUYBACK' && 'Buyback'}
+                  {item.type === 'RIGHTS' && 'Rights'}
+                  {item.type === 'OTHER' && 'Notice'}
+                </span>
+              </td>
+              <td style="max-width:340px;font-size:0.85rem;color:#9bacc8">{item.purpose}</td>
+              <td class="ex-date-cell">{item.exDate}</td>
+              <td class="date-cell">{item.pubDate}</td>
+            </tr>
+          ))
+        ) : (
+          <tr class="skeleton-row"><td><div class="skeleton" style="width:200px"></div></td><td><div class="skeleton" style="width:80px"></div></td><td><div class="skeleton" style="width:300px"></div></td><td><div class="skeleton" style="width:100px"></div></td><td><div class="skeleton" style="width:120px"></div></td></tr>
+          <tr class="skeleton-row"><td><div class="skeleton" style="width:180px"></div></td><td><div class="skeleton" style="width:90px"></div></td><td><div class="skeleton" style="width:260px"></div></td><td><div class="skeleton" style="width:100px"></div></td><td><div class="skeleton" style="width:120px"></div></td></tr>
+          <tr class="skeleton-row"><td><div class="skeleton" style="width:220px"></div></td><td><div class="skeleton" style="width:70px"></div></td><td><div class="skeleton" style="width:320px"></div></td><td><div class="skeleton" style="width:100px"></div></td><td><div class="skeleton" style="width:120px"></div></td></tr>
+        )}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Info cards -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="card-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M15 9.5a2.5 2.5 0 0 0-5 0c0 2.5 5 2.5 5 5a2.5 2.5 0 0 1-5 0"/></svg>
+      </div>
+      <h3>Dividends</h3>
+      <p>Cash distributions to shareholders. Review the ex-date to ensure you hold shares prior to entitlement.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+      </div>
+      <h3>Stock Splits</h3>
+      <p>Share quantity expands while share price adjusts proportionally. E.g. a 10:1 split yields 10 shares at ₹10 for each 1 at ₹100.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+      </div>
+      <h3>Bonus Issues</h3>
+      <p>Additional shares allocated to existing shareholders. Your XIRR and average acquisition cost automatically adjust.</p>
+    </div>
+  </div>
+
+  <!-- About section -->
+  <div class="prose-section">
+    <h2>What Are NSE Corporate Actions?</h2>
+    <p>
+      Corporate actions are official decisions by publicly listed companies that materially affect their stock and existing shareholders.
+      They are mandatorily disclosed to the National Stock Exchange of India, which publishes them in real time. The primary types are:
+    </p>
+    <p>
+      <strong>Dividends</strong> — cash distribution of company profits. For Indian stocks, the pivotal date is the
+      <strong>ex-dividend date</strong> — you must own the stock before this date to receive the payout.
+      <strong>Stock Splits</strong> expand share count while reducing the per-share price.
+      <strong>Bonus Issues</strong> represent free shares allocated to existing holders. <strong>Buybacks</strong> mean the
+      company is repurchasing its equity from the market.
+    </p>
+    <p>
+      These events <strong>directly impact your portfolio returns</strong>. A portfolio system that overlooks
+      a 1:1 bonus issue will report incorrect returns. Arthavi's
+      <a href="/portfolio-tracker-india/">portfolio tracker</a> automatically incorporates all official NSE corporate actions and
+      updates your cost basis, XIRR, and net worth accurately.
+    </p>
+
+    <h2>How to Use This Live Tracker</h2>
+    <p>
+      This page displays <strong>live NSE corporate actions</strong> sourced continuously from official exchange filings.
+      Use the category buttons to inspect dividends, stock splits, bonus issues, or buybacks.
+      The ex-date column highlights the critical date by which shares must be in your account.
+    </p>
+    <p>
+      If you hold any of these stocks in your portfolio, the corporate action will affect your returns.
+      <a href="https://app.arthavi.com/register">Track your portfolio on Arthavi</a> to see the precise impact on
+      your XIRR and net worth automatically.
+    </p>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section" aria-label="Frequently asked questions about NSE corporate actions">
+    <h2>Frequently Asked Questions</h2>
+
+    <details class="faq-item" id="faq-ca-what">
+      <summary>What are NSE corporate actions?</summary>
+      <div class="faq-body">
+        NSE corporate actions are events that materially change a listed company's stock — including dividend payments, stock splits, bonus share issues, rights issues, and buybacks. These events are mandatorily disclosed to NSE and directly affect your portfolio value and cost basis.
+      </div>
+    </details>
+
+    <details class="faq-item" id="faq-exdate">
+      <summary>What is the ex-date for NSE dividends?</summary>
+      <div class="faq-body">
+        The ex-date (ex-dividend date) is the date on or after which a buyer is NOT entitled to the upcoming dividend. To receive the dividend, you must hold the shares BEFORE the ex-date. On the ex-date, shares typically drop by approximately the dividend amount.
+      </div>
+    </details>
+
+    <details class="faq-item" id="faq-split">
+      <summary>How does an NSE stock split affect my portfolio?</summary>
+      <div class="faq-body">
+        A stock split increases the number of shares you hold while proportionally reducing the share price. Your total investment value stays the same. A 2:1 split means 2 shares for every 1 you held, each at half the price. Arthavi automatically adjusts your portfolio for splits so your XIRR stays accurate.
+      </div>
+    </details>
+
+    <details class="faq-item" id="faq-bonus">
+      <summary>What is a bonus issue in NSE, and does it affect my returns?</summary>
+      <div class="faq-body">
+        A bonus issue means the company issues free additional shares to existing shareholders in a fixed ratio (e.g. 1:1 = one free share for every share held). Like a split, it doesn't change your total investment value but reduces your average cost per share. This affects XIRR calculations — a tracker that ignores bonuses will show incorrect returns.
+      </div>
+    </details>
+
+    <details class="faq-item" id="faq-tracker">
+      <summary>How does Arthavi handle corporate actions automatically?</summary>
+      <div class="faq-body">
+        Arthavi's portfolio tracker automatically captures NSE corporate actions — dividends, splits, bonuses, and rights — and adjusts your cost basis, average price, and XIRR accordingly. You don't need to manually update anything. Your <a href="/portfolio-tracker-india">portfolio view</a> always reflects the true picture.
+      </div>
+    </details>
+  </section>
+
+  <!-- Related links -->
+  <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.07);">
+    <p style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4b5f7a;margin-bottom:0.75rem;">Related Pages</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+      <a href="/nse-board-meetings-financial-results/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">NSE Board Meetings & Financial Results</a>
+      <a href="/portfolio-tracker-india/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">Best Portfolio Tracker India</a>
+      <a href="/cas-statement-portfolio-tracker/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">CAS Statement Portfolio Tracker</a>
+      <a href="/stock-portfolio-tracker-india/" style="background:var(--card-bg,#111827);border:1px solid rgba(255,255,255,0.08);color:#8daac4;padding:0.45rem 1rem;border-radius:8px;text-decoration:none;font-size:0.88rem;">Stock Portfolio Tracker India</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- Live fetch + resilient render script -->
+<script is:inline>
+(function () {
+  const FEED_URL = 'https://nsearchives.nseindia.com/content/RSS/Corporate_action.xml';
+  const PROXIES = [
+    url => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
+    url => 'https://corsproxy.io/?' + encodeURIComponent(url)
+  ];
+
+  let allItems = [];
+  let activeFilter = 'ALL';
+
+  // Initialize from server-rendered rows immediately so filters work with zero latency
+  const existingRows = Array.from(document.querySelectorAll('#feed-body tr[data-type]'));
+  if (existingRows.length) {
+    allItems = existingRows.map(row => ({
+      company: row.children[0]?.textContent?.trim() || '',
+      type: row.dataset.type || 'OTHER',
+      purpose: row.children[2]?.textContent?.trim() || '',
+      exDate: row.children[3]?.textContent?.trim() || '',
+      pubDate: row.children[4]?.textContent?.trim() || ''
+    }));
+  }
+
+  function classifyType(desc, title) {
+    const t = (desc + ' ' + title).toUpperCase();
+    if (t.includes('BUYBACK') || t.includes('BUY BACK')) return 'BUYBACK';
+    if (t.includes('RIGHTS')) return 'RIGHTS';
+    if (t.includes('SPLIT') || t.includes('SUB-DIVISION')) return 'SPLIT';
+    if (t.includes('BONUS')) return 'BONUS';
+    if (t.includes('DIVIDEND')) return 'DIVIDEND';
+    return 'OTHER';
+  }
+
+  const iconSvg = {
+    DIVIDEND: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M15 9.5a2.5 2.5 0 0 0-5 0c0 2.5 5 2.5 5 5a2.5 2.5 0 0 1-5 0"/></svg>',
+    SPLIT: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>',
+    BONUS: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>',
+    BUYBACK: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>',
+    RIGHTS: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>',
+    OTHER: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'
+  };
+
+  function typeBadge(type) {
+    const map = {
+      DIVIDEND: ['badge-dividend', 'Dividend'],
+      SPLIT: ['badge-split', 'Split'],
+      BONUS: ['badge-bonus', 'Bonus'],
+      BUYBACK: ['badge-buyback', 'Buyback'],
+      RIGHTS: ['badge-rights', 'Rights'],
+      OTHER: ['badge-other', 'Notice'],
+    };
+    const [cls, label] = map[type] || map.OTHER;
+    const icon = iconSvg[type] || iconSvg.OTHER;
+    return `<span class="type-badge ${cls}">${icon} ${label}</span>`;
+  }
+
+  function extractField(desc, field) {
+    const re = new RegExp(field + ':([^|\\n]+)', 'i');
+    const m = desc.match(re);
+    return m ? m[1].trim() : '—';
+  }
+
+  function formatDetails(desc, type) {
+    const purpose = extractField(desc, 'PURPOSE');
+    const fv = extractField(desc, 'FACE VALUE');
+    let out = purpose !== '—' ? purpose : desc.substring(0, 80);
+    if (fv !== '—') out += ` (FV ₹${fv})`;
+    return out;
+  }
+
+  function renderRows(items) {
+    const tbody = document.getElementById('feed-body');
+    if (!items.length) {
+      tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7a99" stroke-width="1.8" style="margin:0 auto 0.5rem;display:block;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><p>No corporate actions found for this filter. Select "All Actions".</p></div></td></tr>`;
+      return;
+    }
+    tbody.innerHTML = items.map(item => {
+      const exDate = item.exDate || extractField(item.desc || '', 'EX-DATE');
+      const pub = item.pubDate || '—';
+      const details = item.purpose || formatDetails(item.desc || '', item.type);
+      return `<tr data-type="${item.type}">
+        <td class="company-name">${item.company}</td>
+        <td>${typeBadge(item.type)}</td>
+        <td style="max-width:340px;font-size:0.85rem;color:#9bacc8">${details}</td>
+        <td class="ex-date-cell">${exDate}</td>
+        <td class="date-cell">${pub}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function applyFilter() {
+    const filtered = activeFilter === 'ALL' ? allItems : allItems.filter(i => i.type === activeFilter);
+    renderRows(filtered);
+  }
+
+  async function fetchWithFallback() {
+    for (const proxyFn of PROXIES) {
+      try {
+        const res = await fetch(proxyFn(FEED_URL), { signal: AbortSignal.timeout(7000) });
+        if (res.ok) {
+          const text = await res.text();
+          if (text && text.includes('<rss')) return text;
+        }
+      } catch (e) {
+        // try next proxy
+      }
+    }
+    return null;
+  }
+
+  async function loadFeed() {
+    try {
+      const xmlText = await fetchWithFallback();
+      if (!xmlText) throw new Error('All proxies failed');
+
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlText, 'application/xml');
+
+      const lastBuild = xml.querySelector('lastBuildDate');
+      if (lastBuild) {
+        document.getElementById('last-updated').textContent = lastBuild.textContent.trim();
+      }
+
+      const items = Array.from(xml.querySelectorAll('item'));
+      if (items.length) {
+        allItems = items.map(item => {
+          const titleRaw = item.querySelector('title')?.textContent?.trim() || '';
+          const desc = item.querySelector('description')?.textContent?.trim() || '';
+          const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '—';
+          const company = titleRaw.split(' - Ex-Date')[0].split('\n')[0].trim();
+          const type = classifyType(desc, titleRaw);
+          const purpose = formatDetails(desc, type);
+          const ex = extractField(desc, 'EX-DATE');
+          const rec = extractField(desc, 'RECORD DATE');
+          const exDate = ex !== '—' ? ex : rec;
+          return { company, desc, pubDate, type, purpose, exDate };
+        });
+        applyFilter();
+      }
+    } catch (err) {
+      console.warn('NSE live feed update skipped:', err);
+      const tbody = document.getElementById('feed-body');
+      if (!allItems.length && (!tbody || tbody.querySelector('.skeleton-row'))) {
+        tbody.innerHTML = `
+          <tr><td colspan="5">
+            <div class="empty-state">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="1.8" style="margin:0 auto 0.5rem;display:block;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <p>Live disclosures refreshing. <a href="https://www.nseindia.com/companies-listing/corporate-filings-actions" target="_blank" rel="noopener">View on NSE directly →</a></p>
+            </div>
+          </td></tr>`;
+      }
+    }
+  }
+
+  // Filter button logic
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.type;
+      applyFilter();
+    });
+  });
+
+  // Background refresh every 5 min
+  loadFeed();
+  setInterval(loadFeed, 5 * 60 * 1000);
+})();
+</script>
+
+</Layout>
