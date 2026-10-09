@@ -313,7 +313,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     Upcoming board meeting notices and latest quarterly results from listed Indian companies.
     Sourced directly from NSE's official disclosure feed.
   </p>
-  <span class="date-badge">📅 {today}</span>
+  <span class="date-badge">Live Market Calendar • {today}</span>
 </header>
 
 <main class="page-wrap" id="main">
@@ -328,14 +328,20 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
 
   <!-- Tabs -->
   <div class="tab-bar" role="tablist" aria-label="Feed type selector">
-    <button class="tab-btn active" id="tab-bm" role="tab" aria-selected="true" aria-controls="panel-bm">📅 Board Meetings</button>
-    <button class="tab-btn" id="tab-fr" role="tab" aria-selected="false" aria-controls="panel-fr">📊 Financial Results</button>
+    <button class="tab-btn active" id="tab-bm" role="tab" aria-selected="true" aria-controls="panel-bm">
+      <svg class="tab-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+      Board Meetings
+    </button>
+    <button class="tab-btn" id="tab-fr" role="tab" aria-selected="false" aria-controls="panel-fr">
+      <svg class="tab-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+      Financial Results
+    </button>
   </div>
 
   <!-- Board Meetings Panel -->
   <div class="feed-panel active" id="panel-bm" role="tabpanel">
     <div class="feed-meta">
-      <span>Source: <strong>NSE Board Meetings RSS</strong></span>
+      <span>Source: <strong>Official Board Meeting Filings — NSE India</strong></span>
       <span>Last updated: <span class="last-upd" id="bm-updated">{lastBuildBM}</span></span>
     </div>
     <div class="feed-table-wrap">
@@ -359,7 +365,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
               </tr>
             ))
           ) : (
-            <tr><td colspan="4"><div class="empty-state"><div class="icon">📭</div><p>No new board meeting notices posted right now. Feeds update during market hours. <a href="https://www.nseindia.com/companies-listing/corporate-filings-board-meetings" target="_blank" rel="noopener">View on NSE →</a></p></div></td></tr>
+            <tr><td colspan="4"><div class="empty-state"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7a99" stroke-width="1.8" style="margin:0 auto 0.5rem;display:block;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><p>No new board meeting notices posted for today. Filings update during market hours. <a href="https://www.nseindia.com/companies-listing/corporate-filings-board-meetings" target="_blank" rel="noopener">View on NSE directly →</a></p></div></td></tr>
           )}
         </tbody>
       </table>
@@ -369,7 +375,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
   <!-- Financial Results Panel -->
   <div class="feed-panel" id="panel-fr" role="tabpanel">
     <div class="feed-meta">
-      <span>Source: <strong>NSE Financial Results RSS</strong></span>
+      <span>Source: <strong>Official Financial Disclosures — NSE India</strong></span>
       <span>Last updated: <span class="last-upd" id="fr-updated">{lastBuildFR}</span></span>
     </div>
     <div class="feed-table-wrap">
@@ -401,7 +407,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
               </tr>
             ))
           ) : (
-            <tr><td colspan="6"><div class="empty-state"><div class="icon">📭</div><p>No new results posted right now. <a href="https://www.nseindia.com/companies-listing/corporate-filings-financial-results" target="_blank" rel="noopener">View on NSE →</a></p></div></td></tr>
+            <tr><td colspan="6"><div class="empty-state"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7a99" stroke-width="1.8" style="margin:0 auto 0.5rem;display:block;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><p>No new quarterly results posted right now. <a href="https://www.nseindia.com/companies-listing/corporate-filings-financial-results" target="_blank" rel="noopener">View on NSE directly →</a></p></div></td></tr>
           )}
         </tbody>
       </table>
@@ -414,13 +420,13 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     <p>
       All NSE-listed companies are required to notify the exchange at least <strong>2 business days</strong>
       before a board meeting where material decisions — including quarterly results, dividends, buybacks,
-      or fund raises — will be discussed. This is your advance warning of upcoming catalysts for a stock.
+      or fund raises — will be discussed. This is your advance notice of upcoming corporate catalysts.
     </p>
     <p>
       For investors, board meeting notices for <strong>financial results</strong> are especially important.
-      They tell you exactly when a company will announce its Q1/Q2/Q3/Q4 numbers. If you hold that stock
+      They tell you exactly when a company will announce its quarterly numbers. If you hold that stock
       in your portfolio, you can plan accordingly. Use Arthavi's
-      <a href="/portfolio-tracker-india">portfolio tracker</a> to monitor all your holdings
+      <a href="/portfolio-tracker-india/">portfolio tracker</a> to monitor all your holdings
       and see their current performance before results day.
     </p>
 
@@ -432,12 +438,12 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     </p>
     <p>
       Results include revenue, EBITDA, PAT (Profit After Tax), EPS, and management guidance.
-      They are disclosed as XBRL filings on NSE, and the key metrics are available within minutes of filing.
-      <strong>Stock prices often move 5–20%</strong> on result day based on how the numbers compare to market expectations.
+      They are disclosed as official regulatory filings on NSE, and key performance metrics are available upon disclosure.
+      <strong>Stock prices often move 5–20%</strong> on result day based on how performance aligns with market expectations.
     </p>
     <p>
       If any of these companies are in your portfolio, track their impact on your XIRR and net worth live
-      on <a href="/portfolio-tracker-india">Arthavi's portfolio dashboard</a>.
+      on <a href="/portfolio-tracker-india/">Arthavi's portfolio dashboard</a>.
     </p>
   </div>
 
@@ -462,14 +468,14 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     <details class="faq-item" id="faq-impact">
       <summary>How do quarterly results affect my stock portfolio?</summary>
       <div class="faq-body">
-        Quarterly financial results reveal a company's revenue, profit, and margins for that period. Strong results (beating expectations) typically push stock prices up; weak results cause sell-offs. Knowing result dates helps you make informed decisions about your holdings. Arthavi's portfolio tracker shows your live XIRR and net worth so you can see real-time impact.
+        Quarterly financial results reveal a company's revenue, profit, and margins for that period. Strong results typically push stock prices up; weak results cause sell-offs. Knowing result dates helps you make informed decisions about your holdings. Arthavi's portfolio tracker shows your live XIRR and net worth so you can see real-time impact.
       </div>
     </details>
 
     <details class="faq-item" id="faq-xbrl">
-      <summary>What is the XBRL format used in NSE financial results?</summary>
+      <summary>How are official financial results filed on NSE?</summary>
       <div class="faq-body">
-        XBRL (eXtensible Business Reporting Language) is the standardised format mandated by SEBI for filing financial results with NSE. It makes financial data machine-readable. NSE's RSS feed links to the XBRL XML files directly, which contain structured data on revenue, PAT, EPS, and more.
+        Companies listed on NSE submit standardized regulatory financial disclosures mandated by SEBI. These official statements provide verified, audited and unaudited metrics on revenue, net profit (PAT), operating margins, and EPS directly to the exchange.
       </div>
     </details>
   </section>
