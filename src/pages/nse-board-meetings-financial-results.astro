@@ -203,6 +203,9 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     margin-bottom: 1.5rem;
   }
   .tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.55rem 1.25rem;
     border-radius: 7px;
     font-size: 0.88rem;
@@ -214,6 +217,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     transition: all 0.2s;
     white-space: nowrap;
   }
+  .tab-btn .tab-icon { flex-shrink: 0; }
   .tab-btn.active { background: var(--primary, #5B8DEF); color: #fff; }
 
   .feed-panel { display: none; }
