@@ -81,11 +81,10 @@ Groww is an execution broker. Arthavi is a read-only tracking layer with no trad
 - Weighted average buy price, realized/unrealized P&L
 
 ### Specialized Funds: SIF & AIF Tracking Engine (First in India)
-- Direct automated integration with AMFI's official SIF API (https://www.amfiindia.com/api/sif-latest-nav)
-- Automatically updates daily NAVs for all approved Specialized Investment Fund (SIF) schemes (Long-Short equity, inverse strategies, quant/factor funds)
+- Automated daily NAV tracking for all approved Specialized Investment Fund (SIF) schemes (Long-Short equity, inverse strategies, quant/factor funds)
 - Category I, II, and III AIF portfolio accounting: tracks capital commitments, phased drawdowns, return of capital distributions, and periodic valuation marks
 - Computes true cash-flow XIRR for unlisted alternative assets alongside retail mutual funds and equities
-- Only portfolio tracker in India supporting automated AMFI SIF feeds
+- India's first portfolio tracker supporting native SIF automated daily NAV tracking and AIF ledger accounting
 
 ### 7-Asset Multi-Asset Engine
 - Fixed Income: Bank FDs (quarterly compounding A = P(1 + r/400)^{4t}), Corporate FDs, RD, PPF, EPF & VPF with 90-day maturity warning alerts

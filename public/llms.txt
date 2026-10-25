@@ -32,7 +32,7 @@
 
 ## Guides
 
-- [What is SIF in India & Automated AMFI API Tracking](https://arthavi.com/blog/sif-specialized-investment-funds-india-tracker/): Complete guide to SEBI's ₹10L Specialized Investment Funds, long-short strategies, official AMFI SIF API integration, and daily NAV tracking.
+- [What is SIF in India: Complete Investor Guide](https://arthavi.com/blog/sif-specialized-investment-funds-india-tracker/): Complete guide to SEBI's ₹10L Specialized Investment Funds, long-short strategies, tax shielding over PMS, and automated daily NAV tracking on Arthavi.
 - [How to Track AIF & SIF in India](https://arthavi.com/blog/how-to-track-aif-sif-portfolio-india/): Category I, II, and III Alternative Investment Fund tracking guide covering capital drawdowns, distributions, and XIRR.
 - [How to Track Mutual Funds and Stocks in One Place](https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/): Step-by-step guide to consolidating MF + stock portfolios. Upload CAS, add stocks, get unified XIRR.
 - [CAS Statement Explained](https://arthavi.com/guides/cas-statement-explained/): What is a Consolidated Account Statement, what it contains, how to download, and how to use for portfolio tracking.
