@@ -2642,4 +2642,162 @@
             text-align: center;
             padding: 2rem;
         }
-    
+
+        /* ==========================================================================
+           Supported Instruments Ticker & Multi-Asset Matrix
+           ========================================================================== */
+        .instruments-ticker-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 0.85rem 1.25rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .instruments-ticker-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .ticker-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+        .ticker-pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+            animation: pulse 2s infinite;
+        }
+        .instruments-pill-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+        .instrument-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.35rem 0.85rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-head);
+            transition: all 0.2s ease;
+        }
+        .instrument-pill:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-1px);
+        }
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .instrument-pill.highlight-pill {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.15));
+            border-color: rgba(168, 85, 247, 0.45);
+            color: #fff;
+            font-weight: 600;
+        }
+        .pill-badge {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        /* Multi-Asset Coverage Matrix */
+        .multi-asset-matrix-section {
+            padding: 5rem 0;
+            position: relative;
+            background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-main) 100%);
+        }
+        .asset-matrix-table-card {
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            overflow: hidden;
+            margin-top: 2.5rem;
+        }
+        .asset-matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .asset-matrix-table th {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.1rem 1.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .asset-matrix-table td {
+            padding: 1.25rem 1.4rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: top;
+        }
+        .asset-matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+        .asset-matrix-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .asset-class-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--text-head);
+            font-size: 0.95rem;
+        }
+        .sif-highlight-tag {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            color: #c084fc;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.4rem;
+        }
+        @media (max-width: 768px) {
+            .asset-matrix-table-card {
+                overflow-x: auto;
+            }
+            .asset-matrix-table {
+                min-width: 680px;
+            }
+            .instruments-ticker-wrapper {
+                border-radius: 12px;
+            }
+        }
+

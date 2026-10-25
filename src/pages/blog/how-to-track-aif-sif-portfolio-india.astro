@@ -1,0 +1,320 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Track AIF (Alternative Investment Funds) & SIF in India: Valuation & XIRR Guide | Arthavi",
+  description: "Learn how to track Alternative Investment Funds (Category I, II, III) and SIF in India. Manage capital drawdowns, distributions, irregular NAVs, and cash-flow XIRR in one unified family vault.",
+};
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="track AIF India, AIF portfolio tracker, alternative investment funds tracking, category 2 aif tracker, category 3 aif, SIF and AIF portfolio, AIF NAV tracker, private equity tracker India, venture capital tracking India, aif xirr calculator"
+  schema={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "How to Track AIF (Alternative Investment Funds) & SIF in India: Category I, II, III Valuation & XIRR Guide",
+        "image": "https://arthavi.com/images/og-image.png",
+        "author": {
+          "@type": "Organization",
+          "name": "Arthavi"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Arthavi",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://arthavi.com/images/logo.png"
+          }
+        },
+        "datePublished": "2026-10-25",
+        "dateModified": "2026-10-25",
+        "description": "The definitive institutional guide to tracking AIF (Category I, II, III) and SIF investments in India. Learn how to account for capital calls, distributions, hurdle rates, and consolidated family net worth."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How are AIF investments tracked in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Alternative Investment Funds (AIF Category I, II, and III) are tracked using unitized cash-flow accounting. Because AIFs involve capital commitments, phased capital calls, and periodic distributions (Return of Capital and Capital Gains), performance is measured using Extended Internal Rate of Return (XIRR) based on actual cash flow dates rather than simple point-to-point absolute return."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between SIF and AIF in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The primary difference lies in minimum ticket size, regulatory structure, and liquidity. SIF (Specialized Investment Funds) has a minimum ticket of ₹10 Lakhs, operates under a mutual fund trust with daily NAVs published via AMFI's official API, and offers flexible redemption. AIFs require a minimum investment of ₹1 Crore, operate under private placement trusts with multi-year lock-ins (typically 3 to 7+ years), and feature monthly or quarterly valuation updates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why can't Excel or broker apps track AIFs properly?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Broker apps like Zerodha or Groww do not support unlisted alternative assets, capital drawdown schedules, or irregular NAV feeds. While Excel can compute basic XIRR, manual sheets break down when tracking multi-PAN family folios, tax grandfathering, currency conversions, and reconciling capital distributions against uncalled commitments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Arthavi handle AIF and SIF portfolio tracking?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Arthavi provides a specialized alternative asset engine. For SIF schemes, Arthavi connects directly to AMFI's official SIF API (amfiindia.com/api/sif-latest-nav) to sync daily NAVs automatically. For AIFs (Category I, II, III), users track custom fund units, capital drawdowns, distributions, and periodic valuation updates to calculate accurate portfolio-wide XIRR alongside listed stocks, mutual funds, FDs, gold, and real estate."
+            }
+          }
+        ]
+      }
+    ]
+  })}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/how-to-track-aif-sif-portfolio-india" }
+    ]
+  }}
+>
+  <main class="container" style="padding-top: calc(var(--header-height) + 2rem);">
+    <article class="prose fade-in" style="max-width: 820px; margin: 0 auto; padding-bottom: 5rem;">
+      
+      <!-- Category Badge -->
+      <div style="text-align: center; margin-bottom: 1rem;">
+        <span class="launch-badge" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(129, 140, 248, 0.35); color: #818cf8; font-weight: 700; font-size: 0.8rem; padding: 0.35rem 0.9rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;">
+          🏛️ INSTITUTIONAL &amp; HNI WEALTH GUIDE
+        </span>
+      </div>
+
+      <h1 style="font-size: 2.6rem; line-height: 1.25; text-align: center; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fff, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        How to Track AIF (Alternative Investment Funds) &amp; SIF in India: Category I, II, III Valuation &amp; XIRR Guide
+      </h1>
+
+      <p style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.7; text-align: center; margin-bottom: 3rem; max-width: 720px; margin-left: auto; margin-right: auto;">
+        From capital drawdowns and hurdle rates to automated AMFI SIF API feeds: how modern Indian family offices and HNIs track private equity, venture capital, hedge funds, and SIFs in one unified vault.
+      </p>
+
+      <!-- Standalone GEO Definition Card -->
+      <div class="geo-definition-card glass-panel" style="margin-bottom: 3rem; border-left: 4px solid #6366f1; padding: 1.6rem; background: rgba(99, 102, 241, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); border-left-width: 4px;">
+        <p style="margin: 0; font-size: 1.08rem; line-height: 1.7; color: var(--text-head);">
+          <strong>How are AIFs and SIFs Tracked in India?</strong><br />
+          Tracking <strong>Alternative Investment Funds (AIF Category I, II, III)</strong> and <strong>Specialized Investment Funds (SIF)</strong> requires institutional cash-flow accounting beyond standard stock tickers. Because AIFs involve capital commitments, phased capital calls, periodic return of capital, and quarterly valuation marks, calculating true performance requires cash-flow <strong>XIRR</strong> rather than simple absolute returns. SIFs, conversely, offer automated daily NAV updates via AMFI's official SIF API (<code>https://www.amfiindia.com/api/sif-latest-nav</code>).
+        </p>
+      </div>
+
+      <h2>Understanding the Three AIF Categories in India</h2>
+      <p>
+        Under SEBI (Alternative Investment Funds) Regulations, 2012, private investment funds are classified into three distinct categories based on their investment universe and economic purpose:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem 0;">
+        <div class="glass-panel" style="padding: 1.6rem; border-radius: 12px; border-left: 4px solid #38bdf8;">
+          <h3 style="margin: 0 0 0.5rem; font-size: 1.2rem; color: #38bdf8;">Category I AIF: Early Stage, Venture &amp; Infrastructure</h3>
+          <p style="margin: 0 0 0.75rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
+            Funds that invest in start-ups, early-stage ventures, social ventures, SMEs, or infrastructure projects perceived as economically or socially beneficial.
+          </p>
+          <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>Sub-types:</strong> Venture Capital Funds (VCF), Angel Funds (minimum ticket ₹25 Lakhs), SME Funds, Social Impact Funds, Infrastructure Funds.</li>
+            <li><strong>Typical Horizon:</strong> 7 to 10+ years with illiquid lock-ins and milestone-based follow-on rounds.</li>
+            <li><strong>Tax Structure:</strong> Pass-through status under Section 115UB (income taxed in hands of investor as if received directly).</li>
+          </ul>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.6rem; border-radius: 12px; border-left: 4px solid #34d399;">
+          <h3 style="margin: 0 0 0.5rem; font-size: 1.2rem; color: #34d399;">Category II AIF: Private Equity, Debt &amp; Real Estate</h3>
+          <p style="margin: 0 0 0.75rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
+            The largest category by asset volume in India. Funds that do not undertake leverage other than to meet day-to-day operational requirements.
+          </p>
+          <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>Sub-types:</strong> Private Equity (PE) funds, Private Credit / Performing Debt funds, Real Estate funds, Distressed Assets / Special Situation funds.</li>
+            <li><strong>Typical Horizon:</strong> 4 to 7 years with structured distribution waterfalls (hurdle rate + carry).</li>
+            <li><strong>Tax Structure:</strong> Pass-through status under Section 115UB. Business income is taxed at the fund level at MMR.</li>
+          </ul>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.6rem; border-radius: 12px; border-left: 4px solid #c084fc;">
+          <h3 style="margin: 0 0 0.5rem; font-size: 1.2rem; color: #c084fc;">Category III AIF: Hedge Funds &amp; Complex Strategies</h3>
+          <p style="margin: 0 0 0.75rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
+            Funds that employ diverse or complex trading strategies and may employ leverage, including investments in listed or unlisted derivatives.
+          </p>
+          <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>Sub-types:</strong> Long-Short equity hedge funds, Long-Only alpha funds, Quant/Derivative funds, PIPE (Private Investment in Public Equity).</li>
+            <li><strong>Typical Horizon:</strong> Open-ended or closed-ended (2 to 5 years), often featuring periodic liquidity redemption windows.</li>
+            <li><strong>Tax Structure:</strong> Taxed at the fund level at the Maximum Marginal Rate (MMR), meaning distributions to investors are generally tax-free.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>The 5 Operational Headaches of Tracking AIFs</h2>
+      <p>
+        If you have ever attempted to track an AIF in a standard retail portfolio tracker (like Zerodha Kite, Groww, or INDmoney), you already know the frustration: they simply don't support them. Even DIY spreadsheets struggle because AIF mechanics are fundamentally different from standard listed stocks:
+      </p>
+
+      <ol style="line-height: 1.8;">
+        <li>
+          <strong>Committed Capital vs Drawn Capital:</strong> In a ₹1 Crore AIF commitment, you do not transfer ₹1 Crore upfront. Instead, the fund manager issues periodic "Capital Calls" (e.g. 20% in Year 1, 30% in Year 2). Tracking your portfolio requires distinguishing between your <em>Total Commitment</em>, <em>Cumulative Drawn Capital</em>, and <em>Uncalled Commitment</em>.
+        </li>
+        <li>
+          <strong>Return of Capital vs Capital Gains Distributions:</strong> When the fund exits an asset, the cash sent to your bank account often consists of a return of principal (reducing your cost basis) combined with profit distributions. Recording this as a simple dividend or redemption distorts your tax reporting and returns.
+        </li>
+        <li>
+          <strong>Infrequent Valuation Marks:</strong> Unlike stocks that tick every second, Category I and II AIFs publish Net Asset Values (NAVs) only quarterly or semi-annually after valuation audits. A robust portfolio tracker must maintain historical valuation snapshots without throwing errors between report dates.
+        </li>
+        <li>
+          <strong>Hurdle Rates &amp; Carried Interest:</strong> Most AIFs operate on an 8% to 10% Hurdle Rate. The GP (General Partner) only collects performance fees (typically 15% to 20% carry) once your hurdle rate is fulfilled. Net returns depend directly on whether fees are deducted pre- or post-NAV.
+        </li>
+        <li>
+          <strong>Multi-PAN Family Allocations:</strong> High-net-worth families frequently split commitments across Self, Spouse, and family trusts or HUF accounts to optimize capital gains exemptions. Juggling separate PDF statements across different entities makes household wealth visibility almost impossible.
+        </li>
+      </ol>
+
+      <h2>Where SIF Fits Alongside AIFs</h2>
+      <p>
+        With SEBI's introduction of <strong>Specialized Investment Funds (SIF)</strong>, high-net-worth investors now have an intermediary vehicle bridging the gap between mutual funds and AIFs. Here is how affluent investors balance both:
+      </p>
+
+      <div class="glass-panel" style="overflow-x: auto; margin: 2rem 0; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px; font-size: 0.92rem; text-align: left;">
+          <thead>
+            <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <th style="padding: 1rem; color: var(--text-muted);">Feature</th>
+              <th style="padding: 1rem; color: #c084fc; font-weight: 700;">SIF (New Asset Class)</th>
+              <th style="padding: 1rem; color: #818cf8; font-weight: 700;">AIF (Cat I, II, III)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+              <td style="padding: 1rem; font-weight: 600; color: var(--text-head);">Minimum Ticket</td>
+              <td style="padding: 1rem; color: #c084fc; font-weight: 600;">₹10 Lakhs</td>
+              <td style="padding: 1rem;">₹1 Crore (₹25 Lakh for Angel)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+              <td style="padding: 1rem; font-weight: 600; color: var(--text-head);">Liquidity &amp; NAV</td>
+              <td style="padding: 1rem; color: #c084fc;">Daily NAVs via AMFI API; frequent redemption</td>
+              <td style="padding: 1rem;">Monthly/Quarterly NAV; 3 to 10 year lock-in</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+              <td style="padding: 1rem; font-weight: 600; color: var(--text-head);">Investment Universe</td>
+              <td style="padding: 1rem;">Listed stocks, index derivatives, corporate debt</td>
+              <td style="padding: 1rem;">Unlisted startups, private equity, credit, real estate</td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; font-weight: 600; color: var(--text-head);">Portfolio Role</td>
+              <td style="padding: 1rem;">Downside hedged core liquid equity exposure</td>
+              <td style="padding: 1rem;">High-illiquidity alpha and private market growth</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        For an HNI portfolio of ₹5 Crores to ₹25 Crores, SIF provides liquid, hedged long-short exposure with daily transparency, while AIF provides multi-year compounding in private tech startups, real estate debt, and pre-IPO equities.
+      </p>
+
+      <h2>How Arthavi Solves SIF &amp; AIF Portfolio Tracking</h2>
+      <p>
+        <a href="https://arthavi.com" style="color: var(--primary-glow);">Arthavi</a> is the first wealth platform in India designed to handle the entire spectrum—from retail mutual funds all the way to institutional SIFs and AIFs:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+        <div class="glass-panel" style="padding: 1.6rem; border-radius: 12px; border: 1px solid rgba(168, 85, 247, 0.25);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">⚡</span>
+            <h3 style="margin: 0; font-size: 1.15rem; color: #c084fc;">Automated AMFI SIF API Sync</h3>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Directly parsed from AMFI's official API (<code>https://www.amfiindia.com/api/sif-latest-nav</code>). Enter your ISIN or scheme name, and Arthavi automatically pulls the newest daily NAV each evening. Zero manual updating needed.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.6rem; border-radius: 12px; border: 1px solid rgba(99, 102, 241, 0.25);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">📊</span>
+            <h3 style="margin: 0; font-size: 1.15rem; color: #818cf8;">AIF Unit &amp; Cash-Flow Accounting</h3>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Record committed capital, log phased drawdowns on exact transaction dates, register return of capital distributions, and input quarterly valuation statements.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.6rem; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.25);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">📈</span>
+            <h3 style="margin: 0; font-size: 1.15rem; color: #34d399;">True Cash-Flow XIRR</h3>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Arthavi's mathematics engine calculates precise cash-flow XIRR taking into account every capital call and distribution date, allowing true performance comparison against Nifty 50 and Nifty 500.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.6rem; border-radius: 12px; border: 1px solid rgba(244, 114, 182, 0.25);">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">👨‍👩‍👧‍👦</span>
+            <h3 style="margin: 0; font-size: 1.15rem; color: #f472b6;">Multi-PAN Family Office Vault</h3>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Manage separate profiles for Self, Spouse, Children, HUF, or Family Trust. Switch profiles with 1 click or view an aggregated family balance sheet combining private funds with listed assets.
+          </p>
+        </div>
+      </div>
+
+      <h2>The Unified 7-Asset Indian Wealth Balance Sheet</h2>
+      <p>
+        Institutional wealth management is about seeing the entire chessboard. Arthavi consolidates your complete balance sheet across all 7 asset classes:
+      </p>
+      <ul>
+        <li><strong>1. Equity &amp; Stocks:</strong> Direct NSE/BSE stocks with live LTP market feeds and broker tradebook ingestion (Zerodha, Groww, Upstox).</li>
+        <li><strong>2. Mutual Funds &amp; Specialized Funds:</strong> Regular &amp; Direct MFs, automated AMFI SIF feeds, and AIF Category I/II/III.</li>
+        <li><strong>3. Fixed Income &amp; Safe Yield:</strong> Bank FDs, Corporate FDs with compounding formulas, RD, PPF, EPF, and 90-day maturity warning alerts.</li>
+        <li><strong>4. Precious Metals:</strong> 24K bullion, 22K jewelry by gram weight, and Sovereign Gold Bonds (SGBs) with daily live bullion rates.</li>
+        <li><strong>5. Real Estate:</strong> Apartments, land, and villas tracked with purchase expenses, rental yields, and true property XIRR.</li>
+        <li><strong>6. Family Insurance Vault:</strong> Term Life, Health, and Motor policies with 30-day renewal countdown alerts.</li>
+        <li><strong>7. Goals &amp; Alpha Benchmarks:</strong> Future corpus projections and excess Alpha tracking vs Nifty 50 &amp; 500.</li>
+      </ul>
+
+      <!-- CTA Box -->
+      <div class="glass-panel text-center" style="padding: 3rem 2rem; border-radius: 16px; margin: 4rem 0; border: 1px solid rgba(99, 102, 241, 0.3); background: linear-gradient(180deg, rgba(99,102,241,0.08) 0%, rgba(129,140,248,0.05) 100%);">
+        <h2 style="margin: 0 0 1rem; font-size: 1.8rem; color: #fff;">Consolidate Your AIF, SIF &amp; Family Wealth in Arthavi</h2>
+        <p style="color: var(--text-muted); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem;">
+          Stop using broken spreadsheets. Experience India's first unified family wealth operating system with automated AMFI SIF API updates and institutional XIRR tracking.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.85rem 2rem; font-weight: 600;">Track My Wealth for Free →</a>
+          <a href="/blog/sif-specialized-investment-funds-india-tracker/" class="btn btn-secondary" style="padding: 0.85rem 1.8rem; border: 1px solid rgba(255,255,255,0.2);">Read SIF Guide</a>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <section style="margin-top: 4rem;">
+        <h2>Frequently Asked Questions About AIF &amp; SIF Tracking</h2>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+          <div class="glass-panel" style="padding: 1.5rem; border-radius: 10px;">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.15rem; color: var(--text-head);">Can I track my AIF alongside my Zerodha and Groww portfolios?</h3>
+            <p style="margin: 0; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
+              Yes! Arthavi allows you to import your stock tradebooks from Zerodha, Groww, AngelOne, or Upstox, upload your CAMS/KFintech CAS PDF for mutual funds, and record your AIF and SIF holdings in the same dashboard. This calculates a unified portfolio XIRR and asset allocation across all your holdings.
+            </p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.5rem; border-radius: 10px;">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.15rem; color: var(--text-head);">How often should I update my AIF valuation in Arthavi?</h3>
+            <p style="margin: 0; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
+              Most Category I and II AIF managers send quarterly valuation reports (in March, June, September, and December). You only need to log in once a quarter to update your latest NAV mark and record any capital calls or distribution cash flows. For SIF schemes, Arthavi updates NAVs daily automatically via the AMFI API.
+            </p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.5rem; border-radius: 10px;">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.15rem; color: var(--text-head);">Does Arthavi require Demat or broker credentials to track AIFs?</h3>
+            <p style="margin: 0; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
+              Never. Arthavi adheres to a strict privacy-first model: zero broker passwords, zero OTP sharing, and zero email scraping. All portfolio data is parsed securely and encrypted using bank-grade AES-256 encryption.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+</Layout>
