@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Portfolio Data Health — Know If Your Portfolio Data Is Fresh & Accurate | Arthavi",
+  description: "Arthavi's Portfolio Data Health panel shows the freshness and accuracy of every holding: last import date, last valuation date, unmatched transactions, and reconciliation warnings — so you always know what your data is based on.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/portfolio-data-health/#webpage",
+      "url": "https://arthavi.com/portfolio-data-health/",
+      "name": seo.title,
+      "description": seo.description,
+      "datePublished": "2026-11-09",
+      "publisher": { "@id": "https://arthavi.com/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Portfolio Data Health?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Portfolio Data Health is Arthavi's panel that gives every holding a data-quality and freshness indicator. It shows the last CAS import date, last broker tradebook import, last NAV/price date, price source, unmatched transactions, and any reconciliation warnings — so you know exactly how current your portfolio view is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does data freshness matter for XIRR calculation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "XIRR is calculated from your complete transaction history weighted by dates. If your last CAS upload is three months old, your XIRR does not reflect recent SIPs or redemptions. The Data Health panel flags stale data so you know when to upload a new CAS or update stock prices."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="portfolio data health, portfolio data quality, portfolio freshness indicator, stale portfolio data, cas import date, portfolio reconciliation, arthavi data health"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Portfolio Data Health", url: "https://arthavi.com/portfolio-data-health/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <!-- Hero -->
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">New — November 2026</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Portfolio Data Health</h1>
+        <p style="max-width: 680px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+          Know exactly how fresh and accurate your portfolio data is. Every holding gets a data-quality indicator showing last import date, valuation freshness, price source, and any reconciliation warnings.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Tracking Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try Demo — No Signup</a>
+        </div>
+      </div>
+
+      <!-- The problem -->
+      <div style="max-width: 800px; margin: 0 auto 4rem; padding: 2rem; border-radius: 16px; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15);">
+        <h2 style="font-size: 1.3rem; color: var(--text-head); margin-top: 0;">The problem: portfolio apps show numbers without telling you how old they are</h2>
+        <p style="color: var(--text-muted); margin-bottom: 0;">
+          Your XIRR is calculated from your transaction history. Your net worth is calculated from live prices. But if your last CAS upload was two months ago or a stock price feed is delayed, the numbers on your dashboard are stale — and you have no way to know. Data Health fixes that with per-holding freshness indicators.
+        </p>
+      </div>
+
+      <!-- What data health shows -->
+      <div style="max-width: 900px; margin: 0 auto 4rem;">
+        <h2 style="text-align: center; margin-bottom: 2.5rem; font-size: 1.8rem;">What the Data Health panel shows</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📅</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Last CAS import date</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Per-folio and per-registrar (CAMS, KFintech) timestamp of when transaction data was last updated from an uploaded CAS statement.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">💹</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Last broker tradebook import</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">For stocks added via Zerodha, Groww, Angel One, or Upstox CSV, the date of the most recent tradebook upload.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🕐</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Last valuation date</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">When NAV (for mutual funds) or market price (for stocks) was last updated. Arthavi syncs AMFI NAVs every evening and stock prices during market hours.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🔍</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Price and NAV source</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Where each valuation comes from: AMFI NAV feed, NSE live quote, BSE feed, or manual entry. Source transparency so you know exactly what the number is based on.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">⚠️</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Unmatched transactions</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Transactions in your CAS that could not be matched to a known fund ISIN or stock ticker — flagged for review so they do not silently inflate or deflate your XIRR.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🔄</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Reconciliation warnings</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Cases where your CAS balance does not match Arthavi's calculated balance — often due to a switch leg mismatch or missing older statement. Flagged per folio.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why it matters -->
+      <div style="max-width: 800px; margin: 0 auto 4rem;">
+        <h2>Why data freshness matters for XIRR and net worth</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">Stale XIRR</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">XIRR weights returns by exact transaction dates. A three-month-old CAS misses recent SIPs, skewing your annualized return. Data Health flags when to upload a new CAS.</p>
+          </div>
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">Delayed stock prices</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">If a live price feed fails, your stock net worth can be based on yesterday's closing price. Data Health shows the exact timestamp so you can interpret the number correctly.</p>
+          </div>
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">Silent reconciliation gaps</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">A switch transaction with a missing In or Out leg can silently inflate unit count. Reconciliation warnings surface these before they affect your capital gains report.</p>
+          </div>
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">Support query reduction</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Most "my XIRR looks wrong" support questions are caused by stale data or unmatched transactions. Data Health helps you self-diagnose in seconds.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="max-width: 800px; margin: 0 auto 4rem;">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What is Portfolio Data Health?</h3>
+        <p style="color: var(--text-muted);">Portfolio Data Health is Arthavi's panel that gives every holding a data-quality and freshness indicator. It shows last CAS import date, last broker tradebook import, last NAV/price date, price source, unmatched transactions, and reconciliation warnings — so you know exactly how current your portfolio view is.</p>
+
+        <h3>Why does data freshness matter for XIRR?</h3>
+        <p style="color: var(--text-muted);">XIRR is calculated from your complete transaction history weighted by dates. If your last CAS upload is three months old, your XIRR does not reflect recent SIPs or redemptions. The Data Health panel flags stale data so you know when to upload a new CAS or update stock prices.</p>
+
+        <h3>What is a reconciliation warning?</h3>
+        <p style="color: var(--text-muted);">A reconciliation warning appears when Arthavi's calculated unit balance for a folio does not match the closing balance reported in your CAS. Common causes: a missing older CAS that covered earlier transactions, or a switch transaction where only one leg (In or Out) was imported.</p>
+
+        <h3>Does Data Health affect my privacy?</h3>
+        <p style="color: var(--text-muted);">No. Data Health is a local computation on data already in your Arthavi account. No additional data is sent to any external service. Read the <a href="/methodology/">methodology page</a> for a full explanation of what data Arthavi stores and where.</p>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 3rem 0;">
+        <h2 style="margin-bottom: 1rem;">Portfolio analytics you can trust</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">Know exactly how fresh your data is — before you make decisions based on it.</p>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <!-- Internal Links -->
+      <nav style="max-width: 800px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related features</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/cas-delta-import/">CAS Delta Import</a></li>
+          <li><a href="/family-wealth-snapshot/">Family Wealth Snapshot</a></li>
+          <li><a href="/cas-statement-portfolio-tracker/">CAS Portfolio Tracker</a></li>
+          <li><a href="/methodology/">Privacy &amp; Methodology</a></li>
+        </ul>
+        <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Related guides</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to Import CAS</a></li>
+          <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
+          <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>
+

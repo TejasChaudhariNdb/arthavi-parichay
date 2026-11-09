@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "CAS Delta Import — Upload Monthly CAS Without Duplicates | Arthavi",
+  description: "Arthavi's CAS Delta Import lets you upload a new CAMS or KFintech CAS statement every month without duplicating existing transactions. Preview new transactions, detect changes, and confirm before updating your portfolio.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/cas-delta-import/#webpage",
+      "url": "https://arthavi.com/cas-delta-import/",
+      "name": seo.title,
+      "description": seo.description,
+      "datePublished": "2026-11-09",
+      "publisher": { "@id": "https://arthavi.com/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is CAS Delta Import?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CAS Delta Import is Arthavi's feature that lets you upload a new monthly CAMS or KFintech CAS statement without duplicating transactions you already imported. It compares the new statement against your existing portfolio, shows you what is new, and lets you confirm before updating."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will uploading a newer CAS statement delete my existing portfolio history?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Arthavi uses SHA-256 transaction fingerprinting on six fields (date, type, amount, units, NAV, balance) to identify transactions already in your portfolio. Duplicate uploads are side-effect free. New transactions are previewed before they are added."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I upload a new CAS statement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Monthly is recommended. Download a new detailed CAS from CAMS or KFintech each month and upload it to Arthavi to keep your transaction history and XIRR current without manual entries."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="cas delta import, cas statement duplicate, upload cas without duplicates, cams statement update, kfintech cas update, monthly cas upload india, cas portfolio tracker"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "CAS Delta Import", url: "https://arthavi.com/cas-delta-import/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <!-- Hero -->
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">New — November 2026</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">CAS Delta Import</h1>
+        <p style="max-width: 680px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+          Upload your new monthly CAS statement without rebuilding or duplicating your portfolio. Arthavi compares it against existing transactions, shows you what is new, and waits for your confirmation.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Tracking Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try Demo — No Signup</a>
+        </div>
+      </div>
+
+      <!-- Problem section -->
+      <div style="max-width: 800px; margin: 0 auto 4rem; padding: 2rem; border-radius: 16px; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15);">
+        <h2 style="font-size: 1.3rem; color: var(--text-head); margin-top: 0;">The problem: monthly CAS upload creates duplicate transactions</h2>
+        <p style="color: var(--text-muted); margin-bottom: 0;">
+          Every month you get a new CAS from CAMS or KFintech covering your full mutual fund history. If you upload it to track new SIPs, you end up with duplicate entries for every old transaction — wrong XIRR, inflated invested amounts, and manual cleanup work. Arthavi's CAS Delta Import solves this automatically.
+        </p>
+      </div>
+
+      <!-- How it works -->
+      <div style="max-width: 900px; margin: 0 auto 4rem;">
+        <h2 style="text-align: center; margin-bottom: 2.5rem; font-size: 1.8rem;">How CAS Delta Import works</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); display: flex; align-items: center; justify-content: center; color: #34d399; margin-bottom: 1.2rem; font-size: 1.3rem; font-weight: 700;">1</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Upload your latest CAS</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Drop your new CAMS or KFintech detailed CAS PDF. Decryption happens in your browser — your password is never stored.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); display: flex; align-items: center; justify-content: center; color: #a78bfa; margin-bottom: 1.2rem; font-size: 1.3rem; font-weight: 700;">2</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Arthavi fingerprints every transaction</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Each transaction is identified by a SHA-256 fingerprint across date, type, amount, units, NAV, and balance. Already-imported transactions are matched instantly.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); display: flex; align-items: center; justify-content: center; color: #fbbf24; margin-bottom: 1.2rem; font-size: 1.3rem; font-weight: 700;">3</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Preview the delta</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">A preview shows new transactions, already-imported transactions, any changed or corrected records, and the final portfolio impact — before anything is committed.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); display: flex; align-items: center; justify-content: center; color: #34d399; margin-bottom: 1.2rem; font-size: 1.3rem; font-weight: 700;">4</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Confirm and update</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Approve the delta. Only the new transactions are added. Your XIRR, NAVs, and capital gains recalculate automatically — no manual cleanup needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What you see in the preview -->
+      <div style="max-width: 800px; margin: 0 auto 4rem;">
+        <h2 style="margin-bottom: 1.5rem;">What the delta preview shows you</h2>
+        <ul style="color: var(--text-muted); font-size: 1rem; line-height: 1.8; padding-left: 1.5rem;">
+          <li><strong style="color: var(--text-head);">New transactions</strong> — SIPs, lump sums, switches, and redemptions from the new statement not yet in your portfolio</li>
+          <li><strong style="color: var(--text-head);">Already-imported transactions</strong> — matched and skipped automatically, zero duplicates</li>
+          <li><strong style="color: var(--text-head);">Changed or corrected records</strong> — cases where CAMS or KFintech corrected a past transaction (NAV adjustment, unit correction)</li>
+          <li><strong style="color: var(--text-head);">Missing or removed folios</strong> — folios that appeared in a past statement but are absent in the new one</li>
+          <li><strong style="color: var(--text-head);">Final portfolio impact</strong> — how net worth, XIRR, and asset allocation will change after confirming</li>
+        </ul>
+      </div>
+
+      <!-- Technical note -->
+      <div style="max-width: 800px; margin: 0 auto 4rem; padding: 1.5rem 2rem; border-radius: 16px; background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.15);">
+        <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Technical: how duplicates are prevented</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem;">Transaction identity is computed as a SHA-256 fingerprint across six fields: <code>date</code>, <code>transaction_type</code>, <code>amount</code>, <code>units</code>, <code>nav</code>, and <code>balance</code>. This handles:</p>
+        <ul style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0;">
+          <li>Switch transactions (In and Out legs matched separately)</li>
+          <li>Dividend reinvestments (units and amount fingerprinted together)</li>
+          <li>Same-day SIP transactions across multiple folios</li>
+          <li>Registrar corrections where a past NAV is adjusted</li>
+        </ul>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0; margin-top: 0.75rem;">Read the full data-flow explanation on the <a href="/methodology/">methodology page</a>.</p>
+      </div>
+
+      <!-- FAQ -->
+      <div style="max-width: 800px; margin: 0 auto 4rem;">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What is CAS Delta Import?</h3>
+        <p style="color: var(--text-muted);">CAS Delta Import is Arthavi's feature that lets you upload a new monthly CAMS or KFintech CAS statement without duplicating transactions you already imported. It compares the new statement against your existing portfolio, shows you what is new, and waits for your confirmation before updating.</p>
+
+        <h3>Will uploading a newer CAS delete my existing portfolio history?</h3>
+        <p style="color: var(--text-muted);">No. Arthavi's import engine is non-destructive. Older statements backfill history without overwriting newer holdings. Newer statements add only the transactions not already in your portfolio, with valuation date guards protecting existing NAV data.</p>
+
+        <h3>How often should I upload a new CAS statement?</h3>
+        <p style="color: var(--text-muted);">Monthly. Download a new detailed CAS from <a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">CAMS or KFintech</a> each month and upload it to keep your transaction history, XIRR, and capital gains current without manual entries.</p>
+
+        <h3>Does CAS Delta Import work with both CAMS and KFintech statements?</h3>
+        <p style="color: var(--text-muted);">Yes. Both CAMS (password-protected PDF) and KFintech (password-protected PDF) detailed CAS statements are supported. JSON CAS uploads from demat and consolidated feeds are also accepted.</p>
+
+        <h3>What about multiple emails for the same PAN?</h3>
+        <p style="color: var(--text-muted);">Arthavi reconciles multiple CAS statements from different emails (personal and work) and both CAMS and KFintech into a single canonical portfolio per PAN. Upload from either email without worrying about conflicts.</p>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 3rem 0;">
+        <h2 style="margin-bottom: 1rem;">Keep your portfolio current without the cleanup</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">Upload your monthly CAS, see the delta, confirm in one click.</p>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <!-- Internal Links -->
+      <nav style="max-width: 800px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related guides</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
+          <li><a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to Import CAS from CAMS &amp; KFintech</a></li>
+          <li><a href="/cas-statement-portfolio-tracker/">CAS Portfolio Tracker</a></li>
+          <li><a href="/methodology/">Privacy &amp; Methodology</a></li>
+        </ul>
+        <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Related features</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/portfolio-data-health/">Portfolio Data Health</a></li>
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+          <li><a href="/family-wealth-snapshot/">Family Wealth Snapshot</a></li>
+          <li><a href="/mutual-fund-portfolio-tracker-india/">Mutual Fund Portfolio Tracker</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>
+

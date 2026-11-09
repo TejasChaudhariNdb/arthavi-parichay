@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Family Wealth Snapshot — Downloadable Household Portfolio Report | Arthavi",
+  description: "Arthavi's Family Wealth Snapshot generates a downloadable PDF report of your consolidated household net worth, individual family breakdowns, asset allocation, XIRR, and key portfolio changes — with optional privacy masking.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/family-wealth-snapshot/#webpage",
+      "url": "https://arthavi.com/family-wealth-snapshot/",
+      "name": seo.title,
+      "description": seo.description,
+      "datePublished": "2026-11-09",
+      "publisher": { "@id": "https://arthavi.com/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Family Wealth Snapshot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Family Wealth Snapshot is Arthavi's downloadable monthly or quarterly PDF report covering consolidated household net worth, individual family member breakdowns, asset allocation, XIRR, benchmark comparison, and key portfolio changes. Names, folio numbers, and account identifiers can be masked before export."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the Family Wealth Snapshot free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Family Wealth Snapshot is included in Arthavi's free tier for all users with family profiles set up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I share the Family Wealth Snapshot with my CA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The PDF includes capital gains summary and asset allocation data relevant for tax planning discussions. Use the privacy masking option to hide folio numbers and account identifiers before sharing."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="family wealth snapshot, family portfolio report, household net worth report, family investment report india, family portfolio pdf download, arthavi family report, consolidated family wealth report"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Family Wealth Snapshot", url: "https://arthavi.com/family-wealth-snapshot/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <!-- Hero -->
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">New — November 2026</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Family Wealth Snapshot</h1>
+        <p style="max-width: 680px; margin: 0 auto; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
+          A monthly or quarterly downloadable PDF report of your household's consolidated wealth — net worth, individual breakdowns, asset allocation, XIRR, and key changes. With optional privacy masking before you share or print.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Tracking Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try Demo — No Signup</a>
+        </div>
+      </div>
+
+      <!-- What's in the report -->
+      <div style="max-width: 900px; margin: 0 auto 4rem;">
+        <h2 style="text-align: center; margin-bottom: 2.5rem; font-size: 1.8rem;">What the Snapshot covers</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px; border-color: rgba(168,85,247,0.3);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🏠</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Consolidated household net worth</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Total market value of all mutual funds, stocks, SIF, and AIF across every family member's portfolio, in one number.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px; border-color: rgba(99,102,241,0.3);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">👨‍👩‍👧‍👦</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Individual family breakdowns</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Net worth, invested amount, XIRR, and asset allocation for each family member — Self, Spouse, Parents, Children, HUF — separately and combined.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px; border-color: rgba(16,185,129,0.3);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📊</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Asset allocation breakdown</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Equity (Large, Mid, Small), Debt, Hybrid, Liquid, SIF, and AIF as percentage of total household wealth.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px; border-color: rgba(245,158,11,0.3);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📈</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">XIRR and benchmark comparison</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Household-level annualized return (XIRR) compared against NIFTY 50 and NIFTY 500 TRI benchmarks for the same period.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px; border-color: rgba(14,165,233,0.3);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🔔</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Key portfolio changes</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">New investments, redemptions, switches, and significant value changes since the previous snapshot period.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px; border-color: rgba(239,68,68,0.2);">
+            <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🔒</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--text-head);">Optional privacy masking</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Before export, mask names, folio numbers, and account identifiers. Share with your CA, financial planner, or family members without exposing sensitive identifiers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample report outline -->
+      <div style="max-width: 800px; margin: 0 auto 4rem; padding: 2rem; border-radius: 16px; background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.15);">
+        <h2 style="margin-top: 0; font-size: 1.3rem;">What a Family Wealth Snapshot looks like</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">A typical November 2026 quarterly snapshot for a family of three includes:</p>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.03);">
+            <span style="color: #a78bfa; font-weight: 700; min-width: 24px;">1</span>
+            <div><strong style="color: var(--text-head);">Household Summary</strong><span style="color: var(--text-muted); font-size: 0.9rem; display: block;">Total net worth: ₹X — Invested: ₹Y — Household XIRR: Z% — NIFTY 50 TRI: W%</span></div>
+          </div>
+          <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.03);">
+            <span style="color: #a78bfa; font-weight: 700; min-width: 24px;">2</span>
+            <div><strong style="color: var(--text-head);">Member Breakdown</strong><span style="color: var(--text-muted); font-size: 0.9rem; display: block;">Self, Spouse, and Father each with individual net worth, XIRR, and allocation</span></div>
+          </div>
+          <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.03);">
+            <span style="color: #a78bfa; font-weight: 700; min-width: 24px;">3</span>
+            <div><strong style="color: var(--text-head);">Asset Allocation Chart</strong><span style="color: var(--text-muted); font-size: 0.9rem; display: block;">Household-level allocation across equity, debt, hybrid, liquid, and alternatives</span></div>
+          </div>
+          <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.03);">
+            <span style="color: #a78bfa; font-weight: 700; min-width: 24px;">4</span>
+            <div><strong style="color: var(--text-head);">Quarter's Changes</strong><span style="color: var(--text-muted); font-size: 0.9rem; display: block;">New SIPs started, lump sums, redemptions, and value movements above a threshold</span></div>
+          </div>
+          <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.03);">
+            <span style="color: #a78bfa; font-weight: 700; min-width: 24px;">5</span>
+            <div><strong style="color: var(--text-head);">Capital Gains Summary</strong><span style="color: var(--text-muted); font-size: 0.9rem; display: block;">Realized LTCG and STCG for the quarter — useful for advance tax planning discussions with your CA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Who it is for -->
+      <div style="max-width: 800px; margin: 0 auto 4rem;">
+        <h2>Who uses Family Wealth Snapshot</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">Families with multi-PAN portfolios</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Track household net worth across Self, Spouse, and Parents in one quarterly review without manually combining spreadsheets.</p>
+          </div>
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">Investors preparing for CA meetings</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Share a masked snapshot with your Chartered Accountant for advance tax estimation and ITR planning without exposing folio details.</p>
+          </div>
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">FIRE planners tracking progress</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Monthly snapshots let you track household net worth progress against your retirement corpus target over years.</p>
+          </div>
+          <div style="padding: 1.5rem; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+            <h3 style="margin-top: 0; font-size: 1rem; color: var(--text-head);">HUF and joint family structures</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0; line-height: 1.6;">Aggregate HUF portfolio alongside individual family member portfolios in a single consolidated view.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="max-width: 800px; margin: 0 auto 4rem;">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>What is the Family Wealth Snapshot?</h3>
+        <p style="color: var(--text-muted);">Family Wealth Snapshot is Arthavi's downloadable monthly or quarterly PDF report covering consolidated household net worth, individual family member breakdowns, asset allocation, XIRR, benchmark comparison, and key portfolio changes. Names, folio numbers, and account identifiers can be masked before export.</p>
+
+        <h3>Is the Family Wealth Snapshot free?</h3>
+        <p style="color: var(--text-muted);">Yes. Family Wealth Snapshot is included in Arthavi's free tier for all users with family profiles set up. No upgrade required.</p>
+
+        <h3>Can I share the Snapshot with my CA?</h3>
+        <p style="color: var(--text-muted);">Yes. The PDF includes capital gains summary and asset allocation data relevant for tax planning discussions. Use the privacy masking option to hide folio numbers and account identifiers before sharing.</p>
+
+        <h3>How do I set up family portfolios to use this feature?</h3>
+        <p style="color: var(--text-muted);">Add family members in Arthavi under Settings > Family Profiles. Upload a separate CAS PDF for each member. Once set up, the Family Wealth Snapshot aggregates all profiles automatically. See the <a href="/family-portfolio-tracker/">family portfolio tracker guide</a>.</p>
+
+        <h3>How often can I generate a Snapshot?</h3>
+        <p style="color: var(--text-muted);">You can generate a Snapshot at any time. For consistent tracking, monthly or quarterly snapshots are recommended. The report reflects the data as of the generation date.</p>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 3rem 0;">
+        <h2 style="margin-bottom: 1rem;">One report for the whole family's wealth</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">Set up family profiles, upload CAS for each member, and generate your first Snapshot in minutes.</p>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <!-- Internal Links -->
+      <nav style="max-width: 800px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related features</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+          <li><a href="/cas-delta-import/">CAS Delta Import</a></li>
+          <li><a href="/portfolio-data-health/">Portfolio Data Health</a></li>
+          <li><a href="/methodology/">Privacy &amp; Methodology</a></li>
+        </ul>
+        <h3 style="font-size: 1rem; margin-bottom: 1rem; margin-top: 1.5rem;">Related guides</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/blog/how-to-track-family-portfolio-india/">How to Track Family Portfolio India</a></li>
+          <li><a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">How to Import CAS</a></li>
+          <li><a href="/tools/xirr-calculator/">XIRR Calculator</a></li>
+          <li><a href="/tools/ltcg-stcg-calculator/">LTCG/STCG Calculator</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>
+
