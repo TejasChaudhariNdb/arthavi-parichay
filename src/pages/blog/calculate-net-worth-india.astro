@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Calculate Your Total Net Worth in India (2026) | Arthavi",
+  description: "Step-by-step formula to calculate your personal and family net worth in India. Assets, liabilities, liquid vs illiquid wealth, and free tracking.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": seo.title,
+      "description": seo.description,
+      "datePublished": "2026-11-09",
+      "author": { "@type": "Organization", "name": "Arthavi Editorial Team" }
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="how to calculate net worth india, personal net worth formula india, total net worth calculator"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/" },
+      { name: "Calculate Net Worth India", url: "https://arthavi.com/blog/calculate-net-worth-india/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <article class="prose fade-in" style="max-width: 820px; margin: 0 auto;">
+    <h1>How to Calculate Your Total Net Worth in India (2026 Guide)</h1>
+    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+      Your net worth is the single most accurate scorecard of your financial health. Tracking it over time tells you whether your income is successfully translating into lasting family wealth.
+    </p>
+
+    <h2>The Fundamental Formula</h2>
+    <div style="background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius: 12px; padding: 1.5rem; text-align: center; margin: 2rem 0;">
+      <span style="font-size: 1.4rem; font-weight: 700; color: #a78bfa;">Net Worth = Total Assets − Total Liabilities</span>
+    </div>
+
+    <h2>1. What Counts as Assets in India?</h2>
+    <ul>
+      <li><strong>Liquid Financial Assets:</strong> Mutual funds, Demat stocks, bank savings, Fixed Deposits (FD), and Recurring Deposits (RD).</li>
+      <li><strong>Retirement &amp; Tax-Advantaged Funds:</strong> EPF, VPF, PPF, and National Pension System (NPS).</li>
+      <li><strong>Precious Metals:</strong> Physical 24K/22K gold, silver, Sovereign Gold Bonds (SGB), and digital gold.</li>
+      <li><strong>Physical Property:</strong> Residential flats, commercial plots, and land (market valuation).</li>
+      <li><strong>Specialized Investments:</strong> SEBI SIFs and AIFs for accredited HNI investors.</li>
+    </ul>
+
+    <h2>2. What Counts as Liabilities?</h2>
+    <ul>
+      <li>Outstanding home loan principal balance</li>
+      <li>Vehicle / car loans</li>
+      <li>Personal loans &amp; education loans</li>
+      <li>Unpaid credit card statements</li>
+    </ul>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Track Net Worth on Arthavi</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

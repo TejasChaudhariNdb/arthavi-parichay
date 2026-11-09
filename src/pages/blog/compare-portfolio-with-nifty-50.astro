@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Compare Your Portfolio Returns with Nifty 50 TRI | Arthavi",
+  description: "Learn how to benchmark your mutual fund and stock portfolio XIRR against NIFTY 50 and NIFTY 500 Total Returns Index (TRI). See if you are beating the market.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seo.title,
+  "description": seo.description,
+  "datePublished": "2026-11-09",
+  "author": { "@type": "Organization", "name": "Arthavi Editorial Team" }
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="compare portfolio with nifty 50, nifty 50 tri benchmark, portfolio alpha india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/" },
+      { name: "Compare with Nifty 50", url: "https://arthavi.com/blog/compare-portfolio-with-nifty-50/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <article class="prose fade-in" style="max-width: 820px; margin: 0 auto;">
+    <h1>How to Compare Your Portfolio Returns with Nifty 50 (TRI)</h1>
+    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+      If your active mutual fund portfolio delivered a 14% XIRR over the last 3 years, did you actually do well? The answer depends entirely on the benchmark: if a simple low-cost NIFTY 50 index fund returned 16% in that same timeframe, you paid active fund management fees for negative alpha.
+    </p>
+
+    <h2>Why You Must Always Use NIFTY 50 TRI (Total Return Index)</h2>
+    <p>
+      Traditional news channels quote the NIFTY 50 Price Return Index (PR), which only measures capital price changes. However, active mutual funds reinvest all dividends back into the scheme's NAV. Comparing an active fund against a Price Index is fundamentally unfair and makes underperforming funds look artificially good.
+    </p>
+    <p>
+      <strong>NIFTY 50 TRI</strong> accounts for both stock price growth and reinvested dividends. SEBI requires all Indian mutual funds to benchmark against TRI indices.
+    </p>
+
+    <h2>How Arthavi Automates Benchmark Comparison</h2>
+    <p>
+      Arthavi automatically pulls daily NIFTY 50 TRI and NIFTY 500 TRI data and calculates your portfolio's <strong>Alpha</strong> — the exact percentage points by which your investments beat or lag the broad market over identical holding periods.
+    </p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Check My Portfolio Alpha</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

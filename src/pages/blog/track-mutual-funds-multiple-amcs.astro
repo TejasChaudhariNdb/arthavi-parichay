@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Track Mutual Funds Across Multiple AMCs in India | Arthavi",
+  description: "Learn how to track mutual fund schemes from HDFC, SBI, ICICI, Nippon, Quant, and others in one place using CAS statements and Arthavi.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seo.title,
+  "description": seo.description,
+  "datePublished": "2026-11-09",
+  "author": { "@type": "Organization", "name": "Arthavi Editorial Team" }
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="track mutual funds multiple amcs india, all amc tracker, mutual fund consolidation"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/" },
+      { name: "Track Mutual Funds Across AMCs", url: "https://arthavi.com/blog/track-mutual-funds-multiple-amcs/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <article class="prose fade-in" style="max-width: 820px; margin: 0 auto;">
+    <h1>How to Track Mutual Funds Across Multiple AMCs in India</h1>
+    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+      The average Indian mutual fund investor holds between 6 and 14 schemes spread across 4 to 8 different Asset Management Companies (AMCs). Logging into each fund house website is tedious and leaves you without a consolidated XIRR.
+    </p>
+
+    <h2>The Power of the Consolidated Account Statement (CAS)</h2>
+    <p>
+      SEBI mandates two primary Registrar and Transfer Agents (RTAs) in India: CAMS and KFintech. Together, they service 100% of the mutual fund industry. A single CAS PDF generated from CAMS or KFintech contains every single transaction, folio, unit balance, and current valuation associated with your PAN.
+    </p>
+
+    <h2>How Arthavi Merges Statements Seamlessly</h2>
+    <p>
+      Arthavi's multi-CAS reconciliation engine is built specifically for Indian investors:
+    </p>
+    <ul>
+      <li>Upload statements from both CAMS and KFintech without conflict.</li>
+      <li>Reconcile personal and work email folios tied to the same PAN.</li>
+      <li>Use <strong>CAS Delta Import</strong> to update monthly records without duplicating past transactions.</li>
+      <li>Get an instant <strong>AMC Concentration Chart</strong> highlighting whether you are over-exposed to a single fund management house.</li>
+    </ul>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Consolidate Your Mutual Funds</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

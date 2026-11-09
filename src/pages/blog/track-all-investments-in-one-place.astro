@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Track All Your Investments in One Place (India 2026) | Arthavi",
+  description: "Complete guide to consolidating mutual funds, stocks, gold, fixed deposits, and real estate into one private portfolio dashboard in India.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seo.title,
+  "description": seo.description,
+  "datePublished": "2026-11-09",
+  "dateModified": "2026-11-09",
+  "author": { "@type": "Organization", "name": "Arthavi Editorial Team" }
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="track all investments in one place india, one place investment tracker, all investments dashboard india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/" },
+      { name: "Track All Investments in One Place", url: "https://arthavi.com/blog/track-all-investments-in-one-place/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <article class="prose fade-in" style="max-width: 820px; margin: 0 auto;">
+    <h1>How to Track All Your Investments in One Place (India 2026)</h1>
+    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+      If you are like most Indian investors, your wealth is fragmented: mutual funds across multiple AMCs, stocks on Zerodha or Groww, Fixed Deposits across two banks, physical gold in a locker, and perhaps an ancestral property. Here is how to bring them all together.
+    </p>
+
+    <h2>The Problem with Modern Wealth Fragmentation</h2>
+    <p>
+      Managing investments across 4–6 separate logins causes severe blind spots:
+    </p>
+    <ul>
+      <li><strong>Distorted Asset Allocation:</strong> You might think you have 70% in equity, but when factoring in FDs, EPF, and Gold, equity is actually under 45%.</li>
+      <li><strong>Hidden Stock Overlap:</strong> Your Flexi Cap fund and Large Cap fund might both be heavily invested in the same banking stocks you hold directly in Zerodha.</li>
+      <li><strong>Maturity &amp; Tax Surprises:</strong> Fixed deposits auto-renewing at sub-optimal interest rates or unharvested LTCG exceeding annual tax exemption thresholds.</li>
+    </ul>
+
+    <h2>The 5 Steps to Complete Investment Consolidation</h2>
+    <ol>
+      <li><strong>Step 1: Consolidate Mutual Funds via CAS</strong> — Download a single CAMS/KFintech Consolidated Account Statement. Uploading it to Arthavi pulls all folios with complete transaction history.</li>
+      <li><strong>Step 2: Import Equity Tradebooks</strong> — Export tradebooks from Zerodha, Groww, Upstox, or Angel One as CSV and import them without sharing broker credentials.</li>
+      <li><strong>Step 3: Log Physical &amp; Digital Gold</strong> — Enter gold grams or SGB tranches. Arthavi links live bullion benchmarks into your net worth.</li>
+      <li><strong>Step 4: Add Fixed Deposits &amp; PPF</strong> — Log bank FDs with interest rates and maturities to visualize debt allocation.</li>
+      <li><strong>Step 5: Account for Property &amp; Liabilities</strong> — Track real estate valuation and deduct active home loans for net equity.</li>
+    </ol>
+
+    <h2>Why Arthavi is the Ideal Multi-Asset Home</h2>
+    <p>
+      Unlike broker apps that only care about trades you execute with them, Arthavi is an <strong>independent, read-only portfolio intelligence platform</strong>. With our new <strong>CAS Delta Import</strong>, <strong>Portfolio Data Health</strong> indicators, and <strong>Family Wealth Snapshot</strong>, you get institutional clarity with zero spam calls or password sharing.
+    </p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Free Tracking</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

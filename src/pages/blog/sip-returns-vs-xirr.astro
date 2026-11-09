@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "SIP Returns vs Absolute Returns vs XIRR — Which is Best? | Arthavi",
+  description: "Understand the critical differences between Absolute Returns, CAGR, and XIRR for Indian mutual fund investors. Learn when to trust each metric.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seo.title,
+  "description": seo.description,
+  "datePublished": "2026-11-09",
+  "author": { "@type": "Organization", "name": "Arthavi Editorial Team" }
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="sip returns vs xirr, absolute return vs xirr, cagr vs xirr mutual fund"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/" },
+      { name: "SIP Returns vs XIRR", url: "https://arthavi.com/blog/sip-returns-vs-xirr/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <article class="prose fade-in" style="max-width: 820px; margin: 0 auto;">
+    <h1>SIP Returns vs Absolute Returns vs XIRR: What's the Difference?</h1>
+    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+      Evaluating your mutual fund returns using the wrong formula can lead to costly mistakes — either convincing you an underperforming fund is winning, or causing you to stop a high-performing compounding SIP prematurely.
+    </p>
+
+    <div class="compare-table-wrap" style="margin: 2.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Return Metric</th>
+            <th>How It's Calculated</th>
+            <th>When to Use It</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Absolute Return</strong></td>
+            <td>(Current Value - Invested) / Invested</td>
+            <td>Only for periods under 1 year with single lump sums. Completely ignores time duration.</td>
+          </tr>
+          <tr>
+            <td><strong>CAGR</strong></td>
+            <td>Compounded Annual Growth Rate</td>
+            <td>For one-time lumpsum investments held for over 1 year. Useless for staggered SIPs.</td>
+          </tr>
+          <tr>
+            <td><strong>XIRR</strong></td>
+            <td>Internal Rate of Return per cashflow date</td>
+            <td><strong>The gold standard for SIPs</strong>, STPs, SWPs, and portfolios with ongoing cash transactions.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Why XIRR is Mandatory for SIPs</h2>
+    <p>
+      In a 5-year SIP, your first installment has been compounding for 60 months, while your latest installment has only been invested for 30 days. Absolute return treats every rupee as if it were invested on day one, drastically skewing your perception. XIRR weights every rupee by the exact number of days it spent invested in the market.
+    </p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Check My Portfolio XIRR</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

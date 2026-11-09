@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const seo = {
+  title: "How to Calculate XIRR on Mutual Fund Investments (India Guide) | Arthavi",
+  description: "Step-by-step guide on calculating XIRR for mutual fund SIPs and lumpsum investments. Master Excel formulas and automated calculation with Arthavi.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seo.title,
+  "description": seo.description,
+  "datePublished": "2026-11-09",
+  "author": { "@type": "Organization", "name": "Arthavi Editorial Team" }
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="how to calculate xirr mutual fund india, xirr formula, xirr calculation excel"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Blog", url: "https://arthavi.com/blog/" },
+      { name: "Calculate XIRR Mutual Funds", url: "https://arthavi.com/blog/calculate-xirr-mutual-funds/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <article class="prose fade-in" style="max-width: 820px; margin: 0 auto;">
+    <h1>How to Calculate XIRR on Mutual Fund Investments</h1>
+    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+      Point-to-point absolute return and CAGR work well for one-time lumpsum investments, but they completely fail for monthly Systematic Investment Plans (SIPs) where money enters the market at dozens of different NAVs.
+    </p>
+
+    <h2>What is XIRR?</h2>
+    <p>
+      XIRR stands for <strong>Extended Internal Rate of Return</strong>. It is the annualized discount rate that equates the Net Present Value (NPV) of all cash inflows (SIP installments, lumpsum top-ups) with the current market value (or redemption proceeds) across irregular calendar dates.
+    </p>
+
+    <h2>Calculating XIRR in Excel</h2>
+    <p>
+      To compute XIRR manually in Excel or Google Sheets, you need two columns:
+    </p>
+    <ul>
+      <li><strong>Column A (Dates):</strong> The exact date of each cash flow (e.g., 10-Jan-2023, 10-Feb-2023).</li>
+      <li><strong>Column B (Amounts):</strong> Outflows (investments) entered as <em>negative numbers</em> (e.g., -₹5,000) and the current market value as a <em>positive number</em> on today's date.</li>
+      <li><strong>Formula:</strong> <code>=XIRR(B2:B38, A2:A38)</code></li>
+    </ul>
+
+    <h2>The Automated Alternative: Arthavi CAS Import</h2>
+    <p>
+      Maintaining a spreadsheet for 5 years of SIPs across 8 mutual funds requires hundreds of manual rows. When you upload your CAMS or KFintech CAS PDF into Arthavi, our engine extracts every historical cashflow and computes true per-scheme and portfolio-wide XIRR in 15 seconds.
+    </p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Calculate My XIRR Automatically</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

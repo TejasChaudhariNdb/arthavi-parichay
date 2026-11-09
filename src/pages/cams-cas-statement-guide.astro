@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "CAMS CAS Statement Guide — Download & Import for Tracking | Arthavi",
+  description: "Complete guide to downloading and importing your CAMS Consolidated Account Statement (CAS). Which AMCs are covered, password format, and tracking on Arthavi.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Download and Use CAMS CAS Statement",
+      "description": "Step-by-step guide to download detailed CAMS CAS and import into Arthavi.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Visit CAMS Online",
+          "text": "Navigate to the CAMS investor portal at mycams.camsonline.com."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select Detailed Statement",
+          "text": "Choose Detailed CAS and select Specific Period Since Inception."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Receive and Upload to Arthavi",
+          "text": "Enter your email, set a password, download the PDF from your inbox, and upload to Arthavi."
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="cams cas statement guide, cams cas download india, cams consolidated account statement, cams statement password"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "CAMS CAS Guide", url: "https://arthavi.com/cams-cas-statement-guide/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Registrar Guide · CAMS Online</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">CAMS CAS Statement Guide</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Everything you need to know about the CAMS Consolidated Account Statement: covered AMCs, download steps, password format, and automated tracking.
+        </p>
+      </div>
+
+      <div class="glass-panel" style="max-width: 860px; margin: 0 auto 4rem; padding: 2.5rem; border-radius: 16px;">
+        <h2>Which AMCs are serviced by CAMS?</h2>
+        <p style="color: var(--text-muted); line-height: 1.7;">
+          CAMS services roughly 60% of India's mutual fund industry AUM, including <strong>HDFC, SBI, ICICI Prudential, Aditya Birla Sun Life, Kotak, DSP, Tata, and Franklin Templeton</strong>. When you request a CAMS CAS, it consolidates all your investments across these fund houses into one document.
+        </p>
+        
+        <h2>How to download your detailed CAMS CAS</h2>
+        <ol style="color: var(--text-muted); line-height: 1.8; padding-left: 1.5rem;">
+          <li>Visit <strong>mycams.camsonline.com</strong> or the CAMS Investor Portal.</li>
+          <li>Navigate to <strong>Statements &gt; Consolidated Account Statement (CAS)</strong>.</li>
+          <li>Select <strong>Detailed Statement</strong> (crucial: summary statements do not contain transaction history).</li>
+          <li>Set the period to <strong>Specific Period &gt; Since Inception</strong>.</li>
+          <li>Enter your registered email address and set a password. The statement arrives in your inbox in 5–15 minutes.</li>
+        </ol>
+
+        <h2>Upload to Arthavi with Zero Password Storage</h2>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 0;">
+          Drop the file into Arthavi. Our parser decrypts the file locally in your browser memory. We never store your password or raw PDF.
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Upload CAMS CAS Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Other guides</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/kfintech-cas-statement-guide/">KFintech CAS Guide</a></li>
+          <li><a href="/cas-delta-import/">CAS Delta Import</a></li>
+          <li><a href="/portfolio-data-health/">Portfolio Data Health</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>
