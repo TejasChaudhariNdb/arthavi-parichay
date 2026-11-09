@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const lastUpdated = '2026-11-09';
+const seo = {
+  title: "Arthavi vs ET Money (2026) — Portfolio Tracker Comparison",
+  description: "Compare Arthavi vs ET Money. Understand ET Money's mid-November 2026 relaunch and see how both platforms compare on mutual funds, stocks, and privacy.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/compare/arthavi-vs-et-money/#webpage",
+      "url": "https://arthavi.com/compare/arthavi-vs-et-money/",
+      "name": seo.title,
+      "description": seo.description,
+      "dateModified": lastUpdated
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi vs et money, et money alternative, et money portfolio tracker, et money relaunch 2026"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Compare", url: "https://arthavi.com/compare/" },
+      { name: "Arthavi vs ET Money", url: "https://arthavi.com/compare/arthavi-vs-et-money/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <section class="page-header fade-in" style="text-align: center; margin-bottom: 2.5rem;">
+    <p style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.2);">
+      <span>✓</span> Verified: {lastUpdated} (Competitor Relaunch Monitor)
+    </p>
+    <h1>Arthavi vs ET Money (2026 Comparison)</h1>
+    <p class="text-muted" style="max-width: 720px; margin: 0 auto; font-size: 1.15rem;">
+      ET Money's founder announced a major mid-November 2026 relaunch making external mutual fund tracking and capital gains free. Here is how Arthavi compares.
+    </p>
+  </section>
+
+  <article class="prose fade-in delay-100" style="max-width: 900px; margin: 0 auto;">
+
+    <div class="note" style="border-left: 2px solid #a78bfa; padding: 1rem 1.5rem; margin-bottom: 2.5rem; background: rgba(99,102,241,0.06); border-radius: 8px;">
+      <p style="margin: 0; font-size: 0.95rem; color: var(--text-body);">
+        <strong>Market Intelligence Note:</strong> ET Money announced a mid-November 2026 relaunch with free external mutual fund tracking, portfolio allocation, and capital gains statements. This page reflects verified announcements and will be updated with live hands-on tests as soon as the release ships.
+      </p>
+    </div>
+
+    <div class="compare-table-wrap" style="margin: 2.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-arthavi">Arthavi</th>
+            <th>ET Money</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>External MF Tracking</strong></td>
+            <td class="col-arthavi">Free — CAMS &amp; KFintech CAS PDF Import</td>
+            <td>Announced free external MF tracking (Relaunch)</td>
+          </tr>
+          <tr>
+            <td><strong>NSE &amp; BSE Stock Tracking</strong></td>
+            <td class="col-arthavi">Yes — Broker Tradebook CSV (Zerodha, Groww, etc.)</td>
+            <td>Primarily mutual funds &amp; NPS ecosystem</td>
+          </tr>
+          <tr>
+            <td><strong>Multi-Asset Scope</strong></td>
+            <td class="col-arthavi">Gold, SGB, FDs, RDs, Real Estate, SIF, AIF</td>
+            <td>Mutual funds, NPS, Term Insurance, Fixed Deposits</td>
+          </tr>
+          <tr>
+            <td><strong>CAS Duplicate Prevention</strong></td>
+            <td class="col-arthavi">CAS Delta Import with SHA-256 fingerprinting</td>
+            <td>Standard statement sync</td>
+          </tr>
+          <tr>
+            <td><strong>AI Wealth Assistant</strong></td>
+            <td class="col-arthavi">Ask AI Wealth Coach on actual portfolio holdings</td>
+            <td>Portfolio health scores &amp; Genius subscription</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Track on Arthavi Free</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Gold Portfolio Tracker India — Physical Gold, SGB & Digital Gold | Arthavi",
+  description: "Track physical gold, Sovereign Gold Bonds (SGB), silver, and digital gold in one dashboard. Arthavi consolidates precious metals into your total net worth alongside mutual funds and stocks.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Gold & Precious Metals Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Track physical gold, silver, Sovereign Gold Bonds (SGB), and digital gold with live market rates and consolidated net worth integration."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Arthavi track physical gold and silver?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You enter the total weight in grams (or kilograms) and purity (24K, 22K, 18K). Arthavi calculates the current valuation based on live Indian bullion prices and integrates it into your household net worth and asset allocation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Arthavi track Sovereign Gold Bonds (SGB)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can track RBI Sovereign Gold Bonds (SGB) by tranche, issue price, unit count, and maturity date. Arthavi tracks both capital appreciation and semi-annual 2.5% coupon payouts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the AI assistant analyze my gold holdings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi's Ask AI Wealth Coach evaluates your overall portfolio balance, alerting you if gold exceeds or drops below recommended asset allocation guidelines (typically 5% to 15% for inflation hedging)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is gold portfolio tracking free on Arthavi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Precious metal tracking (physical gold, silver, SGB, digital gold) is included in Arthavi's free forever tier, as well as our Silver and Gold plan tiers."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="gold portfolio tracker india, gold investment tracker, sovereign gold bond tracker, sgb tracker india, digital gold tracker, physical gold portfolio, silver tracker india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Gold Portfolio Tracker", url: "https://arthavi.com/gold-portfolio-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <!-- Hero Header -->
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); color: #fbbf24; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Precious Metals &amp; Commodities · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Gold &amp; Silver Portfolio Tracker India</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Consolidate your physical gold, silver, Sovereign Gold Bonds (SGB), and digital gold in one private dashboard. See live valuations, track asset allocation, and know your true household net worth.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Track Gold Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">Explore Interactive Demo</a>
+        </div>
+      </div>
+
+      <!-- AEO Direct Answer Block -->
+      <div class="glass-panel fade-in" style="max-width: 860px; margin: 0 auto 3.5rem; padding: 1.8rem; border-radius: 16px; border-color: rgba(245,158,11,0.25); background: rgba(245,158,11,0.04);">
+        <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
+          <strong style="color: var(--text-head);">How gold tracking works in Arthavi:</strong> Indian investors typically hold gold across jewellery, bullion bars, RBI Sovereign Gold Bonds, and digital gold apps. Arthavi lets you log physical grams, SGB series, and digital gold securely. Your holdings update with live Indian bullion benchmarks and appear directly in your multi-asset allocation wheel alongside mutual funds, NSE/BSE stocks, and fixed deposits.
+        </p>
+      </div>
+
+      <!-- Feature Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px; border-color: rgba(245,158,11,0.25);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); display: flex; align-items: center; justify-content: center; color: #fbbf24; font-size: 1.5rem; margin-bottom: 1.2rem;">🪙</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Physical Gold &amp; Bullion</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track 24K coins, 22K jewellery, and bullion bars. Enter weight in grams, select purity, and purchase price to monitor total capital appreciation over time.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px; border-color: rgba(99,102,241,0.25);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); display: flex; align-items: center; justify-content: center; color: #a78bfa; font-size: 1.5rem; margin-bottom: 1.2rem;">📜</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Sovereign Gold Bonds (SGB)</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Log RBI SGB issues with tranche details, issue price, and maturity dates. Keep track of the 2.5% p.a. semi-annual interest payouts and tax-free capital gains at maturity.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px; border-color: rgba(16,185,129,0.25);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); display: flex; align-items: center; justify-content: center; color: #34d399; font-size: 1.5rem; margin-bottom: 1.2rem;">📱</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Digital Gold &amp; Gold ETFs</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Consolidate digital gold bought through MMTC-PAMP, Augmont, or SafeGold, alongside listed Gold ETFs (Nippon Gold BeES, HDFC Gold ETF) from your stock tradebook.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px; border-color: rgba(168,85,247,0.25);">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); display: flex; align-items: center; justify-content: center; color: #c084fc; font-size: 1.5rem; margin-bottom: 1.2rem;">🤖</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">AI Wealth Coach Intelligence</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Ask AI plain-English questions: "What percentage of my wealth is in gold?", "Did gold outperform my debt funds this year?", or "Is my gold allocation high enough for inflation defense?".
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Why Gold Tracking Matters -->
+      <div class="glass-panel" style="max-width: 900px; margin: 0 auto 4rem; padding: 2.5rem; border-radius: 16px;">
+        <h2 style="margin-top: 0; font-size: 1.6rem; color: var(--text-head);">Why include gold in your net worth dashboard?</h2>
+        <p style="color: var(--text-muted); line-height: 1.7; font-size: 1rem;">
+          In India, gold represents over 10%–20% of an average household's true balance sheet, yet traditional broker apps completely ignore it because they only see Demat accounts. Leaving out gold distorts your true asset allocation, makes your portfolio appear riskier than it actually is, and underestimates your emergency reserves.
+        </p>
+        <ul style="color: var(--text-muted); line-height: 1.8; padding-left: 1.5rem; margin-bottom: 0;">
+          <li><strong style="color: var(--text-head);">True Asset Allocation:</strong> See the exact split across Equity, Debt, Gold, Real Estate, and Cash in a single donut chart.</li>
+          <li><strong style="color: var(--text-head);">Household Wealth Snapshot:</strong> Export complete family wealth PDF reports with gold included for estate and financial planning.</li>
+          <li><strong style="color: var(--text-head);">Zero Account Linking:</strong> No jewelery receipt scanning or bank login needed. Fully manual, confidential, and client-side safe.</li>
+        </ul>
+      </div>
+
+      <!-- FAQ Section -->
+      <div style="max-width: 860px; margin: 0 auto 4rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">How does Arthavi track physical gold and silver?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">You enter the total weight in grams (or kilograms) and purity (24K, 22K, 18K). Arthavi calculates the current valuation based on live Indian bullion benchmarks and updates your net worth dashboard.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Can Arthavi track Sovereign Gold Bonds (SGB)?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes. You can track RBI Sovereign Gold Bonds (SGB) by tranche, issue price, unit count, and maturity date. Arthavi tracks both market valuation and the 2.5% semi-annual interest schedule.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Does gold appear in my family portfolio view?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes. You can assign gold holdings to specific family profiles (Self, Spouse, Parents, Children) or view them combined in your aggregated household net worth.</p>
+          </div>
+
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Is gold portfolio tracking free on Arthavi?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes. Precious metal tracking is 100% free forever for core tracking, with advanced insights available in our Gold and Silver subscription plans.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Complete your wealth picture with gold</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 540px; margin-left: auto; margin-right: auto;">
+          Consolidate precious metals, stocks, mutual funds, and fixed deposits into one private Indian dashboard.
+        </p>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related trackers &amp; tools</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/net-worth-tracker-india/">Net Worth Tracker India</a></li>
+          <li><a href="/fixed-deposit-tracker/">Fixed Deposit Tracker</a></li>
+          <li><a href="/real-estate-tracker/">Real Estate Tracker</a></li>
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+          <li><a href="/family-wealth-snapshot/">Family Wealth Snapshot</a></li>
+          <li><a href="/features/">Complete Features</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

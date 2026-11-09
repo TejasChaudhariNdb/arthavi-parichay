@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Multi-Asset Portfolio Tracker India — Stocks, MF, Gold, FD & SIF | Arthavi",
+  description: "Track equities, mutual funds, gold, fixed deposits, real estate, SIF, and AIF in one consolidated portfolio. Built for Indian retail and HNI investors.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Multi-Asset Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Multi-asset portfolio consolidation across stocks, mutual funds, precious metals, fixed income, real estate, and specialized alternative funds."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a multi-asset portfolio tracker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A multi-asset portfolio tracker consolidates investments across diverse asset classes — equities, debt, commodities, real estate, and alternatives — into one unified view, computing true household XIRR and asset distribution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Arthavi support SEBI SIF and AIF tracking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi is India's first portfolio tracker supporting SEBI's ₹10 Lakh Specialized Investment Funds (SIF) with automated daily NAVs, and AIF Category I, II, and III capital commitment ledgers."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="multi asset portfolio tracker india, hni portfolio tracker india, consolidated portfolio tracker, all asset wealth dashboard india, sif tracker india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Multi-Asset Portfolio Tracker", url: "https://arthavi.com/multi-asset-portfolio-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">HNI &amp; Serious Retail · Multi-Asset</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Multi-Asset Portfolio Tracker India</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Bring listed equities, mutual funds, bullion, fixed income, real estate, SIF, and AIF into one consolidated institutional-grade dashboard.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Start Multi-Asset Tracking</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">Explore Demo</a>
+        </div>
+      </div>
+
+      <!-- Feature Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📊</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Unified Asset Allocation</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Real-time interactive donut visualization breaking down your wealth into Equity (Large, Mid, Small), Debt, Precious Metals, Real Estate, and Alternatives.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">💎</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">SIF &amp; AIF Engine</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track SEBI's ₹10 Lakh Specialized Investment Funds with automated daily NAVs. Manage Venture Capital and Private Equity AIF drawdown calls and return of capital.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">⚡</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">True Multi-Asset XIRR</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Compute true annualized returns across all asset classes simultaneously, accounting for cash injections, redemptions, dividend payouts, and coupon dates.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA & Nav -->
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">One dashboard for your entire net worth</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related trackers</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/investment-portfolio-tracker/">Investment Portfolio Tracker</a></li>
+          <li><a href="/gold-portfolio-tracker/">Gold &amp; SGB Tracker</a></li>
+          <li><a href="/fixed-deposit-tracker/">Fixed Deposit Tracker</a></li>
+          <li><a href="/real-estate-tracker/">Real Estate Tracker</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

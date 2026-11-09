@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Fixed Deposit Tracker India — Track Bank FDs in One Place | Arthavi",
+  description: "Track all your Fixed Deposits across SBI, HDFC, ICICI, Post Office, and NBFCs in one dashboard. See maturity dates, interest earned, and total FD net worth on Arthavi.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Fixed Deposit Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Consolidate and track bank and corporate Fixed Deposits across Indian financial institutions with automated maturity and interest schedules."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I add an FD to Arthavi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add your FD in 15 seconds by specifying the Bank/Institution, Principal Amount, Annual Interest Rate (%), Start Date, and Tenure. Arthavi calculates maturity value, compounding frequency, and expected interest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Arthavi alert me before an FD matures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi features a Maturity Calendar that highlights upcoming FDs maturing within 30, 60, or 90 days so you can plan reinvestment or tax implications in advance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track FDs for my entire family?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi's multi-profile family support lets you assign Fixed Deposits to Self, Spouse, Senior Citizen Parents (with special interest rates), or HUF, and view combined household fixed income."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the AI assistant analyze fixed deposit returns?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi's AI Wealth Coach analyzes whether your FD allocation is optimized against inflation and evaluates your debt-to-equity ratio across your whole portfolio."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="fixed deposit tracker india, fd tracker, bank fd tracker, track multiple fds india, fd maturity calendar, sbi hdfc fd tracker, corporate fd tracker"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Fixed Deposit Tracker", url: "https://arthavi.com/fixed-deposit-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #60a5fa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Fixed Income · Banking · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Fixed Deposit (FD) Tracker India</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Never lose track of a maturing deposit again. Consolidate Fixed Deposits across SBI, HDFC, ICICI, Post Office, and corporate NBFCs into one unified family dashboard.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Track FDs Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
+        </div>
+      </div>
+
+      <!-- Feature Highlights -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🏦</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Multi-Bank Aggregation</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track deposits across multiple banks without net banking logins. Add public, private, small finance banks, post office time deposits, and Bajaj Finance / Shriram corporate FDs.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📅</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Maturity Calendar</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Timeline view of all upcoming maturities. Know exactly which month funds will be released so you can plan reinvestments at peak interest rates or allocate to equity SIPs.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">👴</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Senior Citizen FD Support</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Manage parent portfolios with higher senior citizen rates (0.50%–0.75% extra). Calculate TDS thresholds (Section 194A) and consolidate overall family debt exposure.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">⚖️</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Asset Allocation Integration</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            FDs flow straight into your Debt asset allocation slice alongside Debt Mutual Funds, PPF, and EPF for true portfolio risk assessment.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Comparison: Arthavi vs Excel -->
+      <div class="glass-panel" style="max-width: 900px; margin: 0 auto 4rem; padding: 2.5rem; border-radius: 16px;">
+        <h2 style="margin-top: 0; font-size: 1.6rem; color: var(--text-head); text-align: center; margin-bottom: 2rem;">Arthavi vs Excel for FD Tracking</h2>
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th class="col-arthavi">Arthavi</th>
+                <th>Excel Spreadsheet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Net Worth Auto-Update</strong></td>
+                <td class="col-arthavi">Accrues interest &amp; values in real-time</td>
+                <td>Requires manual formula updates</td>
+              </tr>
+              <tr>
+                <td><strong>Maturity Alerts</strong></td>
+                <td class="col-arthavi">Visual calendar &amp; smart nudges</td>
+                <td>Manual calendar reminders needed</td>
+              </tr>
+              <tr>
+                <td><strong>Multi-Asset Consolidation</strong></td>
+                <td class="col-arthavi">Auto-combines with CAS Mutual Funds &amp; Stocks</td>
+                <td>Disconnected, prone to broken VLOOKUPs</td>
+              </tr>
+              <tr>
+                <td><strong>Family Profile Switching</strong></td>
+                <td class="col-arthavi">1-click switch between Self, Spouse, Parents</td>
+                <td>Messy multi-tab workbooks</td>
+              </tr>
+              <tr>
+                <td><strong>AI Wealth Insights</strong></td>
+                <td class="col-arthavi">Context-aware Q&amp;A on your actual holdings</td>
+                <td>None</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div style="max-width: 860px; margin: 0 auto 4rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">How do I add an FD to Arthavi?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Add your FD in 15 seconds by entering Bank name, Principal amount, Interest Rate (%), Start date, and Tenure. Arthavi computes the maturity value and quarterly compounding automatically.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Does Arthavi require bank login or password?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Never. Arthavi is 100% read-only and uses user-controlled manual entries for banking products. We never ask for your net banking credentials or OTPs.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Can I track Recurring Deposits (RD) and PPF too?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes. In addition to FDs, Arthavi supports Recurring Deposits (RD), Public Provident Fund (PPF), EPF, and Sovereign Gold Bonds (SGB).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Track all your bank deposits in one place</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+          Ditch scattered paper FD certificates and track your true fixed income returns.
+        </p>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related fixed income &amp; wealth tools</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/rd-tracker/">Recurring Deposit (RD) Tracker</a></li>
+          <li><a href="/ppf-tracker/">PPF Tracker</a></li>
+          <li><a href="/gold-portfolio-tracker/">Gold &amp; SGB Tracker</a></li>
+          <li><a href="/net-worth-tracker-india/">Net Worth Tracker India</a></li>
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

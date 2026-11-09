@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const lastUpdated = '2026-11-09';
+const seo = {
+  title: "Arthavi vs INDmoney (2026) — Privacy & Portfolio Tracker Comparison",
+  description: "Compare Arthavi and INDmoney. Read-only user-controlled file imports vs full account-linked investment super-app. See differences in privacy and analytics.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/compare/arthavi-vs-indmoney/#webpage",
+      "url": "https://arthavi.com/compare/arthavi-vs-indmoney/",
+      "name": seo.title,
+      "description": seo.description,
+      "dateModified": lastUpdated
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi vs indmoney, indmoney alternative, indmoney privacy, portfolio tracker india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Compare", url: "https://arthavi.com/compare/" },
+      { name: "Arthavi vs INDmoney", url: "https://arthavi.com/compare/arthavi-vs-indmoney/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <section class="page-header fade-in" style="text-align: center; margin-bottom: 2.5rem;">
+    <p style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.2);">
+      <span>✓</span> Verified: {lastUpdated} (Product &amp; Privacy Architecture Audit)
+    </p>
+    <h1>Arthavi vs INDmoney (2026 Comparison)</h1>
+    <p class="text-muted" style="max-width: 720px; margin: 0 auto; font-size: 1.15rem;">
+      Comparing an independent, privacy-first portfolio tracker with an investment distributor super-app.
+    </p>
+  </section>
+
+  <article class="prose fade-in delay-100" style="max-width: 900px; margin: 0 auto;">
+    
+    <div class="compare-table-wrap" style="margin: 2.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-arthavi">Arthavi</th>
+            <th>INDmoney</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Core Positioning</strong></td>
+            <td class="col-arthavi">Independent, read-only portfolio intelligence</td>
+            <td>Investment super-app &amp; product marketplace</td>
+          </tr>
+          <tr>
+            <td><strong>Import Method</strong></td>
+            <td class="col-arthavi">User-uploaded CAS PDF &amp; Broker CSVs (Client-side decrypted)</td>
+            <td>Email access / Broker login / Account linking</td>
+          </tr>
+          <tr>
+            <td><strong>Email Access Required</strong></td>
+            <td class="col-arthavi">No — Never reads your Gmail/Outlook</td>
+            <td>Often requested for automated statement scraping</td>
+          </tr>
+          <tr>
+            <td><strong>Product Selling</strong></td>
+            <td class="col-arthavi">None — No credit cards, loans, or product pitches</td>
+            <td>Distributes credit cards, mutual funds, IPOs, US stocks</td>
+          </tr>
+          <tr>
+            <td><strong>AI Capabilities</strong></td>
+            <td class="col-arthavi">Ask AI Wealth Coach on your actual portfolio holdings</td>
+            <td>INDmoney MCP &amp; portfolio AI chatbot</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Understanding the architectural difference</h2>
+    <p>INDmoney is a comprehensive financial super-app that helps users trade stocks, buy mutual funds, track credit scores, and file taxes. To deliver automation, it relies on deep account connections and statement parsing from emails.</p>
+    <p>Arthavi takes the opposite philosophy: <strong>zero account linking, zero broker passwords, and zero email access</strong>. You remain in complete control by uploading your statements directly. Arthavi sells no financial products, meaning our portfolio insights are 100% unbiased.</p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Private Tracking</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

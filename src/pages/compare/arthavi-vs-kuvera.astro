@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const lastUpdated = '2026-11-09';
+const seo = {
+  title: "Arthavi vs Kuvera by CRED (2026) — Portfolio Tracker Comparison",
+  description: "Compare Arthavi vs Kuvera by CRED. Contrast mutual fund tracking, direct equity, SIF/AIF, privacy models, and portfolio analytics in India.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/compare/arthavi-vs-kuvera/#webpage",
+      "url": "https://arthavi.com/compare/arthavi-vs-kuvera/",
+      "name": seo.title,
+      "description": seo.description,
+      "dateModified": lastUpdated
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi vs kuvera, kuvera alternative, kuvera by cred, portfolio tracker india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Compare", url: "https://arthavi.com/compare/" },
+      { name: "Arthavi vs Kuvera", url: "https://arthavi.com/compare/arthavi-vs-kuvera/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <section class="page-header fade-in" style="text-align: center; margin-bottom: 2.5rem;">
+    <p style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.2);">
+      <span>✓</span> Verified: {lastUpdated} (Ownership &amp; Feature Audit)
+    </p>
+    <h1>Arthavi vs Kuvera by CRED (2026 Comparison)</h1>
+    <p class="text-muted" style="max-width: 720px; margin: 0 auto; font-size: 1.15rem;">
+      Note: Kuvera is operated by CRED (not Groww). Here is an objective breakdown of features and tracking capabilities.
+    </p>
+  </section>
+
+  <article class="prose fade-in delay-100" style="max-width: 900px; margin: 0 auto;">
+    
+    <div class="compare-table-wrap" style="margin: 2.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-arthavi">Arthavi</th>
+            <th>Kuvera by CRED</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Core Function</strong></td>
+            <td class="col-arthavi">Dedicated Portfolio Tracker &amp; Intelligence</td>
+            <td>Direct MF Investing + US Stocks + Surplus</td>
+          </tr>
+          <tr>
+            <td><strong>Listed Indian Equities</strong></td>
+            <td class="col-arthavi">Full NSE/BSE Tracking via Tradebook CSVs</td>
+            <td>Focus on US Stocks &amp; Fractional Shares</td>
+          </tr>
+          <tr>
+            <td><strong>SIF &amp; AIF Support</strong></td>
+            <td class="col-arthavi">Automated daily SIF NAVs &amp; AIF ledgers</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td><strong>CAS Delta Import</strong></td>
+            <td class="col-arthavi">Yes — Prevents duplicate transactions on monthly updates</td>
+            <td>Standard CAS sync</td>
+          </tr>
+          <tr>
+            <td><strong>AI Portfolio Assistant</strong></td>
+            <td class="col-arthavi">Ask AI Wealth Coach on your actual holdings</td>
+            <td>None</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Try Arthavi Free</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

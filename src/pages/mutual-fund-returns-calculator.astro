@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Mutual Fund Returns Calculator India — SIP & Lumpsum Calculator | Arthavi",
+  description: "Calculate mutual fund returns for SIP and lump sum investments with our free interactive India calculator. Project future wealth, maturity value, and gains.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Arthavi Mutual Fund Returns Calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Interactive calculator to compute future wealth, maturity values, and capital gains for monthly SIPs and lumpsum investments."
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="mutual fund returns calculator india, sip calculator, lumpsum calculator india, mutual fund profit calculator"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Mutual Fund Returns Calculator", url: "https://arthavi.com/mutual-fund-returns-calculator/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3rem;">
+        <span style="display:inline-block; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Free Financial Tool · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Mutual Fund Returns Calculator</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Estimate the future growth of your monthly SIP or one-time lump sum mutual fund investments in India.
+        </p>
+      </div>
+
+      <!-- Working Interactive Calculator Component -->
+      <div class="glass-panel" style="max-width: 860px; margin: 0 auto 4rem; padding: 2.5rem; border-radius: 20px; border-color: rgba(99,102,241,0.3);">
+        
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+          <button id="tab-sip" style="padding: 0.6rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: var(--primary); color: white; font-weight: 600; cursor: pointer;">Monthly SIP</button>
+          <button id="tab-lump" style="padding: 0.6rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: transparent; color: var(--text-muted); font-weight: 600; cursor: pointer;">Lumpsum</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: center;">
+          
+          <!-- Inputs Column -->
+          <div>
+            <div style="margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <label id="lbl-amount" style="font-weight: 600; color: var(--text-head);">Monthly Investment</label>
+                <span id="disp-amount" style="font-weight: 700; color: #34d399;">₹10,000</span>
+              </div>
+              <input type="range" id="input-amount" min="500" max="200000" step="500" value="10000" style="width: 100%; accent-color: var(--primary);" />
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <label style="font-weight: 600; color: var(--text-head);">Expected Annual Return (p.a.)</label>
+                <span id="disp-rate" style="font-weight: 700; color: #a78bfa;">12.0%</span>
+              </div>
+              <input type="range" id="input-rate" min="4" max="30" step="0.5" value="12" style="width: 100%; accent-color: var(--primary);" />
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <label style="font-weight: 600; color: var(--text-head);">Time Period (Years)</label>
+                <span id="disp-years" style="font-weight: 700; color: #60a5fa;">10 Years</span>
+              </div>
+              <input type="range" id="input-years" min="1" max="35" step="1" value="10" style="width: 100%; accent-color: var(--primary);" />
+            </div>
+          </div>
+
+          <!-- Output Hero Box -->
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; text-align: center;">
+            <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Total Expected Value</p>
+            <p id="calc-future-value" style="margin: 0.5rem 0 1.5rem; font-size: 2.5rem; font-weight: 700; color: #34d399; font-variant-numeric: tabular-nums;">₹23,23,391</p>
+            
+            <div style="display: flex; justify-content: space-around; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem;">
+              <div>
+                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Invested Amount</span>
+                <strong id="calc-invested" style="font-size: 1.1rem; color: var(--text-head); font-variant-numeric: tabular-nums;">₹12,00,000</strong>
+              </div>
+              <div>
+                <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Est. Wealth Gain</span>
+                <strong id="calc-gains" style="font-size: 1.1rem; color: #a78bfa; font-variant-numeric: tabular-nums;">₹11,23,391</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <script is:inline>
+        let mode = 'sip';
+        const inAmount = document.getElementById('input-amount');
+        const inRate = document.getElementById('input-rate');
+        const inYears = document.getElementById('input-years');
+        const dispAmount = document.getElementById('disp-amount');
+        const dispRate = document.getElementById('disp-rate');
+        const dispYears = document.getElementById('disp-years');
+        const outFuture = document.getElementById('calc-future-value');
+        const outInvested = document.getElementById('calc-invested');
+        const outGains = document.getElementById('calc-gains');
+        const tabSip = document.getElementById('tab-sip');
+        const tabLump = document.getElementById('tab-lump');
+        const lblAmount = document.getElementById('lbl-amount');
+
+        function fmtINR(val) {
+          return '₹' + Math.round(val).toLocaleString('en-IN');
+        }
+
+        function calculate() {
+          const P = parseFloat(inAmount.value);
+          const r = parseFloat(inRate.value) / 100;
+          const n = parseFloat(inYears.value);
+
+          dispAmount.textContent = fmtINR(P);
+          dispRate.textContent = r * 100 + '%';
+          dispYears.textContent = n + ' Years';
+
+          let invested = 0;
+          let futureValue = 0;
+
+          if (mode === 'sip') {
+            const i = r / 12;
+            const months = n * 12;
+            invested = P * months;
+            futureValue = P * ((Math.pow(1 + i, months) - 1) / i) * (1 + i);
+          } else {
+            invested = P;
+            futureValue = P * Math.pow(1 + r, n);
+          }
+
+          const gains = futureValue - invested;
+          outFuture.textContent = fmtINR(futureValue);
+          outInvested.textContent = fmtINR(invested);
+          outGains.textContent = fmtINR(gains);
+        }
+
+        tabSip.addEventListener('click', () => {
+          mode = 'sip';
+          tabSip.style.background = 'var(--primary)';
+          tabSip.style.color = 'white';
+          tabLump.style.background = 'transparent';
+          tabLump.style.color = 'var(--text-muted)';
+          lblAmount.textContent = 'Monthly Investment';
+          inAmount.min = "500";
+          inAmount.max = "200000";
+          inAmount.step = "500";
+          inAmount.value = "10000";
+          calculate();
+        });
+
+        tabLump.addEventListener('click', () => {
+          mode = 'lump';
+          tabLump.style.background = 'var(--primary)';
+          tabLump.style.color = 'white';
+          tabSip.style.background = 'transparent';
+          tabSip.style.color = 'var(--text-muted)';
+          lblAmount.textContent = 'Total Lumpsum Investment';
+          inAmount.min = "5000";
+          inAmount.max = "2000000";
+          inAmount.step = "5000";
+          inAmount.value = "100000";
+          calculate();
+        });
+
+        inAmount.addEventListener('input', calculate);
+        inRate.addEventListener('input', calculate);
+        inYears.addEventListener('input', calculate);
+        calculate();
+      </script>
+
+      <!-- Difference between projection & actual returns -->
+      <div class="glass-panel" style="max-width: 860px; margin: 0 auto 4rem; padding: 2.2rem; border-radius: 16px;">
+        <h2 style="margin-top: 0; font-size: 1.4rem; color: var(--text-head);">Why a calculator is only a projection</h2>
+        <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 0;">
+          Calculators assume smooth, constant annual returns (e.g., 12% every single year). In reality, markets are volatile, and your actual annualized return depends on the exact dates of your SIPs and redemptions. To calculate your <strong>true cash-flow return</strong>, you need <strong>XIRR</strong>. Arthavi reads your official CAMS/KFintech CAS statement and calculates exact XIRR automatically.
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Track your real mutual fund returns</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Calculate My Actual XIRR</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

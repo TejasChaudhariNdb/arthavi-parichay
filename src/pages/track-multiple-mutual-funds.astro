@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Track Multiple Mutual Funds in One Place — All AMCs | Arthavi",
+  description: "Track all your mutual funds from HDFC, SBI, ICICI, Nippon, Quant, and 40+ AMCs in one dashboard. Upload your CAS statement for automated portfolio tracking.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Multi-AMC Mutual Fund Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Consolidate mutual funds across all Indian AMCs using automated CAMS and KFintech CAS parsing."
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="track multiple mutual funds india, mutual fund tracker all amcs, all mutual funds one place, consolidate mutual funds india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Track Multiple Mutual Funds", url: "https://arthavi.com/track-multiple-mutual-funds/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Multi-AMC Consolidation · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Track Multiple Mutual Funds in One Place</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Stop logging into 5 different AMC websites. Consolidate all your mutual funds across HDFC, ICICI, SBI, Nippon, Quant, and 40+ AMCs into one unified dashboard with a single CAS upload.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Upload CAS Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">Explore Demo</a>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📑</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Single Statement Upload</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">Upload your CAMS or KFintech CAS PDF. In 15 seconds, all schemes across all fund houses are parsed and organized into your portfolio.</p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">⚡</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">CAS Delta Import</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">Upload new monthly statements without duplicate transactions. Arthavi detects new SIPs and skips already-imported records automatically.</p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🔍</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Fund Overlap Detection</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">Discover if your Large Cap, Flexi Cap, and Index funds are buying the same underlying stocks, eliminating unnecessary scheme duplication.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Consolidate your mutual funds in 15 seconds</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related guides</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/guides/cas-statement-explained/">What is a CAS Statement?</a></li>
+          <li><a href="/cas-delta-import/">CAS Delta Import</a></li>
+          <li><a href="/cams-cas-statement-guide/">CAMS CAS Guide</a></li>
+          <li><a href="/kfintech-cas-statement-guide/">KFintech CAS Guide</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

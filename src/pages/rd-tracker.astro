@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Recurring Deposit Tracker India — Track Bank RDs Across Banks | Arthavi",
+  description: "Track all your Recurring Deposits (RD) across Indian banks. Monitor monthly deposits, maturity values, interest earned, and consolidated family savings on Arthavi.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Recurring Deposit Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Track bank Recurring Deposits (RD) with monthly installment schedules, interest calculations, and family net worth consolidation."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Arthavi calculate RD maturity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Arthavi uses Indian banking quarterly compounding standards to project maturity values based on monthly deposit amount, annual interest rate, start date, and tenure in months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track RDs alongside Mutual Fund SIPs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi shows your monthly cash commitments across both equity SIPs and guaranteed bank RDs in one unified monthly cash-flow view."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is RD tracking free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Recurring deposit tracking is 100% free forever as part of Arthavi's personal and family wealth dashboard."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="recurring deposit tracker india, rd tracker, rd portfolio tracker, bank rd tracker, track rd india, recurring deposit maturity calculator"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "RD Tracker", url: "https://arthavi.com/rd-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #60a5fa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Guaranteed Savings · Banking · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Recurring Deposit (RD) Tracker India</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Keep all your monthly bank Recurring Deposits organized in one place. See cumulative savings, projected maturity payouts, and total household fixed income.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Track RDs Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
+        </div>
+      </div>
+
+      <!-- Highlights Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📆</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Monthly Outflow Planning</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track recurring monthly auto-debits across different bank accounts (SBI, HDFC, ICICI, Post Office). See your total fixed monthly savings commitment alongside equity SIPs.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📈</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Accrued Interest Tracking</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Calculates interest accrued to date based on quarterly compounding. Understand actual return accumulation without waiting for annual passbook updates.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🎯</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Goal Milestone Mapping</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Map recurring deposits directly to short-term milestones: emergency fund building, annual insurance premiums, festive purchases, or school fees.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">👨‍👩‍👧‍👦</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Family Multi-Profile RD</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Log RDs held in spouse or child accounts. See individual progress as well as unified family fixed income reserves.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- FAQ Section -->
+      <div style="max-width: 860px; margin: 0 auto 4rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">How do I add an RD to Arthavi?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Enter the Bank/Post Office name, monthly installment amount, annual interest rate, start date, and tenure in months. Arthavi computes the maturity schedule instantly.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Can I track both FDs and RDs together?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes. Arthavi groups all bank fixed income (FD, RD, PPF, EPF) into your comprehensive Debt asset allocation view.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Track all your recurring deposits with zero stress</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related tools</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/fixed-deposit-tracker/">Fixed Deposit Tracker</a></li>
+          <li><a href="/ppf-tracker/">PPF Tracker</a></li>
+          <li><a href="/net-worth-tracker-india/">Net Worth Tracker India</a></li>
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Upstox Portfolio Tracker — Import Tradebook CSV | Arthavi",
+  description: "Track your Upstox stock portfolio on Arthavi using tradebook CSV uploads. No Upstox login or Pro API key required. Private, free portfolio tracker.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Upstox Portfolio Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Private portfolio tracker for Upstox investors using tradebook CSV uploads."
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="upstox portfolio tracker, upstox holdings tracker, track upstox portfolio, upstox tradebook import arthavi"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Upstox Portfolio Tracker", url: "https://arthavi.com/upstox-portfolio-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Broker Support · Upstox</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Upstox Portfolio Tracker</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Export your Upstox tradebook CSV and import into Arthavi for consolidated multi-broker tracking, XIRR calculation, and capital gains reports.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Import Upstox Trades</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
+        </div>
+      </div>
+
+      <div class="glass-panel fade-in" style="max-width: 860px; margin: 0 auto 3.5rem; padding: 1.8rem; border-radius: 16px; border-color: rgba(168,85,247,0.25); background: rgba(168,85,247,0.04);">
+        <h2 style="font-size: 1.15rem; margin-top: 0; margin-bottom: 0.6rem; color: var(--text-head);">Privacy-First Upstox Tracking:</h2>
+        <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--text-body);">
+          Download your tradebook from Upstox (web or mobile) and drop the CSV into Arthavi. No developer APIs, no trading passwords, and no sensitive token generation needed.
+        </p>
+      </div>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Track Upstox alongside your other brokers</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related trackers</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/zerodha-portfolio-tracker/">Zerodha Portfolio Tracker</a></li>
+          <li><a href="/groww-portfolio-tracker/">Groww Portfolio Tracker</a></li>
+          <li><a href="/angel-one-portfolio-tracker/">Angel One Portfolio Tracker</a></li>
+          <li><a href="/stock-portfolio-tracker-india/">Stock Portfolio Tracker India</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

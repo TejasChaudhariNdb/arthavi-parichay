@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Investment Tracker for Couples India — Joint Wealth & Separate PANs | Arthavi",
+  description: "Track investments with your spouse in one private dashboard. See joint household net worth, combined asset allocation, and individual PAN portfolios on Arthavi.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Couples Investment Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Multi-profile investment tracking for couples in India with separate PAN portfolios, joint net worth, and privacy masks."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can my spouse and I track our separate portfolios under one login?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi's multi-profile architecture lets you create profiles for Self and Spouse. You upload each person's individual CAS statement with zero cross-contamination of folios or PAN data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Arthavi calculate joint household XIRR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can toggle between viewing your individual XIRR and an aggregated household XIRR that combines cash flows from both partners."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="investment tracker for couples india, couples portfolio tracker, joint investment tracker india, husband wife portfolio tracker, spouse portfolio tracker india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Couples Investment Tracker", url: "https://arthavi.com/couples-investment-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.3); color: #f472b6; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Joint Wealth · Multi-PAN · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Investment Tracker for Couples &amp; Spouses</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Plan your financial future together without messy spreadsheets. Track separate PAN portfolios for husband and wife while viewing combined household wealth in one click.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Start Tracking Together</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">👩‍❤️‍👨</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Combined Household Net Worth</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            See your total couple net worth across all mutual funds, Demat stocks, gold, FDs, and home equity in a single number.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📑</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Separate PAN Integrity</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Each partner keeps dedicated capital gains tax reports (LTCG Schedule 112A / STCG) for clean individual ITR filing.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">👁️</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Privacy Masking</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            One-click privacy toggle masks confidential rupee figures when viewing your portfolio on the go or sharing screens.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Build household wealth as a team</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related family tools</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+          <li><a href="/family-wealth-snapshot/">Family Wealth Snapshot</a></li>
+          <li><a href="/net-worth-tracker-india/">Net Worth Tracker India</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

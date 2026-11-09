@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Groww Portfolio Tracker — Stocks & Mutual Funds Tracker | Arthavi",
+  description: "Track your Groww stock trades and mutual funds on Arthavi. Import your Groww tradebook CSV and CAS statement safely without password sharing. 100% Free.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Groww Portfolio Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Consolidated portfolio tracking for Groww stock and mutual fund investors using tradebook CSV and CAMS CAS uploads."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Arthavi track Groww stocks and mutual funds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For stocks: Export your Tradebook CSV from Groww and upload to Arthavi. For mutual funds: Download your official CAMS/KFintech CAS statement (which includes all Groww Direct funds) and upload it. Arthavi merges both into one dashboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to enter my Groww login password?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Arthavi is completely independent. We never ask for your Groww password, PIN, or OTP."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="groww portfolio tracker, groww stocks tracker, track groww portfolio arthavi, groww tradebook import, groww mutual fund tracker"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Groww Portfolio Tracker", url: "https://arthavi.com/groww-portfolio-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Broker Support · Groww</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Groww Portfolio Tracker</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Consolidate your Groww stocks and mutual funds with external Demat accounts, gold, and family folios in one private dashboard.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Import Groww Trades</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
+        </div>
+      </div>
+
+      <div class="glass-panel fade-in" style="max-width: 860px; margin: 0 auto 3.5rem; padding: 1.8rem; border-radius: 16px; border-color: rgba(16,185,129,0.25); background: rgba(16,185,129,0.04);">
+        <h2 style="font-size: 1.15rem; margin-top: 0; margin-bottom: 0.6rem; color: var(--text-head);">How Arthavi tracks Groww investments:</h2>
+        <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--text-body);">
+          Groww is popular for both direct equity and direct mutual funds. With Arthavi, you import your <strong>Groww Stock Tradebook CSV</strong> and your <strong>CAMS/KFintech CAS statement</strong>. No Groww passwords or OTPs required.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📈</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Stocks Tradebook Import</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">Export your trade transactions from Groww Reports in one click. Arthavi computes your weighted purchase cost and live P&amp;L.</p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📑</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Groww Mutual Funds via CAS</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">Your Groww mutual funds are fully covered in your CAMS CAS. Upload it to get complete SIP history and cash-flow XIRR.</p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🤖</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">AI Overlap Diagnostic</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">Check if your Groww mutual funds hold the exact same stocks you purchased directly through Groww's stock broker.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Consolidate your Groww portfolio privately</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Other brokers</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/zerodha-portfolio-tracker/">Zerodha Portfolio Tracker</a></li>
+          <li><a href="/upstox-portfolio-tracker/">Upstox Portfolio Tracker</a></li>
+          <li><a href="/angel-one-portfolio-tracker/">Angel One Portfolio Tracker</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Mutual Fund XIRR Calculator India — Cash Flow Return Tool | Arthavi",
+  description: "Calculate accurate XIRR for your mutual fund SIPs and lumpsum investments. Free interactive cash flow XIRR calculator for Indian investors.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Arthavi XIRR Calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Calculate exact Extended Internal Rate of Return (XIRR) across irregular cash flows, monthly SIPs, and partial withdrawals."
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="mutual fund xirr calculator india, xirr calculator, how to calculate xirr mutual fund india, cash flow return tool"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "XIRR Calculator", url: "https://arthavi.com/mutual-fund-xirr-calculator/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3rem;">
+        <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Accurate Cash-Flow Returns · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Mutual Fund XIRR Calculator</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          XIRR (Extended Internal Rate of Return) accounts for the exact dates and amounts of every SIP installment, top-up, and redemption.
+        </p>
+      </div>
+
+      <!-- Interactive Mini Cashflow XIRR Tool -->
+      <div class="glass-panel" style="max-width: 860px; margin: 0 auto 4rem; padding: 2.5rem; border-radius: 20px;">
+        <h2 style="font-size: 1.35rem; margin-top: 0; margin-bottom: 1rem; color: var(--text-head); text-align: center;">Try a Quick 3-Year SIP XIRR Simulation</h2>
+        <p style="color: var(--text-muted); text-align: center; font-size: 0.92rem; margin-bottom: 2rem;">
+          Compare how identical invested amounts yield vastly different XIRR depending on market timing.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-head);">Monthly SIP (₹)</label>
+            <input type="number" id="xirr-sip" value="10000" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1.2rem;" />
+
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-head);">Current Portfolio Valuation (₹)</label>
+            <input type="number" id="xirr-val" value="480000" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: white; margin-bottom: 1.2rem;" />
+
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-head);">Duration</label>
+            <select id="xirr-dur" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.5); color: white;">
+              <option value="12">1 Year (12 installments)</option>
+              <option value="24">2 Years (24 installments)</option>
+              <option value="36" selected>3 Years (36 installments)</option>
+              <option value="60">5 Years (60 installments)</option>
+            </select>
+          </div>
+
+          <div style="background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.2); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <span style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Estimated XIRR</span>
+            <span id="xirr-result" style="font-size: 3rem; font-weight: 700; color: #a78bfa; margin: 0.5rem 0;">19.8%</span>
+            <p style="margin: 0; font-size: 0.88rem; color: var(--text-muted);">
+              Total Invested: <strong id="xirr-tot-inv" style="color: var(--text-head);">₹3,60,000</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <script is:inline>
+        const sipEl = document.getElementById('xirr-sip');
+        const valEl = document.getElementById('xirr-val');
+        const durEl = document.getElementById('xirr-dur');
+        const resEl = document.getElementById('xirr-result');
+        const invEl = document.getElementById('xirr-tot-inv');
+
+        function solveXirr() {
+          const P = parseFloat(sipEl.value) || 0;
+          const finalVal = parseFloat(valEl.value) || 0;
+          const months = parseInt(durEl.value) || 36;
+          const totalInv = P * months;
+          invEl.textContent = '₹' + totalInv.toLocaleString('en-IN');
+
+          if (P <= 0 || finalVal <= 0) {
+            resEl.textContent = '--';
+            return;
+          }
+
+          // Newton-Raphson approximation for monthly cashflow XIRR
+          let r = 0.12 / 12;
+          for (let iter = 0; iter < 50; iter++) {
+            let f = 0;
+            let df = 0;
+            for (let m = 0; m < months; m++) {
+              const t = months - m;
+              f += P * Math.pow(1 + r, t);
+              df += P * t * Math.pow(1 + r, t - 1);
+            }
+            f -= finalVal;
+            const diff = f / df;
+            r = r - diff;
+            if (Math.abs(diff) < 1e-6) break;
+          }
+
+          const annualXirr = (Math.pow(1 + r, 12) - 1) * 100;
+          if (isNaN(annualXirr) || !isFinite(annualXirr)) {
+            resEl.textContent = 'N/A';
+          } else {
+            resEl.textContent = annualXirr.toFixed(1) + '%';
+          }
+        }
+
+        sipEl.addEventListener('input', solveXirr);
+        valEl.addEventListener('input', solveXirr);
+        durEl.addEventListener('change', solveXirr);
+        solveXirr();
+      </script>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Get true XIRR for all your actual transactions</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto;">
+          Upload your CAMS/KFintech CAS statement and let Arthavi compute exact XIRR for every folio.
+        </p>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Upload CAS Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

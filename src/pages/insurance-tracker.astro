@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Insurance Portfolio Tracker India — Term, Health & Life Policies | Arthavi",
+  description: "Track all your term life, health insurance, and investment policies in one dashboard. Monitor sum assured, premium renewal dates, and policy coverage vs family net worth.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Insurance Portfolio Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Consolidate term insurance, health cover, and endowment policies with premium schedules and family adequacy diagnostic."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why track insurance alongside investments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "True wealth planning requires knowing both your wealth (assets) and your safety net (insurance sum assured). Arthavi evaluates whether your term life coverage is adequate relative to your family's annual expenses and outstanding liabilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Arthavi sell insurance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never. Arthavi is an independent portfolio tracker with zero commissions, no spam calls, and no insurance agent pitches. Your data stays 100% private."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="insurance portfolio tracker india, term insurance tracker, health insurance policy tracker, track insurance premiums india, family insurance dashboard"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Insurance Tracker", url: "https://arthavi.com/insurance-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Protection &amp; Risk Management · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Insurance Portfolio Tracker India</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Consolidate your Term Insurance, Health Covers, and policies in one place. Never miss a premium due date and verify your family's coverage adequacy with AI diagnostics.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Track Policies Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">☂️</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Term Life Adequacy</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track total Sum Assured across HDFC Life, ICICI Pru, Tata AIA, or LIC. See if your cover meets the recommended 15x–20x annual household expense rule.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🏥</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Health Insurance &amp; Super Top-up</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track base floater sum insured, deductible, and super top-up limits across family members to ensure medical emergencies won't erode your investment portfolio.
+          </p>
+        </div>
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📅</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Premium Renewal Calendar</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Clear calendar of all annual, half-yearly, and monthly premiums with renewal dates, helping you prepare liquidity before due dates.
+          </p>
+        </div>
+      </div>
+
+      <div style="max-width: 860px; margin: 0 auto 4rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Does Arthavi spam me with policy sales?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">No. Unlike distributor apps, Arthavi is 100% independent. We sell no insurance, earn zero agent commissions, and will never call or WhatsApp you to buy policies.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Can my family access policy details in an emergency?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes. You can export a Family Wealth Snapshot PDF containing policy names, insurer emergency helpline numbers, and sum assured details for immediate family reference.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Complete protection and investment visibility</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related trackers</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/family-wealth-snapshot/">Family Wealth Snapshot</a></li>
+          <li><a href="/net-worth-tracker-india/">Net Worth Tracker India</a></li>
+          <li><a href="/investment-goal-tracker/">Investment Goal Tracker</a></li>
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

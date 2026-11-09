@@ -1,0 +1,135 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const lastUpdated = '2026-11-09';
+const seo = {
+  title: "Arthavi vs MProfit (2026) — Comparison for Indian Investors",
+  description: "Detailed comparison of Arthavi vs MProfit. Compare features, pricing (MProfit HNI starting at ₹18,000/yr + GST), CAS import, and privacy side by side.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://arthavi.com/compare/arthavi-vs-mprofit/#webpage",
+      "url": "https://arthavi.com/compare/arthavi-vs-mprofit/",
+      "name": seo.title,
+      "description": seo.description,
+      "dateModified": lastUpdated
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does MProfit pricing compare to Arthavi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MProfit's official HNI plan starts at ₹18,000/year + GST for portfolios below ₹25 crore (verified November 2026 from mprofit.in/pricing). Family Office pricing is quote-based. Arthavi is 100% free for core portfolio tracking with multi-PAN family aggregation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does MProfit have a web and mobile app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. MProfit now advertises web and mobile access on paid plans alongside its traditional Windows desktop software. Arthavi is 100% cloud-based and accessible from any browser on Mac, Windows, Linux, iOS, and Android."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="arthavi vs mprofit, mprofit alternative, mprofit pricing, portfolio tracker india, mprofit comparison"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Compare", url: "https://arthavi.com/compare/" },
+      { name: "Arthavi vs MProfit", url: "https://arthavi.com/compare/arthavi-vs-mprofit/" }
+    ]
+  }}
+>
+
+<main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+  <section class="page-header fade-in" style="text-align: center; margin-bottom: 2.5rem;">
+    <p style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.2);">
+      <span>✓</span> Verified: {lastUpdated} (Official Pricing &amp; Feature Audit)
+    </p>
+    <h1>Arthavi vs MProfit (2026 Comparison)</h1>
+    <p class="text-muted" style="max-width: 720px; margin: 0 auto; font-size: 1.15rem;">
+      An objective comparison of features, pricing, data privacy, and portfolio analytics for Indian investors and family offices.
+    </p>
+  </section>
+
+  <article class="prose fade-in delay-100" style="max-width: 900px; margin: 0 auto;">
+    
+    <div class="compare-table-wrap" style="margin: 2.5rem 0;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-arthavi">Arthavi</th>
+            <th>MProfit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pricing</strong></td>
+            <td class="col-arthavi">₹0 — Free forever (core tracking)</td>
+            <td>HNI from ₹18,000/yr + GST; Family Office quote-based</td>
+          </tr>
+          <tr>
+            <td><strong>Platform</strong></td>
+            <td class="col-arthavi">Modern Cloud (Mac, Windows, iOS, Android)</td>
+            <td>Windows Desktop + Web &amp; Mobile (paid tiers)</td>
+          </tr>
+          <tr>
+            <td><strong>Mutual Fund Import</strong></td>
+            <td class="col-arthavi">CAS PDF auto-import in 30s + CAS Delta Import</td>
+            <td>File import &amp; registrar feeds</td>
+          </tr>
+          <tr>
+            <td><strong>Stock Trade Import</strong></td>
+            <td class="col-arthavi">Zerodha, Groww, Upstox, Angel One CSV</td>
+            <td>1,500+ broker contract notes &amp; back-office feeds</td>
+          </tr>
+          <tr>
+            <td><strong>Accounting Focus</strong></td>
+            <td class="col-arthavi">Investor cash-flow XIRR &amp; portfolio intelligence</td>
+            <td>Double-entry accounting, CA ledgers &amp; vouchers</td>
+          </tr>
+          <tr>
+            <td><strong>Family Multi-PAN</strong></td>
+            <td class="col-arthavi">Free multi-profile family tracking</td>
+            <td>Supported on HNI / Family Office paid plans</td>
+          </tr>
+          <tr>
+            <td><strong>AI Assistant</strong></td>
+            <td class="col-arthavi">Ask AI Wealth Coach on your actual portfolio</td>
+            <td>None</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>When MProfit is the right choice</h2>
+    <p>MProfit is an established solution designed for chartered accountants, wealth managers, and large family offices managing multi-entity accounts. It excels at complex double-entry accounting ledgers and integrations with 1,500+ broker contract notes.</p>
+
+    <h2>When Arthavi is the better choice</h2>
+    <p>For retail investors and families who want a clean, cloud-first wealth dashboard without high subscription fees (MProfit HNI starting at ₹18,000/yr), Arthavi provides automated CAS statement parsing, cash-flow accurate XIRR, Section 112A capital gains, precious metals and fixed deposits, and an AI assistant that answers questions in plain English.</p>
+
+    <div style="text-align: center; margin: 3rem 0;">
+      <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Free on Arthavi</a>
+      <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+    </div>
+
+  </article>
+</main>
+
+</Layout>

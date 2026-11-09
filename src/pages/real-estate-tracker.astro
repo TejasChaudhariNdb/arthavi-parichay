@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Real Estate Portfolio Tracker India — Track Property Value in Net Worth | Arthavi",
+  description: "Track residential flats, plots, commercial real estate, and home loan liabilities in one dashboard. See property appreciation and net equity on Arthavi.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Real Estate & Property Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Track physical property holdings, purchase costs, current market valuations, appreciation, and home loan net equity in INR."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Arthavi track real estate properties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You enter property details: name/address, type (Residential, Commercial, Land/Plot), purchase date, total acquisition cost, and current estimated market valuation. Arthavi computes capital appreciation and tracks your net equity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I track home loans against property value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Arthavi lets you log outstanding home loan balances as a liability. The platform calculates your True Home Equity (Market Value minus Outstanding Loan) for accurate net worth reporting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does real estate integrate into the asset allocation wheel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Real estate appears as its own dedicated asset class alongside Equity, Debt, and Gold in your family wealth dashboard."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="real estate portfolio tracker india, property tracker india, real estate net worth tracker, home equity tracker india, property value tracker india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Real Estate Tracker", url: "https://arthavi.com/real-estate-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Physical Assets · Property · India</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Real Estate &amp; Property Tracker India</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Real estate is often an Indian family's largest asset. Track apartments, plots, commercial real estate, and home loan liabilities to reveal your true net worth.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Track Real Estate Free</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">Explore Demo</a>
+        </div>
+      </div>
+
+      <!-- Feature Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
+        
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🏢</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Residential &amp; Commercial</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track self-occupied homes, rental apartments, commercial office spaces, agricultural land, and plotted developments with purchase dates and cost bases.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📉</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Net Home Equity</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            A ₹1.5 Crore apartment with an ₹80 Lakh home loan is not ₹1.5 Crore in net worth. Arthavi computes True Net Equity (Value minus Outstanding Principal) for accurate accounting.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">💰</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Appreciation &amp; Rental Yield</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Track capital appreciation over your holding period and compare real estate returns against equity index funds and debt mutual funds.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🤖</div>
+          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">AI Illiquidity Insights</h2>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
+            Ask AI: "Is my portfolio too illiquid due to heavy real estate?", "What is my liquid vs illiquid asset split?", or "How would selling property impact my FIRE corpus?".
+          </p>
+        </div>
+
+      </div>
+
+      <!-- FAQ Section -->
+      <div style="max-width: 860px; margin: 0 auto 4rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">How do I add a property to Arthavi?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Click Add Property, specify the name, property category (Flat, Villa, Plot, Commercial), purchase cost, purchase year, and current estimated market value. You can also link an active home loan.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Does Arthavi share property details with anyone?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">No. Arthavi is privacy-first. We do not sell data to real estate brokers or lenders, and we never ask for registry documents or property deed numbers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Bring your physical and financial assets together</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Explore more trackers</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/net-worth-tracker-india/">Net Worth Tracker India</a></li>
+          <li><a href="/gold-portfolio-tracker/">Gold Portfolio Tracker</a></li>
+          <li><a href="/fixed-deposit-tracker/">Fixed Deposit Tracker</a></li>
+          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>

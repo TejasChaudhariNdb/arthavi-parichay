@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seo = {
+  title: "Zerodha Portfolio Tracker — Import Kite Holdings Privately | Arthavi",
+  description: "Track your Zerodha stock portfolio on Arthavi by importing your Kite tradebook CSV. No Zerodha login, password, or Kite Connect API required. 100% Free.",
+};
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Arthavi Zerodha Portfolio Tracker",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Private portfolio tracking for Zerodha Kite investors using tradebook CSV uploads without broker password sharing."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Arthavi connect directly to my Zerodha account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Arthavi intentionally has NO direct broker account integration. You never share your Zerodha Kite login credentials, TOTP, or API secret. You simply upload your tradebook CSV file directly to your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I export my tradebook from Zerodha Kite?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1. Login to console.zerodha.com -> Reports -> Tradebook. 2. Select your desired date range. 3. Download as CSV. 4. Upload the CSV into Arthavi. All stocks and average buy prices are parsed automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about my Zerodha Coin mutual funds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mutual funds bought via Zerodha Coin are held in Demat mode and appear in your monthly CAMS/KFintech Consolidated Account Statement (CAS). Uploading your CAS to Arthavi brings in all your Coin mutual funds with zero manual entry."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords="zerodha portfolio tracker, zerodha kite portfolio tracker, track zerodha stocks arthavi, zerodha tradebook import, zerodha holdings tracker india"
+  schema={schema}
+  breadcrumb={{
+    items: [
+      { name: "Home", url: "https://arthavi.com/" },
+      { name: "Zerodha Portfolio Tracker", url: "https://arthavi.com/zerodha-portfolio-tracker/" }
+    ]
+  }}
+>
+
+<main style="padding-top: 7rem; padding-bottom: 5rem;">
+  <section style="padding-top: 1rem; position: relative; z-index: 2;">
+    <div class="container">
+
+      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
+        <span style="display:inline-block; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #60a5fa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Broker Support · Zerodha Kite</span>
+        <h1 class="heading-xl" style="margin-bottom: 1rem;">Zerodha Portfolio Tracker</h1>
+        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
+          Consolidate your Zerodha stocks with external mutual funds, gold, and family portfolios. No Zerodha password or API access required.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Import Zerodha Trades</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
+        </div>
+      </div>
+
+      <!-- Trust & Mechanism Notice -->
+      <div class="glass-panel fade-in" style="max-width: 860px; margin: 0 auto 3.5rem; padding: 1.8rem; border-radius: 16px; border-color: rgba(59,130,246,0.25); background: rgba(59,130,246,0.04);">
+        <h2 style="font-size: 1.15rem; margin-top: 0; margin-bottom: 0.6rem; color: var(--text-head);">How Arthavi supports Zerodha investors:</h2>
+        <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--text-body);">
+          Arthavi provides <strong>user-controlled file import</strong>. We do not use Kite Connect APIs, we do not require your Zerodha password, and we cannot place trades on your behalf. You simply download your standard tradebook CSV from Zerodha Console and upload it to Arthavi. Real-time NSE and BSE stock prices update automatically.
+        </p>
+      </div>
+
+      <!-- Steps -->
+      <div style="max-width: 900px; margin: 0 auto 4rem;">
+        <h2 style="text-align: center; margin-bottom: 2.5rem; font-size: 1.8rem;">How to import Zerodha holdings in 3 steps</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(59,130,246,0.15); display: flex; align-items: center; justify-content: center; color: #60a5fa; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">1</div>
+            <h3 style="margin-top: 0; font-size: 1.05rem; color: var(--text-head);">Export Kite Tradebook</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Log in to console.zerodha.com. Go to Reports &gt; Tradebook. Select your date range and export as CSV.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(59,130,246,0.15); display: flex; align-items: center; justify-content: center; color: #60a5fa; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">2</div>
+            <h3 style="margin-top: 0; font-size: 1.05rem; color: var(--text-head);">Upload to Arthavi</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">In your Arthavi dashboard, click Import Trades &gt; Zerodha CSV. Drop the file — transactions parse in under 5 seconds.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 16px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(59,130,246,0.15); display: flex; align-items: center; justify-content: center; color: #60a5fa; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">3</div>
+            <h3 style="margin-top: 0; font-size: 1.05rem; color: var(--text-head);">View Live Portfolio</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">Arthavi fetches live NSE/BSE quotes, computes weighted average purchase price, XIRR, and LTCG/STCG tax liability.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div style="max-width: 860px; margin: 0 auto 4rem;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Does Arthavi connect directly to my Zerodha account?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">No. Arthavi has zero broker password integrations. You maintain 100% control by importing your standard tradebook CSV files.</p>
+          </div>
+          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
+            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Can I track Zerodha and Groww stocks together?</h3>
+            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes! You can import tradebooks from both Zerodha and Groww. Arthavi combines them into one unified equity portfolio.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; padding: 2rem 0 3rem;">
+        <h2 style="margin-bottom: 1rem;">Track your Zerodha stocks with total privacy</h2>
+        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Import Zerodha Trades</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      </div>
+
+      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related broker trackers</h3>
+        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
+          <li><a href="/groww-portfolio-tracker/">Groww Portfolio Tracker</a></li>
+          <li><a href="/upstox-portfolio-tracker/">Upstox Portfolio Tracker</a></li>
+          <li><a href="/angel-one-portfolio-tracker/">Angel One Portfolio Tracker</a></li>
+          <li><a href="/stock-portfolio-tracker-india/">Stock Portfolio Tracker India</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </section>
+</main>
+
+</Layout>
