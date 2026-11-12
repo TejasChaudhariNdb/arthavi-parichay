@@ -47,7 +47,7 @@ const schema = JSON.stringify({
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "What is XIRR and why is it better than CAGR for SIPs?", "acceptedAnswer": { "@type": "Answer", "text": "XIRR (Extended Internal Rate of Return) calculates your annualized return accounting for the exact dates and amounts of every cash flow. Unlike CAGR which assumes a single lump sum, XIRR handles the irregular cash flows of SIPs accurately, giving you a true picture of your investment performance." } },
-        { "@type": "Question", "name": "How is XIRR calculated?", "acceptedAnswer": { "@type": "Answer", "text": "XIRR is calculated by finding the discount rate 'r' that makes the Net Present Value (NPV) of all cash flows equal to zero. The formula uses Newton-Raphson iteration: NPV = Σ [Ci / (1+r)^((di-d0)/365)] = 0, where Ci is each cash flow and di is its date." } },
+        { "@type": "Question", "name": "How is XIRR calculated?", "acceptedAnswer": { "@type": "Answer", "text": "XIRR is calculated by finding the discount rate 'r' that makes the Net Present Value (NPV) of all cash flows equal to zero. The formula uses Newton-Raphson iteration: NPV = Σ [Ci / (1+r)^((di-d0)/365.25)] = 0, where Ci is each cash flow and di is its date." } },
         { "@type": "Question", "name": "What is a good XIRR for mutual funds in India?", "acceptedAnswer": { "@type": "Answer", "text": "For equity mutual funds in India, an XIRR of 12-15% over 5+ years is considered good. Large-cap funds typically deliver 10-13% XIRR, mid-cap funds 13-18%, and small-cap funds can deliver 15-22% but with higher volatility. Debt funds typically show 6-8% XIRR." } },
         { "@type": "Question", "name": "Can I calculate XIRR for multiple SIPs in different funds?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enter all cash flows across all funds along with the combined current value. For per-fund XIRR, use Arthavi's portfolio tracker which automatically calculates fund-level and portfolio-level XIRR from your CAS statement." } }
       ]
@@ -141,7 +141,7 @@ const schema = JSON.stringify({
 
     <h2>How is XIRR calculated?</h2>
     <p>XIRR finds the discount rate <em>r</em> that makes the Net Present Value (NPV) of all cash flows equal to zero:</p>
-    <p style="text-align: center; font-family: monospace; font-size: 1.1rem; color: var(--text-head); padding: 1rem; background: rgba(255,255,255,0.04); border-radius: 8px;">NPV = Σ [ C<sub>i</sub> / (1 + r)<sup>(d<sub>i</sub> - d<sub>0</sub>) / 365</sup> ] = 0</p>
+    <p style="text-align: center; font-family: monospace; font-size: 1.1rem; color: var(--text-head); padding: 1rem; background: rgba(255,255,255,0.04); border-radius: 8px;">NPV = Σ [ C<sub>i</sub> / (1 + r)<sup>(d<sub>i</sub> - d<sub>0</sub>) / 365.25</sup> ] = 0</p>
     <p>This calculator uses Newton-Raphson iteration to converge on the rate, the same method Excel's XIRR function uses internally.</p>
 
     <h2>What is a good XIRR for mutual funds in India?</h2>
