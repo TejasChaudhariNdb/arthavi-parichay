@@ -147,7 +147,9 @@ if (schema) {
         import posthog from 'posthog-js';
         const key = import.meta.env.PUBLIC_POSTHOG_KEY;
         const host = import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com';
-        if (key) {
+        // Local previews must not send events to the production project.
+        const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+        if (key && !isLocal) {
             posthog.init(key, {
                 api_host: host,
                 persistence: 'cookie',

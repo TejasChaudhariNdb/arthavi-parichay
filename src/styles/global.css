@@ -173,7 +173,7 @@
         }
 
         .btn-demo::after {
-            content: "Most Popular";
+            content: none; /* badge removed: PostHog shows almost no demo clicks from the site */
             position: absolute;
             top: -0.75rem;
             right: 1rem;
