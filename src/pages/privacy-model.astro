@@ -21,7 +21,7 @@ const schema = JSON.stringify({
         { "@type": "Question", "name": "Does Arthavi read your emails?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi never requests Gmail or email read access. Portfolio data is imported exclusively through direct CAS PDF upload controlled by the user. This is fundamentally different from apps like INDmoney that scrape investment emails via OAuth." } },
         { "@type": "Question", "name": "Does Arthavi require broker login credentials?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi never asks for Zerodha, Groww, Upstox, or any broker password, MPIN, or TOTP token. Portfolio tracking works through read-only CAS statements and manual stock entries." } },
         { "@type": "Question", "name": "Does Arthavi sell user data to third parties?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi does not sell, share, or monetize user data with lenders, insurance companies, mutual fund distributors, or advertisers. The platform earns through premium feature tiers, not data brokering." } },
-        { "@type": "Question", "name": "How does Arthavi encrypt user data?", "acceptedAnswer": { "@type": "Answer", "text": "All data in transit uses TLS 1.3 with HSTS. Data at rest is encrypted using AES-256 bank-grade encryption. CAS PDFs and their passwords are sent over HTTPS and used only to read your statement." } }
+        { "@type": "Question", "name": "How does Arthavi encrypt user data?", "acceptedAnswer": { "@type": "Answer", "text": "All data in transit uses TLS 1.3 with HSTS. Data at rest is encrypted using AES-256 bank-grade encryption. CAS PDFs and their passwords are sent over HTTPS, used only to read your statement, and not stored." } }
       ]
     }
   ]
@@ -68,8 +68,8 @@ const schema = JSON.stringify({
         <tbody>
           <tr><td>Email address</td><td>Yes</td><td>Account authentication only</td></tr>
           <tr><td>Phone number</td><td>No</td><td>Never collected — you'll never get marketing calls</td></tr>
-          <tr><td>CAS PDF content</td><td>Parsed</td><td>Transaction data extracted to build your portfolio; never sold or shared</td></tr>
-          <tr><td>CAS password</td><td>Used to open the PDF</td><td>Sent over HTTPS with the upload; never sold or shared</td></tr>
+          <tr><td>CAS PDF content</td><td>Parsed</td><td>Transaction data extracted; the PDF itself is not stored</td></tr>
+          <tr><td>CAS password</td><td>Used to open the PDF</td><td>Sent over HTTPS with the upload; not stored</td></tr>
           <tr><td>Stock holdings</td><td>Yes</td><td>Used for portfolio display and analytics</td></tr>
           <tr><td>Gmail/email inbox</td><td>No</td><td>Never requested — no OAuth email scopes</td></tr>
           <tr><td>Broker credentials</td><td>No</td><td>Never requested — no demat linking</td></tr>

@@ -15,7 +15,7 @@ const faqs = [
   { q: "Should I choose the summary or the detailed statement?", a: "Choose Detailed, with the period set to Since Inception. The summary only shows current holdings; the detailed statement has every purchase, redemption and switch, which Arthavi needs to calculate cost, XIRR and capital gains." },
   { q: "Does the CAMS CAS include funds serviced by KFintech?", a: "Yes. The consolidated statement covers your folios across all fund houses, whichever registrar services them, as long as they are linked to your PAN and email." },
   { q: "Does the CAMS CAS include my stocks?", a: "No. It covers mutual funds only. Add stocks to Arthavi by uploading your broker's holdings or tradebook file (CSV or Excel)." },
-  { q: "What happens to my CAS after I upload it to Arthavi?", a: "The PDF and its password travel over an encrypted HTTPS connection, and Arthavi uses them only to read your folios and transactions. Your data is never sold or shared, and Arthavi never reads your email or asks for broker passwords." },
+  { q: "What happens to my CAS after I upload it to Arthavi?", a: "The PDF and its password travel over an encrypted HTTPS connection, and Arthavi uses them only to read your folios and transactions. Arthavi does not store your CAS PDF or its password; it keeps only the holdings and transactions read from it. Your data is never sold or shared, and Arthavi never reads your email or asks for broker passwords." },
   { q: "How often should I upload a new CAS?", a: "Whenever you want new transactions to appear, for example once a month. NAVs update automatically in between; only new purchases or redemptions need a fresh statement." },
 ];
 
@@ -124,7 +124,7 @@ const schema = JSON.stringify({
           <li>Next month, upload a newer CAS; Arthavi adds only what changed (see <a href="/cas-delta-import/">CAS delta import</a>).</li>
         </ol>
         <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 0;">
-          The PDF and password travel over an encrypted HTTPS connection and are used only to build your portfolio. Your data is never sold or shared. See the <a href="/privacy-model/">privacy model</a>.
+          The PDF and password travel over an encrypted HTTPS connection and are used only to build your portfolio. Arthavi does not store your CAS PDF or its password; it keeps only the holdings and transactions read from it. Your data is never sold or shared. See the <a href="/privacy-model/">privacy model</a>.
         </p>
       </div>
 

@@ -61,7 +61,7 @@ Groww is an execution broker. Arthavi is a read-only tracking layer with no trad
 
 ### CAS Parser (Methodology: https://arthavi.com/methodology/)
 - Supports CAMS and KFintech CAS PDFs
-- The PDF and its password are sent over an encrypted HTTPS connection and used only to read the statement; data is never sold or shared
+- The PDF and its password are sent over an encrypted HTTPS connection and used only to read the statement; Arthavi does not store the CAS PDF or its password, only the extracted holdings and transactions
 - Extracts folios, ISINs, transaction dates/types, units, NAVs, valuations
 - Computes XIRR via Newton-Raphson iteration on exact cash flow dates
 - Handles SIP, Purchase, Redemption, Switch, Dividend Reinvestment
@@ -165,6 +165,7 @@ Step-by-step for CAMS (camsonline.com), KFintech (kfintech.com), and NSDL. Troub
 - **Zero Email Inbox Access**: Never requests OAuth scopes for reading user emails
 - **Zero Broker Passwords**: Never asks for login credentials, MPINs, or TOTP tokens
 - **Zero Phone Collection**: Does not collect phone numbers during signup — no marketing calls
+- **Zero CAS Storage**: The CAS PDF and its password are not stored; only extracted holdings and transactions are kept
 - **Zero Data Selling**: Does not monetize through data brokering or affiliate lead generation
 - **Encryption**: TLS 1.3 (transit) + AES-256 (at rest)
 - **Account Deletion**: Immediate permanent data wipe with no retention period
