@@ -57,7 +57,7 @@
 - [CAS Statement Explained](https://arthavi.com/guides/cas-statement-explained/): What is a Consolidated Account Statement, what it contains, how to download, and how to use for portfolio tracking.
 - [How to Import CAS from CAMS, KFintech & NSDL](https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/): Step-by-step instructions for downloading and importing CAS into Arthavi.
 - [CAMS CAS Statement Guide](https://arthavi.com/cams-cas-statement-guide/): Request the detailed CAMS CAS, summary vs detailed, password, and what happens after upload.
-- [9 Best Online Investment Tracker Tools in India](https://arthavi.com/blog/best-online-investment-tracker-india): Arthavi, INDmoney, Value Research, Groww, MFCentral, Zerodha Console, Kuvera, ET Money and MProfit compared.
+- [9 Best Online Investment Tracker Tools in India](https://arthavi.com/blog/best-online-investment-tracker-india/): Arthavi, INDmoney, Value Research, Groww, MFCentral, Zerodha Console, Kuvera, ET Money and MProfit compared.
 - [Can You Use Zerodha and Groww Together?](https://arthavi.com/blog/track-zerodha-groww-portfolio-together/): Yes; how to track both in one dashboard without broker logins.
 
 ## Market Data Pages
