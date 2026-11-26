@@ -1,5 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PageSummary from '../../components/PageSummary.astro';
+
+const page = { dateModified: '2026-11-27' };
 
 const seo = {
   title: "9 Best Online Investment Tracker Tools in India (2026) | Arthavi",
@@ -16,7 +19,7 @@ const schema = JSON.stringify({
       "headline": "9 Best Online Investment Tracker Tools in India (2026)",
       "description": "Compare the best online investment tracker tools in India for 2026. Track stocks, mutual funds, NPS, and net worth in one place.",
       "datePublished": "2026-10-10",
-      "dateModified": "2026-10-10",
+      "dateModified": "2026-11-27",
       "author": { "@type": "Organization", "name": "Arthavi", "url": "https://arthavi.com" },
       "publisher": { "@type": "Organization", "name": "Arthavi" },
       "mainEntityOfPage": "https://arthavi.com/blog/best-online-investment-tracker-india"
@@ -69,6 +72,7 @@ const schema = JSON.stringify({
   keywords={seo.keywords}
   schema={schema}
   canonical="https://arthavi.com/blog/best-online-investment-tracker-india"
+  dateModified={page.dateModified}
   breadcrumb={{
     items: [
       { name: "Home", url: "https://arthavi.com" },
@@ -245,11 +249,16 @@ const schema = JSON.stringify({
   <p class="sub">
     Your stocks are on Zerodha. Mutual funds on Groww and CAMS. FDs on your bank app. We compared the top trackers so you can pick one that shows your true financial picture — no guesswork.
   </p>
-  <p class="blog-meta">By Arthavi Team &nbsp;·&nbsp; 10 min read &nbsp;·&nbsp; Updated October 2026</p>
+  <p class="blog-meta">By Arthavi Team &nbsp;·&nbsp; 10 min read &nbsp;·&nbsp; Updated <time datetime="2026-11-27">27 November 2026</time></p>
 </header>
 
 <main class="article-wrap" id="main">
   <article class="prose">
+    <PageSummary
+      dateModified={page.dateModified}
+      answer="The best online investment tracker in India depends on what you hold and how much access you are willing to give. <strong>Arthavi</strong> is a free tracker built for Indian families: it imports mutual funds from your CAS (Consolidated Account Statement) and stocks from your broker's holdings or tradebook file, needs no broker login or email access, and also covers <a href='/nps-tracker/'>NPS</a>, <a href='/pms-aif-tracker/'>PMS and AIF</a>, <a href='/ulip-tracker/'>ULIPs</a>, FDs, gold and property. INDmoney suits people who want US stocks and credit products in one app; MProfit suits accountants and advisers; Zerodha Console only shows Zerodha holdings."
+      terms={['CAS', 'CAMS', 'XIRR', 'FD', 'ULIP', 'NPS', 'PMS', 'AIF', 'MF', 'AMC', 'SMS', 'LTCG']}
+    />
 
     <p>
       If your investments are scattered across mutual funds, stocks, fixed deposits, and maybe some ULIPs, you already know the pain. Spreadsheets break. Memory fails. Checking five different apps every morning is nobody's idea of fun. That's where an <strong>online investment tracker</strong> steps in — one dashboard, all your assets, <strong>real-time visibility into your actual financial position</strong>.
@@ -375,7 +384,7 @@ const schema = JSON.stringify({
     <div class="winner-card">
       <h2>1. Arthavi — Best Online Investment Tracker in India</h2>
       <p>
-        Arthavi is India's most <strong>privacy-first, accurate investment tracker</strong> for retail investors. Unlike apps that demand broker credentials or Gmail access, Arthavi uses your <strong>CAS (Consolidated Account Statement)</strong> from CAMS or KFintech to import all mutual fund holdings automatically — and supports stocks from any Indian broker via CSV or manual input.
+        Arthavi is India's most <strong>privacy-first, accurate investment tracker</strong> for retail investors. Unlike apps that demand broker credentials or Gmail access, Arthavi uses your <strong>CAS (Consolidated Account Statement)</strong> from CAMS or KFintech to import all mutual fund holdings automatically — and supports stocks from any Indian broker via a <a href="/stock-tradebook-import/">holdings or tradebook file (CSV or Excel)</a> or manual input.
       </p>
       <p>
         The result: a single unified dashboard that shows your <strong>true XIRR, net worth, asset allocation, and capital gains</strong> — without ever handing over your credentials to a third party.
@@ -387,27 +396,23 @@ const schema = JSON.stringify({
         <div class="feat-item"><span class="icon">✅</span><span>Capital gains report ready for tax filing</span></div>
         <div class="feat-item"><span class="icon">✅</span><span>Multi-profile: track your entire family's wealth</span></div>
         <div class="feat-item"><span class="icon">✅</span><span>Zero broker login / zero email scraping</span></div>
-        <div class="feat-item"><span class="icon">✅</span><span>100% free to start — no credit card needed</span></div>
-        <div class="feat-item"><span class="icon">✅</span><span>Dividends, splits, bonuses auto-captured</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>Free — no credit card needed</span></div>
+        <div class="feat-item"><span class="icon">✅</span><span>NPS, PMS/AIF, ULIP, FD, gold and property too</span></div>
       </div>
     </div>
 
     <h3>How Arthavi imports your investment data</h3>
     <p>
-      Setting up Arthavi takes under 5 minutes. Request your <strong>CAS statement from CAMS or KFintech</strong> (a single PDF consolidating every mutual fund you've ever held), upload it to Arthavi, and every folio, NAV, transaction, and XIRR is calculated instantly — no manual entry required.
+      Setting up Arthavi takes under 5 minutes. Request your <strong>CAS statement from <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener">CAMS</a> or <a href="https://mfs.kfintech.com/investor/General/ConsolidatedAccountStatement" target="_blank" rel="noopener">KFintech</a></strong> (a single PDF consolidating every mutual fund you've ever held), upload it to Arthavi, and every folio, NAV, transaction, and XIRR is calculated instantly — no manual entry required.
     </p>
     <p>
-      For stocks, export your holding statement from your broker and upload it. Arthavi supports <strong>Zerodha, Groww, Angel One, HDFC Securities, ICICI Direct, Upstox</strong>, and more.
+      For stocks, export your holdings statement or <a href="/stock-tradebook-import/">tradebook</a> (CSV or Excel) from your broker and upload it. Arthavi supports <strong>Zerodha, Groww, Angel One, HDFC Securities, ICICI Direct, Upstox</strong>, and more.
     </p>
 
     <h3>Privacy and security</h3>
     <p>
-      This is Arthavi's biggest differentiator. Most apps ask for Gmail to read broker emails, or your broker username and password. <a href="/portfolio-tracker-without-broker-login">Arthavi never needs broker login credentials</a>. Your financial data stays on your device during import, and the platform adheres to strict data minimisation principles.
+      This is Arthavi's biggest differentiator. Most apps ask for Gmail to read broker emails, or your broker username and password. <a href="/portfolio-tracker-without-broker-login">Arthavi never needs broker login credentials</a>. You upload only the statements you choose, Arthavi never reads your email, and your data is never sold or shared; see the <a href="/privacy-model/">privacy model</a>.
     </p>
-
-    <blockquote>
-      "The best investment tracker you'll never regret using — because it never asks for your passwords."
-    </blockquote>
 
     <h3>Who should use Arthavi</h3>
     <p>
@@ -416,7 +421,7 @@ const schema = JSON.stringify({
 
     <h3>Arthavi pricing</h3>
     <p>
-      <strong>Free to start</strong> — core portfolio tracking, XIRR analytics, and CAS import are all available at no cost. <a href="https://app.arthavi.com/register">Create your free account</a> and start tracking in minutes.
+      <strong>Free</strong> — core portfolio tracking, XIRR analytics, and CAS import are all available at no cost. <a href="https://app.arthavi.com/register">Create your free account</a> and start tracking in minutes.
     </p>
 
     <div class="cta-banner">
@@ -491,7 +496,7 @@ const schema = JSON.stringify({
     <span class="verdict-pill pill-green">✅ Best for authoritative MF data</span>
     <h2>5. MFCentral</h2>
     <p>
-      MFCentral is a <strong>joint initiative by CAMS and KFintech</strong> — India's two dominant registrar and transfer agents for mutual funds. It gives you a regulated, authoritative view of all your mutual fund folios across every AMC.
+      <a href="https://www.mfcentral.com/" target="_blank" rel="noopener">MFCentral</a> is a <strong>joint initiative by CAMS and KFintech</strong> — India's two dominant registrar and transfer agents for mutual funds. It gives you a regulated, authoritative view of all your mutual fund folios across every AMC.
     </p>
     <h3>Key strengths</h3>
     <ul>
@@ -568,7 +573,7 @@ const schema = JSON.stringify({
     <p>IFAs, CA firms, and HNI investors with complex multi-asset portfolios who need professional-grade reporting.</p>
 
     <!-- HOW TO CHOOSE -->
-    <h2>How to Choose the Right Online Investment Tracker</h2>
+    <h2>How do you choose the right online investment tracker?</h2>
     <p>Use this simple decision framework:</p>
     <ul>
       <li><strong>Want everything free + private + accurate XIRR?</strong> → <a href="https://app.arthavi.com/register">Arthavi</a></li>

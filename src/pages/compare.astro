@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageSummary from '../components/PageSummary.astro';
+import NextSteps from '../components/NextSteps.astro';
+
+const page = { dateModified: '2026-11-27' };
 
 const seo = {
   title: "Compare Best Portfolio Trackers in India (2026) | Arthavi vs MProfit, INDmoney, Kuvera, Dezerv",
@@ -52,10 +56,10 @@ const competitors = [
     name: "Kuvera",
     slug: "/alternatives/kuvera/",
     category: "Direct Mutual Funds",
-    pricing: "Acquired by Groww",
+    pricing: "Part of CRED (2024)",
     arthaviCost: "Independent & Free",
-    keyDiff: "Following Kuvera's acquisition by Groww, Arthavi offers an independent, privacy-first sanctuary for tracking direct mutual funds without broker lock-in.",
-    badge: "Top Kuvera Successor"
+    keyDiff: "Kuvera is an investing platform owned by CRED since 2024. Arthavi is an independent, privacy-first tracker for funds bought anywhere, with no platform lock-in.",
+    badge: "Independent Kuvera Alternative"
   },
   {
     name: "Zerodha Console",
@@ -146,7 +150,7 @@ const schema = JSON.stringify({
           "name": "What happened to Kuvera and what is the best alternative?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Kuvera was acquired by discount broker Groww in 2024. Investors looking for an independent, clean, ad-free portfolio tracker choose Arthavi as the primary Kuvera alternative for tracking direct mutual funds and family holdings."
+            "text": "Kuvera was acquired by CRED in February 2024 and runs as a standalone investing app. Investors looking for an independent, clean, ad-free portfolio tracker choose Arthavi as the primary Kuvera alternative for tracking direct mutual funds and family holdings."
           }
         }
       ]
@@ -161,6 +165,7 @@ const schema = JSON.stringify({
   keywords="compare portfolio trackers india, mprofit alternative, indmoney alternative, kuvera alternative, valueresearch alternative, dezerv alternative, best mutual fund tracker india 2026"
   schema={schema}
   breadcrumb={{ items: breadcrumbs }}
+  dateModified={page.dateModified}
 >
   <main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
     <div style="max-width: 1040px; margin: 0 auto;">
@@ -172,7 +177,7 @@ const schema = JSON.stringify({
       </nav>
 
       <!-- Hero Header -->
-      <header style="text-align: center; margin-bottom: 3.5rem;">
+      <div style="text-align: center; margin-bottom: 3.5rem;">
         <div style="display: flex; gap: 0.75rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 1rem;">
           <span style="display: inline-block; padding: 0.3rem 0.85rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38BDF8; font-size: 0.85rem; font-weight: 600;">
             Independent Wealth Tech Benchmark (2026)
@@ -187,7 +192,17 @@ const schema = JSON.stringify({
         <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 780px; margin: 0 auto; line-height: 1.6;">
           See how Arthavi compares against <strong>MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel</strong>. Honest, side-by-side breakdowns on data privacy, CAS statement import, family view, and pricing.
         </p>
-      </header>
+        <div style="display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 1.75rem;">
+          <a href="https://app.arthavi.com/register" class="btn btn-primary">Create free account</a>
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try the demo, no signup</a>
+        </div>
+      </div>
+
+      <PageSummary
+        dateModified={page.dateModified}
+        answer="<strong>Arthavi</strong> is a free, independent portfolio tracker for Indian families. Compared with MProfit it costs nothing and runs in the browser; compared with INDmoney it never reads your email; compared with Kuvera, Groww or Zerodha it does not sell or execute investments, so it has nothing to push. It imports CAS statements and broker tradebooks and tracks mutual funds, stocks, <a href='/nps-tracker/'>NPS</a>, <a href='/pms-aif-tracker/'>PMS / AIF</a>, FDs, gold and property for every family member."
+        terms={['CAS', 'CAMS', 'AMC', 'NAV', 'XIRR', 'SIP', 'NPS', 'PMS', 'AIF', 'FD', 'DIY', 'TLS']}
+      />
 
       <!-- Grand Master Comparison Table -->
       <section style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; margin-bottom: 4rem;">
@@ -250,11 +265,11 @@ const schema = JSON.stringify({
               </tr>
               <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                 <td style="padding: 1rem; font-weight: 600;"><a href="/alternatives/kuvera/" style="color: #93C5FD; text-decoration: none;">Kuvera</a></td>
-                <td style="padding: 1rem;">Merged into Groww</td>
-                <td style="padding: 1rem;">Groww Broker Account</td>
-                <td style="padding: 1rem;">Yes (Inside Groww)</td>
+                <td style="padding: 1rem;">Free investing platform (CRED-owned since 2024)</td>
+                <td style="padding: 1rem;">Investing account</td>
+                <td style="padding: 1rem; color: #94A3B8;">Not verified</td>
                 <td style="padding: 1rem;">Family Accounts</td>
-                <td style="padding: 1rem; color: #94A3B8;">None</td>
+                <td style="padding: 1rem; color: #94A3B8;">Not verified</td>
               </tr>
               <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
                 <td style="padding: 1rem; font-weight: 600;"><a href="/arthavi-vs-zerodha/" style="color: #93C5FD; text-decoration: none;">Zerodha Console</a></td>
@@ -317,6 +332,24 @@ const schema = JSON.stringify({
         </div>
       </section>
 
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 1.8rem; color: #FFFFFF; margin-bottom: 1rem;">Which portfolio tracker should you choose?</h2>
+        <p style="color: var(--text-muted); line-height: 1.7;">It depends on what you need the tool to do. Arthavi is not the right fit for everyone:</p>
+        <ul style="color: var(--text-muted); line-height: 1.8;">
+          <li><strong>Choose Arthavi</strong> if you want one free, private view of your whole family's investments across every broker and fund house.</li>
+          <li><strong>Choose MProfit</strong> if you are an accountant or adviser who needs client accounting features.</li>
+          <li><strong>Choose INDmoney</strong> if you want tracking, US stocks and credit products in one app and are comfortable granting email access.</li>
+          <li><strong>Choose Kuvera, Groww or Zerodha</strong> if you mainly want to buy and sell; their portfolio screens are built around what you hold with them.</li>
+          <li><strong>Stay with Excel</strong> if you hold a handful of investments and enjoy maintaining formulas.</li>
+        </ul>
+        <h3 style="font-size: 1.2rem; color: #FFFFFF; margin-top: 1.5rem;">How to switch to Arthavi in 3 steps</h3>
+        <ol style="color: var(--text-muted); line-height: 1.8;">
+          <li>Download your CAS (Consolidated Account Statement) PDF from CAMS or KFintech; see the <a href="/cams-cas-statement-guide/">CAS guide</a>.</li>
+          <li>Create a free <a href="https://app.arthavi.com/register">Arthavi account</a> and upload it. Add stocks with a <a href="/stock-tradebook-import/">broker tradebook (CSV or Excel)</a>.</li>
+          <li>Add family members, FDs, <a href="/gold-portfolio-tracker/">gold</a> and <a href="/real-estate-tracker/">property</a>, then read your XIRR and <a href="/capital-gains-tax-report/">capital gains</a>.</li>
+        </ol>
+      </section>
+
       <!-- Why Arthavi is the Winner for Modern Investors -->
       <section style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 2.5rem; margin-bottom: 4rem;">
         <h2 style="font-size: 1.8rem; color: #FFFFFF; margin-top: 0; margin-bottom: 1rem;">
@@ -359,7 +392,7 @@ const schema = JSON.stringify({
           <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 1.25rem;">
             <h3 style="font-size: 1.15rem; color: #FFFFFF; margin-bottom: 0.5rem;">How does Arthavi make money if it is completely free?</h3>
             <p style="color: var(--text-muted); line-height: 1.6; margin: 0;">
-              Arthavi is bootstrapped and operates on lean, serverless cloud infrastructure with minimal overhead. Our core portfolio tracker, CAS parser, and family view will always be 100% free and ad-free. We will never sell user data or cross-sell financial credit products.
+              Arthavi is bootstrapped and operates on lean cloud infrastructure with minimal overhead. Our core portfolio tracker, CAS parser, and family view will always be 100% free and ad-free. We will never sell user data or cross-sell financial credit products.
             </p>
           </div>
 
@@ -379,23 +412,7 @@ const schema = JSON.stringify({
         </div>
       </section>
 
-      <!-- Bottom CTA Banner -->
-      <section style="text-align: center; background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(124, 58, 237, 0.12) 100%); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 3rem 2rem;">
-        <h2 style="font-size: 2.2rem; color: #FFFFFF; margin-top: 0; margin-bottom: 1rem;">
-          Start Tracking Your Complete Portfolio Today
-        </h2>
-        <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 2rem auto; line-height: 1.6;">
-          Zero ads. Zero email scraping. Zero broker passwords. Experience modern wealth tracking built for Indian investors.
-        </p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.85rem 2.2rem; font-size: 1.05rem; font-weight: 600; text-decoration: none;">
-            Create Free Account
-          </a>
-          <a href="https://app.arthavi.com/demo" class="btn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #FFFFFF; padding: 0.85rem 2.2rem; font-size: 1.05rem; text-decoration: none;">
-            Try Interactive Demo
-          </a>
-        </div>
-      </section>
+      <NextSteps heading="Start tracking your complete portfolio today" sources />
 
     </div>
   </main>

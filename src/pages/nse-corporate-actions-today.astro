@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageSummary from '../components/PageSummary.astro';
+import NextSteps from '../components/NextSteps.astro';
+const crumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "NSE Corporate Actions Today", url: "https://arthavi.com/nse-corporate-actions-today/" }
+];
+const todayIso = new Date().toISOString().split('T')[0];
 
 interface CorporateActionItem {
   company: string;
@@ -108,6 +116,11 @@ const schema = JSON.stringify({
         },
         {
           "@type": "Question",
+          "name": "How does Arthavi handle splits and bonus issues?",
+          "acceptedAnswer": { "@type": "Answer", "text": "When you import a broker tradebook, Arthavi looks up splits and bonus issues for your stocks and shows them in the preview. You confirm or correct each one, and Arthavi adjusts quantity, average cost and XIRR. Bonus shares are treated as costing zero from the allotment date for capital gains. Demergers can be recorded by hand. Dividend payouts are not added automatically." }
+        },
+        {
+          "@type": "Question",
           "name": "What is a bonus issue in NSE?",
           "acceptedAnswer": { "@type": "Answer", "text": "A bonus issue (bonus shares) means the company issues free additional shares to existing shareholders in a fixed ratio (e.g. 1:1 = one free share for every share held). Like a split, it doesn't change your total investment value but increases share count." }
         }
@@ -132,6 +145,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
   keywords={seo.keywords}
   schema={schema}
   canonical="https://arthavi.com/nse-corporate-actions-today/"
+  dateModified={todayIso}
 >
 
 <style>
@@ -400,6 +414,12 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
 </header>
 
 <main class="page-wrap" id="main">
+  <Breadcrumbs items={crumbs} />
+  <PageSummary
+    dateModified={todayIso}
+    answer="<strong>NSE corporate actions</strong> are company events announced on the National Stock Exchange of India that change what shareholders own or receive: dividends, stock splits, bonus issues, rights issues and buybacks. This page lists today's announcements from NSE's official feed with their ex-dates. To see how a split or bonus changes your own holdings and XIRR, track your stocks in <strong>Arthavi</strong>, a free portfolio tracker for Indian families."
+    terms={['NSE', 'XIRR']}
+  />
 
   <!-- CTA strip -->
   <div class="cta-strip">
@@ -521,7 +541,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
       </div>
       <h3>Bonus Issues</h3>
-      <p>Additional shares allocated to existing shareholders. Your XIRR and average acquisition cost automatically adjust.</p>
+      <p>Additional shares allocated to existing shareholders. In Arthavi, confirm the bonus once and your quantity and average cost adjust.</p>
     </div>
   </div>
 
@@ -542,8 +562,8 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     <p>
       These events <strong>directly impact your portfolio returns</strong>. A portfolio system that overlooks
       a 1:1 bonus issue will report incorrect returns. Arthavi's
-      <a href="/portfolio-tracker-india/">portfolio tracker</a> automatically incorporates all official NSE corporate actions and
-      updates your cost basis, XIRR, and net worth accurately.
+      <a href="/portfolio-tracker-india/">portfolio tracker</a> suggests splits and bonus issues for your stocks when you import a tradebook;
+      once you confirm them, your quantity, cost basis and XIRR are adjusted. Demergers and other actions can be recorded by hand.
     </p>
 
     <h2>How to Use This Live Tracker</h2>
@@ -580,7 +600,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     <details class="faq-item" id="faq-split">
       <summary>How does an NSE stock split affect my portfolio?</summary>
       <div class="faq-body">
-        A stock split increases the number of shares you hold while proportionally reducing the share price. Your total investment value stays the same. A 2:1 split means 2 shares for every 1 you held, each at half the price. Arthavi automatically adjusts your portfolio for splits so your XIRR stays accurate.
+        A stock split increases the number of shares you hold while proportionally reducing the share price. Your total investment value stays the same. A 2:1 split means 2 shares for every 1 you held, each at half the price. When you import a broker tradebook, Arthavi suggests the split from market data and adjusts your quantity once you confirm it, so your XIRR stays accurate.
       </div>
     </details>
 
@@ -592,12 +612,14 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     </details>
 
     <details class="faq-item" id="faq-tracker">
-      <summary>How does Arthavi handle corporate actions automatically?</summary>
+      <summary>How does Arthavi handle splits and bonus issues?</summary>
       <div class="faq-body">
-        Arthavi's portfolio tracker automatically captures NSE corporate actions — dividends, splits, bonuses, and rights — and adjusts your cost basis, average price, and XIRR accordingly. You don't need to manually update anything. Your <a href="/portfolio-tracker-india">portfolio view</a> always reflects the true picture.
+        When you <a href="/stock-tradebook-import/">import a broker tradebook</a>, Arthavi looks up splits and bonus issues for your stocks and shows them in the preview. You confirm or correct each one, and Arthavi adjusts quantity, average cost and XIRR. Bonus shares are treated as costing zero from the allotment date for <a href="/capital-gains-tax-report/">capital gains</a>. Demergers can be recorded by hand. Dividend payouts are not added automatically.
       </div>
     </details>
   </section>
+
+  <NextSteps heading="See how corporate actions affect your portfolio" cta="Track my portfolio free" />
 
   <!-- Related links -->
   <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.07);">

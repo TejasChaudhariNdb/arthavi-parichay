@@ -1,5 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageSummary from '../../components/PageSummary.astro';
+import NextSteps from '../../components/NextSteps.astro';
+
+const page = { dateModified: '2026-11-27' }; // page edits; competitor facts keep their own lastUpdated below
+const crumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Compare", url: "https://arthavi.com/compare/" },
+  { name: "INDmoney Alternative", url: "https://arthavi.com/alternatives/indmoney/" }
+];
 
 const lastUpdated = '2026-10-01';
 const seo = {
@@ -85,7 +95,7 @@ const schema = JSON.stringify({
           "name": "Can I track my complete portfolio on Arthavi without linking broker accounts?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Arthavi tracks mutual funds via CAS PDF import and stocks via manual entry or CSV upload. You never need to link Zerodha, Groww, or any broker account. Your portfolio data stays fully under your control."
+            "text": "Yes. Arthavi tracks mutual funds via CAS PDF import and stocks via a broker tradebook (CSV or Excel) or manual entry. You never need to link Zerodha, Groww, or any broker account. Your portfolio data stays fully under your control."
           }
         }
       ]
@@ -98,30 +108,28 @@ const schema = JSON.stringify({
   description={seo.description}
   keywords="indmoney alternative, indmoney alternative no email, best indmoney alternative india, indmoney privacy, indmoney reads emails, portfolio tracker without gmail access, indmoney vs arthavi"
   schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Alternatives", url: "https://arthavi.com/alternatives/indmoney/" },
-      { name: "INDmoney Alternative", url: "https://arthavi.com/alternatives/indmoney/" }
-    ]
-  }}
+  breadcrumb={{ items: crumbs }}
+  dateModified={page.dateModified}
 >
 
 <main class="container">
-  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+  <div style="padding-top: calc(var(--header-height) + 1rem);"><Breadcrumbs items={crumbs} /></div>
+  <section class="page-header fade-in" style="text-align: center; padding: 1.5rem 0 1.5rem;">
     <p style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.2);">
-      <span>✓</span> Last verified: {lastUpdated} (Privacy & Security Audit)
+      <span>✓</span> Competitor facts last verified: {lastUpdated} (Privacy & Security Audit)
     </p>
     <h1>Best INDmoney Alternative — No Email Scraping (2026)</h1>
   </section>
 
-  <!-- AEO Direct Answer Block -->
-  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
-    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
-      <strong style="color: var(--text-head);">Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login.</strong>
-      Unlike INDmoney which reads your Gmail inbox and cross-sells loans and credit cards, Arthavi tracks your mutual funds and stocks through direct CAS PDF upload with zero email access and zero data selling. No broker login. No spam calls. Your data stays yours.
-    </p>
+  <div style="display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin: 0 auto 2rem;">
+    <a href="https://app.arthavi.com/register" class="btn btn-primary">Create free account</a>
+    <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try the demo, no signup</a>
   </div>
+  <PageSummary
+    dateModified={page.dateModified}
+    answer="<strong>Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login.</strong> Unlike INDmoney which reads your Gmail inbox and cross-sells loans and credit cards, Arthavi tracks your mutual funds and stocks through direct CAS PDF upload with zero email access and zero data selling. No broker login. No spam calls. Your data stays yours."
+    terms={['CAS', 'CAMS', 'XIRR', 'SIP', 'LTCG', 'STCG', 'AMC']}
+  />
 
   <article class="prose fade-in delay-100" style="max-width: 900px; margin: 0 auto;">
 
@@ -242,8 +250,10 @@ const schema = JSON.stringify({
       <p>For pure portfolio tracking without cross-selling or privacy trade-offs, yes. Arthavi focuses exclusively on accurate portfolio analytics with CAS import, family portfolios, XIRR, and AI analysis. INDmoney is a super-app that bundles tracking with lending, insurance, and US stocks.</p>
 
       <h3>Can I track my complete portfolio on Arthavi without linking broker accounts?</h3>
-      <p>Yes. Arthavi tracks mutual funds via CAS PDF import and stocks via manual entry or CSV upload. You never need to link Zerodha, Groww, or any broker account. Your portfolio data stays fully under your control.</p>
+      <p>Yes. Arthavi tracks mutual funds via CAS PDF import and stocks via a broker tradebook (CSV or Excel) or manual entry. You never need to link Zerodha, Groww, or any broker account. Your portfolio data stays fully under your control.</p>
     </section>
+
+    <NextSteps heading="Switch from INDmoney to Arthavi" sources />
 
     <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
       <h3 style="font-size: 1rem; margin-bottom: 1rem;">Compare other alternatives</h3>

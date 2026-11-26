@@ -1,5 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageSummary from '../components/PageSummary.astro';
+import NextSteps from '../components/NextSteps.astro';
+
+const page = { dateModified: '2026-11-27' };
+const crumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Net Worth Tracker", url: "https://arthavi.com/net-worth-tracker-india/" }
+];
 
 const seo = {
   title: "Net Worth Tracker India (2026) — Free Family Wealth Dashboard | Arthavi",
@@ -29,7 +38,7 @@ const seo = {
             "name": "How do I calculate my net worth in India?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Your Net Worth equals Total Assets minus Total Liabilities. Total Assets include mutual funds, direct stocks, EPF/PPF, bank balances, gold, and real estate. Total Liabilities include home loans, car loans, and credit card balances. Arthavi calculates this automatically by parsing your investment statements."
+              "text": "Your net worth equals total assets minus total liabilities. Assets include mutual funds, stocks, EPF, PPF, fixed deposits, gold and real estate; liabilities include home loans, car loans and credit card balances. Arthavi adds up your investments automatically from your CAS (Consolidated Account Statement) and broker tradebooks, and records the home loan against each property. It does not track credit cards or personal loans."
             }
           },
           {
@@ -37,7 +46,7 @@ const seo = {
             "name": "What is the best app to track net worth in India?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Arthavi is the best privacy-first net worth tracker for Indian investors. Unlike apps that require bank logins or email scraping permissions, Arthavi aggregates your stocks and mutual funds directly from CAMS/KFintech CAS files."
+              "text": "Arthavi is a free, privacy-first net worth tracker built for Indian families. Unlike apps that ask for bank logins or permission to read your email, Arthavi builds your portfolio from CAMS and KFintech CAS files and broker tradebooks you upload yourself."
             }
           },
           {
@@ -52,15 +61,12 @@ const seo = {
       }
     ]
   })}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Net Worth Tracker", url: "https://arthavi.com/net-worth-tracker-india/" }
-    ]
-  }}
+  breadcrumb={{ items: crumbs }}
+  dateModified={page.dateModified}
 >
 
     <main class="container" style="padding-top: calc(var(--header-height) + 2rem); padding-bottom: 5rem;">
+        <Breadcrumbs items={crumbs} />
         <section class="page-header fade-in" style="text-align: center; max-width: 860px; margin: 0 auto 3rem auto;">
             <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25); border-radius: 9999px; padding: 0.35rem 1rem; font-size: 0.85rem; font-weight: 600; color: #a78bfa; margin-bottom: 1.25rem;">
               <span>📈 Personal & Family Wealth Aggregation</span>
@@ -69,7 +75,7 @@ const seo = {
               Net Worth Tracker for Indian Investors (2026)
             </h1>
             <p class="text-muted" style="font-size: 1.25rem; line-height: 1.6; max-width: 760px; margin: 0 auto 2rem auto;">
-                Tired of messy Excel sheets? Consolidate your mutual funds, Zerodha/Groww stocks, EPF, and liquid assets into one real-time, private dashboard in INR.
+                Arthavi is a free net worth tracker for Indian families. It adds up your mutual funds, Zerodha and Groww stocks, EPF (Employees' Provident Fund), PPF, FDs, gold and property into one private dashboard in rupees.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.85rem 2.25rem; font-size: 1.05rem;">
@@ -81,6 +87,11 @@ const seo = {
             </div>
         </section>
 
+        <PageSummary
+          dateModified={page.dateModified}
+          answer="Your net worth is everything you own minus everything you owe. <strong>Arthavi</strong> calculates the investment side for you: upload your <a href='/cams-cas-statement-guide/'>CAS statement</a> for mutual funds, a <a href='/stock-tradebook-import/'>broker tradebook</a> for stocks, and add <a href='/fixed-deposit-tracker/'>FDs</a>, EPF, PPF, <a href='/nps-tracker/'>NPS</a>, <a href='/gold-portfolio-tracker/'>gold</a> and <a href='/real-estate-tracker/'>property</a> by hand. You see one total for yourself and one for your <a href='/family-portfolio-tracker/'>whole family</a>, with XIRR on every holding."
+          terms={['CAS', 'CAMS', 'XIRR', 'EPF', 'PF', 'PPF', 'FD', 'NPS', 'SCSS', 'RBI', 'SGB', 'NSE', 'BSE', 'NAV']}
+        />
         <article class="prose fade-in delay-100" style="max-width: 860px; margin: 0 auto;">
             <div style="background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; margin-bottom: 3rem;">
               <h2 style="margin-top: 0; color: var(--text-head); font-size: 1.6rem;">Why Net Worth Tracking Beats Checking Stock Prices</h2>
@@ -101,14 +112,20 @@ const seo = {
               </div>
             </div>
 
-            <h2>What Arthavi Net Worth Tracker Aggregates</h2>
+            <h2>What does Arthavi's net worth tracker include?</h2>
             <p>Unlike broker apps that only show the products they sell you, Arthavi acts as an unbiased aggregation layer:</p>
             <ul>
                 <li><strong>Direct Mutual Funds:</strong> Equity, Debt, Hybrid, and Index funds via CAMS/KFintech CAS statement.</li>
                 <li><strong>Direct Stocks:</strong> NSE and BSE equity holdings from Zerodha, Groww, Angel One, or Upstox.</li>
-                <li><strong>Fixed Income & Provident Funds:</strong> Track EPF, PPF, and Sovereign Gold Bonds (SGBs).</li>
+                <li><strong>Fixed Income & Provident Funds:</strong> Track <a href="/fixed-deposit-tracker/">FDs</a>, EPF, PPF, SCSS, RBI bonds and Sovereign Gold Bonds (SGBs), with an <a href="/interest-payout-tracker/">interest payout schedule</a>.</li>
+                <li><strong>Retirement and insurance:</strong> <a href="/nps-tracker/">NPS</a>, <a href="/ulip-tracker/">ULIPs</a> and <a href="/insurance-tracker/">insurance policies</a>.</li>
+                <li><strong>Gold and property:</strong> <a href="/gold-portfolio-tracker/">Physical and digital gold</a>, <a href="/real-estate-tracker/">real estate</a> with its home loan, and <a href="/rental-property-cash-flow-tracker/">rental cash flow</a>.</li>
+                <li><strong>PMS and AIF:</strong> <a href="/pms-aif-tracker/">Portfolio Management Services and Alternative Investment Funds</a> from your statements.</li>
                 <li><strong>Family Multi-PAN Support:</strong> Aggregate spouse and parents' assets under one master login.</li>
             </ul>
+
+            <h2>What doesn't it track?</h2>
+            <p>Arthavi does not connect to your bank, so savings account balances, credit card dues and personal loans are not part of the total. Home loans are recorded only against the property they belong to. If you need full budgeting or expense tracking, Arthavi is not built for that; it is a tracker for investments and assets.</p>
 
             <h2>Spreadsheet vs Arthavi Net Worth Tracker</h2>
             <div style="overflow-x: auto; margin: 2rem 0;">
@@ -133,7 +150,7 @@ const seo = {
                   </tr>
                   <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
                     <td style="padding: 0.8rem 1rem;">Stock & NAV Pricing</td>
-                    <td style="padding: 0.8rem 1rem; color: #34d399;">✅ Real-time NSE/BSE & AMFI sync</td>
+                    <td style="padding: 0.8rem 1rem; color: #34d399;">✅ Automatic NSE/BSE price and NAV updates</td>
                     <td style="padding: 0.8rem 1rem; color: #f87171;">❌ GOOGLEFINANCE formula breaks often</td>
                   </tr>
                   <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
@@ -149,11 +166,11 @@ const seo = {
             <div class="faq-grid" style="margin: 2rem 0;">
                 <div class="faq-item" style="margin-bottom: 1.25rem;">
                     <h3 style="font-size: 1.1rem; color: var(--text-head); margin-bottom: 0.4rem;">How do I calculate my net worth in India?</h3>
-                    <p class="text-sm">Your net worth is calculated by adding all your assets (mutual funds, stocks, PF, gold, bank accounts, real estate) and subtracting all your liabilities (home loans, personal loans, credit card balances). Arthavi does this automatically from your investment statements.</p>
+                    <p class="text-sm">Your net worth is all your assets (mutual funds, stocks, PF, gold, bank accounts, real estate) minus all your liabilities (home loans, personal loans, credit card balances). Arthavi adds up the investment side automatically from your statements and records home loans against each property; it does not track credit cards or personal loans.</p>
                 </div>
                 <div class="faq-item" style="margin-bottom: 1.25rem;">
                     <h3 style="font-size: 1.1rem; color: var(--text-head); margin-bottom: 0.4rem;">What is the best app to track net worth in India?</h3>
-                    <p class="text-sm">Arthavi is designed specifically for Indian retail investors who want an independent, ad-free net worth tracker. It never asks for broker passwords, bank credentials, or Gmail inbox permissions.</p>
+                    <p class="text-sm">Arthavi is designed for Indian investors and families who want an independent, ad-free net worth tracker. It never asks for broker passwords, bank credentials, or Gmail inbox permissions.</p>
                 </div>
                 <div class="faq-item" style="margin-bottom: 1.25rem;">
                     <h3 style="font-size: 1.1rem; color: var(--text-head); margin-bottom: 0.4rem;">Can I track my entire family's net worth together?</h3>
@@ -161,11 +178,7 @@ const seo = {
                 </div>
             </div>
 
-            <div style="margin-top: 3.5rem; text-align: center; padding: 2.5rem; background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(139,92,246,0.08) 100%); border: 1px solid rgba(99,102,241,0.3); border-radius: 16px;">
-                <h3 style="font-size: 1.6rem; color: var(--text-head); margin-bottom: 0.5rem;">Start Tracking Your Net Worth Today</h3>
-                <p class="text-muted" style="margin-bottom: 1.5rem;">Free forever • No broker login • Bank-grade privacy</p>
-                <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.85rem 2.25rem; font-size: 1.05rem;">Create Free Account →</a>
-            </div>
+            <NextSteps heading="Start tracking your net worth today" sources />
         </article>
     </main>
 </Layout>

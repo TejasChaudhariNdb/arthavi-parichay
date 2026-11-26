@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageSummary from '../components/PageSummary.astro';
+import NextSteps from '../components/NextSteps.astro';
+const crumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "NSE Board Meetings & Results", url: "https://arthavi.com/nse-board-meetings-financial-results/" }
+];
+const todayIso = new Date().toISOString().split('T')[0];
 
 interface BMItem {
   company: string;
@@ -109,8 +117,8 @@ const schema = JSON.stringify({
         },
         {
           "@type": "Question",
-          "name": "When do NSE Q2 2026 results come out?",
-          "acceptedAnswer": { "@type": "Answer", "text": "NSE Q2 FY2026 results (July-September 2026 quarter) are typically announced by companies between October and November 2026. Companies disclose their board meeting date for results at least 2 days in advance via NSE. Check this page daily for the latest updates." }
+          "name": "When do NSE Q3 FY2027 results come out?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Q3 FY2027 results (the October–December 2026 quarter) are typically announced between mid-January and mid-February 2027; Q2 FY2027 results (July–September 2026) came out in October and November 2026. Companies must give NSE at least 2 business days' notice of the board meeting that approves results. Check this page daily for the latest notices." }
         },
         {
           "@type": "Question",
@@ -138,6 +146,7 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
   keywords={seo.keywords}
   schema={schema}
   canonical="https://arthavi.com/nse-board-meetings-financial-results/"
+  dateModified={todayIso}
 >
 
 <style>
@@ -317,11 +326,17 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
 </header>
 
 <main class="page-wrap" id="main">
+  <Breadcrumbs items={crumbs} />
+  <PageSummary
+    dateModified={todayIso}
+    answer="An <strong>NSE board meeting notice</strong> is a listed company's advance announcement, filed with the National Stock Exchange of India, of a board meeting to approve quarterly results, dividends, buybacks or fund raising. This page lists upcoming meetings and the latest results from NSE's official feed. If you own any of these stocks, <strong>Arthavi</strong>, a free portfolio tracker for Indian families, shows your holding's value, XIRR and share of your net worth in one place."
+    terms={['NSE', 'XIRR', 'EPS', 'SEBI']}
+  />
 
   <div class="cta-strip">
     <p>
       <strong>Own stocks affected by upcoming results?</strong><br>
-      Arthavi tracks your full portfolio and shows impact of results on your XIRR and net worth in real time.
+      Arthavi tracks your full portfolio, keeps prices current, and shows how each stock moves your XIRR and net worth.
     </p>
     <a href="https://app.arthavi.com/register" id="bm-cta-top" class="btn-cta">Track My Portfolio Free →</a>
   </div>
@@ -434,12 +449,12 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     <p>
       Indian companies report financial results on a quarterly basis: <strong>Q1 (Apr–Jun)</strong>,
       <strong>Q2 (Jul–Sep)</strong>, <strong>Q3 (Oct–Dec)</strong>, and <strong>Q4 / Annual (Jan–Mar)</strong>.
-      The Q2 FY2026 results season (for July–September 2026) typically runs through October–November 2026.
+      The Q2 FY2027 results season (for July–September 2026) typically runs through October–November 2026.
     </p>
     <p>
       Results include revenue, EBITDA, PAT (Profit After Tax), EPS, and management guidance.
       They are disclosed as official regulatory filings on NSE, and key performance metrics are available upon disclosure.
-      <strong>Stock prices often move 5–20%</strong> on result day based on how performance aligns with market expectations.
+      Stock prices can move sharply on result day, depending on how performance compares with market expectations.
     </p>
     <p>
       If any of these companies are in your portfolio, track their impact on your XIRR and net worth live
@@ -459,9 +474,9 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
     </details>
 
     <details class="faq-item" id="faq-q2">
-      <summary>When do NSE Q2 FY2026 results come out?</summary>
+      <summary>When do NSE Q3 FY2027 results come out?</summary>
       <div class="faq-body">
-        NSE Q2 FY2026 results (July–September 2026 quarter) are typically announced by companies between October and November 2026. Large-cap companies like TCS, Infosys, HCL, HDFC Bank, and Reliance typically go first, followed by mid and small caps. Board meetings for these results are announced 2 days in advance on this page.
+        Q3 FY2027 results (the October–December 2026 quarter) are typically announced between mid-January and mid-February 2027; Q2 FY2027 results (July–September 2026) came out in October and November 2026. Companies must give NSE at least 2 business days' notice of the board meeting that approves results. Large-cap companies like TCS, Infosys, HCL, HDFC Bank, and Reliance typically go first, followed by mid and small caps. Board meetings for these results are announced 2 days in advance on this page.
       </div>
     </details>
 
@@ -479,6 +494,8 @@ const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'l
       </div>
     </details>
   </section>
+
+  <NextSteps heading="Track the stocks you own in one place" cta="Track my portfolio free" />
 
   <!-- Related pages -->
   <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.07);">

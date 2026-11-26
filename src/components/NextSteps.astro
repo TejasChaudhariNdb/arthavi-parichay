@@ -1,0 +1,58 @@
+---
+// Bottom-of-page block for older pages: related feature pages, statement sources, and the sign-up CTA.
+interface Props {
+  heading?: string;
+  links?: Array<{ href: string; label: string }>;
+  sources?: boolean; // show where to download CAS statements (official sites)
+  cta?: string;
+}
+const DEFAULT_LINKS = [
+  { href: '/family-portfolio-tracker/', label: 'Family portfolio tracker' },
+  { href: '/sip-tracker/', label: 'SIP (Systematic Investment Plan) tracker' },
+  { href: '/stock-tradebook-import/', label: 'Stock tradebook import (CSV / Excel)' },
+  { href: '/capital-gains-tax-report/', label: 'Capital gains report' },
+  { href: '/nps-tracker/', label: 'NPS (National Pension System) tracker' },
+  { href: '/pms-aif-tracker/', label: 'PMS (Portfolio Management Services) & AIF (Alternative Investment Fund) tracker' },
+  { href: '/ulip-tracker/', label: 'ULIP (Unit Linked Insurance Plan) tracker' },
+  { href: '/interest-payout-tracker/', label: 'FD (fixed deposit) and bond interest payouts' },
+  { href: '/gold-portfolio-tracker/', label: 'Gold tracker' },
+  { href: '/rental-property-cash-flow-tracker/', label: 'Rental property cash flow' },
+  { href: '/mutual-fund-gift-tracker/', label: 'Gifted mutual fund units' },
+  { href: '/changelog/', label: 'Changelog: what is new' },
+];
+const { heading = 'Track it all in Arthavi', links = DEFAULT_LINKS, sources = false, cta = 'Create free account' } = Astro.props;
+---
+<section class="ns" aria-labelledby="ns-h">
+  <h2 id="ns-h">{heading}</h2>
+  <p class="ns-lead">Arthavi is free, needs no broker login, and never reads your email. Try the demo first if you want to look around.</p>
+  <div class="ns-ctas">
+    <a href="https://app.arthavi.com/register" class="btn btn-primary">{cta}</a>
+    <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try the demo, no signup</a>
+  </div>
+  <nav aria-label="Related features">
+    <h3>Related features</h3>
+    <ul>{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+  </nav>
+  {sources && (
+    <p class="ns-sources">Get your statements from the official sources:
+      <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" rel="noopener" target="_blank">CAMS</a>,
+      <a href="https://mfs.kfintech.com/investor/General/ConsolidatedAccountStatement" rel="noopener" target="_blank">KFintech</a>,
+      <a href="https://www.mfcentral.com/" rel="noopener" target="_blank">MF Central</a>; scheme data is published by
+      <a href="https://www.amfiindia.com/" rel="noopener" target="_blank">AMFI (Association of Mutual Funds in India)</a>.
+    </p>
+  )}
+</section>
+
+<style>
+  .ns { max-width: 960px; margin: 3rem auto 1rem; padding: 2rem 1.75rem; border-radius: 18px; text-align: center;
+        background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(139,92,246,0.08) 100%); border: 1px solid rgba(99,102,241,0.3); }
+  .ns h2 { margin: 0 0 0.5rem; font-size: 1.6rem; color: var(--text-head); }
+  .ns-lead { color: var(--text-body); margin: 0 auto 1.25rem; max-width: 640px; line-height: 1.6; }
+  .ns-ctas { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.75rem; }
+  .ns nav { text-align: left; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; }
+  .ns h3 { font-size: 1rem; margin: 0 0 0.6rem; color: var(--text-head); }
+  .ns ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0; margin: 0; }
+  .ns a:not(.btn) { color: var(--primary-glow); }
+  .ns-sources { text-align: left; color: var(--text-body); font-size: 0.88rem; margin: 1rem 0 0; line-height: 1.6; }
+  @media (max-width: 640px) { .ns-ctas .btn { width: 100%; justify-content: center; } }
+</style>

@@ -1,5 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageSummary from '../components/PageSummary.astro';
+import NextSteps from '../components/NextSteps.astro';
+
+const page = { dateModified: '2026-11-27' };
+const crumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "CAMS CAS Guide", url: "https://arthavi.com/cams-cas-statement-guide/" }
+];
+const faqs = [
+  { q: "Is the CAMS CAS statement free?", a: "Yes. CAMS emails the Consolidated Account Statement free of charge to the email address registered with your mutual fund folios." },
+  { q: "What password opens the CAMS CAS PDF?", a: "The password you set on the CAMS request form. Keep it handy, because you will enter it when you upload the PDF to a tracker such as Arthavi." },
+  { q: "Should I choose the summary or the detailed statement?", a: "Choose Detailed, with the period set to Since Inception. The summary only shows current holdings; the detailed statement has every purchase, redemption and switch, which Arthavi needs to calculate cost, XIRR and capital gains." },
+  { q: "Does the CAMS CAS include funds serviced by KFintech?", a: "Yes. The consolidated statement covers your folios across all fund houses, whichever registrar services them, as long as they are linked to your PAN and email." },
+  { q: "Does the CAMS CAS include my stocks?", a: "No. It covers mutual funds only. Add stocks to Arthavi by uploading your broker's holdings or tradebook file (CSV or Excel)." },
+  { q: "What happens to my CAS after I upload it to Arthavi?", a: "The PDF and its password travel over an encrypted HTTPS connection to Arthavi, which reads your folios and transactions. The file is kept in private storage so imports can be checked and repaired, the password is stored only as an encrypted token, and your data is never sold or shared." },
+  { q: "How often should I upload a new CAS?", a: "Whenever you want new transactions to appear, for example once a month. NAVs update automatically in between; only new purchases or redemptions need a fresh statement." },
+];
 
 const seo = {
   title: "CAMS CAS Statement Guide — Download & Import for Tracking | Arthavi",
@@ -30,6 +48,10 @@ const schema = JSON.stringify({
           "text": "Enter your email, set a password, download the PDF from your inbox, and upload to Arthavi."
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
     }
   ]
 });
@@ -39,17 +61,14 @@ const schema = JSON.stringify({
   description={seo.description}
   keywords="cams cas statement guide, cams cas download india, cams consolidated account statement, cams statement password"
   schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "CAMS CAS Guide", url: "https://arthavi.com/cams-cas-statement-guide/" }
-    ]
-  }}
+  breadcrumb={{ items: crumbs }}
+  dateModified={page.dateModified}
 >
 
 <main style="padding-top: 7rem; padding-bottom: 5rem;">
   <section style="padding-top: 1rem; position: relative; z-index: 2;">
     <div class="container">
+      <Breadcrumbs items={crumbs} />
 
       <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
         <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Registrar Guide · CAMS Online</span>
@@ -59,31 +78,68 @@ const schema = JSON.stringify({
         </p>
       </div>
 
+      <div style="display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin: -1.5rem auto 2.5rem;">
+        <a href="https://app.arthavi.com/register" class="btn btn-primary">Upload your CAS free</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try the demo, no signup</a>
+      </div>
+
+      <PageSummary
+        dateModified={page.dateModified}
+        answer="A <strong>CAMS CAS</strong> (Consolidated Account Statement) is a password-protected PDF from CAMS that lists every mutual fund folio and transaction under your PAN, across all fund houses. Request the <strong>Detailed</strong> statement, period <strong>Since Inception</strong>, on the <a href='https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement' target='_blank' rel='noopener'>CAMS website</a>; it reaches your registered email within minutes. Upload it to <strong>Arthavi</strong>, a free portfolio tracker, to see all your funds with XIRR, SIPs and capital gains."
+        terms={['CAS', 'CAMS', 'AMC', 'AUM', 'PAN', 'NAV', 'XIRR', 'SIP']}
+      />
+
       <div class="glass-panel" style="max-width: 860px; margin: 0 auto 4rem; padding: 2.5rem; border-radius: 16px;">
         <h2>Which AMCs are serviced by CAMS?</h2>
         <p style="color: var(--text-muted); line-height: 1.7;">
           CAMS services roughly 60% of India's mutual fund industry AUM, including <strong>HDFC, SBI, ICICI Prudential, Aditya Birla Sun Life, Kotak, DSP, Tata, and Franklin Templeton</strong>. When you request a CAMS CAS, it consolidates all your investments across these fund houses into one document.
         </p>
         
-        <h2>How to download your detailed CAMS CAS</h2>
+        <h2>How do you download your detailed CAMS CAS?</h2>
         <ol style="color: var(--text-muted); line-height: 1.8; padding-left: 1.5rem;">
-          <li>Visit <strong>mycams.camsonline.com</strong> or the CAMS Investor Portal.</li>
+          <li>Visit the <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener">CAMS CAS request page</a> or the CAMS investor portal.</li>
           <li>Navigate to <strong>Statements &gt; Consolidated Account Statement (CAS)</strong>.</li>
           <li>Select <strong>Detailed Statement</strong> (crucial: summary statements do not contain transaction history).</li>
           <li>Set the period to <strong>Specific Period &gt; Since Inception</strong>.</li>
           <li>Enter your registered email address and set a password. The statement arrives in your inbox in 5–15 minutes.</li>
         </ol>
 
-        <h2>Upload to Arthavi with Zero Password Storage</h2>
+        <h2>Summary or detailed statement: which one?</h2>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; color: var(--text-muted); font-size: 0.95rem;">
+            <thead><tr><th style="text-align:left; padding: 0.6rem;"></th><th style="text-align:left; padding: 0.6rem;">Summary CAS</th><th style="text-align:left; padding: 0.6rem;">Detailed CAS</th></tr></thead>
+            <tbody>
+              <tr><td style="padding: 0.6rem;">Current units and value</td><td style="padding: 0.6rem;">Yes</td><td style="padding: 0.6rem;">Yes</td></tr>
+              <tr><td style="padding: 0.6rem;">Every purchase, SIP, redemption, switch</td><td style="padding: 0.6rem;">No</td><td style="padding: 0.6rem;">Yes</td></tr>
+              <tr><td style="padding: 0.6rem;">Enough for XIRR and capital gains</td><td style="padding: 0.6rem;">No</td><td style="padding: 0.6rem;">Yes</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What happens when you upload it to Arthavi?</h2>
+        <ol style="color: var(--text-muted); line-height: 1.8; padding-left: 1.5rem;">
+          <li>Create a free <a href="https://app.arthavi.com/register">Arthavi account</a>, choose the family member, and upload the PDF with its password.</li>
+          <li>Arthavi reads every folio and transaction and shows current value, invested amount and XIRR per fund.</li>
+          <li>Your <a href="/sip-tracker/">SIPs</a> and a FIFO <a href="/capital-gains-tax-report/">capital gains report</a> are built from the same transactions.</li>
+          <li>Next month, upload a newer CAS; Arthavi adds only what changed (see <a href="/cas-delta-import/">CAS delta import</a>).</li>
+        </ol>
         <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 0;">
-          Drop the file into Arthavi. Our parser decrypts the file locally in your browser memory. We never store your password or raw PDF.
+          The PDF and password travel over an encrypted HTTPS connection. The file is kept in private storage so imports can be checked and repaired, the password is stored only as an encrypted token, and your data is never sold or shared. See the <a href="/privacy-model/">privacy model</a>.
         </p>
       </div>
 
-      <div style="text-align: center; padding: 2rem 0 3rem;">
-        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Upload CAMS CAS Free</a>
-        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
+      <div style="max-width: 860px; margin: 0 auto 3rem;">
+        <h2 id="faq">Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <details class="glass-panel" style="padding: 1rem 1.25rem; border-radius: 12px; margin-bottom: 0.75rem;">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--text-head);">{f.q}</summary>
+            <p style="color: var(--text-muted); line-height: 1.7; margin: 0.75rem 0 0;">{f.a}</p>
+          </details>
+        ))}
       </div>
+
+      <NextSteps heading="Upload your CAMS CAS to Arthavi" cta="Upload your CAS free" sources />
+
 
       <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
         <h3 style="font-size: 1rem; margin-bottom: 1rem;">Other guides</h3>

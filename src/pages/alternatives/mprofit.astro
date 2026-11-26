@@ -1,5 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageSummary from '../../components/PageSummary.astro';
+import NextSteps from '../../components/NextSteps.astro';
+
+const page = { dateModified: '2026-11-27' }; // page edits; competitor facts keep their own lastUpdated below
+const crumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Compare", url: "https://arthavi.com/compare/" },
+  { name: "MProfit Alternative", url: "https://arthavi.com/alternatives/mprofit/" }
+];
 
 const lastUpdated = '2026-11-09';
 const seo = {
@@ -98,30 +108,28 @@ const schema = JSON.stringify({
   description={seo.description}
   keywords="mprofit alternative, mprofit alternative free, best mprofit alternative india, mprofit vs arthavi, free portfolio tracker india, mprofit pricing, mprofit cloud alternative"
   schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Alternatives", url: "https://arthavi.com/alternatives/mprofit/" },
-      { name: "MProfit Alternative", url: "https://arthavi.com/alternatives/mprofit/" }
-    ]
-  }}
+  breadcrumb={{ items: crumbs }}
+  dateModified={page.dateModified}
 >
 
 <main class="container">
-  <section class="page-header fade-in" style="text-align: center; padding: 4rem 0 1.5rem; margin-top: 31px;">
+  <div style="padding-top: calc(var(--header-height) + 1rem);"><Breadcrumbs items={crumbs} /></div>
+  <section class="page-header fade-in" style="text-align: center; padding: 1.5rem 0 1.5rem;">
     <p style="font-size: 0.82rem; color: #10B981; font-weight: 600; margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.75rem; border-radius: 999px; border: 1px solid rgba(16, 185, 129, 0.2);">
-      <span>✓</span> Last verified: {lastUpdated} (Pricing & Feature Audit)
+      <span>✓</span> Competitor facts last verified: {lastUpdated} (Pricing & Feature Audit)
     </p>
     <h1>MProfit Alternative for Indian Investors (2026)</h1>
   </section>
 
-  <!-- AEO Direct Answer Block -->
-  <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
-    <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
-      <strong style="color: var(--text-head);">Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login.</strong>
-      It is a free cloud-based MProfit alternative — works on any device, includes family portfolio tracking and AI analytics at ₹0/year. MProfit's HNI plan starts at ₹18,000/year + GST (verified November 2026). No broker login. No spam calls. Your data stays yours.
-    </p>
+  <div style="display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin: 0 auto 2rem;">
+    <a href="https://app.arthavi.com/register" class="btn btn-primary">Create free account</a>
+    <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try the demo, no signup</a>
   </div>
+  <PageSummary
+    dateModified={page.dateModified}
+    answer="<strong>Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login.</strong> It is a free cloud-based MProfit alternative — works on any device, includes family portfolio tracking and AI analytics at ₹0/year. MProfit's HNI plan starts at ₹18,000/year + GST (verified November 2026). No broker login. No spam calls. Your data stays yours."
+    terms={['CAS', 'CAMS', 'HNI', 'XIRR', 'LTCG', 'STCG', 'NSE', 'BSE', 'AMC']}
+  />
 
   <article class="prose fade-in delay-100" style="max-width: 900px; margin: 0 auto;">
 
@@ -216,7 +224,7 @@ const schema = JSON.stringify({
       <li>Download your latest CAS PDF from <a href="/guides/how-to-import-cas-cams-kfintech-nsdl/">CAMS or KFintech</a></li>
       <li>Sign up on <a href="https://app.arthavi.com/register">Arthavi</a> (takes 30 seconds, no broker credentials needed)</li>
       <li>Upload your CAS — your entire portfolio history appears instantly</li>
-      <li>Add stocks manually or via CSV for complete wealth view</li>
+      <li>Add stocks with a <a href="/stock-tradebook-import/">broker tradebook CSV or Excel file</a>, or by hand, for a complete wealth view</li>
     </ol>
 
     <div style="text-align: center; margin: 3rem 0;">
@@ -247,6 +255,8 @@ const schema = JSON.stringify({
     </section>
 
     <!-- Internal Links -->
+    <NextSteps heading="Switch from MProfit to Arthavi" sources />
+
     <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
       <h3 style="font-size: 1rem; margin-bottom: 1rem;">Compare other alternatives</h3>
       <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">

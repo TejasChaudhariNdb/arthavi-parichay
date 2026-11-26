@@ -2,13 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import RelatedContent from '../components/RelatedContent.astro';
+import PageSummary from '../components/PageSummary.astro';
+import NextSteps from '../components/NextSteps.astro';
 
 const seo = {
   title: "Best Mutual Fund Portfolio Tracker India (2026) | Arthavi",
   description: "Consolidate CAMS, KFintech, and multi-broker mutual fund folios into one private dashboard. Automatic XIRR, overlap analysis, and CAS import with zero broker login.",
   canonical: "https://arthavi.com/mutual-fund-portfolio-tracker-india/",
   datePublished: "2025-01-15",
-  dateModified: "2026-03-30"
+  dateModified: "2026-11-27"
 };
 
 const breadcrumbs = [
@@ -71,12 +73,13 @@ const schema = JSON.stringify({
   keywords="mutual fund portfolio tracker india, best app to track mutual funds, track cams kfintech folios, mutual fund xirr tracker, portfolio overlap tracker india, consolidated account statement app"
   schema={schema}
   breadcrumb={{ items: breadcrumbs }}
+  dateModified={seo.dateModified}
 >
   <main class="pillar-container">
     <div class="container-inner">
       <Breadcrumbs items={breadcrumbs} />
 
-      <header class="pillar-header">
+      <div class="pillar-header">
         <div class="pillar-badge">Pillar Hub &bull; Mutual Fund Tracking</div>
         <h1 class="pillar-title">Mutual Fund Portfolio Tracker for Indian Investors</h1>
         <p class="pillar-subtitle">
@@ -86,7 +89,13 @@ const schema = JSON.stringify({
           <a href="https://app.arthavi.com/register" class="btn btn-primary">Start Tracking Free</a>
           <a href="/tools/xirr-calculator/" class="btn btn-secondary">Try Free XIRR Tool</a>
         </div>
-      </header>
+      </div>
+
+      <PageSummary
+        dateModified={seo.dateModified}
+        answer="<strong>Arthavi</strong> is a free mutual fund portfolio tracker for Indian investors and families. Upload the CAS (Consolidated Account Statement) PDF from CAMS or KFintech and Arthavi imports every folio from every fund house, then shows current value, true XIRR, <a href='/sip-tracker/'>SIPs</a> and a <a href='/capital-gains-tax-report/'>capital gains report</a>. It never asks for a broker login or access to your email."
+        terms={['CAS', 'CAMS', 'AMC', 'SIP', 'XIRR', 'NAV', 'AMFI', 'CDSL', 'NSDL', 'MF']}
+      />
 
       <section class="quick-stats-grid">
         <div class="stat-card">
@@ -126,7 +135,7 @@ const schema = JSON.stringify({
           When tax season arrives, or when you want to calculate your <strong>real annualized portfolio return (XIRR)</strong>, no single broker app has the complete picture. Logging into 5 different portals is tedious, and copying transactions into Google Sheets breaks after a few dozen SIP cycles.
         </p>
 
-        <h2>How Arthavi Solves Mutual Fund Tracking</h2>
+        <h2>How does Arthavi track mutual funds?</h2>
         <p>
           Arthavi provides a unified <strong>mutual fund portfolio tracker for India</strong> built around the official regulatory standard: the <strong>Consolidated Account Statement (CAS)</strong>.
         </p>
@@ -135,7 +144,7 @@ const schema = JSON.stringify({
           <div class="feature-box">
             <div class="feature-icon">⚡</div>
             <h3>1-Click CAS Import</h3>
-            <p>Upload your monthly password-protected PDF or Excel statement from CAMS or KFintech. Arthavi parses all historic buy, sell, SIP, and dividend reinvestment transactions in seconds.</p>
+            <p>Upload the password-protected CAS PDF from CAMS or KFintech. Arthavi parses all historic buy, sell, SIP, and dividend reinvestment transactions in seconds.</p>
           </div>
           <div class="feature-box">
             <div class="feature-icon">📈</div>
@@ -144,8 +153,8 @@ const schema = JSON.stringify({
           </div>
           <div class="feature-box">
             <div class="feature-icon">🔍</div>
-            <h3>Portfolio Overlap Analyzer</h3>
-            <p>Holding 3 different Flexi-cap or Large-cap funds? Arthavi reveals when you are paying double expense ratios for the exact same underlying shares of Reliance, Infosys, and HDFC Bank.</p>
+            <h3>Gifts, SIPs and tax in one place</h3>
+            <p>See every <a href="/sip-tracker/">SIP</a> across the family, record <a href="/mutual-fund-gift-tracker/">units gifted to a family member</a> with the donor's original cost, and download a <a href="/capital-gains-tax-report/">FIFO capital gains report</a>. Holding 3 similar flexi-cap funds? Check them with the free <a href="/mutual-fund-overlap-calculator/">overlap calculator</a>.</p>
           </div>
           <div class="feature-box">
             <div class="feature-icon">🛡️</div>
@@ -200,6 +209,13 @@ const schema = JSON.stringify({
           </table>
         </div>
 
+        <h2>What doesn't it do?</h2>
+        <ul>
+          <li>It does not buy or sell funds for you; Arthavi is a tracker, not a broker or distributor.</li>
+          <li>It does not fetch your statements automatically. You upload a fresh CAS whenever you want to sync new transactions.</li>
+          <li>It is not a fund screener; for researching new funds, use AMC or research sites.</li>
+        </ul>
+
         <h2>Frequently Asked Questions</h2>
         <div class="faq-accordion">
           {faqs.map(faq => (
@@ -209,6 +225,7 @@ const schema = JSON.stringify({
             </div>
           ))}
         </div>
+        <NextSteps heading="Track every mutual fund folio in one place" sources />
       </article>
 
       <RelatedContent

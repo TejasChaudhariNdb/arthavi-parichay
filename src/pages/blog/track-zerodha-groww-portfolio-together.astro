@@ -1,5 +1,22 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageSummary from '../../components/PageSummary.astro';
+import NextSteps from '../../components/NextSteps.astro';
+
+const page = { dateModified: '2026-11-27' };
+const crumbs = [
+  { name: "Home", url: "https://arthavi.com/" },
+  { name: "Blog", url: "https://arthavi.com/blog/" },
+  { name: "Track Zerodha and Groww together", url: "https://arthavi.com/blog/track-zerodha-groww-portfolio-together/" }
+];
+const faqs = [
+  { q: "Can I use Zerodha and Groww together?", a: "Yes. SEBI (Securities and Exchange Board of India) rules allow you to open demat and trading accounts with more than one broker under the same PAN. Many investors use Zerodha for stocks and Groww for mutual fund SIPs." },
+  { q: "Can I have two Demat accounts in India?", a: "Yes. You can have multiple demat accounts linked to the same PAN across brokers like Zerodha, Groww and Angel One. Each demat account has its own account number (BO ID)." },
+  { q: "How can I view my Zerodha and Groww portfolio together?", a: "Use a tracker that imports statements instead of logging in to your brokers. In Arthavi you upload your CAS (Consolidated Account Statement) for mutual funds and the holdings or tradebook file from Zerodha Console and Groww for stocks, and see one combined dashboard with XIRR. No broker login is needed." },
+  { q: "Do I need to give Arthavi my Zerodha or Groww password?", a: "No. Arthavi never asks for broker passwords, OTPs or email access. It works only from the files you download and upload yourself." },
+  { q: "Does Arthavi update automatically when I buy more shares?", a: "Prices and NAVs update automatically, but new transactions come in when you upload a fresh CAS or tradebook file, or add the trade by hand." },
+];
 
 const seo = {
   title: "Can I Use Zerodha and Groww Together? How to Track Both (2026) | Arthavi",
@@ -20,57 +37,29 @@ const seo = {
         "author": { "@type": "Organization", "name": "Arthavi" },
         "publisher": { "@type": "Organization", "name": "Arthavi", "logo": { "@type": "ImageObject", "url": "https://arthavi.com/images/logo.png" } },
         "datePublished": "2026-02-16",
-        "dateModified": "2026-10-08",
+        "dateModified": "2026-11-27",
         "description": "Learn if you can use Zerodha and Groww together and how to consolidate both portfolios into one dashboard securely."
       },
       {
         "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Can I use Zerodha and Groww together?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, absolutely! SEBI regulations allow Indian citizens to open and operate multiple Demat and trading accounts with different brokers. Many investors maintain Zerodha for direct stock trading and Groww for mutual fund SIPs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I have two Demat accounts in India?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. You can have multiple Demat accounts linked to the same PAN card across different brokers like Zerodha, Groww, and Angel One. Each Demat account will have a unique Demat account number (BO ID)."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How can I view my Zerodha and Groww portfolio together?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can consolidate your investments into a privacy-first portfolio tracker like Arthavi. By importing your CAS statement (for Groww mutual funds) and holdings CSV (for Zerodha stocks), you get a unified dashboard with zero broker logins or password sharing."
-            }
-          }
-        ]
+        "mainEntity": faqs.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
       }
     ]
   })}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Blog", url: "https://arthavi.com/blog/track-zerodha-groww-portfolio-together" }
-    ]
-  }}
+  breadcrumb={{ items: crumbs }}
+  dateModified={page.dateModified}
 >
 
     <main class="container" style="padding-top: calc(var(--header-height) + 2rem);">
         <article class="prose fade-in" style="max-width: 800px; margin: 0 auto;">
+            <Breadcrumbs items={crumbs} />
             <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Can You Use Zerodha and Groww Together? (How to Track Both in One Place)</h1>
 
-            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 2rem;">
-              <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: var(--text-head);">
-                <strong>⚡ Quick Answer:</strong> Yes, you can legally and easily use both Zerodha and Groww simultaneously. Under SEBI rules, you can hold multiple Demat accounts under the same PAN. Millions of Indian investors use <strong>Zerodha Kite</strong> for stock and F&O trading and <strong>Groww</strong> for mutual fund SIPs.
-              </p>
-            </div>
+            <PageSummary
+              dateModified={page.dateModified}
+              answer="<strong>Yes, you can use Zerodha and Groww together.</strong> SEBI rules let you hold demat accounts with several brokers under one PAN. To see both in one place without sharing passwords, use <strong>Arthavi</strong>, a free portfolio tracker: upload your CAS (Consolidated Account Statement) for mutual funds and the <a href='/stock-tradebook-import/'>holdings or tradebook file</a> from each broker for stocks. You get one combined net worth and XIRR, and no broker login is ever needed."
+              terms={['SEBI', 'PAN', 'CAS', 'CAMS', 'XIRR', 'ISIN', 'SIP', 'SMS']}
+            />
 
             <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2rem;">
                 The classic Indian investor dilemma: You perform your stock trading on <strong><a href="/arthavi-vs-zerodha/">Zerodha Kite</a></strong>
@@ -83,7 +72,7 @@ const seo = {
 
             <div
                 style="margin: 3rem 0; padding: 2rem; background: var(--bg-surface); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                <h2 style="margin-top: 0;">The Problem with "Just Use One App"</h2>
+                <h2 style="margin-top: 0;">Why not just move everything to one app?</h2>
                 <p>Moving your entire portfolio is a hassle. It involves:</p>
                 <ul style="margin-bottom: 0;">
                     <li>Closing a Demat account (painful paperwork).</li>
@@ -94,7 +83,7 @@ const seo = {
                         layer</strong> on top.</p>
             </div>
 
-            <h2>Why Most "Unified" Apps Are Dangerous</h2>
+            <h2>Why are many "unified" apps risky?</h2>
             <p>Many popular apps (we won't name them) offer to "sync" your Zerodha and Groww accounts. They do this by
                 asking for:</p>
             <ol>
@@ -106,7 +95,7 @@ const seo = {
                 a pie chart.</p>
 
             <div class="glass-panel" style="margin: 3rem 0; padding: 2.5rem; border: 1px solid var(--primary-glow);">
-                <h2 style="margin-top: 0; color: var(--primary-glow);">The Safe Solution: Arthavi</h2>
+                <h2 style="margin-top: 0; color: var(--primary-glow);">How does Arthavi track Zerodha and Groww safely?</h2>
                 <p>Arthavi allows you to track Zerodha (Stocks) and Groww (Mutual Funds) together <strong>without
                         linking your accounts</strong>.</p>
 
@@ -114,14 +103,16 @@ const seo = {
 
                 <h4 style="color: var(--text-head); margin-bottom: 0.5rem; margin-top: 1.5rem;">For Groww (Mutual
                     Funds):</h4>
-                <p>Groww stores your mutual fund units with a central depository (CAMS/KFintech). You simply download
-                    your <strong>Consolidated Account Statement (CAS)</strong> and upload it to Arthavi. We parse the
-                    PDF locally.</p>
+                <p>Every mutual fund you buy on Groww is recorded by the fund's registrar, CAMS or KFintech. Download
+                    your <strong>Consolidated Account Statement (CAS)</strong> from <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener">CAMS</a>
+                    or <a href="https://mfs.kfintech.com/investor/General/ConsolidatedAccountStatement" target="_blank" rel="noopener">KFintech</a> and upload it to Arthavi. It lists every folio across all fund houses,
+                    including funds bought on Zerodha Coin.</p>
 
                 <h4 style="color: var(--text-head); margin-bottom: 0.5rem; margin-top: 1.5rem;">For Zerodha (Stocks):
                 </h4>
-                <p>You can export your holdings from Zerodha Console as a CSV/Excel file. Upload this file to Arthavi's
-                    "Import Stocks" feature. We will map the ISINs to real-time prices.</p>
+                <p>Export your holdings or tradebook from Zerodha Console as a CSV or Excel file and upload it in Arthavi
+                    (see <a href="/stock-tradebook-import/">stock tradebook import</a>). Arthavi matches each ISIN to its NSE / BSE
+                    listing and keeps prices up to date. Groww stock holdings work the same way.</p>
 
                 <div style="margin-top: 2rem; text-align: center;">
                     <a href="https://app.arthavi.com/register" class="btn btn-primary">Consolidate My Portfolio Free</a>
@@ -133,21 +124,32 @@ const seo = {
                 <li><strong>True Net Worth:</strong> See the sum of Stocks + Mutual Funds + Cash in one number.</li>
                 <li><strong>Asset Allocation:</strong> Realize that you are actually 80% exposed to equity when you
                     thought you were balanced.</li>
-                <li><strong>Overlap Check:</strong> Discover that your "Diversified Equity Fund" holds the same HDFC
-                    Bank shares that you bought directly on Zerodha.</li>
+                <li><strong>Tax view:</strong> One <a href="/capital-gains-tax-report/">capital gains report</a> across both brokers, plus every <a href="/sip-tracker/">SIP</a> in one list.</li>
+                <li><strong>Family view:</strong> Add your spouse's or parents' Zerodha and Groww accounts as separate <a href="/family-portfolio-tracker/">family profiles</a>.</li>
             </ul>
 
-            <h2>Step-by-Step Guide</h2>
+            <h2>How do you set it up, step by step?</h2>
             <ol>
-                <li><strong>Login to Arthavi:</strong> Create a <a href="https://app.arthavi.com">free account</a>.</li>
+                <li><strong>Sign up:</strong> Create a <a href="https://app.arthavi.com/register">free Arthavi account</a>.</li>
                 <li><strong>Import Mutual Funds:</strong> Use the "Import Investments" feature (See our <a
                         href="/blog/how-to-download-analyze-cams-cas-statement/">guide on downloading your investment statement</a>).</li>
-                <li><strong>Import Stocks:</strong> Go to Zerodha Console > Portfolio > Holdings > Download CSV. Upload
-                    this to Arthavi.</li>
+                <li><strong>Import Stocks:</strong> Go to Zerodha Console > Portfolio > Holdings > Download CSV (or download your tradebook). Upload
+                    this to Arthavi. Repeat for Groww.</li>
                 <li><strong>Done!</strong> Your unified dashboard is ready.</li>
             </ol>
 
-            <p>Stop toggling apps. Start tracking wealth.</p>
+            <h2>What Arthavi does not do</h2>
+            <p>Arthavi does not place trades and does not connect to Zerodha or Groww directly, so new trades appear only after you upload a fresh file or add them by hand.</p>
+
+            <h2 id="faq">Frequently asked questions</h2>
+            {faqs.map((f) => (
+              <details class="glass-panel" style="padding: 1rem 1.25rem; border-radius: 12px; margin-bottom: 0.75rem;">
+                <summary style="cursor: pointer; font-weight: 600; color: var(--text-head);">{f.q}</summary>
+                <p style="margin: 0.75rem 0 0;">{f.a}</p>
+              </details>
+            ))}
+
+            <NextSteps heading="See Zerodha and Groww in one dashboard" cta="Consolidate my portfolio free" sources />
 
         </article>
     </main>

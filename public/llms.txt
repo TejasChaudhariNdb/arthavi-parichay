@@ -24,13 +24,15 @@
 - [SIP Tracker](https://arthavi.com/sip-tracker/): All family SIPs, next dates, reminders and XIRR.
 - [Changelog](https://arthavi.com/changelog/): Dated list of features launched in the app, newest first.
 - [Family Portfolio Tracker](https://arthavi.com/family-portfolio-tracker/): Separate profiles per member and a combined family view.
+- [Mutual Fund Portfolio Tracker India](https://arthavi.com/mutual-fund-portfolio-tracker-india/): Every folio from a CAMS / KFintech CAS, true XIRR, SIPs and capital gains.
+- [Net Worth Tracker India](https://arthavi.com/net-worth-tracker-india/): Family net worth across funds, stocks, EPF, PPF, NPS, FDs, gold and property.
 
 ## Alternatives & Comparisons
 
 - [Compare Portfolio Trackers Hub](https://arthavi.com/compare/): Side-by-side benchmark comparing Arthavi against MProfit, INDmoney, Value Research, Dezerv, Kuvera, Zerodha, and Excel.
 - [Best MProfit Alternative](https://arthavi.com/alternatives/mprofit/): Free, cloud-based MProfit alternative with honest comparison table on pricing, privacy, import, family support, and AI.
 - [Best INDmoney Alternative](https://arthavi.com/alternatives/indmoney/): Privacy-first INDmoney alternative — no email scraping, no data selling, no spam calls.
-- [Best Kuvera Alternative](https://arthavi.com/alternatives/kuvera/): Independent Kuvera alternative after the Groww acquisition — not owned by any broker.
+- [Best Kuvera Alternative](https://arthavi.com/alternatives/kuvera/): Independent Kuvera alternative (Kuvera is part of CRED since 2024) — Arthavi is not owned by any broker or investing platform.
 - [Arthavi vs MProfit (Detailed)](https://arthavi.com/alternatives/mprofit/): Detailed breakdown of the modern, free MProfit alternative for Indian retail and family investors.
 - [Arthavi vs INDmoney (Detailed)](https://arthavi.com/alternatives/indmoney/): In-depth comparison of INDmoney's email-scraping model vs Arthavi's privacy-first approach.
 - [Arthavi vs Value Research Online](https://arthavi.com/arthavi-vs-valueresearch/): Fund research tool vs modern portfolio tracking and AI portfolio doctor.
@@ -54,6 +56,14 @@
 - [How to Track Mutual Funds and Stocks in One Place](https://arthavi.com/guides/how-to-track-mutual-funds-and-stocks-in-one-place/): Step-by-step guide to consolidating MF + stock portfolios. Upload CAS, add stocks, get unified XIRR.
 - [CAS Statement Explained](https://arthavi.com/guides/cas-statement-explained/): What is a Consolidated Account Statement, what it contains, how to download, and how to use for portfolio tracking.
 - [How to Import CAS from CAMS, KFintech & NSDL](https://arthavi.com/guides/how-to-import-cas-cams-kfintech-nsdl/): Step-by-step instructions for downloading and importing CAS into Arthavi.
+- [CAMS CAS Statement Guide](https://arthavi.com/cams-cas-statement-guide/): Request the detailed CAMS CAS, summary vs detailed, password, and what happens after upload.
+- [9 Best Online Investment Tracker Tools in India](https://arthavi.com/blog/best-online-investment-tracker-india): Arthavi, INDmoney, Value Research, Groww, MFCentral, Zerodha Console, Kuvera, ET Money and MProfit compared.
+- [Can You Use Zerodha and Groww Together?](https://arthavi.com/blog/track-zerodha-groww-portfolio-together/): Yes; how to track both in one dashboard without broker logins.
+
+## Market Data Pages
+
+- [NSE Corporate Actions Today](https://arthavi.com/nse-corporate-actions-today/): Dividends, splits, bonus issues, rights and buybacks from NSE's official feed.
+- [NSE Board Meetings & Results](https://arthavi.com/nse-board-meetings-financial-results/): Upcoming board meetings and latest quarterly results from NSE.
 
 ## Primary Pages
 

@@ -1,0 +1,31 @@
+---
+// Quotable "In short" answer + visible last-updated date for older pages (FeaturePage has its own).
+// `answer` may contain inline HTML (links, <strong>). `terms` lists acronyms used on the page (keys of GLOSSARY).
+import { GLOSSARY } from '../data/glossary';
+interface Props {
+  answer: string;
+  dateModified: string; // YYYY-MM-DD; keep in sync with the page's schema dateModified
+  terms?: string[];
+}
+const { answer, dateModified, terms = [] } = Astro.props;
+const expanded = terms.map((t) => [t, GLOSSARY[t]]).filter(([, full]) => full);
+const updated = new Date(dateModified).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<section class="ps glass-panel" aria-labelledby="ps-short">
+  <h2 id="ps-short">In short</h2>
+  <p set:html={answer} />
+  {expanded.length > 0 && (
+    <p class="ps-terms">Terms on this page: {expanded.map(([a, full], i) => (<><abbr title={full}>{a}</abbr> ({full}){i < expanded.length - 1 ? '; ' : '.'}</>))}</p>
+  )}
+  <p class="ps-updated">Last updated <time datetime={dateModified}>{updated}</time></p>
+</section>
+
+<style>
+  .ps { max-width: 860px; margin: 0 auto 2.5rem; padding: 1.4rem 1.6rem; border-radius: 16px; border-color: rgba(99,102,241,0.3); text-align: left; }
+  .ps h2 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.06em; color: #a5b4fc; margin: 0 0 0.5rem; }
+  .ps p { margin: 0; color: var(--text-head); font-size: 1.02rem; line-height: 1.7; }
+  .ps :global(a) { color: var(--primary-glow); }
+  .ps .ps-terms { color: var(--text-body); font-size: 0.85rem; margin-top: 0.75rem; }
+  .ps abbr { text-decoration: none; font-weight: 600; }
+  .ps .ps-updated { color: var(--text-body); font-size: 0.8rem; margin-top: 0.6rem; }
+</style>

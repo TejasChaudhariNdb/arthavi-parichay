@@ -19,9 +19,10 @@ interface Props {
   breadcrumb?: {
     items: Array<{ name: string; url: string }>;
   };
+  dateModified?: string; // YYYY-MM-DD; sets dateModified on the page's WebPage/Article node (adds a WebPage if none)
 }
 
-const { title, description, keywords, schema, canonical = "https://arthavi.com" + Astro.url.pathname, noindex = false, breadcrumb } = Astro.props;
+const { title, description, keywords, schema, canonical = "https://arthavi.com" + Astro.url.pathname, noindex = false, breadcrumb, dateModified } = Astro.props;
 
 // Generate or assemble unified single @graph schema
 let finalSchema = '';
@@ -60,6 +61,13 @@ if (schema) {
           "item": item.url
         }))
       });
+    }
+
+    if (dateModified) {
+      const pageTypes = ['WebPage', 'Article', 'BlogPosting', 'CollectionPage', 'TechArticle', 'NewsArticle'];
+      const pageNodes = nodes.filter((n: any) => pageTypes.includes(n['@type']));
+      if (pageNodes.length) pageNodes.forEach((n: any) => { n.dateModified = dateModified; });
+      else nodes.push({ "@type": "WebPage", "@id": `${canonical}#webpage`, "url": canonical, "name": title, "description": description, "dateModified": dateModified });
     }
 
     finalSchema = JSON.stringify({

@@ -333,7 +333,7 @@ const seo = {
               "name": "Can Arthavi parse password-protected CAS files?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Arthavi handles password-protected CAS files by asking you to enter the password locally in your browser during the upload process. The password is never sent to our servers and is only used to decrypt the PDF on your device."
+                "text": "Yes. When you upload a password-protected CAS, you type its password (usually your PAN) in the upload form. The file and password travel to Arthavi over an encrypted HTTPS connection so the statement can be read; the password is kept only as an encrypted token, and your data is never sold or shared."
               }
             },
             {
@@ -721,7 +721,7 @@ const seo = {
                 <div class="trust-ribbon fade-in delay-200">
                     <span class="trust-ribbon-item">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        <span>In-Memory CAS Parsing (Zero Raw Storage)</span>
+                        <span>Encrypted CAS Upload (HTTPS)</span>
                     </span>
                     <span class="trust-ribbon-dot">·</span>
                     <span class="trust-ribbon-item">
@@ -1466,8 +1466,8 @@ const seo = {
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </div>
-                        <p><strong>In-Memory Parsing</strong></p>
-                        <p class="text-sm text-muted">Your CAS PDF is parsed securely in memory — we never store your raw statement files.</p>
+                        <p><strong>Statement-Only Access</strong></p>
+                        <p class="text-sm text-muted">Arthavi reads only the statements you upload. It never connects to your broker, bank or email.</p>
                     </div>
                     <div class="trust-badge">
                         <div class="lock-icon">
@@ -2051,7 +2051,7 @@ const seo = {
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Yes, Arthavi handles password-protected CAS files by asking you to enter the password locally in your browser during the upload process. The password is never sent to our servers and is only used to decrypt the PDF on your device.
+                            Yes. When you upload a password-protected CAS, you type its password (usually your PAN) in the upload form. The file and password travel to Arthavi over an encrypted HTTPS connection so the statement can be read; the password is kept only as an encrypted token, and your data is never sold or shared.
                         </div>
                     </div>
 

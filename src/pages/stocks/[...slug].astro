@@ -455,7 +455,6 @@ const breadcrumb = { items: breadcrumbItems };
           <div class="glass-panel content-box" style="padding: 1.5rem 1.8rem; background: rgba(56, 189, 248, 0.04); border: 1px solid rgba(56, 189, 248, 0.2);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem;">
               <span style="color: #38BDF8; font-weight: 700; font-size: 0.95rem;">✨ Executive Direct Answer Summary — {stockName}</span>
-              <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.15); color: #38BDF8; padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 600;">GEO & AEO Verified</span>
             </div>
             <p style="color: #F3F4F6; font-size: 0.95rem; line-height: 1.6; margin: 0;">
               <strong>{stockName} ({shortSymbol.toUpperCase()})</strong> is currently trading at <strong>₹{stockData.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</strong> in the <strong>{stockSector}</strong> sector. It has a market cap of <strong>{formatCurrency(stockData.fundamentals.marketCap)}</strong>, a P/E ratio of <strong>{stockData.fundamentals.pe || 'N/A'}</strong>, an ROE of <strong>{stockData.fundamentals.roe ? stockData.fundamentals.roe + '%' : 'N/A'}</strong>, and a 52-week trading range between <strong>₹{stockData.performance.low52 || 'N/A'}</strong> and <strong>₹{stockData.performance.high52 || 'N/A'}</strong>.
@@ -887,19 +886,19 @@ const breadcrumb = { items: breadcrumbItems };
         </h2>
         <p style="font-size: 1.05rem; color: #94a3b8; max-width: 680px; margin: 0 auto 1.75rem auto; line-height: 1.6;">
           Consolidate your {shortSymbol.toUpperCase()} shares alongside all your mutual funds into a single, private dashboard. 
-          See true XIRR, mutual fund overlap, and automated capital gains — with <strong>zero broker credentials or password sharing</strong>.
+          Upload your broker's <a href="/stock-tradebook-import/" style="color: #a5b4fc;">tradebook or holdings file</a> and see true XIRR and a <a href="/capital-gains-tax-report/" style="color: #a5b4fc;">capital gains report</a> — with <strong>zero broker credentials or password sharing</strong>.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.75rem 2rem; font-size: 1rem; font-weight: 600; text-decoration: none;">
             Start Tracking {shortSymbol.toUpperCase()} Free →
           </a>
-          <a href="/portfolio-tracker-india/" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 1rem; text-decoration: none;">
-            How Arthavi Works
+          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.75rem 1.5rem; font-size: 1rem; text-decoration: none;">
+            Try the Arthavi demo, no signup
           </a>
         </div>
         <div style="margin-top: 1.25rem; font-size: 0.85rem; color: #64748b; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
           <span>✓ 100% Free Forever</span>
-          <span>✓ CAS Statement Import</span>
+          <span>✓ Tradebook (CSV / Excel) & CAS Import</span>
           <span>✓ No Bank/Broker Logins</span>
         </div>
       </div>

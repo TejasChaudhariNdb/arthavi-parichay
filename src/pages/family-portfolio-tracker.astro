@@ -2,13 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import RelatedContent from '../components/RelatedContent.astro';
+import PageSummary from '../components/PageSummary.astro';
+import NextSteps from '../components/NextSteps.astro';
 
 const seo = {
   title: "Family Portfolio Tracker India | Multi-PAN & HUF Wealth Tracking | Arthavi",
   description: "Track your family's entire net worth across multiple PANs, HUFs, spouse, parents, and minor accounts in one unified dashboard. Zero broker credential sharing required.",
   canonical: "https://arthavi.com/family-portfolio-tracker/",
   datePublished: "2025-02-25",
-  dateModified: "2026-03-30"
+  dateModified: "2026-11-27"
 };
 
 const breadcrumbs = [
@@ -71,12 +73,13 @@ const schema = JSON.stringify({
   keywords="family portfolio tracker india, multi pan portfolio tracker, huf portfolio tracker, track spouse mutual funds, family net worth tracker, consolidate family investments"
   schema={schema}
   breadcrumb={{ items: breadcrumbs }}
+  dateModified={seo.dateModified}
 >
   <main class="pillar-container">
     <div class="container-inner">
       <Breadcrumbs items={breadcrumbs} />
 
-      <header class="pillar-header">
+      <div class="pillar-header">
         <div class="pillar-badge">Pillar Hub &bull; Multi-Entity Wealth Management</div>
         <h1 class="pillar-title">Family Portfolio Tracker for Indian Households</h1>
         <p class="pillar-subtitle">
@@ -86,7 +89,13 @@ const schema = JSON.stringify({
           <a href="https://app.arthavi.com/register" class="btn btn-primary">Track Family Wealth Free</a>
           <a href="/net-worth-tracker-india/" class="btn btn-secondary">Explore Net Worth Tool</a>
         </div>
-      </header>
+      </div>
+
+      <PageSummary
+        dateModified={seo.dateModified}
+        answer="<strong>Arthavi</strong> is a free family portfolio tracker built for Indian households. You add a profile for each member (spouse, parents, children or an HUF), upload each person's CAS (Consolidated Account Statement) or broker tradebook, and see one combined family net worth plus each person's holdings, XIRR and <a href='/capital-gains-tax-report/'>capital gains</a> separately. Nobody has to share a broker password or OTP."
+        terms={['HUF', 'PAN', 'CAS', 'LTCG', 'XIRR', 'EPF', 'PPF', 'NPS', 'IEPF', 'AMC', 'SIP']}
+      />
 
       <section class="quick-stats-grid">
         <div class="stat-card">
@@ -112,7 +121,7 @@ const schema = JSON.stringify({
       </section>
 
       <article class="pillar-content prose">
-        <h2>Why Indian Family Portfolios Are Inherently Fragmented</h2>
+        <h2>Why are Indian family portfolios so fragmented?</h2>
         <p>
           In India, smart financial planning almost always involves investing across multiple entities. Indian investors strategically allocate capital across:
         </p>
@@ -126,7 +135,7 @@ const schema = JSON.stringify({
           The financial benefit is clear. But managing this structure is chaos: you juggle 4 different broker apps, 6 different login passwords, and have to call your spouse or parents for 2FA OTP codes whenever you need to check portfolio valuations.
         </p>
 
-        <h2>The Arthavi Solution: Family Wealth Without Credential Sharing</h2>
+        <h2>How does Arthavi track a family's wealth without sharing passwords?</h2>
         <p>
           Arthavi provides a clean, secure family hierarchy:
         </p>
@@ -135,7 +144,7 @@ const schema = JSON.stringify({
           <div class="family-card">
             <div class="family-icon">👨‍👩‍👧‍👦</div>
             <h3>Consolidated Household Net Worth</h3>
-            <p>See your family's aggregate wealth across equity, mutual funds, EPF, PPF, NPS, physical gold, and real estate. Understand household asset allocation at a glance.</p>
+            <p>See your family's aggregate wealth across stocks, mutual funds, EPF, PPF, <a href="/nps-tracker/">NPS</a>, <a href="/gold-portfolio-tracker/">gold</a>, <a href="/real-estate-tracker/">real estate</a>, <a href="/ulip-tracker/">ULIPs</a> and <a href="/pms-aif-tracker/">PMS / AIF</a>. Understand household asset allocation at a glance.</p>
           </div>
           <div class="family-card">
             <div class="family-icon">👤</div>
@@ -145,7 +154,7 @@ const schema = JSON.stringify({
           <div class="family-card">
             <div class="family-icon">🔒</div>
             <h3>Statement-Based Ingestion</h3>
-            <p>Family members don't need to give you their Demat or net banking credentials. Simply upload their periodic CAS PDF once a quarter.</p>
+            <p>Family members don't need to give you their Demat or net banking credentials. Simply upload their CAS PDF, or their <a href="/stock-tradebook-import/">broker tradebook</a>, whenever you want to refresh.</p>
           </div>
           <div class="family-card">
             <div class="family-icon">📂</div>
@@ -153,6 +162,20 @@ const schema = JSON.stringify({
             <p>Every year, thousands of crores end up in IEPF because heirs cannot locate folio numbers. Arthavi maintains an organized register of every AMC, folio, and demat account.</p>
           </div>
         </div>
+
+        <h2>What else works across the family?</h2>
+        <ul>
+          <li><a href="/sip-tracker/">Every family SIP</a> in one list, with next instalment dates.</li>
+          <li><a href="/mutual-fund-gift-tracker/">Mutual fund units gifted</a> from a parent to a child keep the donor's original cost and date.</li>
+          <li><a href="/interest-payout-tracker/">FD, SCSS and bond interest payouts</a> for retired parents, with TDS.</li>
+          <li><a href="/insurance-tracker/">Insurance policies</a> for every member, with premium due dates.</li>
+        </ul>
+
+        <h2>What it does not do</h2>
+        <ul>
+          <li>Family members do not get their own logins to your family view; one account holder manages all profiles.</li>
+          <li>It does not file taxes or move money between members; Arthavi is a tracker, not an advisor or broker.</li>
+        </ul>
 
         <h2>Comparison: Family Tracking Approaches</h2>
         <div class="table-wrapper">
@@ -203,6 +226,7 @@ const schema = JSON.stringify({
             </div>
           ))}
         </div>
+        <NextSteps heading="Bring your family's investments together" cta="Track family wealth free" />
       </article>
 
       <RelatedContent

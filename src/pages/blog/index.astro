@@ -170,7 +170,7 @@ const schema = JSON.stringify({
 >
   <main class="blog-index-page">
     <div class="container" style="padding-top: calc(var(--header-height) + 3rem); padding-bottom: 5rem;">
-      <header class="section-header text-center" style="max-width: 800px; margin: 0 auto 3.5rem auto;">
+      <div class="section-header text-center" style="max-width: 800px; margin: 0 auto 3.5rem auto;">
         <span class="badge" style="display: inline-block; padding: 0.35rem 1rem; border-radius: 999px; background: rgba(56, 189, 248, 0.1); color: #38BDF8; font-weight: 600; font-size: 0.85rem; margin-bottom: 1rem; border: 1px solid rgba(56, 189, 248, 0.2);">
           Guides & Insights
         </span>
@@ -180,7 +180,7 @@ const schema = JSON.stringify({
         <p style="color: #9CA3AF; font-size: 1.15rem; line-height: 1.6;">
           In-depth technical guides, privacy deep-dives, and financial calculation tutorials designed for the thoughtful Indian investor.
         </p>
-      </header>
+      </div>
 
       <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem;">
         {posts.map(post => (
