@@ -18,7 +18,7 @@ const schema = JSON.stringify({
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How does Arthavi parse CAS statements?", "acceptedAnswer": { "@type": "Answer", "text": "Arthavi's CAS parser reads password-protected PDFs from CAMS and KFintech using client-side JavaScript. It extracts folio numbers, scheme names, AMC details, ISINs, transaction dates, types (SIP, Purchase, Redemption, Dividend Reinvestment, Switch), units, NAVs, and current valuations. The parser handles both old and new CAMS/KFintech CAS formats." } },
+        { "@type": "Question", "name": "How does Arthavi parse CAS statements?", "acceptedAnswer": { "@type": "Answer", "text": "Arthavi's CAS parser reads password-protected PDFs from CAMS and KFintech uploaded over an encrypted HTTPS connection. It extracts folio numbers, scheme names, AMC details, ISINs, transaction dates, types (SIP, Purchase, Redemption, Dividend Reinvestment, Switch), units, NAVs, and current valuations. The parser handles both old and new CAMS/KFintech CAS formats." } },
         { "@type": "Question", "name": "How does Arthavi calculate XIRR?", "acceptedAnswer": { "@type": "Answer", "text": "Arthavi computes XIRR using Newton-Raphson iteration to find the discount rate that makes the Net Present Value of all cash flows equal to zero. Cash flows include every SIP, lump sum, redemption, switch, and dividend reinvestment with exact transaction dates. The current portfolio value on today's date is the final positive cash flow." } },
         { "@type": "Question", "name": "Where does Arthavi get stock prices from?", "acceptedAnswer": { "@type": "Answer", "text": "Stock prices are sourced from real-time NSE and BSE market data feeds. Mutual fund NAVs come from official AMFI (Association of Mutual Funds in India) data published daily. All data is fetched from authoritative sources with no intermediary scraping." } },
         { "@type": "Question", "name": "How does Arthavi detect portfolio overlap?", "acceptedAnswer": { "@type": "Answer", "text": "Arthavi maps each mutual fund's portfolio holdings using publicly available scheme portfolio data from AMFI. It then calculates the Jaccard similarity index between any two funds' top holdings to determine overlap percentage. Funds sharing more than 50% common stocks are flagged as high overlap." } }
@@ -57,7 +57,7 @@ const schema = JSON.stringify({
     <h2>How does Arthavi parse CAS statements?</h2>
     <p>Arthavi's CAS parser processes CAMS and KFintech Consolidated Account Statement PDFs through the following pipeline:</p>
     <ol>
-      <li><strong>Client-side PDF decryption</strong> — The password-protected CAS is decrypted in the user's browser using their PAN. The password never leaves the browser.</li>
+      <li><strong>Encrypted upload</strong> — The password-protected CAS and its password are sent over HTTPS and used only to read the statement.</li>
       <li><strong>Text extraction</strong> — PDF pages are converted to structured text using a JavaScript PDF parser.</li>
       <li><strong>Transaction identification</strong> — Regex and rule-based parsing identifies folio numbers, scheme names, AMC names, ISINs, transaction dates, transaction types (Purchase, SIP, Redemption, Switch In/Out, Dividend Reinvestment), units, and NAVs.</li>
       <li><strong>Data normalization</strong> — Scheme names are matched against AMFI's master database for standardized fund identification. NAVs are cross-verified with official AMFI feeds.</li>
@@ -123,7 +123,7 @@ const schema = JSON.stringify({
     <section id="faq" style="margin-top: 3rem;">
       <h2>Frequently Asked Questions</h2>
       <h3>How does Arthavi parse CAS statements?</h3>
-      <p>Client-side PDF decryption + text extraction + regex-based transaction parsing + AMFI master data matching.</p>
+      <p>Encrypted upload + PDF decryption + text extraction + regex-based transaction parsing + AMFI master data matching.</p>
       <h3>How does Arthavi calculate XIRR?</h3>
       <p>Newton-Raphson iteration on actual cash flows and dates. Same method as Excel's XIRR.</p>
       <h3>Where does Arthavi get stock prices?</h3>

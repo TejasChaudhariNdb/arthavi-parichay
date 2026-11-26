@@ -52,7 +52,7 @@ const schema = JSON.stringify({
         { "@type": "Question", "name": "How to get CAS from KFintech?", "acceptedAnswer": { "@type": "Answer", "text": "Visit kfintech.com (mfs.kfintech.com), go to 'General' → 'Consolidated Account Statement', enter your PAN and email, select 'Detailed' type, and submit. The CAS PDF arrives via email within minutes." } },
         { "@type": "Question", "name": "How to get CAS from NSDL for demat mutual funds?", "acceptedAnswer": { "@type": "Answer", "text": "For mutual funds held in demat mode, request your CAS from NSDL's website (nsdl.co.in). However, most retail investors hold mutual funds in statement mode (non-demat), so CAMS/KFintech CAS covers the vast majority of holdings." } },
         { "@type": "Question", "name": "Why is my CAS not showing all mutual funds?", "acceptedAnswer": { "@type": "Answer", "text": "This usually happens when the email or PAN you entered doesn't match all your folios. Some investors have funds registered under different email addresses. Try requesting CAS using your PAN (which covers all folios regardless of email) from both CAMS and KFintech." } },
-        { "@type": "Question", "name": "Can Arthavi parse password-protected CAS files?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Arthavi asks for the CAS password (your PAN) during upload. The PDF is decrypted locally in your browser — the password never reaches Arthavi's servers." } }
+        { "@type": "Question", "name": "Can Arthavi parse password-protected CAS files?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Arthavi asks for the CAS password (your PAN) during upload. The PDF and password are sent over an encrypted HTTPS connection and used only to read the statement." } }
       ]
     }
   ]
@@ -119,7 +119,7 @@ const schema = JSON.stringify({
     </ul>
 
     <h2>Can Arthavi parse password-protected CAS files?</h2>
-    <p>Yes. When you upload your CAS, Arthavi asks for the password (your PAN). The PDF is decrypted <strong>locally in your browser</strong> — the password never reaches Arthavi's servers. This is a critical privacy measure that sets Arthavi apart from trackers that require email access.</p>
+    <p>Yes. When you upload your CAS, Arthavi asks for the password (your PAN). The PDF and password are sent over an <strong>encrypted HTTPS connection</strong> and used only to read the statement. Arthavi never needs access to your email, unlike trackers that read your inbox.</p>
 
     <div style="text-align: center; margin: 3rem 0;">
       <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
@@ -139,7 +139,7 @@ const schema = JSON.stringify({
       <h3>Why is my CAS not showing all mutual funds?</h3>
       <p>Check if funds are under different email or held in demat mode (use NSDL CAS for demat).</p>
       <h3>Can Arthavi parse password-protected CAS files?</h3>
-      <p>Yes. Password decryption happens in your browser — PAN never reaches our servers.</p>
+      <p>Yes. Enter the password with the upload; it is sent over an encrypted HTTPS connection.</p>
     </section>
 
     <RelatedContent hub="cas" currentUrl="/guides/how-to-import-cas-cams-kfintech-nsdl/" />

@@ -21,7 +21,7 @@ const schema = JSON.stringify({
         { "@type": "Question", "name": "Does Arthavi read your emails?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi never requests Gmail or email read access. Portfolio data is imported exclusively through direct CAS PDF upload controlled by the user. This is fundamentally different from apps like INDmoney that scrape investment emails via OAuth." } },
         { "@type": "Question", "name": "Does Arthavi require broker login credentials?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi never asks for Zerodha, Groww, Upstox, or any broker password, MPIN, or TOTP token. Portfolio tracking works through read-only CAS statements and manual stock entries." } },
         { "@type": "Question", "name": "Does Arthavi sell user data to third parties?", "acceptedAnswer": { "@type": "Answer", "text": "No. Arthavi does not sell, share, or monetize user data with lenders, insurance companies, mutual fund distributors, or advertisers. The platform earns through premium feature tiers, not data brokering." } },
-        { "@type": "Question", "name": "How does Arthavi encrypt user data?", "acceptedAnswer": { "@type": "Answer", "text": "All data in transit uses TLS 1.3 with HSTS. Data at rest is encrypted using AES-256 bank-grade encryption. CAS PDF passwords are processed locally in the user's browser and never transmitted to servers." } }
+        { "@type": "Question", "name": "How does Arthavi encrypt user data?", "acceptedAnswer": { "@type": "Answer", "text": "All data in transit uses TLS 1.3 with HSTS. Data at rest is encrypted using AES-256 bank-grade encryption. CAS PDFs and their passwords are sent over HTTPS and used only to read your statement." } }
       ]
     }
   ]
@@ -48,7 +48,7 @@ const schema = JSON.stringify({
   <div class="aeo-answer-block fade-in" style="max-width: 780px; margin: 0 auto 2rem; padding: 1.5rem; border-radius: 16px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);">
     <p style="margin: 0; font-size: 1.05rem; line-height: 1.7; color: var(--text-body);">
       <strong style="color: var(--text-head);">Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login.</strong>
-      We never read your emails, never ask for broker passwords, never sell your data, and never make marketing calls. CAS PDF passwords are decrypted in your browser — they never reach our servers.
+      We never read your emails, never ask for broker passwords, never sell your data, and never make marketing calls.
     </p>
   </div>
 
@@ -68,8 +68,8 @@ const schema = JSON.stringify({
         <tbody>
           <tr><td>Email address</td><td>Yes</td><td>Account authentication only</td></tr>
           <tr><td>Phone number</td><td>No</td><td>Never collected — you'll never get marketing calls</td></tr>
-          <tr><td>CAS PDF content</td><td>Parsed</td><td>Transaction data extracted, raw PDF not stored permanently</td></tr>
-          <tr><td>CAS password (PAN)</td><td>No</td><td>Decrypted in browser, never sent to server</td></tr>
+          <tr><td>CAS PDF content</td><td>Parsed</td><td>Transaction data extracted to build your portfolio; never sold or shared</td></tr>
+          <tr><td>CAS password</td><td>Used to open the PDF</td><td>Sent over HTTPS with the upload; never sold or shared</td></tr>
           <tr><td>Stock holdings</td><td>Yes</td><td>Used for portfolio display and analytics</td></tr>
           <tr><td>Gmail/email inbox</td><td>No</td><td>Never requested — no OAuth email scopes</td></tr>
           <tr><td>Broker credentials</td><td>No</td><td>Never requested — no demat linking</td></tr>
@@ -104,7 +104,7 @@ const schema = JSON.stringify({
     <ul>
       <li><strong>In transit</strong>: TLS 1.3 with HTTP Strict Transport Security (HSTS)</li>
       <li><strong>At rest</strong>: AES-256 encryption (bank-grade)</li>
-      <li><strong>CAS password</strong>: Processed client-side in browser JavaScript — never transmitted</li>
+      <li><strong>CAS password</strong>: Sent over HTTPS with the upload, used only to open the statement</li>
       <li><strong>Database</strong>: Encrypted volumes with access controls</li>
     </ul>
 
@@ -130,7 +130,7 @@ const schema = JSON.stringify({
       <h3>Does Arthavi sell user data?</h3>
       <p>No. We don't sell, share, or monetize data with lenders, insurers, or advertisers.</p>
       <h3>How does Arthavi encrypt data?</h3>
-      <p>TLS 1.3 in transit, AES-256 at rest. CAS passwords processed in-browser only.</p>
+      <p>TLS 1.3 in transit, AES-256 at rest.</p>
     </section>
 
     <nav style="margin-top: 3rem; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">

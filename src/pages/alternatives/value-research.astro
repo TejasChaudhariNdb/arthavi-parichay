@@ -35,7 +35,7 @@ const schema = JSON.stringify({
           "name": "Does Value Research have automated CAS import?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Value Research's Portfolio Manager advertises automated transaction imports through MF Central with OTP verification. Arthavi imports CAMS and KFintech CAS PDFs directly in under 30 seconds with client-side decryption — no password storage."
+            "text": "Yes. Value Research's Portfolio Manager advertises automated transaction imports through MF Central with OTP verification. Arthavi imports CAMS and KFintech CAS PDFs directly in under 30 seconds over an encrypted HTTPS connection."
           }
         },
         {
@@ -114,7 +114,7 @@ const schema = JSON.stringify({
           </tr>
           <tr>
             <td><strong>Import method</strong></td>
-            <td class="col-arthavi">CAMS/KFintech CAS PDF — client-side decryption, zero password storage</td>
+            <td class="col-arthavi">CAMS/KFintech CAS PDF — encrypted HTTPS upload</td>
             <td>MF Central OTP flow, automated imports</td>
           </tr>
           <tr>
@@ -159,7 +159,7 @@ const schema = JSON.stringify({
           </tr>
           <tr>
             <td><strong>Privacy model</strong></td>
-            <td class="col-arthavi">Client-side PDF decryption, zero raw storage, no broker login</td>
+            <td class="col-arthavi">Encrypted CAS upload, no email access, no broker login</td>
             <td>MF Central linked flow with OTP</td>
           </tr>
         </tbody>
@@ -175,7 +175,7 @@ const schema = JSON.stringify({
 
     <h2>Where Arthavi is different</h2>
     <ul>
-      <li><strong>Client-side PDF decryption</strong> — Your CAMS/KFintech PDF password never leaves your browser. The <a href="/methodology/">methodology page</a> explains the full data flow.</li>
+      <li><strong>Encrypted uploads</strong> — Your CAMS/KFintech PDF and its password are sent over HTTPS and used only to read the statement. The <a href="/methodology/">methodology page</a> explains the full data flow.</li>
       <li><strong>Broker tradebook import</strong> — Import Zerodha, Groww, Angel One, and Upstox trade CSV files alongside your CAS for a complete stocks + mutual funds view.</li>
       <li><strong>AI assistant on your actual holdings</strong> — Ask questions about your specific portfolio: overlap between funds, sector concentration, emergency fund coverage.</li>
       <li><strong>Capital gains with Section 112A</strong> — LTCG reports with Jan 31, 2018 FMV grandfathering and updated Budget 2024 tax rates, downloadable as CSV.</li>
@@ -212,7 +212,7 @@ const schema = JSON.stringify({
       <p>Yes, Value Research offers a free Portfolio Manager with automated transaction imports via MF Central, covering mutual funds, stocks, NPS, PPF, SGBs, and bonds. Arthavi is also free and additionally provides broker tradebook CSV import, SIF/AIF tracking, cash-flow XIRR, capital gains reports, and an AI assistant.</p>
 
       <h3>Does Value Research have automated CAS import?</h3>
-      <p>Yes. Value Research's Portfolio Manager advertises automated transaction imports through MF Central with OTP verification. Arthavi imports CAMS and KFintech CAS PDFs directly in under 30 seconds with client-side decryption — no password storage on the server.</p>
+      <p>Yes. Value Research's Portfolio Manager advertises automated transaction imports through MF Central with OTP verification. Arthavi imports CAMS and KFintech CAS PDFs directly in under 30 seconds over an encrypted HTTPS connection.</p>
 
       <h3>What does Arthavi offer that Value Research does not?</h3>
       <p>Arthavi adds SIF and AIF specialized fund tracking, NSE/BSE live stock portfolio with broker tradebook CSV import, capital gains LTCG/STCG reports with Section 112A grandfathering, an AI portfolio assistant, and CAS Delta Import for duplicate-free monthly updates.</p>

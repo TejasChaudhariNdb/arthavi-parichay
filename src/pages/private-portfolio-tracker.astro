@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "How does Arthavi function without asking for my broker password?",
-    answer: "Arthavi uses official Consolidated Account Statements (CAS) issued by SEBI-regulated RTAs (CAMS, KFintech) and depositories (NSDL, CDSL). You download your statement directly to your device and upload it. Decryption happens locally in your browser memory."
+    answer: "Arthavi uses official Consolidated Account Statements (CAS) issued by SEBI-regulated RTAs (CAMS, KFintech) and depositories (NSDL, CDSL). You download your statement directly to your device and upload it. The upload uses an encrypted HTTPS connection and your data is never sold or shared."
   },
   {
     question: "Will I ever receive spam calls or WhatsApp marketing from Arthavi?",
@@ -106,8 +106,8 @@ const schema = JSON.stringify({
         </div>
         <div class="stat-card">
           <div class="stat-val">Local</div>
-          <div class="stat-label">Client-Side Decryption</div>
-          <p class="stat-sub">PDF passwords decrypted in browser memory</p>
+          <div class="stat-label">Encrypted Upload</div>
+          <p class="stat-sub">Statements sent over HTTPS only</p>
         </div>
       </section>
 
@@ -143,8 +143,8 @@ const schema = JSON.stringify({
           </div>
           <div class="privacy-box">
             <div class="privacy-icon">💻</div>
-            <h3>3. Client-Side Decryption</h3>
-            <p>Your password-protected CAS files are decrypted locally in your browser memory using WebAssembly. Your statement password is never sent to or logged on our servers.</p>
+            <h3>3. Encrypted Uploads</h3>
+            <p>Your password-protected CAS file and its password are sent over an encrypted HTTPS connection and used only to read your statement. Nothing is sold or shared.</p>
           </div>
           <div class="privacy-box">
             <div class="privacy-icon">📵</div>
@@ -184,8 +184,8 @@ const schema = JSON.stringify({
                 <td class="text-neutral">Promotes margin trading & F&O</td>
               </tr>
               <tr>
-                <td><strong>Local Statement Decryption</strong></td>
-                <td class="text-positive">✓ In-browser memory only</td>
+                <td><strong>Statement-Only Access</strong></td>
+                <td class="text-positive">✓ Only files you upload</td>
                 <td class="text-negative">✗ Server-side statement parsing</td>
                 <td class="text-neutral">N/A</td>
               </tr>

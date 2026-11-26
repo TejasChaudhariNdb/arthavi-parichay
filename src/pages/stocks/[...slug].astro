@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { STOCK_SEED_DATA } from '../../data/stockSeedData';
+import { getStockSnapshot, normaliseYield } from '../../data/topStocks';
 
 // Define static paths for all stocks and subpages — no API calls at build time
 export function getStaticPaths() {
@@ -55,6 +56,20 @@ const stockData = {
   dividend: { yield: null, rate: null, lastDividend: null, exDate: null, lastSplit: null },
   executives: []
 };
+
+// Most-visited stocks: bake real numbers into the HTML at build time (crawlers do not run the browser update below)
+const snap = await getStockSnapshot(stockSlug);
+const round2 = (o: Record<string, any>) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, typeof v === 'number' && !Number.isInteger(v) ? +v.toFixed(2) : v]));
+if (snap) {
+  Object.assign(stockData, { price: snap.price, change: snap.change ?? 0, changePercent: snap.changePercent ?? 0, executives: snap.executives || [] });
+  Object.assign(stockData.company, Object.fromEntries(Object.entries(snap.company || {}).filter(([, v]) => v != null && v !== '')));
+  for (const k of ['fundamentals', 'performance', 'ownership', 'dividend'] as const) Object.assign(stockData[k], round2(snap[k] || {}));
+  stockData.dividend.yield = normaliseYield(stockData.dividend.yield);
+  if (/^\d{9,}$/.test(String(stockData.dividend.exDate))) {
+    stockData.dividend.exDate = new Date(Number(stockData.dividend.exDate) * 1000).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' });
+  }
+}
+const dataAsOf = snap?.lastUpdated ? new Date(snap.lastUpdated + 'Z').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kolkata' }) : null;
 
 // Formatted helper functions
 const formatCurrency = (val: number | null | undefined) => {
@@ -458,6 +473,7 @@ const breadcrumb = { items: breadcrumbItems };
             </div>
             <p style="color: #F3F4F6; font-size: 0.95rem; line-height: 1.6; margin: 0;">
               <strong>{stockName} ({shortSymbol.toUpperCase()})</strong> is currently trading at <strong>₹{stockData.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</strong> in the <strong>{stockSector}</strong> sector. It has a market cap of <strong>{formatCurrency(stockData.fundamentals.marketCap)}</strong>, a P/E ratio of <strong>{stockData.fundamentals.pe || 'N/A'}</strong>, an ROE of <strong>{stockData.fundamentals.roe ? stockData.fundamentals.roe + '%' : 'N/A'}</strong>, and a 52-week trading range between <strong>₹{stockData.performance.low52 || 'N/A'}</strong> and <strong>₹{stockData.performance.high52 || 'N/A'}</strong>.
+              {dataAsOf && <> Figures last updated <time datetime={snap.lastUpdated.slice(0, 10)}>{dataAsOf}</time> (market data from Yahoo Finance).</>}
             </p>
           </div>
         </section>
@@ -1605,7 +1621,8 @@ const breadcrumb = { items: breadcrumbItems };
       }
 
       if (data.dividend) {
-        setStat('divYield', data.dividend.yield ? `${data.dividend.yield}%` : 'N/A');
+        const y = data.dividend.yield > 25 ? +(data.dividend.yield / 100).toFixed(2) : data.dividend.yield; // backend sends 1.91% as 191
+        setStat('divYield', y ? `${y}%` : 'N/A');
       }
 
       if (data.performance) {
