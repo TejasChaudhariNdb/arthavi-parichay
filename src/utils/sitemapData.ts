@@ -15,12 +15,13 @@ function extractDateFromContent(content: string, filePath: string): string {
   const modMatch = content.match(/dateModified["']?\s*:\s*["']([^"']+)["']/i) ||
                    content.match(/updatedAt["']?\s*:\s*["']([^"']+)["']/i) ||
                    content.match(/lastUpdated\s*=\s*["']([^"']+)["']/i);
-  if (modMatch && modMatch[1]) return modMatch[1].split('T')[0];
+  // Only full dates count: `date:` also matches values like "foundingDate": "2026".
+  if (modMatch && /^\d{4}-\d{2}-\d{2}/.test(modMatch[1])) return modMatch[1].split('T')[0];
 
   const pubMatch = content.match(/datePublished["']?\s*:\s*["']([^"']+)["']/i) ||
                    content.match(/publishedAt["']?\s*:\s*["']([^"']+)["']/i) ||
                    content.match(/date["']?\s*:\s*["']([^"']+)["']/i);
-  if (pubMatch && pubMatch[1]) return pubMatch[1].split('T')[0];
+  if (pubMatch && /^\d{4}-\d{2}-\d{2}/.test(pubMatch[1])) return pubMatch[1].split('T')[0];
 
   // Fallback to file mtime, formatted as YYYY-MM-DD
   try {

@@ -22,6 +22,7 @@
 - [Stock Tradebook Import](https://arthavi.com/stock-tradebook-import/): CSV and Excel tradebooks from Zerodha, Groww, Upstox and others.
 - [Capital Gains Report](https://arthavi.com/capital-gains-tax-report/): FIFO per folio, July 2024 rates, grandfathering, Schedule 112A CSV.
 - [SIP Tracker](https://arthavi.com/sip-tracker/): All family SIPs, next dates, reminders and XIRR.
+- [Changelog](https://arthavi.com/changelog/): Dated list of features launched in the app, newest first.
 - [Family Portfolio Tracker](https://arthavi.com/family-portfolio-tracker/): Separate profiles per member and a combined family view.
 
 ## Alternatives & Comparisons

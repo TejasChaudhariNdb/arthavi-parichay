@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
+  dateModified: "2026-11-27", // update when homepage content changes; also feeds the sitemap lastmod
   title: "Arthavi: Track Stocks & Mutual Funds in One Place | Privacy-First Portfolio Tracker India",
   description: "Track stocks and mutual funds in one place with a privacy-first portfolio tracker for Indian investors. Import CAS, monitor XIRR, and track SIF, AIF, FDs & Gold without broker logins.",
 };
@@ -109,6 +110,14 @@ const seo = {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes! Arthavi is the first and only portfolio platform in India with automated daily NAV tracking for SIF schemes (Specialized Investment Funds), updating your holding values automatically every business day. In addition, Category I, II, and III AIFs are natively supported with capital call tracking, distribution accounting, and true cash-flow XIRR."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does Arthavi not do?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Arthavi only tracks and analyses your investments. It does not buy or sell investments or execute trades, does not sell mutual funds, insurance or loans, and is not a SEBI-registered investment adviser. It never asks for broker, bank or email logins: you upload statements or add holdings yourself."
               }
             },
             {
@@ -397,7 +406,7 @@ const seo = {
                     Track your family's entire portfolio <span>in one private dashboard</span>
                 </h1>
                 <p class="hero-subheadline">
-                    Upload your CAMS or KFintech CAS and see mutual funds, stocks and true XIRR in minutes. Then add NPS, PMS &amp; AIF, FDs, gold, property, ULIPs and insurance for every family member. No broker login, no email access, no spam calls.
+                    Arthavi is a free, privacy-first portfolio tracker for Indian families. Upload your CAMS or KFintech CAS (Consolidated Account Statement) to see mutual funds, stocks and your true annual return (XIRR) in minutes, then add NPS, PMS &amp; AIF, FDs, gold, property, ULIPs and insurance for every family member. No broker login, no email access, no spam calls.
                 </p>
 
                 <div class="btn-group hero-btn-group">
@@ -508,7 +517,7 @@ const seo = {
             <div class="container">
                 <div class="section-header text-center fade-in">
                     <h2 id="new-features-title">New in Arthavi</h2>
-                    <p class="section-sub">Recently launched, built from requests by families who use Arthavi.</p>
+                    <p class="section-sub">Recently launched, built from requests by families who use Arthavi. <a href="/changelog/" style="color: var(--primary-glow);">See the full changelog →</a></p>
                 </div>
                 <div class="new-grid">
                     <a href="/nps-tracker/" class="new-card glass-panel">
@@ -1589,7 +1598,7 @@ const seo = {
             <div class="container" style="max-width: 900px;">
                 <div class="section-header text-center fade-in" style="margin-bottom: 2.5rem;">
                     <h2 class="heading-lg" style="color: var(--text-head); margin-bottom: 0.5rem;">Frequently Asked Questions</h2>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Find instant answers about portfolio tracking, security, CAS import, and AI assistant.</p>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Find instant answers about portfolio tracking, security, CAS import, and AI assistant. Last updated <time datetime={seo.dateModified}>27 November 2026</time>.</p>
                 </div>
 
                 <!-- FAQ Search & Filters -->
@@ -1625,6 +1634,19 @@ const seo = {
                         </button>
                         <div class="faq-answer">
                             Arthavi is a free, privacy-first portfolio tracker for Indian families. It brings mutual funds, stocks, SIF, PMS and AIF, NPS, fixed deposits and bonds, gold, real estate, ULIPs and insurance for every family member into one dashboard, with true XIRR, capital gains reports and an AI assistant, without broker logins or email access.
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="portfolio" data-q="what does arthavi not do trading advice sell products broker login">
+                        <button class="faq-question" aria-expanded="false">
+                            What does Arthavi not do?
+                            <svg class="icon-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            Arthavi only tracks and analyses your investments. It does not buy or sell investments or execute trades, does not sell mutual funds, insurance or loans, and is not a SEBI-registered investment adviser. It never asks for broker, bank or email logins: you upload statements or add holdings yourself.
                         </div>
                     </div>
 

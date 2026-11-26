@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildPageGraph } from '../utils/schemaGenerator';
+
+// Add new releases at the top. Only list features that are live in the app.
+const page = {
+  dateModified: "2026-11-27",
+  title: "Arthavi Changelog: New Features and Improvements | Arthavi",
+  description: "What's new in Arthavi, the free portfolio tracker for Indian families: NPS, PMS & AIF, ULIP and Excel tradebook import, interest payout schedules, capital gains rules and more, with release dates.",
+};
+
+const releases = [
+  {
+    date: '2026-11-26',
+    items: [
+      { title: 'NPS tracking', href: '/nps-tracker/', text: 'Tier I and Tier II accounts with schemes E, C, G and A, contribution plan, current value and XIRR.' },
+      { title: 'PMS & AIF tracking', href: '/pms-aif-tracker/', text: 'PMS accounts and Category I, II and III AIFs with dated investments and withdrawals, statement value, lock-in date and XIRR to the statement date.' },
+      { title: 'PMS & AIF capital gains', href: '/capital-gains-tax-report/', text: 'Enter yearly STCG and LTCG from your manager\'s statement; they count on the Tax page with your other equity gains.' },
+      { title: 'Paid-up insurance policies', href: '/insurance-tracker/', text: '"Premiums paid until" keeps paid-up and single-premium policies out of your yearly premium total and renewal countdown.' },
+      { title: 'More fixed income types', href: '/fixed-deposit-tracker/', text: 'NCDs, government and corporate bonds and other deposits, plus a total for each fixed income category.' },
+      { title: 'HDFC Securities holdings import', href: '/stock-tradebook-import/', text: 'Holdings exports that use HDFC Securities\' own stock codes are matched by company name.' },
+    ],
+  },
+  {
+    date: '2026-11-25',
+    items: [
+      { title: 'Excel (.xlsx) tradebooks', href: '/stock-tradebook-import/', text: 'Import stock tradebooks as Excel files as well as CSV, including mStock trade history exports.' },
+      { title: 'Brokerage charges and STT', href: '/stock-portfolio-tracker/', text: 'Record charges and STT on each stock buy or sell; cost and XIRR include them.' },
+      { title: 'Payout deposits valued correctly', href: '/interest-payout-tracker/', text: 'SCSS, PMVVY, RBI bonds and payout FDs are valued at principal, with interest payouts counted in XIRR.' },
+      { title: 'FD maturity matches the bank', href: '/fd-calculator/', text: 'Fixed deposit maturity now uses whole compounding periods, the way banks calculate it.' },
+    ],
+  },
+  {
+    date: '2026-11-24',
+    items: [
+      { title: 'ULIP tracking', href: '/ulip-tracker/', text: 'Fund units and NAV for each ULIP, premiums paid so far, current value and real XIRR, counted in net worth.' },
+    ],
+  },
+  {
+    date: '2026-11-23',
+    items: [
+      { title: 'Interest payout schedule', href: '/interest-payout-tracker/', text: 'Every payout due in the financial year from FDs, SCSS, Post Office MIS, PMVVY, bonds and SGBs, with received status, TDS and pension income.' },
+      { title: 'Capital gains rules by sale date', href: '/capital-gains-tax-report/', text: 'Equity, debt and other funds taxed by the rules on the sale date, 31 January 2018 grandfathering, and an interest income section on the Tax page.' },
+    ],
+  },
+  {
+    date: '2026-11-14',
+    items: [
+      { title: 'Gifted mutual fund units', href: '/mutual-fund-gift-tracker/', text: 'Gifts between family members keep the donor\'s original purchase date and cost.' },
+    ],
+  },
+];
+
+const fmt = (d: string) => new Date(d).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+const canonical = 'https://arthavi.com/changelog/';
+const crumbs = [
+  { name: 'Home', url: 'https://arthavi.com/' },
+  { name: 'Changelog', url: canonical },
+];
+const schema = buildPageGraph({ canonical, title: page.title, description: page.description, breadcrumbs: crumbs, pageType: 'CollectionPage' });
+---
+<Layout title={page.title} description={page.description} schema={schema} canonical={canonical} breadcrumb={{ items: crumbs }}>
+<main class="cl">
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+    <div class="cl-head">
+      <h1 class="heading-xl">What's new in Arthavi</h1>
+      <p>Arthavi is a free, privacy-first portfolio tracker for Indian families. This page lists features that are live in the app, newest first. Last updated <time datetime={page.dateModified}>{fmt(page.dateModified)}</time>.</p>
+    </div>
+    {releases.map((r) => (
+      <section class="cl-release" aria-labelledby={`r-${r.date}`}>
+        <h2 id={`r-${r.date}`}><time datetime={r.date}>{fmt(r.date)}</time></h2>
+        <ul>
+          {r.items.map((i) => (
+            <li><a href={i.href}><strong>{i.title}</strong></a> — {i.text}</li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <div class="cl-cta glass-panel">
+      <h2>Try the latest version</h2>
+      <div class="cl-ctas">
+        <a href="https://app.arthavi.com/register" class="btn btn-primary">Create a free account</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try the demo</a>
+      </div>
+      <p><a href="/features/">See all features</a></p>
+    </div>
+  </div>
+</main>
+</Layout>
+
+<style>
+  .cl { padding: 6.5rem 0 4rem; }
+  .cl-head { max-width: 760px; margin: 1.5rem auto 2.5rem; text-align: center; }
+  .cl-head p { color: var(--text-body); line-height: 1.7; }
+  .cl-release { max-width: 760px; margin: 0 auto 2.25rem; padding-left: 1.25rem; border-left: 2px solid rgba(129,140,248,0.4); }
+  .cl-release h2 { font-size: 1.15rem; color: #a5b4fc; margin: 0 0 0.75rem; }
+  .cl-release ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.6rem; }
+  .cl-release li { color: var(--text-body); line-height: 1.65; }
+  .cl-release a { color: var(--text-head); text-decoration: none; }
+  .cl-release a:hover, .cl-release a:focus-visible { color: var(--primary-glow); text-decoration: underline; }
+  .cl-cta { max-width: 760px; margin: 3rem auto 0; padding: 2rem 1.5rem; border-radius: 18px; text-align: center; }
+  .cl-cta h2 { margin: 0 0 1rem; }
+  .cl-ctas { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+  .cl-cta p { margin: 1rem 0 0; }
+  .cl-cta p a { color: var(--primary-glow); }
+</style>
