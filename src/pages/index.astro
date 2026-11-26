@@ -394,7 +394,7 @@ const seo = {
                 </div>
 
                 <h1 class="heading-xl">
-                    Track your family's entire portfolio <br><span>in one private dashboard</span>
+                    Track your family's entire portfolio <span>in one private dashboard</span>
                 </h1>
                 <p class="hero-subheadline">
                     Upload your CAMS or KFintech CAS and see mutual funds, stocks and true XIRR in minutes. Then add NPS, PMS &amp; AIF, FDs, gold, property, ULIPs and insurance for every family member. No broker login, no email access, no spam calls.
@@ -548,7 +548,7 @@ const seo = {
         </section>
 
         <!-- How It Works: 3 Steps -->
-        <section style="padding: 5rem 0;">
+        <section id="how-it-works" style="padding: 5rem 0;">
             <div class="container">
                 <div class="section-header text-center fade-in">
                     <h2>How Arthavi Works — 3 Simple Steps</h2>
@@ -590,6 +590,10 @@ const seo = {
                         <h3 class="step-heading">Ask AI</h3>
                         <p class="step-desc">Ask questions about <a href="/tools/mutual-fund-overlap/" style="color: var(--primary-glow);">portfolio overlap</a>, sector concentration, and risk — get answers in plain English.</p>
                     </div>
+                </div>
+                <div class="steps-cta fade-in">
+                    <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">Start Tracking Free →</a>
+                    <p class="cta-note">Sign up with email or Google · Free · No broker passwords, no KYC</p>
                 </div>
             </div>
         </section>
@@ -753,36 +757,6 @@ const seo = {
             </div>
         </section>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="how-it-works">
-            <div class="container">
-                <div class="section-header text-center fade-in">
-                    <h2 class="heading-lg">Zero Friction Setup in 3 Steps</h2>
-                    <p class="section-sub">No broker passwords. No bank logins. No KYC required.</p>
-                </div>
-                <div class="steps-grid">
-                    <div class="step-card fade-in delay-100">
-                        <div class="step-icon">1</div>
-                        <p class="step-title"><strong>Sign Up in 10 Seconds</strong></p>
-                        <p>No broker credentials, bank login, or KYC documents required. Start instantly with your email or 1-click Google Sign-In.</p>
-                    </div>
-                    <div class="step-card fade-in delay-200">
-                        <div class="step-icon">2</div>
-                        <p class="step-title"><strong>Import CAS or Add 1 Holding</strong></p>
-                        <p>Drag and drop your CAMS/KFintech CAS statement in 1 click, or simply search and add 1 mutual fund/stock to test the waters.</p>
-                    </div>
-                    <div class="step-card fade-in delay-300">
-                        <div class="step-icon">3</div>
-                        <p class="step-title"><strong>Instant XIRR &amp; Tax Reports</strong></p>
-                        <p>Watch your unified net worth, true cashflow XIRR, fund overlap, and ITR-ready LTCG/STCG tax reports calculate in real time.</p>
-                    </div>
-                </div>
-                <div class="steps-cta fade-in">
-                    <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">Start Tracking Free →</a>
-                    <p class="cta-note">Takes 10 seconds · Free forever · No broker passwords required</p>
-                </div>
-            </div>
-        </section>
 
         <section class="feature-shot-section">
             <div class="container">
@@ -2305,6 +2279,11 @@ const seo = {
             border-color: var(--primary);
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
         }
+        #hero h1 { font-size: clamp(2rem, 4.4vw, 3.5rem); line-height: 1.1; text-wrap: balance; max-width: 15em; margin-left: auto; margin-right: auto; }
+        #hero h1 span { display: block; }
+        #hero .hero-subheadline { font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 640px; }
+        #hero .instruments-pill-bar { flex-wrap: wrap; white-space: normal; justify-content: center; }
+        #hero .instruments-ticker-wrapper { flex-wrap: wrap; justify-content: center; border-radius: 20px; overflow: visible; }
         .new-features { padding: 4rem 0 1rem; }
         .new-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
         .new-card { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.2rem 1.3rem; border-radius: 14px; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
@@ -2314,6 +2293,23 @@ const seo = {
         .new-card:hover, .new-card:focus-visible { border-color: rgba(129,140,248,0.6); transform: translateY(-2px); }
         .new-card:focus-visible { outline: 2px solid var(--primary-glow); outline-offset: 3px; }
         .asset-matrix-table td a { color: var(--primary-glow); white-space: nowrap; }
+        @media (max-width: 640px) {
+            .new-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+            .new-card { padding: 0.9rem; }
+            .new-card strong { font-size: 0.95rem; }
+            .new-card span { font-size: 0.82rem; }
+            .new-features { padding-top: 2.5rem; }
+        }
+        @media (max-width: 768px) {
+            .asset-matrix-table-card { overflow: visible; padding: 0; background: none; border: none; box-shadow: none; }
+            .asset-matrix-table { min-width: 0; }
+            .asset-matrix-table thead { display: none; }
+            .asset-matrix-table, .asset-matrix-table tbody, .asset-matrix-table tr, .asset-matrix-table td { display: block; width: auto !important; }
+            .asset-matrix-table tr { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 0.75rem; }
+            .asset-matrix-table td { padding: 0.25rem 0 !important; border: none !important; font-size: 0.9rem; line-height: 1.55; }
+            .asset-matrix-table td:first-child { padding-bottom: 0.5rem !important; }
+            .asset-matrix-table td a { white-space: normal; }
+        }
         @media (prefers-reduced-motion: reduce) { .new-card { transition: none; } .new-card:hover { transform: none; } }
     </style>
 
