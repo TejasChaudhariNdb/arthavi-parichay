@@ -62,11 +62,18 @@ const seo = {
             "SIF (Specialized Investment Funds) Automated AMFI API Tracking",
             "AIF (Alternative Investment Funds - Cat I, II, III) Portfolio Engine",
             "Fixed Income Vault (Bank & Corporate FDs, RD, PPF, EPF) with Daily Compounding",
-            "Precious Metals & Gold Valuation by Weight & Purity with Live Bullion Feeds",
+            "Gold Tracking (Jewellery, Coins, SGB, Digital Gold) by Weight & Purity at an Estimated Indian Market Rate",
             "Real Estate Cash-Flow Accounting & True Property XIRR",
-            "Family Insurance Vault with 30-Day Renewal Countdown Alerts",
+            "Family Insurance Tracker (Term, Health, Motor, Critical Illness, ULIP) with Premium Due Dates and Paid-Up Policies",
+            "ULIP Tracking with Fund Units, NAV and XIRR",
+            "NPS Tracking (Tier I and II, Schemes E, C, G, A) with XIRR",
+            "PMS and AIF Tracking with Dated Flows, Statement Value, XIRR and Yearly Capital Gains",
+            "Rental Property Cash Flow, Home Loan Schedule, Sale Simulator and Nifty 50 Comparison",
+            "Interest Payout Schedule for FDs, SCSS, Post Office MIS, PMVVY, Bonds and SGB with TDS",
+            "Gifted Mutual Fund Units Keep the Original Cost and Date",
+            "SIP Tracker with Reminders",
             "Live Alpha Benchmark Tracking vs Nifty 50 & 500",
-            "1-Click Broker Tradebook Ingestion (Zerodha, Groww, AngelOne, Upstox)",
+            "Stock Tradebook Import from CSV or Excel (Zerodha, Groww, Upstox, Dhan, ICICI Direct, HDFC Securities and more)",
             "No Demat Link Required",
             "Privacy-First Architecture",
             "XIRR Calculator based on actual cash flows",
@@ -75,7 +82,7 @@ const seo = {
             "Sector Concentration Analysis",
             "Goal-Based Portfolio Tracking",
             "Multi-Profile Family Portfolio Tracking",
-            "Capital Gains & Tax Reports (LTCG / STCG FY 2025-26)",
+            "Capital Gains Report (STCG / LTCG, Grandfathering, Schedule 112A CSV) and Interest Income",
             "Consolidated Net Worth Tracker India"
           ],
           "screenshot": "https://arthavi.com/images/dashboard.webp",
@@ -93,7 +100,7 @@ const seo = {
               "name": "What is Arthavi?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Arthavi is India's all-in-one family wealth operating system that consolidates your stocks, mutual funds, SIF & AIF, bank FDs, gold, real estate, and insurance policies into a single privacy-first vault with automated analytics and true XIRR."
+                "text": "Arthavi is a free, privacy-first portfolio tracker for Indian families. It brings mutual funds, stocks, SIF, PMS and AIF, NPS, fixed deposits and bonds, gold, real estate, ULIPs and insurance for every family member into one dashboard, with true XIRR, capital gains reports and an AI assistant, without broker logins or email access."
               }
             },
             {
@@ -387,10 +394,10 @@ const seo = {
                 </div>
 
                 <h1 class="heading-xl">
-                    Track Your Entire Investment Portfolio <br><span>in One Clean Dashboard</span>
+                    Track your family's entire portfolio <br><span>in one private dashboard</span>
                 </h1>
                 <p class="hero-subheadline">
-                    Import your CAMS/KFintech statement to see your mutual funds, stocks, accurate cashflow XIRR, and net worth in seconds. One unified vault for Stocks, Mutual Funds, SIF &amp; AIF, Bank FDs, Gold, Real Estate &amp; Insurance — with zero broker logins and zero spam calls.
+                    Upload your CAMS or KFintech CAS and see mutual funds, stocks and true XIRR in minutes. Then add NPS, PMS &amp; AIF, FDs, gold, property, ULIPs and insurance for every family member. No broker login, no email access, no spam calls.
                 </p>
 
                 <div class="btn-group hero-btn-group">
@@ -476,22 +483,69 @@ const seo = {
                 <div class="instruments-ticker-wrapper glass-panel fade-in delay-200">
                     <div class="ticker-label">
                         <span class="ticker-pulse-dot"></span>
-                        <span>SUPPORTED INSTRUMENTS:</span>
+                        <span>WHAT YOU CAN TRACK:</span>
                     </div>
                     <div class="instruments-pill-bar">
-                        <span class="instrument-pill"><span class="pill-dot" style="background:#38bdf8;"></span>NSE &amp; BSE Stocks</span>
-                        <span class="instrument-pill"><span class="pill-dot" style="background:#818cf8;"></span>Mutual Funds</span>
-                        <a href="/blog/sif-specialized-investment-funds-india-tracker/" class="instrument-pill highlight-pill" style="text-decoration:none;"><span class="pill-badge">INDIA'S 1ST</span> SIF &amp; AIF</a>
-                        <span class="instrument-pill"><span class="pill-dot" style="background:#34d399;"></span>Bank FDs</span>
-                        <span class="instrument-pill"><span class="pill-dot" style="background:#10b981;"></span>PPF &amp; EPF</span>
-                        <span class="instrument-pill"><span class="pill-dot" style="background:#fbbf24;"></span>24K/22K Gold &amp; SGBs</span>
-                        <span class="instrument-pill"><span class="pill-dot" style="background:#f472b6;"></span>Real Estate</span>
-                        <span class="instrument-pill"><span class="pill-dot" style="background:#a78bfa;"></span>Term &amp; Health Insurance</span>
+                        <a href="/stock-portfolio-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#38bdf8;"></span>NSE &amp; BSE Stocks</a>
+                        <a href="/mutual-fund-portfolio-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#818cf8;"></span>Mutual Funds &amp; SIPs</a>
+                        <a href="/pms-aif-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#c084fc;"></span>PMS &amp; AIF</a>
+                        <a href="/nps-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#22d3ee;"></span>NPS</a>
+                        <a href="/fixed-deposit-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#34d399;"></span>FDs, PPF &amp; EPF</a>
+                        <a href="/interest-payout-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#10b981;"></span>SCSS, MIS &amp; Bonds</a>
+                        <a href="/gold-portfolio-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#fbbf24;"></span>Gold &amp; SGBs</a>
+                        <a href="/real-estate-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#f472b6;"></span>Real Estate &amp; Rent</a>
+                        <a href="/ulip-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#fb923c;"></span>ULIPs</a>
+                        <a href="/insurance-tracker/" class="instrument-pill" style="text-decoration:none;"><span class="pill-dot" style="background:#a78bfa;"></span>Term &amp; Health Insurance</a>
+                        <a href="/blog/sif-specialized-investment-funds-india-tracker/" class="instrument-pill highlight-pill" style="text-decoration:none;"><span class="pill-badge">NEW</span> SIF</a>
                     </div>
                 </div>
             </div>
         </section>
 
+
+        <!-- Recently launched -->
+        <section class="new-features" aria-labelledby="new-features-title">
+            <div class="container">
+                <div class="section-header text-center fade-in">
+                    <h2 id="new-features-title">New in Arthavi</h2>
+                    <p class="section-sub">Recently launched, built from requests by families who use Arthavi.</p>
+                </div>
+                <div class="new-grid">
+                    <a href="/nps-tracker/" class="new-card glass-panel">
+                        <strong>NPS</strong>
+                        <span>Tier I and II, schemes E, C, G, A, with XIRR.</span>
+                    </a>
+                    <a href="/pms-aif-tracker/" class="new-card glass-panel">
+                        <strong>PMS &amp; AIF</strong>
+                        <span>Capital calls, distributions, statement value and yearly gains.</span>
+                    </a>
+                    <a href="/ulip-tracker/" class="new-card glass-panel">
+                        <strong>ULIPs</strong>
+                        <span>Fund value, premiums paid, paid-up policies and real XIRR.</span>
+                    </a>
+                    <a href="/rental-property-cash-flow-tracker/" class="new-card glass-panel">
+                        <strong>Rental cash flow</strong>
+                        <span>Rent, EMIs, costs, sale simulator and Nifty 50 comparison.</span>
+                    </a>
+                    <a href="/interest-payout-tracker/" class="new-card glass-panel">
+                        <strong>Interest payouts</strong>
+                        <span>SCSS, MIS, PMVVY, FD, bond and SGB payouts with TDS.</span>
+                    </a>
+                    <a href="/mutual-fund-gift-tracker/" class="new-card glass-panel">
+                        <strong>Gifted MF units</strong>
+                        <span>Recipients keep the original cost and purchase date.</span>
+                    </a>
+                    <a href="/stock-tradebook-import/" class="new-card glass-panel">
+                        <strong>Excel tradebooks</strong>
+                        <span>Import CSV or .xlsx tradebooks from your broker.</span>
+                    </a>
+                    <a href="/capital-gains-tax-report/" class="new-card glass-panel">
+                        <strong>Capital gains report</strong>
+                        <span>FIFO per folio, grandfathering, Schedule 112A CSV.</span>
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <!-- How It Works: 3 Steps -->
         <section style="padding: 5rem 0;">
@@ -865,11 +919,11 @@ const seo = {
                                 <path d="M15 15h.01"></path>
                             </svg>
                         </div>
-                        <p class="feature-title"><strong>🥇 Live Gold Rates &amp; Market Cap Tilt</strong></p>
+                        <p class="feature-title"><strong>🥇 Gold Valuation &amp; Market Cap Tilt</strong></p>
                         <p style="color: #fbbf24; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.5rem;">Gold by weight + equity risk analysis.</p>
-                        <p>Real-time daily bullion prices value your 24K coins, 22K jewelry, and SGBs by gram. Plus, view your portfolio's Large Cap, Mid Cap, and Small Cap risk tilt at a glance.</p>
+                        <p>An estimated Indian market rate values your 24K coins, 22K jewellery and SGBs by gram. Plus, view your portfolio's Large Cap, Mid Cap, and Small Cap risk tilt at a glance.</p>
                         <ul>
-                            <li>Live daily bullion rate ticker per gram in INR</li>
+                            <li>Estimated Indian market rate per gram in INR</li>
                             <li>24K, 22K, 18K purity and SGB valuation</li>
                             <li>Large, Mid &amp; Small Cap allocation breakdown</li>
                         </ul>
@@ -892,9 +946,9 @@ const seo = {
             <div class="container">
                 <div class="section-header text-center fade-in">
                     <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Complete Coverage Matrix</span>
-                    <h2>All 7 Asset Classes in One Unified Vault</h2>
+                    <h2>Every Asset Class in One Unified Vault</h2>
                     <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.05rem;">
-                        Arthavi is the only wealth operating system in India supporting automated AMFI SIF feeds, AIF valuation units, Demat reconciliation, compounding safe yield, bullion rates, and real estate XIRR in one place.
+                        Mutual funds, stocks, SIF, PMS &amp; AIF, NPS, deposits and bonds, gold, property, ULIPs and insurance, for every family member, with one consistent XIRR method across all of them.
                     </p>
                 </div>
 
@@ -912,7 +966,7 @@ const seo = {
                                 <td>
                                     <div class="asset-class-badge">
                                         <span style="font-size: 1.25rem;">📈</span>
-                                        <span>1. Equity &amp; Stocks</span>
+                                        <span>Equity &amp; Stocks</span>
                                     </div>
                                 </td>
                                 <td>
@@ -920,14 +974,14 @@ const seo = {
                                     <span>ETFs (Nifty BeES, Gold BeES, Liquid BeES)</span>
                                 </td>
                                 <td>
-                                    Real-time live LTP market feeds, automated weighted average buy price, 1-click broker tradebook imports (Zerodha, Groww, AngelOne, Upstox), Demat reconciler.
+                                    Real-time live LTP market feeds, automated weighted average buy price, CSV or Excel tradebook imports (Zerodha, Groww, Upstox and more), charges and STT, corporate actions, demat reconciler. <a href="/stock-tradebook-import/">Tradebook import →</a>
                                 </td>
                             </tr>
                             <tr style="background: rgba(168, 85, 247, 0.04);">
                                 <td>
                                     <div class="asset-class-badge">
                                         <span style="font-size: 1.25rem;">📊</span>
-                                        <span>2. Mutual Funds &amp; Specialized Funds</span>
+                                        <span>Mutual Funds &amp; Specialized Funds</span>
                                     </div>
                                 </td>
                                 <td>
@@ -943,7 +997,7 @@ const seo = {
                                 <td>
                                     <div class="asset-class-badge">
                                         <span style="font-size: 1.25rem;">🏦</span>
-                                        <span>3. Fixed Income &amp; Safe Yield</span>
+                                        <span>Fixed Income &amp; Safe Yield</span>
                                     </div>
                                 </td>
                                 <td>
@@ -952,14 +1006,44 @@ const seo = {
                                     <span>Recurring Deposits (RD), PPF, EPF &amp; VPF, Government Bonds &amp; T-Bills</span>
                                 </td>
                                 <td>
-                                    Daily compound interest engine (<code>A = P(1 + r/400)⁴ᵗ</code> for quarterly bank FDs, monthly for RDs, annual for PPF), real-time daily accrued interest, and 90-day maturity warning alerts.
+                                    Compound interest engine (<code>A = P(1 + r/400)⁴ᵗ</code> for quarterly bank FDs, monthly for RDs, annual for PPF), accrued interest, and an interest payout schedule for SCSS, MIS, PMVVY and bonds with TDS. <a href="/interest-payout-tracker/">Payout schedule →</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="asset-class-badge">
+                                        <span style="font-size: 1.25rem;">💼</span>
+                                        <span>PMS &amp; AIF</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <strong>Portfolio Management Services</strong><br />
+                                    <span>AIF Category I, II &amp; III</span>
+                                </td>
+                                <td>
+                                    Dated investments and withdrawals (capital calls, distributions), latest statement value, XIRR to the statement date, lock-in date, and yearly STCG/LTCG on the Tax page. <a href="/pms-aif-tracker/">PMS &amp; AIF tracker →</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="asset-class-badge">
+                                        <span style="font-size: 1.25rem;">🧓</span>
+                                        <span>NPS</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <strong>National Pension System</strong><br />
+                                    <span>Tier I &amp; Tier II, schemes E, C, G, A</span>
+                                </td>
+                                <td>
+                                    Scheme-wise units and NAV, contribution plan, current value, gain and XIRR to the NAV date. <a href="/nps-tracker/">NPS tracker →</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="asset-class-badge">
                                         <span style="font-size: 1.25rem;">🥇</span>
-                                        <span>4. Precious Metals &amp; Gold</span>
+                                        <span>Precious Metals &amp; Gold</span>
                                     </div>
                                 </td>
                                 <td>
@@ -968,14 +1052,14 @@ const seo = {
                                     <span>18K Gold, Sovereign Gold Bonds (SGB), Digital Gold</span>
                                 </td>
                                 <td>
-                                    Live daily bullion market rate ticker per gram in INR. Auto-computes current valuation based on gram weight and purity.
+                                    Valued per gram at an estimated Indian market rate (international price plus import duty and premium) by weight and purity. Every purchase recorded with date and notes. SGB interest in the payout schedule. <a href="/gold-portfolio-tracker/">Gold tracker →</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="asset-class-badge">
                                         <span style="font-size: 1.25rem;">🏡</span>
-                                        <span>5. Real Estate &amp; Property</span>
+                                        <span>Real Estate &amp; Property</span>
                                     </div>
                                 </td>
                                 <td>
@@ -983,14 +1067,14 @@ const seo = {
                                     <span>Plots &amp; Land, Commercial Real Estate, Agricultural Land</span>
                                 </td>
                                 <td>
-                                    Full cash-flow accounting (Purchase price + Stamp duty + Renovations), monthly rental yields %, capital appreciation CAGR, and combined true Property XIRR.
+                                    Full cash-flow ledger (purchase, stamp duty, home loan EMIs and prepayments, rent, maintenance, repairs), rental yield, net XIRR, what-if sale simulator and Nifty 50 comparison. <a href="/rental-property-cash-flow-tracker/">Rental cash flow →</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="asset-class-badge">
                                         <span style="font-size: 1.25rem;">🛡️</span>
-                                        <span>6. Family Insurance Vault</span>
+                                        <span>Family Insurance Vault</span>
                                     </div>
                                 </td>
                                 <td>
@@ -998,14 +1082,14 @@ const seo = {
                                     <span>Motor Insurance (Car/Bike), ULIPs &amp; Endowment Policies</span>
                                 </td>
                                 <td>
-                                    Total family life &amp; health cover aggregation, annual premium outgo calculator, overdue tracking, and 30-day renewal countdown alerts.
+                                    Total family life &amp; health cover, yearly premium outgo, days to next premium and overdue flags, paid-up policies, and ULIP fund value with XIRR. <a href="/insurance-tracker/">Insurance</a> · <a href="/ulip-tracker/">ULIP →</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="asset-class-badge">
                                         <span style="font-size: 1.25rem;">🎯</span>
-                                        <span>7. Goals &amp; Benchmarks</span>
+                                        <span>Goals &amp; Benchmarks</span>
                                     </div>
                                 </td>
                                 <td>
@@ -1566,7 +1650,7 @@ const seo = {
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            Arthavi is India's privacy-first, ad-free portfolio tracker that consolidates your mutual funds and stocks in a single dashboard with AI-powered analytics. By importing your CAS statement or adding holdings manually, you get a unified view of your net worth and true XIRR without linking broker accounts.
+                            Arthavi is a free, privacy-first portfolio tracker for Indian families. It brings mutual funds, stocks, SIF, PMS and AIF, NPS, fixed deposits and bonds, gold, real estate, ULIPs and insurance for every family member into one dashboard, with true XIRR, capital gains reports and an AI assistant, without broker logins or email access.
                         </div>
                     </div>
 
@@ -2221,6 +2305,16 @@ const seo = {
             border-color: var(--primary);
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
         }
+        .new-features { padding: 4rem 0 1rem; }
+        .new-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+        .new-card { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.2rem 1.3rem; border-radius: 14px; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+        .new-card strong { color: var(--text-head); font-size: 1.02rem; }
+        .new-card strong::after { content: " →"; color: var(--primary-glow); }
+        .new-card span { color: var(--text-body); font-size: 0.9rem; line-height: 1.5; }
+        .new-card:hover, .new-card:focus-visible { border-color: rgba(129,140,248,0.6); transform: translateY(-2px); }
+        .new-card:focus-visible { outline: 2px solid var(--primary-glow); outline-offset: 3px; }
+        .asset-matrix-table td a { color: var(--primary-glow); white-space: nowrap; }
+        @media (prefers-reduced-motion: reduce) { .new-card { transition: none; } .new-card:hover { transform: none; } }
     </style>
 
     <script>

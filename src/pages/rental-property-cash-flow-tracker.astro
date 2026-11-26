@@ -1,0 +1,82 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/rental-property-cash-flow-tracker/',
+  dateModified: '2026-11-27',
+  title: 'Rental Property Cash Flow Tracker India: Rent, EMI, Expenses & XIRR | Arthavi',
+  description: 'Track rental income, home loan EMIs, maintenance, property tax and repairs for each property in Arthavi. See net cash flow, rental yield and true property XIRR, simulate a sale, and compare the property with Nifty 50.',
+  keywords: 'rental property tracker, rental income tracker india, property cash flow tracker, real estate xirr calculator, rental yield calculator india, home loan emi tracker, property returns vs nifty',
+  eyebrow: 'Rental Cash Flow',
+  h1: 'Know what your rental property really earns',
+  intro: 'Rent comes in, EMIs, maintenance and repairs go out. Arthavi records every flow for each property and turns them into rental yield, net cash flow and a true XIRR that includes your home loan.',
+  answer: 'Arthavi is a property tracker for Indian investors that records every cash flow of a house, flat, plot or commercial property: purchase price, stamp duty, home loan EMIs, prepayments, rent, short-stay income, society maintenance, property tax, bills, repairs and sale proceeds. It shows the net cash flow (rent minus loan interest and costs), rental yield, property yield and XIRR on your own money, lets you simulate selling the property at a price you choose, and compares the property with what the same cash flows would have earned in the Nifty 50.',
+  facts: [
+    { label: 'Property types', value: 'Apartment, villa or house, plot or land, commercial, agricultural' },
+    { label: 'Income tracked', value: 'Monthly rent, short-stay/Airbnb, parking or amenity rent, deposit deductions, sale proceeds' },
+    { label: 'Costs tracked', value: 'EMIs, prepayments, maintenance, property tax, bills, repairs, furnishing, brokerage, insurance' },
+    { label: 'Returns shown', value: 'Net cash flow, rental yield, property yield and net XIRR' },
+    { label: 'Data entry', value: 'Manual, recurring entries, or import from a CSV or Excel file' },
+    { label: 'Price', value: 'Free' },
+  ],
+  features: [
+    { title: 'Cash flow ledger per property', text: 'Every rupee in and out of a property in one dated list: purchase, stamp duty, renovation, loan, EMIs, rent, expenses and sale.' },
+    { title: 'Recurring entries', text: 'Add monthly rent or maintenance once as a recurring entry instead of typing it every month.' },
+    { title: 'Import from a spreadsheet', text: 'Already keep a sheet? Upload a CSV or Excel file of income and expenses, preview the rows, then import.' },
+    { title: 'Home loan in detail', text: 'Track the EMI, interest rate changes, prepayments, actual payments made and the foreclosure fee. Arthavi builds the loan schedule and the outstanding balance.' },
+    { title: 'What-if sale', text: 'Enter a sale price and date to see the XIRR and money in hand after closing the loan and tax, using the same indexation rules as the Tax page.' },
+    { title: 'Property vs Nifty 50', text: 'See what your down payment, EMIs and costs would have earned in the Nifty 50, next to the property\'s own XIRR.' },
+  ],
+  steps: [
+    { name: 'Add the property', text: 'Under Holdings, open Real Estate and add the property with purchase price, date, stamp duty and current market value.' },
+    { name: 'Add the home loan', text: 'Enter loan amount, rate, tenure and EMI. Add rate changes and prepayments when they happen.' },
+    { name: 'Record rent and expenses', text: 'Add entries one by one, set up recurring ones, or import a CSV or Excel file.' },
+    { name: 'Open the cash flow view', text: 'See net cash flow by year, rental yield, property yield and XIRR, and try the sale simulator.' },
+  ],
+  sections: [
+    {
+      heading: 'Rental yield, property yield and XIRR: what each means',
+      list: [
+        '<strong>Rental yield:</strong> yearly rent as a percentage of the property\'s value. It tells you how much income the property produces.',
+        '<strong>Property yield:</strong> how much the property\'s value has grown each year since you bought it (price growth only).',
+        '<strong>Net XIRR:</strong> the annual return on your own money, counting the down payment, EMIs, costs and outstanding loan as money out and rent and today\'s value as money in. This is the number to compare with mutual funds or stocks.',
+      ],
+    },
+    {
+      heading: 'Which costs count for capital gains tax?',
+      paragraphs: [
+        'Routine repairs, society maintenance, property tax, bills, insurance and home loan interest do not count as cost of improvement under Indian tax rules. Major renovation, brokerage paid on purchase or sale and some other costs can. In Arthavi, a repair, brokerage or other expense only counts towards your tax cost when you tick it, so the sale simulator does not overstate your cost.',
+        'Arthavi is a tracker, not a tax advisor. Confirm the treatment of large items with your chartered accountant.',
+      ],
+    },
+    {
+      heading: 'Principal is not an expense',
+      paragraphs: [
+        'The principal part of an EMI builds your equity in the property, so Arthavi does not count it as a cost in net cash flow. Net cash flow is rent minus loan interest and running costs. Principal still counts as your money in when XIRR is calculated.',
+      ],
+    },
+  ],
+  limits: [
+    'Property market value is entered by you. Arthavi does not fetch circle rates or listing prices.',
+    'Arthavi does not import bank statements automatically. Use a CSV or Excel file of property entries.',
+    'Tax figures in the sale simulator are estimates, not tax advice.',
+  ],
+  faqs: [
+    { question: 'How do I calculate the real return on my rental property?', answer: 'Use XIRR on your own cash flows: down payment, stamp duty, EMIs and costs as money out, and rent plus today\'s value minus the outstanding loan as money in. Arthavi calculates this automatically as net XIRR.' },
+    { question: 'Can I track my home loan EMIs and prepayments?', answer: 'Yes. Arthavi tracks the EMI, interest rate changes, prepayments, actual payments and foreclosure fee, and builds the loan schedule and outstanding balance.' },
+    { question: 'Can I import rent and expenses from Excel?', answer: 'Yes. Upload a CSV or Excel file, preview the rows and import them into the property.' },
+    { question: 'Does Arthavi count repairs for capital gains?', answer: 'Only when you tick them. Routine repairs usually do not count as cost of improvement, so Arthavi leaves them out of tax cost unless you choose to include a specific entry.' },
+    { question: 'Can I compare my flat with investing in Nifty 50?', answer: 'Yes. The benchmark view shows the XIRR the same own-money cash flows would have earned in the Nifty 50 next to the property\'s XIRR.' },
+    { question: 'Is the property included in family net worth?', answer: 'Yes. Each property belongs to a family profile and its current market value is part of that member\'s net worth and the family total.' },
+  ],
+  related: [
+    { href: '/real-estate-tracker/', label: 'Real estate tracker' },
+    { href: '/home-loan-emi-calculator/', label: 'Home loan EMI calculator' },
+    { href: '/net-worth-tracker-india/', label: 'Net worth tracker' },
+    { href: '/portfolio-benchmark-comparison/', label: 'Benchmark comparison' },
+    { href: '/capital-gains-tax-report/', label: 'Capital gains tax report' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

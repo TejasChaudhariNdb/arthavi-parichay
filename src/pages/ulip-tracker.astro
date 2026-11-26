@@ -1,0 +1,73 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/ulip-tracker/',
+  dateModified: '2026-11-27',
+  title: 'ULIP Tracker India: Fund Value, Premiums Paid & XIRR | Arthavi',
+  description: 'Track Unit Linked Insurance Plans (ULIPs) in Arthavi: fund units and NAV, premiums paid so far (including single-premium and paid-up policies), current value and real XIRR, counted in your net worth next to mutual funds and stocks.',
+  keywords: 'ulip tracker, ulip returns calculator, ulip xirr, track ulip fund value, ulip portfolio tracker india, ulip vs mutual fund returns',
+  eyebrow: 'ULIP Tracker',
+  h1: 'Find out what your ULIP has really earned',
+  intro: 'A ULIP mixes insurance and investment, which makes its return hard to see. Arthavi builds your premium history, values the funds from units and NAV, and shows the real annual return so you can compare it with your mutual funds.',
+  answer: 'Arthavi tracks ULIPs (Unit Linked Insurance Plans) as both an insurance policy and an investment. You enter the policy details, the premium amount and frequency (monthly, quarterly, half-yearly, yearly or single premium) and the units and NAV of each fund inside the ULIP. Arthavi works out the premiums paid so far, the current fund value, the gain and the XIRR up to the NAV date, and counts the ULIP as its own asset class in net worth. Paid-up, surrendered and matured policies are handled separately so they do not distort your totals.',
+  facts: [
+    { label: 'What it tracks', value: 'ULIP policies and the funds inside them' },
+    { label: 'Fund value', value: 'Units × NAV for each fund, with the NAV date' },
+    { label: 'Premiums', value: 'Schedule built from start date and frequency, incl. single premium' },
+    { label: 'Paid-up policies', value: 'Set "Premiums paid until" to stop future premiums' },
+    { label: 'Returns shown', value: 'Premiums paid, current value, gain and XIRR' },
+    { label: 'Price', value: 'Free' },
+  ],
+  features: [
+    { title: 'Fund-level value', text: 'Add each fund in your ULIP (equity, debt, balanced) with units and NAV. Arthavi adds them up to the policy\'s fund value.' },
+    { title: 'Premium history built for you', text: 'Enter the premium, frequency and policy start date and Arthavi works out every premium paid so far. If your insurer\'s total differs, you can enter the actual total paid.' },
+    { title: 'Paid-up and single-premium policies', text: 'Mark when you stopped paying with "Premiums paid until". Paid-up and single-premium policies are left out of your yearly premium total and renewal reminders.' },
+    { title: 'Real XIRR', text: 'XIRR uses each premium date and the fund value on the NAV date, so you can compare the ULIP fairly with a mutual fund SIP.' },
+    { title: 'Insurance and investment views', text: 'The policy shows in your insurance list with cover and premium, and its fund value counts in net worth as the ULIP asset class.' },
+    { title: 'Closed policies handled', text: 'Surrendered or matured ULIPs are no longer counted as investments, so your net worth stays accurate.' },
+  ],
+  steps: [
+    { name: 'Open Insurance', text: 'Sign in to Arthavi and add a policy of type ULIP / Endowment.' },
+    { name: 'Enter policy details', text: 'Insurer, sum assured, premium, frequency and start date. Add "Premiums paid until" if the policy is paid up.' },
+    { name: 'Add the funds', text: 'Enter each fund\'s units and NAV from your latest ULIP statement, with the NAV date.' },
+    { name: 'Read your return', text: 'Arthavi shows premiums paid, current value, gain and XIRR, and adds the ULIP to net worth.' },
+  ],
+  sections: [
+    {
+      heading: 'Why ULIP returns are confusing',
+      paragraphs: [
+        'Part of every ULIP premium pays for life cover and charges, and only the rest is invested. Insurer statements show the fund value but rarely an annual return on what you paid. Comparing that fund value with total premiums ignores when each premium was paid.',
+        'XIRR fixes this by treating each premium as a dated payment and the current fund value as the end value. The result is directly comparable with the XIRR Arthavi shows for your <a href="/mutual-fund-portfolio-tracker/">mutual funds</a> and <a href="/sip-tracker/">SIPs</a>.',
+      ],
+    },
+    {
+      heading: 'ULIP vs term insurance plus mutual funds',
+      paragraphs: [
+        'Many investors compare a ULIP with buying <a href="/insurance-tracker/">term insurance</a> and investing the difference in mutual funds. Arthavi does not recommend either option, but it gives you the numbers you need: the ULIP\'s real XIRR and the returns of your own mutual funds over the same years.',
+      ],
+    },
+  ],
+  limits: [
+    'ULIP fund NAVs are not fetched automatically yet. Update units and NAV from your insurer\'s statement.',
+    'Arthavi does not deduct mortality or policy charges separately. The fund value from your statement already reflects them.',
+    'Arthavi does not advise whether to continue, surrender or make a ULIP paid up.',
+  ],
+  faqs: [
+    { question: 'How do I calculate my ULIP returns?', answer: 'Use XIRR: each premium is a dated payment and the current fund value is the end value. Arthavi does this automatically from your premium, frequency, start date and fund units and NAV.' },
+    { question: 'Can Arthavi track a paid-up ULIP?', answer: 'Yes. Set "Premiums paid until" to the date of your last premium. Arthavi stops adding premiums after that date and leaves the policy out of your yearly premium total.' },
+    { question: 'Does Arthavi support single-premium ULIPs?', answer: 'Yes. Choose single premium as the frequency and Arthavi treats it as one payment on the start date.' },
+    { question: 'Is the ULIP value included in my net worth?', answer: 'Yes. Active ULIPs count as their own asset class in net worth and family views. Surrendered and matured ULIPs are not counted.' },
+    { question: 'Does Arthavi fetch ULIP NAVs automatically?', answer: 'Not yet. You enter units and NAV from your statement. XIRR runs to the NAV date you entered.' },
+  ],
+  related: [
+    { href: '/insurance-tracker/', label: 'Insurance tracker' },
+    { href: '/mutual-fund-portfolio-tracker/', label: 'Mutual fund tracker' },
+    { href: '/tools/xirr-calculator/', label: 'XIRR calculator' },
+    { href: '/net-worth-tracker-india/', label: 'Net worth tracker' },
+    { href: '/family-portfolio-tracker/', label: 'Family portfolio tracker' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

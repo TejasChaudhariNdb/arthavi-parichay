@@ -1,131 +1,66 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import FeaturePage from '../components/FeaturePage.astro';
 
-const seo = {
-  title: "Insurance Portfolio Tracker India — Term, Health & Life Policies | Arthavi",
-  description: "Track all your term life, health insurance, and investment policies in one dashboard. Monitor sum assured, premium renewal dates, and policy coverage vs family net worth.",
-};
-
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
+const page = {
+  path: '/insurance-tracker/',
+  dateModified: '2026-11-27',
+  title: 'Insurance Portfolio Tracker India: Term, Health, ULIP & Premium Due Dates | Arthavi',
+  description: 'Track every family insurance policy in one place: term life, health, critical illness, motor and ULIP/endowment. See total life and health cover, yearly premium outgo, next due dates and overdue premiums. Paid-up policies supported. No insurance sales calls.',
+  keywords: 'insurance tracker india, insurance portfolio tracker, term insurance tracker, health insurance tracker, premium due date tracker, family insurance tracker, paid up policy tracker, ulip tracker',
+  eyebrow: 'Insurance Tracker',
+  h1: 'Insurance Portfolio Tracker India',
+  intro: 'Keep every family policy in one list: term, health, critical illness, motor and ULIP. See how much cover the family has, what premiums are due next, and which policies are paid up.',
+  answer: 'Arthavi\'s insurance tracker records every insurance policy held by an Indian family: term life, health, critical illness, motor and ULIP or endowment plans. For each policy you store the insurer, policy name and number, sum assured, premium and frequency, start and end dates, next premium due date and nominee. Arthavi adds up total life cover and total health cover, shows the yearly premium outgo, counts days to each renewal and flags overdue premiums. Paid-up and single-premium policies are kept out of the premium total. Arthavi is independent and does not sell insurance.',
+  facts: [
+    { label: 'Policy types', value: 'Term life, health, critical illness, motor, ULIP / endowment' },
+    { label: 'Totals', value: 'Total life cover, total health cover, yearly premium outgo' },
+    { label: 'Due dates', value: 'Days to next premium and overdue flags' },
+    { label: 'Paid-up policies', value: 'Set "Premiums paid until"; left out of premium totals' },
+    { label: 'ULIP value', value: 'Fund units × NAV, counted in net worth' },
+    { label: 'Insurance sales', value: 'None. Arthavi earns no commissions' },
+  ],
+  features: [
+    { title: 'All policies, all members', text: 'Assign each policy to a family profile and see one member\'s cover or the whole household\'s.' },
+    { title: 'Life and health cover totals', text: 'Arthavi adds up the sum assured of active term policies, and of health and critical illness policies, so you see the family\'s cover at a glance.' },
+    { title: 'Premium calendar', text: 'Annual, half-yearly, quarterly and monthly premiums with the next due date and days remaining, plus overdue flags.' },
+    { title: 'Paid-up and single premium', text: 'For a policy you no longer pay into, set "Premiums paid until". It stays in your list but leaves the yearly premium total and renewal countdown.' },
+    { title: 'ULIP fund value', text: 'Add the funds inside a ULIP with units and NAV to see its value and real XIRR. See the <a href="/ulip-tracker/">ULIP tracker</a>.' },
+    { title: 'Nominee and notes', text: 'Record the nominee and any notes, so family members know what exists and where.' },
+  ],
+  steps: [
+    { name: 'Open Insurance', text: 'Sign in to Arthavi and open the Insurance section.' },
+    { name: 'Add a policy', text: 'Choose the type, insurer, sum assured, premium, frequency, dates and the family member it belongs to.' },
+    { name: 'Mark paid-up policies', text: 'For term or ULIP policies you no longer pay, set "Premiums paid until".' },
+    { name: 'Review cover and due dates', text: 'See total cover, yearly premiums, the next due dates and anything overdue.' },
+  ],
+  sections: [
     {
-      "@type": "SoftwareApplication",
-      "name": "Arthavi Insurance Portfolio Tracker",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "description": "Consolidate term insurance, health cover, and endowment policies with premium schedules and family adequacy diagnostic."
+      heading: 'Why track insurance next to investments?',
+      paragraphs: [
+        'Insurance protects the portfolio you are building. Seeing total life cover next to your <a href="/net-worth-tracker-india/">net worth</a> and family members helps you notice gaps, such as a parent without health cover or a term policy ending soon.',
+        'Arthavi shows the numbers; it does not recommend policies or sell them. There are no agents, no commission and no sales calls.',
+      ],
     },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Why track insurance alongside investments?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "True wealth planning requires knowing both your wealth (assets) and your safety net (insurance sum assured). Arthavi evaluates whether your term life coverage is adequate relative to your family's annual expenses and outstanding liabilities."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Arthavi sell insurance?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Never. Arthavi is an independent portfolio tracker with zero commissions, no spam calls, and no insurance agent pitches. Your data stays 100% private."
-          }
-        }
-      ]
-    }
-  ]
-});
+  ],
+  limits: [
+    'Arthavi does not import policies from insurers or the insurance repository. You add policies by hand.',
+    'Arthavi does not process claims or renew policies.',
+  ],
+  faqs: [
+    { question: 'Why track insurance alongside investments?', answer: 'Knowing your total life and health cover next to your net worth shows whether the family\'s safety net matches what it is protecting. Arthavi totals cover across all family members and policies.' },
+    { question: 'Does Arthavi sell insurance?', answer: 'No. Arthavi is an independent tracker. It earns no commissions and never calls you to sell policies.' },
+    { question: 'Which policies can I track?', answer: 'Term life, health, critical illness, motor and ULIP or endowment policies, for any family member.' },
+    { question: 'How do I track a paid-up policy?', answer: 'Edit the policy and set "Premiums paid until" to the date of your last premium. Arthavi keeps the policy but leaves it out of the yearly premium total and renewal countdown.' },
+    { question: 'Does Arthavi remind me about premium due dates?', answer: 'The insurance page shows the days left to each premium and flags overdue ones, so you can see what is due next.' },
+  ],
+  related: [
+    { href: '/ulip-tracker/', label: 'ULIP tracker' },
+    { href: '/family-portfolio-tracker/', label: 'Family portfolio tracker' },
+    { href: '/net-worth-tracker-india/', label: 'Net worth tracker' },
+    { href: '/investment-goal-tracker/', label: 'Investment goal tracker' },
+    { href: '/family-wealth-snapshot/', label: 'Family wealth snapshot' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
 ---
-<Layout
-  title={seo.title}
-  description={seo.description}
-  keywords="insurance portfolio tracker india, term insurance tracker, health insurance policy tracker, track insurance premiums india, family insurance dashboard"
-  schema={schema}
-  breadcrumb={{
-    items: [
-      { name: "Home", url: "https://arthavi.com/" },
-      { name: "Insurance Tracker", url: "https://arthavi.com/insurance-tracker/" }
-    ]
-  }}
->
-
-<main style="padding-top: 7rem; padding-bottom: 5rem;">
-  <section style="padding-top: 1rem; position: relative; z-index: 2;">
-    <div class="container">
-
-      <div class="section-header text-center fade-in" style="margin-bottom: 3.5rem;">
-        <span style="display:inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a78bfa; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem;">Protection &amp; Risk Management · India</span>
-        <h1 class="heading-xl" style="margin-bottom: 1rem;">Insurance Portfolio Tracker India</h1>
-        <p style="max-width: 720px; margin: 0 auto; color: var(--text-muted); font-size: 1.15rem; line-height: 1.6;">
-          Consolidate your Term Insurance, Health Covers, and policies in one place. Never miss a premium due date and verify your family's coverage adequacy with AI diagnostics.
-        </p>
-        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 0.9rem 2rem;">Track Policies Free</a>
-          <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 0.9rem 2rem;">View Demo</a>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-bottom: 4rem;">
-        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
-          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">☂️</div>
-          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Term Life Adequacy</h2>
-          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
-            Track total Sum Assured across HDFC Life, ICICI Pru, Tata AIA, or LIC. See if your cover meets the recommended 15x–20x annual household expense rule.
-          </p>
-        </div>
-        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
-          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">🏥</div>
-          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Health Insurance &amp; Super Top-up</h2>
-          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
-            Track base floater sum insured, deductible, and super top-up limits across family members to ensure medical emergencies won't erode your investment portfolio.
-          </p>
-        </div>
-        <div class="glass-panel" style="padding: 2rem; border-radius: 16px;">
-          <div style="font-size: 1.5rem; margin-bottom: 0.8rem;">📅</div>
-          <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-head);">Premium Renewal Calendar</h2>
-          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 0;">
-            Clear calendar of all annual, half-yearly, and monthly premiums with renewal dates, helping you prepare liquidity before due dates.
-          </p>
-        </div>
-      </div>
-
-      <div style="max-width: 860px; margin: 0 auto 4rem;">
-        <h2 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
-            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Does Arthavi spam me with policy sales?</h3>
-            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">No. Unlike distributor apps, Arthavi is 100% independent. We sell no insurance, earn zero agent commissions, and will never call or WhatsApp you to buy policies.</p>
-          </div>
-          <div class="glass-panel" style="padding: 1.8rem; border-radius: 14px;">
-            <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-head);">Can my family access policy details in an emergency?</h3>
-            <p style="color: var(--text-muted); margin-bottom: 0; line-height: 1.6;">Yes. You can export a Family Wealth Snapshot PDF containing policy names, insurer emergency helpline numbers, and sum assured details for immediate family reference.</p>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center; padding: 2rem 0 3rem;">
-        <h2 style="margin-bottom: 1rem;">Complete protection and investment visibility</h2>
-        <a href="https://app.arthavi.com/register" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin-right: 1rem;">Start Tracking Free</a>
-        <a href="https://app.arthavi.com/demo" class="btn btn-demo" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try Demo</a>
-      </div>
-
-      <nav style="max-width: 860px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
-        <h3 style="font-size: 1rem; margin-bottom: 1rem;">Related trackers</h3>
-        <ul style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0;">
-          <li><a href="/family-wealth-snapshot/">Family Wealth Snapshot</a></li>
-          <li><a href="/net-worth-tracker-india/">Net Worth Tracker India</a></li>
-          <li><a href="/investment-goal-tracker/">Investment Goal Tracker</a></li>
-          <li><a href="/family-portfolio-tracker/">Family Portfolio Tracker</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </section>
-</main>
-
-</Layout>
+<FeaturePage {...page} />

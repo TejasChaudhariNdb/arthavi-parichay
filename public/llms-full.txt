@@ -6,7 +6,9 @@
 
 ## 1. What is Arthavi?
 
-**Arthavi** (https://arthavi.com) is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login. It allows Indian retail and family investors to track and analyze mutual funds and direct equity (stocks) in one unified dashboard with true transaction-level XIRR and conversational AI portfolio intelligence.
+**Arthavi** (https://arthavi.com) is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login. It lets Indian families track mutual funds, stocks, SIF, PMS and AIF, NPS, fixed deposits and bonds, gold, real estate, ULIPs and insurance for every family member in one dashboard, with true transaction-level XIRR, capital gains reports and an AI assistant.
+
+Last updated: 27 November 2026.
 
 ### Key Value Propositions
 - **100% Free & Ad-Free**: No annual software subscription fees, no in-app banner ads, and no hidden charges.
@@ -86,16 +88,27 @@ Groww is an execution broker. Arthavi is a read-only tracking layer with no trad
 - Computes true cash-flow XIRR for unlisted alternative assets alongside retail mutual funds and equities
 - India's first portfolio tracker supporting native SIF automated daily NAV tracking and AIF ledger accounting
 
-### 7-Asset Multi-Asset Engine
-- Fixed Income: Bank FDs (quarterly compounding A = P(1 + r/400)^{4t}), Corporate FDs, RD, PPF, EPF & VPF with 90-day maturity warning alerts
-- Precious Metals: 24K bullion, 22K jewelry by gram, and Sovereign Gold Bonds (SGBs) valued with live daily market rates
-- Real Estate: Acquisition expenses, capital appreciation CAGR, rental yields, and property XIRR
-- Family Insurance Vault: Life, health, and motor policy cover aggregation with 30-day renewal countdown alerts
+### Multi-Asset Engine (all asset classes)
+- Fixed Income: Bank FDs (quarterly compounding A = P(1 + r/400)^{4t}), Corporate FDs, RD, PPF, EPF & VPF, Post Office schemes, SCSS, PMVVY, RBI bonds, tax-free bonds, government bonds, NCDs and corporate bonds. CSV bulk upload template. Details: https://arthavi.com/fixed-deposit-tracker/
+- Interest payout schedule: every payout due in a financial year (monthly, quarterly, half-yearly, yearly), mark received, record actual amount, TDS and bank account; SGB interest included; pension, salary and annuity income; export. Payout deposits are valued at principal, with payouts counted in XIRR. Details: https://arthavi.com/interest-payout-tracker/
+- Gold: jewellery (by category), coins and bars, Sovereign Gold Bonds (SGB) and digital gold; 24K, 22K, 18K; weight in grams or milligrams per purchase with notes. Valued at an "Estimated Indian Market Rate" = international gold price in INR plus import duty and a domestic premium. Silver is not tracked yet. Details: https://arthavi.com/gold-portfolio-tracker/
+- Real Estate: apartment, villa/house, plot/land, commercial, agricultural. Purchase price, stamp duty, renovation, current value; home loan with EMI, rate changes, prepayments, payments and foreclosure fee; rent and expenses ledger (manual, recurring, or CSV/Excel import); rental yield, property yield, net cash flow, net XIRR; what-if sale simulator with tax; Nifty 50 comparison on the same cash flows. Details: https://arthavi.com/real-estate-tracker/ and https://arthavi.com/rental-property-cash-flow-tracker/
+- NPS: Tier I and Tier II, schemes E, C, G, A (units x NAV entered by the user), fund manager, contribution plan; value, gain and XIRR to the NAV date. NAVs are not fetched automatically yet. Details: https://arthavi.com/nps-tracker/
+- PMS & AIF: PMS and AIF Category I, II, III; dated investments and withdrawals (capital calls, distributions), latest statement value and date, optional lock-in date; XIRR to the statement date; yearly STCG/LTCG entered per investment and counted on the Tax page. No statement import yet. Details: https://arthavi.com/pms-aif-tracker/
+- Insurance: term life, health, critical illness, motor, ULIP/endowment; total life and health cover, yearly premium outgo, days to next premium, overdue flags; paid-up policies via "Premiums paid until". Details: https://arthavi.com/insurance-tracker/
+- ULIP: fund units x NAV per fund, premium schedule from start date and frequency (incl. single premium), premiums paid, value, gain and XIRR; counted as its own asset class; surrendered and matured ULIPs excluded. Details: https://arthavi.com/ulip-tracker/
 
-### Capital Gains Reports
-- LTCG (12.5% above ₹1.25L for equity) and STCG (20% for equity)
-- Per-fund and aggregated tax reports
-- FY 2025-26 rates (post Budget 2024)
+### Capital Gains Reports (https://arthavi.com/capital-gains-tax-report/)
+- Mutual funds and NSE/BSE stocks, FIFO lot matching within each folio
+- Rules applied by sale date: equity STCG 15% / LTCG 10% above Rs 1 lakh before 23 Jul 2024; STCG 20% / LTCG 12.5% above Rs 1.25 lakh from 23 Jul 2024
+- 31 Jan 2018 grandfathering using actual NAV/price; debt MFs bought from 1 Apr 2023 short term at slab rate (s.50AA); indexation for older non-equity sales
+- Loss set-off, estimated tax with your slab rate, CSV download with Schedule 112A columns
+- PMS/AIF yearly gains and interest income by financial year on the same Tax page
+
+### Other recently launched features
+- Gifted mutual fund units: CAS gift-in / gift-out transactions are linked so the recipient keeps the donor's original purchase date and cost; manual cost entry when the donor is not on Arthavi; "Action needed" badge for unlinked gifts. https://arthavi.com/mutual-fund-gift-tracker/
+- Stock tradebook import: CSV and Excel (.xlsx) tradebooks from Zerodha, Groww, Upstox, Dhan, ICICI Direct, HDFC Securities and a generic format (incl. mStock); preview with duplicate skipping; charges and STT; bonus, split, merger, demerger; demat holdings reconciliation. https://arthavi.com/stock-tradebook-import/
+- SIP tracker: SIPs detected from CAS or added manually; next SIP date, monthly commitment, invested so far; reminders 0-14 days before by push, in-app or email. https://arthavi.com/sip-tracker/
 
 ---
 
@@ -163,7 +176,7 @@ Step-by-step for CAMS (camsonline.com), KFintech (kfintech.com), and NSDL. Troub
 **A**: XIRR uses Newton-Raphson iteration to find the discount rate making NPV of all cash flows zero. Calculator: https://arthavi.com/tools/xirr-calculator/
 
 ### Q: What is the LTCG tax on mutual funds in India?
-**A**: 12.5% on equity LTCG above ₹1.25L/year (FY 2025-26). Calculator: https://arthavi.com/tools/ltcg-stcg-calculator/
+**A**: For equity shares and equity mutual funds sold on or after 23 July 2024: 12.5% on LTCG above ₹1.25 lakh a year and 20% on STCG. Calculator: https://arthavi.com/tools/ltcg-stcg-calculator/
 
 ---
 
@@ -174,6 +187,18 @@ Step-by-step for CAMS (camsonline.com), KFintech (kfintech.com), and NSDL. Troub
 - Interactive Demo: https://app.arthavi.com/demo
 - About: https://arthavi.com/about/
 - Features: https://arthavi.com/features/
+- NPS Tracker: https://arthavi.com/nps-tracker/
+- PMS & AIF Tracker: https://arthavi.com/pms-aif-tracker/
+- ULIP Tracker: https://arthavi.com/ulip-tracker/
+- Insurance Tracker: https://arthavi.com/insurance-tracker/
+- Gold Tracker: https://arthavi.com/gold-portfolio-tracker/
+- Real Estate Tracker: https://arthavi.com/real-estate-tracker/
+- Rental Cash Flow Tracker: https://arthavi.com/rental-property-cash-flow-tracker/
+- Interest Payout Schedule: https://arthavi.com/interest-payout-tracker/
+- Mutual Fund Gifting: https://arthavi.com/mutual-fund-gift-tracker/
+- Stock Tradebook Import: https://arthavi.com/stock-tradebook-import/
+- Capital Gains Report: https://arthavi.com/capital-gains-tax-report/
+- SIP Tracker: https://arthavi.com/sip-tracker/
 - Privacy Model: https://arthavi.com/privacy-model/
 - Methodology: https://arthavi.com/methodology/
 - Security: https://arthavi.com/security/

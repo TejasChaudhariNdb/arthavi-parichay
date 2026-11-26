@@ -1,0 +1,73 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/stock-tradebook-import/',
+  dateModified: '2026-11-27',
+  title: 'Import Stock Tradebook (CSV or Excel) from Zerodha, Groww, Upstox & More | Arthavi',
+  description: 'Import your broker tradebook as CSV or Excel (.xlsx) into Arthavi, with no broker login. Preview trades before saving, skip duplicates, record charges and STT, handle bonus, split and demerger, and reconcile with your demat holdings.',
+  keywords: 'import tradebook, zerodha tradebook import, groww trade history import, upstox tradebook, stock tradebook excel import, track stocks without broker login, stock portfolio tracker csv import india',
+  eyebrow: 'Stock Tradebook Import',
+  h1: 'Bring every stock trade in, without a broker login',
+  intro: 'Download your tradebook from your broker and upload it to Arthavi. You see every trade before it is saved, duplicates are skipped, and your holdings, average price, gains and XIRR are built from your actual trades.',
+  answer: 'Arthavi imports stock tradebooks from Indian brokers as CSV or Excel (.xlsx) files without asking for a broker login. It reads tradebooks from brokers such as Zerodha, Groww, Upstox, Dhan, ICICI Direct and HDFC Securities, and a generic format that covers many others, including mStock Excel exports. Before saving, Arthavi shows a preview and skips trades already imported. From the trades it builds holdings, average buy price, realised and unrealised gains and XIRR for NSE and BSE stocks and ETFs, and handles bonus, split, merger and demerger corporate actions.',
+  facts: [
+    { label: 'File types', value: 'CSV and Excel (.xlsx) tradebooks' },
+    { label: 'Brokers', value: 'Zerodha, Groww, Upstox, Dhan, ICICI Direct, HDFC Securities and a generic format for others' },
+    { label: 'Before saving', value: 'Preview of every trade, with duplicates skipped' },
+    { label: 'Costs', value: 'Brokerage charges and STT per trade' },
+    { label: 'Corporate actions', value: 'Bonus, split, merger and demerger' },
+    { label: 'Broker login needed', value: 'No' },
+  ],
+  features: [
+    { title: 'Preview, then save', text: 'Arthavi shows the trades it found and which ones are already in your account, so you never import the same trade twice.' },
+    { title: 'Several files at once', text: 'Upload multiple CSV tradebooks together, for example one per financial year, and Arthavi merges them.' },
+    { title: 'Charges and STT', text: 'Record brokerage charges and STT on each buy or sell so your cost and gains reflect what you really paid.' },
+    { title: 'Corporate actions', text: 'Apply bonus issues, stock splits and mergers to a holding, and split the cost correctly in a demerger.' },
+    { title: 'Demat reconciliation', text: 'Upload your broker\'s holdings file to compare it with the holdings built from trades and spot gaps, such as a missed bonus.' },
+    { title: 'Live prices and fundamentals', text: 'Holdings are valued with current market prices, and each stock page shows key fundamentals and your trade history in it.' },
+  ],
+  steps: [
+    { name: 'Download your tradebook', text: 'In your broker\'s reports or console, export the tradebook or trade history as CSV or Excel.' },
+    { name: 'Open Stocks, then Import Tradebook', text: 'Choose the family profile the account belongs to and select the file.' },
+    { name: 'Check the preview', text: 'Review the trades. Duplicates already in Arthavi are skipped.' },
+    { name: 'Save and review holdings', text: 'Arthavi builds holdings, average price, gains and XIRR. Reconcile with your demat holdings file if you like.' },
+  ],
+  sections: [
+    {
+      heading: 'Tradebook vs holdings file: which should I upload?',
+      paragraphs: [
+        'A <strong>tradebook</strong> lists every buy and sell with dates and prices. It gives accurate average price, holding periods, capital gains and XIRR. A <strong>holdings file</strong> is a snapshot of what you own today. It is quick but has no history.',
+        'Upload the tradebook for full history and use the holdings file to check nothing is missing. Broker-specific guides: <a href="/zerodha-portfolio-tracker/">Zerodha</a>, <a href="/groww-portfolio-tracker/">Groww</a>, <a href="/upstox-portfolio-tracker/">Upstox</a>, <a href="/angel-one-portfolio-tracker/">Angel One</a>.',
+      ],
+    },
+    {
+      heading: 'Why no broker login?',
+      paragraphs: [
+        'Connecting a broker usually means sharing a login or granting ongoing access. Arthavi only reads the files you choose to upload, so it never holds credentials to place orders or move money. Read the <a href="/privacy-model/">privacy model</a>.',
+      ],
+    },
+  ],
+  limits: [
+    'Arthavi does not sync with brokers automatically. Upload a new tradebook to add recent trades, or add trades by hand.',
+    'F&O, commodity and currency trades are not tracked.',
+    'Multi-file merging works for CSV files. Upload Excel files one at a time.',
+  ],
+  faqs: [
+    { question: 'Can I import my Zerodha tradebook into Arthavi?', answer: 'Yes. Download the tradebook CSV from Zerodha Console and upload it under Stocks, Import Tradebook. Arthavi previews the trades before saving.' },
+    { question: 'Does Arthavi accept Excel (.xlsx) tradebooks?', answer: 'Yes. Arthavi reads both CSV and .xlsx tradebooks, including Excel trade history exports from brokers such as mStock.' },
+    { question: 'Will importing the same file twice create duplicates?', answer: 'No. The preview marks trades already in your account and skips them.' },
+    { question: 'How does Arthavi handle bonus shares and splits?', answer: 'You apply the bonus, split, merger or demerger to the holding and Arthavi adjusts units and cost. The demat reconciliation helps you spot any that are missing.' },
+    { question: 'Do I need to give my broker password?', answer: 'No. Arthavi never asks for broker logins. It only reads the files you upload.' },
+  ],
+  related: [
+    { href: '/stock-portfolio-tracker/', label: 'Stock portfolio tracker' },
+    { href: '/zerodha-portfolio-tracker/', label: 'Zerodha portfolio tracker' },
+    { href: '/portfolio-tracker-without-broker-login/', label: 'Tracker without broker login' },
+    { href: '/capital-gains-tax-report/', label: 'Capital gains tax report' },
+    { href: '/stocks/', label: 'Stock pages' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

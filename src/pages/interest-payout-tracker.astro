@@ -1,0 +1,74 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/interest-payout-tracker/',
+  dateModified: '2026-11-27',
+  title: 'Interest Payout Tracker India: SCSS, PMVVY, FD & Bond Income Schedule | Arthavi',
+  description: 'See every interest payout due this financial year from FDs, SCSS, Post Office MIS, PMVVY, RBI bonds, tax-free bonds and SGBs. Mark payouts received, record TDS, add pension income and export the schedule. Built for retirees and income investors in India.',
+  keywords: 'interest payout tracker, scss interest tracker, pmvvy tracker, fd interest schedule, post office mis tracker, rbi floating rate bond tracker, sgb interest tracker, interest income report india, retirement income tracker',
+  eyebrow: 'Interest Payout Schedule',
+  h1: 'Every interest payout for the year, in one schedule',
+  intro: 'Retirees and income investors often hold a dozen deposits that pay on different dates. Arthavi lists every payout due in the financial year, lets you tick them off as they arrive, and records the TDS deducted.',
+  answer: 'Arthavi\'s interest payout schedule shows every periodic interest payment due in a financial year from fixed income investments held by an Indian family: bank and corporate FDs with payouts, Senior Citizens Savings Scheme (SCSS), Post Office Monthly Income Scheme (MIS), PMVVY, RBI floating rate bonds, tax-free bonds, NCDs and the 2.5% interest on Sovereign Gold Bonds. You can mark each payout received, enter the actual amount, TDS and bank account, add regular income such as pension or annuity, and export the schedule. Interest income also appears on the Tax page.',
+  facts: [
+    { label: 'Instruments', value: 'Bank FD, corporate FD, SCSS, Post Office MIS, PMVVY, RBI bonds, tax-free bonds, NCDs, SGB interest' },
+    { label: 'Payout frequencies', value: 'Monthly, quarterly, half-yearly, yearly or at maturity' },
+    { label: 'Per payout', value: 'Due date, expected amount, received or pending, actual amount, TDS, bank account' },
+    { label: 'Regular income', value: 'Pension, salary, annuity and other recurring income' },
+    { label: 'Export', value: 'Download the interest schedule as a file' },
+    { label: 'Price', value: 'Free' },
+  ],
+  features: [
+    { title: 'Financial-year schedule', text: 'Pick a financial year and see every payout due across all family deposits and bonds, month by month.' },
+    { title: 'Received or pending', text: 'Tick a payout when it reaches your bank. Record the actual amount, TDS deducted and which account it went to.' },
+    { title: 'Payout date rules', text: 'Payouts can fall on a fixed calendar date or a date relative to the deposit start. Broken first and last periods are worked out pro rata.' },
+    { title: 'SGB interest included', text: 'Sovereign Gold Bonds added under Gold show their half-yearly 2.5% interest in the same schedule.' },
+    { title: 'Pension and annuity income', text: 'Add pension, salary, annuity or other regular income to see all money coming in, not just interest.' },
+    { title: 'Correct maturity values', text: 'For payout deposits the interest is paid out as it falls due, so Arthavi values them at principal and counts payouts in XIRR. You do not double count the interest.' },
+  ],
+  steps: [
+    { name: 'Add your deposits', text: 'Under Holdings, open Deposits and add each FD, SCSS, MIS, PMVVY or bond with rate, start date, maturity and payout frequency. A CSV bulk upload template is available.' },
+    { name: 'Add SGBs and pension', text: 'Add Sovereign Gold Bonds under Gold, and pension or other regular income in the Deposits section.' },
+    { name: 'Open the interest schedule', text: 'Choose a financial year to see each payout with its due date and expected amount.' },
+    { name: 'Tick off and export', text: 'Mark payouts received with TDS, and export the schedule for your records or your CA.' },
+  ],
+  sections: [
+    {
+      heading: 'Who this is for',
+      paragraphs: [
+        'Retired parents living on SCSS, MIS and FD interest; families managing a parent\'s deposits; and anyone who holds bonds or payout FDs across several banks. Instead of checking passbooks and bank SMS, you see what is due, what has arrived and what TDS was cut, in one place.',
+        'Deposits belong to family profiles, so you can view one parent\'s income or the whole household. See the <a href="/family-portfolio-tracker/">family portfolio tracker</a>.',
+      ],
+    },
+    {
+      heading: 'Interest income for your tax return',
+      paragraphs: [
+        'Interest from FDs, SCSS, MIS and bonds is taxed at your slab rate. Arthavi\'s Tax page has an interest income section that adds up interest by financial year, alongside the <a href="/capital-gains-tax-report/">capital gains report</a>. Compare it with your Form 26AS or AIS before filing.',
+      ],
+    },
+  ],
+  limits: [
+    'Arthavi does not read bank statements or passbooks. You tick payouts as received yourself.',
+    'Interest rates are entered by you. Floating rate bonds need the new rate entered when it resets.',
+    'Arthavi does not file returns or calculate advance tax.',
+  ],
+  faqs: [
+    { question: 'Can Arthavi track SCSS and PMVVY interest payouts?', answer: 'Yes. Add the SCSS or PMVVY deposit with its rate and payout frequency, and every payout appears in the interest schedule for the financial year.' },
+    { question: 'Can I record TDS on FD interest?', answer: 'Yes. When you mark a payout received you can enter the actual amount credited, the TDS deducted and the bank account.' },
+    { question: 'Does the schedule include Sovereign Gold Bond interest?', answer: 'Yes. SGBs added under Gold show their half-yearly interest in the same schedule.' },
+    { question: 'Why is my payout FD valued at principal?', answer: 'Because the interest is paid out to your bank as it falls due. Arthavi counts those payouts as returns in XIRR instead of adding them to the deposit value again.' },
+    { question: 'Can I add pension income?', answer: 'Yes. Add pension, salary, annuity or other regular income so the schedule shows all expected income.' },
+    { question: 'Can I upload many FDs at once?', answer: 'Yes. Download the CSV template from the Deposits section, fill in your deposits and upload it.' },
+  ],
+  related: [
+    { href: '/fixed-deposit-tracker/', label: 'Fixed deposit tracker' },
+    { href: '/fd-calculator/', label: 'FD calculator' },
+    { href: '/gold-portfolio-tracker/', label: 'Gold & SGB tracker' },
+    { href: '/retirement-planning/', label: 'Retirement planning' },
+    { href: '/capital-gains-tax-report/', label: 'Tax reports' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

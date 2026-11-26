@@ -1,0 +1,74 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/nps-tracker/',
+  dateModified: '2026-11-27',
+  title: 'NPS Tracker India: Track Tier I & Tier II, E/C/G/A Schemes and XIRR | Arthavi',
+  description: 'Track your National Pension System (NPS) accounts in Arthavi: Tier I and Tier II, scheme E, C, G and A units and NAV, every contribution, and true XIRR, alongside your mutual funds, stocks and family net worth.',
+  keywords: 'nps tracker, nps portfolio tracker, nps xirr, track nps tier 1 tier 2, nps returns calculator india, national pension system tracker',
+  eyebrow: 'NPS Tracker',
+  h1: 'Track your NPS with your other investments',
+  intro: 'Add each National Pension System account with its schemes and your regular contribution. Arthavi values it from your units and NAV, works out your real return (XIRR), and counts it in your family net worth.',
+  answer: 'Arthavi tracks NPS (National Pension System) accounts for Indian investors. For each account you record the tier (Tier I or Tier II), the units and NAV of each scheme (E for equity, C for corporate bonds, G for government securities, A for alternative assets), the pension fund manager, and your regular contribution (amount, frequency and start date, or a total contributed so far). Arthavi calculates the current value and the XIRR of the account, and includes NPS as its own asset class in net worth and family views. NAVs are entered by you; Arthavi does not log in to CRA (Protean, KFintech or CAMS) accounts.',
+  facts: [
+    { label: 'What it tracks', value: 'NPS Tier I and Tier II accounts, schemes E, C, G and A' },
+    { label: 'How data gets in', value: 'Manual entry: units, NAV, fund manager and contribution plan' },
+    { label: 'Returns shown', value: 'Current value, amount invested, gain and XIRR' },
+    { label: 'Return end date', value: 'XIRR runs to the NAV date you entered, not today' },
+    { label: 'Family support', value: 'One or more NPS accounts per family profile' },
+    { label: 'Price', value: 'Free' },
+  ],
+  features: [
+    { title: 'Tier I and Tier II', text: 'Keep your locked-in Tier I pension account and your withdrawable Tier II account separate, each with its own status (active or closed).' },
+    { title: 'Scheme-wise value', text: 'Enter units and NAV for each scheme you hold (E, C, G, A). Arthavi adds them up to the account value so you can see your equity versus debt split inside NPS.' },
+    { title: 'Contribution plan', text: 'Enter your regular contribution (monthly, quarterly, half-yearly or yearly) and start date. Arthavi builds the contribution schedule from it. If your total so far differs, enter the total contributed and Arthavi uses that.' },
+    { title: 'True XIRR', text: 'Arthavi computes XIRR from the contribution schedule and the account value on the NAV date, the same method it uses for mutual funds and stocks.' },
+    { title: 'Part of net worth', text: 'NPS appears as its own asset class in your dashboard, asset allocation and the combined family view.' },
+    { title: 'Ask the AI assistant', text: 'Ask questions like "How much is in my NPS?" and get an answer from your own recorded data.' },
+  ],
+  steps: [
+    { name: 'Open Holdings, then NPS', text: 'Sign in to Arthavi (or create a free account) and open the NPS section under Holdings.' },
+    { name: 'Add the account', text: 'Choose Tier I or Tier II and the pension fund manager. Adding your PRAN is optional.' },
+    { name: 'Enter scheme units and NAV', text: 'Copy units and NAV for each scheme from your NPS statement, with the NAV date.' },
+    { name: 'Add your contribution plan', text: 'Enter the regular amount, frequency and start date (or a total contributed). Arthavi then shows value, gain and XIRR.' },
+  ],
+  sections: [
+    {
+      heading: 'Why track NPS next to your other investments?',
+      paragraphs: [
+        'NPS is often a large part of a salaried family\'s retirement savings, but it sits in a separate CRA account that most portfolio apps never see. Leaving it out makes your equity share look lower and your retirement corpus look smaller than it really is.',
+        'In Arthavi, NPS is counted with your <a href="/mutual-fund-portfolio-tracker/">mutual funds</a>, <a href="/stock-portfolio-tracker/">stocks</a>, <a href="/fixed-deposit-tracker/">fixed deposits and PPF/EPF</a>, so your <a href="/net-worth-tracker-india/">net worth</a> and asset allocation include it.',
+      ],
+    },
+    {
+      heading: 'How Arthavi calculates NPS returns',
+      paragraphs: [
+        'Each contribution in the schedule is a dated cash outflow. The account value (units multiplied by NAV for each scheme) on the NAV date is the closing inflow. XIRR is the annual rate that makes these flows balance. Because the end date is the NAV date you entered, an older NAV does not make your return look lower than it is.',
+        'See the <a href="/methodology/">methodology page</a> for how Arthavi calculates XIRR across asset classes, or try the free <a href="/nps-calculator/">NPS calculator</a> to project a future corpus.',
+      ],
+    },
+  ],
+  limits: [
+    'NAVs are not fetched automatically yet. Update units and NAV from your NPS statement when you want a fresh value.',
+    'Arthavi does not import NPS statements and does not connect to CRA accounts.',
+    'Arthavi does not give advice on scheme choice or annuity purchase.',
+  ],
+  faqs: [
+    { question: 'Can I track NPS in Arthavi?', answer: 'Yes. Arthavi tracks NPS Tier I and Tier II accounts with scheme-wise units and NAV (E, C, G, A) and your contribution plan, and shows the current value, gain and XIRR.' },
+    { question: 'Does Arthavi update NPS NAV automatically?', answer: 'Not yet. You enter units and NAV from your NPS statement. The XIRR runs to the NAV date you entered so the return stays accurate even if the NAV is a few days old.' },
+    { question: 'Do I need to share my PRAN login?', answer: 'No. Arthavi never asks for CRA, broker or bank logins. You only enter the numbers you want to track.' },
+    { question: 'Is NPS included in family net worth?', answer: 'Yes. Each NPS account belongs to a family profile and is counted in that member\'s net worth and in the combined family view.' },
+    { question: 'Is NPS tracking free?', answer: 'Yes. Arthavi is free to use and does not show ads.' },
+  ],
+  related: [
+    { href: '/nps-calculator/', label: 'NPS calculator' },
+    { href: '/retirement-planning/', label: 'Retirement planning' },
+    { href: '/ppf-tracker/', label: 'PPF tracker' },
+    { href: '/family-portfolio-tracker/', label: 'Family portfolio tracker' },
+    { href: '/net-worth-tracker-india/', label: 'Net worth tracker' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

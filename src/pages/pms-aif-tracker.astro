@@ -1,0 +1,75 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/pms-aif-tracker/',
+  dateModified: '2026-11-27',
+  title: 'PMS & AIF Portfolio Tracker India: XIRR, Capital Calls & Gains | Arthavi',
+  description: 'Track Portfolio Management Services (PMS) and Category I, II and III AIFs in Arthavi. Record every investment and withdrawal, the latest statement value, lock-in date and yearly STCG/LTCG, and see true XIRR next to your mutual funds and stocks.',
+  keywords: 'pms tracker, aif tracker, pms portfolio tracker india, aif portfolio tracker, pms xirr, aif xirr, category iii aif tracker, track pms returns',
+  eyebrow: 'PMS & AIF Tracker',
+  h1: 'Track PMS and AIF investments with true XIRR',
+  intro: 'Portfolio Management Services and Alternative Investment Funds send quarterly statements, not live NAVs. Arthavi turns your money in, money out and latest statement value into a real return you can compare with the rest of your portfolio.',
+  answer: 'Arthavi tracks PMS (Portfolio Management Services) and AIF (Alternative Investment Fund, Category I, II or III) investments for Indian investors. For each investment you record the manager and strategy, every dated investment (including AIF capital calls) and withdrawal (including distributions), and the value from the latest statement with its date. Arthavi calculates gain and XIRR up to the statement date and adds the investment to net worth. Realised short-term and long-term capital gains you enter per financial year are included on the Tax page.',
+  facts: [
+    { label: 'What it tracks', value: 'PMS accounts and Category I, II and III AIFs' },
+    { label: 'How data gets in', value: 'Manual entry from your manager\'s statement' },
+    { label: 'Cash flows', value: 'Dated investments and withdrawals (capital calls, distributions, redemptions)' },
+    { label: 'Returns shown', value: 'Invested, withdrawn, current value, gain and XIRR to the statement date' },
+    { label: 'Tax', value: 'Yearly STCG and LTCG per investment, counted on the Tax page' },
+    { label: 'Price', value: 'Free' },
+  ],
+  features: [
+    { title: 'PMS accounts', text: 'Record the manager, strategy and account reference, the amount you invested and when, and later top-ups or withdrawals.' },
+    { title: 'AIF categories explained', text: 'Pick Category I, II or III when you add an AIF. The form explains each category, so family members can tell what they hold.' },
+    { title: 'Capital calls and distributions', text: 'AIF drawdowns are entered as dated investments and distributions as dated withdrawals, so the return reflects when money really moved.' },
+    { title: 'Statement value and date', text: 'Enter the value from the latest statement. XIRR runs to that statement date, so an older statement does not drag your return down.' },
+    { title: 'Lock-in date', text: 'Optionally record a lock-in end date for the investment so you know when the money becomes available.' },
+    { title: 'Capital gains on the Tax page', text: 'Enter STCG and LTCG for each financial year from your manager\'s tax report. They join your equity gains for set-off on the Tax page.' },
+  ],
+  steps: [
+    { name: 'Open Holdings, then PMS & AIF', text: 'Sign in to Arthavi and open the PMS & AIF section under Holdings.' },
+    { name: 'Add the investment', text: 'Choose PMS or AIF, enter the manager and strategy, and for an AIF its category.' },
+    { name: 'Enter money in and out', text: 'Add the amount invested and the date up front, then any further investments, capital calls, distributions or withdrawals.' },
+    { name: 'Update the statement value', text: 'Each quarter, enter the latest value and statement date. Arthavi recalculates gain and XIRR.' },
+  ],
+  sections: [
+    {
+      heading: 'Why PMS and AIF returns are hard to compare',
+      paragraphs: [
+        'Managers usually report time-weighted returns for the strategy, which ignore when you personally added or withdrew money. AIFs also call capital in stages and pay distributions back over years. Your own money-weighted return (XIRR) can be very different from the headline number.',
+        'Arthavi calculates XIRR the same way for PMS, AIF, <a href="/mutual-fund-portfolio-tracker/">mutual funds</a> and <a href="/stock-portfolio-tracker/">stocks</a>, so you can compare like with like. Read more in <a href="/blog/how-to-track-aif-sif-portfolio-india/">how to track AIF and SIF in India</a>.',
+      ],
+    },
+    {
+      heading: 'PMS vs AIF vs SIF at a glance',
+      list: [
+        '<strong>PMS:</strong> a SEBI-registered manager runs a portfolio held in your own demat account. SEBI\'s minimum investment is ₹50 lakh.',
+        '<strong>AIF:</strong> a pooled fund in one of three SEBI categories; the minimum investment for most investors is ₹1 crore.',
+        '<strong>SIF:</strong> Specialised Investment Funds launched by mutual funds with a ₹10 lakh minimum. They have daily NAVs and are tracked like <a href="/blog/sif-specialized-investment-funds-india-tracker/">mutual funds in Arthavi</a>.',
+      ],
+    },
+  ],
+  limits: [
+    'PMS and AIF statements cannot be imported yet. Values are entered by hand from your statement.',
+    'Arthavi does not see individual stocks inside a PMS account, so they are not part of stock overlap or sector views.',
+    'Capital gains are entered as yearly totals from your manager\'s report, not calculated trade by trade.',
+  ],
+  faqs: [
+    { question: 'Can Arthavi track PMS returns?', answer: 'Yes. You record the dated investments and withdrawals and the latest statement value, and Arthavi calculates gain and XIRR up to the statement date.' },
+    { question: 'Does Arthavi support Category III AIFs?', answer: 'Yes. Arthavi supports AIF Categories I, II and III. Capital calls are entered as investments and distributions as withdrawals.' },
+    { question: 'Why is my Arthavi XIRR different from the PMS factsheet return?', answer: 'Factsheets usually show a time-weighted return for the whole strategy. Arthavi shows your money-weighted return (XIRR), which depends on when you invested and withdrew.' },
+    { question: 'Are PMS capital gains included in my tax report?', answer: 'Yes. Enter STCG and LTCG for each financial year from your manager\'s tax statement, and the Tax page counts them with your other equity gains.' },
+    { question: 'Can I import my PMS statement PDF?', answer: 'Not yet. For now you enter the figures from the statement, which usually takes a minute per quarter.' },
+  ],
+  related: [
+    { href: '/blog/how-to-track-aif-sif-portfolio-india/', label: 'How to track AIF and SIF' },
+    { href: '/blog/sif-specialized-investment-funds-india-tracker/', label: 'SIF guide' },
+    { href: '/capital-gains-tax-report/', label: 'Capital gains tax report' },
+    { href: '/portfolio-xirr-tracker/', label: 'Portfolio XIRR tracker' },
+    { href: '/multi-asset-portfolio-tracker/', label: 'Multi-asset portfolio tracker' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

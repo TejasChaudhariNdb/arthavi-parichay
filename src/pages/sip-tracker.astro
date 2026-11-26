@@ -1,0 +1,66 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/sip-tracker/',
+  dateModified: '2026-11-27',
+  title: 'SIP Tracker India: All Family SIPs, Next Dates, Reminders & XIRR | Arthavi',
+  description: 'See every running SIP in your family in one list. Arthavi detects SIPs from your CAS, shows the next SIP date and total monthly commitment, sends reminders before each instalment, and tracks real SIP returns with XIRR.',
+  keywords: 'sip tracker, sip tracker app india, track all sips in one place, sip reminder app, family sip tracker, mutual fund sip tracker, sip xirr, upcoming sip dates',
+  eyebrow: 'SIP Tracker',
+  h1: 'All your family\'s SIPs, dates and returns in one list',
+  intro: 'SIPs run quietly across AMCs, folios and family members. Arthavi finds them in your CAS, shows what is due next and how much goes out each month, and reminds you before each instalment.',
+  answer: 'Arthavi\'s SIP tracker lists every Systematic Investment Plan across a family\'s mutual fund folios. It detects SIPs automatically from the transactions in a CAMS or KFintech CAS, and you can also add or edit SIPs by hand. For each SIP it shows the scheme, folio, amount, SIP day, status (active or stopped) and family member, and the summary shows the total monthly commitment, total invested so far and the next upcoming SIP. Reminders can be sent a few days before each instalment by push, in-app or email notification. Returns are tracked with XIRR, the correct measure for SIPs.',
+  facts: [
+    { label: 'How SIPs get in', value: 'Detected from your CAS, or added by hand' },
+    { label: 'Per SIP', value: 'Scheme, folio, amount, SIP day, frequency, status, family member' },
+    { label: 'Summary', value: 'Active SIPs, monthly commitment, invested so far, next SIP date' },
+    { label: 'Reminders', value: '0 to 14 days before, by push, in-app or email' },
+    { label: 'Returns', value: 'XIRR per fund and for the portfolio' },
+    { label: 'Price', value: 'Free' },
+  ],
+  features: [
+    { title: 'Found from your CAS', text: 'Arthavi looks for regular instalments in your mutual fund transactions and lists them as SIPs. Re-run detection after each new CAS upload.' },
+    { title: 'Whole family in one view', text: 'Each SIP is tagged to a family member, so you can see one person\'s SIPs or every SIP in the household.' },
+    { title: 'Monthly commitment', text: 'See how much leaves your bank accounts each month for SIPs, and how much you have invested through them so far.' },
+    { title: 'Next SIP and reminders', text: 'The next upcoming SIP is shown on top. Turn on reminders to get a nudge a few days before the debit, so you keep enough balance.' },
+    { title: 'Pause or stop', text: 'Mark a SIP as stopped when you cancel it, so it leaves your monthly commitment without losing its history.' },
+    { title: 'Real SIP returns', text: 'Absolute return ignores when each instalment went in. Arthavi uses XIRR, so a three-year-old SIP and a new one are compared fairly.' },
+  ],
+  steps: [
+    { name: 'Upload your CAS', text: 'Upload the detailed CAS from CAMS or KFintech for each family member.' },
+    { name: 'Open SIPs', text: 'Arthavi lists the SIPs it detected. Add any it missed, or edit amount and SIP day.' },
+    { name: 'Turn on reminders', text: 'Choose how many days before each SIP you want a reminder, and how.' },
+    { name: 'Track returns', text: 'Check XIRR for each fund and the portfolio on the mutual fund page.' },
+  ],
+  sections: [
+    {
+      heading: 'SIP returns: why XIRR and not absolute return',
+      paragraphs: [
+        'With a SIP, each instalment is invested for a different length of time. Absolute return (gain divided by total invested) ignores this and understates the return of a long-running SIP. XIRR gives the annualised return taking every instalment date into account. Learn more in <a href="/blog/sip-returns-vs-xirr/">SIP returns vs XIRR</a>, or try the <a href="/tools/sip-return-calculator/">SIP return calculator</a>.',
+      ],
+    },
+  ],
+  limits: [
+    'Arthavi does not start, stop or change SIPs with your AMC or platform. It tracks them.',
+    'SIPs registered after your last CAS upload appear once you upload a newer CAS or add them by hand.',
+    'Stock SIPs are not detected; they show up as stock trades when you import your tradebook.',
+  ],
+  faqs: [
+    { question: 'How can I see all my SIPs in one place?', answer: 'Upload your CAMS or KFintech CAS to Arthavi. It detects SIPs across all AMCs and folios and lists them with amount, SIP day and status. Add family members\' CAS files to see the whole household.' },
+    { question: 'Does Arthavi remind me before a SIP date?', answer: 'Yes. You can turn on reminders from 0 to 14 days before each SIP by push, in-app or email notification.' },
+    { question: 'How are SIP returns calculated?', answer: 'With XIRR, which takes the date and amount of every instalment into account and gives an annualised return.' },
+    { question: 'Can I add a SIP that was not detected?', answer: 'Yes. Add it by hand with the scheme, amount, SIP day and frequency.' },
+    { question: 'Can Arthavi cancel my SIP?', answer: 'No. Arthavi only tracks SIPs. Cancel or change a SIP with your AMC, distributor or investment platform, then mark it stopped in Arthavi.' },
+  ],
+  related: [
+    { href: '/tools/sip-return-calculator/', label: 'SIP return calculator' },
+    { href: '/blog/sip-returns-vs-xirr/', label: 'SIP returns vs XIRR' },
+    { href: '/mutual-fund-portfolio-tracker/', label: 'Mutual fund tracker' },
+    { href: '/investment-goal-tracker/', label: 'Goal tracker' },
+    { href: '/track-mutual-funds-using-cas/', label: 'Track mutual funds using CAS' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

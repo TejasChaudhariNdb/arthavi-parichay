@@ -1,0 +1,174 @@
+---
+// One template for the product feature pages (/nps-tracker/, /ulip-tracker/, ...): each page passes content only.
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { buildPageGraph } from '../utils/schemaGenerator';
+
+interface Props {
+  path: string; // e.g. "/nps-tracker/"
+  title: string;
+  description: string;
+  keywords?: string;
+  dateModified: string;
+  eyebrow: string;
+  h1: string;
+  intro: string;
+  answer: string; // short, quotable definition for search and AI answers
+  facts: Array<{ label: string; value: string }>;
+  features: Array<{ title: string; text: string }>;
+  steps: Array<{ name: string; text: string }>;
+  sections?: Array<{ heading: string; paragraphs?: string[]; list?: string[] }>;
+  limits?: string[];
+  faqs: Array<{ question: string; answer: string }>;
+  related: Array<{ href: string; label: string }>;
+  ctaLabel?: string;
+}
+
+const p = Astro.props;
+const canonical = `https://arthavi.com${p.path}`;
+const crumbs = [
+  { name: 'Home', url: 'https://arthavi.com/' },
+  { name: 'Features', url: 'https://arthavi.com/features/' },
+  { name: p.eyebrow, url: canonical },
+];
+const schema = buildPageGraph({
+  canonical,
+  title: p.title,
+  description: p.description,
+  breadcrumbs: crumbs,
+  faqs: p.faqs,
+  howTo: { name: `How to use ${p.eyebrow} in Arthavi`, description: p.intro, steps: p.steps },
+});
+const updated = new Date(p.dateModified).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Layout title={p.title} description={p.description} keywords={p.keywords} schema={schema} canonical={canonical} breadcrumb={{ items: crumbs }}>
+<main class="fp">
+  <div class="container">
+    <Breadcrumbs items={crumbs} />
+
+    <div class="fp-hero">
+      <span class="fp-eyebrow">{p.eyebrow}</span>
+      <h1 class="heading-xl">{p.h1}</h1>
+      <p class="fp-intro">{p.intro}</p>
+      <div class="fp-ctas">
+        <a href="https://app.arthavi.com/register" class="btn btn-primary">{p.ctaLabel ?? 'Start tracking free'}</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo">Try the demo, no signup</a>
+      </div>
+      <p class="fp-updated">Last updated <time datetime={p.dateModified}>{updated}</time></p>
+    </div>
+
+    <section class="fp-answer glass-panel" aria-labelledby="fp-short">
+      <h2 id="fp-short">In short</h2>
+      <p>{p.answer}</p>
+    </section>
+
+    <section class="fp-block" aria-labelledby="fp-facts">
+      <h2 id="fp-facts">At a glance</h2>
+      <dl class="fp-facts">
+        {p.facts.map((f) => (<div><dt>{f.label}</dt><dd>{f.value}</dd></div>))}
+      </dl>
+    </section>
+
+    <section class="fp-block" aria-labelledby="fp-what">
+      <h2 id="fp-what">What you can track</h2>
+      <div class="fp-grid">
+        {p.features.map((f) => (
+          <article class="glass-panel fp-card"><h3>{f.title}</h3><p set:html={f.text} /></article>
+        ))}
+      </div>
+    </section>
+
+    <section class="fp-block" aria-labelledby="fp-how">
+      <h2 id="fp-how">How it works</h2>
+      <ol class="fp-steps">
+        {p.steps.map((s) => (<li><strong>{s.name}</strong><span>{s.text}</span></li>))}
+      </ol>
+    </section>
+
+    {p.sections?.map((s) => (
+      <section class="fp-block fp-prose">
+        <h2>{s.heading}</h2>
+        {s.paragraphs?.map((t) => <p set:html={t} />)}
+        {s.list && <ul>{s.list.map((li) => <li set:html={li} />)}</ul>}
+      </section>
+    ))}
+
+    {p.limits && p.limits.length > 0 && (
+      <section class="fp-block fp-prose" aria-labelledby="fp-limits">
+        <h2 id="fp-limits">What it does not do (yet)</h2>
+        <ul>{p.limits.map((l) => <li>{l}</li>)}</ul>
+      </section>
+    )}
+
+    <section class="fp-block" aria-labelledby="fp-faq">
+      <h2 id="fp-faq">Frequently asked questions</h2>
+      <div class="fp-faqs">
+        {p.faqs.map((f) => (
+          <details class="glass-panel"><summary>{f.question}</summary><p>{f.answer}</p></details>
+        ))}
+      </div>
+    </section>
+
+    <section class="fp-cta glass-panel">
+      <h2>See your whole family's wealth in one place</h2>
+      <p>Free to use. No broker login, no email access, no ads.</p>
+      <div class="fp-ctas">
+        <a href="https://app.arthavi.com/register" class="btn btn-primary">Create a free account</a>
+        <a href="https://app.arthavi.com/demo" class="btn btn-demo">Explore the demo</a>
+      </div>
+    </section>
+
+    <nav class="fp-related" aria-label="Related features">
+      <h2>Related features and guides</h2>
+      <ul>{p.related.map((r) => <li><a href={r.href}>{r.label}</a></li>)}</ul>
+    </nav>
+  </div>
+</main>
+</Layout>
+
+<style>
+  .fp { padding: 6.5rem 0 4rem; }
+  .fp-hero { text-align: center; max-width: 820px; margin: 1.5rem auto 2.5rem; }
+  .fp-eyebrow { display: inline-block; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.95rem; border-radius: 100px; margin-bottom: 1rem; }
+  .fp-intro { color: var(--text-body); font-size: 1.12rem; line-height: 1.65; margin: 1rem auto 0; }
+  .fp-ctas { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 1.75rem; }
+  .fp-updated { color: var(--text-body); font-size: 0.82rem; margin-top: 1rem; }
+  .fp-answer { max-width: 860px; margin: 0 auto 3rem; padding: 1.6rem 1.8rem; border-radius: 16px; border-color: rgba(99,102,241,0.3); }
+  .fp-answer h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; color: #a5b4fc; margin: 0 0 0.5rem; }
+  .fp-answer p { margin: 0; color: var(--text-head); font-size: 1.05rem; line-height: 1.7; }
+  .fp-block { max-width: 960px; margin: 0 auto 3.25rem; }
+  .fp-block > h2, .fp-related h2 { font-size: 1.6rem; margin-bottom: 1.25rem; }
+  .fp-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; margin: 0; }
+  .fp-facts div { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 0.9rem 1.1rem; }
+  .fp-facts dt { color: #a5b4fc; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .fp-facts dd { margin: 0.3rem 0 0; color: var(--text-head); line-height: 1.5; }
+  .fp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem; }
+  .fp-card { padding: 1.5rem; border-radius: 14px; }
+  .fp-card h3 { font-size: 1.1rem; margin: 0 0 0.5rem; color: var(--text-head); }
+  .fp-card p { margin: 0; color: var(--text-body); line-height: 1.6; font-size: 0.95rem; }
+  .fp-card :global(a) { color: var(--primary-glow); }
+  .fp-steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+  .fp-steps li { counter-increment: s; display: grid; grid-template-columns: 2.2rem 1fr; column-gap: 0.9rem; align-items: start; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem 1.1rem; }
+  .fp-steps li::before { content: counter(s); grid-row: span 2; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .fp-steps strong { color: var(--text-head); }
+  .fp-steps span { color: var(--text-body); line-height: 1.6; }
+  .fp-prose p, .fp-prose li { color: var(--text-body); line-height: 1.75; }
+  .fp-prose ul { padding-left: 1.25rem; }
+  .fp-prose :global(strong) { color: var(--text-head); }
+  .fp-prose :global(a), .fp-related a { color: var(--primary-glow); }
+  .fp-faqs { display: grid; gap: 0.75rem; }
+  .fp-faqs details { border-radius: 12px; padding: 1rem 1.25rem; }
+  .fp-faqs summary { cursor: pointer; font-weight: 600; color: var(--text-head); line-height: 1.5; }
+  .fp-faqs summary:focus-visible { outline: 2px solid var(--primary-glow); outline-offset: 4px; border-radius: 4px; }
+  .fp-faqs details p { color: var(--text-body); line-height: 1.7; margin: 0.75rem 0 0; }
+  .fp-cta { max-width: 860px; margin: 0 auto 3rem; padding: 2.25rem 1.5rem; border-radius: 18px; text-align: center; }
+  .fp-cta h2 { margin: 0 0 0.5rem; }
+  .fp-cta p { color: var(--text-body); margin: 0; }
+  .fp-related { max-width: 960px; margin: 0 auto; padding: 1.5rem; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+  .fp-related h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+  .fp-related ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0; margin: 0; }
+  @media (max-width: 640px) {
+    .fp { padding-top: 5.5rem; }
+    .fp-ctas .btn { width: 100%; justify-content: center; }
+  }
+</style>

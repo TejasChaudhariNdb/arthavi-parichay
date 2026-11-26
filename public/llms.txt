@@ -1,12 +1,28 @@
 # Arthavi (llms.txt)
 
-> Arthavi is a privacy-first portfolio tracker for Indian investors that imports CAS statements, with no broker login. For comprehensive documentation, feature benchmarks, competitor analyses, and security architecture, read [llms-full.txt](https://arthavi.com/llms-full.txt).
+> Arthavi is a free, privacy-first portfolio tracker for Indian families. It imports CAMS/KFintech CAS statements and broker tradebooks (CSV or Excel) without any broker login, and tracks mutual funds, stocks, SIF, PMS and AIF, NPS, FDs and bonds, gold, real estate, ULIPs and insurance for every family member, with true XIRR, capital gains reports and an AI assistant. For comprehensive documentation, feature benchmarks, competitor analyses, and security architecture, read [llms-full.txt](https://arthavi.com/llms-full.txt).
 
 ## Core Documentation & LLM Resources
 
 - [Full LLM Knowledge Base (llms-full.txt)](https://arthavi.com/llms-full.txt): Comprehensive documentation covering product architecture, competitive matrix, CAS parsing methodology, security specifications, and tool descriptions.
 - [Privacy Model](https://arthavi.com/privacy-model/): Detailed breakdown of data collection, encryption, and why Arthavi never reads emails or requires broker passwords.
 - [Methodology](https://arthavi.com/methodology/): Technical documentation on CAS parsing pipeline, XIRR calculation (Newton-Raphson), market data sources, and overlap detection algorithm.
+
+## Feature Pages (what each tracker does, how it calculates, limits)
+
+- [NPS Tracker](https://arthavi.com/nps-tracker/): Tier I and II, schemes E, C, G, A, contribution plan, XIRR to the NAV date.
+- [PMS & AIF Tracker](https://arthavi.com/pms-aif-tracker/): Capital calls, distributions, statement value, XIRR, yearly STCG/LTCG.
+- [ULIP Tracker](https://arthavi.com/ulip-tracker/): Fund units and NAV, premiums paid, paid-up and single-premium policies, XIRR.
+- [Insurance Tracker](https://arthavi.com/insurance-tracker/): Term, health, critical illness, motor and ULIP policies; cover totals and premium due dates.
+- [Gold Tracker](https://arthavi.com/gold-portfolio-tracker/): Jewellery, coins, SGB and digital gold valued at an estimated Indian market rate.
+- [Real Estate Tracker](https://arthavi.com/real-estate-tracker/): Property cost, home loan, appreciation, rental yield and XIRR.
+- [Rental Cash Flow Tracker](https://arthavi.com/rental-property-cash-flow-tracker/): Rent and expense ledger, sale simulator, Nifty 50 comparison.
+- [Interest Payout Schedule](https://arthavi.com/interest-payout-tracker/): FD, SCSS, MIS, PMVVY, bond and SGB payouts with TDS.
+- [Gifted Mutual Fund Units](https://arthavi.com/mutual-fund-gift-tracker/): Recipients keep the donor's original cost and purchase date.
+- [Stock Tradebook Import](https://arthavi.com/stock-tradebook-import/): CSV and Excel tradebooks from Zerodha, Groww, Upstox and others.
+- [Capital Gains Report](https://arthavi.com/capital-gains-tax-report/): FIFO per folio, July 2024 rates, grandfathering, Schedule 112A CSV.
+- [SIP Tracker](https://arthavi.com/sip-tracker/): All family SIPs, next dates, reminders and XIRR.
+- [Family Portfolio Tracker](https://arthavi.com/family-portfolio-tracker/): Separate profiles per member and a combined family view.
 
 ## Alternatives & Comparisons
 
@@ -42,7 +58,7 @@
 
 - [Homepage](https://arthavi.com/): India's privacy-first wealth dashboard. Calculate true XIRR, analyze mutual fund overlap, and get AI insights from read-only CAS statements.
 - [About Arthavi](https://arthavi.com/about/): Founding story by Tejas Chaudhari in 2026, privacy-first philosophy, and ad-free tracker model.
-- [Complete Feature List](https://arthavi.com/features/): Detailed list of all 42+ tracking capabilities, CAS import tools, manual entries, security layers, and investment planning tools.
+- [Complete Feature List](https://arthavi.com/features/): Detailed list of tracking capabilities, CAS import tools, manual entries, security layers, and investment planning tools.
 - [AI Portfolio Analyzer](https://arthavi.com/ai-portfolio-analyzer-market-research/): Platform information on the AI portfolio assistant and financial query engine.
 - [Ask AI Investment Assistant](https://arthavi.com/ask-ai-investment-assistant/): How the AI assistant offers portfolio-aware sector, overlap, and XIRR analytics without broker logins.
 - [Security](https://arthavi.com/security/): AES-256 encryption, TLS 1.3, zero email scraping, and data protection commitments.

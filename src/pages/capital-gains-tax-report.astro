@@ -1,0 +1,76 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/capital-gains-tax-report/',
+  dateModified: '2026-11-27',
+  title: 'Capital Gains Tax Report for Mutual Funds & Stocks India (STCG, LTCG, 112A) | Arthavi',
+  description: 'Get a capital gains report for your mutual funds and stocks by financial year: FIFO lots per folio, STCG and LTCG at the post-July-2024 rates, 31 Jan 2018 grandfathering, ₹1.25 lakh exemption, loss set-off, Schedule 112A columns and CSV download. Plus interest income.',
+  keywords: 'capital gains report mutual funds, capital gains statement india, stcg ltcg report, schedule 112a, mutual fund capital gains fy 2025-26, stock capital gains report, grandfathering 31 jan 2018, interest income report',
+  eyebrow: 'Capital Gains Report',
+  h1: 'Capital gains for the whole family, ready for your ITR',
+  intro: 'Arthavi matches every sale to the right purchase lots, applies the tax rules that were in force on the sale date, and shows short-term and long-term gains, estimated tax and the columns you need for Schedule 112A.',
+  answer: 'Arthavi produces a capital gains report for Indian mutual funds and listed stocks for any financial year. It matches sales to purchases first in, first out (FIFO) within each folio, classifies each gain as short term or long term using the rules in force on the sale date (including the 23 July 2024 rate change: 20% STCG and 12.5% LTCG on equity above ₹1.25 lakh), applies 31 January 2018 grandfathering, handles debt funds bought from 1 April 2023 as short term at slab rate, applies loss set-off, and estimates tax. You can download the report as CSV with Schedule 112A columns. PMS and AIF gains you enter, and interest income from deposits, also appear on the Tax page.',
+  facts: [
+    { label: 'Covers', value: 'Mutual funds and NSE/BSE stocks; PMS/AIF gains you enter' },
+    { label: 'Lot matching', value: 'FIFO within each folio' },
+    { label: 'Tax rules', value: 'By sale date, incl. the 23 July 2024 changes and s.50AA debt funds' },
+    { label: 'Grandfathering', value: '31 January 2018 value for equity bought on or before that date' },
+    { label: 'Output', value: 'STCG, LTCG, exemption, set-off, estimated tax; CSV with Schedule 112A columns' },
+    { label: 'Also on the Tax page', value: 'Interest income by financial year' },
+  ],
+  features: [
+    { title: 'Correct lots, per folio', text: 'Sales are matched to the oldest units in the same folio, so a family member\'s units are never matched against another member\'s purchases.' },
+    { title: 'Rules by sale date', text: 'Equity sold before 23 July 2024 uses 15% STCG and 10% LTCG above ₹1 lakh; from that date 20% and 12.5% above ₹1.25 lakh.' },
+    { title: 'Grandfathering', text: 'For equity bought on or before 31 January 2018, Arthavi uses that day\'s actual NAV or price to work out the grandfathered cost.' },
+    { title: 'Debt, gold and international funds', text: 'Debt funds bought from 1 April 2023 are short term at slab rate. Older debt and other non-equity funds follow the holding periods and indexation rules for their sale date.' },
+    { title: 'Set-off and estimated tax', text: 'Short-term losses reduce any gain and long-term losses reduce long-term gains. Enter your slab rate to estimate tax on slab-rate gains.' },
+    { title: 'Gifted units', text: 'Units received as a gift keep the donor\'s date and cost once linked to the donor\'s gift-out.' },
+  ],
+  steps: [
+    { name: 'Import your history', text: 'Upload CAS statements for mutual funds and tradebooks for stocks, for each family member.' },
+    { name: 'Open the Tax page', text: 'Choose the financial year and the family member, or the whole family.' },
+    { name: 'Review gains and tax', text: 'See STCG and LTCG by type, exemption used, set-off and estimated tax.' },
+    { name: 'Download', text: 'Download the CSV with Schedule 112A columns and share it with your CA or use it to fill your ITR.' },
+  ],
+  sections: [
+    {
+      heading: 'Indian capital gains rules Arthavi applies',
+      list: [
+        '<strong>Equity shares and equity mutual funds:</strong> long term after 12 months. From 23 July 2024, STCG 20% and LTCG 12.5% above ₹1.25 lakh a year (the ₹1.25 lakh applies to all of FY 2024-25).',
+        '<strong>Debt mutual funds bought on or after 1 April 2023:</strong> always short term, taxed at your slab rate (section 50AA).',
+        '<strong>Other non-equity funds</strong> (older debt, gold, international, fund of funds): long term after 24 months for sales from 23 July 2024 at 12.5% without indexation; earlier sales follow the older 36-month rule with indexation.',
+        '<strong>Set-off:</strong> a short-term loss can reduce any capital gain; a long-term loss only reduces long-term gains.',
+      ],
+      paragraphs: [],
+    },
+    {
+      heading: 'Why broker and AMC statements are not enough for a family',
+      paragraphs: [
+        'Each AMC and broker gives a separate capital gains statement for one person. A family with several folios, brokers and members has to add them up by hand, and gifted units often show the wrong cost. Arthavi puts all of them in one report per person and for the family. Try the free <a href="/tools/ltcg-stcg-calculator/">LTCG/STCG calculator</a> for a single sale.',
+      ],
+    },
+  ],
+  limits: [
+    'Arthavi is not a tax filing service. Check the report against your AIS and Form 26AS, and consult a CA for complex cases.',
+    'Real estate gains are estimated in the property sale simulator, not in this report.',
+    'PMS and AIF gains are yearly totals you enter from your manager\'s statement.',
+  ],
+  faqs: [
+    { question: 'How do I get a capital gains report for all my mutual funds?', answer: 'Upload your CAMS or KFintech detailed CAS to Arthavi, open the Tax page and choose the financial year. Arthavi combines all AMCs and folios and lets you download a CSV.' },
+    { question: 'Does Arthavi apply the new tax rates from 23 July 2024?', answer: 'Yes. Each sale is taxed by its sale date: 15%/10% before 23 July 2024 and 20%/12.5% from that date, with the ₹1.25 lakh LTCG exemption for FY 2024-25 onwards.' },
+    { question: 'Does the report handle grandfathering for units bought before 2018?', answer: 'Yes. For equity bought on or before 31 January 2018, Arthavi uses the actual NAV or price on that date to calculate the grandfathered cost.' },
+    { question: 'Can I use it to fill Schedule 112A?', answer: 'Yes. The CSV download includes the Schedule 112A columns, including the 31 January 2018 value.' },
+    { question: 'Does it show interest income too?', answer: 'Yes. The Tax page has an interest income section for FDs, SCSS, MIS, bonds and other deposits by financial year.' },
+  ],
+  related: [
+    { href: '/tools/ltcg-stcg-calculator/', label: 'LTCG/STCG calculator' },
+    { href: '/interest-payout-tracker/', label: 'Interest payout schedule' },
+    { href: '/mutual-fund-gift-tracker/', label: 'Gifted mutual fund units' },
+    { href: '/stock-tradebook-import/', label: 'Stock tradebook import' },
+    { href: '/income-tax-calculator/', label: 'Income tax calculator' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

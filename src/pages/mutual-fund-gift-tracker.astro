@@ -1,0 +1,73 @@
+---
+import FeaturePage from '../components/FeaturePage.astro';
+
+const page = {
+  path: '/mutual-fund-gift-tracker/',
+  dateModified: '2026-11-27',
+  title: 'Gifted Mutual Fund Units: Keep Original Cost & Date for Capital Gains | Arthavi',
+  description: 'Gifted mutual fund units to a spouse, child or parent? Arthavi links the gift-out and gift-in from your CAS so the recipient keeps the donor\'s original purchase date and cost, giving correct XIRR and capital gains for the whole family.',
+  keywords: 'mutual fund gift tracker, gift mutual fund units to family, transfer mutual fund units to spouse, gifted mutual fund capital gains, mutual fund gift cost of acquisition, cas gift transactions',
+  eyebrow: 'Mutual Fund Gifting',
+  h1: 'Gifted mutual fund units, with their history intact',
+  intro: 'When you transfer mutual fund units to a family member, the CAS shows a gift-out for you and a gift-in for them, but not the original cost. Arthavi connects the two so gains, holding period and XIRR stay right.',
+  answer: 'Arthavi supports mutual fund units gifted between family members in India. When a CAS shows a gift-out from one person and a gift-in to another, Arthavi links the two and the recipient inherits the donor\'s original purchase lots, with their dates and cost. This matters because, under Indian tax rules, the cost and holding period of a gifted asset are generally those of the previous owner. If the donor is not in Arthavi, the recipient can enter the original cost by hand. Gifts that still need a link are flagged with an "Action needed" badge on the mutual fund list.',
+  facts: [
+    { label: 'Where gifts come from', value: 'Gift-in and gift-out transactions in your CAS statement' },
+    { label: 'What is inherited', value: 'The donor\'s original purchase lots: date, units and cost' },
+    { label: 'Donor not on Arthavi', value: 'Enter the original cost for the gifted units yourself' },
+    { label: 'Unlinked gifts', value: 'Shown with an "Action needed" badge to review' },
+    { label: 'Used in', value: 'Holdings, XIRR, family views and the capital gains report' },
+    { label: 'Price', value: 'Free' },
+  ],
+  features: [
+    { title: 'Automatic linking', text: 'If both the donor and the recipient are family profiles in your Arthavi account, uploading their CAS files links the gift automatically.' },
+    { title: 'Original lots carried over', text: 'The recipient gets the donor\'s purchase lots (first in, first out), so a later sale shows the correct holding period and gain.' },
+    { title: 'Pick the matching gift', text: 'If Arthavi cannot match a gift on its own, it shows the donor transactions with the same scheme, date and units so you can choose the right one.' },
+    { title: 'Manual cost entry', text: 'When the donor is outside Arthavi, enter the original cost of the gifted units so returns are not shown as 100% profit.' },
+    { title: 'Per-folio capital gains', text: 'Gains are worked out folio by folio, so units in one family member\'s folio are never matched against another member\'s purchases.' },
+    { title: 'Family view stays correct', text: 'A gift moves units between people inside the family. The combined family net worth does not change.' },
+  ],
+  steps: [
+    { name: 'Create profiles for both people', text: 'Add the donor and the recipient as family profiles in your account.' },
+    { name: 'Upload both CAS statements', text: 'Upload each person\'s CAMS or KFintech detailed CAS. Gift transactions are read automatically.' },
+    { name: 'Check the badge', text: 'Any gift that could not be linked shows "Action needed" on the mutual fund list.' },
+    { name: 'Link or enter cost', text: 'Choose the matching donor transaction, or enter the original cost if the donor is not in Arthavi.' },
+  ],
+  sections: [
+    {
+      heading: 'Why gifted units look wrong in most trackers',
+      paragraphs: [
+        'A CAS records a gift-in with today\'s value but not what the donor originally paid. Most trackers treat that as a fresh purchase at the gift date. The recipient\'s holding period restarts, the gain is understated, and the capital gains report is wrong when the units are sold.',
+        'Arthavi keeps the donor\'s lots with the units, so the <a href="/capital-gains-tax-report/">capital gains report</a> uses the original date and cost. Read more about <a href="/family-portfolio-tracker/">tracking a family portfolio</a> and the <a href="/guides/cas-statement-explained/">CAS statement</a>.',
+      ],
+    },
+    {
+      heading: 'A note on tax',
+      paragraphs: [
+        'Gifts between specified relatives such as a spouse, children and parents are generally not taxed as income in India, and the recipient\'s cost and holding period follow the previous owner. Clubbing rules can apply to income from assets gifted to a spouse or minor child. Arthavi tracks the numbers; check your specific case with a chartered accountant.',
+      ],
+    },
+  ],
+  limits: [
+    'Arthavi does not transfer units for you. Gifts are done through your AMC, RTA or depository.',
+    'Gifting units between profiles inside the app (without a CAS) is not supported.',
+    'Arthavi does not apply clubbing of income in tax reports.',
+  ],
+  faqs: [
+    { question: 'Does a gifted mutual fund keep the original purchase date?', answer: 'In Arthavi, yes. When the gift is linked, the recipient inherits the donor\'s purchase lots with their original dates and cost, which is how Indian tax rules generally treat gifted assets.' },
+    { question: 'What if the person who gifted the units is not on Arthavi?', answer: 'Enter the original cost of the gifted units yourself. Arthavi then uses it for gains and XIRR.' },
+    { question: 'What does the "Action needed" badge mean?', answer: 'It marks a gifted holding that Arthavi could not link to the donor\'s transaction. Open it to pick the matching transaction or enter the cost.' },
+    { question: 'Does gifting change our family net worth?', answer: 'No. The units move from one profile to another, so the combined family total stays the same.' },
+    { question: 'Which CAS should I upload?', answer: 'A detailed CAS from CAMS or KFintech for each family member. It contains the gift-in and gift-out transactions Arthavi needs.' },
+  ],
+  related: [
+    { href: '/family-portfolio-tracker/', label: 'Family portfolio tracker' },
+    { href: '/capital-gains-tax-report/', label: 'Capital gains tax report' },
+    { href: '/guides/how-to-import-cas-cams-kfintech-nsdl/', label: 'How to import CAS' },
+    { href: '/mutual-fund-portfolio-tracker/', label: 'Mutual fund tracker' },
+    { href: '/couples-investment-tracker/', label: 'Couples investment tracker' },
+    { href: '/features/', label: 'All features' },
+  ],
+};
+---
+<FeaturePage {...page} />

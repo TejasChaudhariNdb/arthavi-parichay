@@ -160,6 +160,7 @@
 
         .btn-demo {
             background: linear-gradient(135deg, #5457e5 0%, #7c3aed 100%);
+            color: #fff;
             box-shadow: 0 12px 30px rgba(99, 102, 241, 0.34);
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
